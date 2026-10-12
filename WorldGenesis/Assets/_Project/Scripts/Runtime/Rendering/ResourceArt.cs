@@ -100,7 +100,10 @@ namespace WorldGenesis.Runtime
                 case BuildingType.Hall: return "Общинный костёр"; case BuildingType.House: return "Жилище";
                 case BuildingType.Farm: return "Поле"; case BuildingType.Tower: return "Дозорная башня";
                 case BuildingType.Sawmill: return "Лесопилка"; case BuildingType.Stoneworks: return "Каменная мастерская";
-                case BuildingType.Kiln: return "Кирпичная печь"; default: return type.ToString();
+                case BuildingType.Kiln: return "Кирпичная печь"; case BuildingType.Well: return "Колодец";
+                case BuildingType.Warehouse: return "Общий склад"; case BuildingType.Shop: return "Торговая лавка";
+                case BuildingType.WoodWall: return "Деревянный частокол"; case BuildingType.Gate: return "Ворота";
+                case BuildingType.School: return "Школа"; case BuildingType.Pasture: return "Пастбище"; case BuildingType.Brewery: return "Пивоварня"; default: return type.ToString();
             }
         }
         public static string RecipeName(RecipeType recipe)

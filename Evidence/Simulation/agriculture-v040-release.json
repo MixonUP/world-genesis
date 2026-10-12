@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-12T12:06:56.5184777Z",
+  "tests": 13,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "CartRequiresResearchRecipeTimeAndCarpenter",
+      "passed": true,
+      "milliseconds": 21.7126
+    },
+    {
+      "name": "CancelledCraftAndChildrenCannotCreateEquipment",
+      "passed": true,
+      "milliseconds": 0.4551
+    },
+    {
+      "name": "BasketGradesAndAnimalsUseDistinctCapacity",
+      "passed": true,
+      "milliseconds": 0.4508
+    },
+    {
+      "name": "MountDeathDropsOverflowWithoutDuplicatingCargo",
+      "passed": true,
+      "milliseconds": 1.7819
+    },
+    {
+      "name": "RareTamingRequiresRealBaitAndOnSiteContact",
+      "passed": true,
+      "milliseconds": 0.3537
+    },
+    {
+      "name": "HarvestIsFiniteAndMustBeDelivered",
+      "passed": true,
+      "milliseconds": 0.8366
+    },
+    {
+      "name": "BrewingConsumesGrainFuelAndFiniteWater",
+      "passed": true,
+      "milliseconds": 0.4289
+    },
+    {
+      "name": "PastureBreedingRequiresPairFeedAndBirthLaw",
+      "passed": true,
+      "milliseconds": 0.8891
+    },
+    {
+      "name": "AgricultureSaveContinuesIdenticallyAndRejectsBrokenMount",
+      "passed": true,
+      "milliseconds": 189.4628
+    },
+    {
+      "name": "AlcoholIsFiniteAdultLeisureWithWorkPenalty",
+      "passed": true,
+      "milliseconds": 1.1841
+    },
+    {
+      "name": "DestroyedPastureReleasesAnimalsAndPreservesTransportLoad",
+      "passed": true,
+      "milliseconds": 0.9081
+    },
+    {
+      "name": "CarpenterFetchesPlanksThroughRealRouteBeforeCrafting",
+      "passed": true,
+      "milliseconds": 65.5442
+    },
+    {
+      "name": "PastureCannotConsumeRemoteHay",
+      "passed": true,
+      "milliseconds": 0.6049
+    }
+  ]
+}

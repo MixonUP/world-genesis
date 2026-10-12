@@ -113,7 +113,7 @@ namespace WorldGenesis.Runtime
             atlas.SetPixels32(packed); atlas.Apply(false, true);
             for (int i = 0; i < sources.Length; i++) Resources.UnloadAsset(sources[i]);
             material = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas, name = "Citizen animation atlas" };
-            batch = new QuadBatch("Animated human citizens", parent, material, 4);
+            batch = new QuadBatch("Animated human citizens", parent, material, 50);
         }
 
         private static int FrameIndex(int color, bool warrior, int row, int frame)
@@ -141,10 +141,10 @@ namespace WorldGenesis.Runtime
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
         }
 
-        public void Add(WorldState world, UnitData unit, int colorIndex, Color tint)
+        public void Add(WorldState world, UnitData unit, int colorIndex, Color tint, Vector2 presentationOffset = default(Vector2), bool mounted = false)
         {
             if (!facing.TryGetValue(unit.Id, out Vector2 direction)) direction = Vector2.right;
-            if (unit.Task == UnitTask.Fight && unit.TargetId != 0 && unitLookup.TryGetValue(unit.TargetId, out UnitData target))
+            if ((unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && unit.TargetId != 0 && unitLookup.TryGetValue(unit.TargetId, out UnitData target))
             {
                 Vector2 delta = new Vector2(target.X - unit.X, target.Y - unit.Y);
                 if (delta.sqrMagnitude > .0001f) direction = delta;
@@ -157,6 +157,7 @@ namespace WorldGenesis.Runtime
             }
             facing[unit.Id] = direction;
             Pose pose = ResolvePose(world, unit, direction);
+            if (mounted) { pose.Row = 0; pose.Frame = (int)((world.Tick / 4 + unit.Id) % FramesPerRow); pose.StrikeOffset = Vector2.zero; }
             RectInt crop = crops[pose.Warrior ? 1 : 0];
             // Match the established settlement palette: gold, teal, blue, red, purple.
             int faction = (int)((uint)colorIndex % 5);
@@ -166,7 +167,9 @@ namespace WorldGenesis.Runtime
             // Reflection must mirror the crop around the original sheet pivot, not its own centre.
             float offsetX = pose.FlipX ? FramePixels - crop.xMax - 96 : crop.x - 96;
             float offsetY = crop.y - (pose.Warrior ? 56 : 64);
-            batch.Add(unit.X + offsetX * scale + pose.StrikeOffset.x, unit.Y + offsetY * scale + pose.StrikeOffset.y, crop.width * scale, crop.height * scale, uv, tint, pose.FlipX);
+            int lowerClip = mounted ? Mathf.Clamp(80 - crop.y, 0, crop.height - 1) : 0;
+            if (lowerClip > 0) { float trim = uv.height * lowerClip / crop.height; uv.y += trim; uv.height -= trim; offsetY += lowerClip; }
+            batch.Add(unit.X + presentationOffset.x + offsetX * scale + pose.StrikeOffset.x, unit.Y + presentationOffset.y + offsetY * scale + pose.StrikeOffset.y, crop.width * scale, (crop.height - lowerClip) * scale, uv, tint, pose.FlipX);
         }
 
         // Pure state-to-frame mapping, exposed so checks can verify pause, travel, work and hits.
@@ -177,7 +180,7 @@ namespace WorldGenesis.Runtime
             // legacy assignments are demobilized until real recruitment/gear exists.
             bool warrior = unit.Profession == UnitProfession.Guard && unit.Age >= 16;
             bool moving = unit.Path != null && unit.PathCursor < unit.Path.Count;
-            bool carrying = unit.CarriedFood + unit.CarriedWood + unit.CargoAmount > .1f;
+            bool carrying = SimulationEngine.CarriedLoad(unit) > .1f;
             long elapsedTicks = Math.Max(0, world.Tick - unit.TaskStartedTick);
             int phase = (int)((elapsedTicks + unit.Id * 7L) % FramesPerRow);
             Pose pose = new Pose { Warrior = warrior, Appearance = AppearanceFor(unit), FlipX = direction.x < -.001f, Frame = phase, Row = moving ? 1 : 0 };
@@ -201,7 +204,7 @@ namespace WorldGenesis.Runtime
                 }
                 return pose;
             }
-            if (unit.Task == UnitTask.Fight)
+            if (unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt)
             {
                 // Civilian militia keeps the unarmoured pawn. The simulation applies damage
                 // before setting this cooldown: show one short body lunge, never a free weapon.
@@ -209,10 +212,17 @@ namespace WorldGenesis.Runtime
                     pose.StrikeOffset = (direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right) * (.18f * Mathf.Clamp01((unit.AttackTimer - .5f) / .3f));
                 return pose;
             }
+            if (!moving && (unit.Task == UnitTask.Drink || unit.Task == UnitTask.Fish)) { pose.Row = 0; return pose; }
+            if (!moving && (unit.Task == UnitTask.Brew || unit.Task == UnitTask.Tend))
+            {
+                pose.Row = 0; if (unit.WorkTimer > 0) pose.StrikeOffset = new Vector2(Mathf.Sin(unit.WorkTimer * 5) * .025f, 0); return pose;
+            }
             ResourceNodeData node = unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length ? world.GetResourceAt(unit.ResourceCell % world.Width, unit.ResourceCell / world.Width) : default(ResourceNodeData);
             if (!moving && unit.Task == UnitTask.Gather && node.Amount > 0 && world.Cells[unit.ResourceCell].Fire <= .1f)
                 pose.Row = node.Type == ResourceType.Tree ? 3 : 2;
             else if (!moving && unit.Task == UnitTask.Process && unit.WorkTimer > 0)
+                pose.Row = 2;
+            else if (!moving && unit.Task == UnitTask.CraftEquipment && unit.EquipmentProgress > 0)
                 pose.Row = 2;
             else if (!moving && unit.Task == UnitTask.Farm)
                 pose.Row = 2; // Authored hammer/build loop reused as a work gesture; not a farming clip.

@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-12T11:51:23.6130489Z",
+  "scope": "Social/wildlife core integration v0.4; no Unity or native claim",
+  "coreChecks": 68,
+  "socialChecks": 13,
+  "wildlifeChecks": 8,
+  "newNUnitCases": 21,
+  "nativeStatus": "root integration pending",
+  "sources": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "BCF50E00C6B95700F22F6AED9C8C484BE333DB44C39E16250B0E9682387A752E",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "5084915E518E23C3A481B21723B7F6781A4011BBF55F5FF9977ED02E14D41B5D",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "8F0007B7D893371619616C9E7B90F6DBAFB10B7F6DB694C67DBF114ABD5B92C4",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs",
+      "sha256": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs",
+      "sha256": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs",
+      "sha256": "ADDBD51F7FD1DD10B92FA122AE1B438077F8974ACB4EFA325FA8C6082EB0C5E8",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs",
+      "sha256": "3D0CF69D7BCE21D371452F6B829318D33815DAB87800071544ACB63001548064",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs",
+      "sha256": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs",
+      "sha256": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "sha256": "AD68ED9CB8F8F20A3467DFCA5429A1C8EC4FCC9A8FA299DF0788EA68A0F37B0D",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "28CE749078A0269D503775014A11E1A94390635F82CDBD485F7E66EF942079E3",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "71E32DB6F0DB3FB457529AFE2C9F9F0E51E7A836C86FDA46D3A2306F8AFFDA91",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SocialSimulationTests.cs",
+      "sha256": "7733D7D49A51DA9E00C007F4F49859F594A9E144A113355BF20C0518D429806A",
+      "metaExists": true
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/WildlifeSimulationTests.cs",
+      "sha256": "97687889275147910811AA2CF2F6581D7B873F150851860CC1E194A8DB0DFB4C",
+      "metaExists": true
+    }
+  ]
+}

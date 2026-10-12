@@ -1,0 +1,3 @@
+variant_id,name_ru,species_id,spawn_chance,max_per_region,health_multiplier,damage_multiplier,extra_death_output,respawn_min_seconds,status,tame_technology_ids,tame_inputs,runtime_variant
+ancient_stag,Древний рогач,deer,0.005,1,3,2,rare_horn=1,1800,prepared,f07_husbandry;k08_apprenticeship,berries=10,SpiritStag
+scarred_bear,Шрамованный медведь,bear,0.003,1,4,2,rare_pelt=1,2400,prepared,,,BossBear

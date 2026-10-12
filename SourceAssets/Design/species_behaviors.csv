@@ -1,0 +1,17 @@
+species_id,behavior,spawn_habitat,food_good_refs,threat_policy,chase_limit_seconds,separation_weight,alignment_weight,cohesion_weight,max_neighbors,tameable,tame_food_inputs,tame_work_seconds,handler_role_id,status
+deer,herd,forest_edge_grass,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+boar,territorial_omnivore,forest,,warn_then_defend,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+rabbit,herd,grass_forest_edge,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+fox,solitary_predator,forest_edge,raw_meat,hunt_hungry,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+wolf,pack_predator,forest,raw_meat,hunt_hungry,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+bear,territorial_omnivore,deep_forest,raw_meat,warn_then_defend,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+sheep,herd,grass,hay,flee,12,1.5,0.8,0.6,12,true,hay=3,30,farmer,prepared
+starling,flock,tree_grass,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+duck,flock,freshwater_shore,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+raven,flock,forest_town_edge,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+river_fish,school,freshwater,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+sea_fish,school,saltwater,,flee,12,1.5,0.8,0.6,12,false,,0,hunter,prepared
+horse,herd,grass_forest_edge,hay,flee,12,1.5,0.8,0.6,12,true,hay=3,30,farmer,prepared
+donkey,herd,grass_dry_edge,hay,flee,12,1.5,0.8,0.6,12,true,hay=3,30,farmer,prepared
+cow,herd,grass,hay,flee,12,1.5,0.8,0.6,12,true,hay=3,30,farmer,prepared
+chicken,flock,grass_town_edge,grain,flee,12,1.5,0.8,0.6,12,true,grain=2,30,farmer,prepared

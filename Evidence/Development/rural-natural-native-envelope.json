@@ -1,0 +1,7 @@
+{
+  "source": "Evidence/Simulation/rural-release-seed1618033.world.json",
+  "target": "Builds/rural-natural-native.json",
+  "sourceSHA256": "141f74fff1184e57e984954a013d6dc080f08edec7162c5ca48a0b82458a006b",
+  "targetSHA256": "f0f65a55656546cb971307aa4a76cb9848a1782a66cfa3f2cc7022242a761dd7",
+  "operation": "Envelope only; native SaveStore.Validate is still required."
+}

@@ -1,0 +1,88 @@
+{
+  "utc": "2026-10-12T12:07:40.3645025Z",
+  "tests": 16,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "PhysicalCohortTradesAndReturnsConservingGoods",
+      "passed": true,
+      "milliseconds": 140.0643
+    },
+    {
+      "name": "PaidMealsAndNaturalTaxCommitOnce",
+      "passed": true,
+      "milliseconds": 107.2955
+    },
+    {
+      "name": "NoBudgetMeansNoPaidHelpers",
+      "passed": true,
+      "milliseconds": 1.7097
+    },
+    {
+      "name": "DistantPaidHelpersCannotEatRemoteFoodButFreeHelpersMayJoin",
+      "passed": true,
+      "milliseconds": 3.907
+    },
+    {
+      "name": "TechnologyAndAdultGates",
+      "passed": true,
+      "milliseconds": 3.0956
+    },
+    {
+      "name": "CancellationReturnsOriginalCargo",
+      "passed": true,
+      "milliseconds": 16.6437
+    },
+    {
+      "name": "LeaderDeathDropsCargoAndSurvivorsContinue",
+      "passed": true,
+      "milliseconds": 109.7284
+    },
+    {
+      "name": "WarCancelsTradePreservingCargo",
+      "passed": true,
+      "milliseconds": 17.8871
+    },
+    {
+      "name": "SaveLoadContinuesCaravanIdentically",
+      "passed": true,
+      "milliseconds": 333.8696
+    },
+    {
+      "name": "ImportedBatchCannotBeSoldTwice",
+      "passed": true,
+      "milliseconds": 64.0293
+    },
+    {
+      "name": "CorruptQuotaMembershipAndPhaseRejected",
+      "passed": true,
+      "milliseconds": 4.8671
+    },
+    {
+      "name": "ExchangeRequiresPhysicalArrival",
+      "passed": true,
+      "milliseconds": 2.9509
+    },
+    {
+      "name": "OwnedBasketCarriesLargerSingleBatch",
+      "passed": true,
+      "milliseconds": 116.4012
+    },
+    {
+      "name": "ChangedReserveRefusesQuotedTrade",
+      "passed": true,
+      "milliseconds": 123.6718
+    },
+    {
+      "name": "BlockedReturnLeavesPhysicalPile",
+      "passed": true,
+      "milliseconds": 230.2693
+    },
+    {
+      "name": "LegacyMigrationPreservesRandomAndIds",
+      "passed": true,
+      "milliseconds": 1.7533
+    }
+  ]
+}

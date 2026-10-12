@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-10-12T14:56:07.5582738+03:00",
+  "scope": "All Runtime and PlayMode C# syntax; Roslyn parser only, no Unity execution or semantic compilation",
+  "files": 19,
+  "errors": 0,
+  "diagnostics": []
+}

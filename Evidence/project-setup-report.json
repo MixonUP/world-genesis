@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T13:34:43.7537745+03:00",
+  "timestamp": "2026-10-12T15:23:09.8005295+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 326,
+  "checkCount": 366,
   "failures": [],
   "checks": [
     {
@@ -167,21 +167,6 @@
       "detail": "UnityEngine.UI"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
-    },
-    {
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -200,6 +185,21 @@
       "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -297,19 +297,24 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
     },
     {
+      "id": "link:README.md:Tools/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+    },
+    {
       "id": "link:README.md:Docs/Development/PLAY_GUIDE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
     },
     {
-      "id": "link:README.md:Docs/Development/RESOURCES_REPORT.md",
+      "id": "link:README.md:Docs/Development/SOCIETY_REPORT.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\RESOURCES_REPORT.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
     },
     {
-      "id": "link:README.md:Evidence/Captures/20261012-133008-resources-log-delivery-release.mp4",
+      "id": "link:README.md:Evidence/Captures/20261012-151758-rural-caravan.mp4",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261012-133008-resources-log-delivery-release.mp4"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261012-151758-rural-caravan.mp4"
     },
     {
       "id": "link:README.md:Docs/ACCEPTANCE.md",
@@ -317,19 +322,9 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
     },
     {
-      "id": "link:README.md:Docs/Design/RULER_DECISIONS.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RULER_DECISIONS.md"
-    },
-    {
       "id": "link:README.md:Docs/Design/ECONOMY_AND_PROFESSIONS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
-    },
-    {
-      "id": "link:README.md:Docs/Design/RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md"
     },
     {
       "id": "link:README.md:Docs/Design/TECHNOLOGY_TREE.md",
@@ -337,9 +332,9 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TECHNOLOGY_TREE.md"
     },
     {
-      "id": "link:README.md:Docs/Design/NPC_INTELLIGENCE.md",
+      "id": "link:README.md:Docs/Design/CARAVAN_RUNTIME.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\NPC_INTELLIGENCE.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CARAVAN_RUNTIME.md"
     },
     {
       "id": "link:README.md:Docs/00_INDEX.md",
@@ -350,11 +345,6 @@
       "id": "link:README.md:Docs/STATE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
-    },
-    {
-      "id": "link:README.md:Docs/FEATURE_MAP.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\FEATURE_MAP.md"
     },
     {
       "id": "link:README.md:AGENTS.md",
@@ -372,14 +362,14 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
     },
     {
-      "id": "link:README.md:Tools/README.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
-    },
-    {
       "id": "link:README.md:SourceAssets/manifest.csv",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\SourceAssets\\manifest.csv"
+    },
+    {
+      "id": "link:README.md:Docs/Development/RESOURCES_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\RESOURCES_REPORT.md"
     },
     {
       "id": "link:README.md:Docs/Development/CITIZENS_REPORT.md",
@@ -410,6 +400,21 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/SOCIETY_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Design/CARAVAN_RUNTIME.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CARAVAN_RUNTIME.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/RURAL_RECOVERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\RURAL_RECOVERY.md"
     },
     {
       "id": "link:00_INDEX.md:Design/ECONOMY_AND_PROFESSIONS.md",
@@ -582,6 +587,11 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\RESOURCES_REPORT.md"
     },
     {
+      "id": "link:ACCEPTANCE.md:Development/SOCIETY_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
+    },
+    {
       "id": "link:ARCHITECTURE.md:Development/README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
@@ -645,6 +655,11 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/github-release-0.3.0.jpg",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\github-release-0.3.0.jpg"
     },
     {
       "id": "link:STATE.md:Development/RESOURCES_REPORT.md",
@@ -852,6 +867,26 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RULER_DECISIONS.md"
     },
     {
+      "id": "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/housing_comfort.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\housing_comfort.csv"
+    },
+    {
+      "id": "link:ECONOMY_AND_PROFESSIONS.md:SOCIAL_SYSTEMS.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\SOCIAL_SYSTEMS.md"
+    },
+    {
+      "id": "link:ECONOMY_AND_PROFESSIONS.md:INFRASTRUCTURE_AND_OWNERSHIP.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\INFRASTRUCTURE_AND_OWNERSHIP.md"
+    },
+    {
+      "id": "link:ECONOMY_AND_PROFESSIONS.md:WILDLIFE_FARMING_AND_EQUIPMENT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
+    },
+    {
       "id": "link:RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md:RESOURCE_DEPOSITS_AND_PROCESSING.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RESOURCE_DEPOSITS_AND_PROCESSING.md"
@@ -982,6 +1017,26 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md"
     },
     {
+      "id": "link:SETTLEMENT_PROGRESSION.md:INFRASTRUCTURE_AND_OWNERSHIP.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\INFRASTRUCTURE_AND_OWNERSHIP.md"
+    },
+    {
+      "id": "link:SOCIAL_SYSTEMS.md:INFRASTRUCTURE_AND_OWNERSHIP.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\INFRASTRUCTURE_AND_OWNERSHIP.md"
+    },
+    {
+      "id": "link:SOCIAL_SYSTEMS.md:../Development/SOCIAL_DESIGN_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Development\\SOCIAL_DESIGN_REVIEW.md"
+    },
+    {
+      "id": "link:SOCIAL_SYSTEMS.md:../Development/SOCIAL_DESIGN_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Development\\SOCIAL_DESIGN_REVIEW.md"
+    },
+    {
       "id": "link:TECHNOLOGY_TREE.md:../../SourceAssets/Design/technologies.csv",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\technologies.csv"
@@ -1012,6 +1067,26 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Design\\technology-check.json"
     },
     {
+      "id": "link:TECHNOLOGY_TREE.md:../Development/SOCIAL_DESIGN_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Development\\SOCIAL_DESIGN_REVIEW.md"
+    },
+    {
+      "id": "link:TECHNOLOGY_TREE.md:INFRASTRUCTURE_AND_OWNERSHIP.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\INFRASTRUCTURE_AND_OWNERSHIP.md"
+    },
+    {
+      "id": "link:TECHNOLOGY_TREE.md:WILDLIFE_FARMING_AND_EQUIPMENT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
+    },
+    {
+      "id": "link:WILDLIFE_AND_TRADE.md:WILDLIFE_FARMING_AND_EQUIPMENT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
+    },
+    {
       "id": "link:WILDLIFE_AND_TRADE.md:../../SourceAssets/Design/wildlife.csv",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\wildlife.csv"
@@ -1040,6 +1115,41 @@
       "id": "link:WILDLIFE_AND_TRADE.md:RESOURCE_DEPOSITS_AND_PROCESSING.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\RESOURCE_DEPOSITS_AND_PROCESSING.md"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:../../SourceAssets/Design/wildlife.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\wildlife.csv"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:../../SourceAssets/Design/species_behaviors.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\species_behaviors.csv"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:../../SourceAssets/Design/wildlife_variants.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\wildlife_variants.csv"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:../../SourceAssets/Design/crops.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\crops.csv"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:../../SourceAssets/Design/carrying_equipment.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\carrying_equipment.csv"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:WILDLIFE_AND_TRADE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_AND_TRADE.md"
+    },
+    {
+      "id": "link:WILDLIFE_FARMING_AND_EQUIPMENT.md:CARAVAN_RUNTIME.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CARAVAN_RUNTIME.md"
     },
     {
       "id": "link:2026-10-12-implementation-start.md:AGENT_ROLES.md",
@@ -1080,6 +1190,26 @@
       "id": "link:AGENT_ROLES.md:../Research/AGENT_QUALITY_STANDARD.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\AGENT_QUALITY_STANDARD.md"
+    },
+    {
+      "id": "link:AGRICULTURE_CARAVAN_REVIEW.md:../Design/CARAVAN_RUNTIME.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\CARAVAN_RUNTIME.md"
+    },
+    {
+      "id": "link:AGRICULTURE_CARAVAN_REVIEW.md:../../Evidence/20261012-150819-401-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-150819-401-editmode\\tests.xml"
+    },
+    {
+      "id": "link:AGRICULTURE_CARAVAN_REVIEW.md:../../Evidence/20261012-151113-824-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-151113-824-playmode\\tests.xml"
+    },
+    {
+      "id": "link:AGRICULTURE_CARAVAN_REVIEW.md:../../Evidence/build-report.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\build-report.json"
     },
     {
       "id": "link:ALPHA_REPORT.md:../FEATURE_MAP.md",
@@ -1240,6 +1370,16 @@
       "id": "link:README.md:../FEATURE_MAP.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+    },
+    {
+      "id": "link:README.md:SOCIETY_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
+    },
+    {
+      "id": "link:README.md:AGRICULTURE_CARAVAN_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGRICULTURE_CARAVAN_REVIEW.md"
     },
     {
       "id": "link:README.md:RESOURCES_REPORT.md",
@@ -1477,6 +1617,51 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-133057-households-1000-profile.json"
     },
     {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151337-rural-natural-town.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151337-rural-natural-town.png"
+    },
+    {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151356-rural-cart-showcase.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151356-rural-cart-showcase.png"
+    },
+    {
+      "id": "link:SOCIAL_DESIGN_REVIEW.md:../Design/SOCIAL_SYSTEMS.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\SOCIAL_SYSTEMS.md"
+    },
+    {
+      "id": "link:SOCIAL_DESIGN_REVIEW.md:../Design/INFRASTRUCTURE_AND_OWNERSHIP.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\INFRASTRUCTURE_AND_OWNERSHIP.md"
+    },
+    {
+      "id": "link:SOCIETY_REPORT.md:../Design/CARAVAN_RUNTIME.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\CARAVAN_RUNTIME.md"
+    },
+    {
+      "id": "link:SOCIETY_REPORT.md:../Research/SOCIAL_SIMULATION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\SOCIAL_SIMULATION.md"
+    },
+    {
+      "id": "link:SOCIETY_REPORT.md:../Research/WILDLIFE_SIMULATION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\WILDLIFE_SIMULATION.md"
+    },
+    {
+      "id": "link:SOCIETY_REPORT.md:../Research/SOCIETY_RENDERING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\SOCIETY_RENDERING.md"
+    },
+    {
+      "id": "link:SOCIETY_REPORT.md:AGRICULTURE_CARAVAN_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGRICULTURE_CARAVAN_REVIEW.md"
+    },
+    {
       "id": "link:2026-10-12-agent-quality-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md",
       "passed": true,
       "detail": "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md"
@@ -1635,6 +1820,21 @@
       "id": "link:README.md:../Docs/Research/PROCEDURAL_FORMULAS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+    },
+    {
+      "id": "link:README.md:../Evidence/20261012-150819-401-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Evidence\\20261012-150819-401-editmode\\tests.xml"
+    },
+    {
+      "id": "link:README.md:../Evidence/20261012-151113-824-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Evidence\\20261012-151113-824-playmode\\tests.xml"
+    },
+    {
+      "id": "link:README.md:../Evidence/build-report.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Evidence\\build-report.json"
     }
   ],
   "unityImport": "not-run",

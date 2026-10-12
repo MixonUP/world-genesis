@@ -2,7 +2,7 @@ role_id,name_ru,min_settlement_tier,buildings,tool_visual,main_output,animation,
 gatherer,Собиратель,1,hearth;ranger_lodge,корзина и руки,berries;branch;flint;herbs,наклон и срыв,доставка еды
 lumberjack,Лесоруб,1,logging_camp,топор,wood_log;bark,рубка и падение дерева,сбор веток
 hauler,Носильщик,1,storehouse,корзина или тележка,delivery,поднять нести разгрузить,сбор еды
-farmer,Фермер,1,wheat_farm;flax_farm,мотыга серп мешок семян,grain;flax_stalk,посев уход жатва,сбор еды
+farmer,Фермер,1,wheat_farm;flax_farm;pasture,мотыга серп мешок семян; кормушка и повод,grain;flax_stalk;hay;milk;egg,посев уход жатва,сбор еды
 fisher,Рыбак,1,fishing_hut,удочка или сеть,raw_fish,заброс вытянуть улов,сбор еды
 hunter,Охотник,1,ranger_lodge,копьё или лук,small_carcass;large_carcass,подкрадывание удар свежевание,сбор еды
 butcher,Мясник,1,hearth;kitchen,нож и передник,raw_meat;hide,разделка,готовка
@@ -10,7 +10,7 @@ forester,Лесник,1,ranger_lodge;logging_camp;hearth,лопатка и са�
 miner,Рудокоп,3,mine,кирка фонарь,iron_ore;copper_ore;tin_ore;gold_ore;silver_ore;coal,удар киркой,доставка
 stonecutter,Каменотёс,1,quarry;hearth,молот зубило,stone;stone_block;stone_tile;clay;sand;limestone;mortar,удар сбор камня,доставка
 water_carrier,Водонос,1,well;hearth,коромысло вёдра,water,зачерпнуть нести,сбор еды
-cook,Повар,1,hearth;kitchen,котёл ложка,meal;dried_food,помешивание сушка,сбор еды
+cook,Повар,1,hearth;kitchen;brewery,котёл ложка,meal;dried_food;ale,помешивание сушка,сбор еды
 miller,Мельник,2,mill,совок жернова,flour,вращать жернова,доставка зерна
 baker,Пекарь,2,bakery,лопата печи,bread,месить посадить хлеб,готовка
 charcoal_burner,Углежог,2,charcoal_kiln,грабли угольная куча,charcoal,укладка дров обжиг,колка дров

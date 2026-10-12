@@ -1,0 +1,7 @@
+{
+  "source": "Builds/rural-assisted-showcase.json",
+  "target": "Builds/rural-showcase-native.json",
+  "sourceSHA256": "45df448cf6d132a736da39aaef41afe619d4ea856ba46e319bc126c454fa96b5",
+  "targetSHA256": "301c37b951a29fdf25c71a1d1b1da6ef9daec8aeda17dd622716ec5112e9fbf2",
+  "operation": "Envelope only; native SaveStore.Validate is still required."
+}

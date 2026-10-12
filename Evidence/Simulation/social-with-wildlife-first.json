@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-12T11:38:39.2889266Z",
+  "tests": 13,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "LegacySocialMigrationConsumesNoRandomIdsOrGoods",
+      "passed": true,
+      "milliseconds": 165.3096
+    },
+    {
+      "name": "MoodUsesNeedsLawsAndActualHousing",
+      "passed": true,
+      "milliseconds": 12.5281
+    },
+    {
+      "name": "RepublicCountsAdultsAndRequiresStrictMajority",
+      "passed": true,
+      "milliseconds": 5.0802
+    },
+    {
+      "name": "ReligionsEmergeGraduallyAndCanExceedThree",
+      "passed": true,
+      "milliseconds": 42.7483
+    },
+    {
+      "name": "ConversionRequiresActualAdultConversation",
+      "passed": true,
+      "milliseconds": 10.9386
+    },
+    {
+      "name": "ReligiousDifferenceAloneIsPeacefulAndCrisisBrawlIsBounded",
+      "passed": true,
+      "milliseconds": 30.929
+    },
+    {
+      "name": "ExtremeFanaticalCrisisCanCauseLethalAdultViolence",
+      "passed": true,
+      "milliseconds": 4.6749
+    },
+    {
+      "name": "SustainedMajorityCrisisChangesRegimeWithCooldown",
+      "passed": true,
+      "milliseconds": 56.377
+    },
+    {
+      "name": "LearningNeedsMentorAndMasterNeedsBothEducationAndPractice",
+      "passed": true,
+      "milliseconds": 6.5811
+    },
+    {
+      "name": "WarDeathsReduceTrustOnlyForActualWarLoss",
+      "passed": true,
+      "milliseconds": 5.0427
+    },
+    {
+      "name": "WallsBurnAndTerrainPaintPreservesValidWallOwnership",
+      "passed": true,
+      "milliseconds": 4.4762
+    },
+    {
+      "name": "SocialValidationRejectsCorruptFaithMoodAndBallot",
+      "passed": true,
+      "milliseconds": 70.6406
+    },
+    {
+      "name": "SocialSaveContinuesAllStateDeterministically",
+      "passed": true,
+      "milliseconds": 219.8314
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-12T11:23:51.1072706Z",
+  "tests": 12,
+  "failures": 2,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "LegacySocialMigrationConsumesNoRandomIdsOrGoods",
+      "passed": true,
+      "milliseconds": 171.2218
+    },
+    {
+      "name": "MoodUsesNeedsLawsAndActualHousing",
+      "passed": false,
+      "error": "System.InvalidOperationException: Tax burden ignored by law satisfaction\r\n   at WorldGenesis.Tests.SocialScenarios.Require(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 16\r\n   at WorldGenesis.Tests.SocialScenarios.MoodUsesNeedsLawsAndActualHousing() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 54\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 145.7618
+    },
+    {
+      "name": "RepublicCountsAdultsAndRequiresStrictMajority",
+      "passed": true,
+      "milliseconds": 5.4092
+    },
+    {
+      "name": "ReligionsEmergeGraduallyAndCanExceedThree",
+      "passed": true,
+      "milliseconds": 41.5098
+    },
+    {
+      "name": "ConversionRequiresActualAdultConversation",
+      "passed": true,
+      "milliseconds": 10.4834
+    },
+    {
+      "name": "ReligiousDifferenceAloneIsPeacefulAndCrisisBrawlIsBounded",
+      "passed": true,
+      "milliseconds": 26.8566
+    },
+    {
+      "name": "SustainedMajorityCrisisChangesRegimeWithCooldown",
+      "passed": false,
+      "error": "System.InvalidOperationException: Sustained majority did not replace government\r\n   at WorldGenesis.Tests.SocialScenarios.Require(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 16\r\n   at WorldGenesis.Tests.SocialScenarios.SustainedMajorityCrisisChangesRegimeWithCooldown() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 103\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 34.6034
+    },
+    {
+      "name": "LearningNeedsMentorAndMasterNeedsBothEducationAndPractice",
+      "passed": true,
+      "milliseconds": 6.9408
+    },
+    {
+      "name": "WarDeathsReduceTrustOnlyForActualWarLoss",
+      "passed": true,
+      "milliseconds": 4.8906
+    },
+    {
+      "name": "WallsBurnAndTerrainPaintPreservesValidWallOwnership",
+      "passed": true,
+      "milliseconds": 4.1182
+    },
+    {
+      "name": "SocialValidationRejectsCorruptFaithMoodAndBallot",
+      "passed": true,
+      "milliseconds": 68.7527
+    },
+    {
+      "name": "SocialSaveContinuesAllStateDeterministically",
+      "passed": true,
+      "milliseconds": 214.2593
+    }
+  ]
+}

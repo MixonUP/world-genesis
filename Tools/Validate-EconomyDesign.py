@@ -52,6 +52,11 @@ def validate(root):
     deposits = table("resource_deposits.csv", "node_id")
     regions = table("resource_regions.csv", "region_id")
     minting = table("minting_policy.csv", "policy_id")
+    comfort = table("housing_comfort.csv", "grade")
+    variants = table("wildlife_variants.csv", "variant_id")
+    behavior = table("species_behaviors.csv", "species_id")
+    crops = table("crops.csv", "crop_id")
+    equipment = table("carrying_equipment.csv", "equipment_id")
     with (root / "building_tiers.csv").open(encoding="utf-8-sig", newline="") as f:
         tiers = list(csv.DictReader(f))
     counts["building_tiers.csv"] = len(tiers)
@@ -103,11 +108,76 @@ def validate(root):
         check(identity not in sources or float(sources[identity]["regrow_seconds"]) > 0, f"{identity}: instant deposit regeneration")
     check(len({sources[n]["regrow_seconds"] for n in deposits if n in sources}) >= 8, "deposit cooldowns must preserve different resource scarcity")
     animal_outputs = set()
+    live_animal_outputs = set()
     for identity, row in wildlife.items():
         animal_outputs.update(quantities(row["death_output"], identity))
+        periodic = quantities(row["periodic_output"], identity)
+        live_animal_outputs.update(periodic)
+        delay = number(row["periodic_seconds"], identity, 0)
+        feed = quantities(row["periodic_inputs"], identity)
+        check(bool(periodic) == bool(delay) == bool(feed), f"{identity}: live product requires feed and time")
         for field in ("group_min", "group_max", "birth_cooldown_seconds", "cap_per_256_habitat_tiles"):
             number(row[field], f"{identity}/{field}", 1, True)
         check(int(row["group_min"]) <= int(row["group_max"]), f"{identity}: group bounds")
+    for identity, row in variants.items():
+        check(row["species_id"] in wildlife, f"{identity}: unknown base species")
+        chance = number(row["spawn_chance"], identity, 0.000001)
+        check(chance <= .01, f"{identity}: rare variant must remain rare")
+        number(row["respawn_min_seconds"], identity, 600)
+        number(row["max_per_region"], identity, 1, True)
+        number(row["health_multiplier"], identity, 1)
+        number(row["damage_multiplier"], identity, 1)
+        output = quantities(row["extra_death_output"], identity)
+        check(bool(output) and "coin" not in output, f"{identity}: boss cannot mint currency")
+        animal_outputs.update(output)
+        quantities(row["tame_inputs"], identity)
+        check(set(filter(None, row["tame_technology_ids"].split(";"))) <= set(technologies), f"{identity}: unknown tame research")
+        check(bool(row["tame_inputs"]) == bool(row["tame_technology_ids"]), f"{identity}: special taming needs food and research")
+    check(set(behavior) == set(wildlife), "all species require one behavior card")
+    for identity, row in behavior.items():
+        quantities(row["tame_food_inputs"], identity)
+        check(set(filter(None, row["food_good_refs"].split(";"))) <= set(goods), f"{identity}: unknown diet good")
+        check(row["handler_role_id"] in roles, f"{identity}: unknown handler role")
+        check(row["tameable"] in {"true", "false"}, f"{identity}: tameable flag")
+        work = number(row["tame_work_seconds"], identity, 0)
+        check((work > 0 and bool(row["tame_food_inputs"])) == (row["tameable"] == "true"), f"{identity}: taming needs real feed and work")
+        number(row["chase_limit_seconds"], identity, 1)
+        number(row["max_neighbors"], identity, 1, True)
+        for field in ("separation_weight", "alignment_weight", "cohesion_weight"):
+            number(row[field], identity, 0)
+    for identity, row in crops.items():
+        check(row["role_id"] in roles and row["building_id"] in buildings, f"{identity}: crop role/station")
+        quantities(row["inputs"], identity)
+        quantities(row["repeat_inputs"], identity)
+        check(bool(quantities(row["outputs"], identity)), f"{identity}: crop output")
+        check(not row["recipe_id"] or row["recipe_id"] in recipes, f"{identity}: unknown crop recipe")
+        check(not row["required_technology_id"] or row["required_technology_id"] in technologies, f"{identity}: unknown crop technology")
+        check(row["cycle"] in {"annual", "perennial", "regrowing_node"}, f"{identity}: cycle")
+        number(row["active_work_seconds"], identity, .1)
+        number(row["growth_seconds"], identity, 1)
+        if row["cycle"] == "perennial": number(row["max_harvests"], identity, 1, True)
+        if row["recipe_id"] in recipes:
+            recipe = recipes[row["recipe_id"]]
+            check(row["inputs"] == recipe["inputs"] and row["outputs"] == recipe["outputs"], f"{identity}: crop/recipe amounts disagree")
+    expected_capacity = {"basket_small": 10, "basket_woven": 15, "basket_framed": 25, "donkey_pack": 50, "horse_pack": 75, "saddle_bags": 0, "trade_cart": 150}
+    check(set(equipment) == set(expected_capacity), "unexpected transport equipment IDs")
+    for identity, row in equipment.items():
+        check(number(row["total_capacity"], identity, 0) == expected_capacity.get(identity), f"{identity}: wrong total carrying capacity")
+        check(number(row["capacity_bonus"], identity, 0) == (25 if identity == "saddle_bags" else 0), f"{identity}: invalid stacking bonus")
+        check(bool(quantities(row["inputs"], identity)), f"{identity}: free equipment")
+        check(row["role_id"] in roles and row["building_id"] in buildings, f"{identity}: equipment role/station")
+        if row["role_id"] in roles: check(row["building_id"] in roles[row["role_id"]]["buildings"].split(";"), f"{identity}: role cannot use station")
+        check(row["required_technology_id"] in technologies or identity == "basket_small" and not row["required_technology_id"], f"{identity}: unknown equipment tech")
+        check(row["unique_owner"] == "true", f"{identity}: nonunique equipment")
+        animals = set(filter(None, row["animal_species_ids"].split(";")))
+        check(animals <= set(wildlife), f"{identity}: unknown animal")
+        check(bool(animals) == (row["requires_animal"] == "1"), f"{identity}: missing draft/pack animal requirement")
+        prior = row["consumed_previous_id"]
+        check(not prior or prior in equipment and expected_capacity.get(prior, 0) < expected_capacity.get(identity, 0), f"{identity}: invalid consumed upgrade")
+        number(row["work_seconds"], identity, .1)
+        check(not row["output_good_id"] or row["output_good_id"] in goods, f"{identity}: unknown equipment good")
+    if "trade_cart" in equipment:
+        check(equipment["trade_cart"]["inputs"] == recipes["make_cart"]["inputs"] and equipment["trade_cart"]["work_seconds"] == recipes["make_cart"]["work_seconds"], "cart instance recipe differs from canonical make_cart")
 
     tier_lookup = {}
     for tier in tiers:
@@ -125,6 +195,21 @@ def validate(root):
         check({g for b, g in tier_lookup if b == identity} == {1, 2, 3, 4, 5}, f"{identity}: must have five grades")
         quantities(row["base_inputs"], identity)
         number(row["base_work_seconds"], identity, 0.1)
+
+    check(set(comfort) == {"1", "2", "3", "4", "5"}, "house comfort must have five grades")
+    previous_comfort = -1
+    for grade in sorted(comfort, key=int):
+        row = comfort[grade]
+        value = number(row["base_comfort"], f"comfort {grade}", 0)
+        check(previous_comfort < value <= 1, f"comfort {grade}: must increase within 0..1")
+        previous_comfort = value
+        check(row["building_id"] == "house" and row["ownership"] == "private_adult" and row["status"] == "prepared", f"comfort {grade}: invalid ownership/status")
+        number(row["rest_multiplier"], f"comfort {grade} rest", 1)
+        capacity = number(row["residents_capacity"], f"comfort {grade} residents", 1, True)
+        tier = tier_lookup.get(("house", int(grade)), {})
+        check(capacity == float(tier.get("special_capacity", -1)), f"comfort {grade}: capacity differs from house definition")
+        tid = row["required_technology_id"]
+        check((not tid and grade == "1") or (tid in technologies and f"house@{grade}" in technologies[tid]["unlock_building_grades"].split(";")), f"comfort {grade}: wrong technology gate")
 
     recipe_outputs = set()
     for identity, row in recipes.items():
@@ -156,7 +241,7 @@ def validate(root):
             check(identity in technologies.get("z08_coinage", {}).get("unlock_recipes", "").split(";"), f"{identity}: mint not research-gated")
         check("coin" not in row["_inputs"], f"{identity}: unspecified coin conversion or destruction")
     for identity, row in goods.items():
-        expected = animal_outputs if row["origin"] == "wildlife" else recipe_outputs
+        expected = animal_outputs | live_animal_outputs if row["origin"] == "wildlife" else recipe_outputs
         check(identity in expected, f"{identity}: no production source")
     for identity, row in technologies.items():
         quantities(row.get("research_inputs", ""), f"research materials {identity}")
@@ -249,6 +334,10 @@ def validate(root):
                     built[b] = grade
             if "ranger_lodge" in built and "primitive_tool" in available:
                 available.update(g for g in animal_outputs if goods[g]["origin"] == "wildlife")
+            if "pasture" in built:
+                for animal in wildlife.values():
+                    if set(quantities(animal["periodic_inputs"], "live source")) <= available:
+                        available.update(quantities(animal["periodic_output"], "live source"))
             for rid, row in recipes.items():
                 tg = int(row["min_tool_grade"])
                 if int(row["min_settlement_tier"]) <= stage and built.get(row["building_id"], 0) >= int(row["min_building_grade"]) and set(row["_inputs"]) <= available and (not tg or tools[tg] in available) and (not row["source_node"] or row["source_node"] in habitat):

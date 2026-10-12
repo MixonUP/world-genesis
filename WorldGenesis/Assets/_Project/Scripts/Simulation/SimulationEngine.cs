@@ -31,6 +31,7 @@ namespace WorldGenesis.Simulation
             MigratePolitics();
             MigrateResources();
             MigrateDemography(); MigrateCivilEconomy(); MigrateCarrying(legacyCarrying);
+            MigrateDevelopment(); MigrateSocial(); MigrateAgriculture(); MigrateWildlife(); MigrateCaravans();
         }
 
         public void Step(float dt)
@@ -97,6 +98,7 @@ namespace WorldGenesis.Simulation
         private void Tick()
         {
             World.Tick++; World.SimulatedSeconds += TickSeconds;
+            CleanupSocialDisputes();
             BuildSpatialIndex();
             reservations.Clear();
             for (int i = 0; i < World.Units.Count; i++)
@@ -108,15 +110,16 @@ namespace WorldGenesis.Simulation
             UpdateResources();
             for (int i = 0; i < World.Units.Count; i++) UpdateUnit(World.Units[i], TickSeconds);
             RemoveDead();
-            if (World.Tick % 10 == 0) UpdateSettlements(1f);
+            if (World.Tick % 10 == 0) { UpdateSettlements(1f); UpdateDevelopment(); UpdateAgriculture(); UpdateWildlife(); UpdateCaravans(); }
             UpdatePolitics();
             UpdateEconomicPolicies();
+            if (World.Tick % 10 == 0) UpdateSocial(1f);
             World.Revision++;
         }
 
         public void Spawn(SpeciesType species, int x, int y, int count = 1)
         {
-            if ((int)species < 0 || (int)species > 5 || count < 0 || count > 1000) throw new ArgumentOutOfRangeException(nameof(species));
+            if ((int)species < 0 || (int)species > 16 || count < 0 || count > 1000) throw new ArgumentOutOfRangeException(nameof(species));
             if (!World.IsWalkable(x, y) || count == 0) return;
             SettlementData settlement = null;
             if (IsCivilized(species))
@@ -129,6 +132,7 @@ namespace WorldGenesis.Simulation
                 }
                 if (settlement == null) settlement = FoundSettlement(species, x, y);
             }
+            int pack = 0;
             for (int n = 0; n < count && World.Units.Count < 10000; n++)
             {
                 int ux = x, uy = y;
@@ -138,6 +142,7 @@ namespace WorldGenesis.Simulation
                     if (World.IsWalkable(nx, ny) && navigation.Find(World.Index(x, y), World.Index(nx, ny), scratchPath, 64)) { ux = nx; uy = ny; break; }
                 }
                 AddUnit(species, ux, uy, settlement == null ? 0 : settlement.Id, false);
+                if (WildlifeCatalog.IsAnimal(species)) { UnitData animal = World.Units[World.Units.Count - 1]; if (pack == 0) pack = animal.Id; animal.PackId = animal.PackLeaderId = pack; }
             }
             if (settlement != null) { RecountSettlements(); UpdatePolitics(); UpdateEconomicPolicies(); }
             World.Revision++;
@@ -158,7 +163,7 @@ namespace WorldGenesis.Simulation
                 tile.Terrain = terrain; tile.Fire = 0; tile.River = false;
                 tile.Height = terrain == TerrainType.DeepWater ? .2f : terrain == TerrainType.ShallowWater ? .4f : terrain == TerrainType.Mountain ? .85f : .58f;
                 tile.Vegetation = terrain == TerrainType.Forest ? 1 : terrain == TerrainType.Grass ? .5f : 0;
-                if (!World.IsWalkable(cx, cy)) tile.SettlementId = 0;
+                if (!World.IsTerrainWalkable(cx, cy)) tile.SettlementId = 0;
                 RefreshPaintedResource(i);
                 changed = true;
             }
@@ -181,13 +186,13 @@ namespace WorldGenesis.Simulation
                 if (distance > effectiveRadius * effectiveRadius) continue;
                 ref TileData tile = ref World.Cells[World.Index(cx, cy)];
                 if (power == PowerType.Rain) { tile.Fire = 0; tile.Moisture = Math.Min(1, tile.Moisture + .25f); if (World.IsWalkable(cx, cy) && tile.Terrain != TerrainType.Desert) tile.Vegetation = Math.Min(1, tile.Vegetation + .12f); }
-                else if (power == PowerType.Fire && World.IsWalkable(cx, cy)) tile.Fire = 1;
-                else if (power == PowerType.Lightning && World.IsWalkable(cx, cy)) tile.Fire = .8f;
+                else if (power == PowerType.Fire && World.IsTerrainWalkable(cx, cy)) tile.Fire = 1;
+                else if (power == PowerType.Lightning && World.IsTerrainWalkable(cx, cy)) tile.Fire = .8f;
                 else if (power == PowerType.Meteor)
                 {
                     tile.Vegetation = 0; tile.River = false;
                     if (distance <= effectiveRadius * effectiveRadius * .32f) { tile.Terrain = TerrainType.ShallowWater; tile.Height = .38f; tile.Fire = 0; tile.SettlementId = 0; }
-                    else if (World.IsWalkable(cx, cy)) { tile.Terrain = TerrainType.Sand; tile.Fire = 1; }
+                    else if (World.IsTerrainWalkable(cx, cy)) { tile.Terrain = TerrainType.Sand; tile.Fire = 1; }
                 }
             }
             for (int i = 0; i < World.Units.Count; i++)
@@ -235,10 +240,10 @@ namespace WorldGenesis.Simulation
                 if (fire > 0)
                 {
                     World.Cells[i].Vegetation = Math.Max(0, tile.Vegetation - fire * .10f * dt);
-                    fire = Math.Max(0, fire - (tile.Vegetation < .05f ? .40f : .045f + tile.Moisture * .05f) * dt);
+                    fire = Math.Max(0, fire - (tile.Vegetation < .05f && tile.BuildingId == 0 ? .40f : .045f + tile.Moisture * .05f) * dt);
                     changed = true;
                 }
-                else if (World.Laws.FireSpread && tile.Vegetation > .12f)
+                else if (World.Laws.FireSpread && (tile.Vegetation > .12f || tile.BuildingId != 0))
                 {
                     int x = i % World.Width, y = i / World.Width;
                     float neighbours = 0;
@@ -274,6 +279,7 @@ namespace WorldGenesis.Simulation
             if (World.Laws.Aging) unit.Age += dt * .1f;
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.Profession == UnitProfession.None) unit.Profession = ProfessionFor(unit.Id);
             unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? .005f : .004f));
+            if (IsCivilized(unit.Species)) unit.Thirst = Math.Min(1, unit.Thirst + dt * .003f);
             if (unit.Task != UnitTask.Rest)
             {
                 float exertion = unit.Task == UnitTask.Flee || unit.Task == UnitTask.Fight ? .012f : unit.Task == UnitTask.Gather || unit.Task == UnitTask.Farm || unit.Task == UnitTask.Process ? .006f : unit.PathCursor < unit.Path.Count ? .003f : .0015f;
@@ -298,8 +304,8 @@ namespace WorldGenesis.Simulation
             if (unit.Health <= 0) return;
             SettlementData home = World.GetSettlement(unit.SettlementId);
             EnforceChildWorkLaw(unit, home);
-            UnitData enemy = FindEnemy(unit, 2);
-            UnitData predator = unit.Species == SpeciesType.Sheep ? FindPredator(unit) : null;
+            UnitData enemy = FindEnemy(unit, WildlifeCatalog.IsPredator(unit.Species) ? 6 : 2) ?? FindDisputeEnemy(unit) ?? HuntTarget(unit);
+            UnitData predator = WildlifeCatalog.IsAnimal(unit.Species) && !WildlifeCatalog.IsPredator(unit.Species) ? FindPredator(unit) : null;
             bool threatened = predator != null || (enemy != null && IsCivilized(unit.Species) && (unit.Age < 16 || unit.Health < unit.MaxHealth * .35f));
             bool hazard = tile.Fire > .1f || NearbyFire(x, y) > .5f;
             if (hazard || threatened)
@@ -311,21 +317,30 @@ namespace WorldGenesis.Simulation
             {
                 // Complete a committed escape route before choosing another job.
             }
-            else if (enemy != null && unit.Species != SpeciesType.Sheep)
+            else if (enemy != null && (IsCivilized(unit.Species) || WildlifeCatalog.IsPredator(unit.Species)))
             {
-                bool enteringCombat = unit.Task != UnitTask.Fight;
-                ChangeTask(unit, UnitTask.Fight); unit.TargetId = enemy.Id;
+                bool hunting = unit.Task == UnitTask.Hunt && HuntEligible(unit, enemy);
+                bool enteringCombat = unit.Task != UnitTask.Fight && !hunting;
+                ChangeTask(unit, hunting ? UnitTask.Hunt : UnitTask.Fight); unit.TargetId = enemy.Id;
                 if (enteringCombat) { ClearRoute(unit); unit.DecisionTimer = 0; }
-                if (DistanceSquared(unit.X, unit.Y, enemy.X, enemy.Y) <= 2.2f && unit.AttackTimer <= 0)
+                // The crafted hunting spear can be thrown within three tiles; no firearm or armour is implied.
+                if (DistanceSquared(unit.X, unit.Y, enemy.X, enemy.Y) <= (hunting ? 9f : 2.2f) && unit.AttackTimer <= 0)
                 {
                     ClearRoute(unit);
-                    float damage = unit.Species == SpeciesType.Orc ? 12 : unit.Species == SpeciesType.Wolf ? 9 : 7;
-                    enemy.Health = Math.Max(0, enemy.Health - damage * (unit.Blessed ? 1.5f : 1)); unit.AttackTimer = .8f;
-                    if (unit.Species == SpeciesType.Wolf && enemy.Health == 0) unit.Hunger = 0;
+                    float damage = WildlifeCatalog.IsAnimal(unit.Species) ? WildlifeCatalog.Damage(unit.Species) : unit.Species == SpeciesType.Orc ? 12 : 7;
+                    if (hunting && unit.HuntingToolLevel > 0) damage += 5;
+                    UnitData combatMount = World.GetUnit(unit.MountId);
+                    if (unit.HuntingToolLevel > 0 && !unit.HasWagon && combatMount != null && combatMount.Health > 0 && combatMount.IsDomestic && combatMount.HandlerId == unit.Id && (combatMount.Species == SpeciesType.Horse || combatMount.Species == SpeciesType.SpiritStag) && DistanceSquared(unit.X, unit.Y, combatMount.X, combatMount.Y) <= 1.96f) damage *= 1.2f;
+                    bool dispute = IsSocialDispute(unit.Id, enemy.Id);
+                    enemy.Health = Math.Max(dispute && !IsLethalSocialDispute(unit.Id, enemy.Id) ? enemy.MaxHealth * .35f : 0, enemy.Health - damage * (unit.Blessed ? 1.5f : 1)); unit.AttackTimer = .8f;
+                    enemy.EventStress = Math.Min(1, enemy.EventStress + .08f);
+                    if (hunting) GainCraftExperience(unit, .8f);
+                    if (enemy.Health == 0) RecordWarLoss(enemy, unit);
+                    if (WildlifeCatalog.IsPredator(unit.Species) && enemy.Health == 0) unit.Hunger = 0;
                 }
                 else if (unit.DecisionTimer <= 0) { SetTarget(unit, (int)enemy.X, (int)enemy.Y); unit.DecisionTimer = 1; }
             }
-            else if (NeedsImmediateDecision(unit) || (!CommittedActivity(unit) && unit.DecisionTimer <= 0) || (unit.Task == UnitTask.Fight && unit.TargetId != 0) || unit.Task == UnitTask.Flee)
+            else if (NeedsImmediateDecision(unit) || (!CommittedActivity(unit) && unit.DecisionTimer <= 0) || ((unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && unit.TargetId != 0) || unit.Task == UnitTask.Flee)
             {
                 unit.TargetId = 0; Decide(unit, home); unit.DecisionTimer = 2f + RandomValue() * 2f;
             }
@@ -335,33 +350,49 @@ namespace WorldGenesis.Simulation
                 int target = unit.Path[unit.PathCursor];
                 int tx = target % World.Width, ty = target / World.Width;
                 if (!World.IsWalkable(tx, ty) || (unit.Task != UnitTask.Flee && World.Cells[target].Fire > .15f)) { ClearRoute(unit); ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return; }
-                float speed = unit.Species == SpeciesType.Elf ? 1.7f : unit.Species == SpeciesType.Wolf ? 2.2f : unit.Species == SpeciesType.Dwarf ? 1.1f : 1.45f;
+                float speed = WildlifeCatalog.IsAnimal(unit.Species) ? WildlifeCatalog.Speed(unit.Species) : unit.Species == SpeciesType.Elf ? 1.7f : unit.Species == SpeciesType.Dwarf ? 1.1f : 1.45f;
                 if (unit.Task == UnitTask.Flee) speed *= 1.45f;
                 else speed *= 1 - unit.Fatigue * .25f;
+                speed *= RoadSpeed(unit);
+                speed *= 1 - .25f * unit.Intoxication;
+                UnitData mount = World.GetUnit(unit.MountId);
+                if (mount != null && mount.Health > 0 && mount.HandlerId == unit.Id && mount.IsDomestic && DistanceSquared(unit.X, unit.Y, mount.X, mount.Y) <= 1.96f) speed *= unit.HasWagon ? 1.1f : 1.35f;
                 if (MoveToward(unit, tx + .5f, ty + .5f, dt * speed)) unit.PathCursor++;
             }
-            else if (!PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home))) Work(unit, home, unit.Age >= 16 ? dt * (1 + unit.Education * .1f) : dt * .65f);
+            else if (!PerformCaravanActivity(unit, home, dt) && !PerformAgriDelivery(unit, home, dt) && !PerformWaterActivity(unit, home, dt) && !PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home)))
+            {
+                float workDt = dt * GetWorkMultiplier(unit);
+                if (!PerformFishing(unit, home, workDt)) Work(unit, home, workDt);
+            }
         }
 
         private void Decide(UnitData unit, SettlementData home)
         {
+            if (ChooseWildlifeActivity(unit)) return;
+            if (unit.CarriedWater > 0 && unit.Task != UnitTask.Brew && ChooseWater(unit, home)) return;
+            if (unit.Thirst > .55f && ChooseWater(unit, home)) return;
             if (unit.Hunger > .50f && ChooseFood(unit, home)) return;
             if (unit.Fatigue > .72f && ChooseRest(unit, home)) return;
             if (home != null && unit.Age >= 16)
             {
+                if (unit.CaravanId != 0 && TryChooseCaravan(unit, home)) return;
+                if (ChooseHarvestDelivery(unit, home)) return;
                 if (unit.CargoAmount > 0 && ChooseCargoDelivery(unit, home)) return;
-                if (CarriedLoad(unit) >= ResourceCatalog.CarryCapacity - .001f || ((unit.CarriedFood > 0 || unit.CarriedWood > 0) && unit.Task != UnitTask.Farm && unit.Task != UnitTask.Gather))
+                if (CarriedLoad(unit) >= CarryCapacityFor(unit) - .001f || ((unit.CarriedFood > 0 || unit.CarriedWood > 0) && unit.Task != UnitTask.Farm && unit.Task != UnitTask.Gather))
                 {
                     if (SetTarget(unit, home.X, home.Y)) { ChangeTask(unit, UnitTask.Return); return; }
                 }
                 if (unit.SocialNeed > .70f && unit.Hunger < .5f && ChooseSocial(unit, home)) return;
-                if (ChooseGroundStock(unit)) return;
+                if (ChooseLoot(unit, home) || ChooseGroundStock(unit)) return;
+                if (TryChooseCaravan(unit, home) || ChooseAgriculturalWork(unit, home) || ChooseHunt(unit, home)) return;
+                if (ChooseAdultLearning(unit, home)) return;
                 if (unit.Profession == UnitProfession.Forester && home.Food >= home.Population * 2 && ChooseIndustry(unit, home)) return;
                 float foodNeed = WorldGenerator.Clamp01(1 - home.Food / (home.Population * 5f + 1));
                 float woodNeed = WorldGenerator.Clamp01(1 - home.Wood / (home.Population * 3f + 20));
                 float farmScore = .35f + foodNeed * .55f + (unit.Profession == UnitProfession.Farmer ? .3f : 0);
                 float woodScore = .10f + woodNeed * .6f + (unit.Profession == UnitProfession.Forester ? .35f : 0);
                 if (woodScore >= farmScore && ChooseIndustry(unit, home)) return;
+                if (ChooseFishing(unit, home)) return;
                 BuildingData farm = FindFarm(home.Id, unit.Id);
                 if (farm != null && SetTarget(unit, farm.X, farm.Y)) { ChangeTask(unit, UnitTask.Farm); return; }
                 if (ChooseIndustry(unit, home)) return;
@@ -374,6 +405,7 @@ namespace WorldGenesis.Simulation
             {
                 if (LightWorkAllowed(unit, home))
                 {
+                    if (ChooseHarvestDelivery(unit, home)) return;
                     if (unit.CargoAmount > 0 && ChooseCargoDelivery(unit, home)) return;
                     if ((unit.CarriedFood > 0 || unit.CarriedWood > 0) && SetTarget(unit, home.X, home.Y)) { ChangeTask(unit, UnitTask.Return); return; }
                     BuildingData farm = FindFarm(home.Id, unit.Id);
@@ -384,7 +416,8 @@ namespace WorldGenesis.Simulation
             for (int attempt = 0; attempt < 8; attempt++)
             {
                 int range = IsCivilized(unit.Species) && unit.Age < 16 ? 3 : 7;
-                int x = (int)unit.X + RandomRange(-range, range + 1), y = (int)unit.Y + RandomRange(-range, range + 1);
+                // Leisure stays near the settlement; repeated idle decisions must not become an unbounded random walk.
+                int x = (home == null ? (int)unit.X : home.X) + RandomRange(-range, range + 1), y = (home == null ? (int)unit.Y : home.Y) + RandomRange(-range, range + 1);
                 if (SetTarget(unit, x, y)) { ChangeTask(unit, UnitTask.Wander); return; }
             }
             ClearRoute(unit); ChangeTask(unit, UnitTask.Idle);
@@ -392,15 +425,12 @@ namespace WorldGenesis.Simulation
 
         private void Work(UnitData unit, SettlementData home, float dt)
         {
+            if (PerformAgriculturalWork(unit, home, dt)) return;
+            if (PerformAgriculture(unit, home, dt)) return;
             if (WorkResources(unit, home, dt)) return;
             // Civilian Fight is a local emergency response. Siege jobs require future equipped military recruitment.
             if (unit.Task == UnitTask.Return && DistanceSquared(unit.X, unit.Y, home.X + .5f, home.Y + .5f) < 2)
             { home.Wood += unit.CarriedWood; home.Food += unit.CarriedFood; unit.CarriedFood = 0; unit.CarriedWood = 0; unit.DecisionTimer = 0; }
-            else if (unit.Task == UnitTask.Farm && unit.TargetCell >= 0 && HasWorkingFarm(home.Id, unit.TargetCell) && World.Cells[unit.TargetCell].Fire <= 0)
-            {
-                unit.CarriedFood += Math.Min(CarrySpace(unit), dt * .42f);
-                if (CarriedLoad(unit) >= ResourceCatalog.CarryCapacity - .001f) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; }
-            }
         }
 
         private void UpdateSettlements(float dt)
@@ -429,15 +459,18 @@ namespace WorldGenesis.Simulation
                     }
                 }
                 else if (!World.Laws.Warfare) s.EnemyId = 0;
-                if (s.BuildTimer >= 8 && s.Wood >= 10)
+                bool needsField = CountBuildings(s.Id, BuildingType.Farm) * 5 < s.Population
+                    && CountBuildings(s.Id, BuildingType.Sawmill) > 0 && CountBuildings(s.Id, BuildingType.House) > 0;
+                if (s.BuildTimer >= 8 && (needsField || !TryDevelopSettlement(s)) && s.Wood >= 10)
                 {
-                    BuildingType type = s.Population >= 3 && CountBuildings(s.Id, BuildingType.Sawmill) == 0 ? BuildingType.Sawmill
+                    BuildingType type = needsField ? BuildingType.Farm
+                        : s.Population >= 3 && CountBuildings(s.Id, BuildingType.Sawmill) == 0 ? BuildingType.Sawmill
                         : s.Population >= 3 && CountBuildings(s.Id, BuildingType.House) == 0 ? BuildingType.House
                         : s.Population >= 4 && CountBuildings(s.Id, BuildingType.Stoneworks) == 0 && World.GetSettlementStock(s.Id, ItemType.RawStone) >= 2 ? BuildingType.Stoneworks
                         : s.Population >= 4 && CountBuildings(s.Id, BuildingType.Kiln) == 0 && World.GetSettlementStock(s.Id, ItemType.Clay) >= 2 ? BuildingType.Kiln
                         : s.Housing < s.Population + 4 ? BuildingType.House : CountBuildings(s.Id, BuildingType.Farm) * 5 < s.Population ? BuildingType.Farm : s.Buildings < 18 ? BuildingType.House : BuildingType.Tower;
                     int site = FindBuildingSite(s);
-                    if (site >= 0 && s.Buildings < 24) { s.Wood -= 10; s.BuildTimer = 0; AddBuilding(s, site % World.Width, site / World.Width, type); ClaimTerritory(s, Math.Min(14, 5 + s.Buildings)); }
+                    if (site >= 0 && CountCivilBuildings(s.Id) < 24) { s.Wood -= 10; s.BuildTimer = 0; AddBuilding(s, site % World.Width, site / World.Width, type); ClaimTerritory(s, Math.Min(14, 5 + s.Buildings)); }
                 }
                 if (World.Laws.Births && s.BirthTimer >= 10 && s.Population < s.Housing && s.Food >= 8 && World.Units.Count < 10000)
                 {
@@ -458,6 +491,7 @@ namespace WorldGenesis.Simulation
             SettlementData s = new SettlementData { Id = World.NextId++, Species = species, X = x, Y = y, Food = 28, Wood = 0, Stone = 0, ColorIndex = World.Settlements.Count % 8, Name = TownRoots[RandomRange(0, TownRoots.Length)] + " " + (World.Settlements.Count + 1) };
             InitializeGovernment(s);
             World.Settlements.Add(s);
+            InitializeDevelopmentSettlement(s); InitializeSocialSettlement(s);
             // The player's creation power supplies the founding hall and one farm explicitly.
             if (World.Cells[World.Index(x, y)].BuildingId == 0) AddBuilding(s, x, y, BuildingType.Hall);
             int site = FindBuildingSite(s);
@@ -469,10 +503,12 @@ namespace WorldGenesis.Simulation
 
         private void AddUnit(SpeciesType species, int x, int y, int settlementId, bool child)
         {
-            float health = species == SpeciesType.Dwarf ? 130 : species == SpeciesType.Orc ? 120 : species == SpeciesType.Sheep ? 35 : species == SpeciesType.Wolf ? 65 : 100;
+            float health = WildlifeCatalog.IsAnimal(species) ? WildlifeCatalog.MaxHealth(species) : species == SpeciesType.Dwarf ? 130 : species == SpeciesType.Orc ? 120 : 100;
             UnitData unit = new UnitData { Id = World.NextId++, Species = species, X = x + .5f, Y = y + .5f, SettlementId = settlementId, Health = health, MaxHealth = health, Age = child ? 0 : IsCivilized(species) ? 18 + RandomValue() * 20 : 2 + RandomValue() * 5, Hunger = .05f, Name = GivenNames[RandomRange(0, GivenNames.Length)], DecisionTimer = RandomValue() * 2f, TaskStartedTick = World.Tick };
             unit.Profession = !child && IsCivilized(species) ? ProfessionFor(unit.Id) : UnitProfession.None;
             InitializeDemography(unit);
+            InitializeSocialUnit(unit);
+            if (WildlifeCatalog.IsAnimal(species)) { unit.PackId = unit.PackLeaderId = unit.Id; unit.Name = WildlifeCatalog.Name(species); }
             unit.Fatigue = StableRandom.Coordinate(World.Seed, unit.Id, 0, 3001) * .4f;
             unit.SocialNeed = IsCivilized(species) ? StableRandom.Coordinate(World.Seed, unit.Id, 0, 3002) * .4f : 0;
             World.Units.Add(unit);
@@ -481,13 +517,15 @@ namespace WorldGenesis.Simulation
         private void AddBuilding(SettlementData s, int x, int y, BuildingType type)
         {
             BuildingData b = new BuildingData { Id = World.NextId++, SettlementId = s.Id, X = x, Y = y, Type = type };
+            InitializeDevelopmentBuilding(b);
+            InitializeAgricultureBuilding(b);
             World.Buildings.Add(b);
             World.Cells[World.Index(x, y)].BuildingId = b.Id;
             World.Cells[World.Index(x, y)].SettlementId = s.Id;
             World.Cells[World.Index(x, y)].Vegetation = 0;
             ClearNodeForBuilding(World.Index(x, y));
-            s.Buildings++; s.Housing += type == BuildingType.Hall ? 8 : type == BuildingType.House ? 5 : 0;
-            AddEvent(EventKind.Built, x + .5f, y + .5f, s.Name + ": " + (type == BuildingType.House ? "построен дом" : type == BuildingType.Farm ? "разбито поле" : type == BuildingType.Tower ? "построена башня" : type == BuildingType.Sawmill ? "построена лесопилка" : type == BuildingType.Stoneworks ? "построена каменоломня" : type == BuildingType.Kiln ? "построена кирпичная печь" : "разведён костёр"));
+            s.Buildings++; s.Housing += HousingCapacity(b);
+            AddEvent(EventKind.Built, x + .5f, y + .5f, s.Name + ": " + (type == BuildingType.House ? "построен дом" : type == BuildingType.Farm ? "разбито поле" : type == BuildingType.Tower ? "построена башня" : type == BuildingType.Sawmill ? "построена лесопилка" : type == BuildingType.Stoneworks ? "построена каменоломня" : type == BuildingType.Kiln ? "построена кирпичная печь" : type == BuildingType.Well ? "вырыт колодец" : type == BuildingType.Warehouse ? "построен склад" : type == BuildingType.Shop ? "открыта лавка" : type == BuildingType.WoodWall ? "поставлена деревянная стена" : type == BuildingType.Gate ? "поставлены ворота" : type == BuildingType.School ? "построена школа" : "разведён костёр"));
             World.TerrainRevision++;
         }
 
@@ -538,20 +576,23 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < World.Buildings.Count; i++)
             {
                 BuildingData b = World.Buildings[i]; SettlementData s = World.GetSettlement(b.SettlementId);
-                if (s != null) { s.Buildings++; s.Housing += b.Type == BuildingType.Hall ? 8 : b.Type == BuildingType.House ? 5 : 0; }
+                if (s != null) { s.Buildings++; s.Housing += HousingCapacity(b); }
             }
         }
 
         private void DestroyInvalidBuildings()
         {
+            bool removed = false;
             for (int i = World.Buildings.Count - 1; i >= 0; i--)
             {
                 BuildingData b = World.Buildings[i];
-                if (b.Health > 0 && World.IsWalkable(b.X, b.Y)) continue;
+                if (b.Health > 0 && World.IsTerrainWalkable(b.X, b.Y)) continue;
                 DestroyResourceStorage(b);
+                LoseAgriculturalStorage(b);
                 World.Cells[World.Index(b.X, b.Y)].BuildingId = 0;
-                World.Buildings.RemoveAt(i); World.TerrainRevision++;
+                World.Buildings.RemoveAt(i); World.TerrainRevision++; removed = true;
             }
+            if (removed) { AssignHomesAndOwners(); CleanupDomesticLinks(); World.NavigationRevision++; }
         }
 
         private void RemoveDead()
@@ -561,13 +602,16 @@ namespace WorldGenesis.Simulation
             {
                 UnitData unit = World.Units[i];
                 if (unit.Health > 0) continue;
-                LoseCargo(unit);
+                ReleaseCaravanOnDeath(unit); LoseCargo(unit);
+                DropAgriculturalCargo(unit); DropAnimalLoot(unit);
                 if (removedIds == null) removedIds = new HashSet<int>();
                 removedIds.Add(unit.Id);
                 AddEvent(EventKind.Death, unit.X, unit.Y, unit.Name + " погибает");
                 World.Units.RemoveAt(i);
             }
             if (removedIds == null) return;
+            AssignHomesAndOwners(); CleanupSocialDisputes(); CleanupDomesticLinks(); NormalizeWildlifePacks();
+            for (int n = 0; n < World.Units.Count; n++) EnforceEquipment(World.Units[n]);
             for (int i = 0; i < World.Units.Count; i++)
             {
                 UnitData survivor = World.Units[i];
@@ -614,9 +658,9 @@ namespace WorldGenesis.Simulation
             {
                 UnitData other = World.Units[n];
                 if (other.Id == unit.Id || other.Health <= 0) continue;
-                bool predator = unit.Species == SpeciesType.Wolf && other.Species == SpeciesType.Sheep;
-                bool defense = IsCivilized(unit.Species) && other.Species == SpeciesType.Wolf;
-                bool war = IsCivilized(unit.Species) && IsCivilized(other.Species) && AtWar(unit.SettlementId, other.SettlementId);
+                bool predator = PredatorWants(unit, other);
+                bool defense = IsCivilized(unit.Species) && WildlifeCatalog.IsPredator(other.Species) && (other.Species == SpeciesType.Wolf || other.TargetId == unit.Id || PredatorWants(other, unit));
+                bool war = IsCivilized(unit.Species) && IsCivilized(other.Species) && other.Age >= 16 && AtWar(unit.SettlementId, other.SettlementId);
                 if (!predator && !defense && !war) continue;
                 float distance = DistanceSquared(unit.X, unit.Y, other.X, other.Y);
                 if (distance < closest) { closest = distance; best = other; }
@@ -635,12 +679,33 @@ namespace WorldGenesis.Simulation
 
         private BuildingData FindFarm(int settlementId, int unitId)
         {
-            int count = CountBuildings(settlementId, BuildingType.Farm);
-            if (count == 0) return null;
-            int target = unitId % count;
+            UnitData worker = World.GetUnit(unitId);
+            if (worker == null || CarrySpace(worker) <= .001f) return null;
+            BuildingData selected = null; float best = float.MaxValue;
             for (int i = 0; i < World.Buildings.Count; i++)
-                if (World.Buildings[i].SettlementId == settlementId && World.Buildings[i].Type == BuildingType.Farm && target-- == 0) return World.Buildings[i];
-            return null;
+            {
+                BuildingData farm = World.Buildings[i];
+                if (farm.SettlementId != settlementId || farm.Type != BuildingType.Farm || farm.HarvestReady <= .001f || !UsableBuilding(farm, settlementId)) continue;
+                AgriculturalProduct product = CropProduct(farm.FarmCrop);
+                float stock = World.GetAgriculturalStock(settlementId, product);
+                SettlementData home = World.GetSettlement(settlementId);
+                if ((product == AgriculturalProduct.Herbs && stock >= 12)
+                    || (product == AgriculturalProduct.Fiber && stock >= (home?.Population ?? 0) * 3 + 12)
+                    || (product == AgriculturalProduct.Hay && stock >= (CountBuildings(settlementId, BuildingType.Pasture) == 0 ? 20 : 60))) continue;
+                // Each already assigned worker reserves only what they can actually carry from this harvest.
+                float committed = 0;
+                int cell = World.Index(farm.X, farm.Y);
+                for (int u = 0; u < World.Units.Count; u++)
+                {
+                    UnitData other = World.Units[u];
+                    if (other.Id != unitId && other.Health > 0 && other.Task == UnitTask.Farm && other.TargetCell == cell)
+                        committed += CarrySpace(other);
+                }
+                if (committed >= farm.HarvestReady) continue;
+                float distance = DistanceSquared(worker.X, worker.Y, farm.X + .5f, farm.Y + .5f);
+                if (distance < best) { best = distance; selected = farm; }
+            }
+            return selected;
         }
 
         private int CountBuildings(int settlementId, BuildingType type)
@@ -665,7 +730,15 @@ namespace WorldGenesis.Simulation
         private bool SetTarget(UnitData unit, int x, int y)
         {
             if (!World.IsWalkable(x, y)) return false;
-            if (!navigation.Find(World.Index((int)unit.X, (int)unit.Y), World.Index(x, y), scratchPath, 4096, true)) return false;
+            int start = World.Index((int)unit.X, (int)unit.Y), goal = World.Index(x, y);
+            if (!navigation.Find(start, goal, scratchPath, 4096, true))
+            {
+                // A long return from an old save or an interrupted expedition is not an unreachable home.
+                // Expand only for an owned destination, using the same reusable BFS arrays and real route.
+                BuildingData destination = World.GetBuilding(World.Cells[goal].BuildingId);
+                if (World.Cells.Length <= 4096 || destination == null || unit.SettlementId == 0 || destination.SettlementId != unit.SettlementId
+                    || !navigation.Find(start, goal, scratchPath, World.Cells.Length, true)) return false;
+            }
             if (unit.TargetCell != World.Index(x, y)) ReleaseReservation(unit);
             unit.Path.Clear(); unit.Path.AddRange(scratchPath); unit.PathCursor = 0; unit.PathRevision = World.NavigationRevision; unit.TargetCell = World.Index(x, y);
             return true;
@@ -694,7 +767,7 @@ namespace WorldGenesis.Simulation
             return false; // A different species or a resource deficit is not an implicit declaration of war.
         }
         private int RandomRange(int minimum, int maximum) { return StableRandom.Range(ref World.RngState, minimum, maximum); }
-        private static bool IsCivilized(SpeciesType species) { return (int)species <= (int)SpeciesType.Orc; }
+        public static bool IsCivilized(SpeciesType species) { return species >= SpeciesType.Human && species <= SpeciesType.Orc; }
         private static float DistanceSquared(float x, float y, float tx, float ty) { float dx = x - tx, dy = y - ty; return dx * dx + dy * dy; }
         private static string PowerName(PowerType power)
         {

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-12T11:44:46.4934910Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "demography / child laws gate farming heavy cargo and private trade",
+      "passed": true,
+      "milliseconds": 30.7952
+    }
+  ],
+  "metrics": []
+}

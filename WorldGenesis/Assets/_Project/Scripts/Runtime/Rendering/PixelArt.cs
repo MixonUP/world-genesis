@@ -118,6 +118,7 @@ namespace WorldGenesis.Runtime
             rect(28, 3, 6, 26, 20, Hex("6d827a")); rect(28, 4, 8, 11, 20, Hex("e4d4aa")); rect(28, 17, 8, 11, 20, Hex("cbbd96"));
             for (int y = 12; y < 26; y += 4) { rect(28, 6, y, 7, 1, Hex("9f986f")); rect(28, 19, y, 7, 1, Hex("a29873")); }
             ResourceArt.PaintAtlas(pixels, AtlasWidth);
+            SocietyArt.PaintAtlas(pixels, AtlasWidth);
             atlas.SetPixels32(pixels); atlas.Apply(false, true); return atlas;
         }
 

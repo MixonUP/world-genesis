@@ -30,8 +30,9 @@ var timeline = new List<object>();
 var firstSawmill = new Dictionary<int,long>();
 var exchanges = new Dictionary<string,int>();
 int singleLoadChecks = 0;
+int ticksRequested = args.Length > 1 ? int.Parse(args[1]) : 4500;
 Stopwatch timer = Stopwatch.StartNew();
-for (int tick = 1; tick <= 4500; tick++)
+for (int tick = 1; tick <= ticksRequested; tick++)
 {
     engine.Step(.1f);
     foreach (TradeRecord trade in world.Trades)
@@ -42,7 +43,7 @@ for (int tick = 1; tick <= 4500; tick++)
         }
     foreach (UnitData u in world.Units)
     {
-        if (u.CargoAmount + u.CarriedFood + u.CarriedWood > 1.0001f) throw new Exception("Overloaded unit " + u.Id + " at " + world.Tick);
+        if (SimulationEngine.CarriedLoad(u) > SimulationEngine.CarryCapacityFor(u) + .0001f) throw new Exception("Overloaded unit " + u.Id + " at " + world.Tick);
         singleLoadChecks++;
     }
     foreach (BuildingData b in world.Buildings)
@@ -53,6 +54,8 @@ for (int tick = 1; tick <= 4500; tick++)
         buildings = world.Buildings.Where(b=>b.SettlementId==s.Id).GroupBy(b=>b.Type).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),
         demographics = new { men = world.Units.Count(u=>u.SettlementId==s.Id && u.Age>=16 && u.Sex==Sex.Male), women=world.Units.Count(u=>u.SettlementId==s.Id && u.Age>=16 && u.Sex==Sex.Female), children=world.Units.Count(u=>u.SettlementId==s.Id && u.Age<16) },
         policy = new { exchange=s.EconomyPolicy.ToString(), childLabor=s.ChildLabor.ToString(), resources=s.ResourceFocus.ToString(), s.TaxRate, s.LastDecreeReason },
+        society = new { s.AverageMood, s.AverageTrust, s.CrisisSeconds, s.RevoltCount, s.MajorityFaithId, s.LastParliament, meanEducation=world.Units.Where(u=>u.SettlementId==s.Id).Select(u=>u.Education).DefaultIfEmpty().Average(), masters=world.Units.Count(u=>u.SettlementId==s.Id && u.IsMaster) },
+        research = new { s.ActiveTechnology, s.ResearchProgress, s.ResearchRate, s.UnlockedTechnologies },
         stocks = Enum.GetValues<ItemType>().Where(i=>i!=ItemType.None).ToDictionary(i=>i.ToString(),i=>world.GetSettlementStock(s.Id,i)),
         naturalTax = Enum.GetValues<ItemType>().Where(i=>i!=ItemType.None).ToDictionary(i=>i.ToString(),i=>world.GetTreasuryStock(s.Id,i)),
         deficits = Enum.GetValues<ItemType>().Where(i=>i!=ItemType.None).ToDictionary(i=>i.ToString(),i=>world.GetResourceBalance(s.Id,i).Deficit)
@@ -60,6 +63,7 @@ for (int tick = 1; tick <= 4500; tick++)
     Console.WriteLine("tick="+tick+" population="+world.Units.Count+" buildings="+world.Buildings.Count);
 }
 var receipt = new { utc = DateTime.UtcNow, scope = "Offline production C# core, original authored 128x128 opening; no Unity performance or visual claim", seed = world.Seed,
-    ticks = world.Tick, validations = 45, singleLoadChecks, exchanges, passed = true, wallSeconds = timer.Elapsed.TotalSeconds, firstSawmill, originalRegions, timeline };
+    ticks = world.Tick, validations = ticksRequested/100, singleLoadChecks, exchanges, passed = true, wallSeconds = timer.Elapsed.TotalSeconds, firstSawmill, originalRegions, timeline };
 File.WriteAllText(args[0], JsonSerializer.Serialize(receipt, new JsonSerializerOptions { IncludeFields = true, WriteIndented = true }));
+if (args.Length > 2) File.WriteAllText(args[2], JsonSerializer.Serialize(world, new JsonSerializerOptions { IncludeFields = true, IgnoreReadOnlyProperties = true }));
 Console.WriteLine("Natural opening audit completed: "+args[0]);

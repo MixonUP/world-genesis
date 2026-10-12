@@ -41,8 +41,7 @@ namespace WorldGenesis.Simulation
         {
             SettlementData home = GetSettlement(settlementId);
             if (home == null || item == ItemType.None || (int)item >= ResourceCatalog.ItemCount || (int)item < 0) return 0;
-            if (item == ItemType.Plank) return home.Wood;
-            float amount = 0;
+            float amount = item == ItemType.Plank ? home.Wood : 0;
             for (int i = 0; i < Buildings.Count; i++)
                 if (Buildings[i].SettlementId == settlementId && Buildings[i].Inventory != null && Buildings[i].Health > 0) amount += Buildings[i].Inventory[(int)item];
             return amount;
@@ -73,13 +72,13 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                if ((int)u.CargoKind < 0 || (int)u.CargoKind >= ResourceCatalog.ItemCount || (int)u.PickupKind < 0 || (int)u.PickupKind >= ResourceCatalog.ItemCount || !Stock(u.CargoAmount) || u.CargoAmount > (ResourceVersion < 2 ? 3 : ResourceCatalog.CarryCapacity) + .0001f || (ResourceVersion >= 2 && SimulationEngine.CarriedLoad(u) > ResourceCatalog.CarryCapacity + .0001f) || (u.CargoAmount > 0 && (u.CargoKind == ItemType.None || u.CargoKind == ItemType.Plank)) || (u.CargoAmount == 0 && u.CargoKind != ItemType.None) || u.ResourceCell < -1 || u.ResourceCell >= Cells.Length || u.SourceBuildingId < 0 || u.TargetBuildingId < 0 || (u.SourceBuildingId != 0 && GetBuilding(u.SourceBuildingId) == null) || (u.TargetBuildingId != 0 && GetBuilding(u.TargetBuildingId) == null))
+                if ((int)u.CargoKind < 0 || (int)u.CargoKind >= ResourceCatalog.ItemCount || (int)u.PickupKind < 0 || (int)u.PickupKind >= ResourceCatalog.ItemCount || !Stock(u.CargoAmount) || u.CargoAmount > (ResourceVersion < 2 ? 3 : AgricultureVersion == 0 ? ResourceCatalog.CarryCapacity : SimulationEngine.CarryCapacityFor(u)) + .0001f || (ResourceVersion >= 2 && SimulationEngine.CarriedLoad(u) > (AgricultureVersion == 0 ? ResourceCatalog.CarryCapacity : SimulationEngine.CarryCapacityFor(u)) + .0001f) || (u.CargoAmount > 0 && (u.CargoKind == ItemType.None || (u.CargoKind == ItemType.Plank && AgricultureVersion == 0))) || (u.CargoAmount == 0 && u.CargoKind != ItemType.None) || u.ResourceCell < -1 || u.ResourceCell >= Cells.Length || u.SourceBuildingId < 0 || u.TargetBuildingId < 0 || (u.SourceBuildingId != 0 && GetBuilding(u.SourceBuildingId) == null) || (u.TargetBuildingId != 0 && GetBuilding(u.TargetBuildingId) == null))
                 { error = "Invalid resource cargo or job."; return false; }
             }
             for (int i = 0; i < Buildings.Count; i++)
             {
                 BuildingData b = Buildings[i];
-                if (b.Inventory == null || b.Inventory.Length != ResourceCatalog.ItemCount || b.Inventory[0] != 0 || b.Inventory[(int)ItemType.Plank] != 0 || b.WorkerId < 0 || (int)b.ActiveRecipe < 0 || (int)b.ActiveRecipe > 5 || !Stock(b.ProcessProgress) || (b.ActiveRecipe == RecipeType.None && b.ProcessProgress != 0) || (b.ActiveRecipe != RecipeType.None && (!ResourceCatalog.CanProcess(b.Type, b.ActiveRecipe) || b.ProcessProgress > ResourceCatalog.ProcessingSeconds(b.Type, b.ActiveRecipe) + .001f)))
+                if (b.Inventory == null || b.Inventory.Length != ResourceCatalog.ItemCount || b.Inventory[0] != 0 || (b.Inventory[(int)ItemType.Plank] != 0 && AgricultureVersion == 0) || b.WorkerId < 0 || (int)b.ActiveRecipe < 0 || (int)b.ActiveRecipe > 5 || !Stock(b.ProcessProgress) || (b.ActiveRecipe == RecipeType.None && b.ProcessProgress != 0) || (b.ActiveRecipe != RecipeType.None && (!ResourceCatalog.CanProcess(b.Type, b.ActiveRecipe) || b.ProcessProgress > ResourceCatalog.ProcessingSeconds(b.Type, b.ActiveRecipe) + .001f)))
                 { error = "Invalid workshop state."; return false; }
                 float stored = 0;
                 for (int j = 0; j < b.Inventory.Length; j++) { if (!Stock(b.Inventory[j])) { error = "Invalid stored resource."; return false; } stored += b.Inventory[j]; }

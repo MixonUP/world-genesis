@@ -1,0 +1,6 @@
+crop_id,name_ru,recipe_id,role_id,building_id,inputs,outputs,active_work_seconds,growth_seconds,max_harvests,required_technology_id,cycle,status,repeat_inputs
+wheat,Пшеница,plant_wheat,farmer,wheat_farm,wheat_seed=1;water=1,grain=8;wheat_seed=2;straw=4,16,120,0,,annual,prepared,
+flax,Лён,plant_flax,farmer,flax_farm,flax_seed=1;water=1,flax_stalk=6;flax_seed=2,18,160,0,t01_flax,annual,prepared,
+berry_orchard,Ягодный сад,,farmer,wheat_farm,berries=2;water=1,berries=6,14,180,4,f03_crop_rotation,perennial,prepared,water=1
+herb_garden,Травяной огород,,farmer,wheat_farm,herbs=1;water=1,herbs=3,10,100,0,c01_herbalism,annual,prepared,
+hay_meadow,Сенокос,cut_hay,farmer,wheat_farm,,hay=3,8,180,0,,regrowing_node,prepared,

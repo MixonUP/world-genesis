@@ -1,5 +1,7 @@
 # Команды проекта
 
+Актуальная сборка: **0.4.0**, `Builds/Windows-0.4.0/WorldGenesis.exe`. Финальный проверенный snapshot — `rural-release-v040-r2`. Исторические команды0.2/0.3 ниже сохранены; для текущего Player передавайте путь0.4 явно: capture/package-скрипты всё ещё имеют старые значения по умолчанию0.2.
+
 В PowerShell из корня репозитория:
 
 ```powershell
@@ -25,11 +27,11 @@ Import запускает выбранный Unity в batchmode, сохраня�
 
 Логи команд — `Evidence/<время>-<действие>/`. Нельзя судить о корректности игры по exit 0 при импорте. Версии пакетов закреплены, Unity создал packages-lock.json. Сырые логи остаются локально. Автоматического обновления редактора, покупок и удаления Library скрипт не выполняет.
 
-Build вызывает Editor.ProjectSetup.BuildWindows, использует Main.unity и StandaloneWindows64, пишет Evidence/build-report.json. Результат — Builds/Windows/WorldGenesis.exe вместе с соседними файлами; запуск проверяется отдельно.
+Build вызывает Editor.ProjectSetup.BuildWindows, использует Main.unity и StandaloneWindows64, пишет Evidence/build-report.json. Результат текущей версии — Builds/Windows-0.4.0/WorldGenesis.exe вместе с соседними файлами; запуск проверяется отдельно.
 
 `dotnet run --project Tools/SimulationProbe/SimulationProbe.csproj -c Release -- Evidence/Simulation/simulation-probe.json` проверяет настоящий Simulation под .NET 8. Это дополнительная независимая проверка, не замена Unity. NuGet.Config не содержит внешних источников; сторонних .NET-пакетов нет.
 
-`Tools/Run-Capture.ps1 -Name overview -Seconds 8` открывает настоящий Player для native capture и записывает хеши исходников. Скрытый Windows Player может дать чёрный кадр, поэтому проверка намеренно видимая. `-FocusSettlement -Zoom 18` меняет только камеру; `-Power Meteor` применяет настоящую игровую команду с отдельной квитанцией автоматического сценария. Пример профиля: `-Name load-1000 -Seconds 40 -ProfileSeconds 30 -StressPopulation 1000`. Измеряется реальный Player, но не все конфигурации A11.
+`Tools/Run-Capture.ps1 -PlayerRelativePath Builds/Windows-0.4.0/WorldGenesis.exe -Name overview -Seconds 8` открывает настоящий Player для native capture и записывает хеши исходников. Скрытый Windows Player может дать чёрный кадр, поэтому проверка намеренно видимая. `-FocusSettlement -Zoom 18` меняет только камеру; `-Power Meteor` применяет настоящую игровую команду с отдельной квитанцией автоматического сценария. Пример профиля: `-Name load-1000 -Seconds 40 -ProfileSeconds 30 -StressPopulation 1000`. Измеряется реальный Player, но не все конфигурации A11.
 
 `Sync-ProjectKnowledge.ps1` — исполненная одноразовая идемпотентная синхронизация записи подготовки от 12.10.2026. Дополняет только карточку World_Genesis, дневник этой даты и индекс установленного vault. Это не фоновая синхронизация и не команда записи всех будущих этапов. Квитанция readback — `Evidence/obsidian-sync.json`; повтор не дублирует запись.
 
@@ -69,3 +71,48 @@ Build вызывает Editor.ProjectSetup.BuildWindows, использует Ma
 `Tools/Run-Capture.ps1 -PlayerRelativePath Builds/Windows-0.3.0/WorldGenesis.exe -Name woman -Seconds 6 -Demographic Woman` выбирает живую взрослую женщину в обычном мире. `-Demographic Child -Speed 10 -Seconds 35` ищет ребёнка после реальных рождений. Man/Woman/Child — фильтры наблюдателя; он не создаёт жителя и завершается ошибкой, если подходящего нет. Скорость, возраст и пол фиксируются в PNG JSON. При ускорении не называть кадр обычной1×симуляцией.
 
 ResourceAudit теперь также проверяет общий лимит ноши каждую итерацию, считает настоящие Contribution/Gift/Barter, пол/возраст и натуральный налог в4500-тиковом обычном старте. Это offline-проверка ядра, не замер FPS Unity.
+
+## Социальная и аграрная итерация 0.4.0
+
+Финальные отчёты прочитаны: [EditMode119/119](../Evidence/20261012-150819-401-editmode/tests.xml), [PlayMode10/10](../Evidence/20261012-151113-824-playmode/tests.xml), [Windows Build](../Evidence/build-report.json) — Succeeded,0errors/0warnings. EditMode включает16кара­ванных и14аграрных сценариев. Более ранний .NET-отчёт `agriculture-v040-release.json` содержит13/13;14-й `FedWorkerCanMakeFirstBasketDespiteTownFoodShortage` подтверждён финальным Unity XML. Эти числа не означают полный баланс всех миров или художественное принятие.
+
+### Дополнительные проверки ядра
+
+Все перечисленные проекты используют .NET8, настоящий Simulation и не требуют внешних NuGet-пакетов. Social/Wildlife/Agriculture/Caravan импортируют общие сценарии из EditMode; автономный runner использует System.Text.Json, Unity — JsonUtility.
+
+| Проект в Tools | Область |
+|---|---|
+| SocialProbe | Потребности, религии, голосование, кризис, обучение, миграция/сохранение |
+| WildlifeProbe | Животные, группы, охота, добыча и воспроизводимость |
+| AgricultureProbe | Поля, животноводство, физические поставки, корзины/телеги/упряжь, пивоварение |
+| CaravanProbe | Материальный обмен, налог, физический найм, отмена/война/смерть, сохранение |
+
+Пример первого запуска; имя проекта и отчёта заменяются для нужной группы:
+
+```powershell
+dotnet restore Tools/CaravanProbe/CaravanProbe.csproj --configfile Tools/CaravanProbe/NuGet.Config
+dotnet run --project Tools/CaravanProbe/CaravanProbe.csproj --no-restore -- Evidence/Simulation/caravan-new-run.json
+dotnet restore Tools/AgricultureProbe/AgricultureProbe.csproj --configfile Tools/CaravanProbe/NuGet.Config
+dotnet run --project Tools/AgricultureProbe/AgricultureProbe.csproj --no-restore -- Evidence/Simulation/agriculture-new-run.json
+```
+
+Один явный NuGet.Config с пустыми sources подходит всем этим проектам. Сохраняйте прошлые отчёты, выбирая новые имена. Подготовленные сценарии не доказывают естественный рост поселений и не измеряют FPS.
+
+### Подготовленный мир для визуальной проверки
+
+`RuralShowcase` создаёт **assisted fixture**, а не обычный старт: авторские участки карты/здания, выданные исследования и материалы, стартовые животные. Телега проходит настоящую производственную операцию с явно приложенными8секундами работы; караван загружается и движется настоящими тиками. Исходное состояние — `Builds/rural-assisted-showcase.json`; происхождение — `Evidence/Simulation/rural-assisted-showcase.json`. Программа использует фиксированные имена и при повторе заменяет эти два файла: нужный предыдущий вариант сохраните под отдельным именем.
+
+`Wrap-CaptureWorld.py` добавляет только существующий save-конверт Schema1/FormatWorldGenesis к сырому состоянию, не меняя содержимое World. Принимает два относительных аргумента: источник внутри проекта, результат внутри Builds. Пишет SHA256-квитанцию в Evidence/Development. Это не обход проверки: настоящий Player всё ещё обязан загрузить мир через SaveStore и Validate.
+
+```powershell
+New-Item -ItemType Directory -Force Builds, Evidence/Simulation, Evidence/Development | Out-Null
+dotnet restore Tools/RuralShowcase/RuralShowcase.csproj --configfile Tools/CaravanProbe/NuGet.Config
+dotnet run --project Tools/RuralShowcase/RuralShowcase.csproj --no-restore
+python Tools/Wrap-CaptureWorld.py Builds/rural-assisted-showcase.json Builds/rural-assisted-showcase.world.json
+.\Tools\Run-Capture.ps1 -PlayerRelativePath Builds/Windows-0.4.0/WorldGenesis.exe -Name rural-assisted -WorldFile Builds/rural-assisted-showcase.world.json -InspectCaravan -FocusSettlement -Zoom 12 -Seconds 6
+.\Tools\Run-MotionCapture.ps1 -PlayerRelativePath Builds/Windows-0.4.0/WorldGenesis.exe -Name caravan-assisted -WorldFile Builds/rural-assisted-showcase.world.json -InspectCaravan -Delay 2 -Seconds 6
+```
+
+`-WorldFile` загружает существующий save внутри проекта; `-InspectCaravan` выбирает существующего участника для наблюдения и не выдаёт ему товар/оборудование. Источник fixture, автоматический выбор, камера и скорость должны быть обозначены рядом с кадром/клипом. Для естественного сохранения используйте другой WorldFile с его собственной квитанцией происхождения. Сам по себе assisted кадр не подтверждает самостоятельное развитие от костра.
+
+Текущая упаковка вызывается явно: `Tools/Package-Alpha.ps1 -Version 0.4.0-alpha -BuildFolder Windows-0.4.0`. Она включает руководство, SOCIETY_REPORT и происхождение арта; существующий архив той же версии сохраняется и повторно не перезаписывается. Запуск упаковки и Git-публикация — отдельные действия интегратора, не следствие этих инструкций.

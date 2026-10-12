@@ -51,7 +51,7 @@ sew_linen_clothes,Льняная одежда,tailor,tailor,2,1,0,linen_cloth=2,
 sew_warm_clothes,Утеплённая одежда,tailor,tailor,2,1,0,linen_cloth=2;leather=1,warm_clothes=1,28,0,,0,
 sew_boots,Сапоги,tailor,tailor,2,1,0,leather=2;leather_scrap=1,boots=1,24,0,,0,
 make_furniture,Мебель,carpenter,carpentry,2,1,1,plank=4;rope=1,furniture=1,30,0,,0,
-make_cart,Ручная тележка,carpenter,carpentry,2,1,1,plank=8;rope=2,cart=1,48,0,,0,
+make_cart,Торговая телега,carpenter,sawmill,2,1,1,plank=12;flax_fiber=4;hide=2,cart=1,8,0,,0,unique_cart_instance
 bake_brick,Обжиг кирпича,potter,brickworks,3,1,1,clay=2;firewood=1,brick=2,8,0,,0,
 herbal_care,Уход за больным,healer,healer_hut,1,1,0,herbs=2;water=1,,18,0,,0,care_10hp
 camp_saw_planks,Ручной распил у очага,carpenter,hearth,1,1,1,wood_log=1,plank=1,10,0,,0,
@@ -85,3 +85,5 @@ craft_jewelry,Ювелирная работа,blacksmith,smithy,4,1,1,gold_ingot
 make_paper,Ручное изготовление бумаги,scholar,university,2,1,0,flax_fiber=2;water=2;firewood=1,paper=6,24,30,,0,
 make_ink,Приготовление чернил,scholar,university,2,1,0,charcoal=1;water=1;herbs=1,ink=4,16,0,,0,
 bind_book,Переплёт книги,scholar,university,3,1,0,paper=8;ink=2;linen_cloth=1,book=1,40,0,,0,
+cut_hay,Заготовка сена,farmer,wheat_farm,1,1,0,,hay=3,8,0,meadow_grass,3,cut_grass
+brew_ale,Варка эля,cook,brewery,2,1,0,grain=2;firewood=1,ale=2,12,0,freshwater,1,brew_batch_once_actual_water

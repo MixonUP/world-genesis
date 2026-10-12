@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param([ValidatePattern('^[a-z0-9-]+$')][string]$Name='citizens', [int]$Seconds=6,
     [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
-    [int]$Delay=3, [switch]$InspectResourceWorker, [switch]$LogDelivery)
+    [int]$Delay=3, [switch]$InspectResourceWorker, [switch]$LogDelivery, [string]$WorldFile='', [switch]$InspectCaravan)
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $player=[IO.Path]::GetFullPath((Join-Path $root $PlayerRelativePath))
@@ -16,6 +16,12 @@ $arguments=@('-screen-width','1280','-screen-height','720','-screen-fullscreen',
 $arguments+=@('--motion-delay',"$Delay")
 if($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
 if($LogDelivery) { $arguments+='--observe-log-delivery' }
+if($InspectCaravan) { $arguments+='--inspect-caravan' }
+if($WorldFile) {
+    $captureWorld=[IO.Path]::GetFullPath((Join-Path $root $WorldFile))
+    if(-not $captureWorld.StartsWith($root+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase) -or -not(Test-Path -LiteralPath $captureWorld)) { throw 'Capture world must exist inside this project.' }
+    $arguments+=@('--load-capture-world',(Quote $captureWorld))
+}
 # Deliberately visible interactive Player: hidden Windows backbuffers can be black.
 $process=Start-Process -FilePath $player -ArgumentList $arguments -PassThru
 Write-Output "Native motion Player PID=$($process.Id)"

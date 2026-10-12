@@ -16,7 +16,7 @@ namespace WorldGenesis.Runtime
         private long lastEventId;
         private float fireClock;
         public int ActiveParticles => particles.Count;
-        public WorldEffects(Transform parent, Material material) { batch = new QuadBatch("World effects • event owned", parent, material, 6); }
+        public WorldEffects(Transform parent, Material material) { batch = new QuadBatch("World effects • event owned", parent, material, 70); }
         public void Reset(WorldState world)
         {
             particles.Clear(); bolts.Clear(); lastEventId = 0;

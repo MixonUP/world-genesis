@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-12T11:49:45.9268683Z",
+  "tests": 11,
+  "failures": 4,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "CartRequiresResearchRecipeTimeAndCarpenter",
+      "passed": false,
+      "error": "System.InvalidOperationException: inputs not prematurely consumed: expected 12, actual 11\r\n   at WorldGenesis.Tests.AgricultureScenarios.Need(Boolean condition, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 15\r\n   at WorldGenesis.Tests.AgricultureScenarios.Near(Single expected, Single actual, String label) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 16\r\n   at WorldGenesis.Tests.AgricultureScenarios.CartRequiresResearchRecipeTimeAndCarpenter() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 51\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 34.8458
+    },
+    {
+      "name": "CancelledCraftAndChildrenCannotCreateEquipment",
+      "passed": false,
+      "error": "System.InvalidOperationException: cancel consumes no planks: expected 2, actual 1\r\n   at WorldGenesis.Tests.AgricultureScenarios.Need(Boolean condition, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 15\r\n   at WorldGenesis.Tests.AgricultureScenarios.Near(Single expected, Single actual, String label) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 16\r\n   at WorldGenesis.Tests.AgricultureScenarios.CancelledCraftAndChildrenCannotCreateEquipment() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 62\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.8833
+    },
+    {
+      "name": "BasketGradesAndAnimalsUseDistinctCapacity",
+      "passed": false,
+      "error": "System.InvalidOperationException: basket grade: expected 15, actual 10\r\n   at WorldGenesis.Tests.AgricultureScenarios.Need(Boolean condition, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 15\r\n   at WorldGenesis.Tests.AgricultureScenarios.Near(Single expected, Single actual, String label) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 16\r\n   at WorldGenesis.Tests.AgricultureScenarios.BasketGradesAndAnimalsUseDistinctCapacity() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 70\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.9111
+    },
+    {
+      "name": "MountDeathDropsOverflowWithoutDuplicatingCargo",
+      "passed": true,
+      "milliseconds": 2.9203
+    },
+    {
+      "name": "RareTamingRequiresRealBaitAndOnSiteContact",
+      "passed": true,
+      "milliseconds": 0.3975
+    },
+    {
+      "name": "HarvestIsFiniteAndMustBeDelivered",
+      "passed": true,
+      "milliseconds": 0.8839
+    },
+    {
+      "name": "BrewingConsumesGrainFuelAndFiniteWater",
+      "passed": false,
+      "error": "System.InvalidOperationException: two ale: expected 2, actual 0\r\n   at WorldGenesis.Tests.AgricultureScenarios.Need(Boolean condition, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 15\r\n   at WorldGenesis.Tests.AgricultureScenarios.Near(Single expected, Single actual, String label) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 16\r\n   at WorldGenesis.Tests.AgricultureScenarios.BrewingConsumesGrainFuelAndFiniteWater() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs:line 98\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.4961
+    },
+    {
+      "name": "PastureBreedingRequiresPairFeedAndBirthLaw",
+      "passed": true,
+      "milliseconds": 1.0984
+    },
+    {
+      "name": "AgricultureSaveContinuesIdenticallyAndRejectsBrokenMount",
+      "passed": true,
+      "milliseconds": 181.5822
+    },
+    {
+      "name": "AlcoholIsFiniteAdultLeisureWithWorkPenalty",
+      "passed": true,
+      "milliseconds": 1.2036
+    },
+    {
+      "name": "DestroyedPastureReleasesAnimalsAndPreservesTransportLoad",
+      "passed": true,
+      "milliseconds": 0.6955
+    }
+  ]
+}

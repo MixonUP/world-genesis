@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-12T12:03:58.7328947Z",
+  "tests": 8,
+  "failures": 0,
+  "results": [
+    {
+      "name": "SpeciesIdsStatsAndExplicitPacksStayValid",
+      "passed": true,
+      "milliseconds": 13.2026
+    },
+    {
+      "name": "WildlifeMigrationAndCorruptPackValidation",
+      "passed": true,
+      "milliseconds": 140.2718
+    },
+    {
+      "name": "NaturalForestSpawnIsBoundedAndSaveDeterministic",
+      "passed": true,
+      "milliseconds": 275.157
+    },
+    {
+      "name": "BirthNeedsActualHealthyPairAndBirthLaw",
+      "passed": true,
+      "milliseconds": 5.0261
+    },
+    {
+      "name": "PredatorKillFeedsAndLeavesPhysicalLoot",
+      "passed": true,
+      "milliseconds": 4.2714
+    },
+    {
+      "name": "HunterRequiresCraftedToolAndNeverHuntsAsChild",
+      "passed": true,
+      "milliseconds": 10.5202
+    },
+    {
+      "name": "RareDeathDropsOnceAndPackElectsLivingLeader",
+      "passed": true,
+      "milliseconds": 6.0784
+    },
+    {
+      "name": "MountSpeedRequiresNearbyAnimalAndFollowingNeverTeleports",
+      "passed": true,
+      "milliseconds": 31.8299
+    }
+  ]
+}

@@ -37,6 +37,8 @@ namespace WorldGenesis.Runtime
         private float toastUntil, nextRefresh;
         private string toast = "";
         private int selectedCategory;
+        private int creaturePage;
+        private Button creaturePageButton;
         private Text presetLabel;
         private ScrollRect inspectorScroll;
         private int previousInspectedUnit = -1, previousInspectedCell = -2;
@@ -96,11 +98,13 @@ namespace WorldGenesis.Runtime
             for (int i = 0; i < categories.Length; i++) { int category = i; categoryButtons.Add(ButtonAt(footer, categories[i], new Vector2(14 + i * 132, -12), new Vector2(124, 33), () => SelectCategory(category))); }
             ButtonAt(footer, "Наблюдать  [I]", new Vector2(557, -12), new Vector2(142, 33), () => SelectInspect());
             toolHeading = Label(footer, "", 12, muted, new Vector2(717, -14), new Vector2(370, 27));
+            creaturePageButton = ButtonAt(footer, "Животные  ›", new Vector2(1095, -12), new Vector2(156, 33), () => { creaturePage = (creaturePage + 1) % 2; SelectCategory(1); });
             radiusLabel = Label(footer, "", 12, white, new Vector2(-253, -17), new Vector2(161, 25), true);
             ButtonAt(footer, "−", new Vector2(-82, -12), new Vector2(28, 31), () => game.BrushRadius = Mathf.Max(0, game.BrushRadius - 1), true);
             ButtonAt(footer, "+", new Vector2(-45, -12), new Vector2(28, 31), () => game.BrushRadius = Mathf.Min(12, game.BrushRadius + 1), true);
             toolRow = new GameObject("Tool palette", typeof(RectTransform)).GetComponent<RectTransform>(); toolRow.SetParent(footer, false);
             toolRow.anchorMin = new Vector2(0, 0); toolRow.anchorMax = new Vector2(1, 1); toolRow.offsetMin = new Vector2(14, 12); toolRow.offsetMax = new Vector2(-14, -55);
+            creaturePageButton.transform.SetParent(toolRow, false); Position(creaturePageButton.GetComponent<RectTransform>(), new Vector2(1260, 0), new Vector2(120, 79));
             Panel(root.transform, "Control hint backplate", Vector2.zero, Vector2.zero, new Vector2(260, 183), new Vector2(1330, 219), new Color(panel.r, panel.g, panel.b, .94f));
             status = Label(root.transform, "", 12, white, new Vector2(270, 188), new Vector2(1050, 28));
             RectTransform statusRect = status.rectTransform; statusRect.anchorMin = Vector2.zero; statusRect.anchorMax = Vector2.zero; statusRect.pivot = Vector2.zero;
@@ -125,8 +129,12 @@ namespace WorldGenesis.Runtime
             }
             else if (category == 1)
             {
-                string[] names = { "Люди", "Эльфы", "Гномы", "Орки", "Овцы", "Волки" };
-                foreach (SpeciesType species in Enum.GetValues(typeof(SpeciesType))) currentTools.Add(new WorldTool(names[(int)species], (int)species < 4 ? "Разместите жителей на суше. Они основывают поселения, собирают ресурсы и строят дома." : "Разместите животных на суше. Их жизнь подчиняется правилам симуляции.", ToolKind.Creature, (int)species, PixelArt.Factions[(int)species % PixelArt.Factions.Length]));
+                string[] labels = { "Люди", "Эльфы", "Гномы", "Орки", "Овцы", "Волки", "Олени", "Кабаны", "Лисы", "Медведи", "Сумрачные волки", "Лунные олени", "Козы", "Коровы", "Куры", "Ослы", "Лошади" };
+                foreach (SpeciesType species in Enum.GetValues(typeof(SpeciesType)))
+                {
+                    if ((int)species / 9 != creaturePage) continue;
+                    currentTools.Add(new WorldTool(labels[(int)species], (int)species < 4 ? "Разместите жителей на суше. Они основывают поселения, собирают ресурсы и строят дома." : "Разместите животных на суше. Их жизнь подчиняется правилам симуляции.", ToolKind.Creature, (int)species, PixelArt.Factions[(int)species % PixelArt.Factions.Length]));
+                }
             }
             else if (category == 2)
             {
@@ -140,6 +148,8 @@ namespace WorldGenesis.Runtime
                 string[] names = { "Рождение", "Войны", "Старение", "Рост растений", "Распростр. огня" };
                 foreach (WorldLaw law in Enum.GetValues(typeof(WorldLaw))) currentTools.Add(new WorldTool(names[(int)law], "Законы управляют настоящими системами мира и сохраняются вместе с ним.", ToolKind.Law, (int)law, PixelArt.Teal));
             }
+            creaturePageButton.gameObject.SetActive(category == 1);
+            creaturePageButton.GetComponentInChildren<Text>().text = "Жизнь " + (creaturePage + 1) + "/2  ›";
             for (int i = 0; i < currentTools.Count; i++)
             {
                 WorldTool tool = currentTools[i];
@@ -193,10 +203,9 @@ namespace WorldGenesis.Runtime
             if (selected != null)
             {
                 inspectorTitle.text = selected.Name;
-                string[] species = { "Человек", "Эльф", "Гном", "Орк", "Овца", "Волк" };
                 SettlementData city = world.GetSettlement(selected.SettlementId);
                 bool civilized = (int)selected.Species < 4;
-                inspectorBody.text = species[(int)selected.Species] + "  ·  " + ProfessionName(selected) + "\n" + DemographicDescription(selected) + "\nВозраст     " + selected.Age.ToString("0.0") + "\nЗдоровье   " + selected.Health.ToString("0") + " / " + selected.MaxHealth.ToString("0") + "\n\n<b>" + TaskName(world, selected) + "</b>\nГолод           " + (selected.Hunger * 100).ToString("0") + "%\nУсталость    " + (selected.Fatigue * 100).ToString("0") + "%" + (civilized ? "\nОбщение     " + (selected.SocialNeed * 100).ToString("0") + "% потребн.\nОбразование  " + (selected.Education * 100).ToString("0.#") + "%" : "") + (civilized && selected.IsChild ? "\n\n" + ChildActivityDescription(world, selected) : "") + "\n\n" + CargoDescription(selected) + "\n\n" + (city == null ? "Вне поселения" : city.Name) + (city != null && city.RulerId == selected.Id ? "\n<b>" + RulerTitle(city.Government, selected.Sex) + "</b>" : "") + (selected.Blessed ? "\nБлагословлён" : "") + (selected.Infected ? "\nЗаражён" : "") + (civilized ? "\n\n" + CitizenHoldingsDescription(world, selected) : "") + (city != null ? "\n\n" + PolicyDescription(world, city) : "");
+                inspectorBody.text = WildlifeArt.SpeciesName(selected.Species) + "  ·  " + ProfessionName(selected) + "\n" + DemographicDescription(selected) + "\nВозраст     " + selected.Age.ToString("0.0") + "\nЗдоровье   " + selected.Health.ToString("0") + " / " + selected.MaxHealth.ToString("0") + "\n\n<b>" + TaskName(world, selected) + "</b>" + (civilized ? "\nНастроение " + Percent(selected.Mood) + " · доверие " + Percent(selected.Trust) : "") + "\nГолод           " + Percent(selected.Hunger) + (civilized ? "\nЖажда          " + Percent(selected.Thirst) : "") + "\nУсталость    " + Percent(selected.Fatigue) + (civilized ? "\nОбразование  " + Percent(selected.Education) : "") + (civilized && selected.IsChild ? "\n\n" + ChildActivityDescription(world, selected) : "") + "\n\n" + (civilized ? CargoDescription(selected) + "\n\n" + EquipmentDescription(world, selected) : WildlifeDescription(world, selected)) + "\n\n" + (city == null ? "Вне поселения" : city.Name) + (city != null && city.RulerId == selected.Id ? "\n<b>" + RulerTitle(city.Government, selected.Sex) + "</b>" : "") + (selected.Blessed ? "\nБлагословлён" : "") + (selected.Infected ? "\nЗаражён" : "") + (civilized ? "\n\n" + CitizenSocietyDescription(world, selected) + "\n\n" + CitizenHoldingsDescription(world, selected) : "") + (city != null ? "\n\n" + PolicyDescription(world, city) : "");
             }
             else if (world.InBounds(game.InspectX, game.InspectY))
             {
@@ -212,25 +221,30 @@ namespace WorldGenesis.Runtime
                     builder.Clear();
                     if (inspectedBuilding != null) AppendBuildingDescription(world, inspectedBuilding);
                     if (showNode) builder.Append(NodeDescription(world, game.InspectX, game.InspectY)).Append("\n\n");
+                    string infrastructureDescription = InfrastructureDescription(world, game.InspectX, game.InspectY);
+                    if (infrastructureDescription.Length > 0) builder.Append(infrastructureDescription).Append("\n\n");
                     builder.Append("<b>").Append(city.Name).Append("</b>\n");
                     builder.Append("<b>" + GovernmentName(city.Government) + "</b>\n" +
                         (ruler == null ? "Нет взрослого правителя" : RulerTitle(city.Government, ruler.Sex) + ": " + ruler.Name) +
                         (city.Government == GovernmentType.Republic ? "\nВыборы через " + Mathf.Max(0, (city.NextElectionTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с" : "") +
                         "\n\nНаселение   " + city.Population + "\n" + PopulationDescription(world, city.Id) + "\nЖильё          " + city.Housing + "\nПостройки    " + city.Buildings +
-                        "\n\n" + PolicyDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nЕда  " + city.Food.ToString("0.#"));
+                        "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nЕда  " + city.Food.ToString("0.#"));
                     AppendSettlementStocks(world, city.Id);
                     builder.Append("\n\n").Append(TreasuryDescription(world, city.Id));
                     builder.Append("\n\n").Append(RecentTradesDescription(world, city.Id, 0));
+                    builder.Append("\n\n").Append(CaravansDescription(world, city.Id));
                     inspectorBody.text = builder.ToString();
                 }
-                else { inspectorTitle.text = showNode ? ResourceArt.ResourceName(node.Type) : TerrainName(tile.Terrain); inspectorBody.text = (showNode ? NodeDescription(world, game.InspectX, game.InspectY) + "\n\n" : "") + "Участок " + game.InspectX + ", " + game.InspectY + "\n\nВысота         " + tile.Height.ToString("0.00") + "\nВлажность   " + tile.Moisture.ToString("0.00") + "\nТемпература " + tile.Temperature.ToString("0.00") + "\nРастительность " + tile.Vegetation.ToString("0.00") + (tile.Fire > 0 ? "\n\nНа этом участке пожар" : "") + (tile.River ? "\nЗдесь проходит река" : ""); }
+                else { inspectorTitle.text = showNode ? ResourceArt.ResourceName(node.Type) : TerrainName(tile.Terrain); inspectorBody.text = (showNode ? NodeDescription(world, game.InspectX, game.InspectY) + "\n\n" : "") + "Участок " + game.InspectX + ", " + game.InspectY + "\n\n" + InfrastructureDescription(world, game.InspectX, game.InspectY) + "\n\nВысота         " + tile.Height.ToString("0.00") + "\nВлажность   " + tile.Moisture.ToString("0.00") + "\nТемпература " + tile.Temperature.ToString("0.00") + "\nРастительность " + tile.Vegetation.ToString("0.00") + (tile.Fire > 0 ? "\n\nНа этом участке пожар" : "") + (tile.River ? "\nЗдесь проходит река" : ""); }
             }
             else { inspectorTitle.text = game.Tool?.Label ?? "Живой мир"; inspectorBody.text = (game.Tool?.Description ?? "") + "\n\nI — наблюдение\nПробел — пауза\nHome — показать весь мир\nF12 — снимок игры"; }
-            builder.Clear(); int count = 0;
-            for (int i = world.Events.Count - 1; i >= 0 && count < 5; i--)
+            builder.Clear(); int count = 0, eventIndex = world.Events.Count - 1, socialIndex = world.SocialEvents == null ? -1 : world.SocialEvents.Count - 1;
+            while ((eventIndex >= 0 || socialIndex >= 0) && count < 5)
             {
-                WorldEvent item = world.Events[i]; if (string.IsNullOrEmpty(item.Text)) continue;
-                if (builder.Length > 0) builder.Append("\n\n"); builder.Append("<color=#d5b36d>•</color> ").Append(item.Text); count++;
+                bool social = socialIndex >= 0 && (eventIndex < 0 || world.SocialEvents[socialIndex].Tick >= world.Events[eventIndex].Tick);
+                string eventText = social ? world.SocialEvents[socialIndex--].Text : world.Events[eventIndex--].Text;
+                if (string.IsNullOrEmpty(eventText)) continue;
+                if (builder.Length > 0) builder.Append("\n\n"); builder.Append("<color=#d5b36d>•</color> ").Append(eventText); count++;
             }
             chronicle.text = builder.Length == 0 ? "Каждый мир начинается с тишины.\n\nПоселите жителей, и здесь появятся первые события." : builder.ToString();
             status.text = Time.unscaledTime < toastUntil ? toast : "WASD / средняя кнопка — камера     Колесо — масштаб     Пробел — пауза     Ctrl+S / Ctrl+L — сохранение";
@@ -253,7 +267,7 @@ namespace WorldGenesis.Runtime
         {
             if ((int)unit.Species >= 4) return "животное";
             if (unit.Age < 16) return "ребёнок";
-            switch (unit.Profession) { case UnitProfession.Farmer: return "земледелец"; case UnitProfession.Forester: return "добытчик / мастер"; case UnitProfession.Guard: return "страж"; default: return "житель"; }
+            switch (unit.Profession) { case UnitProfession.Farmer: return "земледелец"; case UnitProfession.Forester: return "добытчик / мастер"; case UnitProfession.Guard: return "страж"; case UnitProfession.Hunter: return "охотник"; case UnitProfession.Herder: return "животновод"; case UnitProfession.Merchant: return "торговец"; case UnitProfession.Carpenter: return "плотник"; default: return "житель"; }
         }
         public struct PopulationCounts { public int Men, Women, Boys, Girls, Animals; }
         public static PopulationCounts CountPopulation(WorldState world, int settlementId = 0)
@@ -289,12 +303,131 @@ namespace WorldGenesis.Runtime
                 ? "Лёгкая работа 12–15: разрешена\nПоле и лёгкая доставка; учёба"
                 : "Детский труд запрещён\nИгра, учёба и отдых";
         }
+        private static string Percent(float value) { return (value * 100).ToString("0.#") + "%"; }
+        public static string CitizenSocietyDescription(WorldState world, UnitData unit)
+        {
+            MoodFactors factors = unit.MoodInputs;
+            BuildingData home = world.GetBuilding(unit.HomeBuildingId);
+            ReligionData faith = world.GetReligion(unit.FaithId);
+            string homeName = home == null ? "Не закреплено" : ResourceArt.BuildingName(home.Type) + " · уровень " + home.Level;
+            string faithName = faith == null || faith.FounderId == 0 ? "Не присоединился к вере" : faith.Name;
+            StringBuilder text = new StringBuilder("<b>ЖИЗНЬ И СПОСОБНОСТИ</b>\n");
+            text.Append("Вода: утоление жажды ").Append(Percent(world.GetWaterAccess(unit)));
+            text.Append("\nКомфорт жилья ").Append(Percent(world.GetHousingComfort(unit))).Append("\nДом: ").Append(homeName);
+            text.Append("\nПотребность в общении ").Append(Percent(unit.SocialNeed));
+            text.Append("\nОбразование ").Append(Percent(unit.Education));
+            text.Append("\nТалант к учёбе ").Append(Percent(unit.LearningTalent));
+            text.Append("\nРемесленный навык ").Append(Percent(unit.CraftSkill));
+            if (unit.IsMaster) text.Append("\n<b>Мастер своего дела</b>");
+            text.Append("\n\n<b>ПОЧЕМУ ТАКОЕ НАСТРОЕНИЕ</b>\nТекущее ").Append(Percent(unit.Mood)).Append(" → цель ").Append(Percent(factors.Target));
+            text.Append("\nУдовлетворённость:");
+            text.Append("\nЕда ").Append(Percent(factors.Food)).Append(" · вода ").Append(Percent(factors.Water));
+            text.Append("\nЖильё ").Append(Percent(factors.Housing)).Append(" · отдых ").Append(Percent(factors.Rest));
+            text.Append("\nОбщение ").Append(Percent(factors.Social));
+            text.Append("\nЗаконы ").Append(Percent(factors.Laws)).Append(" · безопасность ").Append(Percent(factors.Safety));
+            text.Append("\nСтресс (снижает) ").Append(Percent(factors.Stress));
+            text.Append("\nДоверие правителю ").Append(Percent(unit.Trust));
+            text.Append("\n\n<b>ВЕРА</b>\n").Append(faithName);
+            if (faith != null && faith.FounderId != 0)
+            {
+                text.Append("\nБожество: ").Append(faith.Deity).Append("\nУчение: ").Append(faith.Doctrine);
+                text.Append("\nПриверженность ").Append(Percent(unit.FaithCommitment));
+                UnitData founder = world.GetUnit(faith.FounderId);
+                text.Append("\nОснователь: ").Append(founder == null ? "житель #" + faith.FounderId : founder.Name);
+            }
+            SettlementData city = world.GetSettlement(unit.SettlementId);
+            ParliamentDecisionData decision = city == null ? null : city.LastParliament;
+            if (decision != null && decision.Votes != null) for (int i = 0; i < decision.Votes.Count; i++)
+                if (decision.Votes[i].UnitId == unit.Id) { text.Append("\n\nПоследний голос: ").Append(decision.Votes[i].Supports ? "за" : "против").Append("\nТик голосования ").Append(decision.Tick); break; }
+            return text.ToString();
+        }
+        public static string SettlementSocietyDescription(WorldState world, SettlementData city)
+        {
+            string state = city.SocialState == SocialState.Protest ? "Протест" : city.SocialState == SocialState.Discontent ? "Недовольство" : "Спокойствие";
+            ReligionData majority = world.GetReligion(city.MajorityFaithId);
+            return "<b>ОБЩЕСТВО · " + state + "</b>\nНастроение " + Percent(city.AverageMood) + "\nДоверие " + Percent(city.AverageTrust) +
+                "\nНедовольство " + Percent(city.Discontent) + "\nКризис длится " + city.CrisisSeconds.ToString("0.#") + " с" +
+                "\nСторонники бунта " + city.RevoltSupporters + "\nБунтов в истории " + city.RevoltCount + "\nПотери в войнах " + city.WarDeaths +
+                "\nКомфорт жилья " + Percent(world.GetHousingComfort(city.Id)) + "\nПоддержка обучения " + Percent(world.GetLearningSupport(city.Id)) +
+                (majority != null && majority.FounderId != 0 ? "\nБольшинство верит: " + majority.Name : "\nОбщая вера не сложилась");
+        }
+        public static string ParliamentDescription(WorldState world, SettlementData city)
+        {
+            ParliamentDecisionData p = city.LastParliament;
+            if (p == null || p.AdultCount == 0) return city.Government == GovernmentType.Republic ? "<b>ПАРЛАМЕНТ</b>\nГолосований пока не было" : "<b>ПРАВЛЕНИЕ</b>\nПарламент не предусмотрен этим правлением";
+            StringBuilder text = new StringBuilder("<b>ПОСЛЕДНЕЕ ГОЛОСОВАНИЕ</b>\n");
+            text.Append(p.Passed ? "Принято" : "Отклонено").Append(" · тик ").Append(p.Tick);
+            text.Append("\nЗа ").Append(p.Yes).Append(" · против ").Append(p.No).Append("\nГолосовали взрослые: ").Append(p.AdultCount);
+            text.Append("\nПредложение: ").Append(p.EconomyPolicy == EconomicPolicy.Market ? "платный обмен (бартер)" : "бесплатная передача");
+            text.Append("\nНалог ").Append(Percent(p.TaxRate)).Append(" · терпимость ").Append(Percent(p.ReligiousTolerance));
+            text.Append("\n").Append(p.ChildLabor == ChildLaborPolicy.LightWork ? "Лёгкая работа 12–15" : "Детский труд запрещён");
+            text.Append("\nФокус: ").Append(FocusName(p.ResourceFocus));
+            if (p.Votes != null)
+            {
+                int shown = Math.Min(6, p.Votes.Count);
+                for (int i = 0; i < shown; i++)
+                {
+                    ParliamentVoteData vote = p.Votes[i]; UnitData voter = world.GetUnit(vote.UnitId);
+                    text.Append('\n').Append(voter == null ? "Житель #" + vote.UnitId : voter.Name).Append(vote.Supports ? " — за" : " — против");
+                }
+                if (p.Votes.Count > shown) text.Append("\nИ ещё ").Append(p.Votes.Count - shown).Append(" голосов");
+            }
+            text.Append("\nДействующие правила — в распоряжениях выше.");
+            return text.ToString();
+        }
+        public static string ResearchDescription(SettlementData city)
+        {
+            StringBuilder text = new StringBuilder("<b>ИССЛЕДОВАНИЕ</b>\n");
+            TechnologyDefinition active = TechnologyCatalog.Get(city.ActiveTechnology);
+            if (active == null) text.Append("Активного проекта нет");
+            else
+            {
+                text.Append(active.Name).Append('\n').Append(city.ResearchProgress.ToString("0.##")).Append(" / ").Append(active.Cost.ToString("0.##")).Append(" очков");
+                text.Append(" · ").Append(Percent(active.Cost > 0 ? city.ResearchProgress / active.Cost : 0));
+                text.Append("\nСкорость ").Append(city.ResearchRate.ToString("0.####")).Append(" очков/с мира");
+            }
+            int count = city.UnlockedTechnologies == null ? 0 : city.UnlockedTechnologies.Count;
+            text.Append("\nИзучено: ").Append(count);
+            for (int i = 0; i < count; i++)
+            {
+                TechnologyDefinition known = TechnologyCatalog.Get(city.UnlockedTechnologies[i]);
+                if (known != null) text.Append("\n✓ ").Append(known.Name);
+            }
+            return text.ToString();
+        }
+        public static string BuildingStatusDescription(WorldState world, BuildingData building)
+        {
+            UnitData owner = world.GetUnit(building.OwnerId);
+            string result = "<b>" + ResourceArt.BuildingName(building.Type) + "</b>\nУровень " + building.Level + "\nПрочность " + building.Health.ToString("0.#");
+            result += building.Ownership == BuildingOwnership.Public ? "\nСобственность: общинная" : "\nСобственность: частная\nВладелец: " + (owner == null ? "житель #" + building.OwnerId : owner.Name);
+            if (building.Type == BuildingType.Well) result += "\nЗапас воды " + building.WaterStored.ToString("0.##");
+            if (building.Type == BuildingType.Gate) result += building.GateOpen ? "\nВорота открыты" : "\nВорота закрыты";
+            return result + "\n";
+        }
+        public static string InfrastructureDescription(WorldState world, int x, int y)
+        {
+            if (world.Infrastructure == null || !world.InBounds(x, y)) return "";
+            int index = world.Index(x, y); InfrastructureCell cell = world.Infrastructure[index];
+            StringBuilder text = new StringBuilder();
+            if (cell.RoadLevel > 0) text.Append(cell.RoadLevel == 1 ? "Грунтовая тропа" : "Мощёная дорога");
+            if (cell.Stream > .01f) { if (text.Length > 0) text.Append('\n'); text.Append("Ручей · сила ").Append(Percent(cell.Stream)); }
+            if (world.IsFreshWater(index)) { if (text.Length > 0) text.Append('\n'); text.Append("Источник пресной воды"); }
+            if (cell.FishCapacity > 0)
+            {
+                if (text.Length > 0) text.Append('\n'); text.Append("Рыба ").Append(cell.Fish.ToString("0.##")).Append(" / ").Append(cell.FishCapacity.ToString("0.##"));
+                if (cell.Fish <= .001f) text.Append(" · выловлена");
+            }
+            return text.ToString();
+        }
+        private static string FocusName(ResourceFocus focus)
+        { return focus == ResourceFocus.Timber ? "древесина" : focus == ResourceFocus.Masonry ? "каменное дело" : focus == ResourceFocus.Metals ? "руды" : "сбалансированное снабжение"; }
         public static string PolicyDescription(WorldState world, SettlementData city)
         {
             UnitData ruler = world.GetUnit(city.PolicyRulerId);
             string focus = city.ResourceFocus == ResourceFocus.Timber ? "древесина" : city.ResourceFocus == ResourceFocus.Masonry ? "каменное дело" : city.ResourceFocus == ResourceFocus.Metals ? "руды" : "сбалансированное снабжение";
             return "<b>РАСПОРЯЖЕНИЯ</b>\n" + (city.EconomyPolicy == EconomicPolicy.Market ? "Платный обмен (бартер)" : "Бесплатная передача") +
                 "\nНатуральный налог  " + (city.TaxRate * 100).ToString("0.#") + "% с оплаты" +
+                "\nТерпимость к вере  " + Percent(city.ReligiousTolerance) +
                 "\n" + (city.ChildLabor == ChildLaborPolicy.LightWork ? "Лёгкая работа 12–15: разрешена" : "Детский труд запрещён") +
                 "\nПриоритет: " + focus + (ruler != null ? "\nРешение: " + ruler.Name : "\nВременный порядок без правителя") +
                 (!string.IsNullOrEmpty(city.LastDecreeReason) ? "\nПричина: " + city.LastDecreeReason : "") +
@@ -309,7 +442,61 @@ namespace WorldGenesis.Runtime
                 text.Append('\n').Append(ResourceArt.ItemName((ItemType)i)).Append("  ").Append(stock.ToString("0.###")); any = true;
             }
             if (!any) text.Append("\nЛичных партий нет");
-            if (!unit.IsChild) text.Append("\n\n").Append(RecentTradesDescription(world, unit.SettlementId, unit.Id));
+            if (!unit.IsChild) text.Append("\n\n").Append(RecentTradesDescription(world, unit.SettlementId, unit.Id)).Append("\n\n").Append(CaravansDescription(world, unit.SettlementId, unit.Id));
+            return text.ToString();
+        }
+        public static string CaravanPhaseName(CaravanPhase phase)
+        {
+            switch (phase) { case CaravanPhase.Loading: return "Сбор груза"; case CaravanPhase.Outbound: return "В пути к рынку"; case CaravanPhase.Returning: return "Возвращается"; case CaravanPhase.Completed: return "Рейс завершён"; case CaravanPhase.Cancelled: return "Рейс отменён"; default: return "Рейс"; }
+        }
+        private static string MemberPhaseName(CaravanMemberPhase phase)
+        {
+            switch (phase) { case CaravanMemberPhase.Loading: return "загружается"; case CaravanMemberPhase.Ready: return "готов к выходу"; case CaravanMemberPhase.Outbound: return "идёт на рынок"; case CaravanMemberPhase.AtMarket: return "на рынке"; case CaravanMemberPhase.Returning: return "возвращается"; case CaravanMemberPhase.Done: return "участие окончено"; default: return "участник"; }
+        }
+        public static string CaravanDescription(WorldState world, CaravanData caravan)
+        {
+            if (caravan == null) return "Рейса нет";
+            SettlementData origin = world.GetSettlement(caravan.OriginId), destination = world.GetSettlement(caravan.DestinationId);
+            StringBuilder text = new StringBuilder("<b>КАРАВАН #").Append(caravan.Id).Append("</b>\n")
+                .Append(origin == null ? "Поселение #" + caravan.OriginId : origin.Name).Append(" → ").Append(destination == null ? "Поселение #" + caravan.DestinationId : destination.Name)
+                .Append('\n').Append(CaravanPhaseName(caravan.Phase));
+            if (caravan.Aborted && caravan.Phase == CaravanPhase.Returning) text.Append(" · отменён, груз возвращается");
+            text.Append("\nПлан обмена: ").Append(ResourceArt.ItemName(caravan.ExportItem)).Append(" → ").Append(ResourceArt.ItemName(caravan.ImportItem));
+            if (!string.IsNullOrEmpty(caravan.LastReason)) text.Append('\n').Append(caravan.LastReason);
+            for (int i = 0; i < caravan.Members.Count; i++)
+            {
+                CaravanMemberData member = caravan.Members[i]; UnitData unit = world.GetUnit(member.UnitId);
+                text.Append("\n\n").Append(unit == null ? "Житель #" + member.UnitId : unit.Name).Append(member.UnitId == caravan.LeaderId ? " · ведущий" : member.HireFoodPaid > 0 ? " · нанятый помощник" : " · добровольный помощник");
+                text.Append("\n").Append(MemberPhaseName(member.Phase));
+                if (member.HireFoodPaid > 0) text.Append("\nВыдано питания: ").Append(member.HireFoodPaid.ToString("0.##"));
+                if (unit != null && unit.Health > 0 && unit.CaravanId == caravan.Id && member.Phase != CaravanMemberPhase.Done)
+                    text.Append("\nФактически несёт: ").Append(unit.CargoAmount > .001f ? ResourceArt.ItemName(unit.CargoKind) + " " + unit.CargoAmount.ToString("0.###") : "пусто");
+                if (member.BlockedSinceTick > 0 && member.Phase != CaravanMemberPhase.Done)
+                    text.Append("\nЗадержка маршрута: ").Append(Mathf.Max(0, (world.Tick - member.BlockedSinceTick) * SimulationEngine.TickSeconds).ToString("0.#")).Append(" с");
+            }
+            return text.ToString();
+        }
+        public static string CaravansDescription(WorldState world, int settlementId, int unitId = 0)
+        {
+            StringBuilder text = new StringBuilder("<b>КАРАВАНЫ</b>"); int count = 0;
+            if (world.Caravans != null) for (int i = world.Caravans.Count - 1; i >= 0 && count < 2; i--)
+            {
+                CaravanData caravan = world.Caravans[i]; bool include = unitId == 0 ? caravan.OriginId == settlementId || caravan.DestinationId == settlementId : caravan.Members.Exists(member => member.UnitId == unitId);
+                if (!include) continue;
+                text.Append("\n\n").Append(CaravanDescription(world, caravan)); count++;
+            }
+            if (count == 0) text.Append("\nРейсов пока нет");
+            text.Append("\n\nСостоявшийся обмен:"); int trades = 0;
+            if (world.CaravanExchanges != null) for (int i = world.CaravanExchanges.Count - 1; i >= 0 && trades < 3; i--)
+            {
+                CaravanExchangeData receipt = world.CaravanExchanges[i]; CaravanData caravan = world.GetCaravan(receipt.CaravanId);
+                if (unitId != 0 ? receipt.UnitId != unitId : caravan == null || (caravan.OriginId != settlementId && caravan.DestinationId != settlementId)) continue;
+                text.Append("\nТик ").Append(receipt.Tick).Append(" · ").Append(ResourceArt.ItemName(receipt.ExportItem)).Append(' ').Append(receipt.Amount.ToString("0.###")).Append(" → ")
+                    .Append(ResourceArt.ItemName(receipt.ImportItem)).Append(' ').Append(receipt.Amount.ToString("0.###"));
+                if (receipt.TaxAmount > 0) text.Append("\nНалог: ").Append(ResourceArt.ItemName(receipt.ExportItem)).Append(' ').Append(receipt.TaxAmount.ToString("0.###"));
+                trades++;
+            }
+            if (trades == 0) text.Append(" ещё не было");
             return text.ToString();
         }
         public static string TreasuryDescription(WorldState world, int settlementId)
@@ -361,13 +548,45 @@ namespace WorldGenesis.Runtime
         }
         public static string CargoDescription(UnitData unit)
         {
-            string cargo = unit.CargoAmount > 0 && unit.CargoKind != ItemType.None ? ResourceArt.ItemName(unit.CargoKind) + "  " + unit.CargoAmount.ToString("0.###") : unit.CarriedFood > 0 || unit.CarriedWood > 0 ? "" : "Нет груза";
-            float total = unit.CargoAmount + unit.CarriedFood + unit.CarriedWood;
-            return "<b>НОША  " + total.ToString("0.###") + " / " + ResourceCatalog.CarryCapacity.ToString("0.#") + "</b>\n" + cargo + (unit.CarriedFood > 0 ? "\nЕда  " + unit.CarriedFood.ToString("0.###") : "") + (unit.CarriedWood > 0 ? "\nДоски  " + unit.CarriedWood.ToString("0.###") : "");
+            string cargo = unit.CargoAmount > 0 && unit.CargoKind != ItemType.None ? ResourceArt.ItemName(unit.CargoKind) + "  " + unit.CargoAmount.ToString("0.###") : unit.CarriedFood > 0 || unit.CarriedWood > 0 || unit.HarvestAmount > 0 || unit.CarriedWater > 0 ? "" : "Нет груза";
+            float total = SimulationEngine.CarriedLoad(unit);
+            return "<b>НОША  " + total.ToString("0.###") + " / " + SimulationEngine.CarryCapacityFor(unit).ToString("0.#") + "</b>\n" + cargo + (unit.CarriedFood > 0 ? "\nЕда  " + unit.CarriedFood.ToString("0.###") : "") + (unit.CarriedWood > 0 ? "\nДоски  " + unit.CarriedWood.ToString("0.###") : "") + (unit.HarvestAmount > 0 ? "\n" + AgricultureArt.ProductName(unit.HarvestProduct) + "  " + unit.HarvestAmount.ToString("0.###") : "") + (unit.CarriedWater > 0 ? "\nВода  " + unit.CarriedWater.ToString("0.###") : "");
+        }
+        public static string EquipmentDescription(WorldState world, UnitData unit)
+        {
+            string text = "<b>СНАРЯЖЕНИЕ</b>\n" + (unit.BasketLevel == 0 ? "Без корзины" : "Корзина · уровень " + unit.BasketLevel);
+            if (unit.HuntingToolLevel > 0) text += "\nОхотничье копьё · уровень " + unit.HuntingToolLevel;
+            UnitData mount = world.GetUnit(unit.MountId);
+            if (mount != null && mount.Health > 0)
+                text += "\n" + WildlifeArt.SpeciesName(mount.Species) + ": " + mount.Name + (WorldView.IsRiding(world, unit) ? " · верхом" : " · вьючное животное") + (unit.MountBags ? "\nВьючные сумки" : "") + (unit.HasWagon ? "\nЗапряжена телега" : "");
+            else if (unit.OwnsWagon) text += "\nЕсть телега; не запряжена";
+            return text + "\nОпьянение " + Percent(unit.Intoxication) + "\nПривычка к алкоголю " + Percent(unit.AlcoholHabit);
+        }
+        public static string WildlifeDescription(WorldState world, UnitData unit)
+        {
+            SettlementData owner = world.GetSettlement(unit.AnimalOwnerId); UnitData handler = world.GetUnit(unit.HandlerId);
+            string text = unit.IsDomestic ? "Домашнее животное" : "Дикое животное";
+            if (owner != null) text += "\nПринадлежит: " + owner.Name;
+            if (handler != null) text += "\nПогонщик: " + handler.Name;
+            if (unit.PastureId != 0) text += "\nЗакреплено за пастбищем #" + unit.PastureId;
+            if (unit.HasSaddleBags) text += "\nНадеты вьючные сумки";
+            if (unit.PackId != 0) text += "\nСтая #" + unit.PackId + (unit.PackLeaderId == unit.Id ? " · вожак" : "");
+            return text;
+        }
+        public static string AgricultureDescription(BuildingData building)
+        {
+            string result = "";
+            if (building.Type == BuildingType.Farm) result = AgricultureArt.CropName(building.FarmCrop) + "\nРост " + Percent(building.CropGrowth) + "\nГотово к сбору " + building.HarvestReady.ToString("0.##");
+            else if (building.Type == BuildingType.Pasture) result = "Пастбище" + (building.HerdSpecies >= 4 ? " · " + WildlifeArt.SpeciesName((SpeciesType)building.HerdSpecies) : "");
+            else if (building.Type == BuildingType.Brewery) result = "Варка эля · " + building.BrewingProgress.ToString("0.#") + " с обработки\nВода для варки " + building.BrewWaterStored.ToString("0.###");
+            if (building.AgriculturalStock != null) for (int i = 1; i < building.AgriculturalStock.Length; i++)
+                if (building.AgriculturalStock[i] > .001f) result += "\n" + AgricultureArt.ProductName((AgriculturalProduct)i) + "  " + building.AgriculturalStock[i].ToString("0.###");
+            return result;
         }
         private void AppendBuildingDescription(WorldState world, BuildingData building)
         {
-            builder.Append("<b>").Append(ResourceArt.BuildingName(building.Type)).Append("</b>\n");
+            builder.Append(BuildingStatusDescription(world, building)).Append('\n');
+            string agricultural = AgricultureDescription(building); if (agricultural.Length > 0) builder.Append(agricultural).Append('\n');
             UnitData worker = building.WorkerId != 0 ? world.GetUnit(building.WorkerId) : null;
             if (building.ActiveRecipe != RecipeType.None && worker != null && worker.Task == UnitTask.Process)
             {
@@ -376,7 +595,17 @@ namespace WorldGenesis.Runtime
                 else builder.Append("\nОсталось ").Append(worker.WorkTimer.ToString("0.#")).Append(" с");
                 builder.Append('\n');
             }
-            else builder.Append("Нет активного производства\n");
+            else
+            {
+                bool job = false;
+                for (int i = 0; i < world.Units.Count; i++)
+                {
+                    UnitData active = world.Units[i];
+                    if (active.Health <= 0 || active.TargetBuildingId != building.Id || (active.Task != UnitTask.Brew && active.Task != UnitTask.CraftEquipment && active.Task != UnitTask.Tend)) continue;
+                    builder.Append(active.Name).Append(": ").Append(TaskName(world, active)).Append('\n'); job = true; break;
+                }
+                if (!job && (building.Type == BuildingType.Hall || building.Type == BuildingType.Sawmill || building.Type == BuildingType.Stoneworks || building.Type == BuildingType.Kiln)) builder.Append("Нет активного рецепта материалов\n");
+            }
             builder.Append("Общий склад:\n");
             if (building.Inventory != null) for (int i = 1; i < building.Inventory.Length; i++)
                 if (building.Inventory[i] > 0) builder.Append(ResourceArt.ItemName((ItemType)i)).Append("  ").Append(building.Inventory[i].ToString("0.#")).Append('\n');
@@ -405,6 +634,11 @@ namespace WorldGenesis.Runtime
             {
                 ItemType item = (ItemType)i; float stock = world.GetSettlementStock(settlementId, item);
                 if (stock > 0 || i <= (int)ItemType.Brick) builder.Append('\n').Append(ResourceArt.ItemName(item)).Append("  ").Append(stock.ToString("0.#"));
+            }
+            for (int i = 1; i <= (int)AgriculturalProduct.Ale; i++)
+            {
+                float amount = world.GetAgriculturalStock(settlementId, (AgriculturalProduct)i);
+                if (amount > .001f) builder.Append('\n').Append(AgricultureArt.ProductName((AgriculturalProduct)i)).Append("  ").Append(amount.ToString("0.##"));
             }
             builder.Append("\n\n<b>ПО ЦЕЛИ ЗАПАСОВ</b>");
             bool needs = false, surplus = false;
@@ -446,12 +680,23 @@ namespace WorldGenesis.Runtime
                 case UnitTask.Patrol: return "Охраняет поселение";
                 case UnitTask.Play: return moving ? "Идёт играть" : "Играет";
                 case UnitTask.Learn: return moving ? "Идёт на занятие" : "Учится у взрослых";
+                case UnitTask.Drink: return moving ? "Идёт к питьевой воде" : "Пьёт воду";
+                case UnitTask.Fish: return moving ? "Идёт к месту ловли" : "Ловит рыбу";
+                case UnitTask.Hunt: return moving ? "Выслеживает добычу" : "Охотится";
+                case UnitTask.Tend: return moving ? "Идёт к стаду" : "Ухаживает за животными";
+                case UnitTask.Brew: return unit.CarriedWater > .001f ? "Доставляет воду в пивоварню" : moving || unit.WorkTimer <= 0 || SimulationEngine.CarriedLoad(unit) > .001f ? "Снабжает пивоварню" : "Варит эль";
+                case UnitTask.CraftEquipment: return moving || unit.EquipmentProgress <= 0 || SimulationEngine.CarriedLoad(unit) > .001f ? "Снабжает мастерскую" : "Изготавливает снаряжение";
+                case UnitTask.Caravan:
+                    CaravanData caravan = world.GetCaravan(unit.CaravanId);
+                    if (caravan != null) for (int i = 0; i < caravan.Members.Count; i++) if (caravan.Members[i].UnitId == unit.Id) return "Караван: " + MemberPhaseName(caravan.Members[i].Phase);
+                    return moving ? "Идёт с караваном" : "Ожидает караван";
                 default: return "Наблюдает";
             }
         }
         private Sprite IconSprite(int index)
         {
             if (iconSprites.TryGetValue(index, out Sprite sprite)) return sprite;
+            if (index >= 1000) { sprite = game.View.CreateAnimalIcon((SpeciesType)(index - 1000)); iconSprites.Add(index, sprite); return sprite; }
             if (index == 6) { sprite = game.View.CreateHumanIcon(); iconSprites.Add(index, sprite); return sprite; }
             Texture2D atlas = game.View.SpriteMaterial.mainTexture as Texture2D; Rect uv = PixelArt.Uv(index);
             sprite = Sprite.Create(atlas, new Rect(uv.x * atlas.width, uv.y * atlas.height, uv.width * atlas.width, uv.height * atlas.height), new Vector2(.5f, .5f), 32);
@@ -459,7 +704,7 @@ namespace WorldGenesis.Runtime
         }
         private static int ToolIcon(WorldTool tool)
         {
-            if (tool.Kind == ToolKind.Creature) return 6 + tool.Value;
+            if (tool.Kind == ToolKind.Creature) return tool.Value >= 6 ? 1000 + tool.Value : 6 + tool.Value;
             if (tool.Kind == ToolKind.Power) return 21 + tool.Value;
             if (tool.Kind == ToolKind.Law) return 28;
             if (tool.Kind == ToolKind.Terrain) { int[] glyphs = { 15, 16, 17, 18, 0, 19, 20, 13 }; return glyphs[tool.Value]; }

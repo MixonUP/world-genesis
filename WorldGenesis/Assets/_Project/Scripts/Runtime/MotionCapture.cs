@@ -36,6 +36,8 @@ namespace WorldGenesis.Runtime
             yield return new WaitForSecondsRealtime(delay);
             GameBootstrap game = GameBootstrap.Instance;
             bool observeWorker = Array.IndexOf(args, "--inspect-resource-worker") >= 0;
+            bool observeCaravan = Array.IndexOf(args, "--inspect-caravan") >= 0;
+            if (observeCaravan) game.InspectCaravan(9);
             bool logDelivery = Array.IndexOf(args, "--observe-log-delivery") >= 0;
             if (logDelivery)
             {
@@ -57,7 +59,7 @@ namespace WorldGenesis.Runtime
                 UnitData observed = game.World.GetUnit(game.SelectedUnitId);
                 ScreenCapture.CaptureScreenshot(Path.Combine(folder, "frame-" + frame.ToString("D4") + ".png"));
                 receipt.frames.Add(new Frame { index = frame++, wallSeconds = Time.realtimeSinceStartupAsDouble - start, tick = game.World.Tick, observedUnit = observed?.Id ?? 0, task = observed?.Task.ToString(), cargo = observed?.CargoKind.ToString(), cargoAmount = observed?.CargoAmount ?? 0, x = observed?.X ?? 0, y = observed?.Y ?? 0 });
-                if (observeWorker && observed != null) game.FocusWorldPoint(new Vector2(observed.X, observed.Y), 7);
+                if ((observeWorker || observeCaravan) && observed != null) game.FocusWorldPoint(new Vector2(observed.X, observed.Y), observeCaravan ? 9 : 7);
                 double next = start + frame * .1;
                 while (Time.realtimeSinceStartupAsDouble < next) yield return null;
             }

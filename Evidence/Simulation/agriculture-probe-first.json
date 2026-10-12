@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-12T11:43:39.5498574Z",
+  "tests": 9,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "CartRequiresResearchRecipeTimeAndCarpenter",
+      "passed": true,
+      "milliseconds": 21.1533
+    },
+    {
+      "name": "CancelledCraftAndChildrenCannotCreateEquipment",
+      "passed": true,
+      "milliseconds": 0.6061
+    },
+    {
+      "name": "BasketGradesAndAnimalsUseDistinctCapacity",
+      "passed": true,
+      "milliseconds": 0.5615
+    },
+    {
+      "name": "MountDeathDropsOverflowWithoutDuplicatingCargo",
+      "passed": true,
+      "milliseconds": 1.9017
+    },
+    {
+      "name": "RareTamingRequiresRealBaitAndOnSiteContact",
+      "passed": true,
+      "milliseconds": 0.38
+    },
+    {
+      "name": "HarvestIsFiniteAndMustBeDelivered",
+      "passed": true,
+      "milliseconds": 0.8786
+    },
+    {
+      "name": "BrewingConsumesGrainFuelAndFiniteWater",
+      "passed": true,
+      "milliseconds": 0.4996
+    },
+    {
+      "name": "PastureBreedingRequiresPairFeedAndBirthLaw",
+      "passed": true,
+      "milliseconds": 0.9235
+    },
+    {
+      "name": "AgricultureSaveContinuesIdenticallyAndRejectsBrokenMount",
+      "passed": true,
+      "milliseconds": 189.4011
+    }
+  ]
+}

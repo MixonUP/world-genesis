@@ -1,0 +1,48 @@
+{
+  "scope": "pure C# controlled fixtures; not Unity/native acceptance",
+  "passed": true,
+  "count": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "physical three-person trade return and conservation",
+      "passed": true
+    },
+    {
+      "name": "real paid meal and once-only natural tax",
+      "passed": true
+    },
+    {
+      "name": "no food budget means no paid helper",
+      "passed": true
+    },
+    {
+      "name": "research gate and child exclusion",
+      "passed": true
+    },
+    {
+      "name": "cancel outbound keeps cargo and returns it",
+      "passed": true
+    },
+    {
+      "name": "death leaves one physical cargo pile",
+      "passed": true
+    },
+    {
+      "name": "war cancels exchange without destroying cargo",
+      "passed": true
+    },
+    {
+      "name": "save/load while carrying resumes identically",
+      "passed": true
+    },
+    {
+      "name": "one carrier cannot sell imported cargo a second time",
+      "passed": true
+    },
+    {
+      "name": "malformed membership and nonfinite quota rejected",
+      "passed": true
+    }
+  ]
+}

@@ -22,8 +22,8 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < World.Units.Count; i++) { InitializeDemography(World.Units[i]); World.Units[i].Education = 0; }
             World.DemographyVersion = 1; World.Revision++;
         }
-        public static float CarriedLoad(UnitData unit) { return unit.CargoAmount + unit.CarriedFood + unit.CarriedWood; }
-        private static float CarrySpace(UnitData unit) { return Math.Max(0, ResourceCatalog.CarryCapacity - CarriedLoad(unit)); }
+        public static float CarriedLoad(UnitData unit) { return unit.CargoAmount + unit.CarriedFood + unit.CarriedWood + unit.HarvestAmount + unit.CarriedWater; }
+        private static float CarrySpace(UnitData unit) { return Math.Max(0, CarryCapacityFor(unit) - CarriedLoad(unit)); }
         private static bool LightWorkAllowed(UnitData unit, SettlementData home) { return unit.Age >= 12 && unit.Age < 16 && home != null && home.ChildLabor == ChildLaborPolicy.LightWork; }
 
         private void PutOnGround(UnitData unit, ItemType item, float amount, bool food)
@@ -64,8 +64,8 @@ namespace WorldGenesis.Simulation
             bool light = LightWorkAllowed(unit, home);
             bool heavy = unit.CargoAmount > 0 && unit.CargoKind != ItemType.Firewood;
             bool forbiddenHaul = unit.Task == UnitTask.Haul && unit.PickupKind != ItemType.Firewood;
-            bool forbidden = heavy || forbiddenHaul || unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Fight || unit.Task == UnitTask.Patrol || (!light && (unit.Task == UnitTask.Farm || unit.Task == UnitTask.Haul || unit.Task == UnitTask.Return));
-            if ((!light || heavy) && CarriedLoad(unit) > 0) DropCarrying(unit);
+            bool forbidden = heavy || forbiddenHaul || unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Fish || unit.Task == UnitTask.Hunt || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Caravan || unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Brew || unit.Task == UnitTask.Fight || unit.Task == UnitTask.Patrol || (!light && (unit.Task == UnitTask.Farm || unit.Task == UnitTask.Haul || unit.Task == UnitTask.Return));
+            if ((!light || heavy) && CarriedLoad(unit) > 0) { DropCarrying(unit); DropAgriculturalCargo(unit); }
             if (forbidden) { ChangeTask(unit, UnitTask.Idle); ClearRoute(unit); unit.GroundStockIndex = -1; unit.DecisionTimer = 0; }
         }
         private bool ChooseGroundStock(UnitData unit)
@@ -109,15 +109,10 @@ namespace WorldGenesis.Simulation
         private bool PerformChildActivity(UnitData unit, SettlementData home, float dt)
         {
             if (unit.Task != UnitTask.Play && unit.Task != UnitTask.Learn) return false;
-            if (unit.Age >= 16 || home == null) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
+            if (home == null || (unit.Age >= 16 && unit.Task == UnitTask.Play)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
             unit.WorkTimer = Math.Max(0, unit.WorkTimer - dt);
             unit.SocialNeed = Math.Max(0, unit.SocialNeed - dt * .03f);
-            if (unit.Task == UnitTask.Learn)
-                for (int i = 0; i < World.Units.Count; i++)
-                {
-                    UnitData mentor = World.Units[i];
-                    if (mentor.Age >= 16 && mentor.Health > 0 && mentor.SettlementId == home.Id && mentor.Task != UnitTask.Fight && mentor.Task != UnitTask.Flee && DistanceSquared(unit.X, unit.Y, mentor.X, mentor.Y) < 9) { unit.Education = Math.Min(1, unit.Education + dt * .002f); break; }
-                }
+            if (unit.Task == UnitTask.Learn && HasLearningSource(unit, home)) unit.Education = Math.Min(1, unit.Education + dt * .002f * GetLearningMultiplier(unit));
             if (unit.WorkTimer <= 0) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; }
             return true;
         }

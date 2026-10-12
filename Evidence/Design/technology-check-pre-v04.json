@@ -1,0 +1,860 @@
+{
+  "schema_version": 1,
+  "design_version": "technology-design-v2-resources",
+  "design_status": "prepared_not_implemented",
+  "validation_scope": "CSV references, dependency DAG, stage gates and proposed math only; no Unity or gameplay validation",
+  "created_at": "2026-10-12T12:31:56+03:00",
+  "passed": true,
+  "counts": {
+    "technologies": 54,
+    "branches": 8,
+    "dependency_edges": 93,
+    "recipe_unlocks": 51,
+    "building_grade_unlocks": 58,
+    "military_training_unlocks": 4,
+    "goods": 77,
+    "recipes": 86,
+    "buildings": 33,
+    "building_grades": 165,
+    "roles": 33
+  },
+  "branches": {
+    "defense": 9,
+    "food": 5,
+    "health_civics": 5,
+    "knowledge": 7,
+    "materials": 9,
+    "metals": 9,
+    "textiles": 5,
+    "transport": 5
+  },
+  "checks": {
+    "catalogs": {
+      "passed": 28,
+      "failed": 0
+    },
+    "unique_ids": {
+      "passed": 61,
+      "failed": 0
+    },
+    "shape": {
+      "passed": 57,
+      "failed": 0
+    },
+    "currency": {
+      "passed": 11,
+      "failed": 0
+    },
+    "values": {
+      "passed": 270,
+      "failed": 0
+    },
+    "status": {
+      "passed": 54,
+      "failed": 0
+    },
+    "dag": {
+      "passed": 148,
+      "failed": 0
+    },
+    "references": {
+      "passed": 516,
+      "failed": 0
+    },
+    "stage_order": {
+      "passed": 174,
+      "failed": 0
+    },
+    "unlocks": {
+      "passed": 327,
+      "failed": 0
+    },
+    "research_materials": {
+      "passed": 9,
+      "failed": 0
+    },
+    "military": {
+      "passed": 49,
+      "failed": 0
+    },
+    "bootstrap": {
+      "passed": 30,
+      "failed": 0
+    },
+    "advancement_gates": {
+      "passed": 28,
+      "failed": 0
+    },
+    "integrated_reachability": {
+      "passed": 6,
+      "failed": 0
+    },
+    "integrated_counterexamples": {
+      "passed": 3,
+      "failed": 0
+    },
+    "education": {
+      "passed": 20,
+      "failed": 0
+    },
+    "role_groups": {
+      "passed": 22,
+      "failed": 0
+    },
+    "time": {
+      "passed": 6,
+      "failed": 0
+    },
+    "formula": {
+      "passed": 53,
+      "failed": 0
+    },
+    "monotonicity": {
+      "passed": 400,
+      "failed": 0
+    },
+    "concavity": {
+      "passed": 400,
+      "failed": 0
+    },
+    "ceiling": {
+      "passed": 407,
+      "failed": 0
+    },
+    "activity": {
+      "passed": 88,
+      "failed": 0
+    },
+    "user_examples": {
+      "passed": 5,
+      "failed": 0
+    },
+    "invalid_input": {
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "check_count": 3175,
+  "failed_count": 0,
+  "errors": [],
+  "topological_order": [
+    "c01_herbalism",
+    "f01_preservation",
+    "m01_forestry",
+    "c02_clean_water",
+    "f02_milling",
+    "l01_local_trade",
+    "m02_carpentry",
+    "m03_tanning",
+    "m06_stonecutting",
+    "t01_flax",
+    "z01_charcoal",
+    "f04_public_kitchens",
+    "c03_civic_records",
+    "k01_teaching",
+    "m04_brick_firing",
+    "f03_crop_rotation",
+    "t02_linen",
+    "z02_ironworking",
+    "k02_schools",
+    "c04_sanitation",
+    "m07_lime_mortar",
+    "m09_roof_tiles",
+    "d01_hunting_bows",
+    "d02_leather_armor",
+    "k06_writing_materials",
+    "l02_carts",
+    "t03_leather_tailoring",
+    "z03_tempered_tools",
+    "z04_steelmaking",
+    "z06_nonferrous",
+    "m08_glassmaking",
+    "d03_iron_arms",
+    "d07_archer_training",
+    "k07_libraries",
+    "l03_caravans",
+    "t04_winter_clothing",
+    "m05_standard_parts",
+    "z05_steel_tools",
+    "z07_bronze",
+    "z08_coinage",
+    "d04_fortifications",
+    "d05_steel_armor",
+    "d06_spearman_training",
+    "d08_infantry_training",
+    "k03_natural_studies",
+    "c05_civic_works",
+    "f05_granary_network",
+    "l04_regional_markets",
+    "t05_textile_guilds",
+    "z09_jewelry",
+    "d09_knight_training",
+    "k04_experiments",
+    "l05_supply_contracts",
+    "k05_university_network"
+  ],
+  "research_day_seconds": 600,
+  "eligible_adult_age": 16,
+  "role_to_group": {
+    "armorer": "artisan",
+    "baker": "artisan",
+    "blacksmith": "artisan",
+    "builder": "artisan",
+    "butcher": "artisan",
+    "caravaner": "resident",
+    "carpenter": "artisan",
+    "charcoal_burner": "artisan",
+    "cook": "artisan",
+    "farmer": "resident",
+    "fisher": "resident",
+    "flax_worker": "artisan",
+    "forester": "resident",
+    "gatherer": "resident",
+    "glassmaker": "artisan",
+    "guard": "resident",
+    "hauler": "resident",
+    "healer": "resident",
+    "hunter": "resident",
+    "lumberjack": "resident",
+    "merchant": "resident",
+    "miller": "artisan",
+    "miner": "resident",
+    "mintmaster": "artisan",
+    "potter": "artisan",
+    "priest": "priest",
+    "scholar": "scholar",
+    "smelter": "artisan",
+    "stonecutter": "resident",
+    "tailor": "artisan",
+    "tanner": "artisan",
+    "water_carrier": "resident",
+    "weaver": "artisan"
+  },
+  "formula_samples": {
+    "resident": {
+      "weight": 0.1,
+      "q": 0.88,
+      "ceiling_points_per_day": 0.8333333333333334,
+      "samples": [
+        {
+          "effective_count": 1,
+          "total_points_per_day": 0.09999999999999999,
+          "marginal_points_per_day": 0.1
+        },
+        {
+          "effective_count": 2,
+          "total_points_per_day": 0.188,
+          "marginal_points_per_day": 0.08800000000000001
+        },
+        {
+          "effective_count": 3,
+          "total_points_per_day": 0.26544000000000006,
+          "marginal_points_per_day": 0.07744000000000001
+        },
+        {
+          "effective_count": 10,
+          "total_points_per_day": 0.6012491866588315,
+          "marginal_points_per_day": 0.031647838182886606
+        },
+        {
+          "effective_count": 20,
+          "total_points_per_day": 0.7686976719681755,
+          "marginal_points_per_day": 0.008813953822521543
+        },
+        {
+          "effective_count": 50,
+          "total_points_per_day": 0.8319371181340224,
+          "marginal_points_per_day": 0.0001903929817242386
+        }
+      ]
+    },
+    "priest": {
+      "weight": 1.0,
+      "q": 0.88,
+      "ceiling_points_per_day": 8.333333333333334,
+      "samples": [
+        {
+          "effective_count": 1,
+          "total_points_per_day": 0.9999999999999999,
+          "marginal_points_per_day": 1.0
+        },
+        {
+          "effective_count": 2,
+          "total_points_per_day": 1.8800000000000001,
+          "marginal_points_per_day": 0.88
+        },
+        {
+          "effective_count": 3,
+          "total_points_per_day": 2.6544000000000003,
+          "marginal_points_per_day": 0.7744
+        },
+        {
+          "effective_count": 10,
+          "total_points_per_day": 6.012491866588316,
+          "marginal_points_per_day": 0.31647838182886606
+        },
+        {
+          "effective_count": 20,
+          "total_points_per_day": 7.686976719681755,
+          "marginal_points_per_day": 0.08813953822521543
+        },
+        {
+          "effective_count": 50,
+          "total_points_per_day": 8.319371181340223,
+          "marginal_points_per_day": 0.001903929817242386
+        }
+      ]
+    },
+    "artisan": {
+      "weight": 2.0,
+      "q": 0.88,
+      "ceiling_points_per_day": 16.666666666666668,
+      "samples": [
+        {
+          "effective_count": 1,
+          "total_points_per_day": 1.9999999999999998,
+          "marginal_points_per_day": 2.0
+        },
+        {
+          "effective_count": 2,
+          "total_points_per_day": 3.7600000000000002,
+          "marginal_points_per_day": 1.76
+        },
+        {
+          "effective_count": 3,
+          "total_points_per_day": 5.308800000000001,
+          "marginal_points_per_day": 1.5488
+        },
+        {
+          "effective_count": 10,
+          "total_points_per_day": 12.024983733176631,
+          "marginal_points_per_day": 0.6329567636577321
+        },
+        {
+          "effective_count": 20,
+          "total_points_per_day": 15.37395343936351,
+          "marginal_points_per_day": 0.17627907645043087
+        },
+        {
+          "effective_count": 50,
+          "total_points_per_day": 16.638742362680446,
+          "marginal_points_per_day": 0.003807859634484772
+        }
+      ]
+    },
+    "scholar": {
+      "weight": 10.0,
+      "q": 0.88,
+      "ceiling_points_per_day": 83.33333333333334,
+      "samples": [
+        {
+          "effective_count": 1,
+          "total_points_per_day": 9.999999999999998,
+          "marginal_points_per_day": 10.0
+        },
+        {
+          "effective_count": 2,
+          "total_points_per_day": 18.799999999999997,
+          "marginal_points_per_day": 8.8
+        },
+        {
+          "effective_count": 3,
+          "total_points_per_day": 26.544000000000004,
+          "marginal_points_per_day": 7.744
+        },
+        {
+          "effective_count": 10,
+          "total_points_per_day": 60.12491866588315,
+          "marginal_points_per_day": 3.1647838182886607
+        },
+        {
+          "effective_count": 20,
+          "total_points_per_day": 76.86976719681755,
+          "marginal_points_per_day": 0.8813953822521543
+        },
+        {
+          "effective_count": 50,
+          "total_points_per_day": 83.19371181340223,
+          "marginal_points_per_day": 0.01903929817242386
+        }
+      ]
+    }
+  },
+  "fractional_scholar_half_activity_rate": 5.159737336276173,
+  "global_ceiling_points_per_day": 109.16666666666667,
+  "progress_examples": {
+    "one_scholar_cost_100_percent_per_day": 10,
+    "one_scholar_cost_200_percent_per_day": 5
+  },
+  "advancement_gate_checks": [
+    {
+      "target_stage": 2,
+      "good": "grain",
+      "producers_before_transition": [
+        "collect_wild_wheat",
+        "plant_wheat"
+      ]
+    },
+    {
+      "target_stage": 2,
+      "good": "plank",
+      "producers_before_transition": [
+        "camp_saw_planks",
+        "saw_planks"
+      ]
+    },
+    {
+      "target_stage": 2,
+      "good": "primitive_tool",
+      "producers_before_transition": [
+        "craft_primitive_tool"
+      ]
+    },
+    {
+      "target_stage": 3,
+      "good": "linen_cloth",
+      "producers_before_transition": [
+        "weave_linen"
+      ]
+    },
+    {
+      "target_stage": 3,
+      "good": "leather",
+      "producers_before_transition": [
+        "tan_hide"
+      ]
+    },
+    {
+      "target_stage": 3,
+      "good": "bread",
+      "producers_before_transition": [
+        "bake_bread"
+      ]
+    },
+    {
+      "target_stage": 3,
+      "good": "furniture",
+      "producers_before_transition": [
+        "make_furniture"
+      ]
+    },
+    {
+      "target_stage": 4,
+      "good": "iron_tool",
+      "producers_before_transition": [
+        "craft_iron_tool"
+      ]
+    },
+    {
+      "target_stage": 4,
+      "good": "iron_armor",
+      "producers_before_transition": [
+        "forge_iron_armor"
+      ]
+    },
+    {
+      "target_stage": 4,
+      "good": "brick",
+      "producers_before_transition": [
+        "bake_brick"
+      ]
+    },
+    {
+      "target_stage": 5,
+      "good": "steel_tool",
+      "producers_before_transition": [
+        "craft_steel_tool"
+      ]
+    },
+    {
+      "target_stage": 5,
+      "good": "steel_armor",
+      "producers_before_transition": [
+        "forge_steel_armor"
+      ]
+    },
+    {
+      "target_stage": 5,
+      "good": "warm_clothes",
+      "producers_before_transition": [
+        "sew_warm_clothes"
+      ]
+    }
+  ],
+  "integrated_structural_reachability": {
+    "passed": true,
+    "stage_gate_failures": [],
+    "stages": [
+      {
+        "stage": 1,
+        "closure_iterations": 3,
+        "researchable_technologies": 4,
+        "producible_goods": 31,
+        "executable_recipes": 37,
+        "buildable_types": 14,
+        "buildable_grades": 14,
+        "trainable_military_roles": []
+      },
+      {
+        "stage": 2,
+        "closure_iterations": 3,
+        "researchable_technologies": 22,
+        "producible_goods": 46,
+        "executable_recipes": 53,
+        "buildable_types": 26,
+        "buildable_grades": 52,
+        "trainable_military_roles": [
+          "archer"
+        ]
+      },
+      {
+        "stage": 3,
+        "closure_iterations": 4,
+        "researchable_technologies": 41,
+        "producible_goods": 73,
+        "executable_recipes": 82,
+        "buildable_types": 33,
+        "buildable_grades": 99,
+        "trainable_military_roles": [
+          "archer",
+          "militia_spearman",
+          "swordsman"
+        ]
+      },
+      {
+        "stage": 4,
+        "closure_iterations": 3,
+        "researchable_technologies": 52,
+        "producible_goods": 77,
+        "executable_recipes": 86,
+        "buildable_types": 33,
+        "buildable_grades": 132,
+        "trainable_military_roles": [
+          "archer",
+          "knight",
+          "militia_spearman",
+          "swordsman"
+        ]
+      },
+      {
+        "stage": 5,
+        "closure_iterations": 2,
+        "researchable_technologies": 54,
+        "producible_goods": 77,
+        "executable_recipes": 86,
+        "buildable_types": 33,
+        "buildable_grades": 165,
+        "trainable_military_roles": [
+          "archer",
+          "knight",
+          "militia_spearman",
+          "swordsman"
+        ]
+      }
+    ],
+    "unreachable": {
+      "technologies": [],
+      "goods": [],
+      "recipes": [],
+      "building_grades": [],
+      "military_roles": []
+    },
+    "milestone_witnesses": {
+      "building:hearth@1": {
+        "stage": 1,
+        "iteration": 1,
+        "inputs": [
+          "branch",
+          "stone"
+        ],
+        "technology": null
+      },
+      "tech:m02_carpentry": {
+        "stage": 2,
+        "iteration": 1,
+        "requires": [
+          "m01_forestry"
+        ],
+        "material_inputs": {},
+        "source": "resident_background_learning"
+      },
+      "recipe:make_furniture": {
+        "stage": 2,
+        "iteration": 1,
+        "inputs": [
+          "plank",
+          "rope"
+        ],
+        "building": "carpentry@1",
+        "tool": "primitive_tool",
+        "technology": "m02_carpentry"
+      },
+      "tech:k01_teaching": {
+        "stage": 2,
+        "iteration": 2,
+        "requires": [
+          "m02_carpentry"
+        ],
+        "material_inputs": {},
+        "source": "resident_background_learning"
+      },
+      "building:university@1": {
+        "stage": 2,
+        "iteration": 2,
+        "inputs": [
+          "furniture",
+          "plank",
+          "wood_log"
+        ],
+        "technology": "k01_teaching"
+      },
+      "recipe:smelt_iron": {
+        "stage": 3,
+        "iteration": 1,
+        "inputs": [
+          "charcoal",
+          "iron_ore"
+        ],
+        "building": "smelter@1",
+        "tool": "primitive_tool",
+        "technology": "z02_ironworking"
+      },
+      "recipe:craft_iron_tool": {
+        "stage": 3,
+        "iteration": 2,
+        "inputs": [
+          "iron_ingot",
+          "plank"
+        ],
+        "building": "smithy@1",
+        "tool": "primitive_tool",
+        "technology": "z02_ironworking"
+      },
+      "recipe:make_cart": {
+        "stage": 2,
+        "iteration": 2,
+        "inputs": [
+          "plank",
+          "rope"
+        ],
+        "building": "carpentry@1",
+        "tool": "primitive_tool",
+        "technology": "l02_carts"
+      },
+      "building:caravanserai@1": {
+        "stage": 3,
+        "iteration": 1,
+        "inputs": [
+          "plank",
+          "wood_log"
+        ],
+        "technology": "l03_caravans"
+      },
+      "recipe:refine_steel": {
+        "stage": 4,
+        "iteration": 1,
+        "inputs": [
+          "charcoal",
+          "iron_ingot"
+        ],
+        "building": "smelter@4",
+        "tool": "iron_tool",
+        "technology": "z04_steelmaking"
+      },
+      "recipe:forge_steel_armor": {
+        "stage": 4,
+        "iteration": 2,
+        "inputs": [
+          "leather",
+          "linen_cloth",
+          "steel_ingot"
+        ],
+        "building": "armory@4",
+        "tool": "iron_tool",
+        "technology": "d05_steel_armor"
+      },
+      "building:university@5": {
+        "stage": 5,
+        "iteration": 1,
+        "inputs": [
+          "brick",
+          "furniture",
+          "plank",
+          "steel_ingot"
+        ],
+        "technology": "k05_university_network"
+      },
+      "good:coin": {
+        "stage": 3,
+        "iteration": 3,
+        "source": "mint_gold"
+      },
+      "recipe:mint_gold": {
+        "stage": 3,
+        "iteration": 3,
+        "inputs": [
+          "charcoal",
+          "gold_ingot"
+        ],
+        "building": "mint@1",
+        "tool": "primitive_tool",
+        "technology": "z08_coinage"
+      },
+      "recipe:mint_silver": {
+        "stage": 3,
+        "iteration": 3,
+        "inputs": [
+          "charcoal",
+          "silver_ingot"
+        ],
+        "building": "mint@1",
+        "tool": "primitive_tool",
+        "technology": "z08_coinage"
+      },
+      "good:paper": {
+        "stage": 2,
+        "iteration": 2,
+        "source": "make_paper"
+      },
+      "good:book": {
+        "stage": 3,
+        "iteration": 1,
+        "source": "bind_book"
+      },
+      "tech:k03_natural_studies": {
+        "stage": 3,
+        "iteration": 2,
+        "requires": [
+          "k02_schools",
+          "z02_ironworking",
+          "k07_libraries"
+        ],
+        "material_inputs": {
+          "book": 1,
+          "paper": 4,
+          "ink": 1
+        },
+        "source": "resident_background_learning"
+      },
+      "military:militia_spearman": {
+        "stage": 3,
+        "iteration": 2,
+        "technology": "d06_spearman_training",
+        "equipment": [
+          "linen_clothes",
+          "spear"
+        ],
+        "training_seconds": 45.0
+      },
+      "military:archer": {
+        "stage": 2,
+        "iteration": 2,
+        "technology": "d07_archer_training",
+        "equipment": [
+          "arrows",
+          "bow",
+          "leather_armor"
+        ],
+        "training_seconds": 60.0
+      },
+      "military:swordsman": {
+        "stage": 3,
+        "iteration": 2,
+        "technology": "d08_infantry_training",
+        "equipment": [
+          "boots",
+          "iron_armor",
+          "sword"
+        ],
+        "training_seconds": 90.0
+      },
+      "military:knight": {
+        "stage": 4,
+        "iteration": 2,
+        "technology": "d09_knight_training",
+        "equipment": [
+          "boots",
+          "steel_armor",
+          "sword"
+        ],
+        "training_seconds": 150.0
+      }
+    },
+    "assumptions": [
+      "At least one living adult can learn in the background without a university",
+      "Bootstrap habitat sources and huntable wildlife are physically accessible",
+      "Finite quantities, population growth, work schedules, travel, food reserves and durations are not simulated",
+      "All predecessor building grades, technology prerequisites, tools, recipe inputs and production stations must be structurally reachable before use"
+    ]
+  },
+  "integrated_validator_counterexamples": [
+    {
+      "in_memory_mutation": "t02_linen.min_settlement_tier=3",
+      "expected_blocked_stage": 3,
+      "detected": true,
+      "failure": [
+        {
+          "target_stage": 3,
+          "missing_goods": [
+            "linen_cloth"
+          ],
+          "missing_buildings": [
+            "weavery@1"
+          ]
+        }
+      ]
+    },
+    {
+      "in_memory_mutation": "z02_ironworking.min_settlement_tier=4",
+      "expected_blocked_stage": 4,
+      "detected": true,
+      "failure": [
+        {
+          "target_stage": 4,
+          "missing_goods": [
+            "iron_armor",
+            "iron_tool"
+          ],
+          "missing_buildings": [
+            "house@3",
+            "smithy@1",
+            "smelter@1"
+          ]
+        }
+      ]
+    },
+    {
+      "in_memory_mutation": "k06_writing_materials.research_inputs=book=1",
+      "detected": true,
+      "unreachable_technologies": [
+        "k03_natural_studies",
+        "k04_experiments",
+        "k05_university_network",
+        "k06_writing_materials",
+        "k07_libraries"
+      ]
+    }
+  ],
+  "limits": [
+    "Integrated closure includes technology, stages, tool types, building upgrades, recipe inputs and military equipment; it does not simulate finite stocks, terrain access, population or scheduling",
+    "Rates and costs have not been gameplay balanced",
+    "No game simulation, UI, saves or research runtime executed"
+  ],
+  "source_sha256": {
+    "SourceAssets/Design/technologies.csv": "296a281b1f43625c6f4275e9140fa3ddc6b431d6bc578f5f7507b36006d98c46",
+    "SourceAssets/Design/goods.csv": "799cc870aa8fa463aaba60b41a6e30031dae44ab06c0b1c5bd067a00e833a481",
+    "SourceAssets/Design/recipes.csv": "10c08cbc8d9a9257571dcb3d0be92ff4afb092fa726bad74e00123ff39d0b672",
+    "SourceAssets/Design/buildings.csv": "aaf556bc6c73a98d09607c404385ebced093e846224e18972df384d81fdfac1f",
+    "SourceAssets/Design/building_tiers.csv": "61ab57466d3a4318bed41ff2124b1c8d3128f8c3320d0143a684233aa818c90d",
+    "SourceAssets/Design/roles.csv": "3b44cb84b314a1785fb5044c0b155563f1f39c424317802ad04167fe3a1894cc",
+    "SourceAssets/Design/military_loadouts.csv": "4d0a62f122531cb15c4727c880b34a9f797b77e22e02a5aeaad4f9f25e2d6e01",
+    "SourceAssets/Design/settlement_tiers.csv": "381f089055bfae6fca0b75c72794a72321b377e622a521bbad3ffeea5372d7c3",
+    "SourceAssets/Design/bootstrap.csv": "01bd510b53617a4fd2207b9282704cd47e374fa3a353841543858f76d1f5d3da",
+    "SourceAssets/Design/wildlife.csv": "fad92a7e31af55a213d9199d977f57f717d9861c4d1135c0c8e434cd276b5849",
+    "SourceAssets/Design/natural_sources.csv": "3ac412385f07f1c4078495185be9f0c150d6758236026202fc04501a2d3b30b5",
+    "SourceAssets/Design/resource_deposits.csv": "c7c702f2dd571deb41ef6d77b9baa105b6b997b819edc39b5aa098cce912f0eb",
+    "SourceAssets/Design/resource_regions.csv": "0c01a55f0ff03f4cd93928d871766ea302159e8685995fd96a1a828aeff06ba4",
+    "SourceAssets/Design/minting_policy.csv": "e81e6c08e7047f18201ee8299ae167e69709f41763311f839a153190ad55c08d"
+  },
+  "validator_sha256": "0b0aa67bd961c6b20497167368fd3483098da9ddb7771c7e53a21c36416a8259"
+}

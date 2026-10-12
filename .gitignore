@@ -35,3 +35,6 @@ Tools/GitHub/.local/
 Evidence/**/*.log
 Evidence/UnityLaunch/
 Evidence/**/*.tmp
+Evidence/Simulation/*.world.json
+**/__pycache__/
+*.pyc

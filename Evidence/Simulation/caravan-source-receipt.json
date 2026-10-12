@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-12T14:57:23.1761834+03:00",
+  "scope": "Caravan module pure C# freeze; Unity/native and natural economy not accepted",
+  "report": "Evidence/Simulation/caravan-probe-final.json",
+  "tests": 15,
+  "failures": 0,
+  "sources": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs",
+      "sha256": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "sha256": "816C57A773A573B6F3A50D7FDE5AB511D8CD7F9621BBBC85AAE652B67FAD885B"
+    },
+    {
+      "path": "Tools/CaravanProbe/Program.cs",
+      "sha256": "C37D7048CB60BAC7870BD2F6E100E13992DF6C46820E62D82E793E5EC70F9593"
+    }
+  ]
+}

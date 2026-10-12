@@ -1,0 +1,8 @@
+equipment_id,name_ru,mode,total_capacity,capacity_bonus,consumed_previous_id,inputs,work_seconds,role_id,building_id,required_technology_id,animal_species_ids,requires_animal,output_good_id,unique_owner,status
+basket_small,Малая корзина,personal,10,0,,flax_fiber=3,8,weaver,hearth,,,0,,true,prepared
+basket_woven,Плотная корзина,personal,15,0,basket_small,flax_fiber=4,10,weaver,weavery,t01_flax,,0,,true,prepared
+basket_framed,Корзина с каркасом,personal,25,0,basket_woven,flax_fiber=6;hide=2;plank=2,14,weaver,weavery,t02_linen,,0,,true,prepared
+donkey_pack,Вьючный осёл,animal_pack,50,0,,hide=2;flax_fiber=2,12,caravaner,caravanserai,f07_husbandry,donkey,1,,true,prepared
+horse_pack,Вьючная лошадь,animal_pack,75,0,,hide=2;flax_fiber=2,12,caravaner,caravanserai,f07_husbandry,horse,1,,true,prepared
+saddle_bags,Седельные сумки,addon,0,25,,hide=2;flax_fiber=2,14,tailor,tailor,t02_linen,horse;donkey,1,,true,prepared
+trade_cart,Торговая телега,cart,150,0,,plank=12;flax_fiber=4;hide=2,8,carpenter,sawmill,l02_carts,horse;donkey,1,cart,true,prepared

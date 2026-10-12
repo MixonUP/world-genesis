@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-12T11:41:32.2725258Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "resources / zero-plank settlement bootstraps real workshops and wood stone clay chains",
+      "passed": true,
+      "milliseconds": 108.0803
+    }
+  ],
+  "metrics": [
+    {
+      "scenario": "zero-plank-workshop-chain",
+      "firstSawmillTick": 1080,
+      "firstBlockAndBrickByTick": 4546,
+      "units": 4,
+      "buildings": 6
+    }
+  ]
+}

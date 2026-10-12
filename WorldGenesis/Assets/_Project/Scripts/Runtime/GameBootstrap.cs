@@ -39,6 +39,7 @@ namespace WorldGenesis.Runtime
         private GameObject eventSystem;
         private bool capturing;
         private bool assistedFraming;
+        private string captureWorldSource = "";
         private EventSystem raycastEventSystem;
         private PointerEventData raycastPointer;
         private readonly List<RaycastResult> uiHits = new List<RaycastResult>(16);
@@ -74,6 +75,13 @@ namespace WorldGenesis.Runtime
                     StartCoroutine(DelayedCapture(arguments[i + 1], delay, quit));
                 }
             }
+            int worldIndex = Array.IndexOf(arguments, "--load-capture-world");
+            if (worldIndex >= 0 && worldIndex + 1 < arguments.Length && (Array.IndexOf(arguments, "--capture") >= 0 || Array.IndexOf(arguments, "--capture-motion") >= 0))
+            {
+                string supplied = arguments[worldIndex + 1];
+                if (!SaveStore.TryLoad(supplied, out WorldState loadedCapture, out string loadError)) { Debug.LogError("Capture world rejected: " + loadError); Application.Quit(2); return; }
+                ReplaceWorld(new SimulationEngine(loadedCapture)); captureWorldSource = Path.GetFileName(supplied); assistedFraming = true;
+            }
             int zoomIndex = Array.IndexOf(arguments, "--zoom"); float requestedZoom = 20;
             int speedIndex = Array.IndexOf(arguments, "--simulation-speed");
             if (speedIndex >= 0 && speedIndex + 1 < arguments.Length && float.TryParse(arguments[speedIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requestedSpeed)) Speed = Mathf.Clamp(requestedSpeed, 1, 10);
@@ -93,6 +101,7 @@ namespace WorldGenesis.Runtime
                 }
             }
             if (Array.IndexOf(arguments, "--capture-motion") >= 0) gameObject.AddComponent<MotionCapture>();
+            if (Array.IndexOf(arguments, "--inspect-caravan") >= 0) InspectCaravan(requestedZoom);
             Debug.Log("World Genesis ready. Seed=" + World.Seed + "; size=" + World.Width + "x" + World.Height + "; save path=" + SaveStore.DefaultPath);
         }
 
@@ -103,6 +112,15 @@ namespace WorldGenesis.Runtime
             // The authored opening is real simulation input, reproducible for this seed.
             SeedLife(engine);
             ReplaceWorld(engine); FrameWorld(); hud?.ShowToast("Создан мир " + seed + ". Его история начинается сейчас.");
+        }
+        public bool InspectCaravan(float zoom)
+        {
+            UnitData selected = null;
+            foreach (UnitData u in World.Units)
+                if (u.CaravanId != 0 && u.Health > 0 && (selected == null || (u.HasWagon && !selected.HasWagon))) selected = u;
+            if (selected == null) return false;
+            SelectedUnitId = selected.Id; InspectX = (int)selected.X; InspectY = (int)selected.Y; assistedFraming = true;
+            FocusWorldPoint(new Vector2(selected.X, selected.Y), zoom); hud.Refresh(true); return true;
         }
         private static void SeedLife(SimulationEngine engine)
         {
@@ -227,7 +245,7 @@ namespace WorldGenesis.Runtime
             if (!UnityEngine.Input.GetMouseButton(0) || !inWindow) { gestureStartedInWorld = false; return; }
             if (!canApply) { gestureStartedInWorld = false; previousBrushX = -1000; return; }
             if (!gestureStartedInWorld) return;
-            if (Tool.Kind == ToolKind.Inspect) { if (UnityEngine.Input.GetMouseButtonDown(0)) Inspect(x, y); return; }
+            if (Tool.Kind == ToolKind.Inspect) { if (UnityEngine.Input.GetMouseButtonDown(0)) Inspect(position); return; }
             bool changedCell = x != previousBrushX || y != previousBrushY;
             if (Tool.Kind == ToolKind.Terrain)
             {
@@ -243,10 +261,11 @@ namespace WorldGenesis.Runtime
             }
             previousBrushX = x; previousBrushY = y;
         }
-        private void Inspect(int x, int y)
+        private void Inspect(Vector3 position)
         {
+            int x = Mathf.FloorToInt(position.x), y = Mathf.FloorToInt(position.y);
             InspectX = x; InspectY = y; SelectedUnitId = 0; float distance = 2.25f;
-            foreach (UnitData unit in World.Units) { float dx = unit.X - (x + .5f), dy = unit.Y - (y + .5f), squared = dx * dx + dy * dy; if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; } }
+            foreach (UnitData unit in World.Units) { Vector2 shown = View.GetPresentationPosition(unit); float dx = shown.x - position.x, dy = shown.y - position.y, squared = dx * dx + dy * dy; if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; } }
             hud?.Refresh(true);
         }
         public void InspectUnit(int id)
@@ -339,7 +358,7 @@ namespace WorldGenesis.Runtime
             yield return CaptureRoutine(path, quit, true);
         }
         [Serializable]
-        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
+        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
         private IEnumerator CaptureRoutine(string path, bool quit, bool automatic)
         {
             capturing = true; string fullPath;
@@ -348,6 +367,7 @@ namespace WorldGenesis.Runtime
             yield return new WaitForEndOfFrame();
             ScreenCapture.CaptureScreenshot(fullPath);
             CaptureReceipt receipt = new CaptureReceipt { Type = "native Unity gameplay capture", Utc = DateTime.UtcNow.ToString("O"), UnityVersion = Application.unityVersion, Image = Path.GetFileName(fullPath), Seed = World.Seed, Width = World.Width, Height = World.Height, Population = World.Units.Count, Tick = World.Tick, Speed = Speed, Paused = Paused, AutomaticCapture = automatic, AssistedFraming = assistedFraming, CameraX = MainCamera.transform.position.x, CameraY = MainCamera.transform.position.y, OrthographicSize = MainCamera.orthographicSize, ScreenWidth = Screen.width, ScreenHeight = Screen.height, Preset = World.Preset.ToString() };
+            receipt.LoadedWorld = captureWorldSource;
             UnitData observed = World.GetUnit(SelectedUnitId);
             if (observed != null) { receipt.SelectedUnit = observed.Id; receipt.SelectedTask = observed.Task.ToString(); receipt.Cargo = observed.CargoKind.ToString(); receipt.CargoAmount = observed.CargoAmount; receipt.Sex = observed.Sex.ToString(); receipt.Age = observed.Age; }
             float deadline = Time.realtimeSinceStartup + 8;

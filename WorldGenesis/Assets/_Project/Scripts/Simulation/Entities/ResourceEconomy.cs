@@ -112,11 +112,12 @@ namespace WorldGenesis.Simulation
         {
             if (unit.CargoAmount <= 0) return false;
             BuildingType preferred = unit.CargoKind == ItemType.Log ? BuildingType.Sawmill : unit.CargoKind == ItemType.RawStone ? BuildingType.Stoneworks : unit.CargoKind == ItemType.Clay || unit.CargoKind == ItemType.Firewood ? BuildingType.Kiln : BuildingType.Hall;
-            for (int pass = 0; pass < 2; pass++)
+            for (int pass = 0; pass < 3; pass++)
             for (int i = 0; i < World.Buildings.Count; i++)
             {
                 BuildingData b = World.Buildings[i];
-                if (!UsableBuilding(b, home.Id) || b.Type != (pass == 0 ? preferred : BuildingType.Hall) || FreeStorage(b) < .01f || !SetTarget(unit, b.X, b.Y)) continue;
+                bool matches = pass == 0 ? b.Type == preferred : pass == 1 ? b.Type == BuildingType.Hall : b.Type == BuildingType.Warehouse || b.Type == BuildingType.Shop;
+                if (!UsableBuilding(b, home.Id) || !matches || FreeStorage(b) < .01f || !SetTarget(unit, b.X, b.Y)) continue;
                 ChangeTask(unit, UnitTask.Return); unit.TargetBuildingId = b.Id; unit.SourceBuildingId = 0; return true;
             }
             // Cargo remains carried when routes or storage are unavailable; it is never credited remotely.
@@ -128,6 +129,11 @@ namespace WorldGenesis.Simulation
             if (building.ActiveRecipe != RecipeType.None) return building.ActiveRecipe;
             if (building.Type == BuildingType.Hall || building.Type == BuildingType.Sawmill)
             {
+                // Construction repeatedly consumes the tenth plank. Reserve one real fuel batch for
+                // existing processing demand so an operating kiln cannot starve behind perpetual building.
+                bool kilnNeedsFuel = CountBuildings(home.Id, BuildingType.Kiln) > 0 && World.GetSettlementStock(home.Id, ItemType.Clay) >= 2 && World.GetResourceBalance(home.Id, ItemType.Brick).Deficit > 0;
+                bool breweryNeedsFuel = CountBuildings(home.Id, BuildingType.Brewery) > 0 && World.GetAgriculturalStock(home.Id, AgriculturalProduct.Grain) >= 2;
+                if ((kilnNeedsFuel || breweryNeedsFuel) && World.GetSettlementStock(home.Id, ItemType.Firewood) < 1) return RecipeType.Firewood;
                 if (home.Wood < 10) return RecipeType.Plank;
                 if (World.GetResourceBalance(home.Id, ItemType.Firewood).Deficit > 0) return RecipeType.Firewood;
                 if (World.GetResourceBalance(home.Id, ItemType.Plank).Deficit > 0) return RecipeType.Plank;
@@ -261,6 +267,7 @@ namespace WorldGenesis.Simulation
                 if (unit.CargoAmount > 0 && unit.CargoKind != item) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
                 float amount = Math.Min(node.Amount, Math.Min(CarrySpace(unit), ResourceCatalog.HarvestPerSecond(node.Type) * dt));
                 unit.CargoKind = item; unit.CargoOwnerId = unit.Id; unit.CargoAmount += amount; node.Amount = Math.Max(0, node.Amount - amount);
+                if (amount > 0) GainCraftExperience(unit, dt);
                 if (node.Type == ResourceType.Tree) { World.Cells[cell].Vegetation = node.Amount / node.Capacity; World.TerrainRevision++; }
                 if (node.Amount <= .0001f) { node.Amount = 0; node.RegrowTicksRemaining = ResourceCatalog.GetRegrowTicks(node.Type); if (node.Type == ResourceType.Tree) World.Cells[cell].Vegetation = 0; }
                 World.ResourceRevision++;
@@ -296,6 +303,7 @@ namespace WorldGenesis.Simulation
             if (!HasInputs(workshop, workshop.ActiveRecipe)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
             RecipeType recipeType = workshop.ActiveRecipe;
             float duration = ResourceCatalog.ProcessingSeconds(workshop.Type, recipeType);
+            GainCraftExperience(unit, dt);
             workshop.ProcessProgress = Math.Min(duration, workshop.ProcessProgress + dt); unit.WorkTimer = Math.Max(0, duration - workshop.ProcessProgress);
             if (workshop.ProcessProgress + .00001f >= duration)
             {

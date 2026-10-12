@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-10-12T15:08:46.7149248+03:00",
+  "scope": "Caravan local paid-hire P1 fix; shared .NET PASS, Unity r2 pending",
+  "report": "Evidence/Simulation/caravan-local-hire-final.json",
+  "negativeBefore": "Evidence/Simulation/caravan-local-hire-before.json",
+  "tests": 16,
+  "failures": 0,
+  "sources": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs",
+      "sha256": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "sha256": "7ADF0322859385D46F45F5D7E736FCF57B0397186B9C7C5611CE398E93BAE618"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/CaravanTests.cs",
+      "sha256": "81EE492D819DBF7B175278F818492B708B9BE741EBF37CADB8D93681D78FA181"
+    },
+    {
+      "path": "Tools/CaravanProbe/Program.cs",
+      "sha256": "0330D8992DD1D0EC3BCF6D043DE74849DF8A4A62A8E5364F170940BFA8874ED5"
+    }
+  ]
+}

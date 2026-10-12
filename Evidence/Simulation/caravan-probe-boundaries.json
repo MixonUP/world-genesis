@@ -1,0 +1,69 @@
+{
+  "scope": "pure C# controlled fixtures; not Unity/native acceptance",
+  "passed": false,
+  "count": 15,
+  "failed": 1,
+  "results": [
+    {
+      "name": "physical three-person trade return and conservation",
+      "passed": true
+    },
+    {
+      "name": "real paid meal and once-only natural tax",
+      "passed": true
+    },
+    {
+      "name": "no food budget means no paid helper",
+      "passed": true
+    },
+    {
+      "name": "research gate and child exclusion",
+      "passed": true
+    },
+    {
+      "name": "cancel outbound keeps cargo and returns it",
+      "passed": true
+    },
+    {
+      "name": "death leaves one physical cargo pile",
+      "passed": true
+    },
+    {
+      "name": "war cancels exchange without destroying cargo",
+      "passed": true
+    },
+    {
+      "name": "save/load while carrying resumes identically",
+      "passed": true
+    },
+    {
+      "name": "one carrier cannot sell imported cargo a second time",
+      "passed": true
+    },
+    {
+      "name": "malformed membership and nonfinite quota rejected",
+      "passed": true
+    },
+    {
+      "name": "no exchange or foreign inventory change before physical arrival",
+      "passed": true
+    },
+    {
+      "name": "equipped basket carries more than bare hands without stock duplication",
+      "passed": true
+    },
+    {
+      "name": "partner reserve cannot be spent by a previously quoted caravan",
+      "passed": false,
+      "error": "System.InvalidOperationException: unsold goods lost\r\n   at Program.Require(Boolean condition, String reason) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\CaravanProbe\\Program.cs:line 16\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__13_12() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\CaravanProbe\\Program.cs:line 148\r\n   at Program.Check(String name, Action check) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\CaravanProbe\\Program.cs:line 18"
+    },
+    {
+      "name": "blocked return leaves cargo at actual carrier location",
+      "passed": true
+    },
+    {
+      "name": "old caravan-free world migration preserves RNG and entity IDs",
+      "passed": true
+    }
+  ]
+}

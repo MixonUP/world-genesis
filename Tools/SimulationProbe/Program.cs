@@ -14,10 +14,12 @@ internal static class Program
     private static readonly List<object> Results = new List<object>();
     private static readonly List<object> Metrics = new List<object>();
     private static int failures;
+    private static string filter;
 
     private static void Main(string[] args)
     {
         string output = args.Length > 0 ? args[0] : "Evidence/Simulation/simulation-probe.json";
+        filter = args.Length > 1 ? args[1] : null;
         Check("same seed creates identical complete world", () =>
         {
             Require(Hash(WorldGenerator.Generate(20261012)) == Hash(WorldGenerator.Generate(20261012)), "Repeat generation diverged");
@@ -520,7 +522,7 @@ internal static class Program
                 if (w.GetSettlementStock(s.Id, ItemType.StoneBlock) > 0 && w.GetSettlementStock(s.Id, ItemType.Brick) > 0) break;
             }
             Require(firstMill >= 1000, "Sawmill appeared before ten campfire planks: " + firstMill);
-            Require(w.GetSettlementStock(s.Id, ItemType.StoneBlock) > 0 && w.GetSettlementStock(s.Id, ItemType.Brick) > 0, "Complete workshop chain stalled: tick=" + w.Tick + " buildings=" + w.Buildings.Count + " planks=" + s.Wood + " stone=" + w.GetSettlementStock(s.Id, ItemType.RawStone) + " clay=" + w.GetSettlementStock(s.Id, ItemType.Clay) + " fuel=" + w.GetSettlementStock(s.Id, ItemType.Firewood));
+            Require(w.GetSettlementStock(s.Id, ItemType.StoneBlock) > 0 && w.GetSettlementStock(s.Id, ItemType.Brick) > 0, "Complete workshop chain stalled: tick=" + w.Tick + " buildings=" + string.Join(",",w.Buildings.Select(b=>b.Type)) + " units=" + string.Join(",",w.Units.Select(u=>u.Id+":"+u.Profession+":"+u.Task)) + " planks=" + s.Wood + " blocks=" + w.GetSettlementStock(s.Id, ItemType.StoneBlock) + " logs=" + w.GetSettlementStock(s.Id, ItemType.Log) + " tree=" + w.ResourceNodes[tree].Amount + " stone=" + w.GetSettlementStock(s.Id, ItemType.RawStone) + " clay=" + w.GetSettlementStock(s.Id, ItemType.Clay) + " fuel=" + w.GetSettlementStock(s.Id, ItemType.Firewood));
             Metrics.Add(new { scenario = "zero-plank-workshop-chain", firstSawmillTick = firstMill, firstBlockAndBrickByTick = w.Tick, units = w.Units.Count, buildings = w.Buildings.Count });
         });
         Check("households / barter transfers real goods and natural tax once on site", () =>
@@ -576,10 +578,10 @@ internal static class Program
         Check("demography / child laws gate farming heavy cargo and private trade", () =>
         {
             SimulationEngine e=ResourceFixture();e.Spawn(SpeciesType.Human,16,16,1);WorldState w=e.World;UnitData child=w.Units[1];child.Age=13;child.X=16.5f;child.Y=16.5f;child.DecisionTimer=0;child.Fatigue=0;child.Hunger=0;SettlementData s=w.Settlements[0];s.Food=0;
-            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);for(int t=0;t<30;t++)e.Step(.1f);Require(child.Task!=UnitTask.Farm&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process&&child.CarriedFood==0,"Forbidden child performed production");
-            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.LightWork,ResourceFocus.Balanced);child.Task=UnitTask.Idle;child.Path.Clear();child.PathCursor=0;child.DecisionTimer=0;bool farmed=false;
-            for(int t=0;t<120;t++){e.Step(.1f);farmed|=child.CarriedFood>0;Require(SimulationEngine.CarriedLoad(child)<=1.00001f&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process,"Light work exceeded its scope");}Require(farmed,"Permitted adolescent never helped at the farm");
-            child.CargoKind=ItemType.IronOre;child.CargoAmount=1;child.CarriedFood=0;child.Task=UnitTask.Return;child.DecisionTimer=20;e.Step(.1f);Require(child.CargoAmount==0&&w.GroundStocks.Any(g=>g.Item==ItemType.IronOre&&g.Amount==1),"Child retained heavy legacy cargo");
+            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);for(int t=0;t<30;t++)e.Step(.1f);Require(child.Task!=UnitTask.Farm&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process&&child.CarriedFood==0&&child.HarvestAmount==0,"Forbidden child performed production");
+            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.LightWork,ResourceFocus.Balanced);child.Task=UnitTask.Idle;child.Path.Clear();child.PathCursor=0;child.DecisionTimer=0;w.Buildings.First(b=>b.Type==BuildingType.Farm).HarvestReady=8;bool farmed=false,delivered=false;
+            for(int t=0;t<120;t++){e.Step(.1f);farmed|=child.HarvestAmount>0;delivered|=farmed&&child.HarvestAmount==0&&(s.Food>0||w.GetAgriculturalStock(s.Id,AgriculturalProduct.Grain)>0);Require(SimulationEngine.CarriedLoad(child)<=1.00001f&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process,"Light work exceeded its scope");}Require(farmed&&delivered,"Permitted adolescent failed to harvest and physically deliver the crop");
+            child.CargoKind=ItemType.IronOre;child.CargoAmount=1;child.CarriedFood=0;child.HarvestAmount=0;child.HarvestProduct=AgriculturalProduct.None;child.Task=UnitTask.Return;child.DecisionTimer=20;e.Step(.1f);Require(child.CargoAmount==0&&w.GroundStocks.Any(g=>g.Item==ItemType.IronOre&&g.Amount==1),"Child retained heavy legacy cargo");
             child.CarriedFood=.4f;child.Task=UnitTask.Farm;e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);Require(child.CarriedFood==0&&w.GroundStocks.Any(g=>g.IsFood&&Math.Abs(g.Amount-.4f)<.00001f),"Revoking child work lost carried food");
             child.Age=9;e.SetEconomicPolicy(s.Id,EconomicPolicy.Market,.3f,ChildLaborPolicy.LightWork,ResourceFocus.Metals);for(int t=0;t<20;t++)e.Step(.1f);Require(child.Task!=UnitTask.Farm&&child.Task!=UnitTask.Process&&w.Trades.All(t=>t.SellerId!=child.Id&&t.BuyerId!=child.Id),"Young child worked or traded");
         });
@@ -701,6 +703,7 @@ internal static class Program
     private static void Require(bool ok, string error) { if (!ok) throw new InvalidOperationException(error); }
     private static void Check(string name, Action test)
     {
+        if (filter != null && name.IndexOf(filter, StringComparison.OrdinalIgnoreCase) < 0) return;
         Stopwatch watch = Stopwatch.StartNew();
         try { test(); Results.Add(new { name, passed = true, milliseconds = watch.Elapsed.TotalMilliseconds }); Console.WriteLine("PASS " + name); }
         catch (Exception e) { failures++; Results.Add(new { name, passed = false, error = e.ToString(), milliseconds = watch.Elapsed.TotalMilliseconds }); Console.WriteLine("FAIL " + name + ": " + e.Message); }

@@ -1,0 +1,69 @@
+{
+  "utc": "2026-10-12T11:24:13.7413681Z",
+  "tests": 12,
+  "failures": 1,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "LegacySocialMigrationConsumesNoRandomIdsOrGoods",
+      "passed": true,
+      "milliseconds": 155.8142
+    },
+    {
+      "name": "MoodUsesNeedsLawsAndActualHousing",
+      "passed": true,
+      "milliseconds": 9.7562
+    },
+    {
+      "name": "RepublicCountsAdultsAndRequiresStrictMajority",
+      "passed": true,
+      "milliseconds": 4.8585
+    },
+    {
+      "name": "ReligionsEmergeGraduallyAndCanExceedThree",
+      "passed": true,
+      "milliseconds": 40.7854
+    },
+    {
+      "name": "ConversionRequiresActualAdultConversation",
+      "passed": true,
+      "milliseconds": 10.1526
+    },
+    {
+      "name": "ReligiousDifferenceAloneIsPeacefulAndCrisisBrawlIsBounded",
+      "passed": true,
+      "milliseconds": 26.5583
+    },
+    {
+      "name": "SustainedMajorityCrisisChangesRegimeWithCooldown",
+      "passed": false,
+      "error": "System.InvalidOperationException: Sustained majority did not replace government: count=0 government=Feudal ruler=0/9 crisis=0 adults=0\r\n   at WorldGenesis.Tests.SocialScenarios.Require(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 16\r\n   at WorldGenesis.Tests.SocialScenarios.SustainedMajorityCrisisChangesRegimeWithCooldown() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs:line 103\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 52.3029
+    },
+    {
+      "name": "LearningNeedsMentorAndMasterNeedsBothEducationAndPractice",
+      "passed": true,
+      "milliseconds": 5.977
+    },
+    {
+      "name": "WarDeathsReduceTrustOnlyForActualWarLoss",
+      "passed": true,
+      "milliseconds": 4.7354
+    },
+    {
+      "name": "WallsBurnAndTerrainPaintPreservesValidWallOwnership",
+      "passed": true,
+      "milliseconds": 3.9972
+    },
+    {
+      "name": "SocialValidationRejectsCorruptFaithMoodAndBallot",
+      "passed": true,
+      "milliseconds": 65.1806
+    },
+    {
+      "name": "SocialSaveContinuesAllStateDeterministically",
+      "passed": true,
+      "milliseconds": 213.0213
+    }
+  ]
+}

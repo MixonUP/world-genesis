@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-12T11:40:58.1827688Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 1,
+  "failed": 1,
+  "results": [
+    {
+      "name": "resources / zero-plank settlement bootstraps real workshops and wood stone clay chains",
+      "passed": false,
+      "error": "System.InvalidOperationException: Complete workshop chain stalled: tick=6000 buildings=Hall,Farm,Sawmill,House,Stoneworks,Kiln,Warehouse,House units=7:Forester:Farm,8:Forester:Gather,9:Forester:Farm,10:Forester:Return planks=1 blocks=6 logs=0 tree=0 stone=0,80000097 clay=7,200001 fuel=0\r\n   at Program.Require(Boolean ok, String error) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\SimulationProbe\\Program.cs:line 703\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__5_34() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\SimulationProbe\\Program.cs:line 525\r\n   at Program.Check(String name, Action test) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Tools\\SimulationProbe\\Program.cs:line 708",
+      "milliseconds": 432.8496
+    }
+  ],
+  "metrics": []
+}

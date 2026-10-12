@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "SourceAssets" / "Design"
 OUTPUT = ROOT / "Evidence" / "Design" / "technology-check.json"
 Q = 0.88
-RESEARCH_DAY_SECONDS = 600
+RESEARCH_CYCLE_SECONDS = 10
+ECONOMIC_DAY_SECONDS = 600
 WEIGHTS = {"resident": 0.1, "priest": 1.0, "artisan": 2.0, "scholar": 10.0}
 ARTISANS = {
     "butcher", "cook", "miller", "baker", "charcoal_burner", "smelter",
@@ -31,6 +32,8 @@ EFFECTS = {
     "local_trade_rule", "caravan_route_rule", "regional_trade_rule",
     "supply_contract_rule", "fortification_rule", "water_hygiene_rule",
     "civic_accounting_rule", "disease_risk_multiplier", "civic_services_rule",
+    "housing_comfort_rule", "road_speed_multiplier", "learning_rate_multiplier", "water_access_rule",
+    "husbandry_rule",
 }
 SURVIVAL_RECIPES = {
     "forage_berries", "fetch_water", "craft_primitive_tool", "saw_planks",
@@ -59,7 +62,7 @@ def role_group(role: str) -> str:
     return "artisan" if role in ARTISANS else "resident"
 
 
-def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military):
+def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military, variants=()):
     """Monotone closure with real cross-catalog gates; quantities/time are not simulated."""
     available = {r["ref_id"] for r in bootstrap if r["kind"] == "inventory"}
     habitat = {r["ref_id"] for r in bootstrap if r["kind"] == "habitat"}
@@ -70,6 +73,7 @@ def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstra
     traces, stages, failures = {}, [], []
     tools = {1: "primitive_tool", 2: "iron_tool", 3: "steel_tool"}
     animal_outputs = {good for row in wildlife for good in quantities(row["death_output"])}
+    animal_outputs.update(good for row in variants for good in quantities(row["extra_death_output"]))
     for stage_row in sorted(tiers, key=lambda row: int(row["tier"])):
         stage = int(stage_row["tier"])
         if stage > 1:
@@ -97,6 +101,12 @@ def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstra
                 for good in animal_outputs:
                     available.add(good)
                     traces.setdefault(f"good:{good}", {"stage": stage, "iteration": iterations, "source": "accessible_wildlife_with_hunter_and_tool"})
+            if built.get("pasture", 0) >= 1:
+                for animal in wildlife:
+                    if set(quantities(animal.get("periodic_inputs", ""))) <= available:
+                        for good in quantities(animal.get("periodic_output", "")):
+                            available.add(good)
+                            traces.setdefault(f"good:{good}", {"stage": stage, "iteration": iterations, "source": "conditional_tamed_fed_adult_animal", "animal": animal["species_id"]})
             for rid, row in sorted(recipes.items()):
                 tg = int(row["min_tool_grade"])
                 if adults > 0 and int(row["min_settlement_tier"]) <= stage and int(roles[row["role_id"]]["min_settlement_tier"]) <= stage and built.get(row["building_id"], 0) >= int(row["min_building_grade"]) and set(quantities(row["inputs"])) <= available and (not tg or tools[tg] in available) and (not row["source_node"] or row["source_node"] in habitat) and (rid not in recipe_gates or recipe_gates[rid] in known):
@@ -155,15 +165,19 @@ def main() -> int:
         tiers = read("settlement_tiers.csv")
         bootstrap = read("bootstrap.csv")
         wildlife = read("wildlife.csv")
+        variants = read("wildlife_variants.csv")
+        read("species_behaviors.csv")
+        read("crops.csv")
+        read("carrying_equipment.csv")
         read("natural_sources.csv")
         read("resource_deposits.csv")
         read("resource_regions.csv")
         minting_policy = read("minting_policy.csv")
 
-        check(len(tech) == 54, "shape", "expected 54 technologies including resource-processing and writing expansions")
+        check(len(tech) == 67, "shape", "expected 67 technologies including social infrastructure, husbandry and brewing")
         branch_counts = Counter(r["branch_id"] for r in tech_rows)
         check(set(branch_counts) == BRANCHES, "shape", "expected eight named branches")
-        expected_branch_counts = {branch: (9 if branch in {"defense", "materials", "metals"} else 7 if branch == "knowledge" else 5) for branch in BRANCHES}
+        expected_branch_counts = {"food": 8, "materials": 13, "metals": 9, "textiles": 5, "transport": 8, "defense": 10, "health_civics": 6, "knowledge": 8}
         check(dict(branch_counts) == expected_branch_counts, "shape", "unexpected per-branch technology counts")
         check(not any(r["kind"] == "world_treasury" or (r["kind"] == "inventory" and r["ref_id"] == "coin") for r in bootstrap), "currency", "coins must originate from metal-backed minting")
         check(all(int(r["world_treasury_grant"]) == 0 for r in tiers), "currency", "obsolete treasury grant")
@@ -254,6 +268,15 @@ def main() -> int:
             check(recipe not in recipe_owner, "bootstrap", f"survival recipe tech-locked {recipe}")
         check("university@1" in grade_owner and grade_owner["university@1"] == "k01_teaching", "bootstrap", "university G1 must unlock at teaching")
         check("temple@1" not in grade_owner, "bootstrap", "temple G1 must be available without research")
+        for ref in ("house@1", "storehouse@1", "well@1", "fishing_hut@1"):
+            check(ref not in grade_owner, "bootstrap", f"primitive infrastructure locked: {ref}")
+        comfort = read("housing_comfort.csv")
+        check({r["grade"] for r in comfort} == {"1", "2", "3", "4", "5"}, "housing", "five comfort grades required")
+        for row in comfort:
+            ref = f'{row["building_id"]}@{row["grade"]}'
+            tid = row["required_technology_id"]
+            check(ref in grades and (not tid or tid in tech), "housing", f"unknown comfort reference {ref}")
+            check(grade_owner.get(ref, "") == tid, "housing", f"comfort gate differs from technology {ref}")
 
         # Tier-gate reachability, not a proof of resource quantities or real map access.
         advancement_checks = []
@@ -287,7 +310,7 @@ def main() -> int:
             for ref in quantities(tier_row["required_buildings"]):
                 check(grade_available(ref), "advancement_gates", f"S{target} needs building {ref}, unavailable at S{prior}")
 
-        integrated = integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military)
+        integrated = integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military, variants)
         check(integrated["passed"], "integrated_reachability", f"combined tech/economy deadlock: {integrated['stage_gate_failures']} {integrated['unreachable']}")
         check(integrated["milestone_witnesses"]["building:university@1"] is not None and integrated["milestone_witnesses"]["building:university@1"]["stage"] == 2, "integrated_reachability", "first university must be buildable at S2 through pre-university learning")
         coin_witness = integrated["milestone_witnesses"]["good:coin"]
@@ -300,13 +323,13 @@ def main() -> int:
         for tid, new_stage, blocked_stage in (("t02_linen", 3, 3), ("z02_ironworking", 4, 4)):
             mutated = {key: dict(row) for key, row in tech.items()}
             mutated[tid]["min_settlement_tier"] = str(new_stage)
-            negative = integrated_reachability(mutated, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military)
+            negative = integrated_reachability(mutated, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military, variants)
             caught = not negative["passed"] and bool(negative["stage_gate_failures"]) and negative["stage_gate_failures"][0]["target_stage"] == blocked_stage
             check(caught, "integrated_counterexamples", f"failed to detect injected {tid}/S{new_stage} progression cycle")
             sensitivity_checks.append({"in_memory_mutation": f"{tid}.min_settlement_tier={new_stage}", "expected_blocked_stage": blocked_stage, "detected": caught, "failure": negative["stage_gate_failures"]})
         mutated = {key: dict(row) for key, row in tech.items()}
         mutated["k06_writing_materials"]["research_inputs"] = "book=1"
-        negative = integrated_reachability(mutated, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military)
+        negative = integrated_reachability(mutated, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military, variants)
         caught = not negative["passed"] and "k06_writing_materials" in negative["unreachable"]["technologies"] and "book" in negative["unreachable"]["goods"]
         check(caught, "integrated_counterexamples", "failed to detect writing/book bootstrap cycle")
         sensitivity_checks.append({"in_memory_mutation": "k06_writing_materials.research_inputs=book=1", "detected": caught, "unreachable_technologies": negative["unreachable"]["technologies"]})
@@ -326,7 +349,7 @@ def main() -> int:
         check(role_group("") == "resident", "role_groups", "unassigned adult maps to resident")
         check(role_group("scholar") != "resident" and role_group("priest") != "resident", "role_groups", "specialists receive no resident baseline")
 
-        check(RESEARCH_DAY_SECONDS == 600, "time", "shared economic day must be 600 simulation seconds")
+        check(RESEARCH_CYCLE_SECONDS == 10 and ECONOMIC_DAY_SECONDS == 600, "time", "v0.4 research cycle is 10s; economic day remains 600s")
         check(Q == 0.88, "formula", "user decay must apply to every role")
         formula_samples = {}
         for group, weight in WEIGHTS.items():
@@ -337,7 +360,7 @@ def main() -> int:
                 closed = total(weight, n)
                 check(math.isclose(direct, closed, rel_tol=1e-12, abs_tol=1e-12), "formula", f"geometric identity {group} n={n}")
                 check(math.isclose(closed - total(weight, n - 1), weight * Q ** (n - 1), rel_tol=1e-10, abs_tol=1e-12), "formula", f"marginal identity {group} n={n}")
-                samples.append({"effective_count": n, "total_points_per_day": closed, "marginal_points_per_day": weight * Q ** (n - 1)})
+                samples.append({"effective_count": n, "total_points_per_cycle": closed, "marginal_points_per_cycle": weight * Q ** (n - 1)})
             previous_delta = float("inf")
             for n in range(1, 101):
                 result = total(weight, n)
@@ -351,8 +374,8 @@ def main() -> int:
                 check(total(weight, n + 0.125) > total(weight, n), "activity", f"partial addition is not positive {group} n={n}")
                 check(total(weight, n + 0.25) - total(weight, n) > total(weight, n + 0.5) - total(weight, n + 0.25), "activity", f"continuous sum not concave {group} n={n}")
             check(total(weight, 0.5 + 0.5) == total(weight, 1.0), "activity", f"split activity changes research {group}")
-            check(math.isclose(total(weight, 1) * 600 / RESEARCH_DAY_SECONDS, weight), "time", f"one full worker day {group}")
-            formula_samples[group] = {"weight": weight, "q": Q, "ceiling_points_per_day": weight / (1 - Q), "samples": samples}
+            check(math.isclose(total(weight, 1) * 10 / RESEARCH_CYCLE_SECONDS, weight), "time", f"one full worker research cycle {group}")
+            formula_samples[group] = {"weight": weight, "q": Q, "ceiling_points_per_cycle": weight / (1 - Q), "samples": samples}
 
         global_ceiling = sum(WEIGHTS.values()) / (1 - Q)
         check(math.isclose(global_ceiling, 109.16666666666667, abs_tol=1e-10), "ceiling", "global limit mismatch")
@@ -363,7 +386,7 @@ def main() -> int:
         check(math.isclose(total(10, 3) - total(10, 2), 7.744), "user_examples", "third scholar")
         check(math.isclose(100 * total(10, 1) / 100, 10), "user_examples", "10 percent only at cost 100")
         check(math.isclose(100 * total(10, 1) / 200, 5), "user_examples", "cost 200 means 5 percent")
-        check(math.isclose(total(10, 1) * 300 / 600, 5), "time", "half-day full then inactive differs from continuous fractional count")
+        check(math.isclose(total(10, 1) * 5 / RESEARCH_CYCLE_SECONDS, 5), "time", "half-cycle full then inactive differs from continuous fractional count")
         for invalid in (-1, float("nan"), float("inf")):
             try:
                 total(10, invalid)
@@ -373,7 +396,7 @@ def main() -> int:
 
         report = {
             "schema_version": 1,
-            "design_version": "technology-design-v2-resources",
+            "design_version": "technology-design-v4-social-agriculture",
             "design_status": "prepared_not_implemented",
             "validation_scope": "CSV references, dependency DAG, stage gates and proposed math only; no Unity or gameplay validation",
             "created_at": datetime.now(timezone(timedelta(hours=3))).isoformat(timespec="seconds"),
@@ -385,13 +408,15 @@ def main() -> int:
             "failed_count": len(errors),
             "errors": errors,
             "topological_order": topological,
-            "research_day_seconds": RESEARCH_DAY_SECONDS,
+            "research_cycle_seconds": RESEARCH_CYCLE_SECONDS,
+            "economic_day_seconds": ECONOMIC_DAY_SECONDS,
+            "runtime_group_scope": "resident and actual adult Process work; priest/scholar require future professions",
             "eligible_adult_age": 16,
             "role_to_group": dict(sorted(groups.items())),
             "formula_samples": formula_samples,
             "fractional_scholar_half_activity_rate": total(10, 0.5),
-            "global_ceiling_points_per_day": global_ceiling,
-            "progress_examples": {"one_scholar_cost_100_percent_per_day": 10, "one_scholar_cost_200_percent_per_day": 5},
+            "global_ceiling_points_per_cycle": global_ceiling,
+            "progress_examples": {"one_scholar_cost_100_percent_per_cycle": 10, "one_scholar_cost_200_percent_per_cycle": 5},
             "advancement_gate_checks": advancement_checks,
             "integrated_structural_reachability": integrated,
             "integrated_validator_counterexamples": sensitivity_checks,

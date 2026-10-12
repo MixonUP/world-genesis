@@ -76,3 +76,9 @@ mortar,Строительный раствор,2,0,0,4,recipe
 paper,Бумага,0.1,0,0,2,recipe
 ink,Чернила,0.1,0,0,3,recipe
 book,Книга,1,0,0,18,recipe
+hay,Сено,1,0,3000,1,recipe
+milk,Молоко,1,12,360,2,wildlife
+egg,Яйцо,1,8,1200,2,wildlife
+rare_horn,Редкий рог,1,0,0,120,wildlife
+rare_pelt,Редкая шкура,2,0,0,180,wildlife
+ale,Эль,1,2,2400,4,recipe

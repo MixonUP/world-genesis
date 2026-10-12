@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-12T12:02:48.5462402Z",
+  "type": "assisted visual fixture, not natural progression proof",
+  "terrainAndBuildingsAuthored": true,
+  "researchGranted": true,
+  "initialMaterialsGranted": true,
+  "workSecondsApplied": 8,
+  "cartMadeByProductionRecipe": true,
+  "cartCapacity": 150,
+  "caravan": {
+    "Id": 1,
+    "OriginId": 1,
+    "DestinationId": 23,
+    "LeaderId": 7,
+    "MarketBuildingId": 24,
+    "ExportItem": 9,
+    "ImportItem": 10,
+    "Phase": 1,
+    "Aborted": false,
+    "StartedTick": 0,
+    "LastChangeTick": 30,
+    "LastReason": "\u0412\u0441\u0435 \u043D\u043E\u0441\u0438\u0442\u0435\u043B\u0438 \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u043B\u0438\u0441\u044C; \u043E\u0431\u0449\u0438\u0439 \u043C\u0430\u0440\u0448\u0440\u0443\u0442 \u043A \u043F\u0430\u0440\u0442\u043D\u0451\u0440\u0443.",
+    "Members": [
+      {
+        "UnitId": 7,
+        "SourceBuildingId": 2,
+        "Phase": 2,
+        "ExportQuota": 3,
+        "HireFoodPaid": 0,
+        "BlockedSinceTick": 0
+      }
+    ]
+  },
+  "tick": 30,
+  "population": 33,
+  "savedWorld": "Builds/rural-assisted-showcase.json"
+}

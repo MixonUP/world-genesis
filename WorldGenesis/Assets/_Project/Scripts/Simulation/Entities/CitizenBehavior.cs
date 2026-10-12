@@ -42,12 +42,14 @@ namespace WorldGenesis.Simulation
         private void ChangeTask(UnitData unit, UnitTask task)
         {
             if (unit.Task == task) return;
+            if (unit.Task == UnitTask.Brew) { BuildingData previous = World.GetBuilding(unit.TargetBuildingId); if (previous != null) previous.BrewingProgress = 0; }
             ReleaseReservation(unit);
             ReleaseWorkshop(unit);
             unit.Task = task; unit.TaskStartedTick = World.Tick; unit.WorkTimer = 0;
-            if (task != UnitTask.Fight && task != UnitTask.Socialize) unit.TargetId = 0;
-            if (task != UnitTask.Gather) unit.ResourceCell = -1;
-            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
+            if (task != UnitTask.Fight && task != UnitTask.Hunt && task != UnitTask.Tend && task != UnitTask.Socialize) unit.TargetId = 0;
+            if (task != UnitTask.Gather && task != UnitTask.Fish) unit.ResourceCell = -1;
+            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process && task != UnitTask.Drink && task != UnitTask.Tend && task != UnitTask.Brew && task != UnitTask.CraftEquipment && task != UnitTask.Caravan) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
+            if (task != UnitTask.CraftEquipment) { unit.EquipmentProgress = 0; unit.EquipmentOrder = 0; }
             if (task != UnitTask.Haul) unit.GroundStockIndex = -1;
         }
 
@@ -56,13 +58,17 @@ namespace WorldGenesis.Simulation
         private bool NeedsImmediateDecision(UnitData unit)
         {
             if (unit.Task == UnitTask.Idle || unit.Task == UnitTask.Flee || unit.DecisionTimer > 0) return false;
-            if (unit.Hunger > .72f && unit.Task != UnitTask.Eat && unit.Species != SpeciesType.Wolf) return true;
+            if (unit.Hunger > .72f && unit.Task != UnitTask.Eat && !WildlifeCatalog.IsPredator(unit.Species)) return true;
+            if (unit.Thirst > .85f && unit.Task != UnitTask.Drink) return true;
             return unit.Fatigue > .88f && unit.Task != UnitTask.Rest && unit.Task != UnitTask.Eat;
         }
 
         private bool CommittedActivity(UnitData unit)
         {
-            if (unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize || unit.Task == UnitTask.Play || unit.Task == UnitTask.Learn) return true;
+            if (unit.Task == UnitTask.Caravan && unit.CaravanId != 0) return true;
+            if (unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Brew) return World.GetBuilding(unit.TargetBuildingId) != null && (unit.Task != UnitTask.CraftEquipment || unit.EquipmentOrder != 0);
+            if (unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize || unit.Task == UnitTask.Play || unit.Task == UnitTask.Learn || unit.Task == UnitTask.Drink) return true;
+            if (unit.Task == UnitTask.Fish) return CarrySpace(unit) > .001f && unit.ResourceCell >= 0 && unit.ResourceCell < World.Cells.Length && World.Infrastructure[unit.ResourceCell].Fish > 0;
             if (unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Haul) return CommittedResourceJob(unit);
             if ((unit.Task == UnitTask.Return || unit.Task == UnitTask.Patrol) && unit.PathCursor < unit.Path.Count) return true;
             if (unit.TargetCell < 0 || unit.TargetCell >= World.Cells.Length) return false;
@@ -86,8 +92,9 @@ namespace WorldGenesis.Simulation
             for (int n = spatialHeads[World.Index(cx, cy)]; n >= 0; n = spatialNext[n])
             {
                 UnitData candidate = World.Units[n];
-                if (candidate.Species != SpeciesType.Wolf || candidate.Health <= 0) continue;
+                if (candidate.Health <= 0 || (!PredatorWants(candidate, unit) && !(candidate.Task == UnitTask.Hunt && candidate.TargetId == unit.Id))) continue;
                 float squared = DistanceSquared(unit.X, unit.Y, candidate.X, candidate.Y);
+                if (candidate.Task == UnitTask.Hunt && squared > 4) continue;
                 if (squared < distance) { distance = squared; nearest = candidate; }
             }
             return nearest;
@@ -106,7 +113,7 @@ namespace WorldGenesis.Simulation
 
         private bool ChooseFood(UnitData unit, SettlementData home)
         {
-            if (unit.Species == SpeciesType.Wolf) return false;
+            if (WildlifeCatalog.IsPredator(unit.Species)) return false;
             int current = World.Index((int)unit.X, (int)unit.Y);
             bool carried = unit.CarriedFood >= 1;
             bool local = World.Cells[current].Vegetation >= .12f && World.Cells[current].Fire <= .1f;
@@ -187,6 +194,7 @@ namespace WorldGenesis.Simulation
                 { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 1; return true; }
                 unit.SocialNeed = Math.Max(0, unit.SocialNeed - dt * .18f);
                 partner.SocialNeed = Math.Max(0, partner.SocialNeed - dt * .08f);
+                ShareFaith(unit, partner, dt);
                 unit.WorkTimer = Math.Max(0, unit.WorkTimer - dt);
                 if (unit.WorkTimer <= 0) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; }
                 return true;

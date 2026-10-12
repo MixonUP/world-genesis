@@ -9,7 +9,8 @@ param(
     [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
     [switch]$InspectCitizen, [switch]$InspectResourceWorker,
     [ValidateSet('', 'Woman', 'Man', 'Child')][string]$Demographic='',
-    [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin')][string]$Resource=''
+    [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin')][string]$Resource='',
+    [string]$WorldFile='', [switch]$InspectCaravan
 )
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -27,9 +28,15 @@ $arguments=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullsc
 $arguments+=@('--simulation-speed',"$Speed")
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
 if ($InspectCitizen) { $arguments+='--inspect-citizen' }
+if ($InspectCaravan) { $arguments+='--inspect-caravan' }
 if ($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
 if ($Demographic) { $arguments+=@('--inspect-demographic',$Demographic) }
 if ($Resource) { $arguments+=@('--inspect-resource',$Resource) }
+if ($WorldFile) {
+    $captureSource=[IO.Path]::GetFullPath((Join-Path $root $WorldFile))
+    if (-not $captureSource.StartsWith($root+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase) -or -not (Test-Path -LiteralPath $captureSource)) { throw 'Capture world must be an existing file inside this project.' }
+    $arguments+=@('--load-capture-world',(Quote $captureSource))
+}
 if ($Power) { $arguments+=@('--demo-power',$Power) }
 if ($ProfileSeconds -gt 0) {
     if ($Seconds -le $ProfileSeconds+4) { throw 'Capture delay must exceed profile duration + 4 seconds.' }
@@ -55,6 +62,7 @@ if ($ProfileSeconds -gt 0 -and -not (Test-Path -LiteralPath $profile)) { throw '
     imageSHA256=(Get-FileHash -LiteralPath $image -Algorithm SHA256).Hash;
     scope='Native Unity Windows Player. Visual content still requires image inspection.';
     automatedCamera=[bool]$FocusSettlement;automatedPower=$Power;stressPopulation=$StressPopulation;workspaceSourcesAtLaunch=$sources;
+    loadedWorld=$WorldFile;loadedWorldSHA256=$(if($WorldFile){(Get-FileHash -LiteralPath $captureSource -Algorithm SHA256).Hash}else{''});
     runtimeAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Runtime.dll') -Algorithm SHA256).Hash;
     simulationAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Simulation.dll') -Algorithm SHA256).Hash
 } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath ($base+'-run.json') -Encoding UTF8

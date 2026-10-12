@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-12T15:00:20.0726994+03:00",
+  "scope": "Shared .NET/Unity Caravan scenarios; .NET verified, Unity pending integrator",
+  "report": "Evidence/Simulation/caravan-shared-scenarios-final.json",
+  "tests": 15,
+  "failures": 0,
+  "sources": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs",
+      "sha256": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "sha256": "816C57A773A573B6F3A50D7FDE5AB511D8CD7F9621BBBC85AAE652B67FAD885B"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/CaravanTests.cs",
+      "sha256": "D1280E7D91C7CE4FB5EE3D07A1922B98AC069089E08F647BD0379F4FE49FFB24"
+    },
+    {
+      "path": "Tools/CaravanProbe/Program.cs",
+      "sha256": "0330D8992DD1D0EC3BCF6D043DE74849DF8A4A62A8E5364F170940BFA8874ED5"
+    }
+  ]
+}

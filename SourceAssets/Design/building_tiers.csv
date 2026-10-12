@@ -164,3 +164,28 @@ glassworks,2,3,plank=8;stone_block=6;straw=4,40,1,60,1.05,0,навес стек�
 glassworks,3,3,stone_block=20;plank=12;iron_ingot=2,65,2,80,1.1,0,стекольный двор
 glassworks,4,4,brick=30;plank=16;iron_ingot=4;mortar=6,100,2,120,1.15,0,каменная мастерская
 glassworks,5,5,brick=50;plank=20;steel_ingot=4;glass=4;furniture=2,150,3,160,1.2,0,стекольный комплекс
+wooden_wall,1,2,wood_log=2;plank=4,12,0,0,1,0,частокол из заострённых брёвен
+wooden_wall,2,2,plank=4;rope=1,18,0,0,1,0,связанные секции с упорами
+wooden_wall,3,3,wood_log=4;iron_ingot=1,25,0,0,1,0,деревянный боевой настил
+wooden_wall,4,4,plank=8;iron_ingot=2,35,0,0,1,0,усиленные скобы и навес
+wooden_wall,5,5,plank=12;steel_ingot=1,45,0,0,1,0,двойной частокол со смотровой площадкой
+wooden_gate,1,2,wood_log=2;plank=6,18,0,0,1,0,одна бревенчатая створка
+wooden_gate,2,2,plank=8;rope=2,24,0,0,1,0,две створки и засов
+wooden_gate,3,3,plank=8;iron_ingot=2;copper_parts=2,35,0,0,1,0,навес с железными петлями
+wooden_gate,4,4,plank=12;iron_ingot=4,45,0,0,1,0,укреплённая воротная площадка
+wooden_gate,5,5,plank=16;steel_ingot=2,60,0,0,1,0,двойной проход с сигнальным помостом
+road,1,1,stone=1;branch=1,4,0,0,1,0,расчищенная тропа
+road,2,2,stone=2,6,0,0,1,0,щебёночная дорожка
+road,3,3,stone_tile=2;stone=1,9,0,0,1,0,каменное мощение
+road,4,4,stone_tile=3;mortar=1,12,0,0,1,0,мощение с водоотводом
+road,5,5,stone_tile=4;mortar=2,16,0,0,1,0,укреплённая городская улица
+pasture,1,1,plank=8;branch=4,20,2,40,1,4,колья и кормушка
+pasture,2,2,plank=8;stone=6;straw=4,40,2,60,1.05,6,загон с навесом
+pasture,3,3,stone=20;plank=12;iron_ingot=2,65,4,80,1.1,8,хлев с поилкой
+pasture,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,4,120,1.15,12,каменный животный двор
+pasture,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,6,160,1.2,16,племенной двор
+brewery,1,2,plank=8;stone=4;clay=2,24,1,40,1,0,котёл под навесом
+brewery,2,2,plank=8;stone=6;straw=4,40,1,60,1.05,0,бродильный сарай
+brewery,3,3,stone=20;plank=12;iron_ingot=2,65,2,80,1.1,0,кирпичная варница
+brewery,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,120,1.15,0,каменная пивоварня
+brewery,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,160,1.2,0,цех с погребом

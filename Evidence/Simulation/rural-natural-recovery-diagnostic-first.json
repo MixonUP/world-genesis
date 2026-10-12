@@ -1,0 +1,2140 @@
+{
+  "deaths": {
+    "37:combat": 2,
+    "1:old-age": 34,
+    "37:old-age": 27,
+    "52:old-age": 22,
+    "1:combat": 1,
+    "37:starvation": 3,
+    "1:starvation": 1,
+    "19:old-age": 9
+  },
+  "timeline": [
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 3,
+            "Gather": 2,
+            "Fish": 1,
+            "Process": 1,
+            "Return": 1,
+            "Eat": 1
+          },
+          "technologies": [],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 5,
+            "Farm": 4
+          },
+          "technologies": [],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          }
+        },
+        {
+          "tasks": {
+            "Process": 1,
+            "Gather": 1,
+            "Eat": 5,
+            "Farm": 1,
+            "Return": 1
+          },
+          "technologies": [],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 4,
+            "Eat": 1,
+            "Process": 1,
+            "Farm": 3
+          },
+          "technologies": [],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Process": 2,
+            "Rest": 1,
+            "Gather": 3,
+            "Idle": 1,
+            "Return": 1,
+            "Fish": 1,
+            "Learn": 3,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 2,
+            "Sawmill": 1,
+            "House": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 3,
+            "Fish": 2,
+            "Idle": 1,
+            "Process": 2,
+            "Return": 1,
+            "Play": 3,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1,
+            "Sawmill": 1,
+            "House": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 3,
+            "Return": 2,
+            "Process": 2,
+            "Idle": 1,
+            "Eat": 1,
+            "Wander": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1,
+            "Sawmill": 1,
+            "House": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 7,
+            "Process": 1,
+            "Farm": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1,
+            "Sawmill": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 5,
+            "Haul": 1,
+            "Rest": 1,
+            "Return": 1,
+            "Process": 1,
+            "Play": 3,
+            "Eat": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 6,
+            "Process": 1,
+            "Fish": 1,
+            "Haul": 1,
+            "Play": 2,
+            "Learn": 1,
+            "Idle": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 4,
+            "Socialize": 1,
+            "Gather": 1,
+            "Fish": 2,
+            "Rest": 1,
+            "Wander": 1,
+            "Play": 1,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1
+          }
+        },
+        {
+          "tasks": {
+            "Rest": 2,
+            "Return": 2,
+            "Fish": 2,
+            "Farm": 1,
+            "Socialize": 2,
+            "Learn": 2,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1,
+            "Sawmill": 1,
+            "House": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Socialize": 1,
+            "Process": 1,
+            "CraftEquipment": 6,
+            "Gather": 4,
+            "Farm": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 6,
+            "Process": 3,
+            "Rest": 2,
+            "Return": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Kiln": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 9,
+            "Process": 1,
+            "Rest": 1,
+            "Return": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 2,
+            "Return": 7,
+            "Socialize": 1,
+            "Play": 1,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 2,
+            "Sawmill": 1,
+            "House": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Eat": 2,
+            "Fish": 3,
+            "Farm": 3,
+            "Return": 1,
+            "Rest": 2,
+            "Drink": 2,
+            "Play": 4,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 4,
+            "Eat": 5,
+            "Fish": 3,
+            "Rest": 1,
+            "Play": 2,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 5,
+            "Eat": 5,
+            "Process": 2,
+            "Return": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 2,
+            "Socialize": 1,
+            "Eat": 8,
+            "Rest": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 6,
+            "Fish": 2,
+            "Eat": 1,
+            "Fight": 1,
+            "Drink": 1,
+            "Play": 2,
+            "Learn": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 4,
+            "Fish": 3,
+            "Eat": 4,
+            "Return": 2,
+            "Rest": 1,
+            "Play": 5,
+            "Idle": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 3,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Process": 3,
+            "Fish": 2,
+            "Return": 1,
+            "Farm": 1,
+            "Eat": 1,
+            "CraftEquipment": 2,
+            "Learn": 1,
+            "Wander": 1,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 7,
+            "Eat": 2,
+            "Process": 1,
+            "Idle": 1,
+            "Wander": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 5,
+            "Drink": 1,
+            "Return": 4,
+            "Gather": 1,
+            "Process": 1,
+            "Learn": 5,
+            "Wander": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 7,
+            "Farm": 2,
+            "Process": 2,
+            "Fish": 1,
+            "Rest": 2,
+            "Gather": 4,
+            "Drink": 1,
+            "Learn": 2,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Fish": 1,
+            "Return": 2,
+            "Rest": 3,
+            "Farm": 3,
+            "Process": 1,
+            "Play": 3,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        },
+        {
+          "tasks": {
+            "Process": 1,
+            "Haul": 2,
+            "CraftEquipment": 1,
+            "Return": 1,
+            "Socialize": 1,
+            "Rest": 1,
+            "Eat": 1,
+            "Play": 2,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 3,
+            "Fish": 3,
+            "Return": 4,
+            "Haul": 1,
+            "Drink": 2,
+            "Process": 1,
+            "Gather": 3,
+            "Play": 3,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 9,
+            "Fish": 4,
+            "Rest": 1,
+            "Return": 5,
+            "Drink": 1,
+            "Process": 2,
+            "Eat": 2,
+            "Play": 3,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 4,
+            "Farm": 3,
+            "Return": 3,
+            "Rest": 1,
+            "Fish": 1,
+            "Learn": 3,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1
+          }
+        },
+        {
+          "tasks": {
+            "Rest": 1,
+            "Wander": 2,
+            "Socialize": 1,
+            "Return": 1,
+            "Play": 2,
+            "Drink": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Well": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Drink": 3,
+            "Fight": 1,
+            "Return": 6,
+            "Process": 2,
+            "Haul": 1,
+            "Eat": 2,
+            "Rest": 1,
+            "Fish": 3,
+            "Farm": 2,
+            "Wander": 2,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 1
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 1,
+            "Eat": 6,
+            "Drink": 3,
+            "Return": 8,
+            "Wander": 3,
+            "Rest": 2,
+            "Process": 2,
+            "Fish": 1,
+            "Play": 6,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 3
+          }
+        },
+        {
+          "tasks": {
+            "Return": 3,
+            "Farm": 3,
+            "Gather": 5,
+            "Process": 1,
+            "Fish": 2,
+            "Eat": 1,
+            "Drink": 1,
+            "Learn": 3,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1
+          }
+        },
+        {
+          "tasks": {
+            "Socialize": 1,
+            "Return": 2,
+            "Rest": 2,
+            "Process": 1,
+            "Haul": 3,
+            "Play": 4
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 2,
+            "Fish": 3,
+            "Return": 8,
+            "Tend": 2,
+            "Gather": 2,
+            "Haul": 1,
+            "Rest": 2,
+            "Process": 3,
+            "Drink": 1,
+            "Idle": 1,
+            "Learn": 2,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 2
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 13,
+            "Return": 2,
+            "Fish": 8,
+            "Eat": 3,
+            "Process": 2,
+            "Drink": 2,
+            "Rest": 1,
+            "Learn": 3,
+            "Play": 4
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 3,
+            "Farm": 3,
+            "Rest": 6,
+            "Return": 2,
+            "Fish": 3,
+            "Process": 1,
+            "Eat": 1,
+            "Play": 4,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 1
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 2,
+            "Return": 2,
+            "Drink": 4,
+            "Eat": 2,
+            "Fish": 1,
+            "Haul": 1,
+            "Rest": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Drink": 1,
+            "Return": 5,
+            "Process": 2,
+            "Rest": 4,
+            "Gather": 8,
+            "Fish": 3,
+            "Eat": 3,
+            "Farm": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 6,
+            "Drink": 4,
+            "Fish": 7,
+            "Return": 6,
+            "CraftEquipment": 3,
+            "Rest": 4,
+            "Gather": 2,
+            "Process": 2,
+            "Socialize": 2,
+            "Learn": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Drink": 2,
+            "Eat": 3,
+            "Return": 7,
+            "Gather": 5,
+            "Idle": 1,
+            "Fish": 3,
+            "Process": 2,
+            "Learn": 2,
+            "Play": 1,
+            "Wander": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 3
+          }
+        },
+        {
+          "tasks": {
+            "Idle": 1,
+            "Return": 2,
+            "Rest": 3,
+            "Flee": 1,
+            "Gather": 2,
+            "Socialize": 1,
+            "Process": 1,
+            "Eat": 1,
+            "Wander": 1,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Return": 5,
+            "Tend": 1,
+            "Gather": 6,
+            "Drink": 1,
+            "Eat": 3,
+            "Fish": 5,
+            "Process": 3,
+            "Farm": 1,
+            "Rest": 1,
+            "Idle": 2,
+            "Learn": 3,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Gather": 11,
+            "Fish": 8,
+            "Rest": 2,
+            "Return": 10,
+            "Drink": 3,
+            "Wander": 1,
+            "Eat": 1,
+            "Process": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 3,
+            "Return": 6,
+            "Gather": 3,
+            "Fish": 5,
+            "Eat": 2,
+            "Rest": 1,
+            "Drink": 2,
+            "Process": 1,
+            "Haul": 1,
+            "Wander": 2,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Return": 3,
+            "Socialize": 1,
+            "Eat": 3,
+            "Rest": 1,
+            "Haul": 1,
+            "Learn": 4,
+            "Play": 3,
+            "Wander": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Return": 3,
+            "Eat": 2,
+            "Farm": 8,
+            "Rest": 3,
+            "Drink": 6,
+            "Fish": 9,
+            "Socialize": 1,
+            "Play": 2,
+            "Learn": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 21,
+            "Eat": 7,
+            "Drink": 2,
+            "Tend": 3,
+            "Rest": 4,
+            "Socialize": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Rest": 5,
+            "Return": 7,
+            "Farm": 5,
+            "Fish": 4,
+            "Idle": 2,
+            "Drink": 1,
+            "Gather": 1,
+            "Wander": 2,
+            "Learn": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Return": 3,
+            "Eat": 1,
+            "Gather": 6,
+            "Rest": 3,
+            "Fish": 1,
+            "Idle": 1,
+            "Drink": 1,
+            "Wander": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Farm": 11,
+            "Return": 8,
+            "Fish": 8,
+            "Eat": 4,
+            "Rest": 1,
+            "Learn": 5
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 25,
+            "Learn": 2,
+            "Return": 1,
+            "Tend": 4,
+            "Eat": 2,
+            "Rest": 1,
+            "Drink": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Return": 9,
+            "Socialize": 2,
+            "Farm": 5,
+            "Fish": 3,
+            "Eat": 2,
+            "Gather": 1,
+            "Drink": 6,
+            "Tend": 1,
+            "Wander": 1,
+            "Learn": 3,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Fish": 2,
+            "Drink": 3,
+            "Rest": 1,
+            "Haul": 3,
+            "Return": 3,
+            "Socialize": 1,
+            "Farm": 3,
+            "Process": 2,
+            "Learn": 3,
+            "Wander": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 3,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Process": 2,
+            "Fish": 11,
+            "Gather": 7,
+            "Return": 5,
+            "Eat": 1,
+            "Socialize": 1,
+            "Rest": 1,
+            "Drink": 1,
+            "Play": 4,
+            "Learn": 3,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Drink": 4,
+            "Rest": 4,
+            "Wander": 24,
+            "Eat": 3,
+            "Return": 2,
+            "Tend": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Rest": 1,
+            "Farm": 5,
+            "Fish": 5,
+            "Return": 6,
+            "Eat": 2,
+            "Tend": 6,
+            "Idle": 2,
+            "Socialize": 1,
+            "Play": 3,
+            "Wander": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Return": 9,
+            "Rest": 5,
+            "Socialize": 1,
+            "Eat": 2,
+            "Fish": 1,
+            "Process": 1,
+            "Haul": 1,
+            "Learn": 3,
+            "Drink": 1,
+            "Play": 1,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "CraftEquipment": 1,
+            "Wander": 3,
+            "Eat": 2,
+            "Farm": 7,
+            "Socialize": 1,
+            "Drink": 2,
+            "Rest": 1,
+            "Fish": 8,
+            "Return": 4,
+            "Learn": 5,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 4,
+            "Wander": 21,
+            "Tend": 8,
+            "Rest": 1,
+            "CraftEquipment": 1,
+            "Socialize": 1,
+            "Drink": 1,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Rest": 2,
+            "Return": 11,
+            "Eat": 5,
+            "Tend": 2,
+            "Idle": 2,
+            "Fish": 2,
+            "Wander": 3,
+            "Farm": 3,
+            "Drink": 1,
+            "Learn": 2,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Haul": 2,
+            "Eat": 3,
+            "Drink": 1,
+            "Return": 5,
+            "Fish": 2,
+            "Tend": 3,
+            "Process": 1,
+            "Idle": 2,
+            "Wander": 1,
+            "Play": 3,
+            "Learn": 5
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Return": 10,
+            "Wander": 11,
+            "Fish": 2,
+            "Eat": 3,
+            "Rest": 2,
+            "Farm": 2,
+            "Drink": 1,
+            "Play": 5,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Tend": 4,
+            "Drink": 4,
+            "Wander": 12,
+            "Farm": 3,
+            "Return": 1,
+            "Eat": 2,
+            "Socialize": 1,
+            "Rest": 1,
+            "Process": 2,
+            "Learn": 5,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade",
+            "k01_teaching"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4,
+            "Shop": 1
+          }
+        },
+        {
+          "tasks": {
+            "Return": 5,
+            "Wander": 19,
+            "Drink": 3,
+            "Flee": 1,
+            "CraftEquipment": 1,
+            "Gather": 1,
+            "Rest": 2,
+            "Learn": 4,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 5,
+            "Rest": 2,
+            "Return": 10,
+            "Drink": 4,
+            "Eat": 4,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    },
+    {
+      "towns": [
+        {
+          "tasks": {
+            "Wander": 11,
+            "Rest": 5,
+            "Return": 4,
+            "Fish": 2,
+            "Eat": 5,
+            "Farm": 1,
+            "Gather": 2,
+            "Idle": 1,
+            "Drink": 1,
+            "Learn": 5,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 5
+          }
+        },
+        {
+          "tasks": {
+            "Wander": 25,
+            "Eat": 3,
+            "Drink": 2,
+            "Farm": 2,
+            "Idle": 1,
+            "Learn": 2,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l01_local_trade",
+            "k01_teaching"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 6,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Well": 1,
+            "Pasture": 1,
+            "Tower": 4,
+            "Shop": 1
+          }
+        },
+        {
+          "tasks": {
+            "Eat": 2,
+            "Fish": 5,
+            "Wander": 4,
+            "Rest": 6,
+            "Drink": 2,
+            "Return": 11,
+            "Tend": 1,
+            "Farm": 2,
+            "Play": 4,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 7,
+            "Stoneworks": 1,
+            "Kiln": 1,
+            "Warehouse": 1,
+            "Pasture": 1,
+            "Well": 1,
+            "Tower": 4
+          }
+        },
+        {
+          "tasks": {
+            "Farm": 4,
+            "Fish": 2,
+            "Return": 8,
+            "Tend": 1,
+            "Eat": 2,
+            "Rest": 2,
+            "Haul": 2,
+            "Process": 1,
+            "Idle": 2,
+            "Learn": 2,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          }
+        }
+      ]
+    }
+  ]
+}

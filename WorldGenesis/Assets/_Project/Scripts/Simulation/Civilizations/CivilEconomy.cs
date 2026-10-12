@@ -118,12 +118,15 @@ namespace WorldGenesis.Simulation
                 if (!force && s.PolicyRulerId == s.RulerId && World.Tick < s.NextPolicyReviewTick) continue;
                 bool shortage = s.Population > 0 && s.Food < s.Population * 2;
                 float generosity = ruler == null ? .5f : ruler.Generosity, prudence = ruler == null ? .5f : ruler.Prudence;
-                s.EconomyPolicy = ruler == null || shortage || generosity >= .55f ? EconomicPolicy.FreeDistribution : EconomicPolicy.Market;
-                s.TaxRate = s.EconomyPolicy == EconomicPolicy.FreeDistribution ? 0 : generosity < .25f ? .3f : .1f;
-                s.ChildLabor = ruler != null && (shortage || (ruler.Ambition > .65f && generosity < .4f)) ? ChildLaborPolicy.LightWork : ChildLaborPolicy.Forbidden;
-                s.ResourceFocus = ruler == null || shortage ? ResourceFocus.Balanced : prudence >= .5f ? (s.Wood < 20 ? ResourceFocus.Timber : World.GetResourceBalance(s.Id, ItemType.StoneBlock).Deficit > 0 ? ResourceFocus.Masonry : ResourceFocus.Balanced) : (ResourceFocus)(StableRandom.Hash(World.Seed, s.RulerId, 0, 6100) % 4);
+                EconomicPolicy policy = ruler == null || shortage || generosity >= .55f ? EconomicPolicy.FreeDistribution : EconomicPolicy.Market;
+                float tax = policy == EconomicPolicy.FreeDistribution ? 0 : generosity < .25f ? .3f : .1f;
+                ChildLaborPolicy child = ruler != null && (shortage || (ruler.Ambition > .65f && generosity < .4f)) ? ChildLaborPolicy.LightWork : ChildLaborPolicy.Forbidden;
+                ResourceFocus focus = ruler == null || shortage ? ResourceFocus.Balanced : prudence >= .5f ? (s.Wood < 20 ? ResourceFocus.Timber : World.GetResourceBalance(s.Id, ItemType.StoneBlock).Deficit > 0 ? ResourceFocus.Masonry : ResourceFocus.Balanced) : (ResourceFocus)(StableRandom.Hash(World.Seed, s.RulerId, 0, 6100) % 4);
+                float tolerance = ruler == null ? .7f : WorldGenerator.Clamp01(.15f + generosity * .5f + prudence * .35f);
+                bool accepted = ResolveSocialPolicyProposal(s, policy, tax, child, focus, tolerance);
                 s.PolicyRulerId = s.RulerId; s.LastDecreeTick = World.Tick; s.NextPolicyReviewTick = World.Tick + PolicyReviewIntervalTicks;
                 s.LastDecreeReason = shortage ? "Мало общей еды: бесплатное распределение и лёгкая помощь подростков." : ruler == null ? "Нет взрослого правителя: временное общее распределение." : prudence < .5f ? "Правитель следует личному предпочтению сырья; высокий налог зависит от щедрости." : "Правитель учитывает запас досок и строительных материалов; обмен и налог отражают его щедрость.";
+                if (!accepted) s.LastDecreeReason = "Предложение правителя отклонено большинством взрослых; прежние законы сохранены.";
             }
         }
         public void SetEconomicPolicy(int settlementId, EconomicPolicy policy, float taxRate, ChildLaborPolicy childLabor, ResourceFocus focus)
