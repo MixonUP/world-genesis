@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-10-12T17:33:39.803289+03:00",
+  "status": "published-and-browser-verified",
+  "url": "https://github.com/MixonUP/world-genesis/releases/tag/v0.5.0-alpha",
+  "repository": "https://github.com/MixonUP/world-genesis",
+  "tag": "v0.5.0-alpha",
+  "commit": "30cbf69b57424b64e61d9cdf265b06c21306f685",
+  "archiveBytes": 32641941,
+  "localArchiveSHA256": "4619E052934771370A82E1E7252074A820BE62363E9F335D3CA95D93987A0950",
+  "githubDisplayedSHA256": "4619e052934771370a82e1e7252074a820be62363e9f335d3ca95d93987a0950",
+  "shaMatches": true,
+  "gallery": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/GALLERY_0_5.md",
+  "sevenImagesLoaded": true,
+  "observedImageWidths": [
+    1920,
+    1920,
+    1920,
+    1920,
+    1280,
+    1280,
+    1920
+  ],
+  "proofs": [
+    "Evidence/Development/github-release-0.5.0.jpg",
+    "Evidence/Development/github-gallery-0.5.0.jpg"
+  ],
+  "note": "Git push succeeded; GitHub release shows existing tag, commit, pre-release label and downloadable ZIP. Seven gallery images were verified complete with nonzero naturalWidth through rendered DOM."
+}
