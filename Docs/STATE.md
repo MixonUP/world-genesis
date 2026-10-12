@@ -1,3 +1,12 @@
+# Опубликованное состояние 0.4.0 — 2026-10-12 15:31 +03:00
+
+[Windows0.4.0-alpha](https://github.com/MixonUP/world-genesis/releases/tag/v0.4.0-alpha) опубликован и проверен. Tag v0.4.0-alpha →56ee8e61efbc5b56660b8c18bb263819579eb689. ZIP32 608 831байт; SHA2564D28AA499F28257B86DE7BBAB61F652C2FF0C679376E08D4CB276B5B1A6A0B92 совпал с GitHub. Evidence/Development/published-0.4.0-alpha.json иgithub-release-0.4.0.jpg. Код, документация, выбранные PNG/MP4 и проверки отправлены в публичный MixonUP/world-genesis, ветка codex/world-genesis.
+
+Телегу делает плотник;150ед с упряжным животным. 119EditMode/10PlayMode,build0ошибок/предупреждений, два1800simsec core-прогона и native30sпрофиль проверены. Подробный объём/границы — Development/SOCIETY_REPORT.md. Assets/_Project финальногоsnapshot совпадает с workspace по207файлам; исправление конца строки Tools/AgricultureProbe после игрового commit не меняло runtime. Обсуждавшиеся животные/хозяйство/общество реализованы в указанном подмножестве, не вся полнота WorldBox.
+
+Следующий этап: читаемая толпа/упряжь и единый масштаб фауны, баланс слабых городов на дополнительных seed, агротовары/доски в караванах, затем полная цепочка металла/монет/армейского снаряжения. 30-минутная native стабильность и художественное принятие остаются открытыми. Повторный выпуск0.4 не требуется. Нижние записи — история подготовки, не текущий статус.
+
+## История проверки0.4
 # Проверенное состояние 0.4.0 — 2026-10-12 15:24 +03:00
 
 Windows0.4 проверена, публикация пока не выполнена. Телегу делает плотник:12досок+4волокна+2шкуры,8рабочих секунд;150ед с упряжным животным. Система общества,28технологий, инфраструктура,13животных,5культур, снаряжение и физические караваны интегрированы. Все исходники заморожены после snapshot rural-release-v040-r2. 119/119 EditMode,10/10PlayMode,build0errors/0warnings. XML150819-401/151113-824, Evidence/build-report.json.
@@ -70,3 +79,5 @@ Obsidian: E:/Krea_tren_AI/Knowledge/01_Project/World_Genesis.md и 07_Journal/20
 Дополнение: ZIP0.3 полностью проверен по каждому файлу, 32557373байт, SHA256 2FC9C5BC2E16EB032A6ADA01CB5C1CE54C2617D319C78E2C6D604EAA6D063696. Квитанция Evidence/Development/package-0.3.0-alpha.json. Obsidian: resources-verified записан/прочитан обратно; квитанция Evidence/Development/2026-10-12-resources-verified-obsidian.json. Следующий шаг—commit/tag/push и release.
 
 Память публикации: карточка World_Genesis и журнал Obsidian дополнены и прочитаны обратно; квитанция Evidence/Development/2026-10-12-resources-published-obsidian.json. Изменения после игрового тега относятся только к документам и доказательству публикации.
+
+Память0.4: карточка World_Genesis и журнал Obsidian дополнены, прочитаны обратно. Квитанции Evidence/Development/2026-10-12-rural-verified-obsidian.json и2026-10-12-rural-published-obsidian.json. Последующие изменения после тега относятся к документации и доказательству публикации.
