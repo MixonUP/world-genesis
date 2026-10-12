@@ -28,4 +28,3 @@
 - [SourceAssets](../SourceAssets/README.md) — исходники и происхождение.
 
 Obsidian: `E:/Krea_tren_AI/Knowledge/01_Project/World_Genesis.md`. Синхронизация отражается в STATE.
-

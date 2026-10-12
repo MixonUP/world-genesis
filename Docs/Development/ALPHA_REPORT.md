@@ -59,3 +59,7 @@
 Исходники, `.meta`, Packages, ProjectSettings, исследования, процесс и небольшое evidence предназначены для приватного https://github.com/MixonUP/world-genesis . ZIP включает EXE вместе с Data и библиотеками; `Tools/Package-Alpha.ps1` читает каждый файл ZIP обратно и сверяет SHA256. Квитанция архива — `Evidence/Development/alpha-package.json`. Актуальный статус публикации — [STATE](../STATE.md).
 
 
+
+## Публикация подтверждена · 03:55 +03:00
+
+Приватный [выпуск v0.1.0-alpha](https://github.com/MixonUP/world-genesis/releases/tag/v0.1.0-alpha) опубликован на commit `ee08c1a7cdd01c8d46c2f9c133e40103b9ea8b68`. GitHub показывает полный Windows ZIP (31068671 байт); его digest `58b98e9dbe351e4aa1cf6cd462b26704cda970dcce6c0fbd9169038c8341dcfe` совпадает с локальной проверкой. Снимок страницы: `Evidence/Development/github-release-v0.1.0-alpha.jpg`. Игровой код тега после сборки не менялся; более поздняя документация фиксирует факт публикации.

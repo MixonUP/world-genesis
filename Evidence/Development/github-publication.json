@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-12T00:56:39.7961977Z",
+  "repository": "https://github.com/MixonUP/world-genesis",
+  "visibility": "private",
+  "release": "https://github.com/MixonUP/world-genesis/releases/tag/v0.1.0-alpha",
+  "tag": "v0.1.0-alpha",
+  "sourceCommit": "ee08c1a7cdd01c8d46c2f9c133e40103b9ea8b68",
+  "archive": "WorldGenesis-v0.1.0-alpha-win64.zip",
+  "archiveBytes": 31068671,
+  "sha256": "58b98e9dbe351e4aa1cf6cd462b26704cda970dcce6c0fbd9169038c8341dcfe",
+  "verification": "Remote branch equals source commit; published prerelease UI and GitHub asset SHA256 match local archive."
+}
