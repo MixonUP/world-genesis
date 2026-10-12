@@ -1,3 +1,5 @@
+**Опубликованы исходники и галерея 0.6 — 2026-10-12 21:15 +03:00.** Commit 5cbe95d8f4caddb76e23b7db69e0e5e1ea16f1c9 отправлен в codex/world-genesis, удалённый SHA совпал. [Галерея](https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/ORIGINAL_CITIZENS_GALLERY.md) открыта и изображения проверены в браузере. [Квитанция](../Evidence/Development/published-original-citizens.json). Windows ZIP 0.6.0 проверен локально; отдельного GitHub Release 0.6 пока нет. Следующие задачи и границы ниже.
+
 # Проверено 0.6 — собственные жители · 2026-10-12 21:08 +03:00
 
 Human/Elf/Dwarf/Orc: мужчины, женщины, мальчики и девочки, четыре настоящих ракурса ходьбы. 16 образов, 256 исходных ячеек; одежда семи гражданских ролей, четыре рабочих инструмента и производные жесты по состоянию симуляции. Исправлены висящие шапки, сохранены исходники/запросы/метаданные. [Галерея](Development/ORIGINAL_CITIZENS_GALLERY.md), [отчёт](Development/ORIGINAL_CITIZENS_REPORT.md), [визуальное ревью](Development/ORIGINAL_CITIZENS_VISUAL_REVIEW.md).

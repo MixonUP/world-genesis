@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-12T21:15:15.4372307+03:00",
+  "commit": "5cbe95d8f4caddb76e23b7db69e0e5e1ea16f1c9",
+  "remoteBranch": "codex/world-genesis",
+  "remoteCommitMatched": true,
+  "galleryUrl": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/ORIGINAL_CITIZENS_GALLERY.md",
+  "browserVerified": true,
+  "loadedImages": {
+    "gameplay": "1920x1080",
+    "maleWardrobe": "1920x1080",
+    "femaleWardrobe": "1920x1080",
+    "family": "1920x1080"
+  },
+  "screenshot": "Evidence/Development/github-original-citizens-gallery.png",
+  "scope": "Source project, documentation, native PNG and MP4 published; 0.6 Windows ZIP is local only; latest published binary remains 0.5.1"
+}

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T21:09:17.1143268+03:00",
+  "timestamp": "2026-10-12T21:15:43.0180468+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 547,
+  "checkCount": 552,
   "failures": [],
   "checks": [
     {
@@ -157,22 +157,27 @@
       "detail": "Found 5, expected 5"
     },
     {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
+    },
+    {
       "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
       "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
     },
@@ -187,19 +192,14 @@
       "detail": "UnityEngine.UI"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -860,6 +860,11 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/published-original-citizens.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\published-original-citizens.json"
     },
     {
       "id": "link:STATE.md:Development/ORIGINAL_CITIZENS_GALLERY.md",
@@ -1937,6 +1942,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
     },
     {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Development/published-original-citizens.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\published-original-citizens.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:ORIGINAL_CITIZENS_VISUAL_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_VISUAL_REVIEW.md"
+    },
+    {
       "id": "link:ORIGINAL_CITIZENS_REPORT.md:ORIGINAL_CITIZENS_GALLERY.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
@@ -2035,6 +2050,16 @@
       "id": "link:ORIGINAL_CITIZENS_REPORT.md:../Research/WORLDBOX_ANIMATION_COVERAGE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Development/published-original-citizens.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\published-original-citizens.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:ORIGINAL_CITIZENS_VISUAL_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_VISUAL_REVIEW.md"
     },
     {
       "id": "link:PLAY_GUIDE.md:README.md",
