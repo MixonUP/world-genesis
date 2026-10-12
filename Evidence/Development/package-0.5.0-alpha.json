@@ -1,0 +1,705 @@
+{
+  "utc": "2026-10-12T14:18:45.4680646Z",
+  "version": "0.5.0-alpha",
+  "archive": "WorldGenesis-v0.5.0-alpha-win64.zip",
+  "archiveBytes": 32641941,
+  "archiveSHA256": "4619E052934771370A82E1E7252074A820BE62363E9F335D3CA95D93987A0950",
+  "verification": "Every ZIP file read back and SHA256 compared with native build.",
+  "files": [
+    {
+      "path": "D3D12/D3D12Core.dll",
+      "bytes": 5908408,
+      "sha256": "31F364F2B3AA1753E7BA9FF912D0721C8F424BE5FA14503EFDDAFBB30C635D3B"
+    },
+    {
+      "path": "MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
+      "bytes": 7827640,
+      "sha256": "04EE4BC20E33FB43779ECD101891BB106B57ABA625BA5E5AE8B72EC7ED599779"
+    },
+    {
+      "path": "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+      "bytes": 609464,
+      "sha256": "1A97DD2D242BC5135F65CE73FBFFD520557D9208267B0886421BD4B9B10124F4"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/machine.config",
+      "bytes": 29066,
+      "sha256": "E91782A27FA39FC6C1D6EE8B08529F5D35052310D0006034B878EB04B8F2AF30"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/settings.map",
+      "bytes": 2622,
+      "sha256": "49C6160F9D54AF4270A3B4E997FC4A8301F79B9E2070118FA46DDBCBBC44F9A2"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/web.config",
+      "bytes": 11635,
+      "sha256": "CF2B54339E069B9E42F7D6795EECBF562C50C1011F4CA8F65F578FE52D97FF92"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/machine.config",
+      "bytes": 33598,
+      "sha256": "E60AEC2C5115D65B3ACB3C55EA21576DBD770F579166C017125571E46AE560ED"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/settings.map",
+      "bytes": 2622,
+      "sha256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/web.config",
+      "bytes": 18802,
+      "sha256": "E38BB8CC68FE5B4EDECDFD288D094B9E8CED7629039B2A347682ABA0D8BD7492"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/machine.config",
+      "bytes": 34056,
+      "sha256": "EE950004B576FB28DC85F4B0435ED04BF96612DE2E8B53BE84D07AFE85A0DE6C"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/settings.map",
+      "bytes": 2622,
+      "sha256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/web.config",
+      "bytes": 18811,
+      "sha256": "C4CBDDD4FD9347B58CC5A72B36DC4BA1AD2BB699E65869D05CD3FB9865F0D824"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/browscap.ini",
+      "bytes": 311984,
+      "sha256": "4DDD50F31FB968F30BEDEFC253A46DC3F2890192D05CDAA9E0A64A056EEE807E"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/config",
+      "bytes": 3815,
+      "sha256": "5776169973A26A387B8B3E5C0F2301A7AB9A6DD7C7D3EFA22A96ABC47FBF8662"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/mconfig/config.xml",
+      "bytes": 25817,
+      "sha256": "0C56E34C69124510FA8C19E7B4C2CA6C1C4FF460AE19F798DD0CA035809E396D"
+    },
+    {
+      "path": "PLAY_GUIDE-RU.md",
+      "bytes": 20315,
+      "sha256": "8349D54D10B2224F9F629B6DFBDF42F4D30F765FD5AFF66FF799367845C3450A"
+    },
+    {
+      "path": "THIRD-PARTY-ART.md",
+      "bytes": 2345,
+      "sha256": "9BFA2F4D2F5E6D8BDE7A353141C60FDCDAAFCBE4D8B8D0C35D88A62D51FD3867"
+    },
+    {
+      "path": "TRANSPORT_REPORT.md",
+      "bytes": 21311,
+      "sha256": "E2EB05C539044289B0234A047BA07F7C6B0CF0850C669BF2A5E633456D73C7CA"
+    },
+    {
+      "path": "UnityCrashHandler64.exe",
+      "bytes": 1529016,
+      "sha256": "52E551C93EABBF90F2325D8AD1013EBC5F4489CFE024CB3912C4ED1AF0E712E8"
+    },
+    {
+      "path": "UnityPlayer.dll",
+      "bytes": 33646264,
+      "sha256": "6ECC1A664D45ABB7F8A1D3807B61EC66E8FDEEF557BB8F03B526392D8C29B3D8"
+    },
+    {
+      "path": "WorldGenesis_Data/app.info",
+      "bytes": 35,
+      "sha256": "261E0BD9F6517C2894C1BDFC82761DAFC01E565D98F6A14FC544025C24F87181"
+    },
+    {
+      "path": "WorldGenesis_Data/boot.config",
+      "bytes": 156,
+      "sha256": "EFE5C59AF938BA56C4C39394F14BB1A91A21F3936B6E4AE7FC134586377B571D"
+    },
+    {
+      "path": "WorldGenesis_Data/globalgamemanagers",
+      "bytes": 33636,
+      "sha256": "BD97177C9352AEC7309B17CFB628EFCC6E6CD6297DDB76E571B7510CFCE950B7"
+    },
+    {
+      "path": "WorldGenesis_Data/globalgamemanagers.assets",
+      "bytes": 27428,
+      "sha256": "96C823684D287FC1A260A6AC174C35DBC90A6F7D7ED82BF581977A11E15A300C"
+    },
+    {
+      "path": "WorldGenesis_Data/globalgamemanagers.assets.resS",
+      "bytes": 2796240,
+      "sha256": "39DD38FCD8DD95D41D6D55FE16A448D29FE2C31D9A162C825C24C6D99A893D7A"
+    },
+    {
+      "path": "WorldGenesis_Data/level0",
+      "bytes": 764,
+      "sha256": "D799712F2767409236A2BA782E608C94020ADA2E151509ED7DDB5A1354815AA8"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/Mono.Security.dll",
+      "bytes": 241152,
+      "sha256": "21B9B6380E5220B8B6E873BE96A1D8EA7D8B61D56E05585EBD41960E3916E0BD"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/mscorlib.dll",
+      "bytes": 4632064,
+      "sha256": "7DD5C412A26DFF11D207AD1C72F8DD909C3D6F63840F7A9A225D2DD01BC31141"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/netstandard.dll",
+      "bytes": 90112,
+      "sha256": "6AE62E082DC494A2433984177F60CA4DB5FAE69B1F360A8B33754172B310B8C5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.ComponentModel.Composition.dll",
+      "bytes": 257024,
+      "sha256": "6970482B74BBF4D4B40491F138A6731B14CDF21B0C4F7BDAB6BABE38E7D8449D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Configuration.dll",
+      "bytes": 124928,
+      "sha256": "E9D4448AB7218EBE23C4A1E4BA84746F233716E58FFBF3F24DBA7628E58114F5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Core.dll",
+      "bytes": 1113088,
+      "sha256": "32881A6C8EEFF5649B0270F93BAD74B33ABCCFD9D31449DDEA9D78A8527F2482"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Data.DataSetExtensions.dll",
+      "bytes": 29696,
+      "sha256": "95B679503586CA01BFACF7B8DA6D306F82FBD7DAFC5243909E2E9E1F28C3C86D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Data.dll",
+      "bytes": 2125312,
+      "sha256": "190177C7CFBF5C876A65EEC6ABBE01CAF2629F487E264DDCB17AC21AA9211DBB"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.dll",
+      "bytes": 2641920,
+      "sha256": "A78032381174964B1406C35026AA5EEE553141768FB02429830900FD85DF59EF"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Drawing.dll",
+      "bytes": 489984,
+      "sha256": "57720C613092C8608219411DB74B5D870ACBE265866DE5CD8B8F77BFB9A786C5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.EnterpriseServices.dll",
+      "bytes": 44544,
+      "sha256": "9D2E9EE168816AB202ED70919FE4CB08849B6A79B110908702581C3897567383"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.IO.Compression.dll",
+      "bytes": 114688,
+      "sha256": "B3CFB6CA60009CCBE477E2634299E3DBB7F188518DA295FB479AC0B6437136B6"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.IO.Compression.FileSystem.dll",
+      "bytes": 18432,
+      "sha256": "4039EFAD3D954EB62C45088FFF1F36D962F30D009EF0879C257F5A39C096B6BD"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Net.Http.dll",
+      "bytes": 122880,
+      "sha256": "16172DCDDD4EE8186C62851BFB3FF070BD296B0C7B61F8E986D1EC2B9790B33D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Numerics.dll",
+      "bytes": 119296,
+      "sha256": "E4D818EDA468902862A5B8E3FED2D852E77E81D0CE8D48FAA06981AF421785F4"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Runtime.Serialization.dll",
+      "bytes": 934400,
+      "sha256": "E50A748EB81DE235B40143AAC0B51BBEF4DC3A780A39E43D839049F28E86CBF1"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Security.dll",
+      "bytes": 320000,
+      "sha256": "557B7297A9026579034240D1A5478F25E4B30ABD977F9664D17C68A4299C97E1"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.ServiceModel.Internals.dll",
+      "bytes": 215040,
+      "sha256": "AD36DD4E2EE09F130A27CEDD6A461336502775E3BDD239CE38FA47CEFEEECD35"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Transactions.dll",
+      "bytes": 35328,
+      "sha256": "EF7B63B133BF3F0150E13AA2E1B21628DDBDCDB5A949C11E185743D696FAE9EE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Xml.dll",
+      "bytes": 3160064,
+      "sha256": "50F029487999D62B805A4042831F6CA6FAA62D110D82F2381BA5775E5557C438"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/System.Xml.Linq.dll",
+      "bytes": 136704,
+      "sha256": "14C33AD41219BC7DE05D089F75AB5F25A570D899E3DB2186E2B860DFB76826AD"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/Unity.TextMeshPro.dll",
+      "bytes": 445952,
+      "sha256": "0D53C84AFD689B2631943D21D2DF06E04FEF0E7D732BD5F3155D004175915966"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AccessibilityModule.dll",
+      "bytes": 51384,
+      "sha256": "25D630D7AE4E6B72E1109C4A37781DD22845F9CE032C90654F6C8E143B1857A0"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AIModule.dll",
+      "bytes": 71352,
+      "sha256": "BF3CDEDF6ABCFDDD5B01B3DF6ADFAC6442A0FDEFA0C721A3FD4BBEFB27896D74"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AMDModule.dll",
+      "bytes": 20152,
+      "sha256": "3AA2F3FF06C8550190E960C6F36A3AD729D10F64DB6ECC2BEC793B1E60AD5CAE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AndroidJNIModule.dll",
+      "bytes": 114360,
+      "sha256": "03DD16E8A4B0A8FB3393B7306E328818FD76673C97E95E0EF1BCF83003AE0FC1"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AnimationModule.dll",
+      "bytes": 211640,
+      "sha256": "530BCA469637E9B2151CD14C00677B6ED91178831E08C6255A45159EC8591ABB"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ARModule.dll",
+      "bytes": 20152,
+      "sha256": "6531ABC3F8DFF0EBEEF081867445D0702C08C71FFCC3507F5EE3337AC75DDDC1"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AssetBundleModule.dll",
+      "bytes": 37048,
+      "sha256": "58C25BC7D5DD77D897811832700624F743B533FA5E0449DB80D9BEEF6B751A4E"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.AudioModule.dll",
+      "bytes": 101048,
+      "sha256": "594ED2FD744ACB9D8F272A94177488E8307D922E97EE96F201080C483F8356DC"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ClothModule.dll",
+      "bytes": 30904,
+      "sha256": "804153B1253E2407E2478F2CE6AEF81326C34F69CB8B0381C6DFC2B2BDB18E6A"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ClusterInputModule.dll",
+      "bytes": 22712,
+      "sha256": "5F4976C79EB624FA516B1BBEE4AEC3E79850A471D82C72081B21BAE94932DC07"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ClusterRendererModule.dll",
+      "bytes": 21176,
+      "sha256": "1F50BC7CF7D42F73023AA709C08355B9F97812072FA06BD8397A54CA5172D4BE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ContentLoadModule.dll",
+      "bytes": 27320,
+      "sha256": "6C48DEE2142B0B4420A9E61E5C3EAC9C447D2C29C9795554BDAA385A3A0046C7"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.CoreModule.dll",
+      "bytes": 1793720,
+      "sha256": "A7099291C351F71574F381FB393934A870E25AA26840406C583A0FB9E7D032E5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.CrashReportingModule.dll",
+      "bytes": 21176,
+      "sha256": "C80834102C2FCCACEAE491C45BBB0D62C4BAC6F5AE58FF06BE00658517EF3128"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.DirectorModule.dll",
+      "bytes": 36536,
+      "sha256": "AC1342CDC3CB41F3980FBB73DC92DB6DE5CDB506EDF97F01158538FD038645AF"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.dll",
+      "bytes": 168632,
+      "sha256": "4950D066B813625DE99F7CBFD5CCBF58CC70323D4A599D9252FF795FD7AF17C3"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.DSPGraphModule.dll",
+      "bytes": 28344,
+      "sha256": "E8226562DDBD3472000B8AEA5C75C5C985032362B35970C5B486792F356A680D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.GameCenterModule.dll",
+      "bytes": 40632,
+      "sha256": "F573A1EC63E22FFFB250F411A9823BE0321F9861FA8C391CB903E200E945BB49"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.GIModule.dll",
+      "bytes": 19128,
+      "sha256": "641810C244B34406B002FF1FDCA40C8849ABF4440277262B903FB58D435DD400"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+      "bytes": 12472,
+      "sha256": "F6B3BA0762E46AFF22ED1DEFA521185069FC723D2A1EE2B007FF16CE018C0E5C"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.GridModule.dll",
+      "bytes": 24760,
+      "sha256": "E29D100436317E5BEF42CADEA9FC906490BB47A4CE3D26B416A1DDBE3AE9FB59"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.HierarchyCoreModule.dll",
+      "bytes": 89784,
+      "sha256": "264FBB1D3C5DEC897F30E1FFFDD5F0069F7867CD5432870E3154C49786F76216"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.HotReloadModule.dll",
+      "bytes": 19128,
+      "sha256": "9C4A3C8406BBCDA3C7A17B9FACCE895803B62E811ACBB4F5215366E8101DFDB0"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ImageConversionModule.dll",
+      "bytes": 25784,
+      "sha256": "10F4E16EAADF9B6F764047FCAC4B32AE5EEC1A5842C16564074F8FFB272CE62A"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.IMGUIModule.dll",
+      "bytes": 204472,
+      "sha256": "5D2E414141E053CD4947AF1DDCDD95E0341228A3ECD97BA5908E9DF8974134BE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.InputForUIModule.dll",
+      "bytes": 55480,
+      "sha256": "D7B1EAF561FF9DA0C3F742A3FABDFB300AEBC3A0077A1305DA95F4B5F4E9AB40"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.InputLegacyModule.dll",
+      "bytes": 40120,
+      "sha256": "473B5B69F29AFBD27A94724AB281A9CC6D169381D2F7681867D7117A3620C718"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.InputModule.dll",
+      "bytes": 22712,
+      "sha256": "E2DBC207E6875D44574075DD0647AAA80AD51175246B41ECD6DC75967A0D47D2"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.JSONSerializeModule.dll",
+      "bytes": 21688,
+      "sha256": "35C0C8FF5F4B97302FFAA11B9E8F5F9FB973C1CC2237C0DC16761BF5B2B851B8"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.LocalizationModule.dll",
+      "bytes": 21688,
+      "sha256": "05447701746E4428A7EC3F02E2DFE01806D25AC2A23D2546564BB8E2A6B5EE69"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.MarshallingModule.dll",
+      "bytes": 62136,
+      "sha256": "8676C99BE8AD7C98CCC09CECC10921E2DAF1509C7099EAFF377D7E961EF885A2"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.MultiplayerModule.dll",
+      "bytes": 14008,
+      "sha256": "D269AE22D6C8CC0A43E434A88976CDBFFC7297C00DA10917A2408E687EB66EFA"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.NVIDIAModule.dll",
+      "bytes": 32952,
+      "sha256": "3995FA35DD471AF2E38EABB9E70ADDEFE7E869BB62D060B8BD6688FF49E51D43"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ParticleSystemModule.dll",
+      "bytes": 165048,
+      "sha256": "ED21C603A6DFF23EAB33A5868B7B0524244AC4106D663292F12DC3D7C6234C81"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
+      "bytes": 19640,
+      "sha256": "49ACB37DC43284F06FDA460374673078A259FD15A43185F6EBE4AFC17E1F5C9F"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.Physics2DModule.dll",
+      "bytes": 198328,
+      "sha256": "BD3CAF8ADABEB888BF4D1A94CDAF52DCE4E3C1F667F23EDB91CED801C45951D8"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.PhysicsModule.dll",
+      "bytes": 179896,
+      "sha256": "29CD06A8618E66D75CACD8A66E41886A0C5C8AEBBB8C418AFED04EE422D72072"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.PropertiesModule.dll",
+      "bytes": 147640,
+      "sha256": "63150325587539CDA89E953FA064CF427A42998E321755B7BC703E32EF67D88D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+      "bytes": 19128,
+      "sha256": "DF9085D8CEACB7730B722A09A5D86A3039DA392FFA5FB304C3AA5C33200AD235"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
+      "bytes": 20664,
+      "sha256": "323E2686FB14C0261CCEED15D67962247332EE48682251DA06FC6DC602B7E793"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.ShaderVariantAnalyticsModule.dll",
+      "bytes": 19128,
+      "sha256": "3940FEC4BE50DEEC039DD5B3039F7868BCEFBC5E08415D15F8F72D4B0363697D"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.SharedInternalsModule.dll",
+      "bytes": 30392,
+      "sha256": "C6294D7F6BA49E1D0B025EAB235ABD2675AC398F05BDE165C624E4F47C5E6C83"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.SpriteMaskModule.dll",
+      "bytes": 23224,
+      "sha256": "8DB339FF3CCC92597FB6BDBEE8AA8061C8E13C1704E607DC14BF479DCC4AF0C0"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.SpriteShapeModule.dll",
+      "bytes": 26296,
+      "sha256": "900860822DEAFE4A10B26FBFDCBD4AB05E6050D3242E97835FF338BB2C25F599"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.StreamingModule.dll",
+      "bytes": 20664,
+      "sha256": "E711C1022D87BB5E54BB73BB78B934ED94A70032E5841EC8C43D721FA52E1B39"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.SubstanceModule.dll",
+      "bytes": 23736,
+      "sha256": "96940426FBFE58F00A92677A1EC40A9488C2B41A478187F9EEC55D6E354B725F"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.SubsystemsModule.dll",
+      "bytes": 36536,
+      "sha256": "B088B9FC46B264C8ABB1706A6769B1452436C39C1BC759EC8CD53006F73A86F5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TerrainModule.dll",
+      "bytes": 127672,
+      "sha256": "839881DE20653DD36A7F006DC6E91448FEEBE5FA8CD4694DC786CDDA3C54EFA0"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
+      "bytes": 20152,
+      "sha256": "201BDE9BE41908F7FCA9C555C7DA597F7135ACBEC96EB3774CCD224BAD43FBE5"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll",
+      "bytes": 82616,
+      "sha256": "5F7501E9C65F958E44E4374283ED2A8935258441277CBEC24D2F34FC70B86E1F"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll",
+      "bytes": 340664,
+      "sha256": "B3E9D7C1D438CFB64DE7C6762A7E9BDF9D073FD22A6ACB672C1094427B8FB7BF"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TextRenderingModule.dll",
+      "bytes": 43704,
+      "sha256": "A44845583AAC00AD4F259BFD05C9F534ACA8E06E759F97C2B19A977CF39EFB2F"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TilemapModule.dll",
+      "bytes": 52408,
+      "sha256": "85110847F393703BFB271538D272EFD1CAD10E825B9DC4E9D72DB24DFF9E37A2"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.TLSModule.dll",
+      "bytes": 25784,
+      "sha256": "4BC3F901F29F3042977865CDAFCFE9B24920DC77B40C27AEBB1A8BAEE70D741A"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UI.dll",
+      "bytes": 263168,
+      "sha256": "E0C7E82B64A7F80F406B6E35CF321232DFCE8846549065D549679B7E1DCD278C"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UIElementsModule.dll",
+      "bytes": 2052280,
+      "sha256": "8A93A67C7FEF4887B8173660BD77F028A8EDD9C0E9E12620A73DC25D36B81356"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UIModule.dll",
+      "bytes": 43192,
+      "sha256": "763D62563007D843309C5A60F692D3439C045C5FFCF97CDA57ABB6A4343D9FF3"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UmbraModule.dll",
+      "bytes": 19128,
+      "sha256": "E137593DE1927C92BEAFB8D0405229C87116CBF84B4EA14FADA809BF0BDCC4F4"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll",
+      "bytes": 29880,
+      "sha256": "ECB20E25384281697DB731207E65F35D1CB03192324724A0BA10B3817121A379"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
+      "bytes": 55480,
+      "sha256": "0388315597344120D7C599EC7B0E6F33764FE3AD9EA8E44865E764FB416311EE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityConnectModule.dll",
+      "bytes": 22200,
+      "sha256": "AEE31DC0EFACF7D9B4DDFCD4961B7EF89340E937861BA9F8DDA0F0B5A03A88C8"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityCurlModule.dll",
+      "bytes": 20664,
+      "sha256": "CA80ADC7D61EDFA0BE080DEF32BD4E3EF29BE21B0056AD69A56CF860AE43954E"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
+      "bytes": 19128,
+      "sha256": "DB42304C185190C54BD786B5F18BC33D1A6763574CC923EFE279677F01FC23AA"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+      "bytes": 23224,
+      "sha256": "D2C1E8EC1982BFFFBC83AEB63C3DB5539DEA105CA4A82420D657D8B7B09030D3"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
+      "bytes": 22712,
+      "sha256": "F8BE81008885E9E7EEF1D877BAA863B97D37BAE68FDDD150EC1948F4C259624F"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+      "bytes": 63672,
+      "sha256": "8C3C7CC8C2EB24EAEC924E3E67F66DFAE721045DB7BB4E6B86A6375A91BD0B87"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
+      "bytes": 22200,
+      "sha256": "E4D5188A78C9EC78F4B5D14D9E923B8E807558066C9077944C13CAF112B22631"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
+      "bytes": 30904,
+      "sha256": "3562357D096F6C46D890FD8451B558B57CCAC298CCE7B214C8B81BCBFF191B70"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.VehiclesModule.dll",
+      "bytes": 25784,
+      "sha256": "E05744F60D58EFBB68EFD783E755C694CCCB96E23F80F19AABBD834F805B6EB9"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.VFXModule.dll",
+      "bytes": 72376,
+      "sha256": "39F4A5FD4330B97197CDA0ADDEB5FE850DAC5EEFE91BCCC10A52B5C82E3245EE"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.VideoModule.dll",
+      "bytes": 53432,
+      "sha256": "CF51CF4642611C3D0AE85CA3961B49D9196F706034FD6B3325347F163B7B45C3"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.VirtualTexturingModule.dll",
+      "bytes": 37560,
+      "sha256": "665331FF83815E3A2BCAEF16801D7DF08709B4EAEA663EFF96DB2066F7D05917"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.VRModule.dll",
+      "bytes": 26296,
+      "sha256": "5BAFDAB25865B0114ADD806AD505E4B58628F6FFDB3433A651416D260CDEAA71"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.WindModule.dll",
+      "bytes": 21176,
+      "sha256": "7340FC20BB13AA8A65DAF7E1B10A74E97A78F5E0E3CF58B18DF98854432A4B37"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/UnityEngine.XRModule.dll",
+      "bytes": 82104,
+      "sha256": "6361435A7F66D5364240C269B224E2B206AF34311DC98FA7E6B0F4D1AA91BDEB"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/WorldGenesis.Runtime.dll",
+      "bytes": 187392,
+      "sha256": "5101C64F7B53404E27A46C819DACAE107F28FD6793D442620838B77C8D372B0A"
+    },
+    {
+      "path": "WorldGenesis_Data/Managed/WorldGenesis.Simulation.dll",
+      "bytes": 189440,
+      "sha256": "E197EF42C38227CB33438114FEA6B975D07660E13354B2D1F936C5FE6F52E586"
+    },
+    {
+      "path": "WorldGenesis_Data/resources.assets",
+      "bytes": 49546540,
+      "sha256": "DDB857952351F67CDE9C69817BBE3FAC0AB38724A0FF92F901F0AEFBD6CCCF47"
+    },
+    {
+      "path": "WorldGenesis_Data/Resources/unity default resources",
+      "bytes": 5858500,
+      "sha256": "F5E29909672EA6BF47805D6FBAF716751090886F7CB39515F5D4B4EAA02CA6A9"
+    },
+    {
+      "path": "WorldGenesis_Data/Resources/unity_builtin_extra",
+      "bytes": 364804,
+      "sha256": "B0ECF3B4CDDD12CFF12B9524E33DCDBF06C4A358553B3454346B10ADD0D113C6"
+    },
+    {
+      "path": "WorldGenesis_Data/RuntimeInitializeOnLoads.json",
+      "bytes": 355,
+      "sha256": "8CC387D6B220CE955F9F4F0A83240A98F09D708A7A9CB05E0C2E7EC1F5FB2B36"
+    },
+    {
+      "path": "WorldGenesis_Data/ScriptingAssemblies.json",
+      "bytes": 2938,
+      "sha256": "DBA67537C97AD8F68A4868F0B59C00DEFC2CA9AD979C87D66ECEB8B46D683194"
+    },
+    {
+      "path": "WorldGenesis_Data/sharedassets0.assets",
+      "bytes": 512,
+      "sha256": "4F7B935A2D922A68697C4B0B72DA24843875C2FD0116AB7299DAE1F76276EA2E"
+    },
+    {
+      "path": "WorldGenesis_Data/sharedassets0.assets.resS",
+      "bytes": 524288,
+      "sha256": "393EFE6399536384AA91BDFC4E64F244B4D3E1FBB6A4FF145C483FFEE64CCB36"
+    },
+    {
+      "path": "WorldGenesis.exe",
+      "bytes": 672256,
+      "sha256": "E6FE27700B3C3C2C4B2D8021B384E698A22925DDFCC62A814274B5F49932704E"
+    }
+  ]
+}

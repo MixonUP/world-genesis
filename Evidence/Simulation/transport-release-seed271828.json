@@ -1,0 +1,1539 @@
+{
+  "utc": "2026-10-12T13:11:27.9610231Z",
+  "seed": 271828,
+  "requestedTicks": 18000,
+  "Tick": 18000,
+  "passed": true,
+  "error": null,
+  "validations": 180,
+  "carries": 1277664,
+  "firstBasket": 3787,
+  "transport": {
+    "roads": {
+      "0": 16038,
+      "1": 323,
+      "2": 23
+    },
+    "bridgeCells": 0,
+    "projects": 1
+  },
+  "geography": {
+    "terrains": {
+      "DeepWater": 7293,
+      "ShallowWater": 2545,
+      "Sand": 202,
+      "Swamp": 381,
+      "Hills": 1217,
+      "Ravine": 71,
+      "Forest": 624,
+      "Highlands": 920,
+      "Mountain": 2685,
+      "Grass": 149,
+      "Desert": 50,
+      "Snow": 247
+    },
+    "water": {
+      "Ocean": 8291,
+      "None": 6546,
+      "Estuary": 69,
+      "River": 239,
+      "Stream": 37,
+      "MountainRiver": 157,
+      "Lake": 1045
+    },
+    "saltDeposits": 0
+  },
+  "deathClassification": "Last pre-tick age/hunger/combat-target; concurrent causes are prioritized age, starvation, combat; other includes hazards.",
+  "deaths": {
+    "34:old-age": 32,
+    "1:old-age": 16,
+    "1:combat": 1,
+    "16:old-age": 9,
+    "34:starvation": 4
+  },
+  "timeline": [
+    {
+      "tick": 1000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 9,
+          "Food": 33.674263,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Eat": 3,
+            "Gather": 2,
+            "Fish": 2,
+            "Return": 2
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 4.226737,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 20,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Eat": 1
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 4.276041,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 9,
+          "Food": 41.36359,
+          "Wood": 8,
+          "Housing": 8,
+          "tasks": {
+            "Gather": 7,
+            "Farm": 2
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 14.932622,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        }
+      ]
+    },
+    {
+      "tick": 2000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 9,
+          "Food": 47.995255,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Eat": 1
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 8.142532,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 33.999996,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Rest": 1,
+            "Wander": 8
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 8.053916,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 9,
+          "Food": 45.36359,
+          "Wood": 8,
+          "Housing": 8,
+          "tasks": {
+            "Return": 2,
+            "Gather": 5,
+            "Process": 1,
+            "Rest": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 2.4972456,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1,
+            "Sawmill": 1
+          },
+          "baskets": 0
+        }
+      ]
+    },
+    {
+      "tick": 3000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 9,
+          "Food": 61.99526,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Rest": 1
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 12.216567,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 56.499996,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 9
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 11.410058,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 13,
+          "Food": 49.944916,
+          "Wood": 0,
+          "Housing": 13,
+          "tasks": {
+            "Fish": 4,
+            "Gather": 5,
+            "Play": 2,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 20.42458,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1
+          },
+          "baskets": 0
+        }
+      ]
+    },
+    {
+      "tick": 4000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 9,
+          "Food": 76.995255,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 9
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 16.343357,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 78.99999,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 7,
+            "Rest": 2
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 14.520417,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 13,
+          "Food": 62.448917,
+          "Wood": 1,
+          "Housing": 13,
+          "tasks": {
+            "CraftEquipment": 9,
+            "Return": 1,
+            "Process": 1,
+            "Socialize": 1,
+            "Haul": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 31.00771,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1
+          },
+          "baskets": 3
+        }
+      ]
+    },
+    {
+      "tick": 5000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 9,
+          "Food": 81.74313,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 7,
+            "Eat": 2
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 20.324654,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 81.243546,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Return": 2,
+            "Wander": 4,
+            "Rest": 2,
+            "Farm": 1
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 17.62851,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 13,
+          "Food": 40.448917,
+          "Wood": 0,
+          "Housing": 13,
+          "tasks": {
+            "Return": 6,
+            "Eat": 6,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry"
+          ],
+          "ActiveTechnology": "m01_forestry",
+          "ResearchProgress": 13.344845,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1
+          },
+          "baskets": 4
+        }
+      ]
+    },
+    {
+      "tick": 6000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 81.99526,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 5,
+            "Rest": 1,
+            "Socialize": 1,
+            "Play": 1
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 24.25686,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 75.99999,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 9
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 20.816824,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 12,
+          "Food": 85.44891,
+          "Wood": 7,
+          "Housing": 13,
+          "tasks": {
+            "Process": 3,
+            "Gather": 2,
+            "Return": 3,
+            "Rest": 1,
+            "Eat": 1,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry"
+          ],
+          "ActiveTechnology": "c01_herbalism",
+          "ResearchProgress": 13.1359005,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 1,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 2
+        }
+      ]
+    },
+    {
+      "tick": 7000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 6,
+          "Food": 57.995262,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Drink": 1,
+            "Wander": 2,
+            "Play": 1,
+            "Eat": 1,
+            "Idle": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 0.83003074,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 90.99999,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 7,
+            "Rest": 2
+          },
+          "technologies": [],
+          "ActiveTechnology": "f01_preservation",
+          "ResearchProgress": 23.972462,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 13,
+          "Food": 79.44891,
+          "Wood": 9,
+          "Housing": 18,
+          "tasks": {
+            "Rest": 1,
+            "Gather": 3,
+            "Wander": 1,
+            "Process": 1,
+            "Learn": 3,
+            "Play": 4
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "ActiveTechnology": "c02_clean_water",
+          "ResearchProgress": 3.8585353,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 3,
+            "Sawmill": 1,
+            "House": 2,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 2
+        }
+      ]
+    },
+    {
+      "tick": 8000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 49.995262,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 5,
+            "Play": 1,
+            "Learn": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 2.0037246,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 93.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 9
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 2.066535,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 17,
+          "Food": 61.948914,
+          "Wood": 0,
+          "Housing": 23,
+          "tasks": {
+            "Process": 3,
+            "Eat": 2,
+            "Return": 2,
+            "Idle": 2,
+            "Farm": 1,
+            "Drink": 1,
+            "Learn": 1,
+            "Wander": 1,
+            "Play": 4
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "ActiveTechnology": "c02_clean_water",
+          "ResearchProgress": 22.490044,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 4,
+            "Sawmill": 1,
+            "House": 3,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 2
+        }
+      ]
+    },
+    {
+      "tick": 9000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 63.495262,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Farm": 4,
+            "Rest": 1,
+            "Play": 2,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 4.5861235,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 93.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Rest": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 5.1590896,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 26,
+          "Food": 11.02231,
+          "Wood": 5,
+          "Housing": 28,
+          "tasks": {
+            "Return": 4,
+            "CraftEquipment": 6,
+            "Farm": 3,
+            "Rest": 1,
+            "Learn": 6,
+            "Play": 3,
+            "Idle": 1,
+            "Wander": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "ActiveTechnology": "c02_clean_water",
+          "ResearchProgress": 53.673725,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 2
+        }
+      ]
+    },
+    {
+      "tick": 10000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 65.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Rest": 1,
+            "Farm": 5,
+            "Return": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 8.298836,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 92.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Rest": 2,
+            "Return": 2,
+            "Farm": 4,
+            "Socialize": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 8.365659,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 28,
+          "Food": 44.941643,
+          "Wood": 6,
+          "Housing": 28,
+          "tasks": {
+            "Wander": 12,
+            "Return": 5,
+            "Eat": 5,
+            "Drink": 2,
+            "Farm": 1,
+            "Play": 3
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism"
+          ],
+          "ActiveTechnology": "c02_clean_water",
+          "ResearchProgress": 63.433983,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 5,
+            "Sawmill": 1,
+            "House": 4,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 6
+        }
+      ]
+    },
+    {
+      "tick": 11000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 70.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Farm": 3,
+            "Drink": 1,
+            "Return": 1,
+            "Eat": 2,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 11.960991,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 93.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 9
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 11.51336,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 30,
+          "Food": 84.34173,
+          "Wood": 3,
+          "Housing": 33,
+          "tasks": {
+            "Tend": 6,
+            "Gather": 7,
+            "Return": 6,
+            "Eat": 3,
+            "Process": 2,
+            "Rest": 2,
+            "Drink": 1,
+            "Fish": 1,
+            "Learn": 1,
+            "Idle": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths"
+          ],
+          "ActiveTechnology": "f06_river_fishing",
+          "ResearchProgress": 0.30294076,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 10
+        }
+      ]
+    },
+    {
+      "tick": 12000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 83.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 6,
+            "Idle": 1,
+            "Farm": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 15.595965,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 92.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Rest": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 14.636994,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 58.579727,
+          "Wood": 7.25,
+          "Housing": 33,
+          "tasks": {
+            "Return": 11,
+            "Farm": 2,
+            "Wander": 3,
+            "Rest": 1,
+            "Process": 2,
+            "CraftEquipment": 3,
+            "Tend": 1,
+            "BuildTransport": 1,
+            "Drink": 1,
+            "Eat": 1,
+            "Learn": 5,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "ActiveTechnology": "m02_carpentry",
+          "ResearchProgress": 5.072293,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 6,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 7
+        }
+      ]
+    },
+    {
+      "tick": 13000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 85.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 19.417149,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 92.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 8,
+            "Rest": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 17.759499,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 95.92858,
+          "Wood": 26.5,
+          "Housing": 33,
+          "tasks": {
+            "Return": 8,
+            "Rest": 3,
+            "Farm": 2,
+            "Fish": 7,
+            "Drink": 5,
+            "Tend": 1,
+            "Eat": 4,
+            "Idle": 1,
+            "Learn": 1,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "ActiveTechnology": "m02_carpentry",
+          "ResearchProgress": 37.501476,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 8
+        }
+      ]
+    },
+    {
+      "tick": 14000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 84.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 7,
+            "Eat": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 23.326462,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 9,
+          "Food": 93.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Rest": 2,
+            "Wander": 6,
+            "Socialize": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 20.96465,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 111.4042,
+          "Wood": 40,
+          "Housing": 33,
+          "tasks": {
+            "Return": 10,
+            "Rest": 2,
+            "Farm": 2,
+            "Tend": 1,
+            "Eat": 8,
+            "Fish": 7,
+            "Drink": 2,
+            "BuildTransport": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing"
+          ],
+          "ActiveTechnology": "m02_carpentry",
+          "ResearchProgress": 55.39389,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 11
+        }
+      ]
+    },
+    {
+      "tick": 15000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 84.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Eat": 2,
+            "Wander": 3,
+            "Socialize": 1,
+            "Learn": 1,
+            "Play": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 26.835712,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 8,
+          "Food": 92.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Farm": 5,
+            "Rest": 2,
+            "Return": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 24.086775,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 134.48447,
+          "Wood": 52,
+          "Housing": 33,
+          "tasks": {
+            "Wander": 10,
+            "Rest": 4,
+            "Return": 4,
+            "Eat": 6,
+            "Drink": 5,
+            "BuildTransport": 1,
+            "Farm": 2,
+            "Gather": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "ActiveTechnology": "l11_wooden_bridges",
+          "ResearchProgress": 14.508858,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 18
+        }
+      ]
+    },
+    {
+      "tick": 16000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 6,
+          "Food": 80.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 3,
+            "Learn": 3
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 29.07558,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 5,
+          "Food": 85.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 5
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 26.541254,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 191.43391,
+          "Wood": 60.5,
+          "Housing": 33,
+          "tasks": {
+            "Drink": 2,
+            "Wander": 2,
+            "Gather": 8,
+            "CraftEquipment": 5,
+            "Eat": 4,
+            "Idle": 1,
+            "BuildTransport": 1,
+            "Return": 2,
+            "Process": 2,
+            "Rest": 2,
+            "Learn": 2,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry"
+          ],
+          "ActiveTechnology": "l11_wooden_bridges",
+          "ResearchProgress": 32.42199,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 21
+        }
+      ]
+    },
+    {
+      "tick": 17000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 85.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Wander": 2,
+            "Rest": 1,
+            "Return": 1,
+            "Learn": 2,
+            "Play": 2
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 31.325863,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 0,
+          "Food": 81.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {},
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 27.464386,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 33,
+          "Food": 213.43391,
+          "Wood": 79.25,
+          "Housing": 33,
+          "tasks": {
+            "Process": 2,
+            "Eat": 11,
+            "Rest": 2,
+            "Tend": 3,
+            "BuildTransport": 1,
+            "Return": 2,
+            "Drink": 2,
+            "Gather": 2,
+            "CraftEquipment": 3,
+            "Play": 4,
+            "Learn": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l11_wooden_bridges"
+          ],
+          "ActiveTechnology": "l09_gravel_roads",
+          "ResearchProgress": 19.893715,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 21
+        }
+      ]
+    },
+    {
+      "tick": 18000,
+      "towns": [
+        {
+          "Id": 1,
+          "Population": 8,
+          "Food": 85.49527,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {
+            "Farm": 5,
+            "Learn": 2,
+            "Wander": 1
+          },
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 33.713535,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 16,
+          "Population": 0,
+          "Food": 81.9842,
+          "Wood": 0,
+          "Housing": 8,
+          "tasks": {},
+          "technologies": [
+            "f01_preservation"
+          ],
+          "ActiveTechnology": "f07_husbandry",
+          "ResearchProgress": 27.464386,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 1
+          },
+          "baskets": 0
+        },
+        {
+          "Id": 34,
+          "Population": 30,
+          "Food": 220.43391,
+          "Wood": 80.25,
+          "Housing": 33,
+          "tasks": {
+            "Eat": 3,
+            "Wander": 4,
+            "CraftEquipment": 4,
+            "Rest": 3,
+            "Farm": 1,
+            "Tend": 1,
+            "Return": 2,
+            "BuildTransport": 1,
+            "Drink": 1,
+            "Learn": 6,
+            "Play": 3,
+            "Idle": 1
+          },
+          "technologies": [
+            "f01_preservation",
+            "f07_husbandry",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "l06_paths",
+            "f06_river_fishing",
+            "m02_carpentry",
+            "l11_wooden_bridges"
+          ],
+          "ActiveTechnology": "l09_gravel_roads",
+          "ResearchProgress": 27.017107,
+          "buildings": {
+            "Hall": 1,
+            "Farm": 7,
+            "Sawmill": 1,
+            "House": 5,
+            "Stoneworks": 1,
+            "Granary": 1,
+            "Well": 1,
+            "Warehouse": 1,
+            "Pasture": 1
+          },
+          "baskets": 13
+        }
+      ]
+    }
+  ],
+  "worldPath": "Evidence/Simulation/transport-release-seed271828.world.json"
+}

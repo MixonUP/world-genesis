@@ -102,6 +102,8 @@ namespace WorldGenesis.Runtime
             }
             if (Array.IndexOf(arguments, "--capture-motion") >= 0) gameObject.AddComponent<MotionCapture>();
             if (Array.IndexOf(arguments, "--inspect-caravan") >= 0) InspectCaravan(requestedZoom);
+            InspectRequestedCell(arguments);
+            if (Array.IndexOf(arguments, "--weather-tab") >= 0) { hud.SelectWeatherTab(); assistedFraming = true; }
             Debug.Log("World Genesis ready. Seed=" + World.Seed + "; size=" + World.Width + "x" + World.Height + "; save path=" + SaveStore.DefaultPath);
         }
 
@@ -349,6 +351,7 @@ namespace WorldGenesis.Runtime
                     InspectSite(x, y); FocusWorldPoint(new Vector2(x + .5f, y + .5f), 7); assistedFraming = true; break;
                 }
             }
+            if (InspectRequestedCell(arguments)) yield return new WaitForSecondsRealtime(.15f);
             if (CaptureScenario.ApplyRequested(this, path))
             {
                 hud?.Refresh(true);
@@ -359,6 +362,14 @@ namespace WorldGenesis.Runtime
         }
         [Serializable]
         private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
+        private bool InspectRequestedCell(string[] arguments)
+        {
+            int index = Array.IndexOf(arguments, "--inspect-cell");
+            if (index < 0 || index + 2 >= arguments.Length || !int.TryParse(arguments[index + 1], out int x) || !int.TryParse(arguments[index + 2], out int y) || !World.InBounds(x, y)) return false;
+            int zoomIndex = Array.IndexOf(arguments, "--zoom"); float zoom = 10;
+            if (zoomIndex >= 0 && zoomIndex + 1 < arguments.Length && float.TryParse(arguments[zoomIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requested)) zoom = requested;
+            InspectSite(x, y); FocusWorldPoint(new Vector2(x + .5f, y + .5f), zoom); assistedFraming = true; hud?.Refresh(true); return true;
+        }
         private IEnumerator CaptureRoutine(string path, bool quit, bool automatic)
         {
             capturing = true; string fullPath;

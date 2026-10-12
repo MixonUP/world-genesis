@@ -6,7 +6,21 @@ namespace WorldGenesis.Simulation
     {
         private void MigrateResources()
         {
-            if (World.ResourceVersion >= 1) return;
+            if (World.ResourceVersion >= 1)
+            {
+                if (World.ResourceVersion < 3)
+                {
+                    World.LostResources = ExpandSaltStock(World.LostResources);
+                    for (int i = 0; i < World.Buildings.Count; i++)
+                    {
+                        BuildingData b = World.Buildings[i];
+                        b.Inventory = ExpandSaltStock(b.Inventory); b.TaxStocks = ExpandSaltStock(b.TaxStocks);
+                        // PersonalStocks contains typed lots, not a dense array; preserve each owner and quantity.
+                    }
+                    World.ResourceVersion = 3; World.ResourceRevision++; World.Revision++;
+                }
+                return;
+            }
             ResourceCatalog.Generate(World);
             for (int i = 0; i < World.Buildings.Count; i++)
             {
@@ -31,6 +45,13 @@ namespace WorldGenesis.Simulation
                 if (u.Task == UnitTask.Gather) { ChangeTask(u, UnitTask.Idle); ClearRoute(u); u.DecisionTimer = 0; }
             }
             World.ResourceRevision++; World.TerrainRevision++; World.Revision++;
+        }
+        private static float[] ExpandSaltStock(float[] existing)
+        {
+            if (existing != null && existing.Length == ResourceCatalog.ItemCount) return existing;
+            float[] expanded = new float[ResourceCatalog.ItemCount];
+            if (existing != null) Array.Copy(existing, expanded, existing.Length);
+            return expanded;
         }
 
         private void UpdateResources()
@@ -88,12 +109,7 @@ namespace WorldGenesis.Simulation
 
         private static float FreeStorage(BuildingData building)
         {
-            float used = 0;
-            for (int i = 1; i < building.Inventory.Length; i++) used += building.Inventory[i];
-            // Unity's legacy JsonUtility saves can leave newly added fields null before economy migration.
-            if (building.TaxStocks != null) for (int i = 1; i < building.TaxStocks.Length; i++) used += building.TaxStocks[i];
-            if (building.PersonalStocks != null) for (int i = 0; i < building.PersonalStocks.Count; i++) used += building.PersonalStocks[i].Amount;
-            return Math.Max(0, ResourceCatalog.StorageCapacity - used);
+            return StorageCapacity.FreeMaterials(building);
         }
 
         private bool UsableBuilding(BuildingData building, int settlementId)

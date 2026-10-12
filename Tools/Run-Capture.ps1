@@ -7,10 +7,11 @@ param(
     [ValidateSet('', 'Fire', 'Rain', 'Lightning', 'Meteor', 'Heal', 'Bless', 'Plague')][string]$Power='',
     [int]$ProfileSeconds=0, [int]$StressPopulation=0,
     [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
-    [switch]$InspectCitizen, [switch]$InspectResourceWorker,
+    [switch]$InspectCitizen, [switch]$InspectResourceWorker, [switch]$WeatherTab,
     [ValidateSet('', 'Woman', 'Man', 'Child')][string]$Demographic='',
-    [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin')][string]$Resource='',
-    [string]$WorldFile='', [switch]$InspectCaravan
+    [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin', 'Salt')][string]$Resource='',
+    [string]$WorldFile='', [switch]$InspectCaravan,
+    [int]$InspectX=-1, [int]$InspectY=-1
 )
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -28,10 +29,13 @@ $arguments=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullsc
 $arguments+=@('--simulation-speed',"$Speed")
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
 if ($InspectCitizen) { $arguments+='--inspect-citizen' }
+if ($WeatherTab) { $arguments+='--weather-tab' }
 if ($InspectCaravan) { $arguments+='--inspect-caravan' }
 if ($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
 if ($Demographic) { $arguments+=@('--inspect-demographic',$Demographic) }
 if ($Resource) { $arguments+=@('--inspect-resource',$Resource) }
+if ($InspectX -ge 0 -and $InspectY -ge 0) { $arguments+=@('--inspect-cell',"$InspectX","$InspectY",'--zoom',"$Zoom") }
+elseif ($InspectX -ge 0 -or $InspectY -ge 0) { throw 'Cell inspection needs both coordinates.' }
 if ($WorldFile) {
     $captureSource=[IO.Path]::GetFullPath((Join-Path $root $WorldFile))
     if (-not $captureSource.StartsWith($root+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase) -or -not (Test-Path -LiteralPath $captureSource)) { throw 'Capture world must be an existing file inside this project.' }
@@ -61,7 +65,7 @@ if ($ProfileSeconds -gt 0 -and -not (Test-Path -LiteralPath $profile)) { throw '
     playerSHA256=(Get-FileHash -LiteralPath $player -Algorithm SHA256).Hash;
     imageSHA256=(Get-FileHash -LiteralPath $image -Algorithm SHA256).Hash;
     scope='Native Unity Windows Player. Visual content still requires image inspection.';
-    automatedCamera=[bool]$FocusSettlement;automatedPower=$Power;stressPopulation=$StressPopulation;workspaceSourcesAtLaunch=$sources;
+    automatedCamera=([bool]$FocusSettlement -or $InspectX -ge 0);inspectedCell=@($InspectX,$InspectY);weatherTab=[bool]$WeatherTab;automatedPower=$Power;stressPopulation=$StressPopulation;workspaceSourcesAtLaunch=$sources;
     loadedWorld=$WorldFile;loadedWorldSHA256=$(if($WorldFile){(Get-FileHash -LiteralPath $captureSource -Algorithm SHA256).Hash}else{''});
     runtimeAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Runtime.dll') -Algorithm SHA256).Hash;
     simulationAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Simulation.dll') -Algorithm SHA256).Hash

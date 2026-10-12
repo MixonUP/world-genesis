@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-12T13:18:10.8788608Z",
+  "tests": 3,
+  "failures": 0,
+  "results": [
+    {
+      "name": "CatastropheCrossesFormerPileLimitWithExactRecoveryAndSaveContinuation",
+      "passed": true
+    },
+    {
+      "name": "LargerLedgerStillRejectsNonFiniteNegativeAndUnknownOwnerRecords",
+      "passed": true
+    },
+    {
+      "name": "NullLegacyInvoiceRecordsOnlyActualUpgradeBeforeRecovery",
+      "passed": true
+    }
+  ]
+}

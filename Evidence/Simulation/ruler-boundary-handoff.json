@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-12T13:19:22.1251949Z",
+  "status": "3/3 pure scenarios PASS; final Unity pending",
+  "files": [
+    {
+      "file": "WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CivilEconomy.cs",
+      "sha256": "808B179BDDF32761A46FCFD7ECAA5E0C6E6D4AB5090D01482F409A297DD755E4"
+    },
+    {
+      "file": "WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerBoundaryTests.cs",
+      "sha256": "B9751D2BABC75F2FEDE906F41272957F106FC663EF391C2ACE441D311788144D"
+    }
+  ],
+  "receipt": "Evidence/Simulation/ruler-boundary-first.json",
+  "scope": "One count guard removal only; malformed records remain rejected; random salvage owned by process_github"
+}

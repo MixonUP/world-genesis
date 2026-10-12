@@ -116,3 +116,20 @@ python Tools/Wrap-CaptureWorld.py Builds/rural-assisted-showcase.json Builds/rur
 `-WorldFile` загружает существующий save внутри проекта; `-InspectCaravan` выбирает существующего участника для наблюдения и не выдаёт ему товар/оборудование. Источник fixture, автоматический выбор, камера и скорость должны быть обозначены рядом с кадром/клипом. Для естественного сохранения используйте другой WorldFile с его собственной квитанцией происхождения. Сам по себе assisted кадр не подтверждает самостоятельное развитие от костра.
 
 Текущая упаковка вызывается явно: `Tools/Package-Alpha.ps1 -Version 0.4.0-alpha -BuildFolder Windows-0.4.0`. Она включает руководство, SOCIETY_REPORT и происхождение арта; существующий архив той же версии сохраняется и повторно не перезаписывается. Запуск упаковки и Git-публикация — отдельные действия интегратора, не следствие этих инструкций.
+
+
+### Транспорт и хранение 0.5
+
+Чистые общие сценарии: `Tools/HydrologyProbe`, `SaltProbe`, `TransportProbe`, `TransportBoundaryProbe`, `RulerPlanningProbe`, `RulerBoundaryProbe`, `WarehouseProbe`. Запуск: `dotnet run --project Tools/<имя> -- Evidence/Simulation/<новое-имя>.json`. NUnit использует те же сценарии и Unity JsonUtility; оба результата фиксируются отдельно.
+
+`Tools/TransportShowcase` и `Tools/StorageShowcase` создают явно подготовленные миры для визуального обзора. Рецепты/стройка исполняются, входные запасы и технологии выдаются и записываются в квитанции. Это не обычный старт.
+
+`Run-Capture.ps1` и `Run-MotionCapture.ps1` принимают `-InspectX 65 -InspectY 64 -Zoom 10`: выбор существующей клетки и камера без изменения мира. `Run-Capture` также принимает `-Resource Salt`. Применяйте `-PlayerRelativePath Builds/Windows-0.5.0/WorldGenesis.exe` и `-WorldFile` с существующим envelope.
+
+Упаковка 0.5: `Tools/Package-Alpha.ps1 -Version 0.5.0-alpha -BuildFolder Windows-0.5.0`; включает TRANSPORT_REPORT.md, руководство и происхождение арта.
+
+Климат: `Tools/BiomeProbe` и `Tools/WeatherProbe` исполняют общие с Unity сценарии. `Tools/SocialProbe --natural <report> 18000 <seed>` сохраняет переходы автоматической погоды, пиковое затопление, биомы, население и проверки ноши. Это core-прогон, не измерение кадров Player.
+
+`dotnet run --project Tools/WeatherShowcase -- Builds/storage-assisted-v050.save.json Builds/weather-assisted-v050-r2 Evidence/Simulation/weather-assisted-v050-r2.json` создаёт шесть погодных сцен через SetWeather и обычные тики. Каждый файл проверяется и одинаково продолжается100тиков после roundtrip. Источник наследует помощь транспортного/складского showcase, автоматическая смена отключена; снежный вариант дополнительно получает явно записанное охлаждение участка. Природная частота событий этим инструментом не доказывается.
+
+`Run-Capture.ps1`/`Run-MotionCapture.ps1 -WeatherTab` открывает погодную вкладку для нативного обзора, не меняя погоду. Погодный фронт берётся из `-WorldFile`. Исправление старого TransportShowcase: native envelope должен иметь поля Schema/Format/World; анонимный объект с IgnoreReadOnlyProperties давал `{}`. `Wrap-CaptureWorld.py` оборачивает только настоящий raw WorldState и записывает SHA256; загрузчик Player продолжает валидировать мир.

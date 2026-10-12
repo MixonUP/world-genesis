@@ -11,9 +11,6 @@ namespace WorldGenesis.Runtime
         private const int PixelsPerCell = 8;
         private const int MaxChunkRebuildsPerFrame = 2;
         private static readonly Color ShoreColor = PixelArt.Hex("80b7ad");
-        private static readonly Color RiverColor = PixelArt.Hex("5a9d9c");
-        private static readonly Color StreamColor = PixelArt.Hex("76aaa2");
-        private static readonly Color DirtRoadColor = PixelArt.Hex("ae946d"), PavedRoadColor = PixelArt.Hex("a5aea1");
         private static readonly Color ScorchedColor = PixelArt.Hex("7e553c");
         private sealed class Chunk
         {
@@ -23,15 +20,19 @@ namespace WorldGenesis.Runtime
             public Texture2D Texture;
             public Color32[] Pixels;
             public Material Material;
-            public QuadBatch Ground, Nature;
+            public QuadBatch Ground, Nature, Bridges;
         }
         private readonly Transform root;
         private readonly Texture2D atlas;
         private readonly Material spriteMaterial;
         private readonly Texture2D wildlifeAtlas, agricultureAtlas;
         private readonly Material wildlifeMaterial, agricultureMaterial;
+        private readonly Texture2D transportAtlas;
+        private readonly Material transportMaterial;
+        private readonly QuadBatch waterFlow, wagons;
         private readonly QuadBatch wildlife, equipmentBack, equipmentFront, agriculture, agriculturalCargo;
         private readonly CitizenSprites citizenSprites;
+        private readonly WeatherView weatherView;
         private readonly QuadBatch buildings, people, borders, cursor, waterLife;
         private readonly CrowdPresentation crowd = new CrowdPresentation();
         private readonly Dictionary<int, BuildingData> buildingLookup = new Dictionary<int, BuildingData>();
@@ -64,14 +65,18 @@ namespace WorldGenesis.Runtime
             equipmentFront = new QuadBatch("Actual parcels and pack bags", root, wildlifeMaterial, 60);
             agriculture = new QuadBatch("Fields and rural buildings", root, agricultureMaterial, 30);
             agriculturalCargo = new QuadBatch("Actual agricultural goods", root, agricultureMaterial, 60);
+            transportAtlas = TransportArt.CreateAtlas(); transportMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = transportAtlas };
+            waterFlow = new QuadBatch("Actual water current", root, transportMaterial, 11);
+            wagons = new QuadBatch("Actual wagons", root, transportMaterial, 45);
             citizenSprites = new CitizenSprites(root);
+            weatherView = new WeatherView(root, spriteMaterial);
             borders = new QuadBatch("Territories", root, spriteMaterial, 10);
             cursor = new QuadBatch("Brush", root, spriteMaterial, 80);
         }
 
         public void SetWorld(WorldState value)
         {
-            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
+            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); chunk.Bridges.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             if (Minimap != null) UnityEngine.Object.Destroy(Minimap);
             world = value; crowd.Reset(); animalFacing.Clear(); revision = -1; resourceRevision = -1; nextRefresh = 0; lastBuildingCount = -1;
             citizenSprites.Reset();
@@ -88,6 +93,7 @@ namespace WorldGenesis.Runtime
                 chunk.Ground = new QuadBatch("Ground " + cx + "," + cy, root, chunk.Material, 0);
                 chunk.Ground.Add(chunk.X, chunk.Y, chunk.Width, chunk.Height, new Rect(0, 0, 1, 1), Color.white); chunk.Ground.Submit();
                 chunk.Nature = new QuadBatch("Nature " + cx + "," + cy, root, spriteMaterial, 20);
+                chunk.Bridges = new QuadBatch("Transport deck " + cx + "," + cy, root, transportMaterial, 14);
                 chunks[cy * across + cx] = chunk; Rebuild(chunk); chunk.Hash = ChunkHash(chunk);
             }
             Minimap = new Texture2D(world.Width, world.Height, TextureFormat.RGB24, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
@@ -122,7 +128,7 @@ namespace WorldGenesis.Runtime
                 // rendered hash, so changes made while a chunk was waiting cannot be lost.
                 uint renderedHash = ChunkHash(chunk); Rebuild(chunk); chunk.Hash = renderedHash;
             }
-            buildings.Clear(); wildlife.Clear(); equipmentBack.Clear(); equipmentFront.Clear(); agriculture.Clear(); agriculturalCargo.Clear(); buildingLookup.Clear(); unitLookup.Clear();
+            buildings.Clear(); wildlife.Clear(); equipmentBack.Clear(); equipmentFront.Clear(); agriculture.Clear(); agriculturalCargo.Clear(); wagons.Clear(); buildingLookup.Clear(); unitLookup.Clear();
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
             if (animalFacing.Count > world.Units.Count * 2 + 64) animalFacing.Clear();
             for (int i = 0; i < world.Buildings.Count; i++) buildingLookup[world.Buildings[i].Id] = world.Buildings[i];
@@ -143,7 +149,7 @@ namespace WorldGenesis.Runtime
                 BuildingData b = world.Buildings[i]; if (b.Health <= 0) continue;
                 int sprite = ResolveBuildingSprite(b);
                 bool barrier = b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate;
-                float size = barrier ? 1.1f : b.Type == BuildingType.Hall ? 2.5f : b.Type == BuildingType.Well ? 1.65f : b.Type == BuildingType.Sawmill || b.Type == BuildingType.Stoneworks || b.Type == BuildingType.Warehouse ? 2.8f : b.Type == BuildingType.House ? 2.15f + Mathf.Clamp(b.Level, 1, 5) * .09f : 2.3f;
+                float size = barrier ? 1.1f : b.Type == BuildingType.Hall ? 2.5f : b.Type == BuildingType.Well ? 1.65f : b.Type == BuildingType.Sawmill || b.Type == BuildingType.Stoneworks || b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary ? 2.8f : b.Type == BuildingType.House ? 2.15f + Mathf.Clamp(b.Level, 1, 5) * .09f : 2.3f;
                 if (b.Type == BuildingType.Farm) AgroSprite(agriculture, b.X + .5f, b.Y - .2f, 2.55f, AgricultureArt.FieldSprite(b.FarmCrop, b.CropGrowth));
                 else if (b.Type == BuildingType.Pasture || b.Type == BuildingType.Brewery) AgroSprite(agriculture, b.X + .5f, b.Y - .2f, b.Type == BuildingType.Pasture ? 3.2f : 2.75f, b.Type == BuildingType.Pasture ? AgricultureArt.Pasture : AgricultureArt.Brewery);
                 else buildings.Sprite(b.X + .5f, b.Y - (barrier ? 0 : .15f), size, size, sprite, Color.white);
@@ -161,12 +167,13 @@ namespace WorldGenesis.Runtime
             bool showDetails = camera != null && camera.orthographicSize <= 25;
             float simulationTime = world.Tick * SimulationEngine.TickSeconds;
             DrawFishStocks(camera, showDetails);
+            DrawWaterCurrent(camera, showDetails);
             for (int i = 0; i < world.Units.Count; i++)
             {
                 UnitData unit = world.Units[i]; if (unit.Health <= 0) continue;
                 Vector2 offset = crowd.Offset(unit.Id), position = new Vector2(unit.X, unit.Y) + offset;
                 bool riding = IsRiding(world, unit);
-                if (riding && unitLookup.TryGetValue(unit.MountId, out UnitData ridden)) { position = new Vector2(ridden.X, ridden.Y + .48f); offset = position - new Vector2(unit.X, unit.Y); }
+                if (riding && unitLookup.TryGetValue(unit.MountId, out UnitData ridden)) { position = new Vector2(ridden.X, ridden.Y + WildlifeArt.AnimalSize(ridden.Species) * .2f); offset = position - new Vector2(unit.X, unit.Y); }
                 Color tint = Color.white;
                 SettlementData settlement = world.GetSettlement(unit.SettlementId);
                 if (settlement != null) tint = Color.Lerp(Color.white, PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length], .37f);
@@ -206,11 +213,13 @@ namespace WorldGenesis.Runtime
                     people.Sprite(position.x - .425f + .425f * Mathf.Clamp01(unit.Health / unit.MaxHealth), position.y + head + .38f, .85f * Mathf.Clamp01(unit.Health / unit.MaxHealth), .1f, 12, PixelArt.Teal);
                 }
             }
-            buildings.Submit(); people.Submit(); wildlife.Submit(); equipmentBack.Submit(); equipmentFront.Submit(); agriculture.Submit(); agriculturalCargo.Submit(); citizenSprites.Submit();
+            buildings.Submit(); people.Submit(); wildlife.Submit(); equipmentBack.Submit(); equipmentFront.Submit(); agriculture.Submit(); agriculturalCargo.Submit(); wagons.Submit(); citizenSprites.Submit();
+            weatherView.Update(world, camera);
         }
 
+        public Sprite CreateWeatherIcon(WeatherKind kind) { return weatherView.CreateIcon(kind); }
         public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
-        public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + .48f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id); }
+        public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id); }
         public Sprite CreateAnimalIcon(SpeciesType species)
         {
             int sprite = ((int)species - 6) * WildlifeArt.FramesPerAnimal; Rect uv = WildlifeArt.Uv(sprite);
@@ -237,7 +246,7 @@ namespace WorldGenesis.Runtime
             float size = WildlifeArt.AnimalSize(unit.Species);
             Vector2 hit = unit.Task == UnitTask.Fight && unit.AttackTimer > .55f ? direction * Mathf.Clamp01((unit.AttackTimer - .55f) * 4) * .17f : Vector2.zero;
             wildlife.Add(unit.X - size * .5f + hit.x, unit.Y - .17f + hit.y, size, size, WildlifeArt.Uv(WildlifeArt.AnimalSprite(unit, world.Tick)), tint, direction.x < 0);
-            if (unit.HasSaddleBags) Equipment(equipmentFront, unit.X, unit.Y - .08f, 1.6f, WildlifeArt.SaddleBags, direction.x < 0);
+            if (unit.HasSaddleBags) Equipment(equipmentFront, unit.X, unit.Y - .08f, size * .68f, WildlifeArt.SaddleBags, direction.x < 0);
         }
         private void DrawEquipment(UnitData unit, Vector2 direction)
         {
@@ -253,11 +262,22 @@ namespace WorldGenesis.Runtime
                 Vector2 facing = animalFacing.TryGetValue(mount.Id, out Vector2 animalDirection) ? animalDirection : TravelDirection(mount);
                 if (unit.HasWagon)
                 {
-                    Vector2 wagon = new Vector2(mount.X, mount.Y) - facing.normalized * 1.3f;
-                    AgroSprite(agriculture, wagon.x, wagon.y - .18f, 2f, AgricultureArt.Wagon, facing.x < 0);
+                    Vector2 wagon = WagonPosition(mount, facing);
+                    bool vertical = Mathf.Abs(facing.y) > Mathf.Abs(facing.x);
+                    float size = vertical ? 1.7f : 1.9f;
+                    wagons.Add(wagon.x - size * .5f, wagon.y - size * .35f, size, size, TransportArt.Uv(vertical ? TransportArt.WagonVertical : TransportArt.WagonSide), Color.white, facing.x < 0);
+                    Vector2 normal = new Vector2(-facing.y, facing.x).normalized * .19f;
+                    Vector2 hitch = new Vector2(mount.X, mount.Y + .43f), front = wagon + facing.normalized * .45f + Vector2.up * .16f;
+                    // Two shafts and a short body strap share the same saved animal and direction as the wagon.
+                    for (int side = -1; side <= 1; side += 2)
+                    {
+                        Vector2 a = front + normal * side, b = hitch + normal * side, d = b - a;
+                        people.OrientedSprite((a + b) * .5f, d.magnitude, .045f, Mathf.Atan2(d.y, d.x), 12, PixelArt.Hex("b79768"));
+                    }
+                    people.OrientedSprite(hitch, .42f, .055f, Mathf.Atan2(normal.y, normal.x), 12, PixelArt.Hex("5d4b3a"));
                 }
-                else Equipment(equipmentBack, mount.X, mount.Y + .16f, 1.65f, WildlifeArt.Saddle, facing.x < 0);
-                if (unit.MountBags && !mount.HasSaddleBags) Equipment(equipmentFront, mount.X, mount.Y - .08f, 1.6f, WildlifeArt.SaddleBags, facing.x < 0);
+                else Equipment(equipmentBack, mount.X, mount.Y + .11f, WildlifeArt.AnimalSize(mount.Species) * .70f, WildlifeArt.Saddle, facing.x < 0);
+                if (unit.MountBags && !mount.HasSaddleBags) Equipment(equipmentFront, mount.X, mount.Y - .08f, WildlifeArt.AnimalSize(mount.Species) * .68f, WildlifeArt.SaddleBags, facing.x < 0);
             }
             else if (unit.BasketLevel > 0)
             {
@@ -275,7 +295,7 @@ namespace WorldGenesis.Runtime
                 case BuildingType.Sawmill: return ResourceArt.Sawmill;
                 case BuildingType.Stoneworks: return ResourceArt.Stoneworks;
                 case BuildingType.Kiln: return ResourceArt.Kiln;
-                case BuildingType.Well: return SocietyArt.Well; case BuildingType.Warehouse: return SocietyArt.Warehouse;
+                case BuildingType.Well: return SocietyArt.Well; case BuildingType.Warehouse: return SocietyArt.Warehouse; case BuildingType.Granary: return ResourceArt.Granary;
                 case BuildingType.Shop: return SocietyArt.Shop; case BuildingType.School: return SocietyArt.School;
                 case BuildingType.WoodWall: return SocietyArt.WallHorizontal; case BuildingType.Gate: return SocietyArt.GateOpen;
                 default: return SocietyArt.HouseOne;
@@ -322,6 +342,11 @@ namespace WorldGenesis.Runtime
             // occupy the middle of that quad, so a .5 Y offset would cover the face.
             return new Vector2(unit.X, unit.Y) + (unit.CargoKind == ItemType.Log ? -direction * .82f + Vector2.up * .03f : new Vector2((direction.x < 0 ? -.52f : .52f) * size, -.08f * size));
         }
+        public static Vector2 WagonPosition(UnitData mount, Vector2 direction)
+        {
+            Vector2 facing = direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right;
+            return new Vector2(mount.X, mount.Y) - facing * 1.55f;
+        }
         private void DrawCargo(UnitData unit, Vector2 direction, float simulationTime, Vector2 presentationOffset)
         {
             bool resource = unit.CargoAmount > .001f && unit.CargoKind != ItemType.None;
@@ -334,8 +359,8 @@ namespace WorldGenesis.Runtime
             bool pack = unit.MountId != 0 && unitLookup.TryGetValue(unit.MountId, out UnitData cargoMount) && cargoMount.Health > 0 && cargoMount.HandlerId == unit.Id;
             if (pack)
             {
-                UnitData mount = unitLookup[unit.MountId]; Vector2 travel = TravelDirection(mount);
-                position = new Vector2(mount.X, mount.Y + .24f) + (unit.HasWagon ? -travel * 1.3f : new Vector2(.36f, 0));
+                UnitData mount = unitLookup[unit.MountId]; Vector2 travel = animalFacing.TryGetValue(mount.Id, out Vector2 savedDirection) ? savedDirection : TravelDirection(mount);
+                position = unit.HasWagon ? WagonPosition(mount, travel) + new Vector2(0, -.04f) : new Vector2(mount.X + .28f, mount.Y + .12f);
             }
             if (harvest) AgroSprite(agriculturalCargo, position.x + (resource || food || legacyPlanks ? .35f : 0), position.y, unit.IsChild ? .58f : .78f, AgricultureArt.ProductSprite(unit.HarvestProduct));
             if (water)
@@ -377,6 +402,31 @@ namespace WorldGenesis.Runtime
             if (food) Equipment(equipmentFront, position.x, position.y + bob, size, WildlifeArt.FoodBundle);
             else people.Sprite(position.x, position.y + bob, size, size, glyph, ResourceArt.CargoColor(item));
         }
+        private void DrawWaterCurrent(Camera camera, bool visible)
+        {
+            waterFlow.Clear();
+            if (!visible || camera == null) { waterFlow.Submit(); return; }
+            float height = camera.orthographicSize, width = height * camera.aspect;
+            int minX = Mathf.Max(0, Mathf.FloorToInt(camera.transform.position.x - width)), maxX = Mathf.Min(world.Width - 1, Mathf.CeilToInt(camera.transform.position.x + width));
+            int minY = Mathf.Max(0, Mathf.FloorToInt(camera.transform.position.y - height)), maxY = Mathf.Min(world.Height - 1, Mathf.CeilToInt(camera.transform.position.y + height));
+            for (int y = minY; y <= maxY; y++) for (int x = minX; x <= maxX; x++)
+            {
+                int index = world.Index(x, y); TileData cell = world.Cells[index];
+                uint hash = PixelArt.Hash(x, y, world.Seed);
+                if (cell.WaterDepth <= 0 || cell.CurrentStrength <= .01f || hash % 3 != 0 || InfrastructureAt(x, y).BridgeLevel > 0) continue;
+                // No made-up downstream direction when hydrology has no parent.
+                int parent = cell.DrainageParent; if (parent < 0 || parent >= world.Cells.Length || parent == index) continue;
+                Vector2 direction = new Vector2(parent % world.Width - x, parent / world.Width - y).normalized;
+                bool vertical = Mathf.Abs(direction.y) > Mathf.Abs(direction.x);
+                float clock = world.Tick * SimulationEngine.TickSeconds * (.3f + cell.CurrentStrength * 1.5f);
+                float phase = Mathf.Repeat(clock + hash % 100 * .01f, 1);
+                Vector2 center = new Vector2(x + .5f, y + .5f) + direction * ((phase - .5f) * .42f);
+                int glyph = (vertical ? TransportArt.VerticalFlowFirst : TransportArt.FlowFirst) + (int)(phase * 4);
+                Color tint = new Color(.8f, .96f, .93f, .16f + .31f * cell.CurrentStrength);
+                waterFlow.Add(center.x - .4f, center.y - .4f, .8f, .8f, TransportArt.Uv(glyph), tint, direction.x < 0);
+            }
+            waterFlow.Submit();
+        }
         private void DrawFishStocks(Camera camera, bool visible)
         {
             waterLife.Clear();
@@ -387,11 +437,16 @@ namespace WorldGenesis.Runtime
             for (int y = minY; y <= maxY; y++) for (int x = minX; x <= maxX; x++)
             {
                 int index = world.Index(x, y); InfrastructureCell cell = world.Infrastructure[index];
-                if (cell.Fish <= .001f || !IsWater(x, y)) continue;
+                if (cell.Fish < .25f || cell.FishCapacity <= 0 || !IsWater(x, y)) continue;
                 uint hash = PixelArt.Hash(x, y, world.Seed);
+                float fullness = Mathf.Clamp01(cell.Fish / cell.FishCapacity);
+                // A glyph represents a resource patch, not one fish. Sparse stable sampling avoids
+                // making tiny newly recovered stocks look like a full school on every flooded tile.
+                if ((hash % 1000) / 1000f >= fullness * .45f) continue;
                 int frame = SocietyArt.FishFirst + (int)((world.Tick / 3 + hash % 3) % 3);
-                float size = .45f + .25f * Mathf.Clamp01(cell.Fish / Mathf.Max(.01f, cell.FishCapacity));
-                waterLife.Add(x + .5f - size * .5f, y + .16f, size, size, PixelArt.Uv(frame), new Color(.78f, .95f, .96f, .68f), (hash & 1) != 0);
+                float size = .28f + .30f * Mathf.Sqrt(fullness);
+                float offsetX = ((hash >> 10) % 100) / 100f * .3f - .15f, offsetY = ((hash >> 20) % 100) / 100f * .22f - .11f;
+                waterLife.Add(x + .5f + offsetX - size * .5f, y + .18f + offsetY, size, size, PixelArt.Uv(frame), new Color(.78f, .95f, .96f, .3f + .38f * Mathf.Sqrt(fullness)), (hash & 1) != 0);
             }
             waterLife.Submit();
         }
@@ -464,6 +519,8 @@ namespace WorldGenesis.Runtime
                 unchecked { hash = (hash ^ (uint)((int)node.Type * 137 + ResourceArt.VisualAmount(node.Amount, node.Capacity) * 19)) * 16777619; }
                 InfrastructureCell infrastructure = InfrastructureAt(x, y);
                 unchecked { hash = (hash ^ (uint)(infrastructure.RoadLevel * 103 + (int)(infrastructure.Stream * 16) * 43)) * 16777619; }
+                hash = TransportHash(hash, cell, infrastructure);
+                unchecked { hash = (hash ^ (uint)((int)(cell.Moisture * 32) * 449 + (int)(cell.SnowCover * 32) * 457 + cell.Biome * 463)) * 16777619; }
             }
             // Shore and river joins depend on the one-cell halo across chunk boundaries.
             for (int y = chunk.Y - 1; y <= chunk.Y + chunk.Height; y++) for (int x = chunk.X - 1; x <= chunk.X + chunk.Width; x++)
@@ -473,8 +530,13 @@ namespace WorldGenesis.Runtime
                 unchecked { hash = (hash ^ (uint)((int)adjacent.Terrain * 1009 + adjacent.DrainageParent * 23 + (adjacent.River ? 7 : 0))) * 16777619; }
                 InfrastructureCell infrastructure = InfrastructureAt(x, y);
                 unchecked { hash = (hash ^ (uint)(infrastructure.RoadLevel * 103 + (int)(infrastructure.Stream * 16) * 43)) * 16777619; }
+                hash = TransportHash(hash, adjacent, infrastructure);
             }
             return hash;
+        }
+        private static uint TransportHash(uint hash, TileData tile, InfrastructureCell infrastructure)
+        {
+            unchecked { return (hash ^ (uint)((int)tile.WaterKind * 107 + (int)(tile.WaterDepth * 20) * 193 + (int)(tile.CurrentStrength * 20) * 277 + tile.ChannelWidth * 307 + infrastructure.BridgeLevel * 347 + infrastructure.BridgeAxis * 419 + (int)(tile.Height * 64) * 431)) * 16777619; }
         }
 
         public void SetBrush(int x, int y, int radius, bool visible, Color color, int unitRadius = -1, bool showTerrain = true)
@@ -522,25 +584,34 @@ namespace WorldGenesis.Runtime
 
         private void RefreshMinimap()
         {
-            for (int i = 0; i < minimapPixels.Length; i++) minimapPixels[i] = PixelArt.Terrain(world.Cells[i].Terrain);
+            for (int i = 0; i < minimapPixels.Length; i++) { TileData tile = world.Cells[i]; minimapPixels[i] = tile.WaterDepth > 0 && (tile.Terrain == TerrainType.DeepWater || tile.Terrain == TerrainType.ShallowWater) ? TransportArt.WaterColor(tile) : WeatherView.TerrainColor(PixelArt.Terrain(tile.Terrain), tile, world.GetBiome(i)); }
             Minimap.SetPixels32(minimapPixels); Minimap.Apply(false, false);
         }
 
         private void Rebuild(Chunk chunk)
         {
             int textureWidth = chunk.Width * PixelsPerCell;
-            Color32[] pixels = chunk.Pixels; chunk.Nature.Clear();
+            Color32[] pixels = chunk.Pixels; chunk.Nature.Clear(); chunk.Bridges.Clear();
             for (int localY = chunk.Height - 1; localY >= 0; localY--) for (int localX = 0; localX < chunk.Width; localX++)
             {
                 int x = chunk.X + localX, y = chunk.Y + localY;
                 TileData cell = world.Cells[world.Index(x, y)]; uint hash = PixelArt.Hash(x, y, world.Seed);
                 Color baseColor = PixelArt.Terrain(cell.Terrain);
                 bool water = cell.Terrain == TerrainType.DeepWater || cell.Terrain == TerrainType.ShallowWater;
+                if (water && cell.WaterDepth > 0) baseColor = TransportArt.WaterColor(cell);
+                else baseColor = WeatherView.TerrainColor(baseColor, cell, world.GetBiome(world.Index(x, y)));
                 InfrastructureCell infrastructure = InfrastructureAt(x, y);
                 bool watercourse = cell.River || infrastructure.Stream > .01f;
                 int riverConnections = watercourse ? RiverConnections(x, y, cell) : 0;
                 int roadConnections = infrastructure.RoadLevel > 0 ? RoadConnections(x, y) : 0;
                 float light = .96f + (hash % 13) / 160f;
+                bool relief = cell.Terrain == TerrainType.Hills || cell.Terrain == TerrainType.Highlands || cell.Terrain == TerrainType.Ravine;
+                if (relief)
+                {
+                    float west = world.InBounds(x - 1, y) ? world.Cells[world.Index(x - 1, y)].Height : cell.Height;
+                    float north = world.InBounds(x, y + 1) ? world.Cells[world.Index(x, y + 1)].Height : cell.Height;
+                    light *= Mathf.Clamp(1 + (north - west) * 1.5f, .77f, 1.15f);
+                }
                 for (int py = 0; py < PixelsPerCell; py++) for (int px = 0; px < PixelsPerCell; px++)
                 {
                     float variation = 1;
@@ -551,18 +622,24 @@ namespace WorldGenesis.Runtime
                     Color color = baseColor * light * variation; color.a = 1;
                     if (water && cell.Terrain == TerrainType.ShallowWater && ((py == 7 && IsLand(x, y + 1)) || (px == 0 && IsLand(x - 1, y)))) color = ShoreColor;
                     if (!water && ((py == 0 && IsWater(x, y - 1)) || (px == 7 && IsWater(x + 1, y)))) color *= .82f;
-                    if (watercourse && !water && RiverPixel(px, py, riverConnections)) color = cell.River ? RiverColor : StreamColor;
-                    if (infrastructure.RoadLevel > 0 && !water && PathPixel(px, py, roadConnections, 2, 5))
+                    if (cell.Terrain == TerrainType.Swamp && hash % 3 == 0 && (px - 4) * (px - 4) + (py - 4) * (py - 4) * 2 < 7) color = PixelArt.Hex("527a70");
+                    if (cell.Terrain == TerrainType.Ravine && py == 7 && world.InBounds(x, y + 1) && world.Cells[world.Index(x, y + 1)].Terrain != TerrainType.Ravine) color *= .64f;
+                    if (cell.Terrain == TerrainType.Highlands && py == 0 && world.InBounds(x, y - 1) && world.Cells[world.Index(x, y - 1)].Height < cell.Height - .04f) color *= .76f;
+                    if (watercourse && !water && RiverPixel(px, py, riverConnections)) color = TransportArt.WaterColor(cell);
+                    int roadMin = infrastructure.RoadLevel == 1 ? 3 : 2, roadMax = infrastructure.RoadLevel == 1 ? 4 : 5;
+                    if (infrastructure.RoadLevel > 0 && !water && PathPixel(px, py, roadConnections, roadMin, roadMax))
                     {
-                        Color road = infrastructure.RoadLevel > 1 ? PavedRoadColor : DirtRoadColor;
-                        if (infrastructure.RoadLevel > 1 && (py % 3 == 0 || (px + (py / 3) % 2) % 4 == 0)) road *= .87f;
-                        else if (grain % 7 == 0) road *= .94f;
-                        road.a = 1; color = road;
+                        color = TransportArt.RoadColor(infrastructure.RoadLevel, px, py, grain);
+                        color = Color.Lerp(color, new Color(.92f, .96f, .94f), Mathf.Clamp01(cell.SnowCover) * .64f);
                     }
                     if (cell.Fire > 0) color = Color.Lerp(color, ScorchedColor, .35f);
                     pixels[(localY * PixelsPerCell + py) * textureWidth + localX * PixelsPerCell + px] = color;
                 }
                 ResourceNodeData node = world.GetResourceAt(x, y);
+                if (infrastructure.BridgeLevel > 0)
+                    chunk.Bridges.Add(x, y, 1, 1, TransportArt.Uv(TransportArt.BridgeSprite(infrastructure)), Color.white);
+                if (cell.Terrain == TerrainType.Swamp && cell.BuildingId == 0 && node.Type == ResourceType.None && hash % 7 == 0)
+                    chunk.Nature.Sprite(x + .5f, y - .07f, .8f, .8f, 122, Color.white);
                 if (cell.Terrain == TerrainType.Mountain && node.Type == ResourceType.None)
                 {
                     if (hash % 11 == 0) { float size = 2.5f + (hash % 7) * .16f; chunk.Nature.Sprite(x + .5f, y - .2f, size, size, 13, Color.white); }
@@ -575,7 +652,7 @@ namespace WorldGenesis.Runtime
                     {
                         bool fir = cell.Temperature < .42f || hash % 5 == 0;
                         float size = node.Amount <= 0 ? 1.18f : 1.40f + (hash % 5) * .13f;
-                        chunk.Nature.Sprite(x + .5f + offset, y - .10f, size, size, node.Amount <= 0 ? ResourceArt.Stump : fir ? 1 : 0, cell.Terrain == TerrainType.Snow ? new Color(.85f, .97f, .92f) : Color.white);
+                        chunk.Nature.Sprite(x + .5f + offset, y - .10f, size, size, node.Amount <= 0 ? ResourceArt.Stump : fir ? 1 : 0, cell.Terrain == TerrainType.Snow ? Color.Lerp(WeatherView.TreeColor(cell), new Color(.85f, .97f, .92f), .7f) : WeatherView.TreeColor(cell));
                     }
                     else
                     {
@@ -591,7 +668,7 @@ namespace WorldGenesis.Runtime
                     }
                 }
             }
-            chunk.Texture.SetPixels32(pixels); chunk.Texture.Apply(false, false); chunk.Nature.Submit();
+            chunk.Texture.SetPixels32(pixels); chunk.Texture.Apply(false, false); chunk.Nature.Submit(); chunk.Bridges.Submit();
         }
         private bool IsLand(int x, int y) { return world.InBounds(x, y) && !IsWater(x, y); }
         private InfrastructureCell InfrastructureAt(int x, int y) { return world.Infrastructure != null && world.InBounds(x, y) ? world.Infrastructure[world.Index(x, y)] : default(InfrastructureCell); }
@@ -646,7 +723,9 @@ namespace WorldGenesis.Runtime
         }
         public void Dispose()
         {
-            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
+            weatherView.Dispose();
+            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); chunk.Bridges.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
+            waterFlow.Dispose(); wagons.Dispose(); UnityEngine.Object.Destroy(transportMaterial); UnityEngine.Object.Destroy(transportAtlas);
             buildings.Dispose(); people.Dispose(); waterLife.Dispose(); wildlife.Dispose(); equipmentBack.Dispose(); equipmentFront.Dispose(); agriculture.Dispose(); agriculturalCargo.Dispose(); citizenSprites.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(wildlifeAtlas); UnityEngine.Object.Destroy(agricultureAtlas); UnityEngine.Object.Destroy(wildlifeMaterial); UnityEngine.Object.Destroy(agricultureMaterial); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);
         }
     }

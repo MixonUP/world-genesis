@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="17" result="Passed" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:53Z" duration="16,2168066">
+  <test-suite type="TestSuite" id="1026" name="World Genesis" fullname="World Genesis" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:53Z" duration="16.216807" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1023" name="WorldGenesis.PlayModeTests.dll" fullname="C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Builds/Verification/climate-release-v050-r1/WorldGenesis/Library/ScriptAssemblies/WorldGenesis.PlayModeTests.dll" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:53Z" duration="16.188159" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="56104" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1024" name="WorldGenesis" fullname="WorldGenesis" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:53Z" duration="16.180844" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1025" name="Tests" fullname="WorldGenesis.Tests" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:53Z" duration="16.170092" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1002" name="RuntimeIntegrationTests" fullname="WorldGenesis.Tests.RuntimeIntegrationTests" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:41Z" duration="4.302617" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" methodname="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="273418423" result="Passed" start-time="2026-10-12 13:50:37Z" end-time="2026-10-12 13:50:37Z" duration="0.820143" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="CitizenFramesDistinguishTravelWorkCargoAndActualHits" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.CitizenFramesDistinguishTravelWorkCargoAndActualHits" methodname="CitizenFramesDistinguishTravelWorkCargoAndActualHits" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="440397350" result="Passed" start-time="2026-10-12 13:50:38Z" end-time="2026-10-12 13:50:38Z" duration="0.483051" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1009" name="DemographyAndRulerPolicyAreVisibleInTheProductionInspector" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.DemographyAndRulerPolicyAreVisibleInTheProductionInspector" methodname="DemographyAndRulerPolicyAreVisibleInTheProductionInspector" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="1528955778" result="Passed" start-time="2026-10-12 13:50:38Z" end-time="2026-10-12 13:50:39Z" duration="0.520133" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1004" name="HudButtonsSelectProductionToolsAndCapturePointerHits" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.HudButtonsSelectProductionToolsAndCapturePointerHits" methodname="HudButtonsSelectProductionToolsAndCapturePointerHits" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="841174545" result="Passed" start-time="2026-10-12 13:50:39Z" end-time="2026-10-12 13:50:39Z" duration="0.488357" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1006" name="ImportedCitizensRenderAndTheirMeshFreezesOnPause" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ImportedCitizensRenderAndTheirMeshFreezesOnPause" methodname="ImportedCitizensRenderAndTheirMeshFreezesOnPause" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="455045044" result="Passed" start-time="2026-10-12 13:50:39Z" end-time="2026-10-12 13:50:40Z" duration="0.869002" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1005" name="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" methodname="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="1202762242" result="Passed" start-time="2026-10-12 13:50:40Z" end-time="2026-10-12 13:50:40Z" duration="0.618767" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1008" name="ResourceInspectorReflectsCargoAndRegrowthWithoutCreatingStock" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ResourceInspectorReflectsCargoAndRegrowthWithoutCreatingStock" methodname="ResourceInspectorReflectsCargoAndRegrowthWithoutCreatingStock" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="1378627242" result="Passed" start-time="2026-10-12 13:50:40Z" end-time="2026-10-12 13:50:41Z" duration="0.481564" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="RuralRenderingIntegrationTests" fullname="WorldGenesis.Tests.RuralRenderingIntegrationTests" classname="WorldGenesis.Tests.RuralRenderingIntegrationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 13:50:41Z" end-time="2026-10-12 13:50:43Z" duration="1.896736" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1013" name="AnimalPalettePagesExposeLastSpeciesWithNativeIconAndUiBlocking" fullname="WorldGenesis.Tests.RuralRenderingIntegrationTests.AnimalPalettePagesExposeLastSpeciesWithNativeIconAndUiBlocking" methodname="AnimalPalettePagesExposeLastSpeciesWithNativeIconAndUiBlocking" classname="WorldGenesis.Tests.RuralRenderingIntegrationTests" runstate="Runnable" seed="646844726" result="Passed" start-time="2026-10-12 13:50:41Z" end-time="2026-10-12 13:50:41Z" duration="0.506582" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1011" name="FieldsPastureAndBreweryUseActualValuesInMeshAndInspector" fullname="WorldGenesis.Tests.RuralRenderingIntegrationTests.FieldsPastureAndBreweryUseActualValuesInMeshAndInspector" methodname="FieldsPastureAndBreweryUseActualValuesInMeshAndInspector" classname="WorldGenesis.Tests.RuralRenderingIntegrationTests" runstate="Runnable" seed="458229" result="Passed" start-time="2026-10-12 13:50:41Z" end-time="2026-10-12 13:50:42Z" duration="0.787586" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1012" name="RealCargoEquipmentAndMountRemainVisibleWithoutCreditingStock" fullname="WorldGenesis.Tests.RuralRenderingIntegrationTests.RealCargoEquipmentAndMountRemainVisibleWithoutCreditingStock" methodname="RealCargoEquipmentAndMountRemainVisibleWithoutCreditingStock" classname="WorldGenesis.Tests.RuralRenderingIntegrationTests" runstate="Runnable" seed="1461750672" result="Passed" start-time="2026-10-12 13:50:42Z" end-time="2026-10-12 13:50:43Z" duration="0.591504" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1014" name="TransportRenderingTests" fullname="WorldGenesis.Tests.TransportRenderingTests" classname="WorldGenesis.Tests.TransportRenderingTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-12 13:50:43Z" end-time="2026-10-12 13:50:50Z" duration="6.834135" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1016" name="FourRoadGradesAndNewTerrainToolsRemainDistinctAndReachable" fullname="WorldGenesis.Tests.TransportRenderingTests.FourRoadGradesAndNewTerrainToolsRemainDistinctAndReachable" methodname="FourRoadGradesAndNewTerrainToolsRemainDistinctAndReachable" classname="WorldGenesis.Tests.TransportRenderingTests" runstate="Runnable" seed="110809161" result="Passed" start-time="2026-10-12 13:50:43Z" end-time="2026-10-12 13:50:46Z" duration="2.628710" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1017" name="SaltDepletionAndActualWagonCargoChangeOnlyPresentation" fullname="WorldGenesis.Tests.TransportRenderingTests.SaltDepletionAndActualWagonCargoChangeOnlyPresentation" methodname="SaltDepletionAndActualWagonCargoChangeOnlyPresentation" classname="WorldGenesis.Tests.TransportRenderingTests" runstate="Runnable" seed="1241525253" result="Passed" start-time="2026-10-12 13:50:46Z" end-time="2026-10-12 13:50:47Z" duration="1.105019" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1018" name="SeparateDepotCapacitiesAndGranarySpriteFollowActualStock" fullname="WorldGenesis.Tests.TransportRenderingTests.SeparateDepotCapacitiesAndGranarySpriteFollowActualStock" methodname="SeparateDepotCapacitiesAndGranarySpriteFollowActualStock" classname="WorldGenesis.Tests.TransportRenderingTests" runstate="Runnable" seed="98641979" result="Passed" start-time="2026-10-12 13:50:47Z" end-time="2026-10-12 13:50:47Z" duration="0.792450" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1015" name="WaterDepthBlockedFordAndBridgeAreShownFromTheWorld" fullname="WorldGenesis.Tests.TransportRenderingTests.WaterDepthBlockedFordAndBridgeAreShownFromTheWorld" methodname="WaterDepthBlockedFordAndBridgeAreShownFromTheWorld" classname="WorldGenesis.Tests.TransportRenderingTests" runstate="Runnable" seed="1784105905" result="Passed" start-time="2026-10-12 13:50:47Z" end-time="2026-10-12 13:50:50Z" duration="2.296271" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1019" name="WeatherTests" fullname="WorldGenesis.Tests.WeatherTests" classname="WorldGenesis.Tests.WeatherTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 13:50:50Z" end-time="2026-10-12 13:50:53Z" duration="3.119204" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1022" name="HurricaneFollowsRealCenterAndFloodFoamSurvivesOnlyActualFloodState" fullname="WorldGenesis.Tests.WeatherTests.HurricaneFollowsRealCenterAndFloodFoamSurvivesOnlyActualFloodState" methodname="HurricaneFollowsRealCenterAndFloodFoamSurvivesOnlyActualFloodState" classname="WorldGenesis.Tests.WeatherTests" runstate="Runnable" seed="1500163661" result="Passed" start-time="2026-10-12 13:50:50Z" end-time="2026-10-12 13:50:50Z" duration="0.527727" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1021" name="SavedMoistureAndSnowChangeActualTerrainWithoutChangingItsBiome" fullname="WorldGenesis.Tests.WeatherTests.SavedMoistureAndSnowChangeActualTerrainWithoutChangingItsBiome" methodname="SavedMoistureAndSnowChangeActualTerrainWithoutChangingItsBiome" classname="WorldGenesis.Tests.WeatherTests" runstate="Runnable" seed="484489628" result="Passed" start-time="2026-10-12 13:50:50Z" end-time="2026-10-12 13:50:52Z" duration="1.738807" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1020" name="WeatherButtonsUseSelectedCellBlockInputAndFreezeWithSimulation" fullname="WorldGenesis.Tests.WeatherTests.WeatherButtonsUseSelectedCellBlockInputAndFreezeWithSimulation" methodname="WeatherButtonsUseSelectedCellBlockInputAndFreezeWithSimulation" classname="WorldGenesis.Tests.WeatherTests" runstate="Runnable" seed="548960068" result="Passed" start-time="2026-10-12 13:50:52Z" end-time="2026-10-12 13:50:53Z" duration="0.839747" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+Actual weather UI test viewport: 640x480
+Saving results to: C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Evidence\20261012-165027-901-playmode\tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

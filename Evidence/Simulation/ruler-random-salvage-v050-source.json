@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-12T13:19:32.3285198Z",
+  "status": "random 10..50 percent salvage code freeze; Unity integration pending",
+  "report": "Evidence/Simulation/ruler-random-salvage-freeze.json",
+  "tests": 21,
+  "failures": 0,
+  "hashes": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs",
+      "sha256": "035D574273AB79FC3AE6D3526093B2500D0A00949DAD8680EA2A71870EA2DA19"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs",
+      "sha256": "8935F43768FB294F1E3F5D03E428359D38ABC5BDC5E8AFCEB707CB48E3E87770"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/RulerPlanningTests.cs",
+      "sha256": "BE6B05CA368EAF5296F0812DA26888727EB41F17DA426AD7975C9817CAC72922"
+    },
+    {
+      "path": "Docs/Design/TRANSPORT_AND_WATER.md",
+      "sha256": "9DD5E0394EAA8D3F813787E8503CDBFBC13AAFF38FDAB35AFB7908E5C38ACC3F"
+    }
+  ]
+}

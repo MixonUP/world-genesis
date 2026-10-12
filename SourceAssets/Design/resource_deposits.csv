@@ -10,3 +10,4 @@ clay_bank,river_bank;wet_grass,1,depleted_cooldown,0,3,3,8,woodland=1;riverland=
 sand_bank,beach;river_bank;desert,1,depleted_cooldown,0,3,3,8,woodland=0;riverland=5;highland=0;dryland=6;ore_ridge=0,false,светлая кучка с выемкой,proposed
 limestone_deposit,hills;dry_grass;mountain,1,depleted_cooldown,0,4,2,6,woodland=0;riverland=1;highland=3;dryland=6;ore_ridge=2,false,белёсые слоистые камни,proposed
 tin_deposit,mountain;hills,3,depleted_cooldown,0,6,1,3,woodland=0;riverland=0;highland=4;dryland=3;ore_ridge=3,false,светлые крупинки в серой руде,proposed
+salt_deposit,desert;coast;highlands,1,depleted_cooldown,0,5,1,4,woodland=0;riverland=1;highland=2;dryland=6;ore_ridge=1,false,белые кристаллы и выработанная соляная площадка,proposed

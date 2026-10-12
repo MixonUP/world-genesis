@@ -24,7 +24,7 @@ namespace WorldGenesis.Runtime
         }
         public static float AnimalSize(SpeciesType species)
         {
-            switch (species) { case SpeciesType.Bear: return 2.6f; case SpeciesType.DireWolf: return 2.15f; case SpeciesType.SpiritStag: return 2.45f; case SpeciesType.Horse: return 2.35f; case SpeciesType.Donkey: return 2f; case SpeciesType.Deer: return 2.05f; case SpeciesType.Cow: return 2.25f; case SpeciesType.Boar: return 1.6f; case SpeciesType.Chicken: return .78f; case SpeciesType.Fox: return 1.25f; case SpeciesType.Goat: return 1.5f; default: return 1.2f; }
+            switch (species) { case SpeciesType.Bear: return 2.6f; case SpeciesType.DireWolf: return 2.15f; case SpeciesType.SpiritStag: return 2.45f; case SpeciesType.Horse: return 1.8f; case SpeciesType.Donkey: return 1.6f; case SpeciesType.Deer: return 2.05f; case SpeciesType.Cow: return 2.25f; case SpeciesType.Boar: return 1.6f; case SpeciesType.Chicken: return .78f; case SpeciesType.Fox: return 1.25f; case SpeciesType.Goat: return 1.5f; default: return 1.2f; }
         }
         public static Rect Uv(int sprite) { return new Rect((sprite % 8 * Frame + .25f) / Size, (sprite / 8 * Frame + .25f) / Size, 31.5f / Size, 31.5f / Size); }
         public static Texture2D CreateAtlas()

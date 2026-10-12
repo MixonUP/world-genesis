@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-12T13:46:43.6298530Z",
+  "evidence": "Evidence/Simulation/biome-freeze.json",
+  "tests": 9,
+  "failures": 0,
+  "files": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs",
+      "sha256": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/BiomeTests.cs",
+      "sha256": "D9E7938285940B1ED7A0377603C52FBA004B9F6E2EA81E1D7632985C892572CF"
+    },
+    {
+      "path": "Tools/BiomeProbe/Program.cs",
+      "sha256": "64770C874CF6883804FCE63AC4F41A2EB876300E2757B2D1B96E4161FF9BCC03"
+    },
+    {
+      "path": "Docs/Research/CLIMATE_AND_BIOMES.md",
+      "sha256": "0FDD633FD4BACE51EDBA443B333F754101954A3FA9BA6DD3DDD3F9371C448D84"
+    }
+  ]
+}

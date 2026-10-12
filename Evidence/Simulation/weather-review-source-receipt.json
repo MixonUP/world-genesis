@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-12T13:46:43.6663601Z",
+  "evidence": "Evidence/Simulation/weather-boundary-review-fixed.json",
+  "fixedFindings": [
+    "WR-01",
+    "WR-02",
+    "WR-03"
+  ],
+  "validation": "read-only code review and independent .NET reproductions; Unity/native pending",
+  "files": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs",
+      "sha256": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs",
+      "sha256": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0"
+    },
+    {
+      "path": "Builds/WeatherBoundaryReview/Program.cs",
+      "sha256": "F545BB656E1D6380F36A67EA3D12C2A4BBE9116074BCCE231922E996685BD927"
+    },
+    {
+      "path": "Docs/Development/WEATHER_REVIEW.md",
+      "sha256": "4A3C7A8A16A86817DFDBE0DDEE2D056AC256EFE32D749862C33B9E96819BF0B9"
+    }
+  ]
+}

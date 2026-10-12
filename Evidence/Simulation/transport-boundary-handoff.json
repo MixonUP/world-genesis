@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-12T13:08:38.1102528Z",
+  "sourceStatus": "core frozen; .NET verified, final Unity pending",
+  "files": [
+    {
+      "file": "WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\TransportData.cs",
+      "sha256": "13B3F526FFBCD8330ABB2BBD8AAA692865717093B76DE9B6080A9B3A2322747D"
+    },
+    {
+      "file": "WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TransportConstruction.cs",
+      "sha256": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722"
+    },
+    {
+      "file": "WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs",
+      "sha256": "965F921FDCDABF1EAA7BCCF1CCF115F5BF86C4CB1A0CA8519284A1B30681C259"
+    }
+  ],
+  "receipts": [
+    "Evidence/Simulation/transport-boundary-third.json",
+    "Evidence/Simulation/transport-after-boundary-final.json",
+    "Evidence/Simulation/core-after-transport-boundary.json",
+    "Evidence/Simulation/transport-assisted-showcase-v050.json"
+  ]
+}

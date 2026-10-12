@@ -22,7 +22,7 @@ namespace WorldGenesis.Tests
     private static Fixture Make(bool paid = false, bool research = true)
     {
         WorldState w = WorldGenerator.Generate(1771, 32, 32);
-        for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = TerrainType.Grass; w.Cells[i].Height = .55f; w.Cells[i].Vegetation = .5f; w.Cells[i].River = false; }
+        for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = TerrainType.Grass; w.Cells[i].Height = .55f; w.Cells[i].Vegetation = .5f; w.Cells[i].River = false; Hydrology.RefreshCell(w, i); }
         ResourceCatalog.Generate(w); w.Laws.Aging = false; w.Laws.Births = false; w.Laws.Warfare = true; w.Laws.VegetationGrowth = false;
         SimulationEngine e = new SimulationEngine(w); w.Units.RemoveAll(u => (int)u.Species > 3);
         e.Spawn(SpeciesType.Human, 5, 5, 4); e.Spawn(SpeciesType.Elf, 26, 26, 4);

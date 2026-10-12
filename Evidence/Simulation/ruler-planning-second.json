@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-12T12:59:34.0615307Z",
+  "tests": 10,
+  "failures": 1,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng",
+      "passed": true,
+      "milliseconds": 13.4761
+    },
+    {
+      "name": "SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch",
+      "passed": true,
+      "milliseconds": 2.0562
+    },
+    {
+      "name": "DryStartRetainsOriginalLocationAndBasicWellEscape",
+      "passed": true,
+      "milliseconds": 3.945
+    },
+    {
+      "name": "HallLastFarmAndWellAreProtectedWithoutMutation",
+      "passed": true,
+      "milliseconds": 113.487
+    },
+    {
+      "name": "DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite",
+      "passed": true,
+      "milliseconds": 15.8513
+    },
+    {
+      "name": "SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition",
+      "passed": true,
+      "milliseconds": 14.5655
+    },
+    {
+      "name": "PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial",
+      "passed": true,
+      "milliseconds": 13.4516
+    },
+    {
+      "name": "AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks",
+      "passed": true,
+      "milliseconds": 4.5497
+    },
+    {
+      "name": "PrudentSchoolReplacementRequiresResearchAndPreservesHousing",
+      "passed": false,
+      "error": "System.InvalidOperationException: Missing research prerequisite.\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 16\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.PrudentSchoolReplacementRequiresResearchAndPreservesHousing() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 107\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 17.6664
+    },
+    {
+      "name": "PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail",
+      "passed": true,
+      "milliseconds": 40.379
+    }
+  ]
+}

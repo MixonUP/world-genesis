@@ -59,7 +59,7 @@ namespace WorldGenesis.Simulation
                     if ((int)u.Sex < 0 || (int)u.Sex > 1 || !UnitRange(u.Education) || !UnitRange(u.Prudence) || !UnitRange(u.Ambition) || !UnitRange(u.Generosity)) { error = "Invalid demographic state."; return false; }
                 }
             if (EconomyVersion == 0) return true;
-            if (GroundStocks == null || GroundStocks.Count > 30000 || Trades == null || Trades.Count > 128) { error = "Invalid local goods records."; return false; }
+            if (GroundStocks == null || Trades == null || Trades.Count > 128) { error = "Invalid local goods records."; return false; }
             for (int i = 0; i < Units.Count; i++)
                 if ((Units[i].CargoOwnerId != 0 && Units[i].CargoOwnerId != Units[i].Id) || Units[i].GroundStockIndex < -1 || Units[i].GroundStockIndex >= GroundStocks.Count)
                 { error = "Invalid cargo ownership or ground target."; return false; }
@@ -72,7 +72,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Buildings.Count; i++)
             {
                 BuildingData b = Buildings[i];
-                if (b.PersonalStocks == null || b.PersonalStocks.Count > 10000 || b.TaxStocks == null || b.TaxStocks.Length != ResourceCatalog.ItemCount || b.TaxStocks[0] != 0 || b.TaxStocks[(int)ItemType.Plank] != 0) { error = "Invalid owned storage."; return false; }
+                if (b.PersonalStocks == null || b.PersonalStocks.Count > 10000 || !ResourceStockArrayMatchesVersion(b.TaxStocks) || b.TaxStocks.Length != b.Inventory.Length || b.TaxStocks[0] != 0 || b.TaxStocks[(int)ItemType.Plank] != 0) { error = "Invalid owned storage."; return false; }
                 float total = 0;
                 for (int k = 0; k < b.Inventory.Length; k++) { if (!Stock(b.TaxStocks[k])) { error = "Invalid natural tax."; return false; } total += b.Inventory[k] + b.TaxStocks[k]; }
                 HashSet<long> unique = new HashSet<long>();
@@ -82,7 +82,7 @@ namespace WorldGenesis.Simulation
                     if (lot == null || owner == null || owner.Health <= 0 || owner.Age < 16 || owner.SettlementId != b.SettlementId || (int)lot.Item <= 0 || (int)lot.Item >= ResourceCatalog.ItemCount || lot.Item == ItemType.Plank || !Stock(lot.Amount) || !unique.Add(((long)lot.OwnerId << 32) | (uint)lot.Item)) { error = "Invalid private goods lot."; return false; }
                     total += lot.Amount;
                 }
-                if (total > ResourceCatalog.StorageCapacity + .001f) { error = "Combined storage capacity exceeded."; return false; }
+                if (!Stock(total) || (!StorageCapacity.IsDepot(b) && total > ResourceCatalog.StorageCapacity + .001f)) { error = "Combined storage capacity exceeded."; return false; }
             }
             for (int i = 0; i < GroundStocks.Count; i++)
             {

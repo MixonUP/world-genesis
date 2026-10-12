@@ -313,7 +313,8 @@ namespace WorldGenesis.Tests
             {
                 WorldState world = FlatWorld(); world.Seed = seed; world.Laws.Warfare = false;
                 SimulationEngine engine = new SimulationEngine(world);
-                for (int species = 0; species < 4; species++) engine.Spawn((SpeciesType)species, 24, 24, 24);
+                // Independent settlements need separate unclaimed founding sites.
+                for (int species = 0; species < 4; species++) engine.Spawn((SpeciesType)species, 10 + (species % 2) * 28, 10 + (species / 2) * 28, 24);
                 Assert.AreEqual(96, world.Units.Count);
                 foreach (UnitData unit in world.Units) Assert.That(unit.Profession, Is.EqualTo(UnitProfession.Farmer).Or.EqualTo(UnitProfession.Forester));
                 for (int i = 0; i < 12; i++) { world.Units[i].Age = 15.99f; world.Units[i].Profession = UnitProfession.None; }
@@ -667,7 +668,7 @@ namespace WorldGenesis.Tests
             SimulationEngine source=HouseholdFixture();WorldState w=source.World;UnitData u=w.Units[0];u.CargoKind=ItemType.IronOre;u.CargoAmount=3;u.CarriedFood=2.8f;u.CarriedWood=2;w.ResourceVersion=1;
             uint rng=w.RngState;int next=w.NextId;float x=u.X,y=u.Y; SimulationEngine e=new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));w=e.World;u=w.Units[0];
             Assert.IsTrue(SimulationEngine.CarriedLoad(u)<=1 && Math.Abs(SimulationEngine.CarriedLoad(u)+w.GroundStocks.Sum(g=>g.Amount)-7.8f)<.00001f && w.GroundStocks.All(g=>g.X==x&&g.Y==y),"Legacy overflow was removed or teleported");
-            Assert.IsTrue(w.ResourceVersion==2&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=JsonUtility.ToJson(w);new SimulationEngine(w);Assert.IsTrue(once==JsonUtility.ToJson(w),"Carry migration repeated");
+            Assert.IsTrue(w.ResourceVersion==3&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=JsonUtility.ToJson(w);new SimulationEngine(w);Assert.IsTrue(once==JsonUtility.ToJson(w),"Carry migration repeated");
             for(int t=0;t<250;t++){e.Step(.1f);Assert.IsTrue(w.Units.All(a=>SimulationEngine.CarriedLoad(a)<=1.00001f),"Pickup exceeded total carrying capacity");}
             Assert.IsTrue(w.GetSettlementStock(u.SettlementId,ItemType.IronOre)==3 && w.Settlements[0].Wood>=2,"Overflow was never physically collected in separate trips");
             Assert.IsTrue(w.Validate(out string error),error);
@@ -735,7 +736,7 @@ namespace WorldGenesis.Tests
         private static SimulationEngine HouseholdFixture()
         {
             WorldState w=WorldGenerator.Generate(711,32,32);
-            for(int i=0;i<w.Cells.Length;i++){w.Cells[i].Terrain=TerrainType.Grass;w.Cells[i].Height=.55f;w.Cells[i].Vegetation=0;w.Cells[i].River=false;}
+            for(int i=0;i<w.Cells.Length;i++){w.Cells[i].Terrain=TerrainType.Grass;w.Cells[i].Height=.55f;w.Cells[i].Vegetation=0;w.Cells[i].River=false;Hydrology.RefreshCell(w,i);}
             ResourceCatalog.Generate(w);Array.Clear(w.ResourceNodes,0,w.ResourceNodes.Length);
             w.Laws.Warfare=false;w.Laws.Births=false;w.Laws.Aging=false;w.Laws.VegetationGrowth=false;w.Laws.FireSpread=false;
             SimulationEngine e=new SimulationEngine(w);e.Spawn(SpeciesType.Human,16,16);w.Settlements[0].Food=1000;w.Settlements[0].Wood=0;
@@ -764,7 +765,7 @@ namespace WorldGenesis.Tests
             {
                 world.Cells[i].Terrain = TerrainType.Grass;
                 world.Cells[i].Height = .55f; world.Cells[i].Vegetation = .7f;
-                world.Cells[i].River = false;
+                world.Cells[i].River = false; Hydrology.RefreshCell(world, i);
             }
             ResourceCatalog.Generate(world);
             return world;

@@ -1,0 +1,10 @@
+{
+    "utc": "2026-10-12T13:24:31.7600895Z",
+    "unityVersion": "6000.0.45f1",
+    "result": "Failed",
+    "output": "Builds/Windows-0.5.0/WorldGenesis.exe",
+    "errors": 1,
+    "warnings": 0,
+    "bytes": 106793025,
+    "seconds": 9.4986258
+}

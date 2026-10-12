@@ -18,7 +18,7 @@ namespace WorldGenesis.Tests
         private static SimulationEngine Town(int count = 6)
         {
             WorldState w = WorldGenerator.Generate(731, 48, 48);
-            for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = TerrainType.Grass; w.Cells[i].Vegetation = .5f; w.Cells[i].River = false; }
+            for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = TerrainType.Grass; w.Cells[i].Height = .55f; w.Cells[i].Vegetation = .5f; w.Cells[i].River = false; Hydrology.RefreshCell(w, i); }
             ResourceCatalog.Generate(w);
             w.Laws.Births = w.Laws.Aging = w.Laws.Warfare = false;
             var e = new SimulationEngine(w); e.Spawn(SpeciesType.Human, 14, 14, count); Freeze(e);
@@ -178,7 +178,7 @@ namespace WorldGenesis.Tests
         public static void DistantSavedCarrierReturnsByRouteWithoutLosingGoods()
         {
             WorldState w = WorldGenerator.Generate(572, 128, 128);
-            for (int i=0;i<w.Cells.Length;i++) { w.Cells[i].Terrain=TerrainType.Grass; w.Cells[i].Vegetation=.5f; }
+            for (int i=0;i<w.Cells.Length;i++) { w.Cells[i].Terrain=TerrainType.Grass; w.Cells[i].Height=.55f; w.Cells[i].Vegetation=.5f; w.Cells[i].River=false; Hydrology.RefreshCell(w,i); }
             ResourceCatalog.Generate(w); w.Laws.Aging=w.Laws.Births=w.Laws.Warfare=false;
             var e=new SimulationEngine(w); e.Spawn(SpeciesType.Human,14,14,2); Freeze(e); w.NaturalWildlife=false;
             UnitData carrier=w.Units[0]; carrier.X=100.5f; carrier.Y=100.5f; carrier.HarvestProduct=AgriculturalProduct.Hide; carrier.HarvestAmount=1; carrier.DecisionTimer=0;

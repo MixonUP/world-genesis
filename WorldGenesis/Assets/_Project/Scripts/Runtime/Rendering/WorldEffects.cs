@@ -14,7 +14,6 @@ namespace WorldGenesis.Runtime
         private readonly List<Bolt> bolts = new List<Bolt>(16);
         private readonly QuadBatch batch;
         private long lastEventId;
-        private float fireClock;
         public int ActiveParticles => particles.Count;
         public WorldEffects(Transform parent, Material material) { batch = new QuadBatch("World effects • event owned", parent, material, 70); }
         public void Reset(WorldState world)
@@ -54,14 +53,21 @@ namespace WorldGenesis.Runtime
                 }
                 bolts[i] = bolt;
             }
-            fireClock += dt;
-            int frame = (int)(fireClock * 7);
+            // Ongoing terrain fire is a simulation state, not a real-time particle lifetime.
             for (int y = 0; y < world.Height; y++) for (int x = 0; x < world.Width; x++)
             {
                 TileData tile = world.Cells[world.Index(x, y)]; if (tile.Fire <= 0) continue;
-                uint hash = PixelArt.Hash(x, y, frame); float height = .3f + (hash % 10) * .075f;
-                batch.Sprite(x + .5f, y + .1f, .5f, height, 12, PixelArt.Hex("ef863f"));
-                batch.Sprite(x + .5f, y + .1f, .2f, height * .62f, 12, PixelArt.Hex("ffe19a"));
+                uint hash = PixelArt.Hash(x, y, world.Seed);
+                int phase = (int)((world.Tick / 2 + hash % 4) % 4);
+                float flicker = phase == 0 ? .88f : phase == 1 ? 1.04f : phase == 2 ? .94f : 1.12f;
+                float force = Mathf.Clamp01(tile.Fire), height = (.62f + .52f * force) * flicker;
+                float center = x + .5f + (((hash >> 9) % 100) / 100f - .5f) * .16f;
+                if (force > .25f)
+                {
+                    batch.Add(center - .40f, y + .02f, .43f, height * .66f, PixelArt.Uv(PixelArt.GroundFlame), new Color(.92f, .75f, .67f), (phase & 1) == 0);
+                    batch.Add(center + .12f, y + .04f, .35f, height * .52f, PixelArt.Uv(PixelArt.GroundFlame), Color.white, (hash & 1) != 0);
+                }
+                batch.Add(center - .29f + (phase - 1.5f) * .025f, y + .02f, .58f, height, PixelArt.Uv(PixelArt.GroundFlame), Color.white, (phase & 2) != 0);
             }
             batch.Submit();
         }

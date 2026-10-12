@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-12T13:16:58.6743594Z",
+  "tests": 21,
+  "failures": 1,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng",
+      "passed": true,
+      "milliseconds": 13.9725
+    },
+    {
+      "name": "SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch",
+      "passed": true,
+      "milliseconds": 2.191
+    },
+    {
+      "name": "SpawnActuallyFoundHallOnTheChosenReachableHighland",
+      "passed": true,
+      "milliseconds": 7.869
+    },
+    {
+      "name": "DryStartRetainsOriginalLocationAndBasicWellEscape",
+      "passed": true,
+      "milliseconds": 3.9822
+    },
+    {
+      "name": "ShallowFordFoundingUsesDryBankAndRejectsWaterOnlyStart",
+      "passed": true,
+      "milliseconds": 3.5626
+    },
+    {
+      "name": "HallLastFarmAndWellAreProtectedWithoutMutation",
+      "passed": true,
+      "milliseconds": 108.1784
+    },
+    {
+      "name": "DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite",
+      "passed": true,
+      "milliseconds": 15.1974
+    },
+    {
+      "name": "SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition",
+      "passed": true,
+      "milliseconds": 14.1768
+    },
+    {
+      "name": "PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial",
+      "passed": true,
+      "milliseconds": 12.8927
+    },
+    {
+      "name": "AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks",
+      "passed": true,
+      "milliseconds": 4.5903
+    },
+    {
+      "name": "PrudentSchoolReplacementRequiresResearchAndPreservesHousing",
+      "passed": true,
+      "milliseconds": 4.7263
+    },
+    {
+      "name": "ActiveHaulerKeepsEveryCargoChannelWhenDestinationIsDemolished",
+      "passed": true,
+      "milliseconds": 40.1113
+    },
+    {
+      "name": "PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail",
+      "passed": true,
+      "milliseconds": 12.4453
+    },
+    {
+      "name": "RealCombatUsesElevationBonusWithoutRngDifferenceAndCapsAtTwentyPercent",
+      "passed": true,
+      "milliseconds": 52.0191
+    },
+    {
+      "name": "FreeFoundingAndUnknownLegacyConstructionNeverMintSalvage",
+      "passed": true,
+      "milliseconds": 4.3781
+    },
+    {
+      "name": "RealConstructionAndEveryUpgradeUseOneRecordedPercentageAfterSave",
+      "passed": true,
+      "milliseconds": 13.1032
+    },
+    {
+      "name": "CatastrophicStorageLossAndBuildingSalvageUseSeparateLedgersOnce",
+      "passed": true,
+      "milliseconds": 11.1116
+    },
+    {
+      "name": "PlannedDemolitionPreservesContentsPlusRolledConstructionAndRejectsBadInvoice",
+      "passed": true,
+      "milliseconds": 4.2888
+    },
+    {
+      "name": "RecoverySeedMatrixIncludesBothBoundsAndUsesExactlyOneRngDraw",
+      "passed": false,
+      "error": "System.InvalidOperationException: matrix does not exercise inclusive bounds\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 16\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.RecoverySeedMatrixIncludesBothBoundsAndUsesExactlyOneRngDraw() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 198\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 1118.7411
+    },
+    {
+      "name": "RolledRecoveryPersistsAcrossCleanupSaveWithoutSecondDrawOrEvent",
+      "passed": true,
+      "milliseconds": 8.5633
+    },
+    {
+      "name": "RecoveryValidatorRejectsPrematureOutOfRangeAndUnpaidRolls",
+      "passed": true,
+      "milliseconds": 4.9825
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-12T13:20:55.605837Z",
+  "status": "validated-assisted-fixture",
+  "naturalProgressionProof": false,
+  "source": "Builds/transport-assisted-showcase-v050-bridge-complete.json",
+  "sourceSha256": "A802F9273F9CD9D867A8DA0A891C4FCB2D158F9630BCE628C29753BE8BB7EAF3",
+  "sourceWasAlreadyAssisted": true,
+  "cancelledTransportProjectIds": [],
+  "cancellation": "Production cancellation retains delivered materials on the ground; no projects existed if list is empty.",
+  "construction": "TryBuildInfrastructure twice; TryUpgradeBuilding six times; both level-5 requests rejected. No time was simulated.",
+  "technologyGrants": [
+    "f01_preservation",
+    "m10_comfort_housing",
+    "m11_town_houses",
+    "l01_local_trade",
+    "c03_civic_records",
+    "m12_stone_houses"
+  ],
+  "researchAffectedByGrant": {
+    "clearedGrantedResearch": true,
+    "priorTechnology": "f01_preservation",
+    "priorProgress": 0.79440033
+  },
+  "generatedConstructionMaterials": {
+    "Plank": 88,
+    "Brick": 8,
+    "StoneBlock": 12
+  },
+  "paidConstructionMaterials": {
+    "Plank": 88,
+    "Brick": 8,
+    "StoneBlock": 12
+  },
+  "generatedShowcaseParcels": {
+    "warehouse": {
+      "RawStone": 300,
+      "Fiber": 100
+    },
+    "granary": {
+      "Grain": 300,
+      "Hay": 100,
+      "Berries": 50
+    }
+  },
+  "town": {
+    "id": 1,
+    "name": "\u0420\u0435\u0447\u043D\u0430\u044F \u043F\u0440\u0438\u0441\u0442\u0430\u043D\u044C",
+    "hallX": 58,
+    "hallY": 64
+  },
+  "tick": 1144,
+  "warehouse": {
+    "id": 11,
+    "type": "Warehouse",
+    "x": 53,
+    "y": 60,
+    "inspectCell": "53,60",
+    "level": 4,
+    "capacity": 10000,
+    "used": 400,
+    "free": 9600
+  },
+  "granary": {
+    "id": 13,
+    "type": "Granary",
+    "x": 59,
+    "y": 59,
+    "inspectCell": "59,59",
+    "level": 4,
+    "capacity": 10000,
+    "used": 450,
+    "free": 9550
+  },
+  "worldValidation": true,
+  "envelopeRoundTripValidation": true,
+  "savedWorld": "Builds/storage-assisted-v050.save.json",
+  "bytes": 7934589,
+  "sha256": "BF5050B260829307EDAE7CDB9BFF026E49728ED0823A7CBB608B684550423D0F"
+}

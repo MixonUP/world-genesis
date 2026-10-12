@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T15:23:09.8005295+03:00",
+  "timestamp": "2026-10-12T16:48:26.3553081+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 366,
+  "checkCount": 381,
   "failures": [],
   "checks": [
     {
@@ -167,22 +167,22 @@
       "detail": "UnityEngine.UI"
     },
     {
-      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
       "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
       "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
     },
@@ -400,6 +400,26 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/STORAGE_CAPACITY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\STORAGE_CAPACITY.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/CLIMATE_AND_BIOMES.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CLIMATE_AND_BIOMES.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/WEATHER_RENDERING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WEATHER_RENDERING.md"
     },
     {
       "id": "link:00_INDEX.md:Development/SOCIETY_REPORT.md",
@@ -1082,6 +1102,11 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
     },
     {
+      "id": "link:TECHNOLOGY_TREE.md:TRANSPORT_AND_WATER.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TRANSPORT_AND_WATER.md"
+    },
+    {
       "id": "link:WILDLIFE_AND_TRADE.md:WILDLIFE_FARMING_AND_EQUIPMENT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
@@ -1627,6 +1652,26 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151356-rural-cart-showcase.png"
     },
     {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151758-rural-caravan.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151758-rural-caravan.mp4.png"
+    },
+    {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151758-rural-caravan-road.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151758-rural-caravan-road.png"
+    },
+    {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151758-rural-caravan.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151758-rural-caravan.mp4"
+    },
+    {
+      "id": "link:RURAL_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-151758-rural-caravan.mp4.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-151758-rural-caravan.mp4.json"
+    },
+    {
       "id": "link:SOCIAL_DESIGN_REVIEW.md:../Design/SOCIAL_SYSTEMS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\SOCIAL_SYSTEMS.md"
@@ -1660,6 +1705,21 @@
       "id": "link:SOCIETY_REPORT.md:AGRICULTURE_CARAVAN_REVIEW.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGRICULTURE_CARAVAN_REVIEW.md"
+    },
+    {
+      "id": "link:TRANSPORT_REPORT.md:../Design/TRANSPORT_AND_WATER.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\TRANSPORT_AND_WATER.md"
+    },
+    {
+      "id": "link:TRANSPORT_REPORT.md:../Research/HYDROLOGY_V05.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\HYDROLOGY_V05.md"
+    },
+    {
+      "id": "link:TRANSPORT_REPORT.md:../Research/TRANSPORT_RENDERING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\TRANSPORT_RENDERING.md"
     },
     {
       "id": "link:2026-10-12-agent-quality-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md",
@@ -1757,6 +1817,11 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\civilian-militia-source-receipt.json"
     },
     {
+      "id": "link:CLIMATE_AND_BIOMES.md:../Development/WEATHER_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\WEATHER_REVIEW.md"
+    },
+    {
       "id": "link:PROCEDURAL_FORMULAS.md:../../Evidence/Research/2026-10-12/procgen-probe.json",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\procgen-probe.json"
@@ -1805,6 +1870,16 @@
       "id": "link:SETTLEMENT_POLITICS.md:../../Evidence/Simulation/settlement-politics-probe.json",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\settlement-politics-probe.json"
+    },
+    {
+      "id": "link:STORAGE_CAPACITY.md:../../Evidence/Simulation/storage-v050-first.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\storage-v050-first.json"
+    },
+    {
+      "id": "link:TRANSPORT_RENDERING.md:../Development/RURAL_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\RURAL_NATIVE_REVIEW.md"
     },
     {
       "id": "link:README.md:Research/procgen_probe.py",

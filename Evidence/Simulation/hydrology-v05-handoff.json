@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\WorldGenerator.cs",
+    "Hash": "A0D5461BFAEEB118486D70534FC7B33058077C14C16A02879E27C6244345AC98"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs",
+    "Hash": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs.meta",
+    "Hash": "8BE54BC850BE28600E86AA8188F912980B582552CBFD38DAE89252368F2317F8"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs",
+    "Hash": "03EB6C1570FDCA8D34FA0D4A058346F8E6BD28D02AD00DB52B05403032503D71"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs.meta",
+    "Hash": "F3F02BFA8F701FF7647BAF9BF58B6D46423F37A17CA4F23929FC9911D60B1E0F"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\HydrologyProbe\\Program.cs",
+    "Hash": "98EAAF851A3E3A29CC7D1E3E0C9850B65A301520D24E555ED137DE2B1BE350B5"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\HydrologyProbe\\HydrologyProbe.csproj",
+    "Hash": "48BF18FF7DD4FE57A69B6C61ACAAB7397B8DAF038C26546F3038659714680370"
+  },
+  {
+    "Path": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\HYDROLOGY_V05.md",
+    "Hash": "644CF0B9DD1B72ED91EFEC9D2823DF1FD8E6BDA8540E531B2CB37A5DB3C17077"
+  }
+]

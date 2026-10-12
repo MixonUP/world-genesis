@@ -65,6 +65,7 @@ namespace WorldGenesis.Simulation
 
         private bool CommittedActivity(UnitData unit)
         {
+            if (unit.Task == UnitTask.BuildTransport && unit.TransportProjectId != 0) return true;
             if (unit.Task == UnitTask.Caravan && unit.CaravanId != 0) return true;
             if (unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Brew) return World.GetBuilding(unit.TargetBuildingId) != null && (unit.Task != UnitTask.CraftEquipment || unit.EquipmentOrder != 0);
             if (unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize || unit.Task == UnitTask.Play || unit.Task == UnitTask.Learn || unit.Task == UnitTask.Drink) return true;

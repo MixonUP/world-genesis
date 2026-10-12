@@ -32,7 +32,7 @@ namespace WorldGenesis.Simulation
             if (atWorkplace)
             {
                 if (u.CargoAmount > 0) { float amount = Math.Min(u.CargoAmount, FreeStorage(b)); b.Inventory[(int)u.CargoKind] += amount; u.CargoAmount -= amount; if (u.CargoAmount <= .00001f) { u.CargoAmount = 0; u.CargoKind = ItemType.None; } }
-                if (u.HarvestAmount > 0) { float amount = Math.Min(u.HarvestAmount, AgriStorageSpace(b)); b.AgriculturalStock[(int)u.HarvestProduct] += amount; u.HarvestAmount -= amount; if (u.HarvestAmount <= .00001f) { u.HarvestAmount = 0; u.HarvestProduct = AgriculturalProduct.None; } }
+                if (u.HarvestAmount > 0) { float amount = Math.Min(u.HarvestAmount, StorageCapacity.FreeAgriculture(b, u.HarvestProduct)); b.AgriculturalStock[(int)u.HarvestProduct] += amount; u.HarvestAmount -= amount; if (u.HarvestAmount <= .00001f) { u.HarvestAmount = 0; u.HarvestProduct = AgriculturalProduct.None; } }
                 if (u.CarriedWater > 0) { float amount = Math.Min(u.CarriedWater, 4 - b.BrewWaterStored); b.BrewWaterStored += amount; u.CarriedWater -= amount; }
                 if (CarriedLoad(u) > .00001f) { ChangeTask(u, UnitTask.Idle); return false; }
             }

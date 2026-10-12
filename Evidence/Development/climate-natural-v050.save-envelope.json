@@ -1,0 +1,7 @@
+{
+  "source": "Evidence/Simulation/climate-release-seed1618033-r2.world.json",
+  "target": "Builds/climate-natural-v050.save.json",
+  "sourceSHA256": "c2b0c6b53ca6cbf273195ee3b126583a1be7e2806c86b92a2e38638f23c23711",
+  "targetSHA256": "3d2a23f37d912dfcd0d99b897bd7e1bc9c83d3d309feff2307d0069def0ed4dd",
+  "operation": "Envelope only; native SaveStore.Validate is still required."
+}

@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-12T12:56:33.5798093Z",
+  "tests": 5,
+  "failures": 0,
+  "results": [
+    {
+      "name": "WoodenBridgeBurnsAndInvalidatesSavedPath",
+      "passed": true
+    },
+    {
+      "name": "IsolatedBankCannotReserveAllTownConstructionForever",
+      "passed": true
+    },
+    {
+      "name": "EditedOceanSpanCancelsBeforeItCanBeConstructed",
+      "passed": true
+    },
+    {
+      "name": "InvalidProjectGeometryAndWorkerBacklinksAreRejected",
+      "passed": true
+    },
+    {
+      "name": "WorkerDeathPreservesDeliveredStockAndAllowsReplacement",
+      "passed": true
+    }
+  ]
+}

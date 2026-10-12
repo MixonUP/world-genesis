@@ -24,7 +24,7 @@ namespace WorldGenesis.Runtime
         private readonly GameObject root;
         private readonly Font font;
         private readonly Color panel = PixelArt.Hex("152632"), surface = PixelArt.Hex("223745"), muted = PixelArt.Hex("92abb5"), white = PixelArt.Hex("edf0df");
-        private Text stats, inspectorTitle, inspectorBody, chronicle, status, toolHeading, radiusLabel, pauseLabel, clockLabel;
+        private Text stats, inspectorTitle, inspectorBody, chronicle, status, toolHeading, radiusLabel, pauseLabel, clockLabel, weatherLabel;
         private InputField seed;
         private RawImage minimap;
         private RectTransform toolRow;
@@ -38,6 +38,7 @@ namespace WorldGenesis.Runtime
         private string toast = "";
         private int selectedCategory;
         private int creaturePage;
+        private int terrainPage;
         private Button creaturePageButton;
         private Text presetLabel;
         private ScrollRect inspectorScroll;
@@ -75,6 +76,8 @@ namespace WorldGenesis.Runtime
             ButtonAt(left, "Границы поселений", new Vector2(17, -383), new Vector2(198, 29), () => { game.View.ShowBorders = !game.View.ShowBorders; game.View.RefreshTerritories(); ShowToast(game.View.ShowBorders ? "Границы видны" : "Границы скрыты"); });
             presetLabel = ButtonAt(left, "", new Vector2(17, -427), new Vector2(198, 29), () => { game.GenerationPreset = (WorldPreset)(((int)game.GenerationPreset + 1) % 3); RefreshPreset(); ShowToast("Выбрана форма следующего мира. Нажмите «Новый мир»."); }).GetComponentInChildren<Text>();
             RefreshPreset();
+            RectTransform weatherPanel = PanelFixed(root.transform, "Weather information", new Vector2(18, -580), new Vector2(232, 104), panel);
+            weatherLabel = Label(weatherPanel, "", 12, white, new Vector2(17, -10), new Vector2(203, 86));
 
             RectTransform right = PanelFixed(root.transform, "Inspector", new Vector2(-18, -95), new Vector2(236, 366), panel, true);
             Label(right, "НАБЛЮДЕНИЕ", 12, PixelArt.Gold, new Vector2(17, -16), new Vector2(202, 24)).fontStyle = FontStyle.Bold;
@@ -94,11 +97,11 @@ namespace WorldGenesis.Runtime
             chronicle = Label(history, "", 12, muted, new Vector2(17, -51), new Vector2(202, 127));
 
             RectTransform footer = Panel(root.transform, "Creation tools", Vector2.zero, new Vector2(1, 0), new Vector2(18, 18), new Vector2(-18, 174), panel);
-            string[] categories = { "ЛАНДШАФТ", "ЖИЗНЬ", "СИЛЫ БОГА", "ЗАКОНЫ" };
-            for (int i = 0; i < categories.Length; i++) { int category = i; categoryButtons.Add(ButtonAt(footer, categories[i], new Vector2(14 + i * 132, -12), new Vector2(124, 33), () => SelectCategory(category))); }
-            ButtonAt(footer, "Наблюдать  [I]", new Vector2(557, -12), new Vector2(142, 33), () => SelectInspect());
-            toolHeading = Label(footer, "", 12, muted, new Vector2(717, -14), new Vector2(370, 27));
-            creaturePageButton = ButtonAt(footer, "Животные  ›", new Vector2(1095, -12), new Vector2(156, 33), () => { creaturePage = (creaturePage + 1) % 2; SelectCategory(1); });
+            string[] categories = { "ЛАНДШАФТ", "ЖИЗНЬ", "СИЛЫ БОГА", "ЗАКОНЫ", "ПОГОДА" };
+            for (int i = 0; i < categories.Length; i++) { int category = i; categoryButtons.Add(ButtonAt(footer, categories[i], new Vector2(14 + i * 112, -12), new Vector2(104, 33), () => SelectCategory(category))); }
+            ButtonAt(footer, "Наблюдать  [I]", new Vector2(578, -12), new Vector2(142, 33), () => SelectInspect());
+            toolHeading = Label(footer, "", 12, muted, new Vector2(737, -14), new Vector2(460, 27));
+            creaturePageButton = ButtonAt(footer, "Страница  ›", new Vector2(1095, -12), new Vector2(156, 33), () => { if (selectedCategory == 0) terrainPage = (terrainPage + 1) % 2; else creaturePage = (creaturePage + 1) % 2; SelectCategory(selectedCategory); });
             radiusLabel = Label(footer, "", 12, white, new Vector2(-253, -17), new Vector2(161, 25), true);
             ButtonAt(footer, "−", new Vector2(-82, -12), new Vector2(28, 31), () => game.BrushRadius = Mathf.Max(0, game.BrushRadius - 1), true);
             ButtonAt(footer, "+", new Vector2(-45, -12), new Vector2(28, 31), () => game.BrushRadius = Mathf.Min(12, game.BrushRadius + 1), true);
@@ -116,6 +119,7 @@ namespace WorldGenesis.Runtime
             game.Tool = new WorldTool("Наблюдение", "Выберите жителя, поселение или участок мира. Колесо — масштаб, WASD / средняя кнопка — камера.", ToolKind.Inspect, 0, PixelArt.Teal);
             RefreshSelection();
         }
+        public void SelectWeatherTab() { SelectCategory(4); }
 
         private void SelectCategory(int category)
         {
@@ -124,8 +128,12 @@ namespace WorldGenesis.Runtime
             toolButtons.Clear(); currentTools.Clear();
             if (category == 0)
             {
-                string[] names = { "Глубокая вода", "Мелководье", "Песок", "Луга", "Лес", "Пустыня", "Снег", "Горы" };
-                foreach (TerrainType terrain in Enum.GetValues(typeof(TerrainType))) currentTools.Add(new WorldTool(names[(int)terrain], "ЛКМ и движение мыши — рисовать. Кисть меняет реальные клетки мира.", ToolKind.Terrain, (int)terrain, PixelArt.Terrain(terrain)));
+                string[] names = { "Глубокая вода", "Мелководье", "Песок", "Луга", "Лес", "Пустыня", "Снег", "Горы", "Болото", "Холмы", "Овраг", "Возвышенность" };
+                foreach (TerrainType terrain in Enum.GetValues(typeof(TerrainType)))
+                {
+                    if ((int)terrain / 8 != terrainPage) continue;
+                    currentTools.Add(new WorldTool(names[(int)terrain], "ЛКМ и движение мыши — рисовать. Кисть меняет реальные клетки мира.", ToolKind.Terrain, (int)terrain, PixelArt.Terrain(terrain)));
+                }
             }
             else if (category == 1)
             {
@@ -143,21 +151,26 @@ namespace WorldGenesis.Runtime
                 Color[] colors = { PixelArt.Hex("ed8d54"), PixelArt.Hex("85cbdc"), PixelArt.Hex("d2dfef"), PixelArt.Hex("c17752"), PixelArt.Teal, PixelArt.Gold, PixelArt.Hex("9fbb73") };
                 foreach (PowerType power in Enum.GetValues(typeof(PowerType))) currentTools.Add(new WorldTool(names[(int)power], descriptions[(int)power], ToolKind.Power, (int)power, colors[(int)power]));
             }
-            else
+            else if (category == 3)
             {
                 string[] names = { "Рождение", "Войны", "Старение", "Рост растений", "Распростр. огня" };
                 foreach (WorldLaw law in Enum.GetValues(typeof(WorldLaw))) currentTools.Add(new WorldTool(names[(int)law], "Законы управляют настоящими системами мира и сохраняются вместе с ним.", ToolKind.Law, (int)law, PixelArt.Teal));
             }
-            creaturePageButton.gameObject.SetActive(category == 1);
-            creaturePageButton.GetComponentInChildren<Text>().text = "Жизнь " + (creaturePage + 1) + "/2  ›";
+            else
+            {
+                SelectInspect();
+                foreach (WeatherKind kind in Enum.GetValues(typeof(WeatherKind))) currentTools.Add(new WorldTool(WeatherCatalog.Name(kind), "Погодный фронт вокруг выбранного участка, иначе вокруг центра камеры.", ToolKind.Inspect, (int)kind, PixelArt.Teal));
+            }
+            creaturePageButton.gameObject.SetActive(category == 0 || category == 1);
+            creaturePageButton.GetComponentInChildren<Text>().text = category == 0 ? "Ландшафт " + (terrainPage + 1) + "/2  ›" : "Жизнь " + (creaturePage + 1) + "/2  ›";
             for (int i = 0; i < currentTools.Count; i++)
             {
                 WorldTool tool = currentTools[i];
-                Button button = ButtonAt(toolRow, tool.Label, new Vector2(i * 139, 0), new Vector2(130, 79), () => { if (tool.Kind == ToolKind.Law) { WorldLaw law = (WorldLaw)tool.Value; game.Engine.SetLaw(law, !ReadLaw(law)); ShowToast(tool.Label + (ReadLaw(law) ? ": включено" : ": выключено")); } else game.Tool = tool; RefreshSelection(); });
+                Button button = ButtonAt(toolRow, tool.Label, new Vector2(i * 139, 0), new Vector2(130, 79), () => { if (category == 4) ApplyWeather((WeatherKind)tool.Value); else if (tool.Kind == ToolKind.Law) { WorldLaw law = (WorldLaw)tool.Value; game.Engine.SetLaw(law, !ReadLaw(law)); ShowToast(tool.Label + (ReadLaw(law) ? ": включено" : ": выключено")); } else game.Tool = tool; RefreshSelection(); });
                 Text text = button.GetComponentInChildren<Text>(); text.fontSize = 13; text.alignment = TextAnchor.LowerCenter; text.rectTransform.offsetMin = new Vector2(3, 11); text.rectTransform.offsetMax = new Vector2(-3, -7);
                 Image swatch = new GameObject("Symbol", typeof(RectTransform), typeof(Image)).GetComponent<Image>(); swatch.transform.SetParent(button.transform, false); swatch.raycastTarget = false; swatch.color = tool.Color;
                 Position(swatch.rectTransform, new Vector2(54, -14), new Vector2(22, 22));
-                int icon = ToolIcon(tool);
+                int icon = category == 4 ? 2000 + tool.Value : ToolIcon(tool);
                 if (icon >= 0) { swatch.sprite = IconSprite(icon); swatch.color = Color.white; swatch.rectTransform.sizeDelta = new Vector2(39, 39); swatch.rectTransform.anchoredPosition = new Vector2(46, -5); }
                 toolButtons.Add(button);
             }
@@ -168,12 +181,28 @@ namespace WorldGenesis.Runtime
         {
             for (int i = 0; i < toolButtons.Count; i++)
             {
-                bool active = currentTools[i].Kind == ToolKind.Law ? ReadLaw((WorldLaw)currentTools[i].Value) : ReferenceEquals(game.Tool, currentTools[i]);
+                bool active = selectedCategory == 4 ? game.World.Weather != null && (int)game.World.Weather.Kind == currentTools[i].Value : currentTools[i].Kind == ToolKind.Law ? ReadLaw((WorldLaw)currentTools[i].Value) : ReferenceEquals(game.Tool, currentTools[i]);
                 toolButtons[i].GetComponent<Image>().color = active ? PixelArt.Hex("3b635f") : surface;
                 if (currentTools[i].Kind == ToolKind.Law) toolButtons[i].GetComponentInChildren<Text>().text = currentTools[i].Label + (active ? "  ●" : "  ○");
             }
             for (int i = 0; i < categoryButtons.Count; i++) categoryButtons[i].GetComponent<Image>().color = i == selectedCategory ? PixelArt.Hex("3a514e") : surface;
-            if (game.Tool != null) toolHeading.text = game.Tool.Label + "  ·  " + (game.Tool.Kind == ToolKind.Inspect ? "исследуйте свой мир" : "ЛКМ — применить");
+            if (selectedCategory == 4) toolHeading.text = "Погода · кнопка применяет к " + WeatherTargetLabel();
+            else if (game.Tool != null) toolHeading.text = game.Tool.Label + "  ·  " + (game.Tool.Kind == ToolKind.Inspect ? "исследуйте свой мир" : "ЛКМ — применить");
+        }
+
+        private Vector2Int WeatherTarget()
+        {
+            if (game.World.InBounds(game.InspectX, game.InspectY)) return new Vector2Int(game.InspectX, game.InspectY);
+            Vector3 center = game.MainCamera.transform.position;
+            return new Vector2Int(Mathf.Clamp(Mathf.FloorToInt(center.x), 0, game.World.Width - 1), Mathf.Clamp(Mathf.FloorToInt(center.y), 0, game.World.Height - 1));
+        }
+        private string WeatherTargetLabel() { Vector2Int site = WeatherTarget(); return "участку " + site.x + ", " + site.y; }
+        private void ApplyWeather(WeatherKind kind)
+        {
+            Vector2Int site = WeatherTarget(); int radius = Mathf.Max(3, game.BrushRadius);
+            bool changed = game.Engine.SetWeather(kind, site.x, site.y, radius, 1, 40);
+            ShowToast(changed ? WeatherCatalog.Name(kind) + ": центр " + site.x + ", " + site.y + (kind == WeatherKind.Clear ? ". Вода после наводнения сходит постепенно." : ", радиус " + radius + ", 40 с симуляции.") : "Не удалось изменить погоду на этом участке.");
+            Refresh(true);
         }
 
         public void ShowToast(string message) { toast = message; toastUntil = Time.unscaledTime + 6; }
@@ -182,6 +211,8 @@ namespace WorldGenesis.Runtime
         {
             if (!force && Time.unscaledTime < nextRefresh) return; nextRefresh = Time.unscaledTime + .2f;
             WorldState world = game.World;
+            weatherLabel.text = WeatherSummary(world);
+            if (selectedCategory == 4) RefreshSelection();
             PopulationCounts population = CountPopulation(world);
             stats.text = "Поселений " + world.Settlements.Count + " · построек " + world.Buildings.Count + "\nВзрослые  М " + population.Men + " · Ж " + population.Women + "\nДети " + (population.Boys + population.Girls) + " (м " + population.Boys + " · д " + population.Girls + ")\nЖивотные " + population.Animals;
             clockLabel.text = (game.Paused ? "МИР НА ПАУЗЕ" : "МИР ЖИВЁТ") + "\nТик " + world.Tick.ToString("N0");
@@ -195,6 +226,7 @@ namespace WorldGenesis.Runtime
                 radiusLabel.text = (game.ToolAffectsTerrain ? "Земля: " + game.EffectiveBrushRadius : "") + (game.UnitImpactRadius >= 0 ? (game.ToolAffectsTerrain ? "  /  " : "") + "Жители: " + game.UnitImpactRadius : "") + "  [ / ]";
             }
             else radiusLabel.fontSize = 12;
+            if (selectedCategory == 4) { radiusLabel.fontSize = 10; radiusLabel.text = "Радиус команды: " + Mathf.Max(3, game.BrushRadius) + "  [ / ]"; }
             UnitData selected = null;
             for (int i = 0; i < world.Units.Count; i++) if (world.Units[i].Id == game.SelectedUnitId) { selected = world.Units[i]; break; }
             int inspectedCell = world.InBounds(game.InspectX, game.InspectY) ? world.Index(game.InspectX, game.InspectY) : -1;
@@ -220,6 +252,7 @@ namespace WorldGenesis.Runtime
                     UnitData ruler = world.GetUnit(city.RulerId);
                     builder.Clear();
                     if (inspectedBuilding != null) AppendBuildingDescription(world, inspectedBuilding);
+                    builder.Append(WeatherSiteDescription(world, game.InspectX, game.InspectY)).Append("\n\n");
                     if (showNode) builder.Append(NodeDescription(world, game.InspectX, game.InspectY)).Append("\n\n");
                     string infrastructureDescription = InfrastructureDescription(world, game.InspectX, game.InspectY);
                     if (infrastructureDescription.Length > 0) builder.Append(infrastructureDescription).Append("\n\n");
@@ -228,16 +261,18 @@ namespace WorldGenesis.Runtime
                         (ruler == null ? "Нет взрослого правителя" : RulerTitle(city.Government, ruler.Sex) + ": " + ruler.Name) +
                         (city.Government == GovernmentType.Republic ? "\nВыборы через " + Mathf.Max(0, (city.NextElectionTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с" : "") +
                         "\n\nНаселение   " + city.Population + "\n" + PopulationDescription(world, city.Id) + "\nЖильё          " + city.Housing + "\nПостройки    " + city.Buildings +
-                        "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nЕда  " + city.Food.ToString("0.#"));
+                        "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nОбщинные порции  " + city.Food.ToString("0.#"));
                     AppendSettlementStocks(world, city.Id);
                     builder.Append("\n\n").Append(TreasuryDescription(world, city.Id));
                     builder.Append("\n\n").Append(RecentTradesDescription(world, city.Id, 0));
                     builder.Append("\n\n").Append(CaravansDescription(world, city.Id));
                     inspectorBody.text = builder.ToString();
                 }
-                else { inspectorTitle.text = showNode ? ResourceArt.ResourceName(node.Type) : TerrainName(tile.Terrain); inspectorBody.text = (showNode ? NodeDescription(world, game.InspectX, game.InspectY) + "\n\n" : "") + "Участок " + game.InspectX + ", " + game.InspectY + "\n\n" + InfrastructureDescription(world, game.InspectX, game.InspectY) + "\n\nВысота         " + tile.Height.ToString("0.00") + "\nВлажность   " + tile.Moisture.ToString("0.00") + "\nТемпература " + tile.Temperature.ToString("0.00") + "\nРастительность " + tile.Vegetation.ToString("0.00") + (tile.Fire > 0 ? "\n\nНа этом участке пожар" : "") + (tile.River ? "\nЗдесь проходит река" : ""); }
+                else { inspectorTitle.text = showNode ? ResourceArt.ResourceName(node.Type) : tile.WaterKind != WaterKind.None ? TransportArt.WaterName(tile.WaterKind) : TerrainName(tile.Terrain); inspectorBody.text = (showNode ? NodeDescription(world, game.InspectX, game.InspectY) + "\n\n" : "") + "Участок " + game.InspectX + ", " + game.InspectY + "\n\n" + InfrastructureDescription(world, game.InspectX, game.InspectY) + "\n\nВысота         " + tile.Height.ToString("0.00") + "\nВлажность   " + tile.Moisture.ToString("0.00") + "\nТемпература " + tile.Temperature.ToString("0.00") + "\nРастительность " + tile.Vegetation.ToString("0.00") + (tile.Fire > 0 ? "\n\nНа этом участке пожар" : ""); }
             }
             else { inspectorTitle.text = game.Tool?.Label ?? "Живой мир"; inspectorBody.text = (game.Tool?.Description ?? "") + "\n\nI — наблюдение\nПробел — пауза\nHome — показать весь мир\nF12 — снимок игры"; }
+            if (selected != null) inspectorBody.text += "\n\n" + WeatherSiteDescription(world, (int)selected.X, (int)selected.Y);
+            else if (world.InBounds(game.InspectX, game.InspectY) && world.GetSettlement(world.Cells[world.Index(game.InspectX, game.InspectY)].SettlementId) == null) inspectorBody.text = WeatherSiteDescription(world, game.InspectX, game.InspectY) + "\n\n" + inspectorBody.text;
             builder.Clear(); int count = 0, eventIndex = world.Events.Count - 1, socialIndex = world.SocialEvents == null ? -1 : world.SocialEvents.Count - 1;
             while ((eventIndex >= 0 || socialIndex >= 0) && count < 5)
             {
@@ -249,7 +284,32 @@ namespace WorldGenesis.Runtime
             chronicle.text = builder.Length == 0 ? "Каждый мир начинается с тишины.\n\nПоселите жителей, и здесь появятся первые события." : builder.ToString();
             status.text = Time.unscaledTime < toastUntil ? toast : "WASD / средняя кнопка — камера     Колесо — масштаб     Пробел — пауза     Ctrl+S / Ctrl+L — сохранение";
         }
-        private static string TerrainName(TerrainType value) { string[] names = { "Океан", "Мелководье", "Песчаный берег", "Луг", "Лес", "Пустыня", "Снежные земли", "Горы" }; return names[(int)value]; }
+        public static string WeatherSummary(WorldState world)
+        {
+            WeatherData weather = world.Weather;
+            if (weather == null) return "<b>ПОГОДА</b>\nНет данных";
+            bool active = weather.Kind != WeatherKind.Clear && weather.RemainingSeconds > 0;
+            string details = active ? "Фронт ещё " + weather.RemainingSeconds.ToString("0.0") + " с\nЦентр " + weather.CenterX.ToString("0") + ", " + weather.CenterY.ToString("0") + " · радиус " + weather.Radius.ToString("0") :
+                weather.Automatic ? "Смена через " + Mathf.Max(0, (weather.NextTransitionTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с" : "Автосмена выключена";
+            return "<b>ПОГОДА · " + WeatherCatalog.Name(weather.Kind) + "</b>\n" + details + "\nЗатоплено клеток: " + (world.FloodCells == null ? 0 : world.FloodCells.Count);
+        }
+        public static string WeatherSiteDescription(WorldState world, int x, int y)
+        {
+            if (!world.InBounds(x, y)) return "";
+            int index = world.Index(x, y); TileData tile = world.Cells[index];
+            float influence = world.GetWeatherIntensityAt(x, y);
+            string result = "<b>БИОМ · " + BiomeCatalog.Name(world.GetBiome(index)) + "</b>\n" +
+                (influence > 0 && world.Weather != null ? WeatherCatalog.Name(world.Weather.Kind) + " · сила здесь " + Percent(influence) : "Вне активного погодного фронта") +
+                "\nСнежный покров " + Percent(tile.SnowCover);
+            if (world.FloodCells != null) foreach (FloodCellData flood in world.FloodCells)
+                if (flood.Cell == index && flood.Matches(tile))
+                {
+                    result += "\n<b>Временное затопление</b>\nСпад воды через " + Mathf.Max(0, (flood.ExpiresTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0.0") + " с";
+                    break;
+                }
+            return result;
+        }
+        private static string TerrainName(TerrainType value) { string[] names = { "Океан", "Мелководье", "Песчаный берег", "Луг", "Лес", "Пустыня", "Снежные земли", "Горы", "Болото", "Холмы", "Овраг", "Возвышенность" }; return names[(int)value]; }
         private void RefreshPreset() { if (presetLabel != null) { string[] names = { "Остров", "Архипелаг", "Континент" }; presetLabel.text = "Форма: " + names[(int)game.GenerationPreset] + "  ›"; } }
         private bool ReadLaw(WorldLaw law)
         {
@@ -398,24 +458,79 @@ namespace WorldGenesis.Runtime
         public static string BuildingStatusDescription(WorldState world, BuildingData building)
         {
             UnitData owner = world.GetUnit(building.OwnerId);
-            string result = "<b>" + ResourceArt.BuildingName(building.Type) + "</b>\nУровень " + building.Level + "\nПрочность " + building.Health.ToString("0.#");
+            string grade = StorageCapacity.IsDepot(building) ? StorageCapacity.EffectiveLevel(building) + " / 4" : building.Level.ToString();
+            string result = "<b>" + ResourceArt.BuildingName(building.Type) + "</b>\nУровень " + grade + "\nПрочность " + building.Health.ToString("0.#");
             result += building.Ownership == BuildingOwnership.Public ? "\nСобственность: общинная" : "\nСобственность: частная\nВладелец: " + (owner == null ? "житель #" + building.OwnerId : owner.Name);
             if (building.Type == BuildingType.Well) result += "\nЗапас воды " + building.WaterStored.ToString("0.##");
             if (building.Type == BuildingType.Gate) result += building.GateOpen ? "\nВорота открыты" : "\nВорота закрыты";
+            if (StorageCapacity.IsDepot(building)) result += "\n\n" + StorageDescription(building);
             return result + "\n";
+        }
+        public static string StorageDescription(BuildingData building)
+        {
+            if (!StorageCapacity.IsDepot(building)) return "";
+            float used = StorageCapacity.TotalUsed(building), capacity = StorageCapacity.Capacity(building), overflow = StorageCapacity.Overflow(building);
+            string result = "<b>ХРАНЕНИЕ</b>\nЗанято " + used.ToString("0.###") + " / " + capacity.ToString("0") + "\nСвободно " + Mathf.Max(0, capacity - used).ToString("0.###");
+            result += building.Type == BuildingType.Granary ? "\nПринимает: пищу, напитки и корм" : "\nПринимает: материалы и несъедобное сырьё";
+            if (overflow > .001f) result += "\nПереполнение " + overflow.ToString("0.###") + " · приём приостановлен";
+            float misplaced = building.Type == BuildingType.Granary ? StorageCapacity.MaterialUsed(building) : 0;
+            if (building.AgriculturalStock != null) for (int i = 1; i < building.AgriculturalStock.Length; i++)
+                if (!StorageCapacity.Accepts(building, (AgriculturalProduct)i)) misplaced += building.AgriculturalStock[i];
+            if (misplaced > .001f) result += "\nПрежние товары другого назначения: " + misplaced.ToString("0.###") + ". Сохранены до вывоза.";
+            return result;
         }
         public static string InfrastructureDescription(WorldState world, int x, int y)
         {
             if (world.Infrastructure == null || !world.InBounds(x, y)) return "";
             int index = world.Index(x, y); InfrastructureCell cell = world.Infrastructure[index];
+            TileData tile = world.Cells[index];
             StringBuilder text = new StringBuilder();
-            if (cell.RoadLevel > 0) text.Append(cell.RoadLevel == 1 ? "Грунтовая тропа" : "Мощёная дорога");
-            if (cell.Stream > .01f) { if (text.Length > 0) text.Append('\n'); text.Append("Ручей · сила ").Append(Percent(cell.Stream)); }
+            if (tile.WaterKind != WaterKind.None)
+            {
+                text.Append(TransportArt.WaterName(tile.WaterKind)).Append("\nГлубина ").Append(tile.WaterDepth.ToString("0.00"));
+                text.Append("\nСила течения ").Append(Percent(tile.CurrentStrength));
+                if (tile.ChannelWidth > 0) text.Append("\nШирина русла ").Append(tile.ChannelWidth).Append(" кл.");
+            }
+            if (text.Length > 0) text.Append('\n'); text.Append(TransportArt.RoadName(cell.RoadLevel));
+            if (cell.FootTraffic > 0) text.Append("\nСледы движения ").Append(cell.FootTraffic.ToString("0.#"));
+            if (cell.BridgeLevel > 0)
+            {
+                text.Append('\n').Append(cell.BridgeLevel == 1 ? "Деревянный мост" : "Каменный мост").Append(cell.BridgeAxis == 0 ? " · запад–восток" : " · север–юг");
+                SettlementData owner = world.GetSettlement(cell.BridgeOwnerId);
+                if (owner != null) text.Append("\nВладелец моста: ").Append(owner.Name);
+            }
+            string blocked = world.GetTraversalBlockReason(index);
+            if (string.IsNullOrEmpty(blocked))
+            {
+                text.Append(tile.WaterDepth > 0 && cell.BridgeLevel == 0 ? "\nДоступен брод" : "\nУчасток проходим пешком");
+                text.Append("\nСкорость местности ×").Append(world.GetTerrainSpeed(index).ToString("0.00"));
+                if (tile.Terrain == TerrainType.Ravine)
+                {
+                    int exits = 0;
+                    if (world.InBounds(x - 1, y) && world.CanStep(index, world.Index(x - 1, y))) exits++;
+                    if (world.InBounds(x + 1, y) && world.CanStep(index, world.Index(x + 1, y))) exits++;
+                    if (world.InBounds(x, y - 1) && world.CanStep(index, world.Index(x, y - 1))) exits++;
+                    if (world.InBounds(x, y + 1) && world.CanStep(index, world.Index(x, y + 1))) exits++;
+                    text.Append("\nПроходимых выходов: ").Append(exits).Append(" / 4");
+                }
+            }
+            else text.Append("\nПроход закрыт: ").Append(blocked);
+            if (tile.Height > 0) text.Append("\nС высоты: до +20% урона по цели ниже. Подъём замедляет движение.");
             if (world.IsFreshWater(index)) { if (text.Length > 0) text.Append('\n'); text.Append("Источник пресной воды"); }
             if (cell.FishCapacity > 0)
             {
                 if (text.Length > 0) text.Append('\n'); text.Append("Рыба ").Append(cell.Fish.ToString("0.##")).Append(" / ").Append(cell.FishCapacity.ToString("0.##"));
                 if (cell.Fish <= .001f) text.Append(" · выловлена");
+            }
+            if (world.TransportProjects != null) foreach (TransportProjectData project in world.TransportProjects)
+            {
+                bool here = project.BankCell == index;
+                if (!here && project.Cells != null) for (int i = 0; i < project.Cells.Length; i++) if (project.Cells[i] == index) { here = true; break; }
+                if (!here) continue;
+                text.Append("\n\nСТРОЙКА: ").Append(project.Bridge ? "мост" : TransportArt.RoadName(project.Level));
+                text.Append("\nДоставлено: ").Append(ResourceArt.ItemName(project.Material)).Append(' ').Append(project.Delivered.ToString("0.##")).Append(" / ").Append(project.Required.ToString("0.##"));
+                text.Append("\nВыполнено работы: ").Append(project.WorkSeconds.ToString("0.0")).Append(" с");
+                UnitData worker = world.GetUnit(project.WorkerId); text.Append(worker == null ? "\nОжидает рабочего" : "\nРабочий: " + worker.Name);
             }
             return text.ToString();
         }
@@ -431,7 +546,12 @@ namespace WorldGenesis.Runtime
                 "\n" + (city.ChildLabor == ChildLaborPolicy.LightWork ? "Лёгкая работа 12–15: разрешена" : "Детский труд запрещён") +
                 "\nПриоритет: " + focus + (ruler != null ? "\nРешение: " + ruler.Name : "\nВременный порядок без правителя") +
                 (!string.IsNullOrEmpty(city.LastDecreeReason) ? "\nПричина: " + city.LastDecreeReason : "") +
-                "\nПересмотр через " + Mathf.Max(0, (city.NextPolicyReviewTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с";
+                "\nПересмотр через " + Mathf.Max(0, (city.NextPolicyReviewTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с\n\n" + PlanningDescription(city);
+        }
+        public static string PlanningDescription(SettlementData city)
+        {
+            return "<b>ПЛАНИРОВКА ПОСЕЛЕНИЯ</b>\n" +
+                (string.IsNullOrEmpty(city.LastPlanningReason) ? "Решений о перестройке пока нет" : "Решение · тик " + city.LastPlanningTick + "\n" + city.LastPlanningReason);
         }
         public static string CitizenHoldingsDescription(WorldState world, UnitData unit)
         {
@@ -684,6 +804,15 @@ namespace WorldGenesis.Runtime
                 case UnitTask.Fish: return moving ? "Идёт к месту ловли" : "Ловит рыбу";
                 case UnitTask.Hunt: return moving ? "Выслеживает добычу" : "Охотится";
                 case UnitTask.Tend: return moving ? "Идёт к стаду" : "Ухаживает за животными";
+                case UnitTask.BuildTransport:
+                    if (world.TransportProjects != null) foreach (TransportProjectData project in world.TransportProjects)
+                    {
+                        if (project.Id != unit.TransportProjectId) continue;
+                        string site = project.Bridge ? "моста" : "дороги";
+                        if (unit.CargoAmount > 0) return "Доставляет материал для " + site;
+                        return moving || project.Delivered + .00001f < project.Required ? "Снабжает стройку " + site : "Строит " + (project.Bridge ? "мост" : "дорогу");
+                    }
+                    return "Ожидает строительное задание";
                 case UnitTask.Brew: return unit.CarriedWater > .001f ? "Доставляет воду в пивоварню" : moving || unit.WorkTimer <= 0 || SimulationEngine.CarriedLoad(unit) > .001f ? "Снабжает пивоварню" : "Варит эль";
                 case UnitTask.CraftEquipment: return moving || unit.EquipmentProgress <= 0 || SimulationEngine.CarriedLoad(unit) > .001f ? "Снабжает мастерскую" : "Изготавливает снаряжение";
                 case UnitTask.Caravan:
@@ -696,6 +825,7 @@ namespace WorldGenesis.Runtime
         private Sprite IconSprite(int index)
         {
             if (iconSprites.TryGetValue(index, out Sprite sprite)) return sprite;
+            if (index >= 2000) { sprite = game.View.CreateWeatherIcon((WeatherKind)(index - 2000)); iconSprites.Add(index, sprite); return sprite; }
             if (index >= 1000) { sprite = game.View.CreateAnimalIcon((SpeciesType)(index - 1000)); iconSprites.Add(index, sprite); return sprite; }
             if (index == 6) { sprite = game.View.CreateHumanIcon(); iconSprites.Add(index, sprite); return sprite; }
             Texture2D atlas = game.View.SpriteMaterial.mainTexture as Texture2D; Rect uv = PixelArt.Uv(index);
@@ -707,7 +837,7 @@ namespace WorldGenesis.Runtime
             if (tool.Kind == ToolKind.Creature) return tool.Value >= 6 ? 1000 + tool.Value : 6 + tool.Value;
             if (tool.Kind == ToolKind.Power) return 21 + tool.Value;
             if (tool.Kind == ToolKind.Law) return 28;
-            if (tool.Kind == ToolKind.Terrain) { int[] glyphs = { 15, 16, 17, 18, 0, 19, 20, 13 }; return glyphs[tool.Value]; }
+            if (tool.Kind == ToolKind.Terrain) { int[] glyphs = { 15, 16, 17, 18, 0, 19, 20, 13, 122, 123, 124, 125 }; return glyphs[tool.Value]; }
             return -1;
         }
         private RectTransform PanelFixed(Transform parent, string name, Vector2 position, Vector2 size, Color color, bool right = false)

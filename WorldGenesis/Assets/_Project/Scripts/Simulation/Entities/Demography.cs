@@ -49,7 +49,7 @@ namespace WorldGenesis.Simulation
                 if (u.CargoAmount == 0) u.CargoKind = ItemType.None;
                 u.CargoOwnerId = 0; u.GroundStockIndex = -1;
             }
-            World.ResourceVersion = 2; World.ResourceRevision++; World.Revision++;
+            World.ResourceVersion = Math.Max(World.ResourceVersion, 2); World.ResourceRevision++; World.Revision++;
         }
         private void DropCarrying(UnitData u)
         {

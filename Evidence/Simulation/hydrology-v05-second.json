@@ -1,0 +1,473 @@
+{
+  "utc": "2026-10-12T12:49:07.8706317Z",
+  "tests": 6,
+  "failures": 0,
+  "results": [
+    {
+      "name": "FiveSeedsAcrossPresetsAreDeterministicAndDiverse",
+      "passed": true,
+      "milliseconds": 688.4252
+    },
+    {
+      "name": "DepressionIsOneConnectedLakeWithoutChangingElevations",
+      "passed": true,
+      "milliseconds": 1.8564
+    },
+    {
+      "name": "ChannelHasFastHighlandsAndWideningMouth",
+      "passed": true,
+      "milliseconds": 0.2456
+    },
+    {
+      "name": "LegacyMigrationPreservesGeographyRandomIdsAndIsIdempotent",
+      "passed": true,
+      "milliseconds": 117.9754
+    },
+    {
+      "name": "EditsRefreshLocallyAndMalformedWaterIsRejected",
+      "passed": true,
+      "milliseconds": 5.0201
+    },
+    {
+      "name": "HydrologySaveRoundTripContinuesDeterministically",
+      "passed": true,
+      "milliseconds": 100.1949
+    }
+  ],
+  "seedMatrix": [
+    {
+      "seed": 0,
+      "preset": "Island",
+      "land": 7206,
+      "freshwater": 1048,
+      "widened": 491,
+      "water": {
+        "Ocean": 8130,
+        "None": 7206,
+        "Estuary": 102,
+        "River": 378,
+        "MountainRiver": 300,
+        "Stream": 39,
+        "Lake": 229
+      },
+      "terrain": {
+        "DeepWater": 7287,
+        "ShallowWater": 1891,
+        "Swamp": 160,
+        "Sand": 161,
+        "Forest": 228,
+        "Grass": 136,
+        "Hills": 1171,
+        "Highlands": 1636,
+        "Mountain": 3381,
+        "Ravine": 38,
+        "Desert": 63,
+        "Snow": 232
+      }
+    },
+    {
+      "seed": 0,
+      "preset": "Archipelago",
+      "land": 4752,
+      "freshwater": 158,
+      "widened": 67,
+      "water": {
+        "Ocean": 11474,
+        "None": 4752,
+        "Estuary": 67,
+        "Stream": 41,
+        "MountainRiver": 7,
+        "River": 43
+      },
+      "terrain": {
+        "DeepWater": 8924,
+        "ShallowWater": 2708,
+        "Sand": 442,
+        "Grass": 315,
+        "Forest": 687,
+        "Swamp": 266,
+        "Hills": 506,
+        "Highlands": 1175,
+        "Mountain": 1115,
+        "Ravine": 51,
+        "Desert": 195
+      }
+    },
+    {
+      "seed": 0,
+      "preset": "Continent",
+      "land": 12320,
+      "freshwater": 2232,
+      "widened": 953,
+      "water": {
+        "Ocean": 1832,
+        "None": 12320,
+        "Estuary": 102,
+        "River": 964,
+        "Stream": 155,
+        "MountainRiver": 425,
+        "Lake": 586
+      },
+      "terrain": {
+        "DeepWater": 400,
+        "ShallowWater": 3664,
+        "Sand": 224,
+        "Snow": 1190,
+        "Swamp": 608,
+        "Forest": 303,
+        "Hills": 1738,
+        "Ravine": 138,
+        "Highlands": 2214,
+        "Grass": 383,
+        "Mountain": 5351,
+        "Desert": 171
+      }
+    },
+    {
+      "seed": 1,
+      "preset": "Island",
+      "land": 3965,
+      "freshwater": 258,
+      "widened": 71,
+      "water": {
+        "Ocean": 12161,
+        "None": 3965,
+        "Estuary": 62,
+        "Stream": 19,
+        "River": 41,
+        "Lake": 136
+      },
+      "terrain": {
+        "DeepWater": 9143,
+        "ShallowWater": 3276,
+        "Sand": 533,
+        "Grass": 357,
+        "Forest": 460,
+        "Swamp": 524,
+        "Hills": 1183,
+        "Desert": 439,
+        "Highlands": 420,
+        "Ravine": 27,
+        "Mountain": 22
+      }
+    },
+    {
+      "seed": 1,
+      "preset": "Archipelago",
+      "land": 4508,
+      "freshwater": 492,
+      "widened": 119,
+      "water": {
+        "Ocean": 11384,
+        "None": 4508,
+        "Estuary": 138,
+        "Stream": 22,
+        "River": 55,
+        "Lake": 277
+      },
+      "terrain": {
+        "DeepWater": 9286,
+        "ShallowWater": 2590,
+        "Sand": 421,
+        "Grass": 243,
+        "Swamp": 361,
+        "Hills": 557,
+        "Forest": 583,
+        "Ravine": 38,
+        "Highlands": 1178,
+        "Mountain": 674,
+        "Desert": 453
+      }
+    },
+    {
+      "seed": 1,
+      "preset": "Continent",
+      "land": 9658,
+      "freshwater": 2755,
+      "widened": 460,
+      "water": {
+        "None": 9658,
+        "Stream": 147,
+        "Ocean": 3971,
+        "Estuary": 115,
+        "Lake": 1891,
+        "River": 569,
+        "MountainRiver": 33
+      },
+      "terrain": {
+        "Snow": 2343,
+        "Mountain": 1203,
+        "ShallowWater": 5287,
+        "Grass": 574,
+        "Forest": 752,
+        "Sand": 81,
+        "Hills": 2560,
+        "Swamp": 566,
+        "Ravine": 88,
+        "Highlands": 1316,
+        "DeepWater": 1439,
+        "Desert": 175
+      }
+    },
+    {
+      "seed": 713,
+      "preset": "Island",
+      "land": 5743,
+      "freshwater": 1029,
+      "widened": 283,
+      "water": {
+        "Ocean": 9612,
+        "None": 5743,
+        "Estuary": 130,
+        "River": 267,
+        "Stream": 53,
+        "Lake": 579
+      },
+      "terrain": {
+        "DeepWater": 7949,
+        "ShallowWater": 2692,
+        "Sand": 510,
+        "Forest": 1623,
+        "Snow": 77,
+        "Hills": 1711,
+        "Highlands": 221,
+        "Ravine": 26,
+        "Swamp": 613,
+        "Grass": 463,
+        "Desert": 499
+      }
+    },
+    {
+      "seed": 713,
+      "preset": "Archipelago",
+      "land": 4063,
+      "freshwater": 492,
+      "widened": 130,
+      "water": {
+        "Ocean": 11829,
+        "None": 4063,
+        "Estuary": 91,
+        "River": 99,
+        "Lake": 285,
+        "Stream": 17
+      },
+      "terrain": {
+        "DeepWater": 9768,
+        "ShallowWater": 2553,
+        "Sand": 472,
+        "Forest": 582,
+        "Hills": 289,
+        "Highlands": 945,
+        "Swamp": 222,
+        "Ravine": 41,
+        "Grass": 201,
+        "Desert": 340,
+        "Mountain": 971
+      }
+    },
+    {
+      "seed": 713,
+      "preset": "Continent",
+      "land": 11286,
+      "freshwater": 3269,
+      "widened": 1054,
+      "water": {
+        "None": 11286,
+        "Ocean": 1829,
+        "River": 1305,
+        "Stream": 240,
+        "Estuary": 175,
+        "Lake": 1549
+      },
+      "terrain": {
+        "Sand": 327,
+        "ShallowWater": 4681,
+        "Forest": 2372,
+        "Snow": 1665,
+        "Mountain": 1038,
+        "Hills": 3474,
+        "Grass": 977,
+        "Highlands": 527,
+        "Swamp": 548,
+        "Ravine": 86,
+        "DeepWater": 417,
+        "Desert": 272
+      }
+    },
+    {
+      "seed": 1618033,
+      "preset": "Island",
+      "land": 6192,
+      "freshwater": 409,
+      "widened": 223,
+      "water": {
+        "Ocean": 9783,
+        "None": 6192,
+        "Estuary": 132,
+        "River": 194,
+        "Stream": 77,
+        "MountainRiver": 6
+      },
+      "terrain": {
+        "DeepWater": 8160,
+        "ShallowWater": 2032,
+        "Sand": 262,
+        "Swamp": 808,
+        "Forest": 1313,
+        "Grass": 165,
+        "Hills": 1975,
+        "Highlands": 1353,
+        "Mountain": 288,
+        "Ravine": 25,
+        "Desert": 3
+      }
+    },
+    {
+      "seed": 1618033,
+      "preset": "Archipelago",
+      "land": 4834,
+      "freshwater": 258,
+      "widened": 62,
+      "water": {
+        "Ocean": 11292,
+        "None": 4834,
+        "Estuary": 78,
+        "Stream": 55,
+        "River": 20,
+        "Lake": 105
+      },
+      "terrain": {
+        "DeepWater": 8881,
+        "ShallowWater": 2669,
+        "Sand": 402,
+        "Grass": 100,
+        "Swamp": 926,
+        "Ravine": 38,
+        "Snow": 18,
+        "Forest": 1027,
+        "Hills": 577,
+        "Highlands": 1134,
+        "Mountain": 595,
+        "Desert": 17
+      }
+    },
+    {
+      "seed": 1618033,
+      "preset": "Continent",
+      "land": 11640,
+      "freshwater": 2968,
+      "widened": 666,
+      "water": {
+        "None": 11640,
+        "River": 747,
+        "Ocean": 1776,
+        "Estuary": 242,
+        "Stream": 223,
+        "MountainRiver": 49,
+        "Lake": 1707
+      },
+      "terrain": {
+        "Grass": 417,
+        "Snow": 2872,
+        "ShallowWater": 4095,
+        "Sand": 156,
+        "Mountain": 943,
+        "Swamp": 761,
+        "Hills": 2681,
+        "Ravine": 98,
+        "Highlands": 1867,
+        "Forest": 1843,
+        "Desert": 2,
+        "DeepWater": 649
+      }
+    },
+    {
+      "seed": -2147483648,
+      "preset": "Island",
+      "land": 5562,
+      "freshwater": 814,
+      "widened": 270,
+      "water": {
+        "Ocean": 10008,
+        "None": 5562,
+        "Estuary": 104,
+        "Stream": 77,
+        "River": 301,
+        "Lake": 332
+      },
+      "terrain": {
+        "DeepWater": 7933,
+        "ShallowWater": 2889,
+        "Swamp": 601,
+        "Sand": 305,
+        "Forest": 587,
+        "Hills": 2259,
+        "Grass": 316,
+        "Ravine": 60,
+        "Highlands": 529,
+        "Mountain": 418,
+        "Desert": 289,
+        "Snow": 198
+      }
+    },
+    {
+      "seed": -2147483648,
+      "preset": "Archipelago",
+      "land": 4728,
+      "freshwater": 192,
+      "widened": 58,
+      "water": {
+        "Ocean": 11464,
+        "None": 4728,
+        "Estuary": 69,
+        "Stream": 23,
+        "River": 20,
+        "Lake": 80
+      },
+      "terrain": {
+        "DeepWater": 9308,
+        "ShallowWater": 2348,
+        "Sand": 344,
+        "Grass": 410,
+        "Hills": 453,
+        "Highlands": 1008,
+        "Forest": 611,
+        "Mountain": 1091,
+        "Swamp": 510,
+        "Ravine": 38,
+        "Desert": 239,
+        "Snow": 24
+      }
+    },
+    {
+      "seed": -2147483648,
+      "preset": "Continent",
+      "land": 11445,
+      "freshwater": 2775,
+      "widened": 610,
+      "water": {
+        "None": 11445,
+        "River": 662,
+        "Stream": 241,
+        "Lake": 1539,
+        "MountainRiver": 36,
+        "Estuary": 297,
+        "Ocean": 2164
+      },
+      "terrain": {
+        "Snow": 1978,
+        "Mountain": 1852,
+        "ShallowWater": 4478,
+        "Grass": 961,
+        "Forest": 1270,
+        "Ravine": 108,
+        "Hills": 2796,
+        "Swamp": 709,
+        "Highlands": 1046,
+        "Sand": 257,
+        "Desert": 468,
+        "DeepWater": 461
+      }
+    }
+  ]
+}

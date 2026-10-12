@@ -16,7 +16,7 @@ namespace WorldGenesis.Tests
         private static SimulationEngine Make(bool forest = false)
         {
             var w = WorldGenerator.Generate(944, 48, 48);
-            for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = forest ? TerrainType.Forest : TerrainType.Grass; w.Cells[i].Vegetation = .7f; w.Cells[i].River = false; }
+            for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = forest ? TerrainType.Forest : TerrainType.Grass; w.Cells[i].Height = .55f; w.Cells[i].Vegetation = .7f; w.Cells[i].River = false; Hydrology.RefreshCell(w, i); }
             ResourceCatalog.Generate(w); w.Laws.Aging = false; return new SimulationEngine(w);
         }
         private static void Steps(SimulationEngine e, int n) { for (int i = 0; i < n; i++) e.Step(.1f); }

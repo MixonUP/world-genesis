@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param([ValidatePattern('^[a-z0-9-]+$')][string]$Name='citizens', [int]$Seconds=6,
     [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
-    [int]$Delay=3, [switch]$InspectResourceWorker, [switch]$LogDelivery, [string]$WorldFile='', [switch]$InspectCaravan)
+    [int]$Delay=3, [switch]$InspectResourceWorker, [switch]$LogDelivery, [string]$WorldFile='', [switch]$InspectCaravan,
+    [int]$InspectX=-1, [int]$InspectY=-1, [int]$Zoom=7, [switch]$WeatherTab)
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $player=[IO.Path]::GetFullPath((Join-Path $root $PlayerRelativePath))
@@ -12,8 +13,12 @@ $frames=Join-Path $root ('Builds/CaptureFrames/'+$stamp+'-'+$Name)
 $output=Join-Path $root ('Evidence/Captures/'+$stamp+'-'+$Name+'.mp4')
 New-Item -ItemType Directory -Path $frames -Force | Out-Null
 function Quote([string]$v) { if($v.Contains('"')) { throw 'Invalid quote' }; return '"'+$v+'"' }
-$arguments=@('-screen-width','1280','-screen-height','720','-screen-fullscreen','0','-logFile',(Quote (Join-Path $frames 'player.log')),'--focus-settlement','--zoom','7','--inspect-citizen','--capture-motion',(Quote $frames),'--motion-seconds',"$Seconds",'--quit-after-motion')
+$arguments=@('-screen-width','1280','-screen-height','720','-screen-fullscreen','0','-logFile',(Quote (Join-Path $frames 'player.log')),'--focus-settlement','--zoom',"$Zoom",'--capture-motion',(Quote $frames),'--motion-seconds',"$Seconds",'--quit-after-motion')
+if ($InspectX -ge 0 -and $InspectY -ge 0) { $arguments+=@('--inspect-cell',"$InspectX","$InspectY") }
+elseif ($InspectX -ge 0 -or $InspectY -ge 0) { throw 'Cell inspection needs both coordinates.' }
+else { $arguments+='--inspect-citizen' }
 $arguments+=@('--motion-delay',"$Delay")
+if($WeatherTab) { $arguments+='--weather-tab' }
 if($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
 if($LogDelivery) { $arguments+='--observe-log-delivery' }
 if($InspectCaravan) { $arguments+='--inspect-caravan' }

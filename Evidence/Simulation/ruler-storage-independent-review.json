@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-12T13:11:48.3056568Z",
+  "scope": "Read-only production review; setup isolated copies of assisted fixture, no source edits",
+  "results": [
+    {
+      "name": "Legacy null invoice upgrade salvages only newly paid cost",
+      "passed": true
+    },
+    {
+      "name": "Demolition keeps large depot personal tax farm goods and half invoice separate",
+      "passed": true
+    },
+    {
+      "name": "Warehouse accepts legacy overflow but rejects any new arrival without deleting cargo",
+      "passed": true
+    },
+    {
+      "name": "Granary refuses wrong product while preserving exact carrier load",
+      "passed": true
+    }
+  ]
+}

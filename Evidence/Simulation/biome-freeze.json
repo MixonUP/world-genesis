@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-12T13:38:16.1104975Z",
+  "tests": 9,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "ClimateExtremesCoverAllTenBiomesWithoutChangingTerrainIds",
+      "passed": true,
+      "milliseconds": 0.3554
+    },
+    {
+      "name": "WaterAndMountainOverridesRespectHydrologyAndExplicitTerrain",
+      "passed": true,
+      "milliseconds": 0.1914
+    },
+    {
+      "name": "GenerationAcrossSeedsIsStableClusteredAndHasClimateVariety",
+      "passed": true,
+      "milliseconds": 583.4574
+    },
+    {
+      "name": "LegacyBiomeMigrationPreservesResourcesTerrainRngAndEntityIds",
+      "passed": true,
+      "milliseconds": 195.4061
+    },
+    {
+      "name": "ChangingWeatherMoistureDoesNotReclassifySavedBiomesOnReload",
+      "passed": true,
+      "milliseconds": 44.0245
+    },
+    {
+      "name": "TemporaryWaterDepthDoesNotTurnLandBiomeIntoWaterBiome",
+      "passed": true,
+      "milliseconds": 11.1267
+    },
+    {
+      "name": "ExplicitTerrainRefreshIsLocalAndPaintHookIsActive",
+      "passed": true,
+      "milliseconds": 2.3346
+    },
+    {
+      "name": "UnknownBiomeVersionOrIdIsRejectedBeforeWorldReplacement",
+      "passed": true,
+      "milliseconds": 1.5582
+    },
+    {
+      "name": "SaveContinuationPreservesBiomeLabelsAndDeterministicState",
+      "passed": true,
+      "milliseconds": 42.3559
+    }
+  ],
+  "distribution": [
+    {
+      "preset": "Island",
+      "seeds": 8,
+      "width": 96,
+      "height": 96,
+      "countsByBiomeId": [
+        42872,
+        4391,
+        4875,
+        7127,
+        2683,
+        410,
+        2763,
+        1289,
+        2715,
+        4603
+      ],
+      "equalHorizontalNeighborFraction": 0.9057839912280702
+    },
+    {
+      "preset": "Archipelago",
+      "seeds": 8,
+      "width": 96,
+      "height": 96,
+      "countsByBiomeId": [
+        52824,
+        771,
+        3865,
+        4604,
+        1442,
+        46,
+        2481,
+        1776,
+        2469,
+        3450
+      ],
+      "equalHorizontalNeighborFraction": 0.9135279605263158
+    },
+    {
+      "preset": "Continent",
+      "seeds": 8,
+      "width": 96,
+      "height": 96,
+      "countsByBiomeId": [
+        11305,
+        12029,
+        5499,
+        10496,
+        7883,
+        8347,
+        3681,
+        1768,
+        3951,
+        8769
+      ],
+      "equalHorizontalNeighborFraction": 0.8405838815789474
+    }
+  ]
+}

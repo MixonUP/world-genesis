@@ -47,8 +47,7 @@ namespace WorldGenesis.Simulation
         }
         private float AgriStorageSpace(BuildingData b)
         {
-            float used = 0; for (int i = 1; i < b.AgriculturalStock.Length; i++) used += b.AgriculturalStock[i];
-            return Math.Max(0, 120 * b.Level - used);
+            return StorageCapacity.FreeAgriculture(b);
         }
         private bool SpendAgriculture(int settlementId, AgriculturalProduct product, float amount)
         {
@@ -73,11 +72,12 @@ namespace WorldGenesis.Simulation
                 if (b.Type == BuildingType.Farm && b.HarvestReady <= .00001f && tile.Fire <= .01f)
                 {
                     float water = Math.Max(.2f, tile.Moisture);
-                    b.CropGrowth = Math.Min(1, b.CropGrowth + (.005f + .01f * water) * (1 + .15f * (b.Level - 1)));
+                    b.CropGrowth = Math.Min(1, b.CropGrowth + (.005f + .01f * water) * (1 + .15f * (b.Level - 1)) * World.GetWeatherGrowthMultiplier(World.Index(b.X, b.Y)));
                     if (b.CropGrowth >= 1) b.HarvestReady = b.FarmCrop == CropType.BerryOrchard ? 16 : 12;
                 }
-                // The hearth cooks delivered food; raw harvest cannot feed the town remotely.
-                if (b.Type == BuildingType.Hall || b.Type == BuildingType.Warehouse)
+                // Delivered food becomes the existing town meal reserve. Dedicated cooks and meal hauling are a later system.
+                // Legacy food in material warehouses remains usable rather than being deleted after migration.
+                if (b.Type == BuildingType.Hall || b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary)
                 {
                     SettlementData s = World.GetSettlement(b.SettlementId);
                     AgriculturalProduct[] food = { AgriculturalProduct.Grain, AgriculturalProduct.Berries, AgriculturalProduct.Meat, AgriculturalProduct.Milk, AgriculturalProduct.Egg };
@@ -126,7 +126,8 @@ namespace WorldGenesis.Simulation
             for (int pass = 0; pass < 2; pass++) for (int i = 0; i < World.Buildings.Count; i++)
             {
                 BuildingData b = World.Buildings[i];
-                if (b.SettlementId != home.Id || b.Type != (pass == 0 ? BuildingType.Hall : BuildingType.Warehouse) || !UsableBuilding(b, home.Id) || AgriStorageSpace(b) < .01f || !SetTarget(unit, b.X, b.Y)) continue;
+                BuildingType depot = StorageCapacity.IsFood(unit.HarvestProduct) ? BuildingType.Granary : BuildingType.Warehouse;
+                if (b.SettlementId != home.Id || b.Type != (pass == 0 ? depot : BuildingType.Hall) || !UsableBuilding(b, home.Id) || StorageCapacity.FreeAgriculture(b, unit.HarvestProduct) < .01f || !SetTarget(unit, b.X, b.Y)) continue;
                 ChangeTask(unit, UnitTask.Return); unit.TargetBuildingId = b.Id; return true;
             }
             return false;
@@ -137,7 +138,7 @@ namespace WorldGenesis.Simulation
             BuildingData b = World.GetBuilding(unit.TargetBuildingId);
             if (b != null && b.SettlementId == unit.SettlementId && UsableBuilding(b, unit.SettlementId) && DistanceSquared(unit.X, unit.Y, b.X + .5f, b.Y + .5f) < 2)
             {
-                float amount = Math.Min(unit.HarvestAmount, AgriStorageSpace(b)); b.AgriculturalStock[(int)unit.HarvestProduct] += amount; unit.HarvestAmount -= amount;
+                float amount = Math.Min(unit.HarvestAmount, StorageCapacity.FreeAgriculture(b, unit.HarvestProduct)); b.AgriculturalStock[(int)unit.HarvestProduct] += amount; unit.HarvestAmount -= amount;
                 if (unit.HarvestAmount <= .00001f) { unit.HarvestAmount = 0; unit.HarvestProduct = AgriculturalProduct.None; }
             }
             ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;
@@ -172,7 +173,7 @@ namespace WorldGenesis.Simulation
                 for (int b = 0; b < World.Buildings.Count && !canReturn; b++)
                 {
                     BuildingData store = World.Buildings[b];
-                    if ((store.Type == BuildingType.Hall || store.Type == BuildingType.Warehouse) && UsableBuilding(store, home.Id) && AgriStorageSpace(store) >= .01f)
+                    if ((store.Type == BuildingType.Hall || StorageCapacity.IsDepot(store)) && UsableBuilding(store, home.Id) && StorageCapacity.FreeAgriculture(store, drop.Product) >= .01f)
                         canReturn = navigation.Find(World.Index((int)drop.X, (int)drop.Y), World.Index(store.X, store.Y), scratchPath);
                 }
                 if (canReturn) { best = drop; nearest = distance; }

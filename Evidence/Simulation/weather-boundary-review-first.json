@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-12T13:41:42.115741Z",
+  "results": [
+    {
+      "scenario": "nonclear_zero_remaining",
+      "accepted": true,
+      "error": null,
+      "kind": "Drought",
+      "remaining": 0,
+      "tick": 100,
+      "next": 0,
+      "stuck": true
+    },
+    {
+      "scenario": "snapshot_restores_dry_deepwater_terrain",
+      "accepted": true,
+      "error": null,
+      "postValid": true,
+      "postError": null,
+      "terrain": "DeepWater",
+      "water": "None",
+      "depth": 0,
+      "remainingFloods": 0,
+      "walkable": false
+    },
+    {
+      "scenario": "snapshot_creates_permanent_water",
+      "accepted": true,
+      "error": null,
+      "postValid": true,
+      "postError": null,
+      "terrain": "Grass",
+      "water": "River",
+      "depth": 12,
+      "remainingFloods": 0,
+      "walkable": true
+    }
+  ]
+}

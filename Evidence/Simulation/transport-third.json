@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-12T12:49:30.0874067Z",
+  "tests": 8,
+  "failures": 1,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "TerrainAndWaterAffectTraversal",
+      "passed": true,
+      "milliseconds": 13.0032
+    },
+    {
+      "name": "WeightedPathPrefersFasterDetour",
+      "passed": true,
+      "milliseconds": 0.9394
+    },
+    {
+      "name": "DeepRiverBlocksRouteUntilPhysicalBridgeBuilt",
+      "passed": false,
+      "error": "System.InvalidOperationException: whole span completed; projects=1; delivered=4; work=0; task=Idle; x=24,5; y=20,5; cargo=0; stock=0\r\n   at WorldGenesis.Tests.TransportScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 14\r\n   at WorldGenesis.Tests.TransportScenarios.DeepRiverBlocksRouteUntilPhysicalBridgeBuilt() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 61\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 115.6612
+    },
+    {
+      "name": "NoTechnologyNoFreeBridgeAndOceanRefused",
+      "passed": true,
+      "milliseconds": 0.5123
+    },
+    {
+      "name": "TrampledPathNeedsPassagesAndRoadRequiresDelivery",
+      "passed": true,
+      "milliseconds": 8.8571
+    },
+    {
+      "name": "CancelledProjectDropsDeliveredMaterials",
+      "passed": true,
+      "milliseconds": 0.9502
+    },
+    {
+      "name": "TransportSaveContinuesIdenticallyAndRejectsCorruption",
+      "passed": true,
+      "milliseconds": 169.4497
+    },
+    {
+      "name": "LegacyRoadGradesMigrateOnce",
+      "passed": true,
+      "milliseconds": 10.8425
+    }
+  ]
+}

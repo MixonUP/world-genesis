@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-12T13:45:42.7417919Z",
+  "results": [
+    {
+      "scenario": "nonclear_zero_remaining",
+      "accepted": false,
+      "error": "Invalid weather front.",
+      "kind": "Drought",
+      "remaining": 0,
+      "tick": 0,
+      "next": 0,
+      "stuck": false
+    },
+    {
+      "scenario": "snapshot_restores_dry_deepwater_terrain",
+      "accepted": false,
+      "error": "Invalid temporary flood record.",
+      "postValid": false,
+      "postError": "Invalid temporary flood record.",
+      "terrain": "ShallowWater",
+      "water": "River",
+      "depth": 0.8,
+      "remainingFloods": 1,
+      "walkable": false
+    },
+    {
+      "scenario": "snapshot_creates_permanent_water",
+      "accepted": false,
+      "error": "Invalid temporary flood record.",
+      "postValid": false,
+      "postError": "Invalid temporary flood record.",
+      "terrain": "ShallowWater",
+      "water": "River",
+      "depth": 0.8,
+      "remainingFloods": 1,
+      "walkable": false
+    },
+    {
+      "scenario": "natural_storm_flood_limit",
+      "fixture": "flat .5-height grass with real river column x4; no injected FloodCells",
+      "accepted": true,
+      "error": null,
+      "firstInvalidTick": -1,
+      "invalidError": null,
+      "peak": 192,
+      "limit": 192
+    }
+  ]
+}

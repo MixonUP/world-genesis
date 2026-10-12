@@ -1,0 +1,37 @@
+{
+  "kind": "Seven distinct unretouched native Player screenshots selected for GitHub gallery",
+  "sourceMatch": "Evidence/Development/climate-final-source-match.json",
+  "gallery": "Docs/Development/GALLERY_0_5.md",
+  "rootVisualReview": "All seven images and first/last frames of both clips inspected; weather/warehouse scenes assisted as captioned. User artistic acceptance not recorded.",
+  "files": [
+    {
+      "path": "Evidence/Captures/20261012-171352-climate-world-overview-final.png",
+      "sha256": "A37A2CD15854CC417F9C6696617C784DA6F41B90D0B21D4D51BFF47851DA3330"
+    },
+    {
+      "path": "Evidence/Captures/20261012-171309-climate-natural-town-final.png",
+      "sha256": "39398D69C9D0772C98B3BC319F1E49AB4DE3E163B2A6F4FC570F842A864FD761"
+    },
+    {
+      "path": "Evidence/Captures/20261012-170717-climate-snow-final.png",
+      "sha256": "7F166599F5FD653F6EBF886DCC86CC15FE117B55A706BA1F6B4CEB6355A0B40F"
+    },
+    {
+      "path": "Evidence/Captures/20261012-170650-climate-drought-final.png",
+      "sha256": "2556A574CD15308A5EA569B270C4A08C0B45876586ED0467037972BF2BEA70C1"
+    },
+    {
+      "path": "Evidence/Captures/20261012-170701-climate-flood-1280-final.png",
+      "sha256": "18583F58627FA5EC77820BAD3C2F9FA2B5923FA75ED9ED98122E5FCDB310267C"
+    },
+    {
+      "path": "Evidence/Captures/20261012-170743-climate-hurricane-final.mp4.png",
+      "sha256": "492593513F0D69DE818E338AAB7AB7529476227D0E0FF43BF90B67879370C0E0"
+    },
+    {
+      "path": "Evidence/Captures/20261012-171329-storage-granary-final.png",
+      "sha256": "ADC0291F57DE15F382CF54C7F3D50F88DC5F8DDCDDF24B7FB6811308F269AAC0"
+    }
+  ],
+  "localLinks": "PASS"
+}

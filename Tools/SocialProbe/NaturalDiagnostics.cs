@@ -29,12 +29,20 @@ internal static class NaturalDiagnostics
         var previous = new Dictionary<int,(UnitData unit, float hunger, float age, bool attacked)>();
         var live = new HashSet<int>(); string error = ""; int validations = 0, carries = 0;
         int firstBasket = 0;
+        var weatherTransitions = new List<object>(); int lastWeatherSequence = -1, maxFloodCells = 0;
+        WeatherKind lastWeather = (WeatherKind)(-1);
         for (int t = 1; t <= ticks; t++)
         {
             previous.Clear();
             foreach (UnitData u in w.Units.Where(u => SimulationEngine.IsCivilized(u.Species)))
                 previous[u.Id] = (u,u.Hunger,u.Age,w.Units.Any(a => a.TargetId==u.Id && (a.Task==UnitTask.Fight || a.Task==UnitTask.Hunt)));
             e.Step(.1f); live.Clear(); foreach(UnitData u in w.Units)live.Add(u.Id);
+            maxFloodCells = Math.Max(maxFloodCells, w.FloodCells.Count);
+            if (w.Weather.Sequence != lastWeatherSequence || w.Weather.Kind != lastWeather)
+            {
+                weatherTransitions.Add(new { tick=w.Tick, kind=w.Weather.Kind.ToString(), w.Weather.Sequence, w.Weather.CenterX, w.Weather.CenterY, w.Weather.Radius, w.Weather.Intensity, w.Weather.RemainingSeconds });
+                lastWeatherSequence=w.Weather.Sequence; lastWeather=w.Weather.Kind;
+            }
             foreach (var p in previous.Values)
                 if (!live.Contains(p.unit.Id))
                 {
@@ -51,7 +59,7 @@ internal static class NaturalDiagnostics
             if(t%100==0) { validations++; if(!w.Validate(out error))break; }
             if(t%1000==0)
             {
-                timeline.Add(new {tick=t, towns=w.Settlements.Select(s=>new{s.Id,s.Population,s.Food,s.Wood,s.Housing,
+                timeline.Add(new {tick=t, weather=w.Weather.Kind.ToString(), floodedCells=w.FloodCells.Count, meanSnow=w.Cells.Average(c=>c.SnowCover), towns=w.Settlements.Select(s=>new{s.Id,s.Population,s.Food,s.Wood,s.Housing,
                     tasks=w.Units.Where(u=>u.SettlementId==s.Id).GroupBy(u=>u.Task).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),
                     technologies=s.UnlockedTechnologies.ToArray(),s.ActiveTechnology,s.ResearchProgress,
                     buildings=w.Buildings.Where(b=>b.SettlementId==s.Id).GroupBy(b=>b.Type).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),
@@ -63,6 +71,9 @@ internal static class NaturalDiagnostics
         Directory.CreateDirectory(Path.GetDirectoryName(path));
         string worldPath=Path.ChangeExtension(path,"world.json"); File.WriteAllText(worldPath,JsonSerializer.Serialize(w,json));
         File.WriteAllText(path,JsonSerializer.Serialize(new{utc=DateTime.UtcNow,seed,requestedTicks=ticks,w.Tick,passed=string.IsNullOrEmpty(error),error,validations,carries,firstBasket,
+            weather=new {automatic=w.Weather.Automatic,maxFloodCells,transitions=weatherTransitions},
+            transport=new {roads=w.Infrastructure.GroupBy(c=>c.RoadLevel).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),bridgeCells=w.Infrastructure.Count(c=>c.BridgeLevel>0),projects=w.TransportProjects.Count},
+            geography=new {terrains=w.Cells.GroupBy(c=>c.Terrain).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),biomes=w.Cells.GroupBy(c=>(BiomeType)c.Biome).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),water=w.Cells.GroupBy(c=>c.WaterKind).ToDictionary(g=>g.Key.ToString(),g=>g.Count()),saltDeposits=w.ResourceNodes.Count(n=>n.Type==ResourceType.Salt)},
             deathClassification="Last pre-tick age/hunger/combat-target; concurrent causes are prioritized age, starvation, combat; other includes hazards.",deaths,timeline,worldPath},new JsonSerializerOptions{WriteIndented=true}));
         Console.WriteLine(string.IsNullOrEmpty(error)?"PASS":"FAIL "+error);return string.IsNullOrEmpty(error)?0:1;
     }

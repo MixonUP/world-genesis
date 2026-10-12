@@ -1,0 +1,622 @@
+{
+  "utc": "2026-10-12T13:07:05.6628791Z",
+  "kind": "assisted visual/save fixture; not evidence of natural progression",
+  "seed": 713,
+  "width": 128,
+  "height": 128,
+  "authoredRectangle": {
+    "x0": 46,
+    "y0": 49,
+    "x1": 82,
+    "y1": 79,
+    "cells": 1147
+  },
+  "assistance": {
+    "terrainAuthored": true,
+    "adultSpawned": 1,
+    "initialAgeAndNeedsSet": true,
+    "technologyIds": [
+      "m01_forestry",
+      "l06_paths",
+      "m02_carpentry",
+      "l09_gravel_roads",
+      "m04_brick_firing",
+      "l07_paved_roads",
+      "l11_wooden_bridges"
+    ],
+    "claimedRadius": 12,
+    "policyReviewDelayed": true,
+    "automaticPlanningDelayed": true,
+    "workerSelectionViaDebugCommand": true,
+    "birthsAgingWarfareAndNaturalWildlifeDisabled": true,
+    "simulationStepSeconds": 0.1,
+    "workTimeAcceleration": false,
+    "movementTeleport": false,
+    "capacityEquipmentGranted": false
+  },
+  "grants": [
+    {
+      "tick": 0,
+      "kind": "Food",
+      "amount": 72,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Founding Food28 raised to100 for the controlled construction demonstration."
+    },
+    {
+      "tick": 0,
+      "kind": "Plank",
+      "amount": 12,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 1144,
+      "kind": "Plank",
+      "amount": 0.25,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 1373,
+      "kind": "Plank",
+      "amount": 0.25,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 1525,
+      "kind": "Plank",
+      "amount": 0.25,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 1691,
+      "kind": "Plank",
+      "amount": 0.25,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 1872,
+      "kind": "RawStone",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 2150,
+      "kind": "RawStone",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 2318,
+      "kind": "RawStone",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 2489,
+      "kind": "StoneTile",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 2907,
+      "kind": "StoneTile",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 3028,
+      "kind": "StoneTile",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 3159,
+      "kind": "StoneTile",
+      "amount": 1,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    },
+    {
+      "tick": 3300,
+      "kind": "Plank",
+      "amount": 12,
+      "location": [
+        58,
+        64
+      ],
+      "reason": "Explicit assisted construction bill; actual hauling and consumption follow."
+    }
+  ],
+  "completedConstruction": [
+    {
+      "label": "Wooden river bridge, 3 real spans",
+      "projectId": 8,
+      "startTick": 0,
+      "completedTick": 1144,
+      "material": "Plank",
+      "required": 12,
+      "physicallyDelivered": 12,
+      "actualWorkSeconds": 12.00001,
+      "cells": [
+        8256,
+        8257,
+        8258
+      ],
+      "level": 1
+    },
+    {
+      "label": "Road level 2 at 59,60",
+      "projectId": 11,
+      "startTick": 1144,
+      "completedTick": 1373,
+      "material": "Plank",
+      "required": 0.25,
+      "physicallyDelivered": 0.25,
+      "actualWorkSeconds": 4.0999985,
+      "cells": [
+        7739
+      ],
+      "level": 2
+    },
+    {
+      "label": "Road level 2 at 60,60",
+      "projectId": 13,
+      "startTick": 1373,
+      "completedTick": 1525,
+      "material": "Plank",
+      "required": 0.25,
+      "physicallyDelivered": 0.25,
+      "actualWorkSeconds": 4.0999985,
+      "cells": [
+        7740
+      ],
+      "level": 2
+    },
+    {
+      "label": "Road level 2 at 61,60",
+      "projectId": 15,
+      "startTick": 1525,
+      "completedTick": 1691,
+      "material": "Plank",
+      "required": 0.25,
+      "physicallyDelivered": 0.25,
+      "actualWorkSeconds": 4.0999985,
+      "cells": [
+        7741
+      ],
+      "level": 2
+    },
+    {
+      "label": "Road level 2 at 62,60",
+      "projectId": 17,
+      "startTick": 1691,
+      "completedTick": 1872,
+      "material": "Plank",
+      "required": 0.25,
+      "physicallyDelivered": 0.25,
+      "actualWorkSeconds": 4.0999985,
+      "cells": [
+        7742
+      ],
+      "level": 2
+    },
+    {
+      "label": "Road level 3 at 59,62",
+      "projectId": 19,
+      "startTick": 1872,
+      "completedTick": 2150,
+      "material": "RawStone",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 6.0999966,
+      "cells": [
+        7995
+      ],
+      "level": 3
+    },
+    {
+      "label": "Road level 3 at 61,62",
+      "projectId": 21,
+      "startTick": 2150,
+      "completedTick": 2318,
+      "material": "RawStone",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 6.0999966,
+      "cells": [
+        7997
+      ],
+      "level": 3
+    },
+    {
+      "label": "Road level 3 at 62,62",
+      "projectId": 23,
+      "startTick": 2318,
+      "completedTick": 2489,
+      "material": "RawStone",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 6.0999966,
+      "cells": [
+        7998
+      ],
+      "level": 3
+    },
+    {
+      "label": "Road level 4 at 59,64",
+      "projectId": 25,
+      "startTick": 2489,
+      "completedTick": 2907,
+      "material": "StoneTile",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 8.000479,
+      "cells": [
+        8251
+      ],
+      "level": 4
+    },
+    {
+      "label": "Road level 4 at 60,64",
+      "projectId": 27,
+      "startTick": 2907,
+      "completedTick": 3028,
+      "material": "StoneTile",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 8.000479,
+      "cells": [
+        8252
+      ],
+      "level": 4
+    },
+    {
+      "label": "Road level 4 at 61,64",
+      "projectId": 29,
+      "startTick": 3028,
+      "completedTick": 3159,
+      "material": "StoneTile",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 8.000479,
+      "cells": [
+        8253
+      ],
+      "level": 4
+    },
+    {
+      "label": "Road level 4 at 62,64",
+      "projectId": 31,
+      "startTick": 3159,
+      "completedTick": 3300,
+      "material": "StoneTile",
+      "required": 1,
+      "physicallyDelivered": 1,
+      "actualWorkSeconds": 8.000479,
+      "cells": [
+        8254
+      ],
+      "level": 4
+    }
+  ],
+  "physicalDeliveries": [
+    {
+      "tick": 132,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 219,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 306,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 387,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 467,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 547,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 626,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 705,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 784,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 864,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 944,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 1025,
+      "projectId": 8,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 64.5,
+      "bank": 8255
+    },
+    {
+      "tick": 1333,
+      "projectId": 11,
+      "kind": "Plank",
+      "amount": 0.25,
+      "builderX": 59.5,
+      "builderY": 60.5,
+      "bank": 7739
+    },
+    {
+      "tick": 1485,
+      "projectId": 13,
+      "kind": "Plank",
+      "amount": 0.25,
+      "builderX": 60.5,
+      "builderY": 60.5,
+      "bank": 7740
+    },
+    {
+      "tick": 1651,
+      "projectId": 15,
+      "kind": "Plank",
+      "amount": 0.25,
+      "builderX": 61.5,
+      "builderY": 60.5,
+      "bank": 7741
+    },
+    {
+      "tick": 1832,
+      "projectId": 17,
+      "kind": "Plank",
+      "amount": 0.25,
+      "builderX": 62.5,
+      "builderY": 60.5,
+      "bank": 7742
+    },
+    {
+      "tick": 2090,
+      "projectId": 19,
+      "kind": "RawStone",
+      "amount": 1,
+      "builderX": 59.5,
+      "builderY": 62.5,
+      "bank": 7995
+    },
+    {
+      "tick": 2258,
+      "projectId": 21,
+      "kind": "RawStone",
+      "amount": 1,
+      "builderX": 61.5,
+      "builderY": 62.5,
+      "bank": 7997
+    },
+    {
+      "tick": 2429,
+      "projectId": 23,
+      "kind": "RawStone",
+      "amount": 1,
+      "builderX": 62.5,
+      "builderY": 62.5,
+      "bank": 7998
+    },
+    {
+      "tick": 2828,
+      "projectId": 25,
+      "kind": "StoneTile",
+      "amount": 1,
+      "builderX": 59.5,
+      "builderY": 64.5,
+      "bank": 8251
+    },
+    {
+      "tick": 2949,
+      "projectId": 27,
+      "kind": "StoneTile",
+      "amount": 1,
+      "builderX": 60.5,
+      "builderY": 64.5,
+      "bank": 8252
+    },
+    {
+      "tick": 3080,
+      "projectId": 29,
+      "kind": "StoneTile",
+      "amount": 1,
+      "builderX": 61.5,
+      "builderY": 64.5,
+      "bank": 8253
+    },
+    {
+      "tick": 3221,
+      "projectId": 31,
+      "kind": "StoneTile",
+      "amount": 1,
+      "builderX": 62.5,
+      "builderY": 64.5,
+      "bank": 8254
+    },
+    {
+      "tick": 3545,
+      "projectId": 33,
+      "kind": "Plank",
+      "amount": 1,
+      "builderX": 63.5,
+      "builderY": 59.5,
+      "bank": 7615
+    }
+  ],
+  "bareHandedMaxLoad": 1,
+  "builderDistanceTravelled": 324.99976,
+  "validatedTicks": 3617,
+  "roadCounts": [
+    0,
+    3,
+    4,
+    3,
+    4
+  ],
+  "saveTick": 3617,
+  "saveCurrentProject": 33,
+  "saveCurrentProjectDelivered": 1,
+  "rawWorldSave": "Builds/transport-assisted-showcase-v050.json",
+  "saveStoreEnvelope": "Builds/transport-assisted-showcase-v050.save.json",
+  "bridgeCompleteSave": "Builds/transport-assisted-showcase-v050-bridge-complete.json",
+  "sha256": "3DAF2B8EC21ACAE6A96D2B0A31F39E419E70BFEC60C77B887BF5AA01FA1DF162",
+  "deterministicContinuationTicks": 100,
+  "inspectCells": {
+    "overview": [
+      64,
+      63
+    ],
+    "completedBridge": [
+      65,
+      64
+    ],
+    "activeConstruction": [
+      63,
+      59
+    ],
+    "ford": [
+      65,
+      73
+    ],
+    "ravine": [
+      70,
+      63
+    ],
+    "highlands": [
+      75,
+      55
+    ],
+    "hill": [
+      76,
+      69
+    ],
+    "swamp": [
+      59,
+      74
+    ]
+  },
+  "nativeScreenshot": "not-run by this tool"
+}

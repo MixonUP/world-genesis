@@ -21,3 +21,4 @@ silver_deposit,Серебряная жила,96,96,480,deposit_valid_terrain
 sand_bank,Песчаная отмель,160,160,90,deposit_valid_terrain
 limestone_deposit,Известняковый пласт,240,240,180,deposit_valid_terrain
 meadow_grass,Луговая кормовая трава,12,2,180,living_grass_moisture_no_fire
+salt_deposit,Редкие залежи соли,8,8,900,rare_regional_dry_or_coastal_walkable_not_river

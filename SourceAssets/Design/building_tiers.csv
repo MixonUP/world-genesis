@@ -9,11 +9,6 @@ house,2,2,plank=8;stone=6;straw=4,40,0,18,1.05,6,сруб и солома
 house,3,3,stone=20;plank=12;iron_ingot=2,65,0,24,1.1,8,фахверк
 house,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2;mortar=4;roof_tile=6,100,0,36,1.15,10,каменный дом
 house,5,5,brick=50;plank=20;steel_ingot=4;furniture=2;glass=2,150,0,48,1.2,12,дом с мансардой
-storehouse,1,1,branch=6;wood_log=6,24,1,100,1,0,площадка с навесом
-storehouse,2,2,plank=12;stone=9;straw=6,60,1,150,1.05,0,бревенчатый амбар
-storehouse,3,3,stone=30;plank=18;iron_ingot=3,98,2,200,1.1,0,амбар на цоколе
-storehouse,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,300,1.15,0,каменные склады
-storehouse,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,400,1.2,0,двор с краном
 well,1,1,branch=4;stone=4,16,1,16,1,0,береговая ступень
 well,2,2,plank=4;stone=3;straw=2,20,1,24,1.05,0,сруб колодца
 well,3,3,stone=10;plank=6;iron_ingot=1;copper_parts=2,33,2,32,1.1,0,каменный колодец
@@ -174,11 +169,11 @@ wooden_gate,2,2,plank=8;rope=2,24,0,0,1,0,две створки и засов
 wooden_gate,3,3,plank=8;iron_ingot=2;copper_parts=2,35,0,0,1,0,навес с железными петлями
 wooden_gate,4,4,plank=12;iron_ingot=4,45,0,0,1,0,укреплённая воротная площадка
 wooden_gate,5,5,plank=16;steel_ingot=2,60,0,0,1,0,двойной проход с сигнальным помостом
-road,1,1,stone=1;branch=1,4,0,0,1,0,расчищенная тропа
-road,2,2,stone=2,6,0,0,1,0,щебёночная дорожка
-road,3,3,stone_tile=2;stone=1,9,0,0,1,0,каменное мощение
-road,4,4,stone_tile=3;mortar=1,12,0,0,1,0,мощение с водоотводом
-road,5,5,stone_tile=4;mortar=2,16,0,0,1,0,укреплённая городская улица
+road,1,1,branch=1,4,0,0,1,0,вытоптанная тропа
+road,2,1,stone=1,6,0,0,1,0,выровненная грунтовая дорога
+road,3,2,stone=2,9,0,0,1,0,щебёночная дорога
+road,4,3,stone_tile=2,12,0,0,1,0,каменное мощение с водоотводом
+road,5,5,stone_tile=4;mortar=2,16,0,0,1,0,будущее усиленное мощение
 pasture,1,1,plank=8;branch=4,20,2,40,1,4,колья и кормушка
 pasture,2,2,plank=8;stone=6;straw=4,40,2,60,1.05,6,загон с навесом
 pasture,3,3,stone=20;plank=12;iron_ingot=2,65,4,80,1.1,8,хлев с поилкой
@@ -189,3 +184,11 @@ brewery,2,2,plank=8;stone=6;straw=4,40,1,60,1.05,0,бродильный сара
 brewery,3,3,stone=20;plank=12;iron_ingot=2,65,2,80,1.1,0,кирпичная варница
 brewery,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,120,1.15,0,каменная пивоварня
 brewery,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,160,1.2,0,цех с погребом
+storehouse,1,1,plank=8,24,1,1000,1,0,деревянный склад материалов
+storehouse,2,2,plank=6,40,1,2500,1,0,склад с двумя секциями
+storehouse,3,3,plank=12;brick=4,60,1,5000,1,0,укреплённый склад
+storehouse,4,4,plank=18;stone_block=6,100,1,10000,1,0,большой каменный склад
+granary,1,1,plank=8,24,1,1000,1,0,амбар с закромами
+granary,2,2,plank=6,40,1,2500,1,0,амбар с сеновалом
+granary,3,3,plank=12;brick=4,60,1,5000,1,0,каменный амбар
+granary,4,4,plank=18;stone_block=6,100,1,10000,1,0,большой амбар с четырьмя секциями

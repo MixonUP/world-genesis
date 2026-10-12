@@ -49,10 +49,35 @@ namespace WorldGenesis.Simulation
                 world.Cells[world.Index(x, y)] = new TileData { Height = h, Moisture = moisture, Temperature = temperature, Terrain = terrain, Vegetation = vegetation, DrainageParent = -1 };
             }
             RouteDrainage(world, sea);
+            ClassifyLandforms(world, sea);
+            Hydrology.Generate(world, sea);
+            BiomeCatalog.Generate(world);
             ResourceCatalog.Generate(world);
             world.Revision = 1;
             world.TerrainRevision = 1;
             return world;
+        }
+
+        private static void ClassifyLandforms(WorldState world, float sea)
+        {
+            float scale = Math.Min(world.Width, world.Height), riverThreshold = Math.Max(45, world.Cells.Length / 170f);
+            for (int y = 1; y < world.Height - 1; y++)
+            for (int x = 1; x < world.Width - 1; x++)
+            {
+                int i = world.Index(x,y); TileData c = world.Cells[i];
+                if (c.Terrain == TerrainType.DeepWater || c.Terrain == TerrainType.ShallowWater || c.Terrain == TerrainType.Mountain || c.Terrain == TerrainType.Snow) continue;
+                float slope = Math.Max(Math.Abs(world.Cells[i-1].Height-world.Cells[i+1].Height), Math.Abs(world.Cells[i-world.Width].Height-world.Cells[i+world.Width].Height)) * .5f;
+                float region = Noise(world.Seed + 809, x / scale * 3.1f, y / scale * 3.1f);
+                if (c.Height < sea + .105f && c.Moisture > .53f && (c.RouteHeight-c.Height > .012f || region > .12f))
+                { c.Terrain = TerrainType.Swamp; c.Vegetation = Math.Max(c.Vegetation,.32f); }
+                else if (c.Flow > riverThreshold * .32f && c.Flow <= riverThreshold && c.Height > sea + .08f && slope > .008f)
+                { c.Terrain = TerrainType.Ravine; c.Vegetation *= .45f; }
+                else if (c.Height > .655f)
+                { c.Terrain = TerrainType.Highlands; c.Vegetation *= .65f; }
+                else if (c.Height > sea + .09f && (slope > .012f || region > -.05f))
+                { c.Terrain = TerrainType.Hills; }
+                world.Cells[i] = c;
+            }
         }
 
         /// <summary>Preserves actual elevation; RouteHeight is the filled routing surface, not replacement terrain.</summary>
@@ -98,24 +123,6 @@ namespace WorldGenesis.Simulation
             {
                 int i = order[k], parent = world.Cells[i].DrainageParent;
                 if (parent >= 0) world.Cells[parent].Flow += world.Cells[i].Flow;
-            }
-            float threshold = Math.Max(45, count / 170f);
-            for (int i = 0; i < count; i++)
-            {
-                TileData cell = world.Cells[i];
-                bool river = cell.Height > sea + .012f && cell.Flow > threshold;
-                bool lake = cell.Height > sea && cell.RouteHeight - cell.Height > .055f && cell.Flow > 8;
-                if (!river && !lake) continue;
-                world.Cells[i].River = river;
-                world.Cells[i].Terrain = TerrainType.ShallowWater;
-                world.Cells[i].Vegetation = 0;
-                world.Cells[i].Moisture = 1;
-                int x = i % world.Width, y = i / world.Width;
-                for (int d = 0; d < 4; d++)
-                {
-                    int nx = x + dx[d], ny = y + dy[d];
-                    if (world.InBounds(nx, ny)) world.Cells[world.Index(nx, ny)].Moisture = Math.Max(.7f, world.Cells[world.Index(nx, ny)].Moisture);
-                }
             }
         }
 

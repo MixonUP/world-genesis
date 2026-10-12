@@ -10,10 +10,11 @@ namespace WorldGenesis.Runtime
     public static class PixelArt
     {
         public const int Frame = 32;
+        public const int GroundFlame = 127;
         public const int AtlasWidth = 256, AtlasHeight = 512;
         // Must precede every field initializer that calls Hex, including the terrain palette.
         private static readonly Dictionary<string, Color> PaletteCache = new Dictionary<string, Color>(128, StringComparer.Ordinal);
-        private static readonly Color[] TerrainPalette = { Hex("163f5c"), Hex("28798b"), Hex("ddc992"), Hex("7eaf70"), Hex("437952"), Hex("c9a775"), Hex("cddfdc"), Hex("778487") };
+        private static readonly Color[] TerrainPalette = { Hex("163f5c"), Hex("28798b"), Hex("ddc992"), Hex("7eaf70"), Hex("437952"), Hex("c9a775"), Hex("cddfdc"), Hex("778487"), Hex("687f5b"), Hex("99aa70"), Hex("7a806b"), Hex("a6ae89") };
         public static readonly Color Ink = Hex("101d29");
         public static readonly Color Gold = Hex("d5b36d");
         public static readonly Color Teal = Hex("72d4bf");
@@ -119,6 +120,27 @@ namespace WorldGenesis.Runtime
             for (int y = 12; y < 26; y += 4) { rect(28, 6, y, 7, 1, Hex("9f986f")); rect(28, 19, y, 7, 1, Hex("a29873")); }
             ResourceArt.PaintAtlas(pixels, AtlasWidth);
             SocietyArt.PaintAtlas(pixels, AtlasWidth);
+            // Additional terrain glyphs occupy previously empty frames 122–125.
+            ellipse(122, 16, 8, 13, 4, Hex("537c70"));
+            for (int x = 7; x < 28; x += 6) { rect(122, x, 9, 1, 14 + x % 3, Hex("a6ab73")); rect(122, x - 1, 20, 3, 6, Hex("84644a")); rect(122, x + 2, 9, 1, 8, Hex("7f9c68")); }
+            ellipse(123, 12, 11, 10, 7, Hex("829a5f")); ellipse(123, 21, 15, 10, 9, Hex("a6ba7b")); ellipse(123, 19, 19, 6, 4, Hex("c4cc95"));
+            rect(124, 3, 8, 26, 12, Hex("4b5d59")); rect(124, 3, 19, 10, 5, Hex("a5ad81")); rect(124, 19, 20, 10, 5, Hex("a5ad81")); rect(124, 3, 10, 8, 9, Hex("889476")); rect(124, 22, 10, 7, 10, Hex("6b7a69"));
+            rect(125, 6, 8, 22, 13, Hex("78876f")); rect(125, 3, 17, 25, 7, Hex("a8b58b")); rect(125, 6, 23, 20, 3, Hex("c5ca9d")); rect(125, 7, 9, 2, 8, Hex("98a284"));
+            // Original wildfire glyph: three asymmetric tongues, transparent broken contour,
+            // red lower rim, orange body and a narrow pale core. No enclosing rectangle.
+            for (int x = 3; x <= 29; x++)
+            {
+                int peak = Math.Max(23 - Math.Abs(x - 10) * 3, Math.Max(30 - Math.Abs(x - 19) * 3, 18 - Math.Abs(x - 26) * 3));
+                int bottom = 2 + Math.Abs(x - 16) / 6;
+                for (int y = bottom; y <= peak && y < 32; y++)
+                {
+                    int bend = y > 17 ? (y - 17) / 4 : 0;
+                    Color flame = y <= bottom + 2 || x < 7 ? Hex("cf6039") : Hex("ee8c40");
+                    if (y < 19 - Math.Abs(x - 16) * 2) flame = Hex("ffc56b");
+                    if (y < 11 - Math.Abs(x - 16) * 2 && y > 4) flame = Hex("fff1b7");
+                    dot(GroundFlame, x + bend, y, flame);
+                }
+            }
             atlas.SetPixels32(pixels); atlas.Apply(false, true); return atlas;
         }
 

@@ -185,7 +185,7 @@ namespace WorldGenesis.Simulation
             switch (type)
             {
                 case BuildingType.Well: return ""; // A basic well precedes improved clean-water engineering.
-                case BuildingType.Warehouse: return "f01_preservation";
+                case BuildingType.Warehouse: case BuildingType.Granary: return "f01_preservation";
                 case BuildingType.Shop: return "l01_local_trade";
                 case BuildingType.WoodWall: case BuildingType.Gate: return "d10_wooden_defenses";
                 case BuildingType.School: return "k01_teaching";
@@ -197,7 +197,7 @@ namespace WorldGenesis.Simulation
         public bool TryBuildInfrastructure(int settlementId, BuildingType type, int x, int y)
         {
             SettlementData s = World.GetSettlement(settlementId);
-            if (s == null || s.Population <= 0 || (int)type < 7 || (int)type > 14 || !World.IsWalkable(x, y)) return false;
+            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 15 || !World.IsWalkable(x, y)) return false;
             int cell = World.Index(x, y);
             if (World.Cells[cell].BuildingId != 0 || World.Cells[cell].Fire > 0 || (World.Cells[cell].SettlementId != 0 && World.Cells[cell].SettlementId != s.Id) || DistanceSquared(x, y, s.X, s.Y) > 18 * 18) return false;
             string requiredTechnology = RequiredTechnology(type);
@@ -209,13 +209,15 @@ namespace WorldGenesis.Simulation
             if (type == BuildingType.WoodWall)
                 for (int i = 0; i < World.Units.Count; i++) if ((int)World.Units[i].X == x && (int)World.Units[i].Y == y) return false;
             SpendPublicStock(s, ItemType.Plank, wood); SpendPublicStock(s, ItemType.RawStone, stone);
-            AddBuilding(s, x, y, type); World.NavigationRevision++; World.TerrainRevision++;
+            BuildingData built = AddBuilding(s, x, y, type);
+            RecordConstructionCost(built, ItemType.Plank, wood); RecordConstructionCost(built, ItemType.RawStone, stone);
+            World.NavigationRevision++; World.TerrainRevision++;
             return true;
         }
         public bool TryUpgradeBuilding(int buildingId)
         {
             BuildingData b = World.GetBuilding(buildingId);
-            if (b == null || b.Health <= 0 || b.Level >= 5 || b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate) return false;
+            if (b == null || b.Health <= 0 || b.Level >= (b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary ? 4 : 5) || b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate) return false;
             SettlementData s = World.GetSettlement(b.SettlementId);
             string[] ids = { "m10_comfort_housing", "m11_town_houses", "m12_stone_houses", "m13_estates" };
             if (s == null || !World.HasTechnology(s.Id, ids[b.Level - 1])) return false;
@@ -223,21 +225,12 @@ namespace WorldGenesis.Simulation
             ItemType material = b.Level >= 3 ? ItemType.StoneBlock : ItemType.Brick;
             if (s.Wood < wood || FreePublicStock(s.Id, material) < masonry) return false;
             SpendPublicStock(s, ItemType.Plank, wood); SpendPublicStock(s, material, masonry);
+            RecordConstructionCost(b, ItemType.Plank, wood); RecordConstructionCost(b, material, masonry);
             b.Level++; World.TerrainRevision++; RecountSettlements();
             return true;
         }
         public bool TryBuildRoad(int settlementId, int x, int y, bool paved)
-        {
-            SettlementData s = World.GetSettlement(settlementId);
-            if (s == null || !World.IsWalkable(x, y) || !World.HasTechnology(settlementId, paved ? "l07_paved_roads" : "l06_paths")) return false;
-            int cell = World.Index(x, y); InfrastructureCell road = World.Infrastructure[cell];
-            if (World.Cells[cell].SettlementId != settlementId || road.RoadLevel >= (paved ? 2 : 1) || World.Cells[cell].Fire > 0) return false;
-            if (paved && FreePublicStock(s.Id, ItemType.StoneTile) < 1) return false;
-            if (!paved && s.Wood < .25f) return false;
-            if (paved) SpendPublicStock(s, ItemType.StoneTile, 1); else SpendPublicStock(s, ItemType.Plank, .25f);
-            road.RoadLevel = (byte)(paved ? 2 : 1); road.RoadOwnerId = settlementId; World.Infrastructure[cell] = road;
-            World.TerrainRevision++; return true;
-        }
+        { return TryPlanRoad(settlementId, x, y, (byte)(paved ? 4 : 2)); }
         public bool SetGate(int buildingId, bool open)
         {
             BuildingData b = World.GetBuilding(buildingId);
@@ -246,16 +239,10 @@ namespace WorldGenesis.Simulation
             if (b.GateOpen == open) return true;
             b.GateOpen = open; World.NavigationRevision++; World.TerrainRevision++; return true;
         }
-        private float RoadSpeed(UnitData unit)
-        {
-            if (World.Infrastructure == null || !World.InBounds((int)unit.X, (int)unit.Y)) return 1;
-            return 1 + World.Infrastructure[World.Index((int)unit.X, (int)unit.Y)].RoadLevel * .18f;
-        }
-
         private bool TryDevelopSettlement(SettlementData s)
         {
             if (s.BuildTimer < 8 || s.Population < 3) return false;
-            BuildingType[] priorities = { BuildingType.Well, BuildingType.Warehouse, BuildingType.Shop, BuildingType.Pasture, BuildingType.School, BuildingType.Brewery };
+            BuildingType[] priorities = { BuildingType.Well, BuildingType.Granary, BuildingType.Warehouse, BuildingType.Shop, BuildingType.Pasture, BuildingType.School, BuildingType.Brewery };
             // Preserve the founding processing loop and shelter before elective projects.
             if (CountBuildings(s.Id, BuildingType.Sawmill) == 0 || CountBuildings(s.Id, BuildingType.House) == 0) return false;
             if ((CountBuildings(s.Id, BuildingType.Stoneworks) == 0 && World.GetSettlementStock(s.Id, ItemType.RawStone) >= 2) || (CountBuildings(s.Id, BuildingType.Kiln) == 0 && World.GetSettlementStock(s.Id, ItemType.Clay) >= 2)) return false;
@@ -269,6 +256,11 @@ namespace WorldGenesis.Simulation
             }
             if (s.Food > s.Population * 2 && s.Housing >= s.Population)
             {
+                for (int i = 0; i < World.Buildings.Count; i++)
+                {
+                    BuildingData store = World.Buildings[i];
+                    if (store.SettlementId == s.Id && StorageCapacity.IsDepot(store) && StorageCapacity.TotalUsed(store) >= StorageCapacity.Capacity(store) * .75f && TryUpgradeBuilding(store.Id)) { s.BuildTimer = 0; return true; }
+                }
                 for (int i = 0; i < World.Buildings.Count; i++)
                     if (World.Buildings[i].SettlementId == s.Id && World.Buildings[i].Type == BuildingType.House && TryUpgradeBuilding(World.Buildings[i].Id)) { s.BuildTimer = 0; return true; }
                 if (World.HasTechnology(s.Id, "l06_paths"))

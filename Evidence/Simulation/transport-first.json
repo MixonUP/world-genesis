@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-12T12:48:45.8453326Z",
+  "tests": 8,
+  "failures": 4,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "TerrainAndWaterAffectTraversal",
+      "passed": true,
+      "milliseconds": 13.1827
+    },
+    {
+      "name": "WeightedPathPrefersFasterDetour",
+      "passed": true,
+      "milliseconds": 0.9889
+    },
+    {
+      "name": "DeepRiverBlocksRouteUntilPhysicalBridgeBuilt",
+      "passed": false,
+      "error": "System.InvalidOperationException: plan researched bridge\r\n   at WorldGenesis.Tests.TransportScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 14\r\n   at WorldGenesis.Tests.TransportScenarios.DeepRiverBlocksRouteUntilPhysicalBridgeBuilt() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 56\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 16.734
+    },
+    {
+      "name": "NoTechnologyNoFreeBridgeAndOceanRefused",
+      "passed": true,
+      "milliseconds": 0.5054
+    },
+    {
+      "name": "TrampledPathNeedsPassagesAndRoadRequiresDelivery",
+      "passed": true,
+      "milliseconds": 20.783
+    },
+    {
+      "name": "CancelledProjectDropsDeliveredMaterials",
+      "passed": false,
+      "error": "System.InvalidOperationException: project\r\n   at WorldGenesis.Tests.TransportScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 14\r\n   at WorldGenesis.Tests.TransportScenarios.CancelledProjectDropsDeliveredMaterials() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 86\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.7098
+    },
+    {
+      "name": "TransportSaveContinuesIdenticallyAndRejectsCorruption",
+      "passed": false,
+      "error": "System.InvalidOperationException: project\r\n   at WorldGenesis.Tests.TransportScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 14\r\n   at WorldGenesis.Tests.TransportScenarios.TransportSaveContinuesIdenticallyAndRejectsCorruption() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 92\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.5992
+    },
+    {
+      "name": "LegacyRoadGradesMigrateOnce",
+      "passed": false,
+      "error": "System.ArgumentException: Invalid election schedule. (Parameter \u0027state\u0027)\r\n   at WorldGenesis.Simulation.SimulationEngine..ctor(WorldState state) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\SimulationEngine.cs:line 26\r\n   at WorldGenesis.Tests.TransportScenarios.LegacyRoadGradesMigrateOnce() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportTests.cs:line 101\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 0.7568
+    }
+  ]
+}

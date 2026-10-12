@@ -11,6 +11,8 @@ namespace WorldGenesis.Runtime
         public const int Planks = 37, Blocks = 38, Tiles = 39, Bricks = 40;
         public const int Hearth = 41, Sawmill = 42, Stoneworks = 43, Kiln = 44, Firewood = 45;
         public const int FemaleElf = 88, FemaleDwarf = 89, FemaleOrc = 90;
+        public const int SaltDepositFirst = 117, SaltCargo = 121;
+        public const int Granary = 126;
         private const int DepositBase = 48;
         private static readonly Color Shadow = new Color(.055f, .10f, .12f, .34f);
         private static readonly Color[] Veins = {
@@ -33,6 +35,7 @@ namespace WorldGenesis.Runtime
         public static int NodeSprite(ResourceType type, float amount, float capacity)
         {
             if (type == ResourceType.Tree) return amount > 0 ? 0 : Stump;
+            if (type == ResourceType.Salt) return SaltDepositFirst + VisualAmount(amount, capacity);
             int mineral = MineralIndex(type); if (mineral < 0) return -1;
             int level = amount <= 0 ? 0 : amount < capacity * .34f ? 1 : amount < capacity * .7f ? 2 : 3;
             return DepositBase + mineral * 4 + level;
@@ -57,6 +60,7 @@ namespace WorldGenesis.Runtime
                 case ItemType.Log: return Log; case ItemType.Plank: return Planks;
                 case ItemType.Firewood: return Firewood; case ItemType.RawStone: return StoneCargo;
                 case ItemType.StoneBlock: return Blocks; case ItemType.StoneTile: return Tiles;
+                case ItemType.Salt: return SaltCargo;
                 case ItemType.Brick: return Bricks; case ItemType.None: return -1; default: return OreCargo;
             }
         }
@@ -75,7 +79,7 @@ namespace WorldGenesis.Runtime
                 case ResourceType.GoldOre: return "Золотая руда"; case ResourceType.SilverOre: return "Серебряная руда";
                 case ResourceType.Coal: return "Уголь"; case ResourceType.Clay: return "Глина";
                 case ResourceType.Sand: return "Песок"; case ResourceType.Limestone: return "Известняк";
-                case ResourceType.Tin: return "Оловянная руда"; default: return "Нет ресурса";
+                case ResourceType.Tin: return "Оловянная руда"; case ResourceType.Salt: return "Соляное месторождение"; default: return "Нет ресурса";
             }
         }
         public static string ItemName(ItemType type)
@@ -89,7 +93,7 @@ namespace WorldGenesis.Runtime
                 case ItemType.IronOre: return "Железная руда"; case ItemType.CopperOre: return "Медная руда";
                 case ItemType.GoldOre: return "Золотая руда"; case ItemType.SilverOre: return "Серебряная руда";
                 case ItemType.Coal: return "Уголь"; case ItemType.Sand: return "Песок";
-                case ItemType.Limestone: return "Известняк"; case ItemType.TinOre: return "Оловянная руда";
+                case ItemType.Limestone: return "Известняк"; case ItemType.TinOre: return "Оловянная руда"; case ItemType.Salt: return "Соль";
                 default: return "Нет груза";
             }
         }
@@ -101,7 +105,7 @@ namespace WorldGenesis.Runtime
                 case BuildingType.Farm: return "Поле"; case BuildingType.Tower: return "Дозорная башня";
                 case BuildingType.Sawmill: return "Лесопилка"; case BuildingType.Stoneworks: return "Каменная мастерская";
                 case BuildingType.Kiln: return "Кирпичная печь"; case BuildingType.Well: return "Колодец";
-                case BuildingType.Warehouse: return "Общий склад"; case BuildingType.Shop: return "Торговая лавка";
+                case BuildingType.Warehouse: return "Склад материалов"; case BuildingType.Granary: return "Амбар"; case BuildingType.Shop: return "Торговая лавка";
                 case BuildingType.WoodWall: return "Деревянный частокол"; case BuildingType.Gate: return "Ворота";
                 case BuildingType.School: return "Школа"; case BuildingType.Pasture: return "Пастбище"; case BuildingType.Brewery: return "Пивоварня"; default: return type.ToString();
             }
@@ -120,6 +124,14 @@ namespace WorldGenesis.Runtime
         {
             Painter p = new Painter(pixels, width);
             Color bark = PixelArt.Hex("654634"), barkLight = PixelArt.Hex("9c7147"), cut = PixelArt.Hex("d7b376"), rim = PixelArt.Hex("efcf92");
+            // Raised granary with a wheat sign; the image contains no fictitious inventory.
+            p.Ellipse(Granary, 16, 4, 14, 3, Shadow); p.Rect(Granary, 7, 4, 3, 8, bark); p.Rect(Granary, 23, 4, 3, 8, bark); p.Rect(Granary, 5, 10, 24, 3, cut);
+            p.Rect(Granary, 6, 12, 22, 13, barkLight); p.Rect(Granary, 7, 13, 20, 11, PixelArt.Hex("b59561"));
+            for (int x = 8; x < 28; x += 5) p.Rect(Granary, x, 12, 1, 12, bark);
+            p.Rect(Granary, 13, 12, 9, 11, PixelArt.Hex("514f3c")); p.Rect(Granary, 14, 13, 7, 9, PixelArt.Hex("806942"));
+            p.Polygon(Granary, new[] { 2, 23, 9, 31, 24, 31, 31, 23 }, PixelArt.Hex("b5a063")); p.Line(Granary, 3, 24, 29, 24, rim); p.Line(Granary, 6, 27, 27, 27, PixelArt.Hex("d7be77"));
+            p.Rect(Granary, 23, 15, 3, 5, PixelArt.Hex("c5c49b")); p.Rect(Granary, 9, 18, 1, 6, rim); p.Line(Granary, 6, 22, 9, 20, rim); p.Line(Granary, 12, 22, 9, 20, rim); p.Line(Granary, 7, 25, 9, 23, rim); p.Line(Granary, 11, 25, 9, 23, rim);
+            p.Rect(Granary, 15, 4, 6, 2, cut); p.Rect(Granary, 15, 7, 6, 2, barkLight);
             p.Ellipse(Stump, 16, 5, 10, 3, Shadow); p.Rect(Stump, 10, 6, 12, 8, bark); p.Rect(Stump, 13, 7, 3, 8, barkLight);
             p.Ellipse(Stump, 16, 14, 7, 3, cut); p.Ellipse(Stump, 16, 14, 4, 2, barkLight); p.Line(Stump, 13, 14, 19, 14, rim);
             p.Line(Stump, 10, 9, 6, 6, bark); p.Line(Stump, 22, 9, 26, 6, bark);
@@ -197,6 +209,19 @@ namespace WorldGenesis.Runtime
                     if (female != 0) { p.Rect(child, 10, 14, 3, 8, hair); p.Rect(child, 22, 14, 3, 8, hair); p.Dot(child, 11, 14, PixelArt.Gold); p.Dot(child, 23, 14, PixelArt.Gold); }
                 }
             }
+            // Salt uses reserved frames after the society set, without moving existing atlas IDs.
+            for (int level = 0; level < 4; level++)
+            {
+                int s = SaltDepositFirst + level; p.Ellipse(s, 16, 7, 13, 4, Shadow);
+                p.Ellipse(s, 16, 9, 11, 3, PixelArt.Hex("9eaaa1"));
+                if (level == 0) { p.Dot(s, 11, 10, PixelArt.Hex("d0d8ca")); p.Dot(s, 23, 8, PixelArt.Hex("d0d8ca")); continue; }
+                p.Rock(s, 16, 8, 6 + level, 7 + level * 4, PixelArt.Hex("ccdacf"), PixelArt.Hex("f0eed8"), PixelArt.Hex("8fa9a6"));
+                if (level > 1) p.Rock(s, 25, 7, 4, 9, PixelArt.Hex("d5dfd1"), PixelArt.Hex("fff1dc"), PixelArt.Hex("93b0ab"));
+                if (level > 2) p.Rock(s, 7, 8, 4, 13, PixelArt.Hex("c3d9d2"), PixelArt.Hex("eef5df"), PixelArt.Hex("93b0ab"));
+                p.Rect(s, 15, 12, 2, 4 + level, PixelArt.Hex("f6f3df"));
+            }
+            p.Polygon(SaltCargo, new[] { 6, 10, 9, 5, 24, 5, 27, 11, 23, 20, 10, 20 }, PixelArt.Hex("acaa8b"));
+            p.Ellipse(SaltCargo, 16, 20, 8, 3, PixelArt.Hex("e8ecda")); p.Rect(SaltCargo, 11, 13, 11, 2, PixelArt.Hex("7c8b77")); p.Rect(SaltCargo, 14, 22, 4, 3, PixelArt.Hex("faf3da"));
             // Ten distinct minerals × four amounts. The empty scar remains, never a full fake pile.
             for (int kind = 0; kind < 10; kind++) for (int level = 0; level <= 3; level++)
             {

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-12T13:11:23.7798861Z",
+  "scope": "Read-only production review; setup isolated copies of assisted fixture, no source edits",
+  "results": [
+    {
+      "name": "Legacy null invoice upgrade salvages only newly paid cost",
+      "passed": false,
+      "error": "System.Exception: Invalid active technology.\r\n   at Program.Need(Boolean v, String m) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 13\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__6_1() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 18\r\n   at Program.\u003CMain\u003Eg__Test|6_0(String name, Action a, \u003C\u003Ec__DisplayClass6_0\u0026) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 17"
+    },
+    {
+      "name": "Demolition keeps large depot personal tax farm goods and half invoice separate",
+      "passed": false,
+      "error": "System.Exception: Invalid private goods lot.\r\n   at Program.Need(Boolean v, String m) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 13\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__6_2() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 19\r\n   at Program.\u003CMain\u003Eg__Test|6_0(String name, Action a, \u003C\u003Ec__DisplayClass6_0\u0026) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 17"
+    },
+    {
+      "name": "Warehouse accepts legacy overflow but rejects any new arrival without deleting cargo",
+      "passed": false,
+      "error": "System.Exception: Invalid active technology.\r\n   at Program.Need(Boolean v, String m) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 13\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__6_3() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 20\r\n   at Program.\u003CMain\u003Eg__Test|6_0(String name, Action a, \u003C\u003Ec__DisplayClass6_0\u0026) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 17"
+    },
+    {
+      "name": "Granary refuses wrong product while preserving exact carrier load",
+      "passed": true
+    }
+  ]
+}

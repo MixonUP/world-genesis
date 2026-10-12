@@ -1,0 +1,63 @@
+{
+  "scope": "proposed economy design, not Unity simulation",
+  "passed": true,
+  "counts": {
+    "goods.csv": 84,
+    "roles.csv": 33,
+    "buildings.csv": 39,
+    "recipes.csv": 90,
+    "natural_sources.csv": 23,
+    "wildlife.csv": 16,
+    "bootstrap.csv": 32,
+    "settlement_tiers.csv": 5,
+    "military_loadouts.csv": 4,
+    "civil_defense.csv": 1,
+    "technologies.csv": 70,
+    "resource_deposits.csv": 12,
+    "resource_regions.csv": 5,
+    "minting_policy.csv": 1,
+    "housing_comfort.csv": 5,
+    "wildlife_variants.csv": 2,
+    "species_behaviors.csv": 16,
+    "crops.csv": 5,
+    "carrying_equipment.csv": 7,
+    "building_tiers.csv": 193
+  },
+  "structural_reachability": [
+    {
+      "tier": 1,
+      "reachable_goods": 37,
+      "reachable_recipes": 40,
+      "reachable_buildings": 17
+    },
+    {
+      "tier": 2,
+      "reachable_goods": 54,
+      "reachable_recipes": 58,
+      "reachable_buildings": 33
+    },
+    {
+      "tier": 3,
+      "reachable_goods": 80,
+      "reachable_recipes": 86,
+      "reachable_buildings": 39
+    },
+    {
+      "tier": 4,
+      "reachable_goods": 84,
+      "reachable_recipes": 90,
+      "reachable_buildings": 39
+    },
+    {
+      "tier": 5,
+      "reachable_goods": 84,
+      "reachable_recipes": 90,
+      "reachable_buildings": 39
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "No finite-stock scheduling, pathfinding, hunger or population simulation",
+    "No native or artistic acceptance"
+  ]
+}

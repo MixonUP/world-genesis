@@ -1,0 +1,7 @@
+{
+  "source": "Evidence/Simulation/transport-release-seed1618033.world.json",
+  "target": "Builds/transport-natural-v050.save.json",
+  "sourceSHA256": "b035f33ffd84a559a1094835645677269a2184e99f18b8ba015478c89b6b8b2b",
+  "targetSHA256": "9b2c4327bd8efa8cab075c5514a0c223812631f466e7e2214b716235857f5930",
+  "operation": "Envelope only; native SaveStore.Validate is still required."
+}

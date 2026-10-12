@@ -67,7 +67,7 @@ namespace WorldGenesis.Simulation
                 { error = "Invalid field or brewery."; return false; }
                 float sum = 0;
                 for (int n = 0; n < 13; n++) { if (!Stock(b.AgriculturalStock[n])) { error = "Invalid agricultural inventory."; return false; } sum += b.AgriculturalStock[n]; }
-                if (sum > 120 * b.Level + .001f) { error = "Agricultural storage exceeded."; return false; }
+                if (!Stock(sum) || (!StorageCapacity.IsDepot(b) && sum > 120 * b.Level + .001f) || (StorageCapacity.IsDepot(b) && !Stock(StorageCapacity.TotalUsed(b)))) { error = "Agricultural storage exceeded."; return false; }
             }
             for (int i = 0; i < Units.Count; i++)
             {

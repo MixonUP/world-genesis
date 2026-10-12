@@ -87,3 +87,5 @@ make_ink,Приготовление чернил,scholar,university,2,1,0,charco
 bind_book,Переплёт книги,scholar,university,3,1,0,paper=8;ink=2;linen_cloth=1,book=1,40,0,,0,
 cut_hay,Заготовка сена,farmer,wheat_farm,1,1,0,,hay=3,8,0,meadow_grass,3,cut_grass
 brew_ale,Варка эля,cook,brewery,2,1,0,grain=2;firewood=1,ale=2,12,0,freshwater,1,brew_batch_once_actual_water
+extract_salt,Добыча соли,stonecutter,quarry,1,1,0,,salt=1,2.5,0,salt_deposit,1,
+preserve_salted_fish,Засолка рыбы,cook,hearth,1,1,0,raw_fish=3;salt=1,dried_food=3,12,20,,0,

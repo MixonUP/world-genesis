@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-12T13:32:31.8484316Z",
+  "tests": 9,
+  "failures": 4,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "ClimateExtremesCoverAllTenBiomesWithoutChangingTerrainIds",
+      "passed": true,
+      "milliseconds": 0.3992
+    },
+    {
+      "name": "WaterAndMountainOverridesRespectHydrologyAndExplicitTerrain",
+      "passed": true,
+      "milliseconds": 0.1425
+    },
+    {
+      "name": "GenerationAcrossSeedsIsStableClusteredAndHasClimateVariety",
+      "passed": false,
+      "error": "System.InvalidOperationException: generator biome hook missing\r\n   at WorldGenesis.Tests.BiomeScenarios.Need(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 16\r\n   at WorldGenesis.Tests.BiomeScenarios.GenerationAcrossSeedsIsStableClusteredAndHasClimateVariety() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 43\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 41.0692
+    },
+    {
+      "name": "LegacyBiomeMigrationPreservesResourcesTerrainRngAndEntityIds",
+      "passed": false,
+      "error": "System.InvalidOperationException: biome migration used RNG/IDs\r\n   at WorldGenesis.Tests.BiomeScenarios.Need(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 16\r\n   at WorldGenesis.Tests.BiomeScenarios.LegacyBiomeMigrationPreservesResourcesTerrainRngAndEntityIds() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 57\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 151.3245
+    },
+    {
+      "name": "ChangingWeatherMoistureDoesNotReclassifySavedBiomesOnReload",
+      "passed": false,
+      "error": "System.InvalidOperationException: Generate rerolled established biomes\r\n   at WorldGenesis.Tests.BiomeScenarios.Need(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 16\r\n   at WorldGenesis.Tests.BiomeScenarios.ChangingWeatherMoistureDoesNotReclassifySavedBiomesOnReload() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 65\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 61.9597
+    },
+    {
+      "name": "TemporaryWaterDepthDoesNotTurnLandBiomeIntoWaterBiome",
+      "passed": true,
+      "milliseconds": 10.7167
+    },
+    {
+      "name": "ExplicitTerrainRefreshIsLocalAndPaintHookIsActive",
+      "passed": true,
+      "milliseconds": 2.1968
+    },
+    {
+      "name": "UnknownBiomeVersionOrIdIsRejectedBeforeWorldReplacement",
+      "passed": false,
+      "error": "System.InvalidOperationException: future biome version accepted\r\n   at WorldGenesis.Tests.BiomeScenarios.Need(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 16\r\n   at WorldGenesis.Tests.BiomeScenarios.UnknownBiomeVersionOrIdIsRejectedBeforeWorldReplacement() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs:line 83\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 1.494
+    },
+    {
+      "name": "SaveContinuationPreservesBiomeLabelsAndDeterministicState",
+      "passed": true,
+      "milliseconds": 36.7183
+    }
+  ]
+}

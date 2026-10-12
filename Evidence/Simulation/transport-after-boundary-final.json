@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-12T12:58:19.4419434Z",
+  "tests": 8,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "TerrainAndWaterAffectTraversal",
+      "passed": true,
+      "milliseconds": 13.2512
+    },
+    {
+      "name": "WeightedPathPrefersFasterDetour",
+      "passed": true,
+      "milliseconds": 0.9737
+    },
+    {
+      "name": "DeepRiverBlocksRouteUntilPhysicalBridgeBuilt",
+      "passed": true,
+      "milliseconds": 48.8485
+    },
+    {
+      "name": "NoTechnologyNoFreeBridgeAndOceanRefused",
+      "passed": true,
+      "milliseconds": 0.4697
+    },
+    {
+      "name": "TrampledPathNeedsPassagesAndRoadRequiresDelivery",
+      "passed": true,
+      "milliseconds": 7.9675
+    },
+    {
+      "name": "CancelledProjectDropsDeliveredMaterials",
+      "passed": true,
+      "milliseconds": 0.959
+    },
+    {
+      "name": "TransportSaveContinuesIdenticallyAndRejectsCorruption",
+      "passed": true,
+      "milliseconds": 174.2391
+    },
+    {
+      "name": "LegacyRoadGradesMigrateOnce",
+      "passed": true,
+      "milliseconds": 11.4533
+    }
+  ]
+}

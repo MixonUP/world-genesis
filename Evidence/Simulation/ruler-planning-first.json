@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-12T12:57:32.671805Z",
+  "tests": 9,
+  "failures": 1,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng",
+      "passed": true,
+      "milliseconds": 13.6183
+    },
+    {
+      "name": "SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch",
+      "passed": true,
+      "milliseconds": 2.3104
+    },
+    {
+      "name": "DryStartRetainsOriginalLocationAndBasicWellEscape",
+      "passed": true,
+      "milliseconds": 4.597
+    },
+    {
+      "name": "HallLastFarmAndWellAreProtectedWithoutMutation",
+      "passed": true,
+      "milliseconds": 210.4763
+    },
+    {
+      "name": "DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite",
+      "passed": true,
+      "milliseconds": 11.7504
+    },
+    {
+      "name": "SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition",
+      "passed": true,
+      "milliseconds": 11.4558
+    },
+    {
+      "name": "PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial",
+      "passed": true,
+      "milliseconds": 10.2201
+    },
+    {
+      "name": "AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks",
+      "passed": true,
+      "milliseconds": 2.2348
+    },
+    {
+      "name": "PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail",
+      "passed": false,
+      "error": "System.InvalidOperationException: future action accepted\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.Need(Boolean value, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 16\r\n   at WorldGenesis.Tests.RulerPlanningScenarios.PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs:line 106\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)",
+      "milliseconds": 49.4869
+    }
+  ]
+}

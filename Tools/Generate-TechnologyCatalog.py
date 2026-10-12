@@ -1,4 +1,4 @@
-"""Generate the executable 0.4 research subset from the authoritative design IDs.
+"""Generate the executable 0.5 research subset from the authoritative design IDs.
 Other design rows are not silently presented as working game systems.
 """
 import csv
@@ -8,10 +8,11 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 ids = [
     'f01_preservation', 'f07_husbandry', 'm01_forestry', 'c01_herbalism', 'c02_clean_water',
-    'l06_paths', 'f06_river_fishing', 'm02_carpentry', 'l01_local_trade',
+    'l06_paths', 'f06_river_fishing', 'm02_carpentry', 'l11_wooden_bridges', 'l09_gravel_roads', 'l01_local_trade',
     'k01_teaching', 'd10_wooden_defenses', 'm10_comfort_housing',
     'k08_apprenticeship', 'm04_brick_firing', 'c03_civic_records',
     'k02_schools', 'c06_stream_management', 'l07_paved_roads',
+    'l10_stone_bridges',
     't01_flax', 't02_linen', 'l02_carts', 'l03_caravans', 'f02_milling', 'f08_brewing', 'l08_stock_ownership', 'm11_town_houses', 'm12_stone_houses', 'm13_estates',
 ]
 with (root / 'SourceAssets/Design/technologies.csv').open(encoding='utf-8-sig', newline='') as file:

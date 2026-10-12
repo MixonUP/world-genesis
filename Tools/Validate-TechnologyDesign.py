@@ -174,10 +174,10 @@ def main() -> int:
         read("resource_regions.csv")
         minting_policy = read("minting_policy.csv")
 
-        check(len(tech) == 67, "shape", "expected 67 technologies including social infrastructure, husbandry and brewing")
+        check(len(tech) == 70, "shape", "expected 70 technologies including roads and bridges")
         branch_counts = Counter(r["branch_id"] for r in tech_rows)
         check(set(branch_counts) == BRANCHES, "shape", "expected eight named branches")
-        expected_branch_counts = {"food": 8, "materials": 13, "metals": 9, "textiles": 5, "transport": 8, "defense": 10, "health_civics": 6, "knowledge": 8}
+        expected_branch_counts = {"food": 8, "materials": 13, "metals": 9, "textiles": 5, "transport": 11, "defense": 10, "health_civics": 6, "knowledge": 8}
         check(dict(branch_counts) == expected_branch_counts, "shape", "unexpected per-branch technology counts")
         check(not any(r["kind"] == "world_treasury" or (r["kind"] == "inventory" and r["ref_id"] == "coin") for r in bootstrap), "currency", "coins must originate from metal-backed minting")
         check(all(int(r["world_treasury_grant"]) == 0 for r in tiers), "currency", "obsolete treasury grant")
@@ -268,8 +268,11 @@ def main() -> int:
             check(recipe not in recipe_owner, "bootstrap", f"survival recipe tech-locked {recipe}")
         check("university@1" in grade_owner and grade_owner["university@1"] == "k01_teaching", "bootstrap", "university G1 must unlock at teaching")
         check("temple@1" not in grade_owner, "bootstrap", "temple G1 must be available without research")
-        for ref in ("house@1", "storehouse@1", "well@1", "fishing_hut@1"):
+        for ref in ("house@1", "well@1", "fishing_hut@1"):
             check(ref not in grade_owner, "bootstrap", f"primitive infrastructure locked: {ref}")
+        for building in ("storehouse", "granary"):
+            for grade, gate in enumerate(("f01_preservation", "m10_comfort_housing", "m11_town_houses", "m12_stone_houses"), 1):
+                check(grade_owner.get(f"{building}@{grade}") == gate, "storage", f"incorrect storage grade gate: {building}@{grade}")
         comfort = read("housing_comfort.csv")
         check({r["grade"] for r in comfort} == {"1", "2", "3", "4", "5"}, "housing", "five comfort grades required")
         for row in comfort:

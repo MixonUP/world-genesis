@@ -68,12 +68,14 @@ namespace WorldGenesis.Tests
         public void RoadUpgradeConsumesTilesOnceAndFloodRemovesRoad()
         {
             SimulationEngine engine = Fixture(); WorldState w = engine.World; SettlementData s = w.Settlements[0]; UnlockAll(s); s.Wood = 1;
-            Assert.IsTrue(engine.TryBuildRoad(s.Id, 16, 16, false)); Assert.AreEqual(.75f, s.Wood);
-            Assert.IsFalse(engine.TryBuildRoad(s.Id, 16, 16, false)); Assert.AreEqual(.75f, s.Wood);
+            int cell = w.Index(18, 16); w.Cells[cell].BuildingId = 0; w.Cells[cell].SettlementId = s.Id;
             Hall(w).Inventory[(int)ItemType.StoneTile] = 1;
-            Assert.IsTrue(engine.TryBuildRoad(s.Id, 16, 16, true)); Assert.AreEqual(0, Hall(w).Inventory[(int)ItemType.StoneTile]);
-            int cell = w.Index(16, 16); Assert.AreEqual(2, w.Infrastructure[cell].RoadLevel);
-            engine.Paint(TerrainType.ShallowWater, 16, 16, 0); engine.Step(1);
+            Assert.IsTrue(engine.TryBuildRoad(s.Id, 18, 16, true)); Assert.AreEqual(1, Hall(w).Inventory[(int)ItemType.StoneTile]);
+            Assert.IsFalse(engine.TryBuildRoad(s.Id, 18, 16, true));
+            for (int i = 0; i < 900 && w.Infrastructure[cell].RoadLevel != 4; i++) engine.Step(.1f);
+            Assert.AreEqual(4, w.Infrastructure[cell].RoadLevel, "A resident must deliver the tile and work at the site.");
+            Assert.AreEqual(0, Hall(w).Inventory[(int)ItemType.StoneTile]);
+            engine.Paint(TerrainType.ShallowWater, 18, 16, 0); engine.Step(1);
             Assert.AreEqual(0, w.Infrastructure[cell].RoadLevel); Assert.AreEqual(0, w.Infrastructure[cell].RoadOwnerId);
         }
 

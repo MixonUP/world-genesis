@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-12T13:43:09.4981139Z",
+  "tests": 10,
+  "failures": 1,
+  "results": [
+    {
+      "name": "LegacyWeatherMigrationPreservesCellsRngIdsAndTick",
+      "passed": true
+    },
+    {
+      "name": "InvalidWeatherCommandsAreAtomicAndBoundsAreClamped",
+      "passed": true
+    },
+    {
+      "name": "RainIsLocalExtinguishesAndFeedsRealGrowthWithoutGrantingStock",
+      "passed": true
+    },
+    {
+      "name": "SnowAccumulationRespectsTemperatureSlowsTraversalAndMelts",
+      "passed": true
+    },
+    {
+      "name": "DroughtDriesActualSoilAndStartsBoundedWildfire",
+      "passed": true
+    },
+    {
+      "name": "FloodRequiresRealWaterIsBoundedAndRecedesWithoutResurrectingStock",
+      "passed": false,
+      "error": "System.InvalidOperationException: Flood is cosmetic or crops grow underwater\r\n   at WorldGenesis.Tests.WeatherScenarios.Require(Boolean condition, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs:line 16\r\n   at WorldGenesis.Tests.WeatherScenarios.FloodRequiresRealWaterIsBoundedAndRecedesWithoutResurrectingStock() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs:line 88\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "PaintingFloodedLandWinsOverLaterRecession",
+      "passed": true
+    },
+    {
+      "name": "HurricaneMovesDamagesLivingActorsAndContinuesIdenticallyAfterSave",
+      "passed": true
+    },
+    {
+      "name": "FloodSavePersistsUnderlyingTerrainExpiryAndNoDuplicateRecords",
+      "passed": true
+    },
+    {
+      "name": "ThreeSeedAutomaticCyclesAreDeterministicAndClimateCanSelectSnowAndDrought",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "utc": "2026-10-12T13:18:12.616192Z",
+  "tests": 21,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng",
+      "passed": true,
+      "milliseconds": 14.5268
+    },
+    {
+      "name": "SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch",
+      "passed": true,
+      "milliseconds": 2.3029
+    },
+    {
+      "name": "SpawnActuallyFoundHallOnTheChosenReachableHighland",
+      "passed": true,
+      "milliseconds": 8.506
+    },
+    {
+      "name": "DryStartRetainsOriginalLocationAndBasicWellEscape",
+      "passed": true,
+      "milliseconds": 4.0617
+    },
+    {
+      "name": "ShallowFordFoundingUsesDryBankAndRejectsWaterOnlyStart",
+      "passed": true,
+      "milliseconds": 3.5727
+    },
+    {
+      "name": "HallLastFarmAndWellAreProtectedWithoutMutation",
+      "passed": true,
+      "milliseconds": 112.6617
+    },
+    {
+      "name": "DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite",
+      "passed": true,
+      "milliseconds": 14.947
+    },
+    {
+      "name": "SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition",
+      "passed": true,
+      "milliseconds": 14.3663
+    },
+    {
+      "name": "PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial",
+      "passed": true,
+      "milliseconds": 13.1586
+    },
+    {
+      "name": "AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks",
+      "passed": true,
+      "milliseconds": 4.6927
+    },
+    {
+      "name": "PrudentSchoolReplacementRequiresResearchAndPreservesHousing",
+      "passed": true,
+      "milliseconds": 4.752
+    },
+    {
+      "name": "ActiveHaulerKeepsEveryCargoChannelWhenDestinationIsDemolished",
+      "passed": true,
+      "milliseconds": 42.0148
+    },
+    {
+      "name": "PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail",
+      "passed": true,
+      "milliseconds": 12.6845
+    },
+    {
+      "name": "RealCombatUsesElevationBonusWithoutRngDifferenceAndCapsAtTwentyPercent",
+      "passed": true,
+      "milliseconds": 55.7668
+    },
+    {
+      "name": "FreeFoundingAndUnknownLegacyConstructionNeverMintSalvage",
+      "passed": true,
+      "milliseconds": 4.4669
+    },
+    {
+      "name": "RealConstructionAndEveryUpgradeUseOneRecordedPercentageAfterSave",
+      "passed": true,
+      "milliseconds": 13.5494
+    },
+    {
+      "name": "CatastrophicStorageLossAndBuildingSalvageUseSeparateLedgersOnce",
+      "passed": true,
+      "milliseconds": 11.1526
+    },
+    {
+      "name": "PlannedDemolitionPreservesContentsPlusRolledConstructionAndRejectsBadInvoice",
+      "passed": true,
+      "milliseconds": 4.4722
+    },
+    {
+      "name": "RecoverySeedMatrixIncludesBothBoundsAndUsesExactlyOneRngDraw",
+      "passed": true,
+      "milliseconds": 2309.5778
+    },
+    {
+      "name": "RolledRecoveryPersistsAcrossCleanupSaveWithoutSecondDrawOrEvent",
+      "passed": true,
+      "milliseconds": 10.3246
+    },
+    {
+      "name": "RecoveryValidatorRejectsPrematureOutOfRangeAndUnpaidRolls",
+      "passed": true,
+      "milliseconds": 5.0836
+    }
+  ]
+}

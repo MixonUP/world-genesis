@@ -187,7 +187,8 @@ internal static class Program
             for (int seed = 0; seed < 12; seed++)
             {
                 SimulationEngine e = BehaviorWorld(); e.World.Seed = seed;
-                for (int species = 0; species < 4; species++) e.Spawn((SpeciesType)species, 16, 16, 24);
+                // Each independent founder needs unclaimed land, rather than four halls on the same cell.
+                for (int species = 0; species < 4; species++) e.Spawn((SpeciesType)species, 6 + (species % 2) * 19, 6 + (species / 2) * 19, 24);
                 Require(e.World.Units.Count == 96 && e.World.Units.All(u => u.Profession == UnitProfession.Farmer || u.Profession == UnitProfession.Forester), "Founding or spawning assigned a military office");
                 for (int i = 0; i < 12; i++) { e.World.Units[i].Age = 15.99f; e.World.Units[i].Profession = UnitProfession.None; }
                 for (int i = 0; i < 3; i++) e.Step(.1f);
@@ -461,7 +462,7 @@ internal static class Program
             foreach (System.Text.Json.Nodes.JsonNode node in old["Units"].AsArray()) foreach (string field in new[] { "CargoKind", "CargoAmount", "PickupKind", "ResourceCell", "SourceBuildingId", "TargetBuildingId" }) node.AsObject().Remove(field);
             WorldState loaded = JsonSerializer.Deserialize<WorldState>(old.ToJsonString(), Json); uint rng = loaded.RngState; int nextId = loaded.NextId;
             SimulationEngine a = new SimulationEngine(loaded);
-            Require(loaded.ResourceVersion == 2 && loaded.RngState == rng && loaded.NextId == nextId && loaded.Settlements[0].Wood == 23 && loaded.Settlements[0].Stone == 0 && loaded.Units[0].CarriedWood + loaded.GroundStocks.Where(g => g.Item == ItemType.Plank).Sum(g => g.Amount) == 2 && loaded.GetSettlementStock(loaded.Settlements[0].Id, ItemType.RawStone) == 7, "Legacy migration altered or duplicated stock");
+            Require(loaded.ResourceVersion == 3 && loaded.RngState == rng && loaded.NextId == nextId && loaded.Settlements[0].Wood == 23 && loaded.Settlements[0].Stone == 0 && loaded.Units[0].CarriedWood + loaded.GroundStocks.Where(g => g.Item == ItemType.Plank).Sum(g => g.Amount) == 2 && loaded.GetSettlementStock(loaded.Settlements[0].Id, ItemType.RawStone) == 7, "Legacy migration altered or duplicated stock");
             string once = Hash(loaded); new SimulationEngine(loaded); Require(once == Hash(loaded), "Migration repeated");
             for (int i = 0; i < 71; i++) a.Step(.1f);
             SimulationEngine b = new SimulationEngine(JsonSerializer.Deserialize<WorldState>(JsonSerializer.Serialize(a.World, Json), Json));
@@ -562,7 +563,7 @@ internal static class Program
             SimulationEngine source=ResourceFixture();WorldState w=source.World;UnitData u=w.Units[0];u.CargoKind=ItemType.IronOre;u.CargoAmount=3;u.CarriedFood=2.8f;u.CarriedWood=2;w.ResourceVersion=1;
             uint rng=w.RngState;int next=w.NextId;float x=u.X,y=u.Y; SimulationEngine e=new SimulationEngine(JsonSerializer.Deserialize<WorldState>(JsonSerializer.Serialize(w,Json),Json));w=e.World;u=w.Units[0];
             Require(SimulationEngine.CarriedLoad(u)<=1 && Math.Abs(SimulationEngine.CarriedLoad(u)+w.GroundStocks.Sum(g=>g.Amount)-7.8f)<.00001f && w.GroundStocks.All(g=>g.X==x&&g.Y==y),"Legacy overflow was removed or teleported");
-            Require(w.ResourceVersion==2&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=Hash(w);new SimulationEngine(w);Require(once==Hash(w),"Carry migration repeated");
+            Require(w.ResourceVersion==3&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=Hash(w);new SimulationEngine(w);Require(once==Hash(w),"Carry migration repeated");
             for(int t=0;t<250;t++){e.Step(.1f);Require(w.Units.All(a=>SimulationEngine.CarriedLoad(a)<=1.00001f),"Pickup exceeded total carrying capacity");}
             Require(w.GetSettlementStock(u.SettlementId,ItemType.IronOre)==3 && w.Settlements[0].Wood>=2,"Overflow was never physically collected in separate trips");
             Require(w.Validate(out string error),error);
@@ -672,7 +673,7 @@ internal static class Program
     private static SimulationEngine BehaviorWorld()
     {
         WorldState world = WorldGenerator.Generate(711, 32, 32);
-        for (int i = 0; i < world.Cells.Length; i++) { world.Cells[i].Terrain = TerrainType.Grass; world.Cells[i].Height = .55f; world.Cells[i].Vegetation = .7f; world.Cells[i].River = false; }
+        for (int i = 0; i < world.Cells.Length; i++) { world.Cells[i].Terrain = TerrainType.Grass; world.Cells[i].Height = .55f; world.Cells[i].Vegetation = .7f; world.Cells[i].River = false; Hydrology.RefreshCell(world, i); }
         ResourceCatalog.Generate(world);
         world.Laws.Warfare = false;
         return new SimulationEngine(world);

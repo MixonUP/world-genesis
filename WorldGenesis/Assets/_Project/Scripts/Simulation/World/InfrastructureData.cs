@@ -11,6 +11,9 @@ namespace WorldGenesis.Simulation
         public float Stream, Fish, FishCapacity;
         public byte RoadLevel;
         public int RoadOwnerId;
+        public float FootTraffic;
+        public byte BridgeLevel, BridgeAxis;
+        public int BridgeOwnerId;
     }
 
     public sealed partial class BuildingData
@@ -49,8 +52,7 @@ namespace WorldGenesis.Simulation
         public bool IsTerrainWalkable(int x, int y)
         {
             if (!InBounds(x, y)) return false;
-            TerrainType t = Cells[Index(x, y)].Terrain;
-            return t != TerrainType.DeepWater && t != TerrainType.ShallowWater && t != TerrainType.Mountain;
+            return GetTerrainSpeed(Index(x, y)) > 0;
         }
 
         // Satisfaction derives from actual drinking, not proximity through an impassable wall.
@@ -80,7 +82,7 @@ namespace WorldGenesis.Simulation
         {
             if (cell < 0 || cell >= Cells.Length || Infrastructure == null) return false;
             TileData t = Cells[cell];
-            return t.River || Infrastructure[cell].Stream > .01f ||
+            return t.WaterKind == WaterKind.Lake || t.River || Infrastructure[cell].Stream > .01f ||
                 (t.Terrain == TerrainType.ShallowWater && t.RouteHeight - t.Height > .055f && t.Flow > 8);
         }
 
@@ -93,7 +95,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Infrastructure.Length; i++)
             {
                 InfrastructureCell c = Infrastructure[i];
-                if (!UnitRange(c.Stream) || !Stock(c.Fish) || !Stock(c.FishCapacity) || c.FishCapacity > 8 || c.Fish > c.FishCapacity + .0001f || c.RoadLevel > 2 || (c.RoadLevel == 0 && c.RoadOwnerId != 0) || (c.RoadLevel > 0 && GetSettlement(c.RoadOwnerId) == null))
+                if (!UnitRange(c.Stream) || !Stock(c.Fish) || !Stock(c.FishCapacity) || c.FishCapacity > 8 || c.Fish > c.FishCapacity + .0001f || c.RoadLevel > (TransportVersion == 0 ? 2 : 4) || (c.RoadLevel == 0 && c.RoadOwnerId != 0) || (c.RoadLevel > 1 && GetSettlement(c.RoadOwnerId) == null) || !Stock(c.FootTraffic) || c.FootTraffic > 100 || c.BridgeLevel > 2 || c.BridgeAxis > 1 || (c.BridgeLevel > 0 && GetSettlement(c.BridgeOwnerId) == null))
                 { error = "Invalid water, fish or road state."; return false; }
             }
             for (int i = 0; i < Buildings.Count; i++)

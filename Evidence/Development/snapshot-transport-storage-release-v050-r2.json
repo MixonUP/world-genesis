@@ -1,0 +1,1057 @@
+{
+  "utc": "2026-10-12T13:20:59.1162179Z",
+  "name": "transport-storage-release-v050-r2",
+  "purpose": "Batch verification of a source snapshot while the interactive project remains open",
+  "source": "WorldGenesis",
+  "snapshot": "Builds/Verification/transport-storage-release-v050-r2/WorldGenesis",
+  "files": [
+    {
+      "path": "Assets/_Project.meta",
+      "sha256": "D49B989B88F293B3115DA38ED74E42CEF1411133C838F16465ED937293CF5D01"
+    },
+    {
+      "path": "Assets/_Project/Art.meta",
+      "sha256": "C89FF5BD4A734A48AC7D1A223253BD479C6BFA0F01E2F289E37CBCB0AC4AA69F"
+    },
+    {
+      "path": "Assets/_Project/Audio.meta",
+      "sha256": "D4EB5A78ECEAEE0F2133205D1443253E3F1E89149BA65B6F9FEFE42A79309A97"
+    },
+    {
+      "path": "Assets/_Project/Content.meta",
+      "sha256": "8381DD4BC5EBE5D1A3B23AB2DD6C791488F5589D99D232854E3981A3407141F2"
+    },
+    {
+      "path": "Assets/_Project/Editor.meta",
+      "sha256": "1DE129591FC360E7F2278DDABCC528AF61ACE6DF16784C4AB953B04CDE1F2D42"
+    },
+    {
+      "path": "Assets/_Project/Prefabs.meta",
+      "sha256": "6AECFDA80CB8B9392773253ED39B84DB9625464029601FF613DFE7BDBE8A1923"
+    },
+    {
+      "path": "Assets/_Project/Scenes.meta",
+      "sha256": "33AC2A300E5B0784547A06D0F346DD8DE744D1CF1528B8A7CCBAE896AFCE73AB"
+    },
+    {
+      "path": "Assets/_Project/Scripts.meta",
+      "sha256": "09FBD819610FCE9B53C6C16A47CBAFCA9F05B70DE1453F9196717A922D96BBEF"
+    },
+    {
+      "path": "Assets/_Project/Tests.meta",
+      "sha256": "BB8502F05F9A563440630EDF1B02D36C73F3A15A4BA29D1B172B96ABED615E21"
+    },
+    {
+      "path": "Assets/_Project/Art/Buildings.meta",
+      "sha256": "EA9EB8BFD90A032031EEF0E60337460738BC6418F95FE0150D562BEB307834D3"
+    },
+    {
+      "path": "Assets/_Project/Art/Tiles.meta",
+      "sha256": "49369AF45F48A440230E26CE2CA0FD444E7684607F3262048D0D5DC396786498"
+    },
+    {
+      "path": "Assets/_Project/Art/UI.meta",
+      "sha256": "4208F2C22AA89793D483D93DC2D66833502D58352691FBCE45D0082477C86E79"
+    },
+    {
+      "path": "Assets/_Project/Art/Units.meta",
+      "sha256": "B0FA4A83287E51A000951E0D19F94206AB065EA8EBD0654B6BA7EFCBCDD6C9DF"
+    },
+    {
+      "path": "Assets/_Project/Art/VFX.meta",
+      "sha256": "26F6E443681683CC049870B82E9C0F4B2E9293E24018596DEE01CC9151A8B0A6"
+    },
+    {
+      "path": "Assets/_Project/Art/Buildings/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Art/Tiles/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Art/UI/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources.meta",
+      "sha256": "52B40AEA9D4FDB0F2624C959733F1B9922A9C4C2884BC9ABCC6F5F6C00C1049B"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0.meta",
+      "sha256": "96866581E9AB3EBEB9B9A32BD34D4F8105F9F62775516FA082497E0567B33DF6"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Blue.png",
+      "sha256": "38C47FC4766FA1FAD73C188E5C6A1F2D2257AEBC9DFDD5B37F1C8DAD913E8CFE"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Blue.png.meta",
+      "sha256": "950437946E217070E92CFAC24DDD42A47723B51995306B5499C6F04A4920B7BF"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Purple.png",
+      "sha256": "C88B5DB861D94D342B0420B8CEFACB4865E49AE104AF4FB934F46556D9274C12"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Purple.png.meta",
+      "sha256": "CCB3F08CC78BB6AC5EB288B2BADCD44CB4382E9604B1829147ECA7EA26A1B49C"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Red.png",
+      "sha256": "0D207AD590425917B71D3DC538B88D6765E76C90AA24ED5FF80C0AD842738705"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Red.png.meta",
+      "sha256": "0F7FBC8AD50396E4D6DD1AFF3F233B1B1033DF45F1E74D803DCCBB033C9400CA"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Yellow.png",
+      "sha256": "22CBF2126C68F61A3A359D0D19D45F8FDAA24700D2B9492C9B17F03977405D1F"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Yellow.png.meta",
+      "sha256": "4AA72851A1BEE8B978BA392AF2FB53667F87D0BA0D2E7236CE5C60A53E545AF5"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Blue.png",
+      "sha256": "593A40DA14B136374D55044FD3BA3AC11E621D645BE9C75A2A6032741AB24C80"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Blue.png.meta",
+      "sha256": "3B5A6EA3EB82FE2E20D4EE5CCD786E31AE1E9C13D9E4C72F6F76343398835CC2"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Purple.png",
+      "sha256": "779F5FA986FE15736D5B1DEEC5958A07340644A163AB208714F5A43792FD662D"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Purple.png.meta",
+      "sha256": "3E422BDDBD764B04FD91C839ACE66099C6CE44C4026880BB1DA352981053307F"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Red.png",
+      "sha256": "A1F67ED61134A20DF6211E1E9FFF1C33E9964512FDDF4CCDB3C1673752B9BC14"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Red.png.meta",
+      "sha256": "724078C3C1F804957ED7DD82034831C28B56E9C2DED854361BC2F8BFE242C535"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Yellow.png",
+      "sha256": "85902914CB921CC7C6EB728EB9C1D34A710CE8E4A66AE8D537E5FCC64CA54E64"
+    },
+    {
+      "path": "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Yellow.png.meta",
+      "sha256": "E1C2A4FE962C0B87CE4E122CF9B0B918B9E375026E7A6B4DFDCDD4B1D35D7680"
+    },
+    {
+      "path": "Assets/_Project/Art/VFX/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Audio/Ambient.meta",
+      "sha256": "001412258F00AB3BBE6E2D03E979186DE2744C469FC123ACED9975469A1ED292"
+    },
+    {
+      "path": "Assets/_Project/Audio/Music.meta",
+      "sha256": "ED35FCDA9AF216F27D9A66FFB78B8F6107CF8E9C8E50FDADAE9C381DC39377C9"
+    },
+    {
+      "path": "Assets/_Project/Audio/SFX.meta",
+      "sha256": "CB260AAC5C284EE23BD4500CB27E82F96BC8F740289359E22F1025491CDA161A"
+    },
+    {
+      "path": "Assets/_Project/Audio/Ambient/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Audio/Music/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Audio/SFX/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Content/Biomes.meta",
+      "sha256": "20860E2B22421432982D46B1BC3C89C9011A9F5317321E772DC27B42560F50E4"
+    },
+    {
+      "path": "Assets/_Project/Content/Powers.meta",
+      "sha256": "877F86680DB97D04F93B5DFB271875B0111A92D5AA5C347261C3C960FA578750"
+    },
+    {
+      "path": "Assets/_Project/Content/Species.meta",
+      "sha256": "6E8150D1397372258DC3A9AA9C73880DAF3ED7119910050B41A3E2FAA751D6F9"
+    },
+    {
+      "path": "Assets/_Project/Content/Biomes/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Content/Powers/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Content/Species/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Editor/CitizenArtImporter.cs",
+      "sha256": "9DA81536C95D73DF6240C4B4962DF2E51ABFA0A0B6265F4AA3D46E83EB4DBE86"
+    },
+    {
+      "path": "Assets/_Project/Editor/CitizenArtImporter.cs.meta",
+      "sha256": "AF5299E9B4F2A7B82FD33A02D3E241B90AED07B5128C31529C0A0DE91EF6B2ED"
+    },
+    {
+      "path": "Assets/_Project/Editor/ProjectSetup.cs",
+      "sha256": "ABD0719B0679F7560382DB513F9F1961FEB3A4FC9BC688EDC1EA0868391B0B8B"
+    },
+    {
+      "path": "Assets/_Project/Editor/ProjectSetup.cs.meta",
+      "sha256": "96845F86A016196322868CAA0307C67D8BABAB9E0EA1628D371D8C2DEB3AD149"
+    },
+    {
+      "path": "Assets/_Project/Editor/WorldGenesis.Editor.asmdef",
+      "sha256": "841471529D35D08F5A3E0C91DED1135C1749DE6D001E8BDF1194FFB4E6844496"
+    },
+    {
+      "path": "Assets/_Project/Editor/WorldGenesis.Editor.asmdef.meta",
+      "sha256": "C29721C542C7F74730AF6641A1A6D0AF076CA2CFBAE5CD01D3983B514D8C036B"
+    },
+    {
+      "path": "Assets/_Project/Prefabs/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scenes/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scenes/Main.unity",
+      "sha256": "E38BBCA3CB4A77673BD693BE863B236C4B6DD13CA59A241321711DF23F7A74DF"
+    },
+    {
+      "path": "Assets/_Project/Scenes/Main.unity.meta",
+      "sha256": "18C6540A1563EC7AEAA3DD3E0E24DD98CFFAD34C6EA072D9647DDB6E109D50DF"
+    },
+    {
+      "path": "Assets/_Project/Scripts/AGENTS.md",
+      "sha256": "4A1FBCAAA28EFE374BEFFB538EE9443B076AF18623A895A556E886CDD2EDB996"
+    },
+    {
+      "path": "Assets/_Project/Scripts/AGENTS.md.meta",
+      "sha256": "288679942379C879CEF26EE7A5A70B26A5BFBA64F8C17C27DCED4F73BE95A8EB"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime.meta",
+      "sha256": "1271583A7681A063AB0614C6B92587672940FF0CE838BC0896E90477C0DECA16"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation.meta",
+      "sha256": "C7647C232BD80E1781275EC944BC66BA4E34060BCEEB80BF7895EF5E246BC7B2"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Audio.meta",
+      "sha256": "774FF85FC7CB821B36B18D0FA0B394D5FC72C787812F2C1361059359DF870FEB"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/CaptureScenario.cs",
+      "sha256": "B7953337B2B36F47DA109F9D866371592B489985A32097B263D0024ADCB63F18"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/CaptureScenario.cs.meta",
+      "sha256": "543716365E9B1ED65CF83A76423D5B4428AF29ACA6EC64AAB684DFA762718D50"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+      "sha256": "533A8F7CEEF6C154D834D8FE1BED43161279A5CDA072DCFB7913F57BE6B848ED"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/GameBootstrap.cs.meta",
+      "sha256": "97767181DAC0E0704A4C21417A6F7BE340617A0B9EA2B682531B27674B203E78"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Input.meta",
+      "sha256": "59CAA36CEF55D4EEA19E5214CD6776D13EA869E39CCE31550B1DB136824F832F"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/MotionCapture.cs",
+      "sha256": "498EED03FCC9199F96A496FB27E64C69E5E739E0F60B5EDB64AF709EE468C857"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/MotionCapture.cs.meta",
+      "sha256": "1B8CF3D461A4C4ACF77F4FD6A2130BB05DAA8931396A9AF2F928C17CA2E61B73"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Persistence.meta",
+      "sha256": "9632D74F2382A5BB76E0E45EAAB8119D9FF27DA431B922E25C5D638C6EA8F5D7"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering.meta",
+      "sha256": "C75EA640FD5607E4BA5D4821FEF0A9A49F8CF2F8661FFBF83816238E9E2D144F"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs",
+      "sha256": "7468C6A89E0D455073EEB22DBF29604B5BBD5F18B243D72DD272F144DF7C348E"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs.meta",
+      "sha256": "EA4CCEFDD8EBDB27D7AAF477AE4BA006F0B4C1B1437065142880C959BE295174"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/UI.meta",
+      "sha256": "FD68028DE1B7C74890FC1322DE536F6EF0B4C966DD97C74224CFDF55855A68B7"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/WorldGenesis.Runtime.asmdef",
+      "sha256": "A63114EBDFD0CA5A12965B399F524A88069752715DFED02643643C91ECC4BFAA"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/WorldGenesis.Runtime.asmdef.meta",
+      "sha256": "029851264053F2F90F53B9BDA28A96C1F2D6185646D8E0FFCC0B55BC97002D79"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Audio/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs",
+      "sha256": "7465E92CF9FB7E23CB8F8EDDC11E16DD3E40AD9C3BACD5418F42CFBDFF1CB9FA"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs.meta",
+      "sha256": "B775FE0E112D02BF342860FB538E8D5B7410641D9C38EE16CFD8D2E94B4756BC"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Input/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Persistence/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs",
+      "sha256": "FFCB01A4FFE7F100A5135C09CE9F7299A151FA3A593E4DD9CA7C94E9FD297E50"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs.meta",
+      "sha256": "519DCF469DFFA4D8E760C51650743F312EC642C063992A9685AE02C408AD5ECE"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/AgricultureArt.cs",
+      "sha256": "0929C67CD92AFDA2BFD9DCDD9C1189050C6CA6BE420B3FE24711D1395A1D1737"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/AgricultureArt.cs.meta",
+      "sha256": "063FB2CDE07FBA3E4459F0FA0C23F7C58ECA9759B6A020528642CFBA3554687B"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs",
+      "sha256": "73102D40D51B9D1D7F4B4577CD46C6096134B50C4CB82CD0D771322254B69477"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs.meta",
+      "sha256": "B1ABA9AB41BFD8B4E8EE67DE966D13FF3219196E2C0F424130C5571A3D2CF42F"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CitizenVariants.cs",
+      "sha256": "F5236E4F56468F0B5F8D9DF7D4E09D5A3BBB2588419CBF631DA23771B871F9E6"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CitizenVariants.cs.meta",
+      "sha256": "739420708FBFA3C1C09600D979E6102BE5D551571D9505579FAEF665570685F3"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CrowdPresentation.cs",
+      "sha256": "58AF76BB709D2BCCD972EA871B43D97AEA80C7752CD38A862ABA6D94A48E3BBD"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/CrowdPresentation.cs.meta",
+      "sha256": "567E3302C72AC2AE88B96861BCCFBCD332297C759AA3C70A067864AD9C7500CF"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs",
+      "sha256": "08368799F539BE5352F708B354A273209589BF8090C1F47F67EF6B044263BBFB"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs.meta",
+      "sha256": "EEAAA5DF978043191F41BF36552D8AD36B87ECAEEAB95444A0DC1A6AE0C32777"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/ResourceArt.cs",
+      "sha256": "9D52F5682FB6E43FBE0C2B72D09C51956038426E3E42FB10D121A73DDCE66D1E"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/ResourceArt.cs.meta",
+      "sha256": "FC3363766A19CBCBBEBE84A2B4E1FEDA51E57AF0E5AE2CAC7355743991F66853"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/SocietyArt.cs",
+      "sha256": "279889F812C138BEFF09E1E60D41E4A7CC9636EFB91946E6C2315C82CB4461ED"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/SocietyArt.cs.meta",
+      "sha256": "BAA17F405A0178B01AB88B34BEF929005506F778ECBA141E492DCEFB3AF6AAC8"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/TransportArt.cs",
+      "sha256": "E65DE38E213AD1D9C34B405F992BAA22797A0E32842FDBEC4EEA2DDA35AEA456"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/TransportArt.cs.meta",
+      "sha256": "6F538C2785D52BED8E300907094109C1DD2548C5209058FDADF005B5F0F59D4F"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WildlifeArt.cs",
+      "sha256": "3EFA0C730FAB9481744D464A662174DF74618E9A5A4B30D282A2559A04E9CB80"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WildlifeArt.cs.meta",
+      "sha256": "08A7A3FC868CF7945AB2A5B53121FC805175841B3C3524537E98708E5C485BBA"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs",
+      "sha256": "9388EA797D82436FB6C23654E653AC19C7C3848CFD4F0BAE52EF529FE429250B"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs.meta",
+      "sha256": "78BCD8FA8D2DBF7F6CE8CB3AA3AA6DC973FA7C439277554BED0CE2D13AFE2FA8"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+      "sha256": "160DE7023A572AC495A170F375127B93D1F2C3E9705D36CF2A3255DF597DA379"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs.meta",
+      "sha256": "459FC9CCC37708F2542601F796B8D0A5B47A25DB4A460497B0D77A004F68D95A"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/UI/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+      "sha256": "A6EF0BF54734E818BB9680406BB9737432842CC22A71D1652397A25CCC40AA1C"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Runtime/UI/GameHud.cs.meta",
+      "sha256": "81453FF6F75290655089E3CB3701CDA9E6829E7F6D98F76DAA885D278A0296FB"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations.meta",
+      "sha256": "0ECDE3714D7156B34D7D58659D7F1D7A731D13CF548EA533F4DC65ABA90D4F60"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities.meta",
+      "sha256": "8DACAB65D162768EE8F1FE56CD403C544C5DECBC3ED02352EEE4C87E29C87A0E"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Powers.meta",
+      "sha256": "E5891104EC00E9461124F710C2EE015D93CDA0D3CAC68D734EEB42D38287E64D"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "85322BC8CE2941659E2474E477FB2EEA6F29AEE1CACCB9CFFE9C98DDBFA0F6BE"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/SimulationEngine.cs.meta",
+      "sha256": "E22F08AAC2DE9EFD8BE0D518204CC071CC564796D0A65AB2B397ED8EC89E114E"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World.meta",
+      "sha256": "6CBAFFA0DDAB2B778BBD429F3380273DC50691A782013A600A02D37C9FAFF54B"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/WorldGenesis.Simulation.asmdef",
+      "sha256": "E1A60E75E23AE1EFFF2E7E23F78EB84442907A52D61C1257E94E6120025BD5BC"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/WorldGenesis.Simulation.asmdef.meta",
+      "sha256": "4ED1D1715B77F58492444CDFC6EDAA671D9005FB4F928BF1E299DC4A19A3DC05"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs",
+      "sha256": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs.meta",
+      "sha256": "D268475D1F6FBC4000A61BD164C063A2256B90B11F7387EE46D7057BDF836E28"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "sha256": "7ADF0322859385D46F45F5D7E736FCF57B0397186B9C7C5611CE398E93BAE618"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs.meta",
+      "sha256": "64E8ED4D0F8060EA0655941D6CE4772F485E7E001179C2413D1BCED0C6789B76"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs",
+      "sha256": "808B179BDDF32761A46FCFD7ECAA5E0C6E6D4AB5090D01482F409A297DD755E4"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs.meta",
+      "sha256": "7DB1FC2F26B498EF60894B4CD18F362AAEAFD84A9E78A7F1E14DF43F9E3BDF23"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs",
+      "sha256": "8935F43768FB294F1E3F5D03E428359D38ABC5BDC5E8AFCEB707CB48E3E87770"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs.meta",
+      "sha256": "6864E5DFDD2995BC0483C2C6D3ED9454A7845AED194AF570BD3C6E3772E283DF"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs",
+      "sha256": "80154088DC862190C897F565E04EA550F411BD9827743F16AF0E9873996B7010"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs.meta",
+      "sha256": "4F2A3235C0EA0AE65ECB010316098FC3C2F22FFE9965F50E003FB6AD2A0558E2"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs.meta",
+      "sha256": "B4EBA8885AD7A6869BEDC837186DA6122DB78A082BC16503D62A36989D9BA5C4"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs",
+      "sha256": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs.meta",
+      "sha256": "099FB3CE97F72732B0F71ECB3E84A4BF46527FA4693F8EA06C122AD493EED378"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs",
+      "sha256": "ADDBD51F7FD1DD10B92FA122AE1B438077F8974ACB4EFA325FA8C6082EB0C5E8"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs.meta",
+      "sha256": "AD5B6B522FB96F0FCA0456F158F5A74F43FA555BE8E76BCBA1B3497DCA1F0C34"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs",
+      "sha256": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs.meta",
+      "sha256": "996AD42D3724DD1E163A2812ADD497682EA591F0B216FB0CC779ABD11047EE3C"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs",
+      "sha256": "F7934F764ADDD38C94F4192A256E866B0ADC30F716530A8340099CF65E21DF0B"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs.meta",
+      "sha256": "7A933291B04A13D27D50055288C3B7331B8B939E0D9B40A5B44A170DB9804FD9"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs",
+      "sha256": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs.meta",
+      "sha256": "944B891C8F4BD7337A88F784D50F7FA93ADC5F058F869AE022038EDCF0F38F6D"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs",
+      "sha256": "714E30E0946B3909D45291655D0BB06602B53633F072316DBA2C24ADBDCAAC1B"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs.meta",
+      "sha256": "B25368C64DB3CC804B3C35A4EDABABF03EF7F8F879A3E7B0A39C9E02EA23F7A3"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs",
+      "sha256": "63422B1125602B5B9F97A452D32AC0FB0BFBB9C4E70005E2C2A21848899E1C02"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs.meta",
+      "sha256": "6B78E3D2B8FA8DDD7989C057C6235B10AD737420149DDEDEA4F7791089765366"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "B3F3CA4B679AE67772AE50D2E0EAC2FA0E63FB0A5E0D7BA4EE5A0663890637D1"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs.meta",
+      "sha256": "F8740EB3D87D2AB56EDF5C6397110DC4913C590653BD2D85F0EE08032C4BA994"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "sha256": "27920D7C2AED40AD9F4BBE77FDF295040773BB09E12B092A0F46B655FDD44E39"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/Demography.cs.meta",
+      "sha256": "CCF9A79230518E09B55BA3F79DC0DF1B6F76F1ECCF023BA122ADC475C4A83B08"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "E4F16F3F1DD8CF6C6EDB3F2ACFD9651CCAB3E55E44AA17B00DC30A5B44DD0DC2"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs.meta",
+      "sha256": "A9EE9CF9C533A65DC3524E5170AB0D3210C921FBB85214965F9666EF2CAF02D9"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs",
+      "sha256": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs.meta",
+      "sha256": "1B39B87213145E037C5E1E8D4FC3CD95DDAA8B1AF4657BA166402C1D309F5C09"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "24A90FAE19AC2D75D61E54C66D3EC6DE9AC294DE779B84FA06EBDC60F4C4FF4C"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs.meta",
+      "sha256": "214E0F1F54300284A8334B349DAB60BB29CC32B2D692D6E8207D873F464824DD"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs",
+      "sha256": "3D0CF69D7BCE21D371452F6B829318D33815DAB87800071544ACB63001548064"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs.meta",
+      "sha256": "24D8EA52A3469B34219A7A0DC525525877E4629E5F6FB69399FD074BE259C219"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs",
+      "sha256": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs.meta",
+      "sha256": "7DF471CF09A63A06604D39E26A53F5511982A5683EAB369B0BA55F2020CADD15"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs",
+      "sha256": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs.meta",
+      "sha256": "206253F2DCA1FD7D7C2A03A7825111285170ED9E0BA01C0A1542A09B64A4B6CC"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs",
+      "sha256": "DBBD1D6A6CF4534D70426D082E234C220F4BE4CF14682167C65C5B8DC6DC5122"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs.meta",
+      "sha256": "F6EFB5A3B13669F49B4681987FEA7AAA97FB441B797A978EB4BD93F7BFF54DBB"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/Powers/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/.gitkeep",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/AgricultureData.cs",
+      "sha256": "4E1AF98C1CF3F1FCE0849504C1B849849469133ED16A44944586C45CCA66F5E5"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/AgricultureData.cs.meta",
+      "sha256": "36A1B4BFB28FF887DE81F16486EDAEA104FD05F4867A8F9D39DCE22ED9E0A037"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs",
+      "sha256": "035D574273AB79FC3AE6D3526093B2500D0A00949DAD8680EA2A71870EA2DA19"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs.meta",
+      "sha256": "F2DE5E8F08EC0E2114F795A609D7B43918AA44785022FB52019306D3D8525BAF"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/HydrologyData.cs",
+      "sha256": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/HydrologyData.cs.meta",
+      "sha256": "8BE54BC850BE28600E86AA8188F912980B582552CBFD38DAE89252368F2317F8"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs",
+      "sha256": "69763455727E7246C4618BB1BB202C9638EC4C5AEE274FE3EA19CACF2F4D95EF"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs.meta",
+      "sha256": "51E8EA058FC76DF4437498037DF204F99E8F0359E3D8A9B82B6D1CF33D523E27"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "B85977856130ACFEDBCDA0E6AEDCAAFE1EA7B9B47C6D1F0CF978213EB65E0D77"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs.meta",
+      "sha256": "0C2C55A7D230E8918C721C0BBE7CED2B8E899F97425587313A1C6132B4FF3AD6"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "FA60FD09461CB68FEC6D500379868F4EB48AA402BBBD28AA121EC5235A94EDE4"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/ResourceData.cs.meta",
+      "sha256": "AA4E43B9B095E50B2748AAE1719D78D1E199A179505343349AB8351ACE48ED95"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs",
+      "sha256": "1EB12096E134FB53F754BB2BE87759AC52EAA24F16A0C6658F42A7FFC7278098"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs.meta",
+      "sha256": "D654195A5EDE6AB18EAFC7172BE62B4FC5D5830A3693387C2681A02D5D640F7F"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/TransportData.cs",
+      "sha256": "13B3F526FFBCD8330ABB2BBD8AAA692865717093B76DE9B6080A9B3A2322747D"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/TransportData.cs.meta",
+      "sha256": "46D225E9AC6F12D89DAC1E97F8CA06C4607F628E358D6F3FB8E41DD5A1BEC504"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "A0D5461BFAEEB118486D70534FC7B33058077C14C16A02879E27C6244345AC98"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs.meta",
+      "sha256": "D44CB782E7F3D8EC3B359EC072F1FCDBFAC7059CF60EECFE486C2D5472E02C10"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "516254DA4E874AC2DF7ABC5A6E84CB3A3DE6478884F74194DAB75A8F704AEF70"
+    },
+    {
+      "path": "Assets/_Project/Scripts/Simulation/World/WorldState.cs.meta",
+      "sha256": "EF4BC05F83E5D6AA645268A744468806CB19708E6A34DE808F416357E4DF25A3"
+    },
+    {
+      "path": "Assets/_Project/Tests/AGENTS.md",
+      "sha256": "690D19BDCB0646272A0F0E6942B720EEEAE7705D19792E1856CAD30805B9DD5A"
+    },
+    {
+      "path": "Assets/_Project/Tests/AGENTS.md.meta",
+      "sha256": "31E91B40A51E973A2C1ABF4900EBAEEE63DE20BE5C0245FCCB1DAA0B00852C3F"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode.meta",
+      "sha256": "CDC1BCBCCE700747E651443BE3F349D1D432188019BEE26B30AD87308ECA01D4"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode.meta",
+      "sha256": "7BF1984D2B2AEFE20B960877D7B41D9FB71CAC414644509A76454DFFD0DB0830"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/AgricultureTests.cs",
+      "sha256": "7B2C3F3701306E5CFA29E93FE59CEA6DDD263F6E8A851D8501D81AEA7B7537B7"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/AgricultureTests.cs.meta",
+      "sha256": "AC2B9A5D6652578AD3B4075E27C504EA3D1967294CEBCFABAD8F45F3FA51D75D"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/CaravanTests.cs",
+      "sha256": "316AD0200B809E34448F41028B784D311F9727A8497BE8130F1A2FA1E7ECD6A2"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/CaravanTests.cs.meta",
+      "sha256": "B5C9199E68DED9F7EB678E5D69A19F81953ED25C2E37029D7CEC8076D880EA62"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures.meta",
+      "sha256": "BCD89E810F423B7343C90E4FB2985DF838DBF1ED43B05B30FF2A0D07F08DB097"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/HydrologyTests.cs",
+      "sha256": "03EB6C1570FDCA8D34FA0D4A058346F8E6BD28D02AD00DB52B05403032503D71"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/HydrologyTests.cs.meta",
+      "sha256": "F3F02BFA8F701FF7647BAF9BF58B6D46423F37A17CA4F23929FC9911D60B1E0F"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/InfrastructureTests.cs",
+      "sha256": "713F10A29F3AC083EF63BACEA45F89F94CE7D64F94CC3D1205D08A6FAD28E482"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/InfrastructureTests.cs.meta",
+      "sha256": "8BCBACCE787FD5664835AE90B4CEB2943C146748D63608B82D8A841858167DE0"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/ResourcePersistenceTests.cs",
+      "sha256": "55488A8BFBE9E444AB96C9FA325215B1432DF45AEC79883EC9DC069276010A08"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/ResourcePersistenceTests.cs.meta",
+      "sha256": "2D3A81A09DF41D137F6C218A6F4A9C8A098413E8CF665413E18CC1A67F9026F4"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/RulerBoundaryTests.cs",
+      "sha256": "B9751D2BABC75F2FEDE906F41272957F106FC663EF391C2ACE441D311788144D"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/RulerBoundaryTests.cs.meta",
+      "sha256": "9F6276430CB00B620F9CF1DC2A173FCCAE9EE48871BF5C09A15C42405F57C7EB"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/RulerPlanningTests.cs",
+      "sha256": "BE6B05CA368EAF5296F0812DA26888727EB41F17DA426AD7975C9817CAC72922"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/RulerPlanningTests.cs.meta",
+      "sha256": "27D6F480819335CC96C30BC75768AC503E7E48907FBACB1B571F3573ECB99C63"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SaltTests.cs",
+      "sha256": "50EC9E534DAF13CF753B1877560B57FAE9CED60713EA56BDCB1663B889FF3775"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SaltTests.cs.meta",
+      "sha256": "AB545A7BC064E1275190AEFE9435E5BDD302D247C99A35DD590190E9291981E1"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SaveStoreTests.cs",
+      "sha256": "EF448BF82D028BB3F2519EB302CF54A30C0537C543ED6C484BF0DDF33064DA5D"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SaveStoreTests.cs.meta",
+      "sha256": "57BEF5D4FCC5E77AEE55B5631EE35664D52E68688037C95C8881BEAD5B7FD048"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "3399629FAFFCE0229DE6B815818B4DC7BCE9AC5E84904446A71DA4E3014F20A7"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SimulationTests.cs.meta",
+      "sha256": "41ECE9D0462DB83CE3507D792DADE423956D4351F9B8F7A58C8F9CA74FADCC40"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SocialSimulationTests.cs",
+      "sha256": "6C54A083089A2AF82C18B6B7EAA229D3C0F449F968D4071CB0D7CF0F8BC1466E"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/SocialSimulationTests.cs.meta",
+      "sha256": "E7EFBBB182AB808AE04E8A6D9298BBEEBFA956F704F39DF816FA29DBD761B0D8"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/TransportBoundaryTests.cs",
+      "sha256": "965F921FDCDABF1EAA7BCCF1CCF115F5BF86C4CB1A0CA8519284A1B30681C259"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/TransportBoundaryTests.cs.meta",
+      "sha256": "00709E386AEB7DFDE5A47777F78DACD56A34D30D43F6E634A8375E2B364206CA"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/TransportTests.cs",
+      "sha256": "C0CDD98F03D332462828168817035E1C3BFFBF417AC3E178B2F37A06FBA4819A"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/TransportTests.cs.meta",
+      "sha256": "0CB49FDECC33A74B19D70BEF2811D37BE715CC30E7E7F885DEBA38E9DDDD75A0"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WarehouseCapacityTests.cs",
+      "sha256": "137C99682BC5C82F0E502EB87115CF35CE75907F522F1E05FFBB51DA8024F842"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WarehouseCapacityTests.cs.meta",
+      "sha256": "8242B75B962FB2FA25C76D919E6537BA1583002372A2443D9C7A42F6B6AE5956"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WildlifeSimulationTests.cs",
+      "sha256": "789A5D01183EF55E982585A618FD6F0CC677CF62ECB38DE19C30204ED92F338B"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WildlifeSimulationTests.cs.meta",
+      "sha256": "7BAA96EC5879FAD5B264D85B393D59D98187AE914BC9AB195A7688CA43E61033"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WorldGenesis.EditModeTests.asmdef",
+      "sha256": "1B4A82EE3B6B0F1B9A8E676CFA580307B006BBBB467129A06FF64AA292E8A7CC"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/WorldGenesis.EditModeTests.asmdef.meta",
+      "sha256": "6E9CAE855F3141112DCEC422B742F1FD664ED69A5BD0939EBBA5514C2BEEA091"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/legacy-resources-v1.json",
+      "sha256": "F90DA1EBC1AA70AEA469C92959CC5D366DF9E12424A59C838511D9F9A26ED27E"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/legacy-resources-v1.json.meta",
+      "sha256": "B37DB435E3C5371438BDA45174B9AE50A42811F62F63FB61D9B0588135A41F5D"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/legacy-v020.json",
+      "sha256": "C181807CD31F01171388F2368B4EFFA522D99D0FBA7F4860F03B14E83771FAFB"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/legacy-v020.json.meta",
+      "sha256": "D5A9AF7AC3DB24D95BA96873707EBEAD6DDEDA9374D0126E9E27B1F848711FD0"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/README.md",
+      "sha256": "3813D9C45D790A6744EC9859928B3761E53550736BD379493E6B732E3CCC3AD7"
+    },
+    {
+      "path": "Assets/_Project/Tests/EditMode/Fixtures/README.md.meta",
+      "sha256": "A6FDBE659B1637523CDCC415928DB63FD09D0D69B51CAA85AEA50E47E3786B00"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs",
+      "sha256": "F1E0EF1CA7255B3D41E219489E7A4854744BD1357590A25221E3100B18D3255D"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs.meta",
+      "sha256": "5C55C3486ECF1AFA3D77631A63E0AC7646559E42A626D809584B79F7CC0B6340"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/RuralRenderingIntegrationTests.cs",
+      "sha256": "0BF0FEF7D6B61000FC916A0505553AEBCEB246538C067EEC1BD738BA5EB1F163"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/RuralRenderingIntegrationTests.cs.meta",
+      "sha256": "141B841E6AFFCF26761D0EA7AA2C090836FEB4F18B2E65A66373F53469E4BD93"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/TransportRenderingTests.cs",
+      "sha256": "1C83FBCBE86F76E621A2998933514EB91194D9FCA090BBD83310E8E85A8D74C8"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/TransportRenderingTests.cs.meta",
+      "sha256": "9DBD856A2D34BFD7967DAA4D29FDA273EA2B6EEBD268BAC6F91CEFBCF0988424"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/WorldGenesis.PlayModeTests.asmdef",
+      "sha256": "B469BDA6DF3B279CA6278C439D39E9556EEA33EBC6C69BD9B66ED12C9B4187EA"
+    },
+    {
+      "path": "Assets/_Project/Tests/PlayMode/WorldGenesis.PlayModeTests.asmdef.meta",
+      "sha256": "0BA2C2B41E3C1475789F67905CFD43D0BB6A7966BE54D7F24892A9093D927EE1"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "C40C5769F79AF30E132874B0569B2AD8128EA5C841753DF5CC3AFA66F684CFF6"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "F112C6A6B632E39847A2ACAF730A35E46129289B3DCEECAEE35782D1C94B979B"
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "9A554916FE138EBCAD8443EE9B079363ECC72795C39D0E80F5F7CA99E2C6F5E7"
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "sha256": "40E65DD214BF254955D2C8829CA8CE2130FD3510485560CE012E9A1DDD93E623"
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "sha256": "67900C2934D84FA99A3CBC8701E931840F3F008781FA8D7B842A10794F082E65"
+    },
+    {
+      "path": "ProjectSettings/EditorBuildSettings.asset",
+      "sha256": "9F6AE298A699354AAC4F35DE6314CFB5944A107EE572C4A7EB867AE7BF9172D4"
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "sha256": "15C0DFD2D9483C792C189D7ED310109F7EB1AF24916CC17CF4BAB3C1EC898937"
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "FBF0856B7693639A5388AE693A455BAAAD354C1D8DC548601DE3DC61C4AB12C3"
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "sha256": "D0F454DDB880912ABCAE92E3E12957A7446786BA89E24937E019FF3BBC0D4300"
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "sha256": "1E8379A461B10AE09F3F696911088C16875D63E87ED5F2D95DF9E1892703F9FD"
+    },
+    {
+      "path": "ProjectSettings/MultiplayerManager.asset",
+      "sha256": "ABA89FD1A1DDAD182727AD82727E536D27372E90328A8196DA2A4560398983DD"
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "sha256": "7EBBF8F53B8033104E1878B95CA07A28D0954092D81C220F14196A42F651E658"
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "sha256": "D36DDE4AA02198BA295AF52624BEAF07DE5E204FA6C2DF5FAFD900663DE867C7"
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "sha256": "9B78FDD0BAC0F486C052CA65DDC0E5022D322B12874931A49456D407C5BBFC00"
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "sha256": "29C125923FE6E29F90190D4FCE1C82D660E7051546E2C9D02908D18C9CF2436C"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "86203741E387A953C1A3A4E462DC8C795C4D59927262F315A78B6CB436AE777F"
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "100258E27F9C7B6FFFE54906EB4F31C89C915D1CAEEF4394AAEC521632931DE8"
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "sha256": "5E5F38A7CB2F7D097614AE6CB7BA8D2B95FFD40D73A97230957FBD599B3AF6B0"
+    },
+    {
+      "path": "ProjectSettings/SceneTemplateSettings.json",
+      "sha256": "BB9098B3BFCDE78D93E264B96F7B77B5430E64E8C57A7AAD7F5A5D9C3945E16A"
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "sha256": "DA4B5EEFC927F8B91BCF9E56A186D2B852F49D9CBE91D466638D26C79D6A83CE"
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "sha256": "E6D0D31782B4896159D2F7249B1845004A7A9F4EB05BC952A8C64BC72CB34448"
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "sha256": "D6034ACBEF6C9E3179866486C31EAB81FCBE5E7ED350CE71E0FA2B1449B77109"
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "sha256": "E199CDFA6A8F2BF33CFD47E549198F13E3EB2A5099E908FDB4E0F14D939CCC6B"
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "sha256": "9378043DA38A17F2198D52A10C17789161D30E3285A387CA3687A71551C32448"
+    }
+  ]
+}

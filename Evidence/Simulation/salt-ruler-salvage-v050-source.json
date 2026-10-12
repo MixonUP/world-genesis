@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-12T13:10:17.6855353Z",
+  "status": "owned code prepared and pure C# verified; Unity integration pending",
+  "saltReport": "Evidence/Simulation/salt-probe-v050-joint.json",
+  "rulerReport": "Evidence/Simulation/ruler-salvage-freeze.json",
+  "hashes": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "B85977856130ACFEDBCDA0E6AEDCAAFE1EA7B9B47C6D1F0CF978213EB65E0D77"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "FA60FD09461CB68FEC6D500379868F4EB48AA402BBBD28AA121EC5235A94EDE4"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "24A90FAE19AC2D75D61E54C66D3EC6DE9AC294DE779B84FA06EBDC60F4C4FF4C"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs",
+      "sha256": "8935F43768FB294F1E3F5D03E428359D38ABC5BDC5E8AFCEB707CB48E3E87770"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs",
+      "sha256": "C42FAC34ECE47D8C91187F6FC1C6F99704288319035C50DE3B9645ABD587BE17"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SaltTests.cs",
+      "sha256": "50EC9E534DAF13CF753B1877560B57FAE9CED60713EA56BDCB1663B889FF3775"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/RulerPlanningTests.cs",
+      "sha256": "F165393784BDEB9D535AA19AD6B4AD1871B32D6AF75CC6B4D25F51297EBD032C"
+    },
+    {
+      "path": "Tools/Validate-EconomyDesign.py",
+      "sha256": "A9D4A15EEA9599F538F7A6B7AAF5BD152A7C257D4B7A7190BD9BC0253301A12F"
+    },
+    {
+      "path": "Tools/Validate-TechnologyDesign.py",
+      "sha256": "26B6075689DEBE87503EA972FD8F967FCD1D0962DFFE0052F6685AF29B5D241A"
+    }
+  ]
+}

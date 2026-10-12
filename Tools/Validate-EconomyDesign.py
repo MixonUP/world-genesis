@@ -190,9 +190,17 @@ def validate(root):
         tier_lookup[key] = tier
         tier["_inputs"] = quantities(tier["inputs"], str(key))
         number(tier["work_seconds"], str(key), 0.1)
-        check(int(tier["min_settlement_tier"]) >= max(grade, int(buildings.get(identity, {}).get("min_settlement_tier", 1))), f"{key}: early unlock")
+        if identity == "road":
+            # Road surfaces are transport levels, not the settlement's building grade.
+            check(int(tier["min_settlement_tier"]) == {1: 1, 2: 1, 3: 2, 4: 3, 5: 5}.get(grade), f"{key}: invalid road progression")
+        else:
+            check(int(tier["min_settlement_tier"]) >= max(grade, int(buildings.get(identity, {}).get("min_settlement_tier", 1))), f"{key}: early unlock")
     for identity, row in buildings.items():
-        check({g for b, g in tier_lookup if b == identity} == {1, 2, 3, 4, 5}, f"{identity}: must have five grades")
+        expected_grades = {1, 2, 3, 4} if identity in {"storehouse", "granary"} else {1, 2, 3, 4, 5}
+        check({g for b, g in tier_lookup if b == identity} == expected_grades, f"{identity}: invalid grade set")
+        if identity in {"storehouse", "granary"}:
+            for grade, capacity in enumerate((1000, 2500, 5000, 10000), 1):
+                check(float(tier_lookup.get((identity, grade), {}).get("capacity_load", -1)) == capacity, f"{identity}@{grade}: invalid storage capacity")
         quantities(row["base_inputs"], identity)
         number(row["base_work_seconds"], identity, 0.1)
 
@@ -350,7 +358,7 @@ def validate(root):
         stage_report.append({"tier": stage, "reachable_goods": len(available), "reachable_recipes": len(reachable_recipes), "reachable_buildings": len(built)})
     check(set(recipes) <= reachable_recipes, f"unreachable recipes: {sorted(set(recipes)-reachable_recipes)}")
     check(set(goods) <= available, f"unreachable goods: {sorted(set(goods)-available)}")
-    check(all(built.get(b) == 5 for b in buildings), "some building grade 5 unreachable")
+    check(all(built.get(b) == (4 if b in {"storehouse", "granary"} else 5) for b in buildings), "some final building grade unreachable")
 
     return {"scope": "proposed economy design, not Unity simulation", "passed": not errors,
             "counts": counts, "structural_reachability": stage_report, "errors": errors,

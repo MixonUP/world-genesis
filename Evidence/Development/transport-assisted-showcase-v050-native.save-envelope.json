@@ -1,0 +1,7 @@
+{
+  "source": "Builds/transport-assisted-showcase-v050.json",
+  "target": "Builds/transport-assisted-showcase-v050-native.save.json",
+  "sourceSHA256": "3daf2b8ec21acae6a96d2b0a31f39e419e70bfec60c77b887bf5aa01fa1df162",
+  "targetSHA256": "198bd0d32ed182f8d989d28651711d45f5f99583f6d5976d0345c03c5f1b4ec3",
+  "operation": "Envelope only; native SaveStore.Validate is still required."
+}

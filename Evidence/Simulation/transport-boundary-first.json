@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-12T12:53:54.8964346Z",
+  "tests": 5,
+  "failures": 4,
+  "results": [
+    {
+      "name": "WoodenBridgeBurnsAndInvalidatesSavedPath",
+      "passed": false,
+      "error": "System.InvalidOperationException: Wooden bridge survives the complete fire and remains traversable\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.Require(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 16\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.WoodenBridgeBurnsAndInvalidatesSavedPath() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 40\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "IsolatedBankCannotReserveAllTownConstructionForever",
+      "passed": false,
+      "error": "System.InvalidOperationException: Unreachable site permanently blocks every automatic house/field through HasTransportProject\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.Require(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 16\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.IsolatedBankCannotReserveAllTownConstructionForever() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 51\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "EditedOceanSpanCancelsBeforeItCanBeConstructed",
+      "passed": false,
+      "error": "System.InvalidOperationException: Project ignores its own ocean/depth/current requirements after a terrain edit\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.Require(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 16\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.EditedOceanSpanCancelsBeforeItCanBeConstructed() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 60\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "InvalidProjectGeometryAndWorkerBacklinksAreRejected",
+      "passed": false,
+      "error": "System.InvalidOperationException: Save accepts duplicate bridge cells and an impossible material bill\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.Require(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 16\r\n   at WorldGenesis.Tests.TransportBoundaryScenarios.InvalidProjectGeometryAndWorkerBacklinksAreRejected() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs:line 67\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "WorkerDeathPreservesDeliveredStockAndAllowsReplacement",
+      "passed": true
+    }
+  ]
+}

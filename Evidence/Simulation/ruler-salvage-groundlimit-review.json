@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-12T13:12:38.7663363Z",
+  "scope": "Read-only production review; setup isolated copies of assisted fixture, no source edits",
+  "results": [
+    {
+      "name": "Legacy null invoice upgrade salvages only newly paid cost",
+      "passed": true
+    },
+    {
+      "name": "Demolition keeps large depot personal tax farm goods and half invoice separate",
+      "passed": true
+    },
+    {
+      "name": "Warehouse accepts legacy overflow but rejects any new arrival without deleting cargo",
+      "passed": true
+    },
+    {
+      "name": "Granary refuses wrong product while preserving exact carrier load",
+      "passed": true
+    },
+    {
+      "name": "Destruction with near-limit ground stock keeps save valid",
+      "passed": false,
+      "error": "System.Exception: GroundStocks=30001; Invalid local goods records.\r\n   at Program.Need(Boolean v, String m) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 13\r\n   at Program.\u003C\u003Ec.\u003CMain\u003Eb__6_5() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 22\r\n   at Program.\u003CMain\u003Eg__Test|6_0(String name, Action a, \u003C\u003Ec__DisplayClass6_0\u0026) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\Builds\\RulerBoundaryReview\\Program.cs:line 17"
+    }
+  ]
+}
