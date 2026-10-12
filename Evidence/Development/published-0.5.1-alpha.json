@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-12T15:35:09.5844706Z",
+  "status": "published-and-verified-in-browser",
+  "url": "https://github.com/MixonUP/world-genesis/releases/tag/v0.5.1-alpha",
+  "tag": "v0.5.1-alpha",
+  "commit": "2b1300b550feda9d89ffddf6df5fb3b3b3aa2247",
+  "asset": "WorldGenesis-v0.5.1-alpha-win64.zip",
+  "bytes": 32640217,
+  "sha256": "37F08AA2D5B5C428BE90AE6CD90469557A355401A1CA0C883851B89F6FDED4FB",
+  "githubDigestMatches": true,
+  "proof": "Evidence/Development/github-release-0.5.1.jpg"
+}
