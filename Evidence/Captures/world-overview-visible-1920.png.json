@@ -1,0 +1,14 @@
+{
+    "Type": "native Unity gameplay capture",
+    "Utc": "2026-10-11T23:55:10.1965497Z",
+    "UnityVersion": "6000.0.45f1",
+    "Image": "world-overview-visible-1920.png",
+    "Seed": 1618033,
+    "Width": 128,
+    "Height": 128,
+    "Population": 49,
+    "Tick": 102,
+    "Speed": 1.0,
+    "Paused": false,
+    "AutomaticCapture": true
+}

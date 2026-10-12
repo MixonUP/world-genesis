@@ -1,0 +1,8 @@
+{
+  "name": "WorldGenesis.EditModeTests",
+  "rootNamespace": "WorldGenesis.Tests",
+  "references": ["WorldGenesis.Simulation", "WorldGenesis.Runtime"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

@@ -1,0 +1,7 @@
+{
+  "name": "WorldGenesis.Runtime",
+  "rootNamespace": "WorldGenesis",
+  "references": ["WorldGenesis.Simulation", "UnityEngine.UI"],
+  "autoReferenced": true,
+  "noEngineReferences": false
+}

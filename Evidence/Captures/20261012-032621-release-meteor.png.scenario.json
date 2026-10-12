@@ -1,0 +1,12 @@
+{
+    "Assistance": "Automated production ApplyPower command at first settlement; no physical mouse input.",
+    "Power": "Meteor",
+    "X": 42,
+    "Y": 42,
+    "Radius": 3,
+    "BeforePopulation": 49,
+    "AfterPopulation": 40,
+    "Tick": 103,
+    "BeforeHealth": 4815.0,
+    "AfterHealth": 3980.0
+}

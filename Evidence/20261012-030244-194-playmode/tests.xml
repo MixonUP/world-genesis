@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2,0847801">
+  <test-suite type="TestSuite" id="1009" name="World Genesis" fullname="World Genesis" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2.084780" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1006" name="WorldGenesis.PlayModeTests.dll" fullname="C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/WorldGenesis/Library/ScriptAssemblies/WorldGenesis.PlayModeTests.dll" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2.077586" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="11196" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1007" name="WorldGenesis" fullname="WorldGenesis" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2.059872" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1008" name="Tests" fullname="WorldGenesis.Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2.043175" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1002" name="RuntimeIntegrationTests" fullname="WorldGenesis.Tests.RuntimeIntegrationTests" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:57Z" duration="2.025372" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" methodname="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="1646615536" result="Passed" start-time="2026-10-12 00:02:55Z" end-time="2026-10-12 00:02:56Z" duration="0.928326" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="HudButtonsSelectProductionToolsAndCapturePointerHits" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.HudButtonsSelectProductionToolsAndCapturePointerHits" methodname="HudButtonsSelectProductionToolsAndCapturePointerHits" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="715508360" result="Passed" start-time="2026-10-12 00:02:56Z" end-time="2026-10-12 00:02:56Z" duration="0.427719" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+]]></output>
+            </test-case>
+            <test-case id="1005" name="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" methodname="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="970288919" result="Passed" start-time="2026-10-12 00:02:56Z" end-time="2026-10-12 00:02:57Z" duration="0.649232" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[World Genesis ready. Seed=1618033; size=128x128; save path=C:/Users/ohrem_6c67u02/AppData/LocalLow/World Genesis Project/World Genesis\Saves\world.json
+Saving results to: C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Evidence\20261012-030244-194-playmode\tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

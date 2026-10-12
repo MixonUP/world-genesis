@@ -1,0 +1,81 @@
+﻿{
+    "utc":  "2026-10-12T00:08:09.5372633Z",
+    "playerExitCode":  0,
+    "image":  "20261012-030757-settlement.png",
+    "playerSHA256":  "E6FE27700B3C3C2C4B2D8021B384E698A22925DDFCC62A814274B5F49932704E",
+    "imageSHA256":  "BA6876A63FF5EDBFB4A100CE2A258FB103B504489481D5167BF386509124BA03",
+    "scope":  "Native Unity Windows Player. Visual content still requires image inspection.",
+    "automatedCamera":  true,
+    "automatedPower":  "",
+    "stressPopulation":  0,
+    "sources":  [
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Editor/ProjectSetup.cs",
+                        "sha256":  "097DFE71D0190AE6929251CF1273E56DB4C05A5D687EDE1882475B90529D1A26"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs",
+                        "sha256":  "7465E92CF9FB7E23CB8F8EDDC11E16DD3E40AD9C3BACD5418F42CFBDFF1CB9FA"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/CaptureScenario.cs",
+                        "sha256":  "E469AC31C7AA3389D96F76C03B39295EB1B4CDD635149EFF5ADD11BC8C4B7BBB"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+                        "sha256":  "0D4A023074979D16AD943FA85FE3DA5E2BB94E6956DAECAE4560A2CEE4B3E310"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs",
+                        "sha256":  "FFCB01A4FFE7F100A5135C09CE9F7299A151FA3A593E4DD9CA7C94E9FD297E50"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs",
+                        "sha256":  "CA2CDD7FFE866995DA9AADD6B7648AEE5CDC67EFF51ECEC42021C92804BE64B0"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs",
+                        "sha256":  "57608476A4991E9B2960EECFC8BAF5F380715D25C43DC57CE70E81D805B5367B"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+                        "sha256":  "0A8332CD12E8B2B35AFDBAE1100DE73172A3B67B96737470D1775807A42A0184"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs",
+                        "sha256":  "7468C6A89E0D455073EEB22DBF29604B5BBD5F18B243D72DD272F144DF7C348E"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+                        "sha256":  "E245B5E42B0A424D24510C44330E8D5D5FD86E8D4D6F67A49C959EB55EF88FAD"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+                        "sha256":  "0F508D1BCDA5C3D7F0685F57566B02B15FFF939EA982697249560CD3D026664C"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+                        "sha256":  "16C4B1C019191890C61DEA04F0730176C0661E2A1C49D5FDEE6F479916F23DEE"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+                        "sha256":  "750D5C8CACAE1F843E9DD5C5E66B4CDE1C6474F9C4A4C9CFE4971A2BDA21CA8A"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+                        "sha256":  "7F78BB4C292E0F804B5F99300DA874B687F996B61F4587CF77EDF91B82AE7999"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Tests/EditMode/SaveStoreTests.cs",
+                        "sha256":  "EF448BF82D028BB3F2519EB302CF54A30C0537C543ED6C484BF0DDF33064DA5D"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+                        "sha256":  "EA8BF231EF88A1326D5AEFEF61A481095056B447BCCF2F6AFBA8F2D5F79023A8"
+                    },
+                    {
+                        "file":  "WorldGenesis/Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs",
+                        "sha256":  "078C36D575AC8A53B3BFE6C51FB91596FD3536C573FFA942D45E1708D0FAE614"
+                    }
+                ]
+}

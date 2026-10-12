@@ -1,0 +1,7 @@
+{
+  "name": "WorldGenesis.Editor",
+  "rootNamespace": "WorldGenesis.Editor",
+  "references": ["WorldGenesis.Simulation", "WorldGenesis.Runtime"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true
+}

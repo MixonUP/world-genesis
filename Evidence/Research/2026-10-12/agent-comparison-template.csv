@@ -1,0 +1,9 @@
+scenario_id,scenario,codex_status,claude_5_5_status,codex_evidence,claude_evidence,model_and_environment,budget_and_help,notes
+B01,map_and_brush,not-run,not-run,,,,,template_only
+B02,hydrology_and_resources,not-run,not-run,,,,,template_only
+B03,settlement,not-run,not-run,,,,,template_only
+B04,powers,not-run,not-run,,,,,template_only
+B05,save_load,not-run,not-run,,,,,template_only
+B06,visual_and_input,not-run,not-run,,,,,template_only
+B07,performance,not-run,not-run,,,,,template_only
+B08,context_recovery,not-run,not-run,,,,,template_only

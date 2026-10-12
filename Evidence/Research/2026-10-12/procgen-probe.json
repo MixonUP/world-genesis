@@ -1,0 +1,415 @@
+{
+  "timestamp": "2026-10-12T02:15:10.224938+03:00",
+  "scope": "Independent CPU research probes of selected formulas; no Unity/game verification",
+  "python": "3.12.7",
+  "lab_seed": 1206560,
+  "script_sha256": "670136656ae6e4ae980f0e5e6394698f1d051fe6bfab9edd63b7e7c86120c5bf",
+  "passed": true,
+  "check_count": 38,
+  "checks": [
+    {
+      "id": "F02-bounded-weighted-sum",
+      "passed": true,
+      "detail": {
+        "samples": 5000,
+        "min": -0.8671038122671291,
+        "max": 0.9264050247948408,
+        "noise_library_tested": false
+      }
+    },
+    {
+      "id": "F02-extreme-constant-inputs",
+      "passed": true,
+      "detail": "Known extrema: every octave +1 or every octave -1"
+    },
+    {
+      "id": "F04-smooth-endpoints-monotonic",
+      "passed": true,
+      "detail": {
+        "sample_count": 1001
+      }
+    },
+    {
+      "id": "F04-smooth-endpoint-derivatives",
+      "passed": true,
+      "detail": "Analytic first and second derivatives at 0 and 1"
+    },
+    {
+      "id": "F04-island-boundaries-below-sea",
+      "passed": true,
+      "detail": {
+        "boundary_cells": 400,
+        "sizes": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            128,
+            64
+          ]
+        ]
+      }
+    },
+    {
+      "id": "F07-annulus-area-moment",
+      "passed": true,
+      "detail": {
+        "samples": 50000,
+        "mean_squared_radius": 22.553972211886812,
+        "expected": 22.5,
+        "six_sigma_tolerance": 0.2091411006952005,
+        "accepted_poisson_points_tested": false
+      }
+    },
+    {
+      "id": "F07-reject-linear-radius-control",
+      "passed": true,
+      "detail": {
+        "biased_control_mean": 21.054843006736608,
+        "expected_area_uniform": 22.5
+      }
+    },
+    {
+      "id": "F05-flat",
+      "passed": true,
+      "detail": {
+        "cells": 25,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 49,
+        "boundary_output": 49
+      }
+    },
+    {
+      "id": "F05-bowl",
+      "passed": true,
+      "detail": {
+        "cells": 25,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 49,
+        "boundary_output": 49
+      }
+    },
+    {
+      "id": "F05-single-cell",
+      "passed": true,
+      "detail": {
+        "cells": 1,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 1,
+        "boundary_output": 1
+      }
+    },
+    {
+      "id": "F05-thin-grid",
+      "passed": true,
+      "detail": {
+        "cells": 4,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 7,
+        "boundary_output": 7
+      }
+    },
+    {
+      "id": "F05-single-spill",
+      "passed": true,
+      "detail": {
+        "cells": 25,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 49,
+        "boundary_output": 49
+      }
+    },
+    {
+      "id": "F05-random-0",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-1",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-2",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-3",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-4",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-5",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-6",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-7",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-8",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-9",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-10",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-11",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-12",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-13",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-14",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-15",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-16",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-17",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-18",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-19",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-20",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-21",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-22",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F05-random-23",
+      "passed": true,
+      "detail": {
+        "cells": 42,
+        "matches_threshold_bfs_oracle": true,
+        "acyclic_boundary_drainage": true,
+        "rain_input": 84,
+        "boundary_output": 84
+      }
+    },
+    {
+      "id": "F11-logistic-composition",
+      "passed": true,
+      "detail": "Constant capacity/rate; includes zero, equilibrium and value above capacity"
+    },
+    {
+      "id": "F12-constant-hazard-composition",
+      "passed": true,
+      "detail": {
+        "cases": 12,
+        "max_survival_error": 1.1102230246251565e-16,
+        "random_trajectory_equivalence_claimed": false
+      }
+    }
+  ],
+  "unity_import": "not-run",
+  "visual_quality": "not-reviewed",
+  "noise_library": "not-installed",
+  "performance_benchmark": false
+}

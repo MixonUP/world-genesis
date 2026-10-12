@@ -10,20 +10,26 @@
 
 Doctor читает версии/пути. Validate проверяет структуру, Markdown-ссылки, JSON, assembly references и фиксированную версию; пишет `Evidence/project-setup-report.json`. Это проверка организации, не компиляция и не тест игры.
 
-Следующий этап, после чтения известного сбоя в STATE:
+Импорт, подготовка сцены, тесты и сборка:
 
 ```powershell
 .\Tools\Project.ps1 -Action Import
+.\Tools\Project.ps1 -Action Prepare
 .\Tools\Project.ps1 -Action Open
 .\Tools\Project.ps1 -Action EditMode
 .\Tools\Project.ps1 -Action PlayMode
+.\Tools\Project.ps1 -Action Build
 ```
 
-Import запускает выбранный Unity в batchmode, сохраняет журнал и проверяет exit code/ошибки. Open — намеренно открывает проект в видимом редакторе. Не запускать batch-процесс для проекта, уже открытого в другом Unity. Tests сохраняют NUnit XML; отсутствие тестов/результата или любой отказ считается ошибкой. Сейчас тестов нет, поэтому их успех не ожидается. `-DryRun` для этих действий только показывает команду, без запуска.
+Import запускает выбранный Unity в batchmode, сохраняет журнал и проверяет exit code/ошибки. Prepare вызывает Editor.ProjectSetup.Prepare; Open намеренно открывает видимый редактор. Не запускать batch-процесс для проекта, открытого в другом Unity. После аварийного выхода старый lock удаляется только при отсутствии процессов Unity и успешном эксклюзивном открытии файла. Tests сохраняют NUnit XML; отсутствие тестов/результата или отказ считается ошибкой. `-DryRun` показывает команду без запуска.
 
-Логи команд — `Evidence/<время>-<действие>/`. Нельзя судить о корректности игры по exit 0 при импорте. Пакеты указаны по версиям, обнаруженным в установленном редакторе; разрешение зависимостей Unity ещё не проверено. Автоматического обновления, установки, покупки, изменения execution policy или удаления Library скрипт не выполняет.
+Логи команд — `Evidence/<время>-<действие>/`. Нельзя судить о корректности игры по exit 0 при импорте. Версии пакетов закреплены, Unity создал packages-lock.json. Сырые логи остаются локально. Автоматического обновления редактора, покупок и удаления Library скрипт не выполняет.
 
-Сборка Windows будет добавлена с настоящей Bootstrap-сценой на M1: Editor build method, явный список сцен, `StandaloneWindows64`, `BuildReport`, проверка обычного запуска. Подготовленная сейчас команда build без существующей игры создавала бы ложное ожидание, поэтому её пока нет.
+Build вызывает Editor.ProjectSetup.BuildWindows, использует Main.unity и StandaloneWindows64, пишет Evidence/build-report.json. Результат — Builds/Windows/WorldGenesis.exe вместе с соседними файлами; запуск проверяется отдельно.
+
+`dotnet run --project Tools/SimulationProbe/SimulationProbe.csproj -c Release -- Evidence/Simulation/simulation-probe.json` проверяет настоящий Simulation под .NET 8. Это дополнительная независимая проверка, не замена Unity. NuGet.Config не содержит внешних источников; сторонних .NET-пакетов нет.
+
+`Tools/Run-Capture.ps1 -Name overview -Seconds 8` открывает настоящий Player для native capture и записывает хеши исходников. Скрытый Windows Player может дать чёрный кадр, поэтому проверка намеренно видимая. `-FocusSettlement -Zoom 18` меняет только камеру; `-Power Meteor` применяет настоящую игровую команду с отдельной квитанцией автоматического сценария. Пример профиля: `-Name load-1000 -Seconds 40 -ProfileSeconds 30 -StressPopulation 1000`. Измеряется реальный Player, но не все конфигурации A11.
 
 `Sync-ProjectKnowledge.ps1` — исполненная одноразовая идемпотентная синхронизация записи подготовки от 12.10.2026. Дополняет только карточку World_Genesis, дневник этой даты и индекс установленного vault. Это не фоновая синхронизация и не команда записи всех будущих этапов. Квитанция readback — `Evidence/obsidian-sync.json`; повтор не дублирует запись.
 
@@ -34,3 +40,9 @@ Import запускает выбранный Unity в batchmode, сохраня�
 `Sync-ResearchKnowledge.ps1` — отдельный датированный пакет исследования: новая source-card и дополнения к существующим Obsidian project/journal/index с readback; требует разрешения записи в установленный vault. Не заменяет историю, не включает фоновую синхронизацию. Локальные подготовленные записи — Docs/ObsidianPending/2026-10-12-procgen-*.md.
 
 Параметр `-Bundle AgentQuality` синхронизирует отдельное уточнение об инструкциях качества Anthropic/OpenAI; по умолчанию `-Bundle Procgen`. Каждый пакет имеет собственную квитанцию и проверку от дублирования.
+
+## Первая Windows-альфа
+
+`powershell -File Tools/Run-Capture.ps1 -Name overview` запускает видимый Player, ждёт настоящий PNG и сохраняет SHA256 исходников. `-FocusSettlement -Power Meteor` явно включает автоматическую камеру и production-команду, что отмечается в квитанциях. `-Width 1280 -Height 720` меняет разрешение. Нагрузочный пример: `-Name load-1000 -Seconds 40 -ProfileSeconds 30 -StressPopulation 1000`; три секунды прогрева исключены из кадровой выборки.
+
+После сборки и проверки: `powershell -File Tools/Package-Alpha.ps1`. Полный ZIP получает руководство и отчёт; каждое ZIP-содержимое читается обратно и сравнивается по SHA256. Скрипт не перезаписывает уже существующий архив той же версии. Архивы лежат в ignored `Builds`, исходники и компактные evidence отправляются обычным Git. Сводка — Docs/Development/ALPHA_REPORT.md.

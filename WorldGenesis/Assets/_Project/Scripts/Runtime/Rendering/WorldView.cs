@@ -1,0 +1,282 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using WorldGenesis.Simulation;
+
+namespace WorldGenesis.Runtime
+{
+    public sealed class WorldView : IDisposable
+    {
+        private const int ChunkSize = 32;
+        private const int PixelsPerCell = 8;
+        private const int MaxChunkRebuildsPerFrame = 2;
+        private static readonly Color ShoreColor = PixelArt.Hex("80b7ad");
+        private static readonly Color RiverColor = PixelArt.Hex("5a9d9c");
+        private static readonly Color ScorchedColor = PixelArt.Hex("7e553c");
+        private sealed class Chunk
+        {
+            public int X, Y, Width, Height;
+            public uint Hash;
+            public bool Queued;
+            public Texture2D Texture;
+            public Color32[] Pixels;
+            public Material Material;
+            public QuadBatch Ground, Nature;
+        }
+        private readonly Transform root;
+        private readonly Texture2D atlas;
+        private readonly Material spriteMaterial;
+        private readonly QuadBatch buildings, people, borders, cursor;
+        private Chunk[] chunks;
+        private Queue<Chunk> dirtyChunks;
+        private Color32[] minimapPixels;
+        private int revision = -1;
+        private int lastBuildingCount = -1;
+        private float nextRefresh;
+        private WorldState world;
+        public Texture2D Minimap { get; private set; }
+        public bool ShowBorders = true;
+        public int SelectedUnitId;
+        public Material SpriteMaterial => spriteMaterial;
+
+        public WorldView(Transform parent)
+        {
+            root = new GameObject("World • batched pixel rendering").transform; root.SetParent(parent, false);
+            atlas = PixelArt.CreateAtlas(); spriteMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas, name = "Shared pixel atlas" };
+            buildings = new QuadBatch("Buildings", root, spriteMaterial, 3);
+            people = new QuadBatch("Life", root, spriteMaterial, 4);
+            borders = new QuadBatch("Territories", root, spriteMaterial, 1);
+            cursor = new QuadBatch("Brush", root, spriteMaterial, 8);
+        }
+
+        public void SetWorld(WorldState value)
+        {
+            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
+            if (Minimap != null) UnityEngine.Object.Destroy(Minimap);
+            world = value; revision = -1; nextRefresh = 0; lastBuildingCount = -1;
+            int across = (world.Width + ChunkSize - 1) / ChunkSize, down = (world.Height + ChunkSize - 1) / ChunkSize;
+            chunks = new Chunk[across * down];
+            // Replacing a world drops only the old world's work, never carries chunks across worlds.
+            dirtyChunks = new Queue<Chunk>(chunks.Length);
+            for (int cy = 0; cy < down; cy++) for (int cx = 0; cx < across; cx++)
+            {
+                Chunk chunk = new Chunk { X = cx * ChunkSize, Y = cy * ChunkSize, Width = Math.Min(ChunkSize, world.Width - cx * ChunkSize), Height = Math.Min(ChunkSize, world.Height - cy * ChunkSize) };
+                chunk.Texture = new Texture2D(chunk.Width * PixelsPerCell, chunk.Height * PixelsPerCell, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp, name = "Terrain chunk" };
+                chunk.Pixels = new Color32[chunk.Width * chunk.Height * PixelsPerCell * PixelsPerCell];
+                chunk.Material = new Material(Shader.Find("Sprites/Default")) { mainTexture = chunk.Texture };
+                chunk.Ground = new QuadBatch("Ground " + cx + "," + cy, root, chunk.Material, 0);
+                chunk.Ground.Add(chunk.X, chunk.Y, chunk.Width, chunk.Height, new Rect(0, 0, 1, 1), Color.white); chunk.Ground.Submit();
+                chunk.Nature = new QuadBatch("Nature " + cx + "," + cy, root, spriteMaterial, 2);
+                chunks[cy * across + cx] = chunk; Rebuild(chunk); chunk.Hash = ChunkHash(chunk);
+            }
+            Minimap = new Texture2D(world.Width, world.Height, TextureFormat.RGB24, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
+            minimapPixels = new Color32[world.Cells.Length];
+            // Initial presentation is complete immediately; later edits use the bounded queue.
+            revision = world.TerrainRevision; lastBuildingCount = world.Buildings.Count;
+            RefreshMinimap(); RefreshTerritories(); Update(0);
+        }
+
+        public void Update(float now)
+        {
+            if (world == null) return;
+            if (revision != world.TerrainRevision && now >= nextRefresh)
+            {
+                bool buildingsChanged = lastBuildingCount != world.Buildings.Count;
+                foreach (Chunk chunk in chunks)
+                {
+                    if (!chunk.Queued && (ChunkHash(chunk) != chunk.Hash || buildingsChanged))
+                    {
+                        chunk.Queued = true; dirtyChunks.Enqueue(chunk);
+                    }
+                }
+                // This is the scanned revision, not a claim that all queued textures are rendered.
+                revision = world.TerrainRevision; lastBuildingCount = world.Buildings.Count; nextRefresh = now + .28f; RefreshMinimap(); RefreshTerritories();
+            }
+            for (int rebuilt = 0; rebuilt < MaxChunkRebuildsPerFrame && dirtyChunks.Count > 0; rebuilt++)
+            {
+                Chunk chunk = dirtyChunks.Dequeue(); chunk.Queued = false;
+                // Read the newest state when dequeued. A later scan compares against this actual
+                // rendered hash, so changes made while a chunk was waiting cannot be lost.
+                uint renderedHash = ChunkHash(chunk); Rebuild(chunk); chunk.Hash = renderedHash;
+            }
+            buildings.Clear();
+            for (int i = 0; i < world.Buildings.Count; i++)
+            {
+                BuildingData b = world.Buildings[i]; if (b.Health <= 0) continue;
+                int sprite = b.Type == BuildingType.Hall ? 2 : b.Type == BuildingType.House ? 3 : b.Type == BuildingType.Farm ? 4 : 5;
+                buildings.Sprite(b.X + .5f, b.Y - .15f, 2.3f, 2.3f, sprite, Color.white);
+                SettlementData settlement = world.GetSettlement(b.SettlementId);
+                if (settlement != null && b.Type == BuildingType.Hall) { Color flag = PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length]; buildings.Sprite(b.X + 1.25f, b.Y + 1.8f, .65f, .35f, 12, flag); }
+            }
+            buildings.Submit(); people.Clear();
+            for (int i = 0; i < world.Units.Count; i++)
+            {
+                UnitData unit = world.Units[i]; if (unit.Health <= 0) continue;
+                Color tint = Color.white;
+                SettlementData settlement = world.GetSettlement(unit.SettlementId);
+                if (settlement != null) tint = Color.Lerp(Color.white, PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length], .37f);
+                if (unit.Infected) tint = Color.Lerp(tint, new Color(.65f, .9f, .25f), .55f);
+                float bob = unit.Task == UnitTask.Idle ? 0 : Mathf.Sin(now * 10 + unit.Id) * .06f;
+                people.Sprite(unit.X, unit.Y - .15f + bob, 1.2f, 1.2f, 6 + (int)unit.Species, tint);
+                if (unit.Blessed) people.Sprite(unit.X, unit.Y + .73f + bob, .2f, .08f, 12, PixelArt.Gold);
+                if (unit.Id == SelectedUnitId)
+                {
+                    people.Sprite(unit.X, unit.Y + 1.08f, .85f, .1f, 12, PixelArt.Ink);
+                    people.Sprite(unit.X - .425f + .425f * Mathf.Clamp01(unit.Health / unit.MaxHealth), unit.Y + 1.08f, .85f * Mathf.Clamp01(unit.Health / unit.MaxHealth), .1f, 12, PixelArt.Teal);
+                }
+            }
+            people.Submit();
+        }
+
+        private uint ChunkHash(Chunk chunk)
+        {
+            uint hash = 2166136261;
+            for (int y = chunk.Y; y < chunk.Y + chunk.Height; y++) for (int x = chunk.X; x < chunk.X + chunk.Width; x++)
+            {
+                TileData cell = world.Cells[world.Index(x, y)];
+                unchecked { hash = (hash ^ (uint)((int)cell.Terrain * 1009 + (int)(cell.Vegetation * 12) * 31 + cell.SettlementId * 13 + cell.BuildingId * 17 + cell.DrainageParent * 23 + (cell.Fire > 0 ? 1 : 0) + (cell.River ? 7 : 0))) * 16777619; }
+            }
+            // Shore and river joins depend on the one-cell halo across chunk boundaries.
+            for (int y = chunk.Y - 1; y <= chunk.Y + chunk.Height; y++) for (int x = chunk.X - 1; x <= chunk.X + chunk.Width; x++)
+            {
+                if (!world.InBounds(x, y) || (x >= chunk.X && x < chunk.X + chunk.Width && y >= chunk.Y && y < chunk.Y + chunk.Height)) continue;
+                TileData adjacent = world.Cells[world.Index(x, y)];
+                unchecked { hash = (hash ^ (uint)((int)adjacent.Terrain * 1009 + adjacent.DrainageParent * 23 + (adjacent.River ? 7 : 0))) * 16777619; }
+            }
+            return hash;
+        }
+
+        public void SetBrush(int x, int y, int radius, bool visible, Color color, int unitRadius = -1, bool showTerrain = true)
+        {
+            cursor.Clear();
+            if (visible && world != null)
+            {
+                if (showTerrain) for (int yy = -radius; yy <= radius; yy++) for (int xx = -radius; xx <= radius; xx++)
+                {
+                    int d = xx * xx + yy * yy; if (d > radius * radius || !world.InBounds(x + xx, y + yy)) continue;
+                    bool edge = (xx - 1) * (xx - 1) + yy * yy > radius * radius || (xx + 1) * (xx + 1) + yy * yy > radius * radius || xx * xx + (yy - 1) * (yy - 1) > radius * radius || xx * xx + (yy + 1) * (yy + 1) > radius * radius;
+                    Color fill = color; fill.a = edge ? .55f : .12f; cursor.Sprite(x + xx + .5f, y + yy, 1, 1, 12, fill);
+                }
+                if (unitRadius >= 0)
+                {
+                    Color unitColor = Color.Lerp(color, Color.white, .65f);
+                    for (int yy = -unitRadius; yy <= unitRadius; yy++) for (int xx = -unitRadius; xx <= unitRadius; xx++)
+                    {
+                        if (xx * xx + yy * yy > unitRadius * unitRadius || !world.InBounds(x + xx, y + yy)) continue;
+                        bool edge = (xx - 1) * (xx - 1) + yy * yy > unitRadius * unitRadius || (xx + 1) * (xx + 1) + yy * yy > unitRadius * unitRadius || xx * xx + (yy - 1) * (yy - 1) > unitRadius * unitRadius || xx * xx + (yy + 1) * (yy + 1) > unitRadius * unitRadius;
+                        if (edge) { unitColor.a = .8f; cursor.Sprite(x + xx + .5f, y + yy + .35f, .3f, .3f, 12, unitColor); }
+                        else if (!showTerrain) { unitColor.a = .1f; cursor.Sprite(x + xx + .5f, y + yy, 1, 1, 12, unitColor); }
+                    }
+                }
+            }
+            cursor.Submit();
+        }
+
+        public void RefreshTerritories()
+        {
+            borders.Clear(); if (world == null || !ShowBorders) { borders.Submit(); return; }
+            for (int y = 0; y < world.Height; y++) for (int x = 0; x < world.Width; x++)
+            {
+                int owner = world.Cells[world.Index(x, y)].SettlementId; if (owner == 0) continue;
+                SettlementData settlement = world.GetSettlement(owner); if (settlement == null) continue;
+                Color color = PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length]; color.a = .64f;
+                Rect uv = PixelArt.Uv(12);
+                if (x == 0 || world.Cells[world.Index(x - 1, y)].SettlementId != owner) borders.Add(x, y, .10f, 1, uv, color);
+                if (y == 0 || world.Cells[world.Index(x, y - 1)].SettlementId != owner) borders.Add(x, y, 1, .10f, uv, color);
+                if (x == world.Width - 1 || world.Cells[world.Index(x + 1, y)].SettlementId != owner) borders.Add(x + .9f, y, .1f, 1, uv, color);
+                if (y == world.Height - 1 || world.Cells[world.Index(x, y + 1)].SettlementId != owner) borders.Add(x, y + .9f, 1, .1f, uv, color);
+            }
+            borders.Submit();
+        }
+
+        private void RefreshMinimap()
+        {
+            for (int i = 0; i < minimapPixels.Length; i++) minimapPixels[i] = PixelArt.Terrain(world.Cells[i].Terrain);
+            Minimap.SetPixels32(minimapPixels); Minimap.Apply(false, false);
+        }
+
+        private void Rebuild(Chunk chunk)
+        {
+            int textureWidth = chunk.Width * PixelsPerCell;
+            Color32[] pixels = chunk.Pixels; chunk.Nature.Clear();
+            for (int localY = chunk.Height - 1; localY >= 0; localY--) for (int localX = 0; localX < chunk.Width; localX++)
+            {
+                int x = chunk.X + localX, y = chunk.Y + localY;
+                TileData cell = world.Cells[world.Index(x, y)]; uint hash = PixelArt.Hash(x, y, world.Seed);
+                Color baseColor = PixelArt.Terrain(cell.Terrain);
+                bool water = cell.Terrain == TerrainType.DeepWater || cell.Terrain == TerrainType.ShallowWater;
+                int riverConnections = cell.River ? RiverConnections(x, y, cell) : 0;
+                float light = .96f + (hash % 13) / 160f;
+                for (int py = 0; py < PixelsPerCell; py++) for (int px = 0; px < PixelsPerCell; px++)
+                {
+                    float variation = 1;
+                    uint grain = PixelArt.Hash(x * PixelsPerCell + px, y * PixelsPerCell + py, world.Seed);
+                    if (grain % 31 == 0) variation = 1.1f; else if (grain % 29 == 0) variation = .92f;
+                    if (water && py == (int)(hash % 5 + 1) && px > 1 && px < 6 && hash % 6 == 0) variation = 1.16f;
+                    if (cell.Terrain == TerrainType.Mountain && grain % 17 == 0) variation *= .86f;
+                    Color color = baseColor * light * variation; color.a = 1;
+                    if (water && cell.Terrain == TerrainType.ShallowWater && ((py == 7 && IsLand(x, y + 1)) || (px == 0 && IsLand(x - 1, y)))) color = ShoreColor;
+                    if (!water && ((py == 0 && IsWater(x, y - 1)) || (px == 7 && IsWater(x + 1, y)))) color *= .82f;
+                    if (cell.River && RiverPixel(px, py, riverConnections)) color = RiverColor;
+                    if (cell.Fire > 0) color = Color.Lerp(color, ScorchedColor, .35f);
+                    pixels[(localY * PixelsPerCell + py) * textureWidth + localX * PixelsPerCell + px] = color;
+                }
+                if (cell.Terrain == TerrainType.Mountain)
+                {
+                    if (hash % 11 == 0) { float size = 2.5f + (hash % 7) * .16f; chunk.Nature.Sprite(x + .5f, y - .2f, size, size, 13, Color.white); }
+                    else if (hash % 9 == 0) chunk.Nature.Sprite(x + .5f, y - .1f, 1.1f, 1.1f, 14, Color.white);
+                }
+                float cluster = ForestCluster(x, y);
+                float density = cell.Terrain == TerrainType.Forest ? Mathf.Lerp(12, 48, cluster) : 7;
+                if (cell.SettlementId != 0) density *= .65f;
+                if (cell.BuildingId == 0 && !water && cell.Vegetation > .35f && hash % 100 < density && !NearBuilding(x, y))
+                {
+                    float offset = ((hash >> 10) % 100) / 200f - .25f;
+                    bool fir = cell.Temperature < .42f || hash % 5 == 0;
+                    float size = 1.40f + (hash % 5) * .13f;
+                    chunk.Nature.Sprite(x + .5f + offset, y - .10f, size, size, fir ? 1 : 0, cell.Terrain == TerrainType.Snow ? new Color(.85f, .97f, .92f) : Color.white);
+                }
+            }
+            chunk.Texture.SetPixels32(pixels); chunk.Texture.Apply(false, false); chunk.Nature.Submit();
+        }
+        private bool IsLand(int x, int y) { return world.InBounds(x, y) && !IsWater(x, y); }
+        private bool IsWater(int x, int y) { return world.InBounds(x, y) && (world.Cells[world.Index(x, y)].Terrain == TerrainType.DeepWater || world.Cells[world.Index(x, y)].Terrain == TerrainType.ShallowWater); }
+        private int RiverConnections(int x, int y, TileData tile)
+        {
+            int index = world.Index(x, y), mask = 0;
+            if (RiverConnects(index, tile.DrainageParent, x - 1, y)) mask |= 1;
+            if (RiverConnects(index, tile.DrainageParent, x + 1, y)) mask |= 2;
+            if (RiverConnects(index, tile.DrainageParent, x, y - 1)) mask |= 4;
+            if (RiverConnects(index, tile.DrainageParent, x, y + 1)) mask |= 8;
+            return mask;
+        }
+        private bool RiverConnects(int index, int parent, int x, int y)
+        {
+            if (!world.InBounds(x, y)) return false;
+            int neighborIndex = world.Index(x, y); TileData neighbor = world.Cells[neighborIndex];
+            return (parent == neighborIndex && (neighbor.River || IsWater(x, y))) || (neighbor.River && neighbor.DrainageParent == index);
+        }
+        private static bool RiverPixel(int x, int y, int connections)
+        {
+            bool centerX = x == 3 || x == 4, centerY = y == 3 || y == 4;
+            return (centerX && centerY) || (centerY && (((connections & 1) != 0 && x <= 4) || ((connections & 2) != 0 && x >= 3))) || (centerX && (((connections & 4) != 0 && y <= 4) || ((connections & 8) != 0 && y >= 3)));
+        }
+        private bool NearBuilding(int x, int y)
+        {
+            foreach (BuildingData building in world.Buildings) { int dx = x - building.X, dy = y - building.Y; if (dx * dx + dy * dy < 8) return true; }
+            return false;
+        }
+        private float ForestCluster(int x, int y)
+        {
+            int gx = x / 7, gy = y / 7; float tx = Mathf.SmoothStep(0, 1, (x % 7) / 7f), ty = Mathf.SmoothStep(0, 1, (y % 7) / 7f);
+            float a = (PixelArt.Hash(gx, gy, world.Seed) % 1000) / 1000f, b = (PixelArt.Hash(gx + 1, gy, world.Seed) % 1000) / 1000f;
+            float c = (PixelArt.Hash(gx, gy + 1, world.Seed) % 1000) / 1000f, d = (PixelArt.Hash(gx + 1, gy + 1, world.Seed) % 1000) / 1000f;
+            return Mathf.Lerp(Mathf.Lerp(a, b, tx), Mathf.Lerp(c, d, tx), ty);
+        }
+        public void Dispose()
+        {
+            if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
+            buildings.Dispose(); people.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);
+        }
+    }
+}

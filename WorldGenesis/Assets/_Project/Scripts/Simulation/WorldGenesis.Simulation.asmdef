@@ -1,0 +1,7 @@
+{
+  "name": "WorldGenesis.Simulation",
+  "rootNamespace": "WorldGenesis.Simulation",
+  "references": [],
+  "autoReferenced": true,
+  "noEngineReferences": true
+}

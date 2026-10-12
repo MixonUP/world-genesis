@@ -1,0 +1,14 @@
+{
+  "observedDate": "2026-10-12",
+  "timezone": "Europe/Moscow",
+  "unityVersionsOnDisk": ["2022.3.27f1", "6000.0.45f1"],
+  "selectedUnityVersion": "6000.0.45f1",
+  "windowsModuleExists": true,
+  "requestedOperation": "Unity -batchmode -nographics -quit -createProject <workspace>/WorldGenesis -logFile <workspace>/Evidence/project-create.log",
+  "observedExitCode": -2147483645,
+  "observedExitHex": "0x80000003",
+  "requestedLogCreated": false,
+  "projectCreatedByEditor": false,
+  "cause": "unknown",
+  "followup": "File scaffold prepared. Diagnose editor startup before claiming project import or compilation."
+}

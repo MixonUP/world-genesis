@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="18" result="Passed" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:52Z" duration="6,229404">
+  <test-suite type="TestSuite" id="1000" name="World Genesis" fullname="World Genesis" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:52Z" duration="6.229404" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1024" name="WorldGenesis.EditModeTests.dll" fullname="C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/WorldGenesis/Library/ScriptAssemblies/WorldGenesis.EditModeTests.dll" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:52Z" duration="6.223985" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="52176" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1025" name="WorldGenesis" fullname="WorldGenesis" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:52Z" duration="6.223819" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1026" name="Tests" fullname="WorldGenesis.Tests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:52Z" duration="6.223736" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1002" name="SaveStoreTests" fullname="WorldGenesis.Tests.SaveStoreTests" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:46Z" duration="1.167135" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" fullname="WorldGenesis.Tests.SaveStoreTests.DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" methodname="DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="235338215" result="Passed" start-time="2026-10-11 23:51:45Z" end-time="2026-10-11 23:51:46Z" duration="0.886651" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1008" name="MalformedOrUnsupportedFilesReturnNoCandidate" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.185525" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1005" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{unclosed&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{unclosed&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="2084340697" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.146086" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{}&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{}&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="459073358" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.001101" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{\&quot;Schema\&quot;:999,\&quot;Format\&quot;:\&quot;WorldGenesis\&quot;}&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{\&quot;Schema\&quot;:999,\&quot;Format\&quot;:\&quot;WorldGenesis\&quot;}&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="1360783053" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.004998" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1004" name="SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" fullname="WorldGenesis.Tests.SaveStoreTests.SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" methodname="SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="1326784901" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.086636" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1009" name="SimulationTests" fullname="WorldGenesis.Tests.SimulationTests" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:52Z" duration="5.056111" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1018" name="ASeparatedResidentCannotConsumeFoodAcrossWater" fullname="WorldGenesis.Tests.SimulationTests.ASeparatedResidentCannotConsumeFoodAcrossWater" methodname="ASeparatedResidentCannotConsumeFoodAcrossWater" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="793042822" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.005531" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1017" name="EditingLandInvalidatesAnAlreadyPlannedRoute" fullname="WorldGenesis.Tests.SimulationTests.EditingLandInvalidatesAnAlreadyPlannedRoute" methodname="EditingLandInvalidatesAnAlreadyPlannedRoute" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="194421704" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:46Z" duration="0.008350" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="EquivalentFrameDurationsProduceIdenticalFixedTicks" fullname="WorldGenesis.Tests.SimulationTests.EquivalentFrameDurationsProduceIdenticalFixedTicks" methodname="EquivalentFrameDurationsProduceIdenticalFixedTicks" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1935205085" result="Passed" start-time="2026-10-11 23:51:46Z" end-time="2026-10-11 23:51:47Z" duration="0.022880" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="ExplicitPeaceStopsNewAttacksAndSurvivesSave" fullname="WorldGenesis.Tests.SimulationTests.ExplicitPeaceStopsNewAttacksAndSurvivesSave" methodname="ExplicitPeaceStopsNewAttacksAndSurvivesSave" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="581727009" result="Passed" start-time="2026-10-11 23:51:47Z" end-time="2026-10-11 23:51:47Z" duration="0.014099" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1013" name="GeneratorIsReproducibleAndDrainageConservesMass" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-11 23:51:47Z" end-time="2026-10-11 23:51:51Z" duration="4.869306" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="GeneratorIsReproducibleAndDrainageConservesMass(Island)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Island)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="242638383" result="Passed" start-time="2026-10-11 23:51:47Z" end-time="2026-10-11 23:51:48Z" duration="1.287433" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="GeneratorIsReproducibleAndDrainageConservesMass(Archipelago)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Archipelago)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="366617788" result="Passed" start-time="2026-10-11 23:51:48Z" end-time="2026-10-11 23:51:49Z" duration="1.332786" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="GeneratorIsReproducibleAndDrainageConservesMass(Continent)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Continent)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1915927669" result="Passed" start-time="2026-10-11 23:51:49Z" end-time="2026-10-11 23:51:51Z" duration="2.248474" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1021" name="MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" fullname="WorldGenesis.Tests.SimulationTests.MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" methodname="MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1034785466" result="Passed" start-time="2026-10-11 23:51:51Z" end-time="2026-10-11 23:51:51Z" duration="0.005701" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="PausedStepAndOffWorldBrushAreHarmless" fullname="WorldGenesis.Tests.SimulationTests.PausedStepAndOffWorldBrushAreHarmless" methodname="PausedStepAndOffWorldBrushAreHarmless" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1604569069" result="Passed" start-time="2026-10-11 23:51:51Z" end-time="2026-10-11 23:51:51Z" duration="0.012427" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="RainExtinguishesAndDestructivePowersChangeRealState" fullname="WorldGenesis.Tests.SimulationTests.RainExtinguishesAndDestructivePowersChangeRealState" methodname="RainExtinguishesAndDestructivePowersChangeRealState" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="43306466" result="Passed" start-time="2026-10-11 23:51:51Z" end-time="2026-10-11 23:51:51Z" duration="0.003716" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="SaveLoadContinuationPreservesGameplayAndRandomStream" fullname="WorldGenesis.Tests.SimulationTests.SaveLoadContinuationPreservesGameplayAndRandomStream" methodname="SaveLoadContinuationPreservesGameplayAndRandomStream" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1581907192" result="Passed" start-time="2026-10-11 23:51:51Z" end-time="2026-10-11 23:51:51Z" duration="0.040825" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" fullname="WorldGenesis.Tests.SimulationTests.SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" methodname="SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="522902774" result="Passed" start-time="2026-10-11 23:51:51Z" end-time="2026-10-11 23:51:52Z" duration="0.049241" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="WaterBarrierCannotBeCrossedByWanderingUnits" fullname="WorldGenesis.Tests.SimulationTests.WaterBarrierCannotBeCrossedByWanderingUnits" methodname="WaterBarrierCannotBeCrossedByWanderingUnits" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="234614651" result="Passed" start-time="2026-10-11 23:51:52Z" end-time="2026-10-11 23:51:52Z" duration="0.022466" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Evidence\20261012-025133-772-editmode\tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

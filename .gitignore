@@ -15,6 +15,7 @@ Evidence/*.json
 !Evidence/project-setup-report.json
 !Evidence/environment-observations.json
 !Evidence/obsidian-sync.json
+!Evidence/build-report.json
 WorldGenesis/.idea/
 WorldGenesis/*.slnx
 WorldGenesis/MemoryCaptures/

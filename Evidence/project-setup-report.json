@@ -1,0 +1,901 @@
+﻿{
+    "schemaVersion":  1,
+    "timestamp":  "2026-10-12T03:27:45.4885133+03:00",
+    "scope":  "Project organization and file scaffold only",
+    "passed":  true,
+    "checkCount":  177,
+    "failures":  [
+
+                 ],
+    "checks":  [
+                   {
+                       "id":  "file:AGENTS.md",
+                       "passed":  true,
+                       "detail":  "AGENTS.md"
+                   },
+                   {
+                       "id":  "file:README.md",
+                       "passed":  true,
+                       "detail":  "README.md"
+                   },
+                   {
+                       "id":  "file:.gitignore",
+                       "passed":  true,
+                       "detail":  ".gitignore"
+                   },
+                   {
+                       "id":  "file:.editorconfig",
+                       "passed":  true,
+                       "detail":  ".editorconfig"
+                   },
+                   {
+                       "id":  "file:.gitattributes",
+                       "passed":  true,
+                       "detail":  ".gitattributes"
+                   },
+                   {
+                       "id":  "file:Docs/00_INDEX.md",
+                       "passed":  true,
+                       "detail":  "Docs/00_INDEX.md"
+                   },
+                   {
+                       "id":  "file:Docs/STATE.md",
+                       "passed":  true,
+                       "detail":  "Docs/STATE.md"
+                   },
+                   {
+                       "id":  "file:Docs/MASTER_BRIEF.md",
+                       "passed":  true,
+                       "detail":  "Docs/MASTER_BRIEF.md"
+                   },
+                   {
+                       "id":  "file:Docs/KICKOFF.md",
+                       "passed":  true,
+                       "detail":  "Docs/KICKOFF.md"
+                   },
+                   {
+                       "id":  "file:Docs/REFERENCES.md",
+                       "passed":  true,
+                       "detail":  "Docs/REFERENCES.md"
+                   },
+                   {
+                       "id":  "file:Docs/FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "Docs/FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "file:Docs/ARCHITECTURE.md",
+                       "passed":  true,
+                       "detail":  "Docs/ARCHITECTURE.md"
+                   },
+                   {
+                       "id":  "file:Docs/WORKFLOW.md",
+                       "passed":  true,
+                       "detail":  "Docs/WORKFLOW.md"
+                   },
+                   {
+                       "id":  "file:Docs/ROADMAP.md",
+                       "passed":  true,
+                       "detail":  "Docs/ROADMAP.md"
+                   },
+                   {
+                       "id":  "file:Docs/ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "Docs/ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "file:Docs/ART_AND_AUDIO.md",
+                       "passed":  true,
+                       "detail":  "Docs/ART_AND_AUDIO.md"
+                   },
+                   {
+                       "id":  "file:Docs/DECISIONS.md",
+                       "passed":  true,
+                       "detail":  "Docs/DECISIONS.md"
+                   },
+                   {
+                       "id":  "file:Tools/README.md",
+                       "passed":  true,
+                       "detail":  "Tools/README.md"
+                   },
+                   {
+                       "id":  "file:Tools/toolchain.json",
+                       "passed":  true,
+                       "detail":  "Tools/toolchain.json"
+                   },
+                   {
+                       "id":  "file:Evidence/README.md",
+                       "passed":  true,
+                       "detail":  "Evidence/README.md"
+                   },
+                   {
+                       "id":  "file:SourceAssets/manifest.csv",
+                       "passed":  true,
+                       "detail":  "SourceAssets/manifest.csv"
+                   },
+                   {
+                       "id":  "file:WorldGenesis/ProjectSettings/ProjectVersion.txt",
+                       "passed":  true,
+                       "detail":  "WorldGenesis/ProjectSettings/ProjectVersion.txt"
+                   },
+                   {
+                       "id":  "file:WorldGenesis/Packages/manifest.json",
+                       "passed":  true,
+                       "detail":  "WorldGenesis/Packages/manifest.json"
+                   },
+                   {
+                       "id":  "unity-version",
+                       "passed":  true,
+                       "detail":  "m_EditorVersion: 6000.0.45f1\nm_EditorVersionWithRevision: 6000.0.45f1 (d91bd3d4e081)"
+                   },
+                   {
+                       "id":  "assembly-unique:WorldGenesis.Editor",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef"
+                   },
+                   {
+                       "id":  "assembly-unique:WorldGenesis.Runtime",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef"
+                   },
+                   {
+                       "id":  "assembly-unique:WorldGenesis.Simulation",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\WorldGenesis.Simulation.asmdef"
+                   },
+                   {
+                       "id":  "assembly-unique:WorldGenesis.EditModeTests",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\WorldGenesis.EditModeTests.asmdef"
+                   },
+                   {
+                       "id":  "assembly-unique:WorldGenesis.PlayModeTests",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\PlayMode\\WorldGenesis.PlayModeTests.asmdef"
+                   },
+                   {
+                       "id":  "assembly-count",
+                       "passed":  true,
+                       "detail":  "Found 5, expected 5"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.PlayModeTests-\u003eWorldGenesis.Simulation",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Simulation"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.PlayModeTests-\u003eWorldGenesis.Runtime",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Runtime"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.PlayModeTests-\u003eUnityEngine.UI",
+                       "passed":  true,
+                       "detail":  "UnityEngine.UI"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.Runtime-\u003eWorldGenesis.Simulation",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Simulation"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.Runtime-\u003eUnityEngine.UI",
+                       "passed":  true,
+                       "detail":  "UnityEngine.UI"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.Editor-\u003eWorldGenesis.Simulation",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Simulation"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.Editor-\u003eWorldGenesis.Runtime",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Runtime"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.EditModeTests-\u003eWorldGenesis.Simulation",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Simulation"
+                   },
+                   {
+                       "id":  "reference:WorldGenesis.EditModeTests-\u003eWorldGenesis.Runtime",
+                       "passed":  true,
+                       "detail":  "WorldGenesis.Runtime"
+                   },
+                   {
+                       "id":  "assembly-acyclic",
+                       "passed":  true,
+                       "detail":  "No dependency cycle"
+                   },
+                   {
+                       "id":  "simulation-engine-independent",
+                       "passed":  true,
+                       "detail":  "noEngineReferences"
+                   },
+                   {
+                       "id":  "editor-only",
+                       "passed":  true,
+                       "detail":  "Editor platform"
+                   },
+                   {
+                       "id":  "test-assembly:WorldGenesis.EditModeTests",
+                       "passed":  true,
+                       "detail":  "Test assembly flag"
+                   },
+                   {
+                       "id":  "test-assembly:WorldGenesis.PlayModeTests",
+                       "passed":  true,
+                       "detail":  "Test assembly flag"
+                   },
+                   {
+                       "id":  "package-manifest-json",
+                       "passed":  true,
+                       "detail":  "Parsed"
+                   },
+                   {
+                       "id":  "local-package:com.unity.2d.sprite",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.2d.tilemap",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.test-framework",
+                       "passed":  true,
+                       "detail":  "Requested 1.5.1; local 1.5.1"
+                   },
+                   {
+                       "id":  "local-package:com.unity.ugui",
+                       "passed":  true,
+                       "detail":  "Requested 2.0.0; local 2.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.audio",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.imgui",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.jsonserialize",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.physics2d",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.screencapture",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.ui",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "local-package:com.unity.modules.uielements",
+                       "passed":  true,
+                       "detail":  "Requested 1.0.0; local 1.0.0"
+                   },
+                   {
+                       "id":  "ugui-reference-observed",
+                       "passed":  true,
+                       "detail":  "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.45f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\UGUI\\UnityEngine.UI.asmdef"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Development/PLAY_GUIDE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Development/ALPHA_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/00_INDEX.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\00_INDEX.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:README.md:AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\AGENTS.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Development/AGENT_ROLES.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
+                   },
+                   {
+                       "id":  "link:README.md:Tools/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+                   },
+                   {
+                       "id":  "link:README.md:SourceAssets/manifest.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\SourceAssets\\manifest.csv"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:../AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\AGENTS.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:MASTER_BRIEF.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\MASTER_BRIEF.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:KICKOFF.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Development/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:REFERENCES.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\REFERENCES.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:ARCHITECTURE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ARCHITECTURE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:WORKFLOW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\WORKFLOW.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:ROADMAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ROADMAP.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:ART_AND_AUDIO.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ART_AND_AUDIO.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:DECISIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\DECISIONS.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Development/ALPHA_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Research/AGENT_QUALITY_STANDARD.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\AGENT_QUALITY_STANDARD.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Templates/WORK_PACKET.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Templates\\WORK_PACKET.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:../Tools/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Tools\\README.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:../Tools/toolchain.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Tools\\toolchain.json"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:../Evidence/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\README.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:../SourceAssets/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\SourceAssets\\README.md"
+                   },
+                   {
+                       "id":  "link:ACCEPTANCE.md:Development/ALPHA_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:Development/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:Research/IMPLEMENTATION_ROUTE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:../Tools/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Tools\\README.md"
+                   },
+                   {
+                       "id":  "link:ARCHITECTURE.md:Development/PLAY_GUIDE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:FEATURE_MAP.md:ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:FEATURE_MAP.md:Development/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
+                   },
+                   {
+                       "id":  "link:FEATURE_MAP.md:Development/INTEGRATION_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\INTEGRATION_REVIEW.md"
+                   },
+                   {
+                       "id":  "link:REFERENCES.md:Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
+                   },
+                   {
+                       "id":  "link:REFERENCES.md:Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/production-brief-architect/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/production-brief-architect/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/game-long-run-production/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/game-long-run-production/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/formula-driven-production/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/formula-driven-production/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/game-ui-workflow/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/game-ui-workflow/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/game-vfx-workflow/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/game-vfx-workflow/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/game-audio-workflow/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/game-audio-workflow/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/procedural-audio/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/procedural-audio/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/gameplay-visual-review/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/gameplay-visual-review/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/.system/imagegen/SKILL.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/.codex/skills/.system/imagegen/SKILL.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:ART_AND_AUDIO.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ART_AND_AUDIO.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:Research/AGENT_QUALITY_STANDARD.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\AGENT_QUALITY_STANDARD.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:Templates/WORK_PACKET.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Templates\\WORK_PACKET.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:WORKFLOW.md:Research/TOOLS_AND_AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-implementation-start.md:AGENT_ROLES.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../ARCHITECTURE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ARCHITECTURE.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../Research/IMPLEMENTATION_ROUTE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../ART_AND_AUDIO.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ART_AND_AUDIO.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../../Evidence/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\README.md"
+                   },
+                   {
+                       "id":  "link:AGENT_ROLES.md:../Research/AGENT_QUALITY_STANDARD.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\AGENT_QUALITY_STANDARD.md"
+                   },
+                   {
+                       "id":  "link:ALPHA_REPORT.md:../FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:ALPHA_REPORT.md:../ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:ALPHA_REPORT.md:../STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+                   },
+                   {
+                       "id":  "link:PLAY_GUIDE.md:README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
+                   },
+                   {
+                       "id":  "link:PLAY_GUIDE.md:../STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:README.md:PLAY_GUIDE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:README.md:2026-10-12-implementation-start.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\2026-10-12-implementation-start.md"
+                   },
+                   {
+                       "id":  "link:README.md:AGENT_ROLES.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
+                   },
+                   {
+                       "id":  "link:README.md:INTEGRATION_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\INTEGRATION_REVIEW.md"
+                   },
+                   {
+                       "id":  "link:README.md:../../Tools/GitHub/README.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\GitHub\\README.md"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Simulation/simulation-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\simulation-probe.json"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/20261012-025133-772-editmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-025133-772-editmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:README.md:INTEGRATION_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\INTEGRATION_REVIEW.md"
+                   },
+                   {
+                       "id":  "link:README.md:../STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Simulation/simulation-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\simulation-probe.json"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/20261012-030120-934-editmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-030120-934-editmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/20261012-031040-606-playmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-031040-606-playmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/build-report.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\build-report.json"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Captures/20261012-030757-settlement.png",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-030757-settlement.png"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Captures/20261012-030757-settlement.png.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-030757-settlement.png.json"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Captures/20261012-030925-meteor-impact.png",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-030925-meteor-impact.png"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Captures/20261012-030925-meteor-impact.png.scenario.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-030925-meteor-impact.png.scenario.json"
+                   },
+                   {
+                       "id":  "link:README.md:../STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ACCEPTANCE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../ARCHITECTURE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ARCHITECTURE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../FEATURE_MAP.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-agent-quality-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-content-authorization.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/ART_AND_AUDIO.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/ART_AND_AUDIO.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/README.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/TOOLS_AND_AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/TOOLS_AND_AGENTS.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/IMPLEMENTATION_ROUTE.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Evidence/Research/2026-10-12/procgen-probe.json",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Evidence/Research/2026-10-12/procgen-probe.json"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-update.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/README.md",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/README.md"
+                   },
+                   {
+                       "id":  "link:2026-10-12-procgen-update.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Evidence/Research/2026-10-12/procgen-probe.json",
+                       "passed":  true,
+                       "detail":  "C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Evidence/Research/2026-10-12/procgen-probe.json"
+                   },
+                   {
+                       "id":  "link:AGENT_QUALITY_STANDARD.md:../Templates/WORK_PACKET.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Templates\\WORK_PACKET.md"
+                   },
+                   {
+                       "id":  "link:AGENT_QUALITY_STANDARD.md:../../Evidence/Research/2026-10-12/agent-comparison-template.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\agent-comparison-template.csv"
+                   },
+                   {
+                       "id":  "link:PROCEDURAL_FORMULAS.md:../../Evidence/Research/2026-10-12/procgen-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\procgen-probe.json"
+                   },
+                   {
+                       "id":  "link:PROCEDURAL_FORMULAS.md:../../Tools/Research/procgen_probe.py",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Tools\\Research\\procgen_probe.py"
+                   },
+                   {
+                       "id":  "link:README.md:AGENT_QUALITY_STANDARD.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\AGENT_QUALITY_STANDARD.md"
+                   },
+                   {
+                       "id":  "link:README.md:PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+                   },
+                   {
+                       "id":  "link:README.md:TOOLS_AND_AGENTS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+                   },
+                   {
+                       "id":  "link:README.md:IMPLEMENTATION_ROUTE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:README.md:../../Tools/Research/procgen_probe.py",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Tools\\Research\\procgen_probe.py"
+                   },
+                   {
+                       "id":  "link:README.md:../../Evidence/Research/2026-10-12/procgen-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\procgen-probe.json"
+                   },
+                   {
+                       "id":  "link:README.md:IMPLEMENTATION_ROUTE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Research/procgen_probe.py",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\Research\\procgen_probe.py"
+                   },
+                   {
+                       "id":  "link:README.md:../Evidence/Research/2026-10-12/procgen-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Evidence\\Research\\2026-10-12\\procgen-probe.json"
+                   },
+                   {
+                       "id":  "link:README.md:../Docs/Research/PROCEDURAL_FORMULAS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
+                   }
+               ],
+    "unityImport":  "not-run",
+    "gameplayTests":  "not-run",
+    "playerBuild":  "not-run",
+    "userVisualAcceptance":  "not-reviewed"
+}

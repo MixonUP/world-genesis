@@ -1,0 +1,7 @@
+{
+  "name": "WorldGenesis.PlayModeTests",
+  "rootNamespace": "WorldGenesis.Tests",
+  "references": ["WorldGenesis.Simulation", "WorldGenesis.Runtime", "UnityEngine.UI"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

@@ -10,15 +10,15 @@
   "editorFileObserved": true,
   "windowsModuleObserved": true,
   "editorLaunchVerified": true,
-  "projectImportVerified": false,
-  "lastObservedLaunchExitCode": 1,
-  "lastObservedLaunchExitHex": "0x00000001",
-  "launchFailureCause": "Verified: No valid Unity Editor license found. Earlier sandbox crash was superseded by a logged launch outside the sandbox.",
+  "projectImportVerified": true,
+  "lastObservedLaunchExitCode": 0,
+  "lastObservedLaunchExitHex": "0x00000000",
+  "launchFailureCause": "resolved after Unity Hub started and Personal entitlement was available",
   "unityMcpAvailable": false,
   "testFrameworkVersionObserved": "1.5.1",
   "renderPipeline": "Built-in (working choice; not imported)",
   "uiFramework": "uGUI 2.0.0 (working choice; local package observed)",
   "target": "StandaloneWindows64",
   "buildRelativePath": "Builds/Windows",
-  "notes": "Implementation in progress; Unity Hub opened for user license activation. Import/build not yet verified."
+  "notes": "Unity compile,18 EditMode,3 PlayMode and Windows build succeeded; native capture verified. Full feature parity and long-run acceptance remain open."
 }

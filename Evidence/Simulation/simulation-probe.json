@@ -1,0 +1,201 @@
+{
+  "utc": "2026-10-12T00:09:51.2110104Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 32,
+  "failed": 0,
+  "results": [
+    {
+      "name": "same seed creates identical complete world",
+      "passed": true,
+      "milliseconds": 190.3868
+    },
+    {
+      "name": "generator invariants Island / 0",
+      "passed": true,
+      "milliseconds": 4.395
+    },
+    {
+      "name": "generator invariants Island / 1",
+      "passed": true,
+      "milliseconds": 2.5052
+    },
+    {
+      "name": "generator invariants Island / -1",
+      "passed": true,
+      "milliseconds": 4.3143
+    },
+    {
+      "name": "generator invariants Island / 713",
+      "passed": true,
+      "milliseconds": 2.0509
+    },
+    {
+      "name": "generator invariants Island / 20261012",
+      "passed": true,
+      "milliseconds": 2.142
+    },
+    {
+      "name": "generator invariants Island / -2147483648",
+      "passed": true,
+      "milliseconds": 1.9994
+    },
+    {
+      "name": "generator invariants Island / 2147483647",
+      "passed": true,
+      "milliseconds": 2.0951
+    },
+    {
+      "name": "generator invariants Archipelago / 0",
+      "passed": true,
+      "milliseconds": 2.0968
+    },
+    {
+      "name": "generator invariants Archipelago / 1",
+      "passed": true,
+      "milliseconds": 2.0471
+    },
+    {
+      "name": "generator invariants Archipelago / -1",
+      "passed": true,
+      "milliseconds": 2.0992
+    },
+    {
+      "name": "generator invariants Archipelago / 713",
+      "passed": true,
+      "milliseconds": 2.0217
+    },
+    {
+      "name": "generator invariants Archipelago / 20261012",
+      "passed": true,
+      "milliseconds": 2.0397
+    },
+    {
+      "name": "generator invariants Archipelago / -2147483648",
+      "passed": true,
+      "milliseconds": 2.0933
+    },
+    {
+      "name": "generator invariants Archipelago / 2147483647",
+      "passed": true,
+      "milliseconds": 2.0286
+    },
+    {
+      "name": "generator invariants Continent / 0",
+      "passed": true,
+      "milliseconds": 2.212
+    },
+    {
+      "name": "generator invariants Continent / 1",
+      "passed": true,
+      "milliseconds": 3.1594
+    },
+    {
+      "name": "generator invariants Continent / -1",
+      "passed": true,
+      "milliseconds": 2.4729
+    },
+    {
+      "name": "generator invariants Continent / 713",
+      "passed": true,
+      "milliseconds": 2.4634
+    },
+    {
+      "name": "generator invariants Continent / 20261012",
+      "passed": true,
+      "milliseconds": 2.5593
+    },
+    {
+      "name": "generator invariants Continent / -2147483648",
+      "passed": true,
+      "milliseconds": 2.697
+    },
+    {
+      "name": "generator invariants Continent / 2147483647",
+      "passed": true,
+      "milliseconds": 3.1178
+    },
+    {
+      "name": "non-square maps, smallest and largest dimensions",
+      "passed": true,
+      "milliseconds": 4.3988
+    },
+    {
+      "name": "invalid map dimensions rejected",
+      "passed": true,
+      "milliseconds": 1.5568
+    },
+    {
+      "name": "simulation state remains valid with civilization development",
+      "passed": true,
+      "milliseconds": 305.5914
+    },
+    {
+      "name": "full save and continued simulation stay identical",
+      "passed": true,
+      "milliseconds": 168.025
+    },
+    {
+      "name": "fire rain and meteor affect actual state",
+      "passed": true,
+      "milliseconds": 73.9749
+    },
+    {
+      "name": "painting at and beyond boundaries is safe",
+      "passed": true,
+      "milliseconds": 7.6798
+    },
+    {
+      "name": "corrupt dimensions, references and nonfinite state rejected",
+      "passed": true,
+      "milliseconds": 26.4714
+    },
+    {
+      "name": "bounded core load / 100 units",
+      "passed": true,
+      "milliseconds": 12.9063
+    },
+    {
+      "name": "bounded core load / 500 units",
+      "passed": true,
+      "milliseconds": 42.9169
+    },
+    {
+      "name": "bounded core load / 1000 units",
+      "passed": true,
+      "milliseconds": 117.7192
+    }
+  ],
+  "metrics": [
+    {
+      "scenario": "civilization-300-seconds",
+      "units": 93,
+      "buildings": 24,
+      "settlements": 1
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 100,
+      "finalUnits": 100,
+      "milliseconds": 5.6825,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 500,
+      "finalUnits": 500,
+      "milliseconds": 35.5266,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 1000,
+      "finalUnits": 1000,
+      "milliseconds": 109.3268,
+      "mapWidth": 128,
+      "mapHeight": 128
+    }
+  ]
+}

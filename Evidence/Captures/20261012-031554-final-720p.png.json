@@ -1,0 +1,21 @@
+{
+    "Type": "native Unity gameplay capture",
+    "Utc": "2026-10-12T00:16:06.5379258Z",
+    "UnityVersion": "6000.0.45f1",
+    "Image": "20261012-031554-final-720p.png",
+    "Preset": "Island",
+    "Seed": 1618033,
+    "Width": 128,
+    "Height": 128,
+    "Population": 49,
+    "ScreenWidth": 1280,
+    "ScreenHeight": 720,
+    "Tick": 104,
+    "Speed": 1.0,
+    "CameraX": 42.5,
+    "CameraY": 40.13999938964844,
+    "OrthographicSize": 18.0,
+    "Paused": false,
+    "AutomaticCapture": true,
+    "AssistedFraming": true
+}

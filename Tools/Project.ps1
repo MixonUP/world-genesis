@@ -48,7 +48,8 @@ if ($Action -eq 'Validate') {
     }
     $versionFile = Join-Path $unityProjectPath 'ProjectSettings/ProjectVersion.txt'
     $version = Get-Content -LiteralPath $versionFile -Raw
-    Add-Check 'unity-version' ($version.Trim() -eq "m_EditorVersion: $($toolchain.unityVersion)") $version.Trim()
+    $versionMatch = [regex]::Match($version, '(?m)^m_EditorVersion:\s*(\S+)')
+    Add-Check 'unity-version' ($versionMatch.Success -and $versionMatch.Groups[1].Value -eq $toolchain.unityVersion) $version.Trim()
 
     $assemblies = @{}
     $assemblyFiles = @(Get-ChildItem -LiteralPath (Join-Path $unityProjectPath 'Assets/_Project') -Recurse -Filter '*.asmdef')
@@ -148,7 +149,15 @@ if ($Action -eq 'Validate') {
 if (-not (Test-Path -LiteralPath $toolchain.unityExecutable -PathType Leaf)) { throw 'Pinned Unity editor not found.' }
 if (-not (Test-Path -LiteralPath $unityProjectPath -PathType Container)) { throw 'Project directory not found.' }
 if (Test-Path -LiteralPath (Join-Path $unityProjectPath 'Temp/UnityLockfile')) {
-    throw 'Unity lock exists. Inspect the editor owning this project; do not launch a second batch editor or delete the lock blindly.'
+    if (Get-Process Unity -ErrorAction SilentlyContinue) { throw 'Unity is running and this project has a lock. Inspect its owner before another editor launch.' }
+    $staleLock = [IO.Path]::GetFullPath((Join-Path $unityProjectPath 'Temp/UnityLockfile'))
+    if (-not $staleLock.StartsWith($unityProjectPath + [IO.Path]::DirectorySeparatorChar)) { throw 'Unexpected lock path.' }
+    # Compilation failures can leave the file behind. Require both absence of Unity
+    # processes and an exclusive open before removing this one known temporary file.
+    $lockProbe = [IO.File]::Open($staleLock, [IO.FileMode]::Open, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+    $lockProbe.Dispose()
+    Remove-Item -LiteralPath $staleLock
+    Write-Output 'Removed stale Unity lock: no Unity process and exclusive access verified.'
 }
 
 function Quote-Argument([string]$Value) {
@@ -204,6 +213,15 @@ if ($Action -in @('EditMode', 'PlayMode')) {
         throw "Tests did not pass: total=$total failed=$failedTests result=$overall"
     }
     Write-Output "Tests passed: $total. Results: $resultPath"
+} elseif ($Action -eq 'Build') {
+    $buildReceiptPath = Join-Path $evidenceRoot 'build-report.json'
+    if (-not (Test-Path -LiteralPath $buildReceiptPath)) { throw 'Build report missing.' }
+    $buildReceipt = Get-Content -LiteralPath $buildReceiptPath -Raw | ConvertFrom-Json
+    if ($buildReceipt.result -ne 'Succeeded' -or $buildReceipt.errors -ne 0 -or $log -notmatch 'WORLD_GENESIS_BUILD_SUCCEEDED') { throw 'Windows build was not confirmed.' }
+    Write-Output "Windows build succeeded: $($buildReceipt.output); errors=$($buildReceipt.errors); warnings=$($buildReceipt.warnings). Player startup remains a separate check."
+} elseif ($Action -eq 'Prepare') {
+    if ($log -notmatch 'WORLD_GENESIS_PREPARED') { throw 'Project preparation marker missing.' }
+    Write-Output 'Unity compilation and scene preparation succeeded. Player startup remains a separate check.'
 } else {
     Write-Output "Batch import completed without detected compiler errors. This is not gameplay verification. Log: $logPath"
 }
