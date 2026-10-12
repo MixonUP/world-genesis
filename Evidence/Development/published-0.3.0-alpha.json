@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-12T10:51:09.9844637Z",
+  "status": "published-and-browser-verified",
+  "releaseUrl": "https://github.com/MixonUP/world-genesis/releases/tag/v0.3.0-alpha",
+  "commit": "62ae0363042b15f447b0534d7653ab6c17c7239f",
+  "tag": "v0.3.0-alpha",
+  "bytes": 32557373,
+  "sha256": "2FC9C5BC2E16EB032A6ADA01CB5C1CE54C2617D319C78E2C6D604EAA6D063696",
+  "digestVerified": "GitHub release asset UI digest matches verified local ZIP",
+  "proof": "Evidence/Development/github-release-0.3.0.jpg",
+  "scope": "Code and Player are unchanged since final 68/57/7 checks; subsequent commits are documentation only."
+}
