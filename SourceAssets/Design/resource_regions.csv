@@ -1,0 +1,6 @@
+region_id,name_ru,patch_scale_tiles,specialization,needs_import,start_food_required
+woodland,Лесной край,32,wood_log;branch;bark,stone;clay;iron_ore,true
+riverland,Речной край,32,clay;sand;raw_fish,wood_log;iron_ore;coal,true
+highland,Нагорье,32,stone;iron_ore;coal,grain;wood_log;clay,true
+dryland,Сухие предгорья,32,copper_ore;sand;limestone,grain;wood_log;iron_ore,true
+ore_ridge,Рудный хребет,32,gold_ore;silver_ore;iron_ore,grain;wood_log;clay,true

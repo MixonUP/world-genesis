@@ -1,14 +1,21 @@
 [CmdletBinding()]
-param([ValidatePattern('^[a-z0-9-]+$')][string]$Name='citizens', [int]$Seconds=6)
+param([ValidatePattern('^[a-z0-9-]+$')][string]$Name='citizens', [int]$Seconds=6,
+    [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
+    [int]$Delay=3, [switch]$InspectResourceWorker, [switch]$LogDelivery)
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$player=Join-Path $root 'Builds/Windows-0.2.0/WorldGenesis.exe'
+$player=[IO.Path]::GetFullPath((Join-Path $root $PlayerRelativePath))
+if(-not $player.StartsWith((Join-Path $root 'Builds')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) { throw 'Motion player must be inside project Builds.' }
+if(-not(Test-Path -LiteralPath $player)) { throw 'Build the player before capturing.' }
 $stamp=[DateTimeOffset]::UtcNow.ToOffset([TimeSpan]::FromHours(3)).ToString('yyyyMMdd-HHmmss')
 $frames=Join-Path $root ('Builds/CaptureFrames/'+$stamp+'-'+$Name)
 $output=Join-Path $root ('Evidence/Captures/'+$stamp+'-'+$Name+'.mp4')
 New-Item -ItemType Directory -Path $frames -Force | Out-Null
 function Quote([string]$v) { if($v.Contains('"')) { throw 'Invalid quote' }; return '"'+$v+'"' }
 $arguments=@('-screen-width','1280','-screen-height','720','-screen-fullscreen','0','-logFile',(Quote (Join-Path $frames 'player.log')),'--focus-settlement','--zoom','7','--inspect-citizen','--capture-motion',(Quote $frames),'--motion-seconds',"$Seconds",'--quit-after-motion')
+$arguments+=@('--motion-delay',"$Delay")
+if($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
+if($LogDelivery) { $arguments+='--observe-log-delivery' }
 # Deliberately visible interactive Player: hidden Windows backbuffers can be black.
 $process=Start-Process -FilePath $player -ArgumentList $arguments -PassThru
 Write-Output "Native motion Player PID=$($process.Id)"

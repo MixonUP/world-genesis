@@ -1,0 +1,23 @@
+{
+  "kind": "ruler-decision-catalog-structure",
+  "timestamp": "2026-10-12T13:15:00+03:00",
+  "rows": 32,
+  "domains": {
+    "trade": 7,
+    "resource": 8,
+    "tax": 5,
+    "social": 5,
+    "war": 7
+  },
+  "availability": {
+    "runtime_policy_in_progress": 11,
+    "planned": 21
+  },
+  "checks": [
+    "32 unique complete rows; 5 domains; valid availability; cooldown >=120s"
+  ],
+  "result": "PASS",
+  "scope": "CSV structure only; not runtime execution, ruler quality or game balance",
+  "verified_at": "2026-10-12T13:20:14.618269+03:00",
+  "sha256": "47C4E6FE63B583BC5DED0EAC9579B04492201EB8AD3B1D9952E987B063C47BAF"
+}

@@ -10,6 +10,7 @@ namespace WorldGenesis.Runtime
     public static class PixelArt
     {
         public const int Frame = 32;
+        public const int AtlasWidth = 256, AtlasHeight = 512;
         // Must precede every field initializer that calls Hex, including the terrain palette.
         private static readonly Dictionary<string, Color> PaletteCache = new Dictionary<string, Color>(128, StringComparer.Ordinal);
         private static readonly Color[] TerrainPalette = { Hex("163f5c"), Hex("28798b"), Hex("ddc992"), Hex("7eaf70"), Hex("437952"), Hex("c9a775"), Hex("cddfdc"), Hex("778487") };
@@ -32,11 +33,11 @@ namespace WorldGenesis.Runtime
 
         public static Texture2D CreateAtlas()
         {
-            Texture2D atlas = new Texture2D(256, 128, TextureFormat.RGBA32, false);
+            Texture2D atlas = new Texture2D(AtlasWidth, AtlasHeight, TextureFormat.RGBA32, false);
             atlas.name = "World Genesis • authored pixel atlas";
             atlas.filterMode = FilterMode.Point;
             atlas.wrapMode = TextureWrapMode.Clamp;
-            Color32[] pixels = new Color32[256 * 128];
+            Color32[] pixels = new Color32[AtlasWidth * AtlasHeight];
             Action<int, int, int, Color> dot = (sprite, x, y, color) => { if (x >= 0 && x < 32 && y >= 0 && y < 32) pixels[(sprite / 8 * 32 + y) * 256 + sprite % 8 * 32 + x] = color; };
             Action<int, int, int, int, int, Color> rect = (sprite, x, y, w, h, color) => { for (int yy = y; yy < y + h; yy++) for (int xx = x; xx < x + w; xx++) dot(sprite, xx, yy, color); };
             Action<int, int, int, int, int, Color> ellipse = (sprite, cx, cy, rx, ry, color) => { for (int y = -ry; y <= ry; y++) for (int x = -rx; x <= rx; x++) if ((float)x * x / (rx * rx) + (float)y * y / (ry * ry) <= 1) dot(sprite, cx + x, cy + y, color); };
@@ -116,10 +117,11 @@ namespace WorldGenesis.Runtime
             // Open book is the world-law symbol; on/off remains explicit in UI text.
             rect(28, 3, 6, 26, 20, Hex("6d827a")); rect(28, 4, 8, 11, 20, Hex("e4d4aa")); rect(28, 17, 8, 11, 20, Hex("cbbd96"));
             for (int y = 12; y < 26; y += 4) { rect(28, 6, y, 7, 1, Hex("9f986f")); rect(28, 19, y, 7, 1, Hex("a29873")); }
+            ResourceArt.PaintAtlas(pixels, AtlasWidth);
             atlas.SetPixels32(pixels); atlas.Apply(false, true); return atlas;
         }
 
-        public static Rect Uv(int sprite) { return new Rect((sprite % 8 * 32 + .25f) / 256f, (sprite / 8 * 32 + .25f) / 128f, 31.5f / 256f, 31.5f / 128f); }
+        public static Rect Uv(int sprite) { return new Rect((sprite % 8 * Frame + .25f) / AtlasWidth, (sprite / 8 * Frame + .25f) / AtlasHeight, 31.5f / AtlasWidth, 31.5f / AtlasHeight); }
     }
 
     public sealed class QuadBatch : IDisposable
@@ -145,6 +147,16 @@ namespace WorldGenesis.Runtime
             vertices.Add(new Vector3(x, y)); vertices.Add(new Vector3(x + width, y)); vertices.Add(new Vector3(x + width, y + height)); vertices.Add(new Vector3(x, y + height));
             float left = flipX ? region.xMax : region.xMin, right = flipX ? region.xMin : region.xMax;
             uv.Add(new Vector2(left, region.yMin)); uv.Add(new Vector2(right, region.yMin)); uv.Add(new Vector2(right, region.yMax)); uv.Add(new Vector2(left, region.yMax));
+            for (int i = 0; i < 4; i++) colors.Add(color);
+            triangles.Add(start); triangles.Add(start + 1); triangles.Add(start + 2); triangles.Add(start); triangles.Add(start + 2); triangles.Add(start + 3);
+        }
+        public void OrientedSprite(Vector2 center, float width, float height, float radians, int sprite, Color color)
+        {
+            Rect region = PixelArt.Uv(sprite); int start = vertices.Count;
+            float cosine = Mathf.Cos(radians), sine = Mathf.Sin(radians);
+            Vector2 right = new Vector2(cosine, sine) * (width * .5f), up = new Vector2(-sine, cosine) * (height * .5f);
+            vertices.Add(center - right - up); vertices.Add(center + right - up); vertices.Add(center + right + up); vertices.Add(center - right + up);
+            uv.Add(new Vector2(region.xMin, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMax)); uv.Add(new Vector2(region.xMin, region.yMax));
             for (int i = 0; i < 4; i++) colors.Add(color);
             triangles.Add(start); triangles.Add(start + 1); triangles.Add(start + 2); triangles.Add(start); triangles.Add(start + 2); triangles.Add(start + 3);
         }

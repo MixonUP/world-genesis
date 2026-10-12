@@ -43,7 +43,7 @@ warm_clothes,Тёплая одежда,3,0,0,20,recipe
 boots,Сапоги,2,0,0,12,recipe
 furniture,Комплект мебели,6,0,0,16,recipe
 cart,Ручная тележка,16,0,0,34,recipe
-coin,Монета,0.01,0,0,1,world_treasury
+coin,Монета,0.01,0,0,1,mint
 herbs,Лекарственные травы,1,0,1800,2,recipe
 bark,Кора,1,0,0,1,recipe
 rope,Верёвка,1,0,0,3,recipe
@@ -51,3 +51,28 @@ small_carcass,Малая туша,4,0,600,4,wildlife
 large_carcass,Крупная туша,10,0,600,10,wildlife
 straw,Солома,1,0,0,1,recipe
 tree_seed,Семена дерева,1,0,0,1,recipe
+stone_block,Каменный блок,3,0,0,4,recipe
+stone_tile,Каменная плитка,1,0,0,3,recipe
+roof_tile,Глиняная черепица,1,0,0,3,recipe
+coal,Каменный уголь,1,0,0,3,recipe
+copper_ore,Медная руда,3,0,0,3,recipe
+copper_ingot,Медный слиток,2,0,0,8,recipe
+tin_ore,Оловянная руда,3,0,0,5,recipe
+tin_ingot,Оловянный слиток,2,0,0,12,recipe
+bronze_ingot,Бронзовый слиток,2,0,0,12,recipe
+copper_parts,Медные детали,1,0,0,3,recipe
+copperware,Медная посуда,3,0,0,22,recipe
+bronze_tool,Бронзовый инструмент,2,0,0,26,recipe
+gold_ore,Золотая руда,3,0,0,40,recipe
+gold_ingot,Золотой слиток,2,0,0,100,recipe
+silver_ore,Серебряная руда,3,0,0,4,recipe
+silver_ingot,Серебряный слиток,2,0,0,10,recipe
+jewelry,Украшение,1,0,0,160,recipe
+sand,Песок,2,0,0,1,recipe
+glass,Стекло,1,0,0,6,recipe
+limestone,Известняк,3,0,0,2,recipe
+lime,Известь,1,0,0,3,recipe
+mortar,Строительный раствор,2,0,0,4,recipe
+paper,Бумага,0.1,0,0,2,recipe
+ink,Чернила,0.1,0,0,3,recipe
+book,Книга,1,0,0,18,recipe

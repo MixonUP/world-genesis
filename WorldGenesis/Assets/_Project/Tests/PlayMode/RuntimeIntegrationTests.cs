@@ -122,8 +122,10 @@ namespace WorldGenesis.Tests
         public IEnumerator CitizenFramesDistinguishTravelWorkCargoAndActualHits()
         {
             WorldState world = WorldGenerator.Generate(31, 16, 16);
-            UnitData unit = new UnitData { Id = 4, Age = 25, Profession = UnitProfession.Forester, Task = UnitTask.Gather, TargetCell = 100 };
+            ResourceCatalog.Generate(world);
+            UnitData unit = new UnitData { Id = 4, Age = 25, Profession = UnitProfession.Forester, Task = UnitTask.Gather, TargetCell = 100, ResourceCell = 100, WorkTimer = 1 };
             world.Cells[100].Vegetation = 1; world.Cells[100].Fire = 0;
+            world.ResourceNodes[100] = new ResourceNodeData { Type = ResourceType.Tree, Amount = 3, Capacity = 3 };
             unit.Path.Add(100);
             Assert.AreEqual(1, CitizenSprites.ResolvePose(world, unit, Vector2.right).Row, "Approaching a tree is walking.");
             unit.PathCursor = 1;
@@ -148,6 +150,88 @@ namespace WorldGenesis.Tests
             unit.Path.Clear(); unit.AttackTimer = .4f;
             Assert.AreEqual(0, CitizenSprites.ResolvePose(world, unit, Vector2.up).Row, "Cooldown cannot invent another attack.");
             yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator ResourceInspectorReflectsCargoAndRegrowthWithoutCreatingStock()
+        {
+            UnitData unit = game.World.Units.Find(u => u.Species == SpeciesType.Human);
+            Assert.NotNull(unit);
+            float oldStock = game.World.GetSettlementStock(unit.SettlementId, ItemType.Log);
+            unit.CargoKind = ItemType.Log; unit.CargoAmount = 1;
+            unit.Task = UnitTask.Return;
+            game.InspectUnit(unit.Id);
+            yield return null;
+            string displayed = "";
+            foreach (Text label in game.GetComponentsInChildren<Text>()) displayed += label.text + "\n";
+            StringAssert.Contains("Брёвна  1", displayed, "Production inspector must display the actual carrier's load.");
+            Assert.AreEqual(oldStock, game.World.GetSettlementStock(unit.SettlementId, ItemType.Log), "Showing carried material must not credit the warehouse.");
+            SettlementData settlement = game.World.GetSettlement(unit.SettlementId);
+            game.InspectSite(settlement.X, settlement.Y);
+            yield return null;
+            Canvas.ForceUpdateCanvases();
+            ScrollRect inspector = game.GetComponentInChildren<ScrollRect>();
+            Assert.NotNull(inspector);
+            Assert.Greater(inspector.content.rect.height, inspector.viewport.rect.height, "Long settlement stocks must be scrollable rather than clipped permanently.");
+            float top = inspector.verticalNormalizedPosition;
+            inspector.OnScroll(new PointerEventData(EventSystem.current) { scrollDelta = new Vector2(0, -3) });
+            Assert.Less(inspector.verticalNormalizedPosition, top);
+            Vector2 inside = RectTransformUtility.WorldToScreenPoint(null, inspector.viewport.TransformPoint(inspector.viewport.rect.center));
+            Assert.IsTrue(game.IsScreenPointOverUI(inside), "Scrolling information must not edit terrain or zoom through the panel.");
+            Vector2 dragged = WorldView.CargoPosition(unit, Vector2.right);
+            Assert.Less(dragged.x, unit.X, "A log trails its carrier's movement.");
+            int cell = game.World.Index(1, 1);
+            game.World.Cells[cell].Terrain = TerrainType.Forest;
+            game.World.Cells[cell].Fire = 0; game.World.Cells[cell].BuildingId = 0;
+            game.World.ResourceNodes[cell] = new ResourceNodeData { Type = ResourceType.Tree, Capacity = 3, Amount = 0, RegrowTicksRemaining = 900 };
+            StringAssert.Contains("Пополнение через 90 с", GameHud.NodeDescription(game.World, 1, 1));
+            game.Engine.SetLaw(WorldLaw.VegetationGrowth, false);
+            StringAssert.Contains("Рост растений выключен", GameHud.NodeDescription(game.World, 1, 1));
+            StringAssert.DoesNotContain("Пополнение через", GameHud.NodeDescription(game.World, 1, 1), "A paused regrowth clock must not promise an active countdown.");
+            Assert.AreNotEqual(ResourceArt.NodeSprite(ResourceType.Tree, 3, 3), ResourceArt.NodeSprite(ResourceType.Tree, 0, 3), "An exhausted tree must be visibly different.");
+            Assert.AreNotEqual(ResourceArt.NodeSprite(ResourceType.IronOre, 8, 8), ResourceArt.NodeSprite(ResourceType.IronOre, 0, 8), "Exhausted ore cannot keep a full-pile visual.");
+            Assert.AreEqual(ResourceArt.Hearth, WorldView.ResolveBuildingSprite(BuildingType.Hall));
+            LogAssert.NoUnexpectedReceived();
+        }
+
+        [UnityTest]
+        public IEnumerator DemographyAndRulerPolicyAreVisibleInTheProductionInspector()
+        {
+            // Explicit UI fixture: it checks presentation of model values, not natural births.
+            UnitData unit = game.World.Units.Find(u => u.Species == SpeciesType.Human && game.World.GetSettlement(u.SettlementId).RulerId != u.Id);
+            Assert.NotNull(unit);
+            unit.Age = 25; unit.Sex = Sex.Female; unit.Profession = UnitProfession.Farmer;
+            game.InspectUnit(unit.Id);
+            yield return null;
+            StringAssert.Contains("Женщина", VisibleText());
+            Assert.AreEqual(CitizenSprites.CitizenAppearance.AdultFemale, CitizenSprites.ResolvePose(game.World, unit, Vector2.right).Appearance);
+            SettlementData home = game.World.GetSettlement(unit.SettlementId);
+            game.Engine.SetEconomicPolicy(home.Id, EconomicPolicy.Market, .2f, ChildLaborPolicy.LightWork, ResourceFocus.Masonry);
+            unit.Age = 13; unit.Task = UnitTask.Play; unit.Profession = UnitProfession.None;
+            unit.Path.Clear(); unit.PathCursor = 0;
+            game.InspectUnit(unit.Id);
+            yield return null;
+            StringAssert.Contains("Девочка · подросток 12–15", VisibleText());
+            StringAssert.Contains("Лёгкая работа 12–15: разрешена", VisibleText());
+            Assert.AreEqual(CitizenSprites.CitizenAppearance.Girl, CitizenSprites.ResolvePose(game.World, unit, Vector2.right).Appearance);
+            game.Engine.SetEconomicPolicy(home.Id, EconomicPolicy.Market, .2f, ChildLaborPolicy.Forbidden, ResourceFocus.Masonry);
+            game.InspectUnit(unit.Id);
+            yield return null;
+            StringAssert.Contains("Детский труд запрещён", VisibleText());
+            game.InspectSite(home.X, home.Y);
+            yield return null;
+            StringAssert.Contains("Платный обмен (бартер)", VisibleText());
+            StringAssert.Contains("Натуральный налог", VisibleText());
+            Assert.AreEqual(.2f, home.TaxRate);
+            Assert.IsTrue(game.Paused, "Inspector refresh must not advance the world.");
+            LogAssert.NoUnexpectedReceived();
+        }
+
+        private string VisibleText()
+        {
+            string text = "";
+            foreach (Text label in game.GetComponentsInChildren<Text>()) text += label.text + "\n";
+            return text;
         }
 
         private Button FindButton(string label)

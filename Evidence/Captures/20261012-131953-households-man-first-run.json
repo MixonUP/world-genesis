@@ -1,0 +1,135 @@
+{
+  "utc": "2026-10-12T10:20:03.4929169Z",
+  "playerExitCode": 0,
+  "image": "20261012-131953-households-man-first.png",
+  "playerSHA256": "E6FE27700B3C3C2C4B2D8021B384E698A22925DDFCC62A814274B5F49932704E",
+  "imageSHA256": "E8AAD445F0D8FFF2E6DDFFF4EAB683FF97EBC118387C5E2D07D9202BB1E547D0",
+  "scope": "Native Unity Windows Player. Visual content still requires image inspection.",
+  "automatedCamera": false,
+  "automatedPower": "",
+  "stressPopulation": 0,
+  "workspaceSourcesAtLaunch": [
+    {
+      "file": "WorldGenesis/Assets/_Project/Editor/CitizenArtImporter.cs",
+      "sha256": "9DA81536C95D73DF6240C4B4962DF2E51ABFA0A0B6265F4AA3D46E83EB4DBE86"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Editor/ProjectSetup.cs",
+      "sha256": "9EBED3EECBD9CD93AE3A3CA28DCC11BAC714653F2E5DEAA56ECC29C50F22C71A"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs",
+      "sha256": "7465E92CF9FB7E23CB8F8EDDC11E16DD3E40AD9C3BACD5418F42CFBDFF1CB9FA"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/CaptureScenario.cs",
+      "sha256": "B7953337B2B36F47DA109F9D866371592B489985A32097B263D0024ADCB63F18"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+      "sha256": "D0865044E242BAC4D590868B11BB0B64E0890B9EBACEEB9F12E7285E8C3B7B45"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/MotionCapture.cs",
+      "sha256": "AE12DD23A6E88D1FF05209D02A394939E61E8264C223F2F3D674979B16EA4AD1"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs",
+      "sha256": "FFCB01A4FFE7F100A5135C09CE9F7299A151FA3A593E4DD9CA7C94E9FD297E50"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs",
+      "sha256": "B362822F988A80FAD7CE669AA3ABDEB6BC7463F2B132F61808EEDAB5612AD5AE"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenVariants.cs",
+      "sha256": "C51653CB76BF35EA3B48A3E970ADCFFAEC5830B37CEEEF90A107F9721075F272"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs",
+      "sha256": "EACF9BF491DD51EEA76F64CE471BC74FEC6F8F0C454CFAE0DBA3E54EF109B4B4"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/ResourceArt.cs",
+      "sha256": "058F792A80052CF7B5BF490D61164A3BAA84B21E8378B359F80E01FE10EB02D0"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs",
+      "sha256": "57608476A4991E9B2960EECFC8BAF5F380715D25C43DC57CE70E81D805B5367B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+      "sha256": "B53A507BFC481D7990871560AF51BFC54D180A8AFD31A2E40937C39711B70BFC"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs",
+      "sha256": "7468C6A89E0D455073EEB22DBF29604B5BBD5F18B243D72DD272F144DF7C348E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+      "sha256": "7F2FD164CA43A523B1B2786A9B6BE9EBE3849E7F3E01D344673340372555A98C"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs",
+      "sha256": "BD3FA5A8D964B96D1B2EFDAFC9AC606325F0DFC055A0D45D8E9C4F604B036AEC"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "7FE6046AB3AE9AA0B5F26DC4EAAB4987B6A86AF9F669867B94FDF0D0F216F3C8"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "sha256": "5DFA4819D151F55A2FB85823182C0BFA106D1ECC8BC17F363594A945F5B232AE"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "63F226A93154CB8EC87BAE947B87A85480C37CA88CF38BCAD7AA8D907AF9D575"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "57A1ADADD320C9DAAB7E301F3AA4C5DB5E68827FB4204198FC72B97A0D1830C4"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "936ABABA39FEB67D38772930AB4A1F59A23FDB87922B148F84FF43EDB340B8D6"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "494EF3B984735A2B4C112569E9E0F55506D57B7B2656EAD43E5B3DB35D00F70B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "EA0D6D78EC8226EAFF9B8E0C7DEED13E1F68818B3227C69A0808760B0385A32A"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "0948FD4139F8F9F42E6E14A4C0E61820B64CA2B2C0881E9EC64AA650B4FE7B0E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "86755F15D85C0996CDD7DCEEA80BB381BDD0A95585CBF68C80272D826323E702"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/ResourcePersistenceTests.cs",
+      "sha256": "A63BEBA975974FEB3711C25E7699FBEB148961DFE501821A6FEB9C6DD86168BF"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SaveStoreTests.cs",
+      "sha256": "EF448BF82D028BB3F2519EB302CF54A30C0537C543ED6C484BF0DDF33064DA5D"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "23C06C69E8B16559411376334D837C87229E8613AC500084A7BF240E4B57153B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs",
+      "sha256": "F1E0EF1CA7255B3D41E219489E7A4854744BD1357590A25221E3100B18D3255D"
+    }
+  ],
+  "runtimeAssemblySHA256": "87B36F2C012029DFDA12EF8A5F778293E8F348A9352061F654192244CEBEA60B",
+  "simulationAssemblySHA256": "FA4133985CAE837260D6DFB2D873DFD4D2CD980631D7A1B853DA5C80A6D0B356"
+}

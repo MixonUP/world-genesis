@@ -19,7 +19,7 @@ WEIGHTS = {"resident": 0.1, "priest": 1.0, "artisan": 2.0, "scholar": 10.0}
 ARTISANS = {
     "butcher", "cook", "miller", "baker", "charcoal_burner", "smelter",
     "tanner", "flax_worker", "weaver", "blacksmith", "carpenter", "armorer",
-    "tailor", "builder", "potter",
+    "tailor", "builder", "potter", "mintmaster", "glassmaker",
 }
 BRANCHES = {
     "food", "materials", "metals", "textiles", "transport", "defense",
@@ -35,7 +35,7 @@ EFFECTS = {
 SURVIVAL_RECIPES = {
     "forage_berries", "fetch_water", "craft_primitive_tool", "saw_planks",
     "plant_wheat", "fell_tree", "collect_branches", "collect_stone",
-    "collect_flint", "herbal_care",
+    "collect_flint", "herbal_care", "camp_saw_planks", "split_firewood", "branch_firewood", "camp_stone_block",
 }
 
 
@@ -64,7 +64,6 @@ def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstra
     available = {r["ref_id"] for r in bootstrap if r["kind"] == "inventory"}
     habitat = {r["ref_id"] for r in bootstrap if r["kind"] == "habitat"}
     adults = sum(int(r["amount"]) for r in bootstrap if r["kind"] == "population")
-    treasury = sum(int(r["amount"]) for r in bootstrap if r["kind"] == "world_treasury" and r["ref_id"] == "coin")
     recipe_gates = {ref: tid for tid, row in tech.items() for ref in items(row["unlock_recipes"])}
     grade_gates = {ref: tid for tid, row in tech.items() for ref in items(row["unlock_building_grades"])}
     known, made, built, trained = set(), set(), {}, set()
@@ -79,20 +78,15 @@ def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstra
             if missing_goods or missing_buildings:
                 failures.append({"target_stage": stage, "missing_goods": sorted(missing_goods), "missing_buildings": missing_buildings})
                 break
-        grant = int(stage_row["world_treasury_grant"])
-        if grant and treasury >= grant:
-            treasury -= grant
-            available.add("coin")
-            traces.setdefault("good:coin", {"stage": stage, "source": "world_treasury_grant"})
         iterations = 0
         while True:
             before = (len(available), len(known), len(made), sum(built.values()), len(trained))
             iterations += 1
             # Basic residents provide science before any university exists.
             for tid, row in sorted(tech.items()):
-                if adults > 0 and int(row["min_settlement_tier"]) <= stage and set(items(row["prerequisites"])) <= known:
+                if adults > 0 and int(row["min_settlement_tier"]) <= stage and set(items(row["prerequisites"])) <= known and set(quantities(row.get("research_inputs", ""))) <= available:
                     known.add(tid)
-                    traces.setdefault(f"tech:{tid}", {"stage": stage, "iteration": iterations, "requires": items(row["prerequisites"]), "source": "resident_background_learning"})
+                    traces.setdefault(f"tech:{tid}", {"stage": stage, "iteration": iterations, "requires": items(row["prerequisites"]), "material_inputs": quantities(row.get("research_inputs", "")), "source": "resident_background_learning"})
             for ref, row in sorted(grades.items(), key=lambda pair: (int(pair[1]["grade"]), pair[1]["building_id"])):
                 bid, grade = row["building_id"], int(row["grade"])
                 if adults > 0 and int(roles["builder"]["min_settlement_tier"]) <= stage and int(row["min_settlement_tier"]) <= stage and built.get(bid, 0) == grade - 1 and set(quantities(row["inputs"])) <= available and (ref not in grade_gates or grade_gates[ref] in known):
@@ -119,7 +113,7 @@ def integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstra
                 break
         stages.append({"stage": stage, "closure_iterations": iterations, "researchable_technologies": len(known), "producible_goods": len(available), "executable_recipes": len(made), "buildable_types": len(built), "buildable_grades": sum(built.values()), "trainable_military_roles": sorted(trained)})
     missing = {"technologies": sorted(set(tech) - known), "goods": sorted(set(goods) - available), "recipes": sorted(set(recipes) - made), "building_grades": sorted(ref for ref, row in grades.items() if built.get(row["building_id"], 0) < int(row["grade"])), "military_roles": sorted(set(military) - trained)}
-    milestones = ["building:hearth@1", "tech:m02_carpentry", "recipe:make_furniture", "tech:k01_teaching", "building:university@1", "recipe:smelt_iron", "recipe:craft_iron_tool", "recipe:make_cart", "building:caravanserai@1", "recipe:refine_steel", "recipe:forge_steel_armor", "building:university@5"] + [f"military:{mid}" for mid in military]
+    milestones = ["building:hearth@1", "tech:m02_carpentry", "recipe:make_furniture", "tech:k01_teaching", "building:university@1", "recipe:smelt_iron", "recipe:craft_iron_tool", "recipe:make_cart", "building:caravanserai@1", "recipe:refine_steel", "recipe:forge_steel_armor", "building:university@5", "good:coin", "recipe:mint_gold", "recipe:mint_silver", "good:paper", "good:book", "tech:k03_natural_studies"] + [f"military:{mid}" for mid in military]
     return {"passed": not failures and not any(missing.values()), "stage_gate_failures": failures, "stages": stages, "unreachable": missing, "milestone_witnesses": {key: traces.get(key) for key in milestones}, "assumptions": ["At least one living adult can learn in the background without a university", "Bootstrap habitat sources and huntable wildlife are physically accessible", "Finite quantities, population growth, work schedules, travel, food reserves and durations are not simulated", "All predecessor building grades, technology prerequisites, tools, recipe inputs and production stations must be structurally reachable before use"]}
 
 
@@ -162,11 +156,24 @@ def main() -> int:
         bootstrap = read("bootstrap.csv")
         wildlife = read("wildlife.csv")
         read("natural_sources.csv")
+        read("resource_deposits.csv")
+        read("resource_regions.csv")
+        minting_policy = read("minting_policy.csv")
 
-        check(len(tech) == 44, "shape", "expected 44 technologies including four troop-training unlocks")
+        check(len(tech) == 54, "shape", "expected 54 technologies including resource-processing and writing expansions")
         branch_counts = Counter(r["branch_id"] for r in tech_rows)
         check(set(branch_counts) == BRANCHES, "shape", "expected eight named branches")
-        check(all(count == (9 if branch == "defense" else 5) for branch, count in branch_counts.items()), "shape", "expected defense nine nodes and other branches five")
+        expected_branch_counts = {branch: (9 if branch in {"defense", "materials", "metals"} else 7 if branch == "knowledge" else 5) for branch in BRANCHES}
+        check(dict(branch_counts) == expected_branch_counts, "shape", "unexpected per-branch technology counts")
+        check(not any(r["kind"] == "world_treasury" or (r["kind"] == "inventory" and r["ref_id"] == "coin") for r in bootstrap), "currency", "coins must originate from metal-backed minting")
+        check(all(int(r["world_treasury_grant"]) == 0 for r in tiers), "currency", "obsolete treasury grant")
+        check(len(minting_policy) == 1 and minting_policy[0]["initial_world_coins"] == "0", "currency", "invalid money origin policy")
+        for rid, metal, amount in (("mint_gold", "gold_ingot", 100), ("mint_silver", "silver_ingot", 10)):
+            row = recipes.get(rid, {})
+            check(row.get("building_id") == "mint" and row.get("role_id") == "mintmaster" and row.get("world_effect") == "mint_issue", "currency", f"invalid mint station or event {rid}")
+            check(quantities(row.get("inputs", "")) == {metal: 1, "charcoal": 1} and quantities(row.get("outputs", "")) == {"coin": amount}, "currency", f"unbacked mint batch {rid}")
+            check(rid in items(tech.get("z08_coinage", {}).get("unlock_recipes", "")), "currency", f"mint missing research gate {rid}")
+        check({rid for rid, row in recipes.items() if "coin" in quantities(row["outputs"])} == {"mint_gold", "mint_silver"}, "currency", "unauthorized coin-producing recipe")
         recipe_owner: dict[str, str] = {}
         grade_owner: dict[str, str] = {}
         military_owner: dict[str, str] = {}
@@ -196,6 +203,8 @@ def main() -> int:
                 check(len(refs) == len(set(refs)), "references", f"duplicate refs {tid}:{column}")
                 for ref in refs:
                     check(ref in catalog, "references", f"missing {column} {tid} -> {ref}")
+            for good, amount in quantities(row.get("research_inputs", "")).items():
+                check(good in goods and amount > 0, "research_materials", f"invalid research consumable {tid}: {good}")
             for ref in items(row["building_refs"]):
                 if ref in grades:
                     check(int(grades[ref]["min_settlement_tier"]) <= stage, "stage_order", f"building reference later than tech {tid} -> {ref}")
@@ -281,6 +290,8 @@ def main() -> int:
         integrated = integrated_reachability(tech, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military)
         check(integrated["passed"], "integrated_reachability", f"combined tech/economy deadlock: {integrated['stage_gate_failures']} {integrated['unreachable']}")
         check(integrated["milestone_witnesses"]["building:university@1"] is not None and integrated["milestone_witnesses"]["building:university@1"]["stage"] == 2, "integrated_reachability", "first university must be buildable at S2 through pre-university learning")
+        coin_witness = integrated["milestone_witnesses"]["good:coin"]
+        check(coin_witness is not None and coin_witness["stage"] == 3 and coin_witness["source"] in {"mint_gold", "mint_silver"}, "currency", "coin must first become reachable through S3 minting")
         for mid, row in military.items():
             witness = integrated["milestone_witnesses"][f"military:{mid}"]
             check(witness is not None and witness["stage"] == int(row["min_settlement_tier"]), "integrated_reachability", f"military kit and training station unreachable at declared stage {mid}")
@@ -293,6 +304,12 @@ def main() -> int:
             caught = not negative["passed"] and bool(negative["stage_gate_failures"]) and negative["stage_gate_failures"][0]["target_stage"] == blocked_stage
             check(caught, "integrated_counterexamples", f"failed to detect injected {tid}/S{new_stage} progression cycle")
             sensitivity_checks.append({"in_memory_mutation": f"{tid}.min_settlement_tier={new_stage}", "expected_blocked_stage": blocked_stage, "detected": caught, "failure": negative["stage_gate_failures"]})
+        mutated = {key: dict(row) for key, row in tech.items()}
+        mutated["k06_writing_materials"]["research_inputs"] = "book=1"
+        negative = integrated_reachability(mutated, goods, recipes, grades, roles, tiers, bootstrap, wildlife, military)
+        caught = not negative["passed"] and "k06_writing_materials" in negative["unreachable"]["technologies"] and "book" in negative["unreachable"]["goods"]
+        check(caught, "integrated_counterexamples", "failed to detect writing/book bootstrap cycle")
+        sensitivity_checks.append({"in_memory_mutation": "k06_writing_materials.research_inputs=book=1", "detected": caught, "unreachable_technologies": negative["unreachable"]["technologies"]})
 
         for grade in range(1, 6):
             ref = f"university@{grade}"
@@ -356,7 +373,7 @@ def main() -> int:
 
         report = {
             "schema_version": 1,
-            "design_version": "technology-design-v1",
+            "design_version": "technology-design-v2-resources",
             "design_status": "prepared_not_implemented",
             "validation_scope": "CSV references, dependency DAG, stage gates and proposed math only; no Unity or gameplay validation",
             "created_at": datetime.now(timezone(timedelta(hours=3))).isoformat(timespec="seconds"),

@@ -56,3 +56,16 @@ Build вызывает Editor.ProjectSetup.BuildWindows, использует Ma
 `Run-Capture.ps1 -Name citizens -FocusSettlement -Zoom 12 -InspectCitizen` снимает настоящий Player, записывая SHA256 DLL и исходников на момент запуска. `Run-MotionCapture.ps1 -Name citizens -Seconds 6` сохраняет короткий native MP4: кадры сняты с настоящим временем, частота выборки 10 Гц, монтаж использует timestamps. Это видеодоказательство движения, не профиль FPS; захват сам влияет на скорость. Для профиля используйте отдельный Run-Capture с ProfileSeconds.
 
 Проектные данные: `python Tools/Validate-EconomyDesign.py --report Evidence/Design/economy-design-validation.json` и `python Tools/Validate-TechnologyDesign.py`. Они проверяют ссылки, цепочки и математику, а не выполняют будущую экономику в Unity. Результаты — Evidence/Design; формулы и ограничения — Docs/Design.
+## Ресурсная итерация 0.3.0
+
+`Tools/ResourceAudit/ResourceAudit.csproj` воспроизводит команды обычного стартового мира128×128/seed1618033 без подстановки ресурсов, затем4500тиков чистого ядра с45проверками состояния. Пример: `dotnet run --project Tools/ResourceAudit/ResourceAudit.csproj -- Evidence/Simulation/resource-natural-opening.json`. Это offline-расчёт, не время Player; соседство источника в квадрате18клеток не доказывает доступный путь к нему. Для повторных экспериментальных вариантов используйте новое имя отчёта и сохраняйте историю.
+
+Нативные захваты новой сборки требуют `-PlayerRelativePath Builds/Windows-0.3.0/WorldGenesis.exe`. `Run-Capture.ps1 -InspectResourceWorker` при наступлении времени кадра выбирает существующего носильщика брёвен/рабочего, не меняя мир. `-Resource IronOre` кадрирует реальный узел указанного вида. `Run-MotionCapture.ps1 -InspectResourceWorker -Delay 20 -Seconds 6` начинает наблюдение после20с обычной симуляции и сохраняет ID/позицию/задачу/груз по кадрам. Выбор/камера автоматические; деньги, материал и приказы не добавляются.
+
+Выпуск: `Tools/Package-Alpha.ps1 -Version 0.3.0-alpha -BuildFolder Windows-0.3.0` включает текущий RESOURCES_REPORT, руководство и provenance CC0. Само описание команды не подтверждает, что выпуск прошёл приёмку: статус в Docs/STATE.md.
+
+### Наблюдение демографии (0.3)
+
+`Tools/Run-Capture.ps1 -PlayerRelativePath Builds/Windows-0.3.0/WorldGenesis.exe -Name woman -Seconds 6 -Demographic Woman` выбирает живую взрослую женщину в обычном мире. `-Demographic Child -Speed 10 -Seconds 35` ищет ребёнка после реальных рождений. Man/Woman/Child — фильтры наблюдателя; он не создаёт жителя и завершается ошибкой, если подходящего нет. Скорость, возраст и пол фиксируются в PNG JSON. При ускорении не называть кадр обычной1×симуляцией.
+
+ResourceAudit теперь также проверяет общий лимит ноши каждую итерацию, считает настоящие Contribution/Gift/Barter, пол/возраст и натуральный налог в4500-тиковом обычном старте. Это offline-проверка ядра, не замер FPS Unity.

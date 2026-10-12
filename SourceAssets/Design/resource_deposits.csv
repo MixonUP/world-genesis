@@ -1,0 +1,12 @@
+node_id,biomes,min_settlement_tier,regrowth_mode,delay_jitter_fraction,minimum_spacing_tiles,cluster_nodes_min,cluster_nodes_max,region_weights,guarantee_near_start,visual_form,status
+mature_tree,forest;grass,1,depleted_cooldown,0,2,6,16,woodland=6;riverland=3;highland=1;dryland=1;ore_ridge=1,true,дерево пень молодой ствол,proposed
+stone_deposit,mountain;hills;grass,1,depleted_cooldown,0,3,3,7,woodland=1;riverland=1;highland=6;dryland=3;ore_ridge=4,false,слоистые валуны и выработанная площадка,proposed
+iron_deposit,mountain;hills,3,depleted_cooldown,0,5,2,5,woodland=0;riverland=0;highland=5;dryland=1;ore_ridge=6,false,серый рудный выступ с тёмными прожилками,proposed
+copper_deposit,hills;dry_grass;mountain,3,depleted_cooldown,0,5,2,5,woodland=0;riverland=0;highland=2;dryland=6;ore_ridge=3,false,зелёные окислы в красноватом камне,proposed
+gold_deposit,mountain;hills,3,depleted_cooldown,0,8,1,2,woodland=0;riverland=1;highland=1;dryland=1;ore_ridge=6,false,малый тёмный выступ с золотыми вкраплениями,proposed
+silver_deposit,mountain;hills,3,depleted_cooldown,0,7,1,3,woodland=0;riverland=0;highland=3;dryland=1;ore_ridge=6,false,светлая прожилка в тёмной породе,proposed
+coal_deposit,hills;mountain,3,depleted_cooldown,0,4,2,5,woodland=1;riverland=0;highland=6;dryland=1;ore_ridge=3,false,матовые чёрные куски,proposed
+clay_bank,river_bank;wet_grass,1,depleted_cooldown,0,3,3,8,woodland=1;riverland=6;highland=0;dryland=2;ore_ridge=0,false,красно-бурый срез берега,proposed
+sand_bank,beach;river_bank;desert,1,depleted_cooldown,0,3,3,8,woodland=0;riverland=5;highland=0;dryland=6;ore_ridge=0,false,светлая кучка с выемкой,proposed
+limestone_deposit,hills;dry_grass;mountain,1,depleted_cooldown,0,4,2,6,woodland=0;riverland=1;highland=3;dryland=6;ore_ridge=2,false,белёсые слоистые камни,proposed
+tin_deposit,mountain;hills,3,depleted_cooldown,0,6,1,3,woodland=0;riverland=0;highland=4;dryland=3;ore_ridge=3,false,светлые крупинки в серой руде,proposed

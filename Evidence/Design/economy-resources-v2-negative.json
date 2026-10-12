@@ -1,0 +1,56 @@
+{
+  "scope": "negative design-validator fixtures only; no runtime simulation",
+  "passed": true,
+  "cases": [
+    {
+      "case": "mint_without_gold",
+      "rejected": true,
+      "errors": [
+        "mint_gold: mint must atomically consume its exact metal and fuel"
+      ]
+    },
+    {
+      "case": "mint_extra_output",
+      "rejected": true,
+      "errors": [
+        "mint_silver: mint must atomically consume its exact metal and fuel"
+      ]
+    },
+    {
+      "case": "stage_money_grant",
+      "rejected": true,
+      "errors": [
+        "stage 3: obsolete unbacked grant"
+      ]
+    },
+    {
+      "case": "instant_gold_regrowth",
+      "rejected": true,
+      "errors": [
+        "gold_deposit: incomplete regrowth pair",
+        "gold_deposit: instant deposit regeneration"
+      ]
+    },
+    {
+      "case": "all_towns_gold",
+      "rejected": true,
+      "errors": [
+        "gold_deposit: every town must not receive every deposit"
+      ]
+    },
+    {
+      "case": "uniform_gold_regions",
+      "rejected": true,
+      "errors": [
+        "gold_deposit: uniform or invalid regional distribution"
+      ]
+    },
+    {
+      "case": "unknown_research_material",
+      "rejected": true,
+      "errors": [
+        "research materials k03_natural_studies: unknown ID missing_book"
+      ]
+    }
+  ]
+}

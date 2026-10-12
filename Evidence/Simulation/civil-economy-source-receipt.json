@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-12T10:23:40.1015512Z",
+  "scope": "Households/demography pure Simulation freeze, no Unity or Git mutation by this agent.",
+  "probe": "Evidence/Simulation/civil-economy-probe-freeze.json",
+  "checks": 68,
+  "failed": 0,
+  "addedHouseholdNUnitMethods": 9,
+  "expectedEditModeCases": 57,
+  "resourceVersion": 2,
+  "economyVersion": 1,
+  "demographyVersion": 1,
+  "files": [
+    {
+      "path": "Tools/SimulationProbe/Program.cs",
+      "sha256": "83b76246e2d7093b7b559299e0b714b2a5371feb3bf17d7d19edcc26fb3d5baa"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs",
+      "sha256": "bd3fa5a8d964b96d1b2efdafc9ac606325f0dfc055a0d45d8e9c4f604b036aec"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "cd498ef9828ea37004ec381b4d03c9e8c371e46414c3011c49ce94c798381a7e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "7fe6046ab3ae9aa0b5f26dc4eaab4987b6a86af9f669867b94fdf0d0f216f3c8"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "sha256": "5dfa4819d151f55a2fb85823182c0bfa106d1ecc8bc17f363594a945f5b232ae"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "63f226a93154cb8ec87bae947b87a85480c37ca88cf38bcad7aa8d907af9d575"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "57a1adadd320c9daab7e301f3aa4c5db5e68827fb4204198fc72b97a0d1830c4"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "936ababa39feb67d38772930ab4a1f59a23fdb87922b148f84ff43edb340b8d6"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "494ef3b984735a2b4c112569e9e0f55506d57b7b2656ead43e5b3db35d00f70b"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "ea0d6d78ec8226eaff9b8e0c7deed13e1f68818b3227c69a0808760b0385a32a"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "0948fd4139f8f9f42e6e14a4c0e61820b64ca2b2c0881e9ec64aa650b4fe7b0e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "86755f15d85c0996cdd7dceea80bb381bdd0a95585cbf68c80272d826323e702"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "9e93cfcbaa80ee639dd0d6d61d9dc89cab829e5c3579e2e51150d0e1b4355064"
+    }
+  ]
+}

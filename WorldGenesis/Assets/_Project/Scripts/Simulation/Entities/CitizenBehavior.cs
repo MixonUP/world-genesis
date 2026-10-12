@@ -43,8 +43,12 @@ namespace WorldGenesis.Simulation
         {
             if (unit.Task == task) return;
             ReleaseReservation(unit);
+            ReleaseWorkshop(unit);
             unit.Task = task; unit.TaskStartedTick = World.Tick; unit.WorkTimer = 0;
             if (task != UnitTask.Fight && task != UnitTask.Socialize) unit.TargetId = 0;
+            if (task != UnitTask.Gather) unit.ResourceCell = -1;
+            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
+            if (task != UnitTask.Haul) unit.GroundStockIndex = -1;
         }
 
         private static void ClearRoute(UnitData unit) { unit.Path.Clear(); unit.PathCursor = 0; }
@@ -58,11 +62,11 @@ namespace WorldGenesis.Simulation
 
         private bool CommittedActivity(UnitData unit)
         {
-            if (unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize) return true;
+            if (unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize || unit.Task == UnitTask.Play || unit.Task == UnitTask.Learn) return true;
+            if (unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Haul) return CommittedResourceJob(unit);
             if ((unit.Task == UnitTask.Return || unit.Task == UnitTask.Patrol) && unit.PathCursor < unit.Path.Count) return true;
             if (unit.TargetCell < 0 || unit.TargetCell >= World.Cells.Length) return false;
-            if (unit.Task == UnitTask.Gather) return unit.CarriedWood < 2.8f && World.Cells[unit.TargetCell].Vegetation > .02f;
-            return unit.Task == UnitTask.Farm && unit.CarriedFood < 2.8f && HasWorkingFarm(unit.SettlementId, unit.TargetCell);
+            return unit.Task == UnitTask.Farm && CarrySpace(unit) > .001f && HasWorkingFarm(unit.SettlementId, unit.TargetCell);
         }
 
         private float NearbyFire(int x, int y)
@@ -145,15 +149,6 @@ namespace WorldGenesis.Simulation
             if (World.Cells[World.Index(x, y)].Fire > 0 || NearbyFire(x, y) > .15f) return false;
             ReleaseReservation(unit); ClearRoute(unit); unit.TargetCell = World.Index(x, y);
             ChangeTask(unit, UnitTask.Rest); return true;
-        }
-
-        private bool ChooseGather(UnitData unit)
-        {
-            if (unit.CarriedWood >= 2.8f) return false;
-            if (unit.Task == UnitTask.Gather && unit.TargetCell >= 0 && World.Cells[unit.TargetCell].Vegetation > .02f && World.Cells[unit.TargetCell].Fire == 0) return true;
-            int resource = FindResource(unit, 12);
-            if (resource < 0 || !SetTarget(unit, resource % World.Width, resource / World.Width)) return false;
-            ChangeTask(unit, UnitTask.Gather); reservations[resource] = unit.Id; return true;
         }
 
         private bool ChooseSocial(UnitData unit, SettlementData home)

@@ -9,7 +9,7 @@ foreach ($required in @('WorldGenesis.exe','UnityPlayer.dll','WorldGenesis_Data\
     if (-not (Test-Path -LiteralPath (Join-Path $build $required))) { throw "Missing build component: $required" }
 }
 Copy-Item -LiteralPath (Join-Path $root 'Docs\Development\PLAY_GUIDE.md') -Destination (Join-Path $build 'PLAY_GUIDE-RU.md')
-$report=if($Version -eq '0.1.0-alpha') {'ALPHA_REPORT.md'} else {'CITIZENS_REPORT.md'}
+$report=if($Version -eq '0.1.0-alpha') {'ALPHA_REPORT.md'} elseif($Version -eq '0.2.0-alpha') {'CITIZENS_REPORT.md'} else {'RESOURCES_REPORT.md'}
 Copy-Item -LiteralPath (Join-Path $root ('Docs/Development/'+$report)) -Destination (Join-Path $build $report)
 if ($Version -ne '0.1.0-alpha') {
     Copy-Item -LiteralPath (Join-Path $root 'SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md') -Destination (Join-Path $build 'THIRD-PARTY-ART.md')

@@ -49,6 +49,9 @@ def validate(root):
     military = table("military_loadouts.csv", "military_role_id")
     civil_defense = table("civil_defense.csv", "policy_id")
     technologies = table("technologies.csv", "technology_id")
+    deposits = table("resource_deposits.csv", "node_id")
+    regions = table("resource_regions.csv", "region_id")
+    minting = table("minting_policy.csv", "policy_id")
     with (root / "building_tiers.csv").open(encoding="utf-8-sig", newline="") as f:
         tiers = list(csv.DictReader(f))
     counts["building_tiers.csv"] = len(tiers)
@@ -69,7 +72,7 @@ def validate(root):
     for identity, row in goods.items():
         for col in ("load_units", "nutrition", "shelf_life_seconds", "base_price_coins"):
             number(row[col], f"goods {identity}/{col}", 0.000001 if col == "load_units" else 0)
-        check(row["origin"] in {"recipe", "wildlife", "world_treasury"}, f"{identity}: origin")
+        check(row["origin"] in {"recipe", "wildlife", "mint"}, f"{identity}: origin")
     for identity, role in roles.items():
         for station in role["buildings"].split(";"):
             check(station in buildings, f"role {identity}: unknown building {station}")
@@ -78,6 +81,27 @@ def validate(root):
         amount = number(source["regrow_charges"], identity, 0, True)
         delay = number(source["regrow_seconds"], identity, 0)
         check((amount == 0) == (delay == 0), f"{identity}: incomplete regrowth pair")
+        check(amount <= float(source["initial_charges"]), f"{identity}: regeneration exceeds capacity")
+    for identity, row in regions.items():
+        for column in ("specialization", "needs_import"):
+            check(set(row[column].split(";")) <= set(goods), f"region {identity}: unknown goods")
+        number(row["patch_scale_tiles"], identity, 8, True)
+    for identity, row in deposits.items():
+        check(identity in sources, f"deposit {identity}: unknown natural source")
+        check(row["regrowth_mode"] == "depleted_cooldown", f"{identity}: unsupported deposit renewal")
+        check(bool(row["biomes"]), f"{identity}: no terrain constraint")
+        actual_weights = {k: int(v) for k, v in (token.split("=") for token in row["region_weights"].split(";"))}
+        check(set(actual_weights) == set(regions), f"{identity}: incomplete regional weights")
+        check(all(v >= 0 for v in actual_weights.values()) and max(actual_weights.values()) > min(actual_weights.values()), f"{identity}: uniform or invalid regional distribution")
+        check(row["guarantee_near_start"] == ("true" if identity == "mature_tree" else "false"), f"{identity}: every town must not receive every deposit")
+        number(row["minimum_spacing_tiles"], identity, 1, True)
+        low = number(row["cluster_nodes_min"], identity, 1, True)
+        high = number(row["cluster_nodes_max"], identity, 1, True)
+        check(low <= high, f"{identity}: reversed cluster bounds")
+        jitter = number(row["delay_jitter_fraction"], identity, 0)
+        check(jitter <= .25, f"{identity}: excessive timer jitter")
+        check(identity not in sources or float(sources[identity]["regrow_seconds"]) > 0, f"{identity}: instant deposit regeneration")
+    check(len({sources[n]["regrow_seconds"] for n in deposits if n in sources}) >= 8, "deposit cooldowns must preserve different resource scarcity")
     animal_outputs = set()
     for identity, row in wildlife.items():
         animal_outputs.update(quantities(row["death_output"], identity))
@@ -125,10 +149,25 @@ def validate(root):
         charges = number(row["source_charges"], identity, 0, True)
         check((node in sources and charges > 0) if node else charges == 0, f"{identity}: source/charges mismatch")
         check(bool(row["_inputs"] or node), f"{identity}: unexplained free production")
-        check("coin" not in row["_outputs"], f"{identity}: money creation outside treasury")
+        if "coin" in row["_outputs"]:
+            metal, amount = ("gold_ingot", 100) if identity == "mint_gold" else ("silver_ingot", 10)
+            check(identity in {"mint_gold", "mint_silver"} and building == "mint" and role == "mintmaster" and row["world_effect"] == "mint_issue", f"{identity}: unauthorized money creation")
+            check(row["_inputs"] == {metal: 1, "charcoal": 1} and row["_outputs"] == {"coin": amount}, f"{identity}: mint must atomically consume its exact metal and fuel")
+            check(identity in technologies.get("z08_coinage", {}).get("unlock_recipes", "").split(";"), f"{identity}: mint not research-gated")
+        check("coin" not in row["_inputs"], f"{identity}: unspecified coin conversion or destruction")
     for identity, row in goods.items():
-        expected = recipe_outputs if row["origin"] == "recipe" else animal_outputs if row["origin"] == "wildlife" else {"coin"}
+        expected = animal_outputs if row["origin"] == "wildlife" else recipe_outputs
         check(identity in expected, f"{identity}: no production source")
+    for identity, row in technologies.items():
+        quantities(row.get("research_inputs", ""), f"research materials {identity}")
+    check(set(minting) == {"metal_backed_minting"}, "missing canonical minting policy")
+    for identity, row in minting.items():
+        check(row["initial_world_coins"] == "0" and row["initial_town_grant"] == "0", "unbacked starting currency is forbidden")
+        check(row["gold_recipe"] == "mint_gold" and row["silver_recipe"] == "mint_silver", "invalid mint recipe refs")
+        check(row["gold_units_per_batch"] == row["silver_units_per_batch"] == "1" and row["gold_coin_output"] == "100" and row["silver_coin_output"] == "10", "mint policy disagrees with recipes")
+        for field in ("coins_per_adult_per_day_cap", "target_coins_per_adult", "turnover_reserve_days", "day_seconds"):
+            number(row[field], f"mint {field}", 1, True)
+        check(row["day_seconds"] == "600", "mint day must use the common economic clock")
 
     check(set(civil_defense) == {"emergency_civil_defense"}, "missing emergency civilian defense policy")
     for identity, row in civil_defense.items():
@@ -173,8 +212,9 @@ def validate(root):
     for identity, row in bootstrap.items():
         number(row["amount"], identity, 1, True)
         kind, ref = row["kind"], row["ref_id"]
-        if kind in {"inventory", "world_treasury"}:
+        if kind == "inventory":
             check(ref in goods, f"{identity}: bad bootstrap good")
+            check(ref != "coin", f"{identity}: money may only originate from metal-backed minting")
             available.add(ref)
         elif kind == "habitat":
             check(ref in sources, f"{identity}: bad bootstrap habitat")
@@ -190,6 +230,7 @@ def validate(root):
     check(set(stages) == {"1", "2", "3", "4", "5"}, "settlement must have five tiers")
     for stage in range(1, 6):
         s = stages[str(stage)]
+        check(s["world_treasury_grant"] == "0", f"stage {stage}: obsolete unbacked grant")
         gate_goods = quantities(s["required_goods"], f"stage {stage}")
         check(set(gate_goods) <= available, f"stage {stage}: circular goods gate {set(gate_goods)-available}")
         for token in filter(None, s["required_buildings"].split(";")):

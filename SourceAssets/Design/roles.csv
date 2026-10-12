@@ -7,14 +7,14 @@ fisher,Рыбак,1,fishing_hut,удочка или сеть,raw_fish,забро
 hunter,Охотник,1,ranger_lodge,копьё или лук,small_carcass;large_carcass,подкрадывание удар свежевание,сбор еды
 butcher,Мясник,1,hearth;kitchen,нож и передник,raw_meat;hide,разделка,готовка
 forester,Лесник,1,ranger_lodge;logging_camp;hearth,лопатка и саженец,plant_tree,посадка полив осмотр,сбор семян
-miner,Рудокоп,3,mine,кирка фонарь,iron_ore,удар киркой,доставка
-stonecutter,Каменотёс,1,quarry;hearth,молот зубило,stone;flint;clay,удар сбор камня,доставка
+miner,Рудокоп,3,mine,кирка фонарь,iron_ore;copper_ore;tin_ore;gold_ore;silver_ore;coal,удар киркой,доставка
+stonecutter,Каменотёс,1,quarry;hearth,молот зубило,stone;stone_block;stone_tile;clay;sand;limestone;mortar,удар сбор камня,доставка
 water_carrier,Водонос,1,well;hearth,коромысло вёдра,water,зачерпнуть нести,сбор еды
 cook,Повар,1,hearth;kitchen,котёл ложка,meal;dried_food,помешивание сушка,сбор еды
 miller,Мельник,2,mill,совок жернова,flour,вращать жернова,доставка зерна
 baker,Пекарь,2,bakery,лопата печи,bread,месить посадить хлеб,готовка
 charcoal_burner,Углежог,2,charcoal_kiln,грабли угольная куча,charcoal,укладка дров обжиг,колка дров
-smelter,Плавильщик,3,smelter,клещи кожаный фартук,iron_ingot;steel_ingot,меха заливка,доставка топлива
+smelter,Плавильщик,3,smelter,клещи кожаный фартук,iron_ingot;steel_ingot;copper_ingot;tin_ingot;bronze_ingot;gold_ingot;silver_ingot,меха заливка,доставка топлива
 tanner,Кожевник,2,tannery,скребок чан рама,leather;leather_scrap,скоблить натягивать,разделка
 flax_worker,Обработчик льна,2,weavery,мялка трепало чан,flax_fiber,замачивание трепание,доставка льна
 weaver,Ткач,2,weavery;hearth,ткацкая рама,linen_cloth;rope,работа челноком,обработка льна
@@ -27,6 +27,8 @@ merchant,Торговец,2,market;stall,весы вывеска книга,trad
 caravaner,Караванщик,2,caravanserai,тележка тюк дорожный плащ,caravan,погрузить вести разгрузить,местная доставка
 guard,Стражник,2,watchtower,выданное оружие и броня из military_loadouts,security,патруль стойка бой,возврат за снаряжением либо гражданский труд
 healer,Травник-лекарь,1,healer_hut;hearth,сумка трав перевязь,heal,сбор осмотр перевязка,сбор трав
-potter,Кирпичник,3,brickworks,форма совок печь,brick,формовать обжигать,добыча глины
+potter,Кирпичник,3,brickworks,форма совок печь,brick;roof_tile;lime,формовать обжигать,добыча глины
 priest,Священник,1,temple;hearth,ритуальный знак и записи,knowledge_social,обращение чтение помощь,помощь общине
-scholar,Учёный,2,university,записи таблица измерительный инструмент,knowledge_research,наблюдение запись обучение,обучение ремесленников
+scholar,Учёный,2,university,записи таблица измерительный инструмент,knowledge_research;paper;ink;book,наблюдение запись обучение,обучение ремесленников
+mintmaster,Монетчик,3,mint,штемпель весы заготовки,coin,взвесить нагреть ударить учесть,учёт запасов
+glassmaker,Стеклодел,3,glassworks,печь клещи форма,glass,загрузить расплавить отформовать,доставка песка

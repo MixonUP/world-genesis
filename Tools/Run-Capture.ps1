@@ -2,11 +2,14 @@
 param(
     [ValidatePattern('^[a-z0-9-]+$')][string]$Name='overview',
     [int]$Width=1920, [int]$Height=1080, [int]$Seconds=8,
+    [ValidateSet(1,2,5,10)][int]$Speed=1,
     [switch]$FocusSettlement, [int]$Zoom=18,
     [ValidateSet('', 'Fire', 'Rain', 'Lightning', 'Meteor', 'Heal', 'Bless', 'Plague')][string]$Power='',
     [int]$ProfileSeconds=0, [int]$StressPopulation=0,
     [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
-    [switch]$InspectCitizen
+    [switch]$InspectCitizen, [switch]$InspectResourceWorker,
+    [ValidateSet('', 'Woman', 'Man', 'Child')][string]$Demographic='',
+    [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin')][string]$Resource=''
 )
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -21,8 +24,12 @@ $base=Join-Path $directory ($stamp+'-'+$Name)
 $image=$base+'.png'; $log=$base+'.log'; $profile=$base+'-profile.json'
 function Quote([string]$value) { if ($value.Contains('"')) { throw 'Invalid quote in path' }; return '"'+$value+'"' }
 $arguments=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullscreen','0','-logFile',(Quote $log),'--capture',(Quote $image),'--capture-delay',"$Seconds",'--quit-after-capture')
+$arguments+=@('--simulation-speed',"$Speed")
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
 if ($InspectCitizen) { $arguments+='--inspect-citizen' }
+if ($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }
+if ($Demographic) { $arguments+=@('--inspect-demographic',$Demographic) }
+if ($Resource) { $arguments+=@('--inspect-resource',$Resource) }
 if ($Power) { $arguments+=@('--demo-power',$Power) }
 if ($ProfileSeconds -gt 0) {
     if ($Seconds -le $ProfileSeconds+4) { throw 'Capture delay must exceed profile duration + 4 seconds.' }

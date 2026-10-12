@@ -32,6 +32,7 @@ namespace WorldGenesis.Runtime
         private Queue<Chunk> dirtyChunks;
         private Color32[] minimapPixels;
         private int revision = -1;
+        private int resourceRevision = -1;
         private int lastBuildingCount = -1;
         private float nextRefresh;
         private WorldState world;
@@ -55,7 +56,7 @@ namespace WorldGenesis.Runtime
         {
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             if (Minimap != null) UnityEngine.Object.Destroy(Minimap);
-            world = value; revision = -1; nextRefresh = 0; lastBuildingCount = -1;
+            world = value; revision = -1; resourceRevision = -1; nextRefresh = 0; lastBuildingCount = -1;
             citizenSprites.Reset();
             int across = (world.Width + ChunkSize - 1) / ChunkSize, down = (world.Height + ChunkSize - 1) / ChunkSize;
             chunks = new Chunk[across * down];
@@ -75,14 +76,14 @@ namespace WorldGenesis.Runtime
             Minimap = new Texture2D(world.Width, world.Height, TextureFormat.RGB24, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
             minimapPixels = new Color32[world.Cells.Length];
             // Initial presentation is complete immediately; later edits use the bounded queue.
-            revision = world.TerrainRevision; lastBuildingCount = world.Buildings.Count;
+            revision = world.TerrainRevision; resourceRevision = world.ResourceRevision; lastBuildingCount = world.Buildings.Count;
             RefreshMinimap(); RefreshTerritories(); Update(0);
         }
 
         public void Update(float now)
         {
             if (world == null) return;
-            if (revision != world.TerrainRevision && now >= nextRefresh)
+            if ((revision != world.TerrainRevision || resourceRevision != world.ResourceRevision) && now >= nextRefresh)
             {
                 bool buildingsChanged = lastBuildingCount != world.Buildings.Count;
                 foreach (Chunk chunk in chunks)
@@ -93,7 +94,9 @@ namespace WorldGenesis.Runtime
                     }
                 }
                 // This is the scanned revision, not a claim that all queued textures are rendered.
-                revision = world.TerrainRevision; lastBuildingCount = world.Buildings.Count; nextRefresh = now + .28f; RefreshMinimap(); RefreshTerritories();
+                bool terrainChanged = revision != world.TerrainRevision;
+                revision = world.TerrainRevision; resourceRevision = world.ResourceRevision; lastBuildingCount = world.Buildings.Count; nextRefresh = now + .28f;
+                if (terrainChanged) { RefreshMinimap(); RefreshTerritories(); }
             }
             for (int rebuilt = 0; rebuilt < MaxChunkRebuildsPerFrame && dirtyChunks.Count > 0; rebuilt++)
             {
@@ -103,15 +106,28 @@ namespace WorldGenesis.Runtime
                 uint renderedHash = ChunkHash(chunk); Rebuild(chunk); chunk.Hash = renderedHash;
             }
             buildings.Clear();
+            if (world.GroundStocks != null) for (int i = 0; i < world.GroundStocks.Count; i++)
+            {
+                GroundStockData stock = world.GroundStocks[i]; if (stock.Amount <= 0) continue;
+                int glyph = stock.IsFood ? ResourceArt.FoodBasket : ResourceArt.CargoSprite(stock.Item);
+                if (glyph >= 0) buildings.Sprite(stock.X, stock.Y - .15f, .82f, .82f, glyph, stock.IsFood ? Color.white : ResourceArt.CargoColor(stock.Item));
+            }
             for (int i = 0; i < world.Buildings.Count; i++)
             {
                 BuildingData b = world.Buildings[i]; if (b.Health <= 0) continue;
-                int sprite = b.Type == BuildingType.Hall ? 2 : b.Type == BuildingType.House ? 3 : b.Type == BuildingType.Farm ? 4 : 5;
-                buildings.Sprite(b.X + .5f, b.Y - .15f, 2.3f, 2.3f, sprite, Color.white);
+                int sprite = ResolveBuildingSprite(b.Type);
+                float size = b.Type == BuildingType.Hall ? 2.5f : b.Type == BuildingType.Sawmill || b.Type == BuildingType.Stoneworks ? 2.8f : 2.3f;
+                buildings.Sprite(b.X + .5f, b.Y - .15f, size, size, sprite, Color.white);
                 SettlementData settlement = world.GetSettlement(b.SettlementId);
-                if (settlement != null && b.Type == BuildingType.Hall) { Color flag = PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length]; buildings.Sprite(b.X + 1.25f, b.Y + 1.8f, .65f, .35f, 12, flag); }
+                if (settlement != null && b.Type == BuildingType.Hall)
+                {
+                    Color flag = PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length];
+                    buildings.Sprite(b.X - .48f, b.Y + .9f, .06f, 1.2f, 12, PixelArt.Hex("765a40"));
+                    buildings.Sprite(b.X - .20f, b.Y + 1.76f, .57f, .3f, 12, flag);
+                }
+                DrawBuildingSupplies(b);
             }
-            buildings.Submit(); people.Clear(); citizenSprites.Begin(world);
+            people.Clear(); citizenSprites.Begin(world);
             Camera camera = Camera.main;
             bool showDetails = camera != null && camera.orthographicSize <= 25;
             float simulationTime = world.Tick * SimulationEngine.TickSeconds;
@@ -129,35 +145,125 @@ namespace WorldGenesis.Runtime
                     Color humanTint = unit.Infected ? new Color(.74f, .93f, .65f) : Color.white;
                     citizenSprites.Add(world, unit, settlement == null ? 0 : settlement.ColorIndex, humanTint);
                 }
-                else people.Sprite(unit.X, unit.Y - .15f + bob, 1.2f, 1.2f, 6 + (int)unit.Species, tint);
-                float head = human ? (unit.Age < 16 ? .88f : unit.Profession == UnitProfession.Guard ? 1.62f : 1.15f) : .96f;
+                else
+                {
+                    float size = (int)unit.Species < 4 && unit.IsChild ? .81f : 1.2f;
+                    people.Sprite(unit.X, unit.Y - .15f + bob, size, size, ResourceArt.CitizenSprite(unit), tint);
+                }
+                float head = human ? (unit.IsChild ? .8f : unit.Profession == UnitProfession.Guard ? 1.62f : unit.Sex == Sex.Female ? 1.28f : 1.15f) : (int)unit.Species < 4 && unit.IsChild ? .64f : .96f;
                 if (unit.Blessed) people.Sprite(unit.X, unit.Y + head, .2f, .08f, 12, PixelArt.Gold);
                 if (showDetails && (int)unit.Species < 4)
                 {
-                    Color role = unit.Profession == UnitProfession.Forester ? PixelArt.Teal : unit.Profession == UnitProfession.Guard ? PixelArt.Hex("a6b8ed") : PixelArt.Gold;
+                    Color role = unit.IsChild ? PixelArt.Hex("dbb0d5") : unit.Profession == UnitProfession.Forester ? PixelArt.Teal : unit.Profession == UnitProfession.Guard ? PixelArt.Hex("a6b8ed") : PixelArt.Gold;
                     people.Sprite(unit.X - .17f, unit.Y + head + .13f, .16f, .12f, 12, role);
-                    if (unit.Task == UnitTask.Flee || unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize)
+                    if (unit.Task == UnitTask.Flee || unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize || unit.Task == UnitTask.Learn || unit.Task == UnitTask.Play)
                     {
                         Color activity = unit.Task == UnitTask.Flee ? PixelArt.Hex("ed8677") : unit.Task == UnitTask.Eat ? PixelArt.Teal : unit.Task == UnitTask.Rest ? PixelArt.Hex("92abb5") : PixelArt.Hex("d5a9d9");
                         people.Sprite(unit.X + .08f, unit.Y + head + .13f, .14f, .12f, 12, activity);
                     }
-                    if (unit.CarriedWood > .1f || unit.CarriedFood > .1f)
-                    {
-                        Color resource = unit.CarriedWood > unit.CarriedFood ? PixelArt.Hex("9b7046") : PixelArt.Hex("e3c477");
-                        people.Sprite(unit.X + .37f, unit.Y + .77f, .30f, .24f, 12, PixelArt.Ink);
-                        people.Sprite(unit.X + .37f, unit.Y + .8f, .22f, .16f, 12, resource);
-                    }
                 }
+                DrawCargo(unit, human ? citizenSprites.Facing(unit.Id) : TravelDirection(unit), simulationTime);
                 if (unit.Id == SelectedUnitId)
                 {
                     people.Sprite(unit.X, unit.Y + head + .38f, .85f, .1f, 12, PixelArt.Ink);
                     people.Sprite(unit.X - .425f + .425f * Mathf.Clamp01(unit.Health / unit.MaxHealth), unit.Y + head + .38f, .85f * Mathf.Clamp01(unit.Health / unit.MaxHealth), .1f, 12, PixelArt.Teal);
                 }
             }
-            people.Submit(); citizenSprites.Submit();
+            buildings.Submit(); people.Submit(); citizenSprites.Submit();
         }
 
         public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
+
+        public static int ResolveBuildingSprite(BuildingType type)
+        {
+            switch (type)
+            {
+                case BuildingType.Hall: return ResourceArt.Hearth;
+                case BuildingType.House: return 3; case BuildingType.Farm: return 4; case BuildingType.Tower: return 5;
+                case BuildingType.Sawmill: return ResourceArt.Sawmill;
+                case BuildingType.Stoneworks: return ResourceArt.Stoneworks;
+                case BuildingType.Kiln: return ResourceArt.Kiln; default: return 3;
+            }
+        }
+        private Vector2 TravelDirection(UnitData unit)
+        {
+            if (unit.Path != null && unit.PathCursor < unit.Path.Count)
+            {
+                int next = unit.Path[unit.PathCursor]; Vector2 delta = new Vector2(next % world.Width + .5f - unit.X, next / world.Width + .5f - unit.Y);
+                if (delta.sqrMagnitude > .0001f) return delta.normalized;
+            }
+            return Vector2.right;
+        }
+        public static Vector2 CargoPosition(UnitData unit, Vector2 direction)
+        {
+            direction = direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right;
+            float size = unit.IsChild ? .7f : 1;
+            // Sprite() takes a quad's bottom Y, not its centre. Resource pixels already
+            // occupy the middle of that quad, so a .5 Y offset would cover the face.
+            return new Vector2(unit.X, unit.Y) + (unit.CargoKind == ItemType.Log ? -direction * .82f + Vector2.up * .03f : new Vector2((direction.x < 0 ? -.52f : .52f) * size, -.08f * size));
+        }
+        private void DrawCargo(UnitData unit, Vector2 direction, float simulationTime)
+        {
+            bool resource = unit.CargoAmount > .001f && unit.CargoKind != ItemType.None;
+            bool food = !resource && unit.CarriedFood > .001f;
+            bool legacyPlanks = !resource && !food && unit.CarriedWood > .001f;
+            if (!resource && !food && !legacyPlanks) return;
+            Vector2 position = CargoPosition(unit, direction);
+            if (resource && unit.CargoKind == ItemType.Log)
+            {
+                Vector2 d = direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right;
+                float angle = Mathf.Atan2(d.y, d.x);
+                // Only the carried log rotates. Rope links its front end to the worker's hand.
+                // A log dragged north of a southbound citizen lies behind the body.
+                QuadBatch cargoBatch = d.y < -.2f ? buildings : people;
+                cargoBatch.OrientedSprite(position, 1.26f, .83f, angle, ResourceArt.Log, Color.white);
+                Vector2 end = position + d * .55f, hand = new Vector2(unit.X, unit.Y + .26f), rope = hand - end;
+                cargoBatch.OrientedSprite((end + hand) * .5f, rope.magnitude, .035f, Mathf.Atan2(rope.y, rope.x), 12, PixelArt.Hex("bfac7f"));
+                return;
+            }
+            if (unit.Species == SpeciesType.Human && !unit.IsChild)
+            {
+                CitizenSprites.Pose pose = CitizenSprites.ResolvePose(world, unit, direction);
+                // The authored carry rows raise the hands. Keep the parcel beside that
+                // hand; work rows hold it at the waist and never wear a basket as a hat.
+                if (!pose.Warrior && (pose.Row == 4 || pose.Row == 5))
+                    position = new Vector2(unit.X + (direction.x < 0 ? -.55f : .55f), unit.Y + .42f);
+            }
+            float bob = unit.Path != null && unit.PathCursor < unit.Path.Count ? Mathf.Sin(simulationTime * 10 + unit.Id) * .025f : 0;
+            float size = unit.IsChild ? .58f : .75f;
+            ItemType item = legacyPlanks ? ItemType.Plank : unit.CargoKind;
+            int glyph = food ? ResourceArt.FoodBasket : ResourceArt.CargoSprite(item);
+            people.Sprite(position.x, position.y + bob, size, size, glyph, food ? Color.white : ResourceArt.CargoColor(item));
+        }
+        private void DrawBuildingSupplies(BuildingData building)
+        {
+            if (building.Inventory != null)
+            {
+                int drawn = 0;
+                for (int item = 1; item < building.Inventory.Length && drawn < 3; item++)
+                {
+                    if (building.Inventory[item] <= .001f) continue;
+                    ItemType type = (ItemType)item; int sprite = ResourceArt.CargoSprite(type); if (sprite < 0) continue;
+                    buildings.Sprite(building.X - .3f + drawn * .48f, building.Y - .27f, .78f, .78f, sprite, ResourceArt.CargoColor(type)); drawn++;
+                }
+            }
+            UnitData worker = building.WorkerId != 0 ? world.GetUnit(building.WorkerId) : null;
+            if (worker == null || worker.Task != UnitTask.Process || worker.WorkTimer <= 0 || worker.PathCursor < worker.Path.Count || building.ActiveRecipe == RecipeType.None) return;
+            float phase = building.ProcessProgress * 5;
+            if (building.Type == BuildingType.Sawmill)
+            {
+                buildings.Sprite(building.X + .9f, building.Y + 1.25f + Mathf.Sin(phase) * .055f, .50f, .055f, 12, PixelArt.Hex("d3ded1"));
+            }
+            else if (building.Type == BuildingType.Stoneworks)
+            {
+                float lift = (Mathf.Sin(phase) + 1) * .13f;
+                buildings.OrientedSprite(new Vector2(building.X + .8f, building.Y + 1.55f + lift), .40f, .065f, -.65f, 12, PixelArt.Hex("c6b38b"));
+            }
+            else if (building.Type == BuildingType.Kiln)
+            {
+                buildings.Sprite(building.X + .55f, building.Y + .05f, .74f, .9f + Mathf.Sin(phase) * .06f, 21, Color.white);
+            }
+        }
 
         private uint ChunkHash(Chunk chunk)
         {
@@ -166,6 +272,8 @@ namespace WorldGenesis.Runtime
             {
                 TileData cell = world.Cells[world.Index(x, y)];
                 unchecked { hash = (hash ^ (uint)((int)cell.Terrain * 1009 + (int)(cell.Vegetation * 12) * 31 + cell.SettlementId * 13 + cell.BuildingId * 17 + cell.DrainageParent * 23 + (cell.Fire > 0 ? 1 : 0) + (cell.River ? 7 : 0))) * 16777619; }
+                ResourceNodeData node = world.GetResourceAt(x, y);
+                unchecked { hash = (hash ^ (uint)((int)node.Type * 137 + ResourceArt.VisualAmount(node.Amount, node.Capacity) * 19)) * 16777619; }
             }
             // Shore and river joins depend on the one-cell halo across chunk boundaries.
             for (int y = chunk.Y - 1; y <= chunk.Y + chunk.Height; y++) for (int x = chunk.X - 1; x <= chunk.X + chunk.Width; x++)
@@ -252,20 +360,33 @@ namespace WorldGenesis.Runtime
                     if (cell.Fire > 0) color = Color.Lerp(color, ScorchedColor, .35f);
                     pixels[(localY * PixelsPerCell + py) * textureWidth + localX * PixelsPerCell + px] = color;
                 }
-                if (cell.Terrain == TerrainType.Mountain)
+                ResourceNodeData node = world.GetResourceAt(x, y);
+                if (cell.Terrain == TerrainType.Mountain && node.Type == ResourceType.None)
                 {
                     if (hash % 11 == 0) { float size = 2.5f + (hash % 7) * .16f; chunk.Nature.Sprite(x + .5f, y - .2f, size, size, 13, Color.white); }
                     else if (hash % 9 == 0) chunk.Nature.Sprite(x + .5f, y - .1f, 1.1f, 1.1f, 14, Color.white);
                 }
-                float cluster = ForestCluster(x, y);
-                float density = cell.Terrain == TerrainType.Forest ? Mathf.Lerp(12, 48, cluster) : 7;
-                if (cell.SettlementId != 0) density *= .65f;
-                if (cell.BuildingId == 0 && !water && cell.Vegetation > .35f && hash % 100 < density && !NearBuilding(x, y))
+                if (cell.BuildingId == 0 && !water && node.Type != ResourceType.None)
                 {
                     float offset = ((hash >> 10) % 100) / 200f - .25f;
-                    bool fir = cell.Temperature < .42f || hash % 5 == 0;
-                    float size = 1.40f + (hash % 5) * .13f;
-                    chunk.Nature.Sprite(x + .5f + offset, y - .10f, size, size, fir ? 1 : 0, cell.Terrain == TerrainType.Snow ? new Color(.85f, .97f, .92f) : Color.white);
+                    if (node.Type == ResourceType.Tree)
+                    {
+                        bool fir = cell.Temperature < .42f || hash % 5 == 0;
+                        float size = node.Amount <= 0 ? 1.18f : 1.40f + (hash % 5) * .13f;
+                        chunk.Nature.Sprite(x + .5f + offset, y - .10f, size, size, node.Amount <= 0 ? ResourceArt.Stump : fir ? 1 : 0, cell.Terrain == TerrainType.Snow ? new Color(.85f, .97f, .92f) : Color.white);
+                    }
+                    else
+                    {
+                        int sprite = ResourceArt.NodeSprite(node.Type, node.Amount, node.Capacity);
+                        if (sprite >= 0)
+                        {
+                            // All nodes remain present; vary their appearance without consuming simulation RNG.
+                            float size = .86f + ((hash >> 15) % 27) * .01f;
+                            float jitterX = (((hash >> 9) % 101) * .01f - .5f) * .35f;
+                            float jitterY = (((hash >> 18) % 101) * .01f - .5f) * .32f;
+                            chunk.Nature.Add(x + .5f + jitterX - size * .5f, y + .03f + jitterY, size, size, PixelArt.Uv(sprite), Color.white, (hash & 16) != 0);
+                        }
+                    }
                 }
             }
             chunk.Texture.SetPixels32(pixels); chunk.Texture.Apply(false, false); chunk.Nature.Submit();

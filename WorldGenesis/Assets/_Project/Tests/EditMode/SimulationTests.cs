@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using WorldGenesis.Simulation;
@@ -166,6 +167,7 @@ namespace WorldGenesis.Tests
             engine.Spawn(SpeciesType.Human, 20, 24, 1); engine.Spawn(SpeciesType.Orc, 29, 24, 1);
             UnitData human = engine.World.Units[0], orc = engine.World.Units[1];
             human.X = 24.5f; human.Y = 24.5f; orc.X = 25.5f; orc.Y = 24.5f;
+            engine.SetDiplomacy(human.SettlementId, orc.SettlementId, true);
             engine.Step(.1f);
             Assert.Less(human.Health, human.MaxHealth); Assert.Less(orc.Health, orc.MaxHealth);
             engine.SetDiplomacy(human.SettlementId, orc.SettlementId, false);
@@ -175,6 +177,26 @@ namespace WorldGenesis.Tests
             WorldState loaded = JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(engine.World));
             Assert.IsTrue(loaded.Validate(out string error), error);
             Assert.AreEqual(1, loaded.Relations.Count); Assert.IsFalse(loaded.Relations[0].AtWar);
+        }
+
+        [Test]
+        public void LegacyEnemyCacheCannotCaptureAPeacefulAbandonedTown()
+        {
+            SimulationEngine engine = new SimulationEngine(FlatWorld()); engine.SetLaw(WorldLaw.Births, false);
+            engine.Spawn(SpeciesType.Human, 10, 10, 8); engine.Spawn(SpeciesType.Orc, 36, 36, 1);
+            WorldState world = engine.World; SettlementData home = world.Settlements[0], abandoned = world.Settlements[1];
+            home.EnemyId = abandoned.Id; abandoned.EnemyId = home.Id; // Old implicit war cache, with no declared relation.
+            foreach (UnitData unit in world.Units) if (unit.SettlementId == abandoned.Id) unit.Health = 0;
+            engine.Step(.1f);
+            UnitData visitor = world.Units[0]; visitor.X = abandoned.X + .5f; visitor.Y = abandoned.Y + .5f; visitor.Task = UnitTask.Idle; visitor.Path.Clear(); visitor.PathCursor = 0; visitor.TargetCell = -1; visitor.DecisionTimer = 10;
+            WorldState restored = JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(world));
+            SimulationEngine resumed = new SimulationEngine(restored); resumed.Step(1);
+            Assert.AreEqual(abandoned.Id, restored.Cells[restored.Index(abandoned.X, abandoned.Y)].SettlementId);
+            Assert.AreEqual(0, restored.Relations.Count); Assert.AreEqual(0, restored.GetSettlement(home.Id).EnemyId); Assert.AreEqual(0, restored.GetSettlement(abandoned.Id).EnemyId);
+            foreach (BuildingData building in restored.Buildings) if (building.X == abandoned.X && building.Y == abandoned.Y) Assert.AreEqual(abandoned.Id, building.SettlementId);
+            resumed.SetDiplomacy(home.Id, abandoned.Id, true); resumed.Step(1);
+            Assert.AreEqual(home.Id, restored.Cells[restored.Index(abandoned.X, abandoned.Y)].SettlementId, "Explicit war still allows existing abandoned-territory capture");
+            Assert.IsTrue(restored.Validate(out string error), error);
         }
 
         [Test]
@@ -213,9 +235,9 @@ namespace WorldGenesis.Tests
             SimulationEngine engine = new SimulationEngine(FlatWorld());
             engine.Spawn(SpeciesType.Human, 24, 24);
             UnitData unit = engine.World.Units[0]; unit.X = 24.5f; unit.Y = 24.5f;
-            unit.Task = UnitTask.Gather; unit.TargetCell = engine.World.Index(24, 24); unit.CarriedWood = 2; unit.DecisionTimer = 50;
+            unit.Task = UnitTask.Gather; unit.TargetCell = engine.World.Index(24, 24); unit.CarriedWood = 1; unit.DecisionTimer = 50;
             engine.ApplyPower(PowerType.Fire, 24, 24, 1); engine.Step(.1f);
-            Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(2, unit.CarriedWood); Assert.Greater(unit.Path.Count, 0);
+            Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(1, unit.CarriedWood); Assert.Greater(unit.Path.Count, 0);
             for (int t = 0; t < 35; t++) engine.Step(.1f);
             Assert.Greater(unit.Health, 0);
             Assert.Less(engine.World.Cells[engine.World.Index((int)unit.X, (int)unit.Y)].Fire, .1f);
@@ -305,7 +327,7 @@ namespace WorldGenesis.Tests
         public void ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState()
         {
             SimulationEngine source = new SimulationEngine(FlatWorld()); source.Spawn(SpeciesType.Human, 24, 24, 3);
-            WorldState legacy = source.World; legacy.BehaviorVersion = 1; legacy.Tick = 50; legacy.SimulatedSeconds = 5;
+            WorldState legacy = source.World; legacy.BehaviorVersion = 1; legacy.ResourceVersion = 1; legacy.Tick = 50; legacy.SimulatedSeconds = 5;
             UnitData patrol = legacy.Units[0], soldier = legacy.Units[1], civilian = legacy.Units[2];
             patrol.Profession = UnitProfession.Guard; patrol.Task = UnitTask.Patrol; patrol.TargetCell = legacy.Index(25, 24); patrol.Path.Add(patrol.TargetCell); patrol.CarriedWood = 2.5f; patrol.CarriedFood = .6f; patrol.Fatigue = .8f; patrol.SocialNeed = .9f;
             soldier.Profession = UnitProfession.Guard; soldier.Task = UnitTask.Fight; soldier.TargetId = civilian.Id; soldier.TargetCell = legacy.Index(24, 24); soldier.Path.Add(soldier.TargetCell);
@@ -317,7 +339,7 @@ namespace WorldGenesis.Tests
             Assert.AreEqual(2, w.BehaviorVersion); Assert.AreEqual(rng, w.RngState); Assert.AreEqual(nextId, w.NextId); Assert.AreEqual(50, w.Tick); Assert.AreEqual(food, w.Settlements[0].Food);
             Assert.AreNotEqual(UnitProfession.Guard, retired.Profession); Assert.AreNotEqual(UnitProfession.Guard, retiredSoldier.Profession);
             Assert.AreEqual(UnitTask.Idle, retired.Task); Assert.AreEqual(UnitTask.Idle, retiredSoldier.Task); Assert.AreEqual(0, retired.Path.Count); Assert.AreEqual(0, retiredSoldier.TargetId); Assert.AreEqual(0, retiredSoldier.Path.Count);
-            Assert.AreEqual(2.5f, retired.CarriedWood); Assert.AreEqual(.6f, retired.CarriedFood); Assert.AreEqual(.8f, retired.Fatigue); Assert.AreEqual(.9f, retired.SocialNeed);
+            float storedLegacyWood = retired.CarriedWood; foreach (GroundStockData pile in w.GroundStocks) if (pile.Item == ItemType.Plank) storedLegacyWood += pile.Amount; Assert.AreEqual(2.5f, storedLegacyWood, .00001f); Assert.AreEqual(.6f, retired.CarriedFood); Assert.AreEqual(.8f, retired.Fatigue); Assert.AreEqual(.9f, retired.SocialNeed);
             Assert.AreEqual(UnitTask.Rest, unchanged.Task); Assert.AreEqual(.6f, unchanged.Fatigue); Assert.AreEqual(7, unchanged.TaskStartedTick);
             string once = JsonUtility.ToJson(w); new SimulationEngine(w); Assert.AreEqual(once, JsonUtility.ToJson(w));
             SimulationEngine clone = new SimulationEngine(JsonUtility.FromJson<WorldState>(once));
@@ -452,6 +474,289 @@ namespace WorldGenesis.Tests
             s.NextElectionTick = loaded.Tick + 600; s.GovernmentSinceTick = loaded.Tick + 1; Assert.IsFalse(loaded.Validate(out _));
         }
 
+        [Test]
+        public void TreeHarvestDeliveryAndCampfireProcessingConserveRealMaterial()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; UnitData unit = w.Units[0]; SettlementData home = w.Settlements[0];
+            int source = w.Index(28, 24); w.Cells[source].Terrain = TerrainType.Forest; w.Cells[source].Vegetation = 1;
+            w.ResourceNodes[source] = new ResourceNodeData { Type = ResourceType.Tree, Amount = 3, Capacity = 3 };
+            bool carried = false, processed = false;
+            for (int t = 0; t < 650 && home.Wood < 2.99f; t++)
+            {
+                engine.Step(.1f); carried |= unit.CargoAmount > 0; processed |= unit.Task == UnitTask.Process;
+                float total = w.ResourceNodes[source].Amount + (unit.CargoKind == ItemType.Log ? unit.CargoAmount : 0) + w.GetSettlementStock(home.Id, ItemType.Log) + w.GetCitizenStock(unit.Id, ItemType.Log) + home.Wood;
+                Assert.AreEqual(3, total, .002f); Assert.IsTrue(w.Validate(out string error), error);
+            }
+            Assert.IsTrue(carried && processed); Assert.AreEqual(3, home.Wood, .002f); Assert.AreEqual(0, w.ResourceNodes[source].Amount); Assert.AreEqual(0, w.Cells[source].Vegetation);
+            foreach (BuildingData building in w.Buildings) Assert.AreNotEqual(BuildingType.Sawmill, building.Type);
+        }
+
+        [Test]
+        public void ActualWorkshopRatesAndFuelControlProcessingTransactions()
+        {
+            SimulationEngine slow = ResourceFixture(), fast = ResourceFixture();
+            BuildingData camp = slow.World.Buildings[0], mill = fast.World.Buildings[0]; mill.Type = BuildingType.Sawmill;
+            camp.Inventory[(int)ItemType.Log] = 1; mill.Inventory[(int)ItemType.Log] = 1;
+            for (int t = 0; t < 30; t++) { slow.Step(.1f); fast.Step(.1f); }
+            Assert.AreEqual(0, slow.World.Settlements[0].Wood); Assert.AreEqual(1, fast.World.Settlements[0].Wood); Assert.AreEqual(1, camp.Inventory[(int)ItemType.Log]); Assert.Greater(camp.ProcessProgress, 2.9f);
+            for (int t = 30; t < 100; t++) slow.Step(.1f);
+            Assert.AreEqual(1, slow.World.Settlements[0].Wood); Assert.AreEqual(0, camp.Inventory[(int)ItemType.Log]);
+            SimulationEngine stone = ResourceFixture(); BuildingData works = stone.World.Buildings[0]; works.Type = BuildingType.Stoneworks; works.Inventory[(int)ItemType.RawStone] = 4;
+            for (int t = 0; t < 50; t++) stone.Step(.1f);
+            Assert.AreEqual(1, works.Inventory[(int)ItemType.StoneBlock]); Assert.AreEqual(2, works.Inventory[(int)ItemType.RawStone]); works.ActiveRecipe = RecipeType.StoneTile;
+            for (int t = 0; t < 60; t++) stone.Step(.1f);
+            Assert.AreEqual(2, works.Inventory[(int)ItemType.StoneTile]); Assert.AreEqual(0, works.Inventory[(int)ItemType.RawStone]);
+            SimulationEngine clay = ResourceFixture(); BuildingData kiln = clay.World.Buildings[0]; kiln.Type = BuildingType.Kiln; kiln.Inventory[(int)ItemType.Clay] = 2;
+            for (int t = 0; t < 30; t++) clay.Step(.1f);
+            Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Brick]); Assert.AreEqual(2, kiln.Inventory[(int)ItemType.Clay]);
+            UnitData worker = clay.World.Units[0]; worker.CarriedFood = 0; worker.DecisionTimer = 0; worker.Task = UnitTask.Idle; worker.Path.Clear(); worker.PathCursor = 0; worker.X = 24.5f; worker.Y = 24.5f; kiln.Inventory[(int)ItemType.Firewood] = 1;
+            for (int t = 0; t < 80; t++) clay.Step(.1f);
+            Assert.AreEqual(2, kiln.Inventory[(int)ItemType.Brick]); Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Clay]); Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Firewood]);
+        }
+
+        [Test]
+        public void SeparateWorkshopReceivesStoneThroughARealHaulingTrip()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; w.Settlements[0].Wood = 100;
+            BuildingData camp = w.Buildings[0], works = ResourceBuilding(w, BuildingType.Stoneworks, 28, 24); camp.Inventory[(int)ItemType.RawStone] = 2;
+            UnitData unit = w.Units[0]; unit.X = 21.5f; bool pickup = false, transit = false;
+            for (int t = 0; t < 300 && works.Inventory[(int)ItemType.StoneBlock] == 0; t++)
+            {
+                engine.Step(.1f); pickup |= unit.Task == UnitTask.Haul; transit |= unit.CargoKind == ItemType.RawStone && unit.CargoAmount > 0;
+                float total = camp.Inventory[(int)ItemType.RawStone] + works.Inventory[(int)ItemType.RawStone] + (unit.CargoKind == ItemType.RawStone ? unit.CargoAmount : 0) + works.Inventory[(int)ItemType.StoneBlock] * 2;
+                Assert.AreEqual(2, total, .001f); Assert.IsTrue(w.Validate(out string error), error);
+            }
+            Assert.IsTrue(pickup && transit); Assert.AreEqual(1, works.Inventory[(int)ItemType.StoneBlock]);
+        }
+
+        [Test]
+        public void ResourceCargoCannotTeleportAcrossWaterAndResumesAfterBridgeRepair()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; UnitData unit = w.Units[0]; SettlementData home = w.Settlements[0];
+            for (int y = 0; y < 48; y++) engine.Paint(TerrainType.DeepWater, 26, y, 0);
+            unit.X = 29.5f; unit.Y = 24.5f; unit.CargoKind = ItemType.Log; unit.CargoAmount = 1;
+            for (int t = 0; t < 100; t++) engine.Step(.1f);
+            Assert.AreEqual(1, unit.CargoAmount); Assert.AreEqual(0, w.GetSettlementStock(home.Id, ItemType.Log)); Assert.AreEqual(0, home.Wood); Assert.Greater(unit.X, 26);
+            engine.Paint(TerrainType.Grass, 26, 24, 0);
+            for (int t = 0; t < 250 && w.GetSettlementStock(home.Id, ItemType.Log) == 0; t++) engine.Step(.1f);
+            Assert.Greater(w.GetSettlementStock(home.Id, ItemType.Log), 0); Assert.AreEqual(0, unit.CargoAmount); Assert.IsTrue(w.Validate(out string error), error);
+        }
+
+        [Test]
+        public void AllDepositKindsRegrowOnTheirSavedTimersOnlyOnCompatibleTerrain()
+        {
+            WorldState w = WorldGenerator.Generate(51, 16, 16); Array.Clear(w.ResourceNodes, 0, w.ResourceNodes.Length);
+            for (int i = 0; i < w.Cells.Length; i++) { w.Cells[i].Terrain = TerrainType.Grass; w.Cells[i].Vegetation = 0; w.Cells[i].Fire = 0; }
+            SimulationEngine engine = new SimulationEngine(w);
+            for (int kind = 1; kind <= 11; kind++) w.ResourceNodes[w.Index(kind, 5)] = new ResourceNodeData { Type = (ResourceType)kind, Capacity = 6, RegrowTicksRemaining = ResourceCatalog.GetRegrowTicks((ResourceType)kind) };
+            int clay = w.Index((int)ResourceType.Clay, 5); w.Cells[clay].Terrain = TerrainType.DeepWater;
+            for (int t = 1; t <= 6000; t++)
+            {
+                engine.Step(.1f);
+                for (int kind = 1; kind <= 11; kind++) if (kind != (int)ResourceType.Clay) Assert.AreEqual(t >= ResourceCatalog.GetRegrowTicks((ResourceType)kind) ? 6 : 0, w.ResourceNodes[w.Index(kind, 5)].Amount);
+            }
+            Assert.AreEqual(0, w.ResourceNodes[clay].Amount); Assert.AreEqual(1200, w.ResourceNodes[clay].RegrowTicksRemaining);
+            w.Cells[clay].Terrain = TerrainType.Grass; for (int t = 0; t < 1200; t++) engine.Step(.1f);
+            Assert.AreEqual(6, w.ResourceNodes[clay].Amount); Assert.AreEqual(1, w.Cells[w.Index(1, 5)].Vegetation); Assert.IsTrue(w.Validate(out string error), error);
+        }
+
+        [Test]
+        public void WorkshopReassignmentAndFireInterruptionReleaseSlotsWithoutDuplicatingInputs()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; UnitData unit = w.Units[0];
+            BuildingData first = ResourceBuilding(w, BuildingType.Sawmill, 32, 24), second = ResourceBuilding(w, BuildingType.Sawmill, 26, 24);
+            first.Inventory[(int)ItemType.Log] = 1; second.Inventory[(int)ItemType.Log] = 1;
+            engine.Step(.1f); Assert.AreEqual(first.Id, unit.TargetBuildingId); Assert.AreEqual(UnitTask.Process, unit.Task);
+            w.Cells[w.Index(first.X, first.Y)].Fire = .3f; unit.DecisionTimer = 0;
+            engine.Step(.1f); Assert.AreEqual(second.Id, unit.TargetBuildingId); Assert.AreEqual(0, first.WorkerId); Assert.AreEqual(unit.Id, second.WorkerId); Assert.IsTrue(w.Validate(out string beforeError), beforeError);
+            engine.ApplyPower(PowerType.Rain, first.X, first.Y, 1); for (int t = 0; t < 16; t++) engine.Step(.1f);
+            float progress = second.ProcessProgress, logs = second.Inventory[(int)ItemType.Log]; Assert.Greater(progress, 0); Assert.Less(progress, 3);
+            engine.ApplyPower(PowerType.Fire, (int)unit.X, (int)unit.Y, 1); engine.Step(.1f);
+            Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(0, second.WorkerId); Assert.AreEqual(progress, second.ProcessProgress); Assert.AreEqual(logs, second.Inventory[(int)ItemType.Log]); Assert.IsTrue(w.Validate(out string error), error);
+        }
+
+        [Test]
+        public void DeathAndBuildingDestructionRecordCargoAndInventoryLosses()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; UnitData unit = w.Units[0]; BuildingData camp = w.Buildings[0];
+            unit.CargoKind = ItemType.IronOre; unit.CargoAmount = 1; camp.Inventory[(int)ItemType.Log] = 4;
+            engine.ApplyPower(PowerType.Meteor, 24, 24, 3);
+            Assert.AreEqual(0, w.Units.Count); Assert.IsNull(w.GetBuilding(camp.Id)); Assert.AreEqual(1, w.LostResources[(int)ItemType.IronOre]); Assert.AreEqual(4, w.LostResources[(int)ItemType.Log]); Assert.IsTrue(w.Validate(out string error), error);
+        }
+
+        [Test]
+        public void EveryRawMaterialIsHarvestedIntoCargoAndPhysicallyDelivered()
+        {
+            for (int kind = 1; kind <= 11; kind++)
+            {
+                SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; SettlementData home = w.Settlements[0]; home.Wood = 100; w.Buildings[0].Inventory[(int)ItemType.Firewood] = 10;
+                ResourceType type = (ResourceType)kind; ItemType item = ResourceCatalog.GetOutput(type); int cell = w.Index(28, 24);
+                w.ResourceNodes[cell] = new ResourceNodeData { Type = type, Capacity = 3, Amount = 3 }; w.Cells[cell].Vegetation = type == ResourceType.Tree ? 1 : 0;
+                bool carried = false;
+                for (int t = 0; t < 350 && w.GetSettlementStock(home.Id, item) + w.GetCitizenStock(w.Units[0].Id, item) < 2.99f; t++) { engine.Step(.1f); carried |= w.Units[0].CargoKind == item && w.Units[0].CargoAmount > 0; }
+                Assert.IsTrue(carried, type.ToString()); Assert.GreaterOrEqual(w.GetSettlementStock(home.Id, item) + w.GetCitizenStock(w.Units[0].Id, item), 2.99f, type.ToString()); Assert.AreEqual(0, w.ResourceNodes[cell].Amount); Assert.IsTrue(w.Validate(out string error), error);
+            }
+            // An interrupted harvest can leave a tiny positive remainder; it must remain mineable so renewal can begin.
+            SimulationEngine remainder = ResourceFixture(); int tail = remainder.World.Index(28, 24);
+            remainder.World.ResourceNodes[tail] = new ResourceNodeData { Type = ResourceType.Stone, Amount = .005f, Capacity = 3 };
+            for (int t = 0; t < 250; t++) remainder.Step(.1f);
+            Assert.AreEqual(0, remainder.World.ResourceNodes[tail].Amount);
+            Assert.Greater(remainder.World.ResourceNodes[tail].RegrowTicksRemaining, 0);
+            Assert.AreEqual(.005f, remainder.World.GetSettlementStock(remainder.World.Settlements[0].Id, ItemType.RawStone) + remainder.World.GetCitizenStock(remainder.World.Units[0].Id, ItemType.RawStone), .00001f);
+        }
+
+        [Test]
+        public void ZeroPlankFoundingBootstrapsCampfireSawmillStoneAndBrickProduction()
+        {
+            SimulationEngine engine = ResourceFixture(); WorldState w = engine.World; SettlementData home = w.Settlements[0]; engine.Spawn(SpeciesType.Human, 24, 24, 3);
+            foreach (UnitData unit in w.Units) { unit.Profession = UnitProfession.Forester; unit.Fatigue = 0; unit.Hunger = 0; unit.SocialNeed = 0; unit.DecisionTimer = 0; }
+            int tree = w.Index(28, 24), stone = w.Index(28, 27), clay = w.Index(28, 30);
+            w.ResourceNodes[tree] = new ResourceNodeData { Type = ResourceType.Tree, Amount = 60, Capacity = 60 }; w.Cells[tree].Vegetation = 1;
+            w.ResourceNodes[stone] = new ResourceNodeData { Type = ResourceType.Stone, Amount = 12, Capacity = 12 }; w.ResourceNodes[clay] = new ResourceNodeData { Type = ResourceType.Clay, Amount = 12, Capacity = 12 };
+            Assert.AreEqual(0, home.Wood); long firstMill = 0;
+            for (int t = 0; t < 6000; t++)
+            {
+                engine.Step(.1f); if (firstMill == 0) foreach (BuildingData building in w.Buildings) if (building.Type == BuildingType.Sawmill) firstMill = w.Tick;
+                if (t % 100 == 0) Assert.IsTrue(w.Validate(out string error), error);
+                if (w.GetSettlementStock(home.Id, ItemType.StoneBlock) > 0 && w.GetSettlementStock(home.Id, ItemType.Brick) > 0) break;
+            }
+            Assert.GreaterOrEqual(firstMill, 1000); Assert.Greater(w.GetSettlementStock(home.Id, ItemType.StoneBlock), 0); Assert.Greater(w.GetSettlementStock(home.Id, ItemType.Brick), 0);
+        }
+
+        [Test]
+        public void BarterTransfersExistingGoodsAndNaturalTaxOnceAtTheWorkplace()
+        {
+            SimulationEngine e = HouseholdTradeFixture(EconomicPolicy.Market); WorldState w = e.World; BuildingData camp = w.Buildings[0]; UnitData buyer = w.Units[0], seller = w.Units[1];
+            buyer.X = 21.5f; buyer.Y = 16.5f; e.Step(.1f);
+            Assert.IsTrue(w.Trades.Count == 0 && camp.Inventory[(int)ItemType.Log] == 0, "A remote worker acquired goods");
+            for (int i = 0; i < 60 && w.Trades.Count == 0; i++) e.Step(.1f);
+            Assert.IsTrue(w.Trades.Count == 1 && w.Trades[0].Kind == TradeKind.Barter && w.Trades[0].PaymentItem == ItemType.IronOre, "No genuine on-site barter");
+            Assert.IsTrue(Math.Abs(w.GetCitizenStock(seller.Id, ItemType.IronOre) - .8f) < .00001f && Math.Abs(w.GetTreasuryStock(buyer.SettlementId, ItemType.IronOre) - .2f) < .00001f && w.GetCitizenStock(buyer.Id, ItemType.IronOre) == 0 && camp.Inventory[(int)ItemType.Log] == 1, "Payment or tax duplicated/lost");
+            SimulationEngine clone = new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));
+            for (int i = 0; i < 110; i++) { e.Step(.1f); clone.Step(.1f); }
+            Assert.IsTrue(JsonUtility.ToJson(w) == JsonUtility.ToJson(clone.World) && w.Trades.Count == 1 && w.Settlements[0].Wood == 1, "Save reload charged again or did not finish the acquired input");
+            Assert.IsTrue(w.Validate(out string error), error);
+        }
+
+        [Test]
+        public void FreeGiftsAndInsolvencyPreserveCommunalStartup()
+        {
+            SimulationEngine free = HouseholdTradeFixture(EconomicPolicy.FreeDistribution); free.World.Buildings[0].PersonalStocks.RemoveAll(p => p.OwnerId == free.World.Units[0].Id); free.Step(.1f);
+            Assert.IsTrue(free.World.Trades.Count == 1 && free.World.Trades[0].Kind == TradeKind.Gift && free.World.Trades[0].PaymentAmount == 0 && free.World.Buildings[0].Inventory[(int)ItemType.Log] == 1, "Free gift did not deliver real input");
+            SimulationEngine poor = HouseholdTradeFixture(EconomicPolicy.Market); WorldState w = poor.World; w.Buildings[0].PersonalStocks.RemoveAll(p => p.OwnerId == w.Units[0].Id);
+            int cell = w.Index(20,16); w.ResourceNodes[cell] = new ResourceNodeData {Type=ResourceType.Tree,Amount=4,Capacity=4}; w.Cells[cell].Vegetation = 1;
+            for (int t=0;t<600 && w.Settlements[0].Wood==0;t++) poor.Step(.1f);
+            Assert.IsTrue(w.Settlements[0].Wood > 0 && w.Trades.All(t=>t.Kind != TradeKind.Barter), "Zero personal funds blocked communal startup or fabricated a payment");
+        }
+
+        [Test]
+        public void RecipeAcquisitionReservesFuelAndUsesOneSharedBarterBudget()
+        {
+            SimulationEngine e = HouseholdTradeFixture(EconomicPolicy.Market); WorldState w=e.World; BuildingData kiln=w.Buildings[0]; UnitData buyer=w.Units[0], seller=w.Units[1]; kiln.Type=BuildingType.Kiln; kiln.PersonalStocks.Clear(); kiln.Inventory[(int)ItemType.Clay]=1;
+            kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=buyer.Id,Item=ItemType.Firewood,Amount=1}); kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=buyer.Id,Item=ItemType.Log,Amount=1}); kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=seller.Id,Item=ItemType.Clay,Amount=1});
+            e.Step(.1f); Assert.IsTrue(kiln.Inventory[(int)ItemType.Clay]==2 && kiln.Inventory[(int)ItemType.Firewood]==1 && w.Trades.Count(t=>t.Kind==TradeKind.Barter)==1 && w.Trades.First(t=>t.Kind==TradeKind.Barter).PaymentItem==ItemType.Log, "Recipe fuel was used as barter tender");
+            for(int t=0;t<80;t++)e.Step(.1f); Assert.IsTrue(kiln.Inventory[(int)ItemType.Brick]==2, "Fully funded brick recipe stalled");
+            SimulationEngine insufficient=HouseholdTradeFixture(EconomicPolicy.Market); WorldState z=insufficient.World; BuildingData k=z.Buildings[0]; k.Type=BuildingType.Kiln;k.PersonalStocks.Clear();
+            k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[0].Id,Item=ItemType.IronOre,Amount=2}); k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[1].Id,Item=ItemType.Clay,Amount=2});k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[1].Id,Item=ItemType.Firewood,Amount=1});
+            insufficient.Step(.1f);Assert.IsTrue(z.Trades.Count==0 && k.Inventory[(int)ItemType.Clay]==0 && z.GetCitizenStock(z.Units[0].Id,ItemType.IronOre)==2,"Incomplete barter budget partly committed");
+        }
+
+        [Test]
+        public void LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime()
+        {
+            SimulationEngine source=HouseholdFixture();WorldState w=source.World;UnitData u=w.Units[0];u.CargoKind=ItemType.IronOre;u.CargoAmount=3;u.CarriedFood=2.8f;u.CarriedWood=2;w.ResourceVersion=1;
+            uint rng=w.RngState;int next=w.NextId;float x=u.X,y=u.Y; SimulationEngine e=new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));w=e.World;u=w.Units[0];
+            Assert.IsTrue(SimulationEngine.CarriedLoad(u)<=1 && Math.Abs(SimulationEngine.CarriedLoad(u)+w.GroundStocks.Sum(g=>g.Amount)-7.8f)<.00001f && w.GroundStocks.All(g=>g.X==x&&g.Y==y),"Legacy overflow was removed or teleported");
+            Assert.IsTrue(w.ResourceVersion==2&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=JsonUtility.ToJson(w);new SimulationEngine(w);Assert.IsTrue(once==JsonUtility.ToJson(w),"Carry migration repeated");
+            for(int t=0;t<250;t++){e.Step(.1f);Assert.IsTrue(w.Units.All(a=>SimulationEngine.CarriedLoad(a)<=1.00001f),"Pickup exceeded total carrying capacity");}
+            Assert.IsTrue(w.GetSettlementStock(u.SettlementId,ItemType.IronOre)==3 && w.Settlements[0].Wood>=2,"Overflow was never physically collected in separate trips");
+            Assert.IsTrue(w.Validate(out string error),error);
+        }
+
+        [Test]
+        public void SexMigrationIsDeterministicAndBirthsNeedBothAdultSexes()
+        {
+            SimulationEngine e=HouseholdFixture();e.Spawn(SpeciesType.Human,16,16,1);WorldState w=e.World;w.Laws.Births=true;
+            foreach(UnitData u in w.Units){u.X=16.5f;u.Y=16.5f;u.Sex=Sex.Female;u.Task=UnitTask.Idle;u.DecisionTimer=50;}w.Settlements[0].BirthTimer=20;e.Step(1);Assert.IsTrue(w.Units.Count==2,"Single-sex adults produced a birth");
+            w.Units[1].Sex=Sex.Male;e.Step(1);Assert.IsTrue(w.Units.Count==3 && w.Units[2].IsChild && w.Units[2].Profession==UnitProfession.None,"Mixed adult parents did not create a child");
+            w.DemographyVersion=0;uint rng=w.RngState;int next=w.NextId;SimulationEngine a=new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));SimulationEngine b=new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));
+            Assert.IsTrue(JsonUtility.ToJson(a.World)==JsonUtility.ToJson(b.World)&&a.World.RngState==rng&&a.World.NextId==next,"Sex migration changed RNG/IDs or was not deterministic");
+        }
+
+        [Test]
+        public void ChildLaborLawRestrictsFarmingHeavyCargoAndPrivateTrade()
+        {
+            SimulationEngine e=HouseholdFixture();e.Spawn(SpeciesType.Human,16,16,1);WorldState w=e.World;UnitData child=w.Units[1];child.Age=13;child.X=16.5f;child.Y=16.5f;child.DecisionTimer=0;child.Fatigue=0;child.Hunger=0;SettlementData s=w.Settlements[0];s.Food=0;
+            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);for(int t=0;t<30;t++)e.Step(.1f);Assert.IsTrue(child.Task!=UnitTask.Farm&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process&&child.CarriedFood==0,"Forbidden child performed production");
+            e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.LightWork,ResourceFocus.Balanced);child.Task=UnitTask.Idle;child.Path.Clear();child.PathCursor=0;child.DecisionTimer=0;bool farmed=false;
+            for(int t=0;t<120;t++){e.Step(.1f);farmed|=child.CarriedFood>0;Assert.IsTrue(SimulationEngine.CarriedLoad(child)<=1.00001f&&child.Task!=UnitTask.Gather&&child.Task!=UnitTask.Process,"Light work exceeded its scope");}Assert.IsTrue(farmed,"Permitted adolescent never helped at the farm");
+            child.CargoKind=ItemType.IronOre;child.CargoAmount=1;child.CarriedFood=0;child.Task=UnitTask.Return;child.DecisionTimer=20;e.Step(.1f);Assert.IsTrue(child.CargoAmount==0&&w.GroundStocks.Any(g=>g.Item==ItemType.IronOre&&g.Amount==1),"Child retained heavy legacy cargo");
+            child.CarriedFood=.4f;child.Task=UnitTask.Farm;e.SetEconomicPolicy(s.Id,EconomicPolicy.FreeDistribution,0,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);Assert.IsTrue(child.CarriedFood==0&&w.GroundStocks.Any(g=>g.IsFood&&Math.Abs(g.Amount-.4f)<.00001f),"Revoking child work lost carried food");
+            child.Age=9;e.SetEconomicPolicy(s.Id,EconomicPolicy.Market,.3f,ChildLaborPolicy.LightWork,ResourceFocus.Metals);for(int t=0;t<20;t++)e.Step(.1f);Assert.IsTrue(child.Task!=UnitTask.Farm&&child.Task!=UnitTask.Process&&w.Trades.All(t=>t.SellerId!=child.Id&&t.BuyerId!=child.Id),"Young child worked or traded");
+        }
+
+        [Test]
+        public void LearningNeedsALivingNearbyAdultAndImprovesAdultWork()
+        {
+            SimulationEngine e=HouseholdFixture();e.Spawn(SpeciesType.Human,16,16,1);WorldState w=e.World;UnitData child=w.Units[1], mentor=w.Units[0];child.Age=10;child.X=mentor.X=16.5f;child.Y=mentor.Y=16.5f;child.Task=UnitTask.Learn;child.WorkTimer=3;child.Path.Clear();child.PathCursor=0;child.DecisionTimer=50;mentor.DecisionTimer=50;
+            for(int t=0;t<20;t++)e.Step(.1f);Assert.IsTrue(child.Education>0,"Actual supervised learning did not advance");
+            float learned=child.Education;mentor.X=28.5f;mentor.Y=28.5f;child.Task=UnitTask.Learn;child.WorkTimer=3;for(int t=0;t<20;t++)e.Step(.1f);Assert.IsTrue(child.Education==learned,"Learning progressed without nearby mentor");
+            SimulationEngine fast=HouseholdFixture();UnitData adult=fast.World.Units[0];adult.Education=1;fast.World.Buildings[0].Inventory[(int)ItemType.Log]=1;for(int t=0;t<92;t++)fast.Step(.1f);Assert.IsTrue(fast.World.Settlements[0].Wood==1,"Education has no actual work effect");
+        }
+
+        [Test]
+        public void PrivateGoodsAndNaturalTaxHaveExplicitDeathAndDestructionOutcomes()
+        {
+            SimulationEngine e=HouseholdTradeFixture(EconomicPolicy.Market);WorldState w=e.World;BuildingData b=w.Buildings[0];UnitData seller=w.Units[1];seller.Health=0;e.Step(.1f);
+            Assert.IsTrue(w.GetCitizenStock(seller.Id,ItemType.Log)==0&&b.Inventory[(int)ItemType.Log]==1,"Dead owner left inaccessible or duplicated lots");
+            b.TaxStocks[(int)ItemType.SilverOre]=.2f;e.ApplyPower(PowerType.Meteor,b.X,b.Y,3);Assert.IsTrue(Math.Abs(w.LostResources[(int)ItemType.SilverOre]-.2f)<.00001f&&w.LostResources[(int)ItemType.IronOre]==1,"Private or tax stock vanished on storage destruction");Assert.IsTrue(w.Validate(out string error),error);
+        }
+
+        [Test]
+        public void RulerReviewExplainsActualPolicyAndNullLegacyContainersMigrate()
+        {
+            SimulationEngine e=HouseholdFixture();WorldState w=e.World;SettlementData s=w.Settlements[0];UnitData ruler=w.GetUnit(s.RulerId);ruler.Generosity=0;ruler.Prudence=.1f;ruler.Ambition=.9f;s.NextPolicyReviewTick=w.Tick;e.Step(.1f);
+            Assert.IsTrue(s.EconomyPolicy==EconomicPolicy.Market&&s.TaxRate==.3f&&s.ChildLabor==ChildLaborPolicy.LightWork&&s.PolicyRulerId==ruler.Id&&s.LastDecreeReason.Length>0);
+            s.Food=0;s.NextPolicyReviewTick=w.Tick;e.Step(.1f);Assert.IsTrue(s.EconomyPolicy==EconomicPolicy.FreeDistribution&&s.TaxRate==0&&s.ResourceFocus==ResourceFocus.Balanced);
+            ruler.Health=0;e.Step(.1f);Assert.IsTrue(s.RulerId==0&&s.EconomyPolicy==EconomicPolicy.FreeDistribution&&s.TaxRate==0&&s.ChildLabor==ChildLaborPolicy.Forbidden);
+            SimulationEngine old=HouseholdFixture();WorldState legacy=old.World;legacy.ResourceVersion=0;legacy.EconomyVersion=0;legacy.Settlements[0].Stone=7;foreach(BuildingData b in legacy.Buildings){b.PersonalStocks=null;b.TaxStocks=null;}
+            new SimulationEngine(legacy);Assert.AreEqual(7,legacy.GetSettlementStock(legacy.Settlements[0].Id,ItemType.RawStone));Assert.IsTrue(legacy.Validate(out string error),error);
+            legacy.Units[0].CarriedFood=.6f;legacy.Units[0].CarriedWood=.6f;Assert.IsFalse(legacy.Validate(out _));
+        }
+
+        private static SimulationEngine HouseholdTradeFixture(EconomicPolicy policy)
+        {
+            SimulationEngine e=HouseholdFixture();e.Spawn(SpeciesType.Human,16,16,1);WorldState w=e.World;UnitData buyer=w.Units[0],seller=w.Units[1];
+            seller.X=28.5f;seller.Y=28.5f;seller.DecisionTimer=1000;seller.Task=UnitTask.Idle;
+            e.SetEconomicPolicy(buyer.SettlementId,policy,.2f,ChildLaborPolicy.Forbidden,ResourceFocus.Balanced);
+            w.Buildings[0].PersonalStocks.Add(new OwnedGoodsData{OwnerId=seller.Id,Item=ItemType.Log,Amount=1});w.Buildings[0].PersonalStocks.Add(new OwnedGoodsData{OwnerId=buyer.Id,Item=ItemType.IronOre,Amount=1});return e;
+        }
+
+        private static SimulationEngine HouseholdFixture()
+        {
+            WorldState w=WorldGenerator.Generate(711,32,32);
+            for(int i=0;i<w.Cells.Length;i++){w.Cells[i].Terrain=TerrainType.Grass;w.Cells[i].Height=.55f;w.Cells[i].Vegetation=0;w.Cells[i].River=false;}
+            ResourceCatalog.Generate(w);Array.Clear(w.ResourceNodes,0,w.ResourceNodes.Length);
+            w.Laws.Warfare=false;w.Laws.Births=false;w.Laws.Aging=false;w.Laws.VegetationGrowth=false;w.Laws.FireSpread=false;
+            SimulationEngine e=new SimulationEngine(w);e.Spawn(SpeciesType.Human,16,16);w.Settlements[0].Food=1000;w.Settlements[0].Wood=0;
+            UnitData u=w.Units[0];u.X=16.5f;u.Y=16.5f;u.Hunger=0;u.Fatigue=0;u.SocialNeed=0;u.DecisionTimer=0;u.Profession=UnitProfession.Forester;return e;
+        }
+
+        private static SimulationEngine ResourceFixture()
+        {
+            WorldState world = FlatWorld(); Array.Clear(world.ResourceNodes, 0, world.ResourceNodes.Length); Array.Clear(world.LostResources, 0, world.LostResources.Length);
+            for (int i = 0; i < world.Cells.Length; i++) { world.Cells[i].Vegetation = 0; world.Cells[i].Fire = 0; }
+            world.Laws.Warfare = false; world.Laws.Births = false; world.Laws.Aging = false; world.Laws.VegetationGrowth = false; world.Laws.FireSpread = false;
+            SimulationEngine engine = new SimulationEngine(world); engine.Spawn(SpeciesType.Human, 24, 24); world.Settlements[0].Food = 1000; world.Settlements[0].Wood = 0;
+            UnitData unit = world.Units[0]; unit.X = 24.5f; unit.Y = 24.5f; unit.Hunger = 0; unit.Fatigue = 0; unit.SocialNeed = 0; unit.DecisionTimer = 0; unit.Profession = UnitProfession.Forester; return engine;
+        }
+
+        private static BuildingData ResourceBuilding(WorldState world, BuildingType type, int x, int y)
+        {
+            BuildingData building = new BuildingData { Id = world.NextId++, SettlementId = world.Settlements[0].Id, X = x, Y = y, Type = type };
+            world.Buildings.Add(building); world.Cells[world.Index(x, y)].BuildingId = building.Id; world.Cells[world.Index(x, y)].SettlementId = building.SettlementId; return building;
+        }
+
         private static WorldState FlatWorld()
         {
             WorldState world = WorldGenerator.Generate(711, 48, 48);
@@ -461,6 +766,7 @@ namespace WorldGenesis.Tests
                 world.Cells[i].Height = .55f; world.Cells[i].Vegetation = .7f;
                 world.Cells[i].River = false;
             }
+            ResourceCatalog.Generate(world);
             return world;
         }
     }

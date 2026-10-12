@@ -1,15 +1,22 @@
 node_id,name_ru,initial_charges,regrow_charges,regrow_seconds,constraint
 berry_patch,Ягодный куст,8,2,240,living_bush_water_soil
 fallen_branches,Валежник,8,2,300,near_living_tree
-surface_stone,Поверхностный камень,12,0,0,finite
-surface_flint,Поверхностный кремень,8,0,0,finite
-clay_bank,Глиняный берег,160,0,0,finite
+surface_stone,Поверхностный камень,12,12,150,surface_valid_terrain
+surface_flint,Поверхностный кремень,8,8,210,surface_valid_terrain
+clay_bank,Глиняный берег,160,160,120,bank_valid_terrain
 herb_patch,Лекарственные травы,6,1,240,living_patch
 wild_wheat,Дикая пшеница,6,2,300,living_patch
 wild_flax,Дикий лён,6,2,300,living_patch
 cone_patch,Шишки под деревом,6,2,300,mature_tree
 freshwater,Участок водозабора,40,4,10,wet_freshwater_or_aquifer
-mature_tree,Взрослое дерево,1,0,0,regrowth_via_sapling_only
-stone_deposit,Каменный пласт,400,0,0,finite
-iron_deposit,Рудная жила,240,0,0,finite
+mature_tree,Взрослое дерево,1,1,90,forest_regrowth_valid_soil
+stone_deposit,Каменный пласт,400,400,150,deposit_valid_terrain
+iron_deposit,Рудная жила,240,240,300,deposit_valid_terrain
 fish_school,Косяк,24,0,0,reproduction_system_only
+coal_deposit,Угольный пласт,160,160,240,deposit_valid_terrain
+copper_deposit,Медная жила,160,160,270,deposit_valid_terrain
+tin_deposit,Оловянная жила,96,96,360,deposit_valid_terrain
+gold_deposit,Золотая жила,64,64,600,deposit_valid_terrain
+silver_deposit,Серебряная жила,96,96,480,deposit_valid_terrain
+sand_bank,Песчаная отмель,160,160,90,deposit_valid_terrain
+limestone_deposit,Известняковый пласт,240,240,180,deposit_valid_terrain

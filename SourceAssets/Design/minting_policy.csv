@@ -1,0 +1,2 @@
+policy_id,initial_world_coins,initial_town_grant,gold_recipe,silver_recipe,gold_units_per_batch,gold_coin_output,silver_units_per_batch,silver_coin_output,coins_per_adult_per_day_cap,target_coins_per_adult,turnover_reserve_days,day_seconds,status
+metal_backed_minting,0,0,mint_gold,mint_silver,1,100,1,10,5,20,4,600,proposed

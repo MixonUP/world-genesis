@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-12T09:50:12.1700465Z",
+  "scope": "Simulation 0.3 source freeze; pure .NET checks only. Final Unity verification delegated to integrator.",
+  "probe": "Evidence/Simulation/resource-pipeline-probe-final.json",
+  "checks": 58,
+  "failed": 0,
+  "addedResourceNUnitMethods": 9,
+  "expectedFullEditModeCases": 45,
+  "missingMeta": [],
+  "files": [
+    {
+      "path": "Tools/SimulationProbe/Program.cs",
+      "sha256": "babd1b212bc588913ee81b8af5302c1125db9db69b5fa602e6a8bd5526ef2336"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "cd498ef9828ea37004ec381b4d03c9e8c371e46414c3011c49ce94c798381a7e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "025184aa603edf52fb436f89aeccb2d5b928b7cb503f8462173bc593956554c3"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "63f226a93154cb8ec87bae947b87a85480c37ca88cf38bcad7aa8d907af9d575"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "c4c757db1e9c37a579ca5158f64ef60fd212b59542e7c893ae5de00caeba5875"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "4bd1816877bece76645effd3ca1f897785cc54d1941bf11844e6e95f8711ee92"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "b61f28e212689581d0e5543660922e270a1249af910bf867ee6973098013e32d"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "496e9e03085a244848b348ae2159c4f6da19cccd31552794dfba1caf4f137796"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "0948fd4139f8f9f42e6e14a4c0e61820b64ca2b2c0881e9ec64aa650b4fe7b0e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "c178563bdc1a4c9a1f7f729b249c5d9a405cc3cb0d737908bc040d7d95e94e9f"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "32633d7ed08bbebc574437539621c392f78f686cfd357275e4b937cb702d0e4d"
+    }
+  ]
+}

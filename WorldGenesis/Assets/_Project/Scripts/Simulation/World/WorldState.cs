@@ -6,8 +6,9 @@ namespace WorldGenesis.Simulation
     public enum TerrainType { DeepWater, ShallowWater, Sand, Grass, Forest, Desert, Snow, Mountain }
     public enum SpeciesType { Human, Elf, Dwarf, Orc, Sheep, Wolf }
     public enum PowerType { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague }
-    public enum BuildingType { Hall, House, Farm, Tower }
-    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee, Eat, Rest, Socialize, Patrol }
+    public enum BuildingType { Hall, House, Farm, Tower, Sawmill, Stoneworks, Kiln }
+    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee, Eat, Rest, Socialize, Patrol, Process, Haul, Play, Learn }
+    public enum Sex { Female, Male }
     public enum UnitProfession { None, Farmer, Forester, Guard }
     public enum GovernmentType { Unset, Feudal, Republic, Theocracy }
     public enum EventKind { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague, Birth, Death, Founded, Built, War }
@@ -37,6 +38,9 @@ namespace WorldGenesis.Simulation
     {
         public int Id;
         public SpeciesType Species;
+        public Sex Sex;
+        public bool IsChild { get { return Age < 16; } }
+        public float Education, Prudence, Ambition, Generosity;
         public float X, Y, Health, MaxHealth, Age, Hunger;
         public int SettlementId;
         public string Name;
@@ -48,6 +52,12 @@ namespace WorldGenesis.Simulation
         public float DecisionTimer, WorkTimer, AttackTimer, CarriedFood, CarriedWood;
         public int TargetId, TargetCell = -1, PathCursor, PathRevision;
         public List<int> Path = new List<int>();
+        public ItemType CargoKind;
+        public ItemType PickupKind;
+        public float CargoAmount;
+        public int ResourceCell = -1, SourceBuildingId, TargetBuildingId;
+        public int CargoOwnerId;
+        public int GroundStockIndex = -1;
     }
 
     [Serializable]
@@ -62,6 +72,13 @@ namespace WorldGenesis.Simulation
         public GovernmentType Government;
         public int RulerId;
         public long GovernmentSinceTick, NextElectionTick;
+        public EconomicPolicy EconomyPolicy;
+        public ChildLaborPolicy ChildLabor;
+        public ResourceFocus ResourceFocus;
+        public float TaxRate;
+        public int PolicyRulerId;
+        public long NextPolicyReviewTick, LastDecreeTick;
+        public string LastDecreeReason = "";
     }
 
     [Serializable]
@@ -70,6 +87,12 @@ namespace WorldGenesis.Simulation
         public int Id, SettlementId, X, Y;
         public BuildingType Type;
         public float Health = 100f;
+        public float[] Inventory = new float[ResourceCatalog.ItemCount];
+        public int WorkerId;
+        public RecipeType ActiveRecipe;
+        public float ProcessProgress;
+        public List<OwnedGoodsData> PersonalStocks = new List<OwnedGoodsData>();
+        public float[] TaxStocks = new float[ResourceCatalog.ItemCount];
     }
 
     [Serializable]
@@ -93,11 +116,12 @@ namespace WorldGenesis.Simulation
     }
 
     [Serializable]
-    public sealed class WorldState
+    public sealed partial class WorldState
     {
         public int SchemaVersion = 1, GeneratorVersion = 1, ContentVersion = 1;
         public int BehaviorVersion;
         public int PoliticsVersion;
+        public int DemographyVersion, EconomyVersion;
         public int Width, Height, Seed, Revision, TerrainRevision, NavigationRevision, NextId = 1;
         public long Tick;
         public float SimulatedSeconds, StepRemainder;
@@ -161,7 +185,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || u.Health > u.MaxHealth || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 5 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Stock(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 10 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256 || (int)u.Profession < 0 || (int)u.Profession > 3 || !UnitRange(u.Fatigue) || !UnitRange(u.SocialNeed) || u.TaskStartedTick < 0 || u.TaskStartedTick > Tick)
+                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 5 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Stock(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 14 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256 || (int)u.Profession < 0 || (int)u.Profession > 3 || !UnitRange(u.Fatigue) || !UnitRange(u.SocialNeed) || u.TaskStartedTick < 0 || u.TaskStartedTick > Tick || u.Health > u.MaxHealth)
                 { error = "Invalid unit."; return false; }
                 if (BehaviorVersion >= 2 && u.Profession == UnitProfession.Guard)
                 { error = "Military recruitment requires research and equipment that are not implemented yet."; return false; }
@@ -183,7 +207,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Buildings.Count; i++)
             {
                 BuildingData b = Buildings[i];
-                if (b == null || !AddId(b.Id, ids, ref maximumId) || !InBounds(b.X, b.Y) || GetSettlement(b.SettlementId) == null || !Stock(b.Health) || b.Health > 100 || (int)b.Type < 0 || (int)b.Type > 3 || Cells[Index(b.X, b.Y)].BuildingId != b.Id)
+                if (b == null || !AddId(b.Id, ids, ref maximumId) || !InBounds(b.X, b.Y) || GetSettlement(b.SettlementId) == null || !Stock(b.Health) || b.Health > 100 || (int)b.Type < 0 || (int)b.Type > 6 || Cells[Index(b.X, b.Y)].BuildingId != b.Id)
                 { error = "Invalid building."; return false; }
                 buildingIds.Add(b.Id);
             }
@@ -201,7 +225,7 @@ namespace WorldGenesis.Simulation
                 if (e == null || !AddId(e.Id, ids, ref maximumId) || !Finite(e.X) || !Finite(e.Y) || e.Tick < 0 || e.Tick > Tick || (int)e.Kind < 0 || (int)e.Kind > 11) { error = "Invalid world event."; return false; }
             }
             if (NextId <= maximumId) { error = "Invalid next entity identifier."; return false; }
-            return true;
+            return ValidateResources(out error) && ValidateCivilEconomy(out error);
         }
         private static bool AddId(int id, HashSet<int> ids, ref int maximum) { maximum = Math.Max(id, maximum); return id > 0 && ids.Add(id); }
         private static bool Finite(float v) { return !float.IsNaN(v) && !float.IsInfinity(v); }

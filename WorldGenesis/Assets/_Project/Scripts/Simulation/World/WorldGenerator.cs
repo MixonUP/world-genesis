@@ -49,6 +49,7 @@ namespace WorldGenesis.Simulation
                 world.Cells[world.Index(x, y)] = new TileData { Height = h, Moisture = moisture, Temperature = temperature, Terrain = terrain, Vegetation = vegetation, DrainageParent = -1 };
             }
             RouteDrainage(world, sea);
+            ResourceCatalog.Generate(world);
             world.Revision = 1;
             world.TerrainRevision = 1;
             return world;

@@ -75,6 +75,8 @@ namespace WorldGenesis.Runtime
                 }
             }
             int zoomIndex = Array.IndexOf(arguments, "--zoom"); float requestedZoom = 20;
+            int speedIndex = Array.IndexOf(arguments, "--simulation-speed");
+            if (speedIndex >= 0 && speedIndex + 1 < arguments.Length && float.TryParse(arguments[speedIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requestedSpeed)) Speed = Mathf.Clamp(requestedSpeed, 1, 10);
             if (zoomIndex >= 0 && zoomIndex + 1 < arguments.Length && float.TryParse(arguments[zoomIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float parsedZoom)) requestedZoom = Mathf.Clamp(parsedZoom, 5, 120);
             if (Array.IndexOf(arguments, "--focus-settlement") >= 0 && World.Settlements.Count > 0)
             {
@@ -247,6 +249,46 @@ namespace WorldGenesis.Runtime
             foreach (UnitData unit in World.Units) { float dx = unit.X - (x + .5f), dy = unit.Y - (y + .5f), squared = dx * dx + dy * dy; if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; } }
             hud?.Refresh(true);
         }
+        public void InspectUnit(int id)
+        {
+            UnitData unit = World.GetUnit(id);
+            if (unit == null) return;
+            SelectedUnitId = id; InspectX = (int)unit.X; InspectY = (int)unit.Y;
+            hud?.Refresh(true);
+        }
+        public void InspectSite(int x, int y)
+        {
+            if (!World.InBounds(x, y)) return;
+            SelectedUnitId = 0; InspectX = x; InspectY = y; hud?.Refresh(true);
+        }
+        // Opt-in evidence framing observes real jobs; it never grants stock or changes orders.
+        public bool InspectResourceWorker(float zoom, bool onlyLogDelivery = false)
+        {
+            UnitData selected = null;
+            foreach (UnitData unit in World.Units)
+            {
+                if (unit.Species != SpeciesType.Human || unit.Health <= 0) continue;
+                if (onlyLogDelivery && (unit.CargoKind != ItemType.Log || unit.CargoAmount <= 0 || unit.Task != UnitTask.Return || unit.PathCursor >= unit.Path.Count)) continue;
+                if (unit.CargoKind == ItemType.Log && unit.CargoAmount > 0) { selected = unit; break; }
+                if (selected == null && (unit.CargoAmount > 0 || unit.Task == UnitTask.Process)) selected = unit;
+            }
+            if (selected == null) return false;
+            InspectUnit(selected.Id); FocusWorldPoint(new Vector2(selected.X, selected.Y), zoom); assistedFraming = true;
+            return true;
+        }
+        public bool InspectDemographic(string category, float zoom)
+        {
+            foreach (UnitData unit in World.Units)
+            {
+                if (unit.Species != SpeciesType.Human || unit.Health <= 0) continue;
+                bool match = category == "Child" ? unit.Age < 16 : unit.Age >= 16 &&
+                    ((category == "Woman" && unit.Sex == Sex.Female) || (category == "Man" && unit.Sex == Sex.Male));
+                if (!match) continue;
+                InspectUnit(unit.Id); FocusWorldPoint(new Vector2(unit.X, unit.Y), zoom); assistedFraming = true;
+                return true;
+            }
+            return false;
+        }
         public bool IsScreenPointOverUI(Vector2 position)
         {
             EventSystem current = EventSystem.current;
@@ -267,6 +309,27 @@ namespace WorldGenesis.Runtime
         private IEnumerator DelayedCapture(string path, float delay, bool quit)
         {
             yield return new WaitForSecondsRealtime(delay);
+            string[] arguments = Environment.GetCommandLineArgs();
+            if (Array.IndexOf(arguments, "--inspect-resource-worker") >= 0) InspectResourceWorker(7);
+            int demographicIndex = Array.IndexOf(arguments, "--inspect-demographic");
+            if (demographicIndex >= 0 && demographicIndex + 1 < arguments.Length && !InspectDemographic(arguments[demographicIndex + 1], 7))
+            {
+                int humanChildren = 0;
+                foreach (UnitData unit in World.Units) if (unit.Species == SpeciesType.Human && unit.Age < 16 && unit.Health > 0) humanChildren++;
+                Debug.LogError("Requested demographic is absent at tick " + World.Tick + ", speed " + Speed + ", human children " + humanChildren + "; observation cannot create a resident.");
+                if (quit) Application.Quit(2);
+                yield break;
+            }
+            int resourceIndex = Array.IndexOf(arguments, "--inspect-resource");
+            if (resourceIndex >= 0 && resourceIndex + 1 < arguments.Length && Enum.TryParse(arguments[resourceIndex + 1], out ResourceType resourceType))
+            {
+                for (int cell = 0; cell < World.ResourceNodes.Length; cell++)
+                {
+                    if (World.ResourceNodes[cell].Type != resourceType || World.Cells[cell].BuildingId != 0) continue;
+                    int x = cell % World.Width, y = cell / World.Width;
+                    InspectSite(x, y); FocusWorldPoint(new Vector2(x + .5f, y + .5f), 7); assistedFraming = true; break;
+                }
+            }
             if (CaptureScenario.ApplyRequested(this, path))
             {
                 hud?.Refresh(true);
@@ -276,7 +339,7 @@ namespace WorldGenesis.Runtime
             yield return CaptureRoutine(path, quit, true);
         }
         [Serializable]
-        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize; public bool Paused, AutomaticCapture, AssistedFraming; }
+        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
         private IEnumerator CaptureRoutine(string path, bool quit, bool automatic)
         {
             capturing = true; string fullPath;
@@ -285,6 +348,8 @@ namespace WorldGenesis.Runtime
             yield return new WaitForEndOfFrame();
             ScreenCapture.CaptureScreenshot(fullPath);
             CaptureReceipt receipt = new CaptureReceipt { Type = "native Unity gameplay capture", Utc = DateTime.UtcNow.ToString("O"), UnityVersion = Application.unityVersion, Image = Path.GetFileName(fullPath), Seed = World.Seed, Width = World.Width, Height = World.Height, Population = World.Units.Count, Tick = World.Tick, Speed = Speed, Paused = Paused, AutomaticCapture = automatic, AssistedFraming = assistedFraming, CameraX = MainCamera.transform.position.x, CameraY = MainCamera.transform.position.y, OrthographicSize = MainCamera.orthographicSize, ScreenWidth = Screen.width, ScreenHeight = Screen.height, Preset = World.Preset.ToString() };
+            UnitData observed = World.GetUnit(SelectedUnitId);
+            if (observed != null) { receipt.SelectedUnit = observed.Id; receipt.SelectedTask = observed.Task.ToString(); receipt.Cargo = observed.CargoKind.ToString(); receipt.CargoAmount = observed.CargoAmount; receipt.Sex = observed.Sex.ToString(); receipt.Age = observed.Age; }
             float deadline = Time.realtimeSinceStartup + 8;
             yield return null;
             while (!File.Exists(fullPath) && Time.realtimeSinceStartup < deadline) yield return null;

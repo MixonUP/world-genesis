@@ -1,0 +1,338 @@
+{
+  "utc": "2026-10-12T09:45:12.3138658Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 58,
+  "failed": 0,
+  "results": [
+    {
+      "name": "same seed creates identical complete world",
+      "passed": true,
+      "milliseconds": 289.8142
+    },
+    {
+      "name": "generator invariants Island / 0",
+      "passed": true,
+      "milliseconds": 7.391
+    },
+    {
+      "name": "generator invariants Island / 1",
+      "passed": true,
+      "milliseconds": 5.3013
+    },
+    {
+      "name": "generator invariants Island / -1",
+      "passed": true,
+      "milliseconds": 5.3449
+    },
+    {
+      "name": "generator invariants Island / 713",
+      "passed": true,
+      "milliseconds": 5.3924
+    },
+    {
+      "name": "generator invariants Island / 20261012",
+      "passed": true,
+      "milliseconds": 5.5339
+    },
+    {
+      "name": "generator invariants Island / -2147483648",
+      "passed": true,
+      "milliseconds": 5.3298
+    },
+    {
+      "name": "generator invariants Island / 2147483647",
+      "passed": true,
+      "milliseconds": 5.3655
+    },
+    {
+      "name": "generator invariants Archipelago / 0",
+      "passed": true,
+      "milliseconds": 5.4038
+    },
+    {
+      "name": "generator invariants Archipelago / 1",
+      "passed": true,
+      "milliseconds": 5.3203
+    },
+    {
+      "name": "generator invariants Archipelago / -1",
+      "passed": true,
+      "milliseconds": 5.9073
+    },
+    {
+      "name": "generator invariants Archipelago / 713",
+      "passed": true,
+      "milliseconds": 5.346
+    },
+    {
+      "name": "generator invariants Archipelago / 20261012",
+      "passed": true,
+      "milliseconds": 5.4449
+    },
+    {
+      "name": "generator invariants Archipelago / -2147483648",
+      "passed": true,
+      "milliseconds": 5.4307
+    },
+    {
+      "name": "generator invariants Archipelago / 2147483647",
+      "passed": true,
+      "milliseconds": 5.3486
+    },
+    {
+      "name": "generator invariants Continent / 0",
+      "passed": true,
+      "milliseconds": 5.8501
+    },
+    {
+      "name": "generator invariants Continent / 1",
+      "passed": true,
+      "milliseconds": 7.7917
+    },
+    {
+      "name": "generator invariants Continent / -1",
+      "passed": true,
+      "milliseconds": 6.3578
+    },
+    {
+      "name": "generator invariants Continent / 713",
+      "passed": true,
+      "milliseconds": 6.3318
+    },
+    {
+      "name": "generator invariants Continent / 20261012",
+      "passed": true,
+      "milliseconds": 6.3216
+    },
+    {
+      "name": "generator invariants Continent / -2147483648",
+      "passed": true,
+      "milliseconds": 6.7136
+    },
+    {
+      "name": "generator invariants Continent / 2147483647",
+      "passed": true,
+      "milliseconds": 7.6422
+    },
+    {
+      "name": "non-square maps, smallest and largest dimensions",
+      "passed": true,
+      "milliseconds": 11.5124
+    },
+    {
+      "name": "invalid map dimensions rejected",
+      "passed": true,
+      "milliseconds": 1.5066
+    },
+    {
+      "name": "simulation state remains valid with civilization development",
+      "passed": true,
+      "milliseconds": 1036.6296
+    },
+    {
+      "name": "full save and continued simulation stay identical",
+      "passed": true,
+      "milliseconds": 339.5042
+    },
+    {
+      "name": "fire rain and meteor affect actual state",
+      "passed": true,
+      "milliseconds": 112.7419
+    },
+    {
+      "name": "painting at and beyond boundaries is safe",
+      "passed": true,
+      "milliseconds": 20.0243
+    },
+    {
+      "name": "corrupt dimensions, references and nonfinite state rejected",
+      "passed": true,
+      "milliseconds": 77.2304
+    },
+    {
+      "name": "behavior / fire interrupts work and preserves carried resources",
+      "passed": true,
+      "milliseconds": 2.7636
+    },
+    {
+      "name": "behavior / eating is a single interruptible resource transaction",
+      "passed": true,
+      "milliseconds": 1.7064
+    },
+    {
+      "name": "behavior / sheep flee predators and fatigue causes interruptible rest",
+      "passed": true,
+      "milliseconds": 3.8674
+    },
+    {
+      "name": "behavior / social contact uses living nearby partners",
+      "passed": true,
+      "milliseconds": 1.7652
+    },
+    {
+      "name": "behavior / legacy v1 migrates once without RNG draws",
+      "passed": true,
+      "milliseconds": 21.1603
+    },
+    {
+      "name": "behavior / save continuation retains incomplete meals and rest",
+      "passed": true,
+      "milliseconds": 19.8331
+    },
+    {
+      "name": "behavior / founding spawning and adulthood create civilians only",
+      "passed": true,
+      "milliseconds": 25.09
+    },
+    {
+      "name": "behavior / experimental guards demobilize without losing saved needs cargo or RNG",
+      "passed": true,
+      "milliseconds": 25.9457
+    },
+    {
+      "name": "behavior / temporary civilian militia defends locally then resumes work",
+      "passed": true,
+      "milliseconds": 3.003
+    },
+    {
+      "name": "behavior / children and severely wounded civilians flee local attackers",
+      "passed": true,
+      "milliseconds": 3.3925
+    },
+    {
+      "name": "politics / seeded governments cover all forms and retain real rulers",
+      "passed": true,
+      "milliseconds": 248.4602
+    },
+    {
+      "name": "politics / succession prioritizes age or blessing and clears deaths at command boundary",
+      "passed": true,
+      "milliseconds": 1.5482
+    },
+    {
+      "name": "politics / adulthood and membership determine eligibility",
+      "passed": true,
+      "milliseconds": 1.5878
+    },
+    {
+      "name": "politics / republic votes at saved deadline and continues identically after load",
+      "passed": true,
+      "milliseconds": 36.0608
+    },
+    {
+      "name": "politics / legacy missing fields migrate without RNG or IDs and malformed data is rejected",
+      "passed": true,
+      "milliseconds": 19.3739
+    },
+    {
+      "name": "resources / autonomous tree harvest delivery and campfire processing conserve wood",
+      "passed": true,
+      "milliseconds": 27.3734
+    },
+    {
+      "name": "resources / workshop rate is real on-site time and clay requires fuel",
+      "passed": true,
+      "milliseconds": 8.2253
+    },
+    {
+      "name": "resources / actual hauling supplies a separate workshop",
+      "passed": true,
+      "milliseconds": 8.0873
+    },
+    {
+      "name": "resources / blocked cargo remains carried and a repaired route restores delivery",
+      "passed": true,
+      "milliseconds": 3.4581
+    },
+    {
+      "name": "resources / all deposits use saved individual regrowth times and incompatible terrain pauses",
+      "passed": true,
+      "milliseconds": 16.6988
+    },
+    {
+      "name": "resources / interruption and workshop reassignment release old slots and preserve progress",
+      "passed": true,
+      "milliseconds": 1.7999
+    },
+    {
+      "name": "resources / cargo death and storage destruction are explicit sinks",
+      "passed": true,
+      "milliseconds": 1.3792
+    },
+    {
+      "name": "resources / legacy stock migration consumes no RNG and save continuation preserves the whole job",
+      "passed": true,
+      "milliseconds": 35.6354
+    },
+    {
+      "name": "resources / geographic distribution and balances reflect real unequal stocks",
+      "passed": true,
+      "milliseconds": 24.1695
+    },
+    {
+      "name": "resources / every raw material is physically harvested and deposited",
+      "passed": true,
+      "milliseconds": 24.8229
+    },
+    {
+      "name": "resources / zero-plank settlement bootstraps real workshops and wood stone clay chains",
+      "passed": true,
+      "milliseconds": 38.8552
+    },
+    {
+      "name": "bounded core load / 100 units",
+      "passed": true,
+      "milliseconds": 51.9634
+    },
+    {
+      "name": "bounded core load / 500 units",
+      "passed": true,
+      "milliseconds": 225.8009
+    },
+    {
+      "name": "bounded core load / 1000 units",
+      "passed": true,
+      "milliseconds": 1097.5813
+    }
+  ],
+  "metrics": [
+    {
+      "scenario": "civilization-300-seconds",
+      "units": 80,
+      "buildings": 9,
+      "settlements": 1
+    },
+    {
+      "scenario": "zero-plank-workshop-chain",
+      "firstSawmillTick": 1100,
+      "firstBlockAndBrickByTick": 3176,
+      "units": 4,
+      "buildings": 6
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 100,
+      "finalUnits": 100,
+      "milliseconds": 31.7822,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 500,
+      "finalUnits": 500,
+      "milliseconds": 205.2042,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 1000,
+      "finalUnits": 1000,
+      "milliseconds": 1073.7036,
+      "mapWidth": 128,
+      "mapHeight": 128
+    }
+  ]
+}
