@@ -210,7 +210,7 @@ namespace WorldGenesis.Simulation
                 int cell = World.Index((int)unit.X, (int)unit.Y);
                 if (World.Cells[cell].Vegetation >= .12f) { World.Cells[cell].Vegetation -= .08f; consumed = true; World.TerrainRevision++; }
             }
-            if (consumed) { unit.Hunger = Math.Max(0, unit.Hunger - .4f); unit.Health = Math.Min(unit.MaxHealth, unit.Health + 2); }
+            if (consumed) { unit.Hunger = Math.Max(0, unit.Hunger - SubsistenceRules.NeedReliefPerPortion); unit.Health = Math.Min(unit.MaxHealth, unit.Health + 2); }
             ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0;
             return true;
         }

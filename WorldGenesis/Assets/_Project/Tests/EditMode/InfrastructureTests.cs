@@ -36,7 +36,7 @@ namespace WorldGenesis.Tests
             UnitData drinker = w.Units[0]; drinker.X = 20.5f; drinker.Y = 16.5f; drinker.Thirst = .9f;
             drinker.Task = UnitTask.Drink; drinker.TargetBuildingId = well.Id; drinker.TargetCell = w.Index(20, 16); drinker.Path.Clear(); drinker.PathCursor = 0; drinker.WorkTimer = .1f; drinker.DecisionTimer = 5;
             float before = well.WaterStored; engine.Step(.1f);
-            Assert.Less(drinker.Thirst, .3f); Assert.AreEqual(before - .5f, well.WaterStored, .00001f);
+            Assert.AreEqual(.9f + SimulationEngine.TickSeconds * SubsistenceRules.ThirstPerSecond - SubsistenceRules.NeedReliefPerPortion, drinker.Thirst, .00001f); Assert.AreEqual(before - 1, well.WaterStored, .00001f);
             Assert.IsTrue(w.Validate(out string error), error);
         }
 

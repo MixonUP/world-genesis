@@ -99,7 +99,9 @@ namespace WorldGenesis.Tests
             engine.Spawn(SpeciesType.Human, 15, 24);
             UnitData resident = engine.World.Units[0]; resident.X = 25.5f; resident.Y = 24.5f; resident.Hunger = .8f;
             for (int y = 0; y < 48; y++) engine.Paint(TerrainType.DeepWater, 21, y, 0);
-            SettlementData home = engine.World.Settlements[0]; float foodBefore = home.Food;
+            SettlementData home = engine.World.Settlements[0];
+            // Keep passive production at its soft cap; only the isolated meal may change this stock.
+            home.Food = 80; float foodBefore = home.Food;
             engine.Step(.1f);
             Assert.AreEqual(foodBefore, home.Food, "A disconnected stockpile cannot deliver food by proximity alone");
             Assert.Greater(resident.X, 21);
@@ -214,19 +216,20 @@ namespace WorldGenesis.Tests
         [Test]
         public void FoodIsConsumedOnceAfterEatingFinishesAndNotWhenInterrupted()
         {
+            // Stock above the passive reserve isolates the actual meal transaction.
             SimulationEngine engine = new SimulationEngine(FlatWorld());
             engine.Spawn(SpeciesType.Human, 24, 24);
             UnitData unit = engine.World.Units[0]; SettlementData home = engine.World.Settlements[0];
-            unit.X = 24.5f; unit.Y = 24.5f; unit.Hunger = .8f; unit.Fatigue = 0; unit.DecisionTimer = 0; home.Food = 20;
+            unit.X = 24.5f; unit.Y = 24.5f; unit.Hunger = .8f; unit.Fatigue = 0; unit.DecisionTimer = 0; home.Food = 80;
             engine.Step(.1f);
-            Assert.AreEqual(UnitTask.Eat, unit.Task); Assert.AreEqual(20, home.Food);
+            Assert.AreEqual(UnitTask.Eat, unit.Task); Assert.AreEqual(80, home.Food);
             Assert.Greater(unit.WorkTimer, 0); Assert.AreEqual(engine.World.Tick, unit.TaskStartedTick);
             engine.ApplyPower(PowerType.Fire, 24, 24, 1); engine.Step(.1f);
-            Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(20, home.Food);
+            Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(80, home.Food);
             engine.ApplyPower(PowerType.Rain, 24, 24, 10);
             unit.X = 24.5f; unit.Y = 24.5f; unit.Path.Clear(); unit.PathCursor = 0; unit.Task = UnitTask.Idle; unit.DecisionTimer = 0;
             for (int t = 0; t < 14; t++) engine.Step(.1f);
-            Assert.AreEqual(19, home.Food); Assert.Less(unit.Hunger, .5f);
+            Assert.AreEqual(79, home.Food); Assert.Less(unit.Hunger, .5f);
         }
 
         [Test]

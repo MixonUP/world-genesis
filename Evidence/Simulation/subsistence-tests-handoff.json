@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-12T17:59:11.6241032+03:00",
+  "status": "tests-freeze",
+  "tests": 14,
+  "passed": 14,
+  "evidence": "Evidence/Simulation/subsistence-probe-final.json",
+  "showcase": "Evidence/Simulation/subsistence-assisted-v051.json",
+  "showcaseValidTicks": 600,
+  "showcaseSaveContinuationTicks": 100,
+  "unity": "integrator-pending",
+  "files": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SubsistenceTests.cs",
+      "sha256": "B82BD6D4B43759090EBF9BD2B1A03B82E76C151D62C179FD22353728DAE7B3F2"
+    },
+    {
+      "path": "Tools/SubsistenceProbe/Program.cs",
+      "sha256": "328DD6EF0C82620BFFBD3CA5F9A869223BAA8EA5E7F5B63B6C0CE15631DB0B0C"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs",
+      "sha256": "6C98BAFCD184831CD76F9D4DA1780D40C93826686AA826BD02634E682F893203"
+    }
+  ]
+}

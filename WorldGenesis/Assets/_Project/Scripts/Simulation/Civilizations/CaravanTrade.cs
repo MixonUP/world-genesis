@@ -87,7 +87,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < caravan.Members.Count; i++)
             {
                 CaravanMemberData m = caravan.Members[i]; UnitData u = World.GetUnit(m.UnitId);
-                if (m.HireFoodPaid > 0) { home.Food -= m.HireFoodPaid; u.Hunger = Math.Max(0, u.Hunger - .4f); }
+                if (m.HireFoodPaid > 0) { home.Food -= m.HireFoodPaid; u.Hunger = Math.Max(0, u.Hunger - SubsistenceRules.NeedReliefPerPortion); }
                 u.CaravanId = caravan.Id; ChangeTask(u, UnitTask.Idle); ClearRoute(u); u.DecisionTimer = 0;
             }
             World.NextCaravanId++; World.Caravans.Add(caravan); home.NextCaravanTick = World.Tick + 1200;

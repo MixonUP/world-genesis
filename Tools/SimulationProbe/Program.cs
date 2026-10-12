@@ -118,14 +118,14 @@ internal static class Program
         {
             SimulationEngine e = BehaviorWorld(); e.Spawn(SpeciesType.Human, 16, 16);
             UnitData u = e.World.Units[0]; SettlementData home = e.World.Settlements[0];
-            u.X = 16.5f; u.Y = 16.5f; u.Hunger = .8f; u.Fatigue = 0; u.DecisionTimer = 0; home.Food = 20;
-            e.Step(.1f); Require(u.Task == UnitTask.Eat && home.Food == 20 && u.WorkTimer > 0, "Eating was instant or not selected");
+            u.X = 16.5f; u.Y = 16.5f; u.Hunger = .8f; u.Fatigue = 0; u.DecisionTimer = 0; home.Food = 80;
+            e.Step(.1f); Require(u.Task == UnitTask.Eat && home.Food == 80 && u.WorkTimer > 0, "Eating was instant or not selected");
             e.ApplyPower(PowerType.Fire, 16, 16, 1); e.Step(.1f);
-            Require(u.Task == UnitTask.Flee && home.Food == 20, "Interrupted meal consumed stock");
+            Require(u.Task == UnitTask.Flee && home.Food == 80, "Interrupted meal consumed stock");
             e.ApplyPower(PowerType.Rain, 16, 16, 10);
             u.X = 16.5f; u.Y = 16.5f; u.Task = UnitTask.Idle; u.Path.Clear(); u.PathCursor = 0; u.DecisionTimer = 0;
             for (int i = 0; i < 14; i++) e.Step(.1f);
-            Require(home.Food == 19 && u.Hunger < .5f, "Meal was not exactly one stock transaction");
+            Require(home.Food == 79 && u.Hunger < .5f, "Meal was not exactly one stock transaction");
         });
         Check("behavior / sheep flee predators and fatigue causes interruptible rest", () =>
         {

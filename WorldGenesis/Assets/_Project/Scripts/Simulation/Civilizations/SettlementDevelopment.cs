@@ -292,11 +292,11 @@ namespace WorldGenesis.Simulation
         {
             if (!IsCivilized(unit.Species)) return false;
             if (unit.CarriedWater > .00001f) { ClearRoute(unit); ChangeTask(unit, UnitTask.Drink); unit.TargetBuildingId = 0; unit.TargetCell = World.Index((int)unit.X, (int)unit.Y); unit.WorkTimer = 2; return true; }
-            // Working public wells are shared; the water itself is finite.
+            // Public wells and the one civic campfire share finite water at the source.
             for (int i = 0; i < World.Buildings.Count; i++)
             {
                 BuildingData well = World.Buildings[i];
-                if (well.Type != BuildingType.Well || well.Health <= 0 || well.WaterStored < .5f || well.SettlementId != unit.SettlementId || !SetTarget(unit, well.X, well.Y)) continue;
+                if (!IsDrinkingSource(well, unit.SettlementId) || well.WaterStored < 1 || !SetTarget(unit, well.X, well.Y)) continue;
                 ChangeTask(unit, UnitTask.Drink); unit.TargetBuildingId = well.Id; unit.WorkTimer = 2; return true;
             }
             int ux = (int)unit.X, uy = (int)unit.Y;
@@ -317,7 +317,7 @@ namespace WorldGenesis.Simulation
             if (unit.Task != UnitTask.Drink) return false;
             bool carried = unit.CarriedWater > .00001f;
             bool available = carried; BuildingData well = World.GetBuilding(unit.TargetBuildingId);
-            if (well != null && well.Type == BuildingType.Well && well.Health > 0 && well.WaterStored >= .5f && DistanceSquared(unit.X, unit.Y, well.X + .5f, well.Y + .5f) < 2) available = true;
+            if (IsDrinkingSource(well, unit.SettlementId) && well.WaterStored >= 1 && DistanceSquared(unit.X, unit.Y, well.X + .5f, well.Y + .5f) < 2) available = true;
             if (well == null && !carried)
             {
                 int x = (int)unit.X, y = (int)unit.Y; available = World.IsFreshWater(World.Index(x, y));
@@ -326,10 +326,10 @@ namespace WorldGenesis.Simulation
             if (!available) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 1; return true; }
             unit.WorkTimer -= dt;
             if (unit.WorkTimer > 0) return true;
-            float drunk = carried ? Math.Min(.5f, unit.CarriedWater) : .5f;
+            float drunk = carried ? Math.Min(1, unit.CarriedWater) : 1;
             if (carried) unit.CarriedWater -= drunk;
-            else if (well != null) well.WaterStored -= .5f;
-            unit.Thirst = Math.Max(0, unit.Thirst - 1.5f * drunk); ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;
+            else if (well != null) well.WaterStored -= drunk;
+            unit.Thirst = Math.Max(0, unit.Thirst - SubsistenceRules.NeedReliefPerPortion * drunk); ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;
         }
         private bool ChooseFishing(UnitData unit, SettlementData home)
         {

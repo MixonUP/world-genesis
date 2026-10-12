@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-12T15:10:10.8620866Z",
+  "editmodeSnapshot": "subsistence-release-v051-r2",
+  "finalSnapshot": "subsistence-release-v051-r3",
+  "changedFiles": [
+    "Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+    "Assets/_Project/Tests/PlayMode/SubsistenceHudTests.cs"
+  ],
+  "simulationUnchanged": true,
+  "editmodeTestsUnchanged": true
+}

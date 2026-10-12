@@ -227,7 +227,7 @@ namespace WorldGenesis.Simulation
                 if (e == null || !AddId(e.Id, ids, ref maximumId) || !Finite(e.X) || !Finite(e.Y) || e.Tick < 0 || e.Tick > Tick || (int)e.Kind < 0 || (int)e.Kind > 11) { error = "Invalid world event."; return false; }
             }
             if (NextId <= maximumId) { error = "Invalid next entity identifier."; return false; }
-            return ValidateHydrology(out error) && ValidateBiomes(out error) && ValidateWeather(out error) && ValidateTransport(out error) && ValidateRulerPlanning(out error) && ValidateBuildingSalvage(out error) && ValidateResources(out error) && ValidateCivilEconomy(out error) && ValidateDevelopment(out error) && ValidateSocial(out error) && ValidateAgriculture(out error) && ValidateWildlife(out error) && ValidateCaravans(out error);
+            return ValidateSubsistence(out error) && ValidateHydrology(out error) && ValidateBiomes(out error) && ValidateWeather(out error) && ValidateTransport(out error) && ValidateRulerPlanning(out error) && ValidateBuildingSalvage(out error) && ValidateResources(out error) && ValidateCivilEconomy(out error) && ValidateDevelopment(out error) && ValidateSocial(out error) && ValidateAgriculture(out error) && ValidateWildlife(out error) && ValidateCaravans(out error);
         }
         private static bool AddId(int id, HashSet<int> ids, ref int maximum) { maximum = Math.Max(id, maximum); return id > 0 && ids.Add(id); }
         private static bool Finite(float v) { return !float.IsNaN(v) && !float.IsInfinity(v); }

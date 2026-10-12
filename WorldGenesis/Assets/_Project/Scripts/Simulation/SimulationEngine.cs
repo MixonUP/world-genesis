@@ -31,7 +31,7 @@ namespace WorldGenesis.Simulation
             MigratePolitics();
             MigrateResources();
             MigrateDemography(); MigrateCivilEconomy(); MigrateCarrying(legacyCarrying);
-            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateWildlife(); MigrateCaravans(); MigrateWeather();
+            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1;
         }
 
         public void Step(float dt)
@@ -109,6 +109,7 @@ namespace WorldGenesis.Simulation
             UpdateWeather(TickSeconds);
             if (World.Tick % 5 == 0) UpdateEnvironment(.5f);
             UpdateResources();
+            UpdateCampfireSupply(TickSeconds);
             for (int i = 0; i < World.Units.Count; i++) UpdateUnit(World.Units[i], TickSeconds);
             RemoveDead(); UpdateTransport();
             if (World.Tick % 10 == 0) { UpdateSettlements(1f); UpdateDevelopment(); UpdateAgriculture(); UpdateWildlife(); UpdateCaravans(); }
@@ -285,8 +286,8 @@ namespace WorldGenesis.Simulation
             int x = (int)unit.X, y = (int)unit.Y;
             if (World.Laws.Aging) unit.Age += dt * .1f;
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.Profession == UnitProfession.None) unit.Profession = ProfessionFor(unit.Id);
-            unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? .005f : .004f));
-            if (IsCivilized(unit.Species)) unit.Thirst = Math.Min(1, unit.Thirst + dt * .003f);
+            unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? SubsistenceRules.HungerPerSecond : .004f));
+            if (IsCivilized(unit.Species)) unit.Thirst = Math.Min(1, unit.Thirst + dt * SubsistenceRules.ThirstPerSecond);
             if (unit.Task != UnitTask.Rest)
             {
                 float exertion = unit.Task == UnitTask.Flee || unit.Task == UnitTask.Fight ? .012f : unit.Task == UnitTask.Gather || unit.Task == UnitTask.Farm || unit.Task == UnitTask.Process ? .006f : unit.PathCursor < unit.Path.Count ? .003f : .0015f;

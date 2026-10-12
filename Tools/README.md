@@ -1,6 +1,8 @@
 # Команды проекта
 
-Актуальная сборка: **0.4.0**, `Builds/Windows-0.4.0/WorldGenesis.exe`. Финальный проверенный snapshot — `rural-release-v040-r2`. Исторические команды0.2/0.3 ниже сохранены; для текущего Player передавайте путь0.4 явно: capture/package-скрипты всё ещё имеют старые значения по умолчанию0.2.
+Актуальная версия: **0.5.1**, `Builds/Windows-0.5.1/WorldGenesis.exe`. Финальный snapshot — `subsistence-release-v051-r3`; результаты — [отчёт снабжения](../Docs/Development/SUBSISTENCE_REPORT.md). Исторические команды ниже сохранены; передавайте путь текущего Player явно: capture/package-скрипты всё ещё имеют старые значения по умолчанию 0.2.
+
+Проверка снабжения: `dotnet run --project Tools/SubsistenceProbe/SubsistenceProbe.csproj -- Evidence/Simulation/subsistence-probe-final.json`. Режим `--sustain` вместо пути результата проверяет пять дополнительных хозяйственных суток в подготовленном мире; методика — [SubsistenceProbe](SubsistenceProbe/README.md).
 
 В PowerShell из корня репозитория:
 
@@ -27,7 +29,7 @@ Import запускает выбранный Unity в batchmode, сохраня�
 
 Логи команд — `Evidence/<время>-<действие>/`. Нельзя судить о корректности игры по exit 0 при импорте. Версии пакетов закреплены, Unity создал packages-lock.json. Сырые логи остаются локально. Автоматического обновления редактора, покупок и удаления Library скрипт не выполняет.
 
-Build вызывает Editor.ProjectSetup.BuildWindows, использует Main.unity и StandaloneWindows64, пишет Evidence/build-report.json. Результат текущей версии — Builds/Windows-0.4.0/WorldGenesis.exe вместе с соседними файлами; запуск проверяется отдельно.
+Build вызывает Editor.ProjectSetup.BuildWindows, использует Main.unity и StandaloneWindows64, пишет Evidence/build-report.json. Результат текущей версии — Builds/Windows-0.5.1/WorldGenesis.exe вместе с соседними файлами; запуск проверяется отдельно.
 
 `dotnet run --project Tools/SimulationProbe/SimulationProbe.csproj -c Release -- Evidence/Simulation/simulation-probe.json` проверяет настоящий Simulation под .NET 8. Это дополнительная независимая проверка, не замена Unity. NuGet.Config не содержит внешних источников; сторонних .NET-пакетов нет.
 

@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-12T14:56:11.8125224Z",
+  "tests": 14,
+  "failures": 0,
+  "results": [
+    {
+      "name": "OneDayProducesTwentyFivePortionsWithoutWorkersOrRandomDraws",
+      "passed": true
+    },
+    {
+      "name": "DuplicateCampfireAndLevelDoNotMultiplyProduction",
+      "passed": true
+    },
+    {
+      "name": "TwoDayReserveStopsNewProductionWithoutDeletingExistingFood",
+      "passed": true
+    },
+    {
+      "name": "DeadBurningOrFloodedCampfireDoesNotProduce",
+      "passed": true
+    },
+    {
+      "name": "RemovedCampfireStopsSupplyAndDoesNotReappear",
+      "passed": true
+    },
+    {
+      "name": "ARealDayAddsOnePortionOfNeedToAdultsAndChildren",
+      "passed": true
+    },
+    {
+      "name": "ResidentWalksToCampfireAndDrinksExactlyOnce",
+      "passed": true
+    },
+    {
+      "name": "WaterBarrierPreventsRemoteFoodAndWaterConsumption",
+      "passed": true
+    },
+    {
+      "name": "DrinkUsesOneWaterAndPartialCarriedWaterGivesProportionalRelief",
+      "passed": true
+    },
+    {
+      "name": "TwentyFiveResidentsBalanceOneDayWhileTheTwentySixthNeedsOtherFoodAndWater",
+      "passed": true
+    },
+    {
+      "name": "CampfireWaterCannotReplaceWellWaterInBrewing",
+      "passed": true
+    },
+    {
+      "name": "CampfireReserveRoundTripsAndContinuesIdenticallyDuringADrinkJourney",
+      "passed": true
+    },
+    {
+      "name": "ExistingEmptyCampfireLoadsWithoutStockGrantOrDevelopmentReset",
+      "passed": true
+    },
+    {
+      "name": "InvalidWaterReservesRemainRejected",
+      "passed": true
+    }
+  ]
+}

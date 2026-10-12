@@ -251,7 +251,10 @@ namespace WorldGenesis.Runtime
                     inspectorTitle.text = inspectedBuilding != null ? ResourceArt.BuildingName(inspectedBuilding.Type) : showNode ? ResourceArt.ResourceName(node.Type) : city.Name;
                     UnitData ruler = world.GetUnit(city.RulerId);
                     builder.Clear();
-                    if (inspectedBuilding != null) AppendBuildingDescription(world, inspectedBuilding);
+                    bool campfireFirst = inspectedBuilding != null && inspectedBuilding.Type == BuildingType.Hall;
+                    if (campfireFirst) AppendBuildingDescription(world, inspectedBuilding);
+                    builder.Append(SubsistenceDescription(world, city)).Append("\n\n");
+                    if (inspectedBuilding != null && !campfireFirst) AppendBuildingDescription(world, inspectedBuilding);
                     builder.Append(WeatherSiteDescription(world, game.InspectX, game.InspectY)).Append("\n\n");
                     if (showNode) builder.Append(NodeDescription(world, game.InspectX, game.InspectY)).Append("\n\n");
                     string infrastructureDescription = InfrastructureDescription(world, game.InspectX, game.InspectY);
@@ -461,10 +464,41 @@ namespace WorldGenesis.Runtime
             string grade = StorageCapacity.IsDepot(building) ? StorageCapacity.EffectiveLevel(building) + " / 4" : building.Level.ToString();
             string result = "<b>" + ResourceArt.BuildingName(building.Type) + "</b>\nУровень " + grade + "\nПрочность " + building.Health.ToString("0.#");
             result += building.Ownership == BuildingOwnership.Public ? "\nСобственность: общинная" : "\nСобственность: частная\nВладелец: " + (owner == null ? "житель #" + building.OwnerId : owner.Name);
-            if (building.Type == BuildingType.Well) result += "\nЗапас воды " + building.WaterStored.ToString("0.##");
+            if (building.Type == BuildingType.Hall) result += "\n\n" + CampfireDescription(world, building);
+            if (building.Type == BuildingType.Well) result += "\nЗапас воды " + building.WaterStored.ToString("0.##") + " / " + SubsistenceRules.WaterCapacity(building).ToString("0.##");
             if (building.Type == BuildingType.Gate) result += building.GateOpen ? "\nВорота открыты" : "\nВорота закрыты";
             if (StorageCapacity.IsDepot(building)) result += "\n\n" + StorageDescription(building);
             return result + "\n";
+        }
+        public static string CampfireDescription(WorldState world, BuildingData building)
+        {
+            if (building == null || building.Type != BuildingType.Hall) return "";
+            bool selected = world.GetCampfire(building.SettlementId) == building;
+            bool working = SubsistenceRules.IsWorkingCampfire(world, building);
+            float daily = working ? SubsistenceRules.ProductionPerSecond * SubsistenceRules.DaySeconds : 0;
+            SettlementData city = world.GetSettlement(building.SettlementId);
+            string result = "<b>СНАБЖЕНИЕ ОЧАГА</b>\n" + (working ? "Работает · на " + SubsistenceRules.CampfirePeople + " жителей" : building.Health <= 0 ? "Очаг не действует" : selected ? "Снабжение приостановлено" : "Дополнительный очаг · без выработки");
+            result += "\nМощность в день · еда / вода\n" + (daily * SubsistenceRules.FoodPerPersonPerDay).ToString("0.#") + " / " + (daily * SubsistenceRules.WaterPerPersonPerDay).ToString("0.#");
+            result += "\nВода " + building.WaterStored.ToString("0.##") + " / " + SubsistenceRules.WaterCapacity(building).ToString("0.##");
+            if (city != null) result += "\nЕда общины " + city.Food.ToString("0.##");
+            if (selected) result += "\nОчаг пополняет еду до " + SubsistenceRules.FoodReserve.ToString("0.#");
+            return result + "\nДень: " + (SubsistenceRules.DaySeconds / 60f).ToString("0.#") + " мин при 1×";
+        }
+        public static string SubsistenceDescription(WorldState world, SettlementData city)
+        {
+            if (city == null) return "";
+            BuildingData campfire = world.GetCampfire(city.Id);
+            float people = SubsistenceRules.IsWorkingCampfire(world, campfire) ? SubsistenceRules.ProductionPerSecond * SubsistenceRules.DaySeconds : 0;
+            float foodNeed = city.Population * SubsistenceRules.FoodPerPersonPerDay;
+            float waterNeed = city.Population * SubsistenceRules.WaterPerPersonPerDay;
+            float foodSupply = people * SubsistenceRules.FoodPerPersonPerDay;
+            float waterSupply = people * SubsistenceRules.WaterPerPersonPerDay;
+            return "<b>БАЗОВЫЙ ПЛАН НА ДЕНЬ</b>\nДень: " + (SubsistenceRules.DaySeconds / 60f).ToString("0.#") + " мин при 1×" +
+                "\nЕда / вода · порции\nНа жителя: " + SubsistenceRules.FoodPerPersonPerDay.ToString("0.#") + " / " + SubsistenceRules.WaterPerPersonPerDay.ToString("0.#") +
+                "\nНужно для " + city.Population + ": " + foodNeed.ToString("0.#") + " / " + waterNeed.ToString("0.#") +
+                "\nОдин очаг: " + foodSupply.ToString("0.#") + " / " + waterSupply.ToString("0.#") +
+                "\nДефицит базы: " + Mathf.Max(0, foodNeed - foodSupply).ToString("0.#") + " / " + Mathf.Max(0, waterNeed - waterSupply).ToString("0.#") +
+                "\nОстальное — добыча и хозяйство.";
         }
         public static string StorageDescription(BuildingData building)
         {

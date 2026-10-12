@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T16:48:26.3553081+03:00",
+  "timestamp": "2026-10-12T18:14:46.2467669+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 381,
+  "checkCount": 451,
   "failures": [],
   "checks": [
     {
@@ -157,12 +157,17 @@
       "detail": "Found 5, expected 5"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
       "passed": true,
       "detail": "UnityEngine.UI"
     },
@@ -177,6 +182,16 @@
       "detail": "WorldGenesis.Runtime"
     },
     {
+      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
+    },
+    {
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -185,21 +200,6 @@
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -292,14 +292,9 @@
       "detail": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.45f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\UGUI\\UnityEngine.UI.asmdef"
     },
     {
-      "id": "link:README.md:Docs/STATE.md",
+      "id": "link:README.md:Docs/Development/GALLERY_0_5.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
-    },
-    {
-      "id": "link:README.md:Tools/README.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
     },
     {
       "id": "link:README.md:Docs/Development/PLAY_GUIDE.md",
@@ -307,34 +302,49 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
     },
     {
-      "id": "link:README.md:Docs/Development/SOCIETY_REPORT.md",
+      "id": "link:README.md:Docs/Development/SUBSISTENCE_REPORT.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
     },
     {
-      "id": "link:README.md:Evidence/Captures/20261012-151758-rural-caravan.mp4",
+      "id": "link:README.md:Docs/Development/GALLERY_0_5.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261012-151758-rural-caravan.mp4"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:README.md:Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:README.md:Evidence/Captures/20261012-171427-climate-fire-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261012-171427-climate-fire-final.mp4"
+    },
+    {
+      "id": "link:README.md:Tools/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/CLIMATE_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CLIMATE_NATIVE_REVIEW.md"
     },
     {
       "id": "link:README.md:Docs/ACCEPTANCE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
-    },
-    {
-      "id": "link:README.md:Docs/Design/ECONOMY_AND_PROFESSIONS.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
-    },
-    {
-      "id": "link:README.md:Docs/Design/TECHNOLOGY_TREE.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TECHNOLOGY_TREE.md"
-    },
-    {
-      "id": "link:README.md:Docs/Design/CARAVAN_RUNTIME.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CARAVAN_RUNTIME.md"
     },
     {
       "id": "link:README.md:Docs/00_INDEX.md",
@@ -347,14 +357,9 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
     },
     {
-      "id": "link:README.md:AGENTS.md",
+      "id": "link:README.md:Docs/ARCHITECTURE.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\AGENTS.md"
-    },
-    {
-      "id": "link:README.md:Docs/Development/AGENT_ROLES.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ARCHITECTURE.md"
     },
     {
       "id": "link:README.md:Docs/Research/README.md",
@@ -367,19 +372,9 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\SourceAssets\\manifest.csv"
     },
     {
-      "id": "link:README.md:Docs/Development/RESOURCES_REPORT.md",
+      "id": "link:README.md:Docs/Development/AGENT_ROLES.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\RESOURCES_REPORT.md"
-    },
-    {
-      "id": "link:README.md:Docs/Development/CITIZENS_REPORT.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
-    },
-    {
-      "id": "link:README.md:Docs/Development/ALPHA_REPORT.md",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
     },
     {
       "id": "link:00_INDEX.md:STATE.md",
@@ -402,6 +397,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
     },
     {
+      "id": "link:00_INDEX.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
       "id": "link:00_INDEX.md:Development/TRANSPORT_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
@@ -420,6 +425,16 @@
       "id": "link:00_INDEX.md:Research/WEATHER_RENDERING.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WEATHER_RENDERING.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/WEATHER_SIMULATION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WEATHER_SIMULATION.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/WEATHER_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\WEATHER_REVIEW.md"
     },
     {
       "id": "link:00_INDEX.md:Development/SOCIETY_REPORT.md",
@@ -612,9 +627,24 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
     },
     {
-      "id": "link:ARCHITECTURE.md:Development/README.md",
+      "id": "link:ACCEPTANCE.md:Development/GALLERY_0_5.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
     },
     {
       "id": "link:ARCHITECTURE.md:FEATURE_MAP.md",
@@ -632,6 +662,61 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\PROCEDURAL_FORMULAS.md"
     },
     {
+      "id": "link:ARCHITECTURE.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Research/WEATHER_SIMULATION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WEATHER_SIMULATION.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Research/CLIMATE_AND_BIOMES.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CLIMATE_AND_BIOMES.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Research/STORAGE_CAPACITY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\STORAGE_CAPACITY.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Design/CARAVAN_RUNTIME.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CARAVAN_RUNTIME.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Development/SOCIETY_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SOCIETY_REPORT.md"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:../Evidence/20261012-170316-432-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\20261012-170316-432-editmode\\tests.xml"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:../Evidence/20261012-170447-668-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\20261012-170447-668-playmode\\tests.xml"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:../Evidence/Development/climate-build-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\climate-build-final.json"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:../SourceAssets/manifest.csv",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\SourceAssets\\manifest.csv"
+    },
+    {
+      "id": "link:ARCHITECTURE.md:Development/WEATHER_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\WEATHER_REVIEW.md"
+    },
+    {
       "id": "link:ARCHITECTURE.md:../Tools/README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Tools\\README.md"
@@ -640,6 +725,61 @@
       "id": "link:ARCHITECTURE.md:Development/PLAY_GUIDE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/20261012-170316-432-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\20261012-170316-432-editmode\\tests.xml"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/20261012-170447-668-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\20261012-170447-668-playmode\\tests.xml"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/Development/climate-build-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\climate-build-final.json"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/Captures/20261012-170650-climate-drought-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Captures\\20261012-170650-climate-drought-final.png"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/Captures/20261012-170701-climate-flood-1280-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Captures\\20261012-170701-climate-flood-1280-final.png"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/Captures/20261012-170717-climate-snow-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Captures\\20261012-170717-climate-snow-final.png"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:ACCEPTANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
+    },
+    {
+      "id": "link:FEATURE_MAP.md:Development/WEATHER_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\WEATHER_REVIEW.md"
     },
     {
       "id": "link:FEATURE_MAP.md:ACCEPTANCE.md",
@@ -675,6 +815,36 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:STATE.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
     },
     {
       "id": "link:STATE.md:../Evidence/Development/github-release-0.3.0.jpg",
@@ -905,6 +1075,11 @@
       "id": "link:ECONOMY_AND_PROFESSIONS.md:WILDLIFE_FARMING_AND_EQUIPMENT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_FARMING_AND_EQUIPMENT.md"
+    },
+    {
+      "id": "link:ECONOMY_AND_PROFESSIONS.md:../Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Development\\SUBSISTENCE_REPORT.md"
     },
     {
       "id": "link:RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md:RESOURCE_DEPOSITS_AND_PROCESSING.md",
@@ -1372,6 +1547,66 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-115731-556-playmode\\tests.xml"
     },
     {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-165302-climate-hurricane-release.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-165302-climate-hurricane-release.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-165313-climate-snow-release.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-165313-climate-snow-release.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-165407-climate-flood-1280-release.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-165407-climate-flood-1280-release.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-165418-climate-drought-release.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-165418-climate-drought-release.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170650-climate-drought-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170650-climate-drought-final.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170701-climate-flood-1280-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170701-climate-flood-1280-final.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170717-climate-snow-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170717-climate-snow-final.png"
+    },
+    {
+      "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:GALLERY_0_5.md:../../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:GALLERY_0_5.md:../../Evidence/Captures/20261012-171427-climate-fire-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-171427-climate-fire-final.mp4"
+    },
+    {
+      "id": "link:GALLERY_0_5.md:TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:GALLERY_0_5.md:CLIMATE_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CLIMATE_NATIVE_REVIEW.md"
+    },
+    {
       "id": "link:PLAY_GUIDE.md:README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
@@ -1395,6 +1630,21 @@
       "id": "link:README.md:../FEATURE_MAP.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+    },
+    {
+      "id": "link:README.md:TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:README.md:GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:README.md:CLIMATE_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CLIMATE_NATIVE_REVIEW.md"
     },
     {
       "id": "link:README.md:SOCIETY_REPORT.md",
@@ -1707,6 +1957,51 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGRICULTURE_CARAVAN_REVIEW.md"
     },
     {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Simulation/subsistence-probe-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\subsistence-probe-final.json"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Tools/SubsistenceProbe/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\SubsistenceProbe\\README.md"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Simulation/subsistence-sustain-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\subsistence-sustain-final.json"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/20261012-180300-741-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-180300-741-editmode\\tests.xml"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/20261012-180934-523-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-180934-523-playmode\\tests.xml"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Development/subsistence-ui-only-revision.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\subsistence-ui-only-revision.json"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Development/subsistence-build-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\subsistence-build-final.json"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Development/subsistence-source-match.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\subsistence-source-match.json"
+    },
+    {
+      "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Simulation/subsistence-assisted-v051.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\subsistence-assisted-v051.json"
+    },
+    {
       "id": "link:TRANSPORT_REPORT.md:../Design/TRANSPORT_AND_WATER.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\TRANSPORT_AND_WATER.md"
@@ -1720,6 +2015,16 @@
       "id": "link:TRANSPORT_REPORT.md:../Research/TRANSPORT_RENDERING.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\TRANSPORT_RENDERING.md"
+    },
+    {
+      "id": "link:TRANSPORT_REPORT.md:GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:TRANSPORT_REPORT.md:CLIMATE_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CLIMATE_NATIVE_REVIEW.md"
     },
     {
       "id": "link:2026-10-12-agent-quality-source.md:C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Docs/Research/AGENT_QUALITY_STANDARD.md",
@@ -1880,6 +2185,51 @@
       "id": "link:TRANSPORT_RENDERING.md:../Development/RURAL_NATIVE_REVIEW.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\RURAL_NATIVE_REVIEW.md"
+    },
+    {
+      "id": "link:WEATHER_RENDERING.md:../Development/CLIMATE_NATIVE_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\CLIMATE_NATIVE_REVIEW.md"
+    },
+    {
+      "id": "link:WEATHER_RENDERING.md:../Development/GALLERY_0_5.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\GALLERY_0_5.md"
+    },
+    {
+      "id": "link:WEATHER_RENDERING.md:../Development/TRANSPORT_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\TRANSPORT_REPORT.md"
+    },
+    {
+      "id": "link:WEATHER_SIMULATION.md:CLIMATE_AND_BIOMES.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CLIMATE_AND_BIOMES.md"
+    },
+    {
+      "id": "link:WEATHER_SIMULATION.md:WEATHER_RENDERING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WEATHER_RENDERING.md"
+    },
+    {
+      "id": "link:WEATHER_SIMULATION.md:../../Evidence/Simulation/weather-probe-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\weather-probe-final.json"
+    },
+    {
+      "id": "link:WEATHER_SIMULATION.md:../../Tools/WeatherProbe/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Tools\\WeatherProbe\\README.md"
+    },
+    {
+      "id": "link:README.md:../Docs/Development/SUBSISTENCE_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Docs\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:README.md:SubsistenceProbe/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\SubsistenceProbe\\README.md"
     },
     {
       "id": "link:README.md:Research/procgen_probe.py",
