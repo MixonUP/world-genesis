@@ -861,7 +861,7 @@ namespace WorldGenesis.Runtime
             if (iconSprites.TryGetValue(index, out Sprite sprite)) return sprite;
             if (index >= 2000) { sprite = game.View.CreateWeatherIcon((WeatherKind)(index - 2000)); iconSprites.Add(index, sprite); return sprite; }
             if (index >= 1000) { sprite = game.View.CreateAnimalIcon((SpeciesType)(index - 1000)); iconSprites.Add(index, sprite); return sprite; }
-            if (index == 6) { sprite = game.View.CreateHumanIcon(); iconSprites.Add(index, sprite); return sprite; }
+            if (index >= 6 && index <= 9) { sprite = game.View.CreateCitizenIcon((SpeciesType)(index - 6)); iconSprites.Add(index, sprite); return sprite; }
             Texture2D atlas = game.View.SpriteMaterial.mainTexture as Texture2D; Rect uv = PixelArt.Uv(index);
             sprite = Sprite.Create(atlas, new Rect(uv.x * atlas.width, uv.y * atlas.height, uv.width * atlas.width, uv.height * atlas.height), new Vector2(.5f, .5f), 32);
             iconSprites.Add(index, sprite); return sprite;

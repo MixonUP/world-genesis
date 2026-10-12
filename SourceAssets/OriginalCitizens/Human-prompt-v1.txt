@@ -1,0 +1,11 @@
+Use case: stylized-concept. Asset type: production pixel-art animation spritesheet for an original top-down 2D village simulator World Genesis. Create ONE precisely aligned 8 columns by 8 rows spritesheet, square 1024x1024 transparent PNG. Each of the 64 invisible grid cells is exactly 128x128. No text, no labels, no frames, no floor or shadow, no checkerboard painted into pixels. Genuine alpha background.
+
+Art direction: original compact medieval villagers, restrained brown/ochre/dusty teal palette, big but not enormous heads, tiny readable limbs, clean dark purple-brown 1-logical-pixel outlines, clustered flat pixel shading, three-quarter overhead RPG view, crisp nearest-neighbour enlarged low-resolution pixel art (each character feels about 24x32 logical pixels, displayed about 60x80 pixels within its 128 cell). Match the charming compact and subdued qualities of small top-down villagers, not highly detailed illustration. No weapons or armor.
+
+Four HUMAN identities: adult man short dark chestnut hair plain ochre shirt brown trousers; adult woman dark auburn braid dusty teal tunic and trousers; boy short sandy hair cream shirt cropped brown trousers; girl dark bob hairstyle muted rust tunic and trousers. Adult man and woman SAME height, children visibly shorter with distinct child proportions and unarmed hands. All fully dressed. Every repeated frame retains identical hair, costume and proportions.
+
+STRICT GRID:
+Rows 1-2: adult man. Rows 3-4: adult woman. Rows 5-6: boy. Rows 7-8: girl.
+In the first row of EACH pair: columns 1,2,3,4 face SOUTH toward viewer; columns 5,6,7,8 face EAST/right profile.
+In the second row of EACH pair: columns 1,2,3,4 face NORTH away, back of hair and clothing visible with NO face; columns 5,6,7,8 face WEST/left profile.
+Each set of FOUR cells is a seamless four-frame WALK CYCLE: left foot forward, passing feet together, right foot forward, passing feet together. Arms counter-swing. Genuine alternating leg silhouettes, not identical copies. Small consistent one-pixel bob. No running. The foot contact/pivot remains at x=64 y=106 in every 128px cell. All margins empty. Walk displacement stays within the cell, no scenery. All 64 cells must be populated, no merged figures, strict equal spacing.

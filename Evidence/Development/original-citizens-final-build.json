@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-12T18:04:09.9106562Z",
+  "snapshot": "original-citizens-v060-r4",
+  "files": 304,
+  "changedFiles": [],
+  "match": true,
+  "buildReport": "Evidence/Development/original-citizens-build-r4.json",
+  "playMode": "Evidence/20261012-205845-611-playmode/tests.xml",
+  "editMode": "Evidence/20261012-205208-082-editmode/tests.xml",
+  "editModeSourceContinuity": "r3 to r4 changes limited to Wardrobe, Atlas hook and Wardrobe tests; Simulation identical",
+  "runtimeSHA256": "6862E500BF83FB23C5575716C02B718E4B66570BB66E801544030BEE02767736",
+  "simulationSHA256": "4BE4DFEAA639100805F8AA6C93A87584A461A6645C09F5CEC53D730EDE87105D"
+}

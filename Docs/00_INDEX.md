@@ -7,6 +7,9 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [Собственные жители 0.6: расы, одежда, анимации](Development/ORIGINAL_CITIZENS_REPORT.md) — фактическое покрытие и проверки.
+- [Галерея жителей](Development/ORIGINAL_CITIZENS_GALLERY.md) — нативные изображения и движение.
+- [Что известно об анимациях WorldBox](Research/WORLDBOX_ANIMATION_COVERAGE.md) — первоисточники, неизвестные числа и наша матрица.
 - [Выбираем существ: 13 карточек с анимациями](Research/CREATURE_ASSET_SELECTION.md) — интерактивная доска и источники.
 - [0.5.1: костёр и суточное потребление](Development/SUBSISTENCE_REPORT.md).
 - [Галерея0.5: семь игровых кадров](Development/GALLERY_0_5.md).

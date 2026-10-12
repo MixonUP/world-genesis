@@ -127,12 +127,13 @@ namespace WorldGenesis.Tests
             world.Cells[100].Vegetation = 1; world.Cells[100].Fire = 0;
             world.ResourceNodes[100] = new ResourceNodeData { Type = ResourceType.Tree, Amount = 3, Capacity = 3 };
             unit.Path.Add(100);
-            Assert.AreEqual(1, CitizenSprites.ResolvePose(world, unit, Vector2.right).Row, "Approaching a tree is walking.");
+            Assert.AreEqual(CitizenSprites.CitizenAction.Walk, CitizenSprites.ResolvePose(world, unit, Vector2.right).Action, "Approaching a tree is walking.");
             unit.PathCursor = 1;
-            Assert.AreEqual(3, CitizenSprites.ResolvePose(world, unit, Vector2.right).Row, "Working at the tree uses the chop clip.");
+            Assert.AreEqual(CitizenSprites.CitizenAction.Chop, CitizenSprites.ResolvePose(world, unit, Vector2.right).Action, "Working at the tree uses the derived chop gesture.");
             unit.Task = UnitTask.Return; unit.CarriedWood = 2; unit.PathCursor = 0;
-            Assert.AreEqual(5, CitizenSprites.ResolvePose(world, unit, Vector2.left).Row, "Loaded travel uses the carry loop.");
-            Assert.IsTrue(CitizenSprites.ResolvePose(world, unit, Vector2.left).FlipX);
+            Assert.AreEqual(CitizenSprites.CitizenAction.Carry, CitizenSprites.ResolvePose(world, unit, Vector2.left).Action, "Loaded travel is identified by real carried goods.");
+            Assert.AreEqual(CitizenSprites.CitizenDirection.West, CitizenSprites.ResolvePose(world, unit, Vector2.left).Direction);
+            Assert.IsFalse(CitizenSprites.ResolvePose(world, unit, Vector2.left).FlipX, "The authored west view must not be a mirrored east view.");
             unit.Path.Clear(); unit.Task = UnitTask.Fight; unit.AttackTimer = .8f;
             CitizenSprites.Pose militiaHit = CitizenSprites.ResolvePose(world, unit, Vector2.up);
             Assert.IsFalse(militiaHit.Warrior, "Self-defence cannot equip armour.");
@@ -142,14 +143,56 @@ namespace WorldGenesis.Tests
             Assert.AreEqual(UnitProfession.Forester, unit.Profession);
             unit.AttackTimer = .4f;
             Assert.AreEqual(Vector2.zero, CitizenSprites.ResolvePose(world, unit, Vector2.up).StrikeOffset, "Recovery cannot repeat the hit.");
-            // Synthetic art fixture only: this reserved sheet is not available through
-            // recruitment until research and physical equipment issuance are implemented.
+            // A legacy/synthetic profession cannot grant a sword, armour or male body.
             unit.Profession = UnitProfession.Guard; unit.Task = UnitTask.Fight; unit.AttackTimer = .8f;
             CitizenSprites.Pose hit = CitizenSprites.ResolvePose(world, unit, Vector2.up);
-            Assert.AreEqual(6, hit.Row); Assert.AreEqual(3, hit.Frame);
+            Assert.AreEqual(CitizenSprites.CitizenAction.Attack, hit.Action);
+            Assert.IsFalse(hit.Warrior); Assert.IsTrue(hit.DerivedGesture);
+            Assert.AreEqual(CitizenSprites.AppearanceFor(unit), hit.Appearance);
             unit.Path.Clear(); unit.AttackTimer = .4f;
             Assert.AreEqual(0, CitizenSprites.ResolvePose(world, unit, Vector2.up).Row, "Cooldown cannot invent another attack.");
             yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator OriginalAtlasCoversFourPeoplesAndFourDirectionsInProductionBatch()
+        {
+            GameObject holder = new GameObject("Original citizens coverage fixture");
+            CitizenSprites sprites = new CitizenSprites(holder.transform);
+            uint randomBefore = game.World.RngState; long tickBefore = game.World.Tick;
+            try
+            {
+                var regions = new System.Collections.Generic.HashSet<Rect>();
+                for (int race = 0; race < 4; race++) for (int appearance = 0; appearance < 4; appearance++)
+                for (int direction = 0; direction < 4; direction++) for (int frame = 0; frame < 4; frame++)
+                {
+                    Sprite sprite = sprites.CreateCitizenSprite((SpeciesType)race, (CitizenSprites.CitizenAppearance)appearance, (CitizenSprites.CitizenDirection)direction, frame);
+                    Assert.AreEqual(32, sprite.rect.width); Assert.AreEqual(32, sprite.rect.height);
+                    Assert.IsTrue(regions.Add(sprite.rect), "Every authored body/demographic/direction/frame must retain its own region.");
+                    Object.Destroy(sprite);
+                }
+                UnitData[] fixture = new UnitData[4];
+                sprites.Begin(game.World);
+                for (int race = 0; race < 4; race++)
+                {
+                    UnitData unit = new UnitData { Id = 70000 + race, Species = (SpeciesType)race, Age = 25, Sex = Sex.Female, X = 8.5f, Y = 8.5f, Task = UnitTask.Wander };
+                    unit.Path.Add(game.World.Index(9, 8));
+                    fixture[race] = unit;
+                    sprites.Add(game.World, unit, 0, Color.white);
+                }
+                sprites.Submit();
+                MeshFilter mesh = holder.GetComponentInChildren<MeshFilter>();
+                Assert.AreEqual(16, mesh.sharedMesh.vertexCount, "All four civilized peoples must use the animated production batch.");
+                Vector2[] uv = mesh.sharedMesh.uv; Vector3[] vertices = mesh.sharedMesh.vertices;
+                yield return new WaitForSecondsRealtime(.2f);
+                sprites.Begin(game.World);
+                foreach (UnitData unit in fixture) sprites.Add(game.World, unit, 0, Color.white);
+                sprites.Submit();
+                CollectionAssert.AreEqual(uv, mesh.sharedMesh.uv); CollectionAssert.AreEqual(vertices, mesh.sharedMesh.vertices);
+                Assert.AreEqual(randomBefore, game.World.RngState); Assert.AreEqual(tickBefore, game.World.Tick);
+            }
+            finally { sprites.Dispose(); Object.Destroy(holder); }
+            LogAssert.NoUnexpectedReceived();
         }
 
         [UnityTest]

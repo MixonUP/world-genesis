@@ -5,252 +5,240 @@ using WorldGenesis.Simulation;
 
 namespace WorldGenesis.Runtime
 {
-    // Pixel Frog's original CC0 sheets. Presentation reads simulation state only.
-    // Idle/run have one authored facing; vertical attacks are separate authored clips.
+    // Four authored walk frames/directions. Other actions use derived body gestures;
+    // presentation never grants inventory, applies damage or advances a second clock.
     public sealed class CitizenSprites : IDisposable
     {
         public enum CitizenAppearance { AdultMale, AdultFemale, Boy, Girl, Warrior }
+        public enum CitizenDirection { South, West, East, North }
+        public enum CitizenAction { Idle, Walk, Carry, Chop, Mine, Farm, Process, Craft, Build, Attack, Flee, Eat, Rest, Socialize, Play, Learn, Drink, Fish, Tend, Brew, Patrol, Haul, Return, Caravan, Hunt }
         public struct Pose
         {
+            // Row is a semantic compatibility hint, not an atlas row.
             public bool Warrior, FlipX;
             public CitizenAppearance Appearance;
-            public int Row, Frame;
-            public Vector2 StrikeOffset;
+            public CitizenDirection Direction;
+            public CitizenAction Action;
+            public UnitTask SourceTask;
+            public int Row, Frame, ToolFrame;
+            public Vector2 StrikeOffset, UpperOffset;
+            public float HeightScale;
+            public bool DerivedGesture;
         }
-
-        private const int FramePixels = 192, FramesPerRow = 6, FramesPerColor = 144;
-        private const int AtlasColumns = 24;
-        private const float PixelScale = 2.8f / FramePixels;
-        private static readonly string[] ColorNames = { "Blue", "Red", "Purple", "Yellow" };
-        private readonly Texture2D atlas;
+        private readonly OriginalCitizenAtlas atlas;
         private readonly Material material;
         private readonly QuadBatch batch;
-        private readonly RectInt[] crops = new RectInt[2];
-        private readonly Rect[] frames = new Rect[FramesPerColor * 4];
         private readonly Dictionary<int, Vector2> facing = new Dictionary<int, Vector2>(1024);
         private readonly Dictionary<int, UnitData> unitLookup = new Dictionary<int, UnitData>(1024);
-        public int AtlasWidth => atlas.width;
-        public int AtlasHeight => atlas.height;
+        private struct RenderEntry { public UnitData Unit; public Pose Pose; public Rect Uv; public Color Tint; public Vector2 Offset; public bool Mounted; }
+        private sealed class DepthOrder : IComparer<RenderEntry>
+        {
+            public int Compare(RenderEntry a, RenderEntry b)
+            { int depth = (b.Unit.Y + b.Offset.y).CompareTo(a.Unit.Y + a.Offset.y); return depth != 0 ? depth : a.Unit.Id.CompareTo(b.Unit.Id); }
+        }
+        private static readonly DepthOrder Depth = new DepthOrder();
+        private readonly List<RenderEntry> entries = new List<RenderEntry>(1024);
+        public int AtlasWidth => atlas.Texture.width;
+        public int AtlasHeight => atlas.Texture.height;
 
         public CitizenSprites(Transform parent)
         {
-            Texture2D[] sources = new Texture2D[8];
-            Color32[][] pixels = new Color32[8][];
-            for (int color = 0; color < 4; color++) for (int role = 0; role < 2; role++)
-            {
-                int index = color * 2 + role;
-                string path = "TinySwordsCC0/" + (role == 0 ? "Pawn_" : "Warrior_") + ColorNames[color];
-                UnityEngine.Object resource = Resources.Load(path);
-                Texture2D source = resource as Texture2D;
-                if (source == null || !source.isReadable || source.width != 1152 || source.height != (role == 0 ? 1152 : 1536))
-                    throw new InvalidOperationException("Missing or incorrectly imported readable 192px citizen sheet: " + path +
-                        (source == null ? (resource == null ? " (not found)" : " (loaded " + resource.GetType().Name + ", expected Texture2D; check textureShape)") : " (" + source.width + "x" + source.height + ", readable=" + source.isReadable + ")"));
-                sources[index] = source; pixels[index] = source.GetPixels32();
-            }
-            // A shared alpha union per role retains every original pixel, including weapon arcs,
-            // while all frames retain the same pivot. Original resource PNGs are never modified.
-            for (int role = 0; role < 2; role++)
-            {
-                int minX = FramePixels, minY = FramePixels, maxX = -1, maxY = -1;
-                for (int color = 0; color < 4; color++)
-                {
-                    int index = color * 2 + role;
-                    Color32[] data = pixels[index]; int width = sources[index].width;
-                    for (int p = 0; p < data.Length; p++)
-                    {
-                        if (data[p].a == 0) continue;
-                        int x = p % width % FramePixels, y = p / width % FramePixels;
-                        minX = Math.Min(minX, x); maxX = Math.Max(maxX, x);
-                        minY = Math.Min(minY, y); maxY = Math.Max(maxY, y);
-                    }
-                }
-                if (maxX < minX) throw new InvalidOperationException("Citizen sheet has no visible pixels.");
-                crops[role] = new RectInt(minX, minY, maxX - minX + 1, maxY - minY + 1);
-            }
-            // Derived hair silhouettes extend beyond the original pawn crown. All pawn
-            // variants share this pivot/crop; the unchanged source pixels stay lossless.
-            RectInt pawnCrop = crops[0];
-            crops[0] = new RectInt(Math.Max(0, pawnCrop.x - 3), Math.Max(0, pawnCrop.y - 2), pawnCrop.width + 6, pawnCrop.height + 13);
-            int cellWidth = Math.Max(crops[0].width, crops[1].width) + 2;
-            int cellHeight = Math.Max(crops[0].height, crops[1].height) + 2;
-            int widthPixels = AtlasColumns * cellWidth, heightPixels = (frames.Length + AtlasColumns - 1) / AtlasColumns * cellHeight;
-            if (SystemInfo.maxTextureSize > 0 && (widthPixels > SystemInfo.maxTextureSize || heightPixels > SystemInfo.maxTextureSize))
-                throw new InvalidOperationException("Citizen atlas exceeds this graphics device's texture limit.");
-            atlas = new Texture2D(widthPixels, heightPixels, TextureFormat.RGBA32, false)
-            { name = "Tiny Swords CC0 • original and adapted citizens", filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
-            Color32[] packed = new Color32[widthPixels * heightPixels];
-            for (int color = 0; color < 4; color++) for (int role = 0; role < 2; role++)
-            {
-                int sourceIndex = color * 2 + role, rows = role == 0 ? 6 : 8;
-                RectInt crop = crops[role];
-                for (int row = 0; row < rows; row++) for (int frame = 0; frame < FramesPerRow; frame++)
-                {
-                    int index = FrameIndex(color, role != 0, row, frame);
-                    int destinationX = index % AtlasColumns * cellWidth + 1, destinationY = index / AtlasColumns * cellHeight + 1;
-                    int sourceX = frame * FramePixels + crop.x, sourceY = (rows - 1 - row) * FramePixels + crop.y;
-                    for (int y = 0; y < crop.height; y++)
-                        Array.Copy(pixels[sourceIndex], (sourceY + y) * 1152 + sourceX, packed, (destinationY + y) * widthPixels + destinationX, crop.width);
-                    frames[index] = new Rect((float)destinationX / widthPixels, (float)destinationY / heightPixels, (float)crop.width / widthPixels, (float)crop.height / heightPixels);
-                }
-            }
-            Color32[] sourceFrame = new Color32[FramePixels * FramePixels], adapted = new Color32[FramePixels * FramePixels];
-            for (int color = 0; color < 4; color++) for (int variant = 0; variant < 3; variant++)
-            {
-                bool child = variant > 0, female = variant != 1;
-                int rowCount = child ? 2 : 6;
-                for (int row = 0; row < rowCount; row++) for (int frame = 0; frame < FramesPerRow; frame++)
-                {
-                    int sourceX = frame * FramePixels, sourceY = (5 - row) * FramePixels;
-                    for (int y = 0; y < FramePixels; y++) Array.Copy(pixels[color * 2], (sourceY + y) * 1152 + sourceX, sourceFrame, y * FramePixels, FramePixels);
-                    CitizenVariants.Adapt(sourceFrame, adapted, female, child);
-                    int index = color * FramesPerColor + (variant == 0 ? 84 : variant == 1 ? 120 : 132) + row * FramesPerRow + frame;
-                    int dx = index % AtlasColumns * cellWidth + 1, dy = index / AtlasColumns * cellHeight + 1;
-                    RectInt crop = crops[0];
-                    for (int y = 0; y < crop.height; y++) Array.Copy(adapted, (crop.y + y) * FramePixels + crop.x, packed, (dy + y) * widthPixels + dx, crop.width);
-                    frames[index] = new Rect((float)dx / widthPixels, (float)dy / heightPixels, (float)crop.width / widthPixels, (float)crop.height / heightPixels);
-                }
-            }
-            atlas.SetPixels32(packed); atlas.Apply(false, true);
-            for (int i = 0; i < sources.Length; i++) Resources.UnloadAsset(sources[i]);
-            material = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas, name = "Citizen animation atlas" };
+            atlas = new OriginalCitizenAtlas();
+            material = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas.Texture, name = "Original citizen animation atlas" };
+            // Kept for production mesh inspection compatibility; now contains all four peoples.
             batch = new QuadBatch("Animated human citizens", parent, material, 50);
         }
-
-        private static int FrameIndex(int color, bool warrior, int row, int frame)
-        { return color * FramesPerColor + (warrior ? 36 : 0) + row * FramesPerRow + frame; }
-        private static int FrameIndex(int color, CitizenAppearance appearance, int row, int frame)
-        {
-            int start = appearance == CitizenAppearance.Warrior ? 36 : appearance == CitizenAppearance.AdultFemale ? 84 : appearance == CitizenAppearance.Boy ? 120 : appearance == CitizenAppearance.Girl ? 132 : 0;
-            return color * FramesPerColor + start + row * FramesPerRow + frame;
-        }
+        public static bool IsCivilized(SpeciesType species) { return (int)species >= 0 && (int)species < 4; }
         public static CitizenAppearance AppearanceFor(UnitData unit)
         {
             if (unit.IsChild) return unit.Sex == Sex.Female ? CitizenAppearance.Girl : CitizenAppearance.Boy;
-            if (unit.Profession == UnitProfession.Guard) return CitizenAppearance.Warrior;
             return unit.Sex == Sex.Female ? CitizenAppearance.AdultFemale : CitizenAppearance.AdultMale;
         }
-
-        public void Reset() { facing.Clear(); unitLookup.Clear(); batch.Clear(); batch.Submit(); }
-        public Vector2 Facing(int unitId) { return facing.TryGetValue(unitId, out Vector2 value) ? value : Vector2.right; }
-
+        public void Reset() { facing.Clear(); unitLookup.Clear(); entries.Clear(); batch.Clear(); batch.Submit(); }
+        public Vector2 Facing(int unitId) { return facing.TryGetValue(unitId, out Vector2 value) ? value : Vector2.down; }
         public void Begin(WorldState world)
         {
-            batch.Clear(); unitLookup.Clear();
-            // Also bounds the presentation cache after deaths and worlds with high turnover.
+            batch.Clear(); unitLookup.Clear(); entries.Clear();
             if (facing.Count > world.Units.Count * 2 + 64) facing.Clear();
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
         }
-
+        public static CitizenDirection DirectionFor(Vector2 vector, CitizenDirection previous = CitizenDirection.South)
+        {
+            float ax = Mathf.Abs(vector.x), ay = Mathf.Abs(vector.y);
+            if (ax + ay < .0001f) return previous;
+            if (Mathf.Abs(ax - ay) < .001f && Vector2.Dot(DirectionVector(previous), vector) > 0) return previous;
+            return ay > ax ? (vector.y > 0 ? CitizenDirection.North : CitizenDirection.South) : (vector.x > 0 ? CitizenDirection.East : CitizenDirection.West);
+        }
+        public static Vector2 DirectionVector(CitizenDirection direction)
+        { return direction == CitizenDirection.North ? Vector2.up : direction == CitizenDirection.South ? Vector2.down : direction == CitizenDirection.West ? Vector2.left : Vector2.right; }
         public void Add(WorldState world, UnitData unit, int colorIndex, Color tint, Vector2 presentationOffset = default(Vector2), bool mounted = false)
         {
-            if (!facing.TryGetValue(unit.Id, out Vector2 direction)) direction = Vector2.right;
+            if (!IsCivilized(unit.Species)) return;
+            Vector2 previous = Facing(unit.Id), delta = previous;
             if ((unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && unit.TargetId != 0 && unitLookup.TryGetValue(unit.TargetId, out UnitData target))
+                delta = new Vector2(target.X - unit.X, target.Y - unit.Y);
+            else if (unit.Path != null && unit.PathCursor < unit.Path.Count)
             {
-                Vector2 delta = new Vector2(target.X - unit.X, target.Y - unit.Y);
-                if (delta.sqrMagnitude > .0001f) direction = delta;
+                int next = unit.Path[unit.PathCursor]; delta = new Vector2(next % world.Width + .5f - unit.X, next / world.Width + .5f - unit.Y);
             }
-            else if (unit.PathCursor < unit.Path.Count)
-            {
-                int next = unit.Path[unit.PathCursor];
-                Vector2 delta = new Vector2(next % world.Width + .5f - unit.X, next / world.Width + .5f - unit.Y);
-                if (delta.sqrMagnitude > .0001f) direction = delta;
-            }
+            else if (unit.Task == UnitTask.Gather && unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length)
+                delta = new Vector2(unit.ResourceCell % world.Width + .5f - unit.X, unit.ResourceCell / world.Width + .5f - unit.Y);
+            Vector2 direction = DirectionVector(DirectionFor(delta, DirectionFor(previous)));
             facing[unit.Id] = direction;
             Pose pose = ResolvePose(world, unit, direction);
-            if (mounted) { pose.Row = 0; pose.Frame = (int)((world.Tick / 4 + unit.Id) % FramesPerRow); pose.StrikeOffset = Vector2.zero; }
-            RectInt crop = crops[pose.Warrior ? 1 : 0];
-            // Match the established settlement palette: gold, teal, blue, red, purple.
-            int faction = (int)((uint)colorIndex % 5);
-            int sheetColor = faction == 0 ? 3 : faction == 3 ? 1 : faction == 4 ? 2 : 0;
-            Rect uv = frames[FrameIndex(sheetColor, pose.Appearance, pose.Row, pose.Frame)];
-            float scale = PixelScale * (unit.IsChild ? .70f : 1);
-            // Reflection must mirror the crop around the original sheet pivot, not its own centre.
-            float offsetX = pose.FlipX ? FramePixels - crop.xMax - 96 : crop.x - 96;
-            float offsetY = crop.y - (pose.Warrior ? 56 : 64);
-            int lowerClip = mounted ? Mathf.Clamp(80 - crop.y, 0, crop.height - 1) : 0;
-            if (lowerClip > 0) { float trim = uv.height * lowerClip / crop.height; uv.y += trim; uv.height -= trim; offsetY += lowerClip; }
-            batch.Add(unit.X + presentationOffset.x + offsetX * scale + pose.StrikeOffset.x, unit.Y + presentationOffset.y + offsetY * scale + pose.StrikeOffset.y, crop.width * scale, (crop.height - lowerClip) * scale, uv, tint, pose.FlipX);
+            if (mounted) { pose.Frame = 1; pose.StrikeOffset = pose.UpperOffset = Vector2.zero; pose.HeightScale = 1; }
+            WardrobeKey key = CitizenWardrobe.Resolve(unit);
+            Rect uv = atlas.Region(unit.Species, (int)pose.Appearance, key.IsValid ? (int)key.Costume : 0, (int)pose.Direction, pose.Frame);
+            entries.Add(new RenderEntry { Unit = unit, Pose = pose, Uv = uv, Tint = tint, Offset = presentationOffset, Mounted = mounted });
         }
-
-        // Pure state-to-frame mapping, exposed so checks can verify pause, travel, work and hits.
-        // No frame advances with wall-clock time, and no animation applies a gameplay effect.
+        private void DrawPose(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted)
+        {
+            OriginalCitizenTools.Tool tool = unit.IsChild || mounted ? OriginalCitizenTools.Tool.None : OriginalCitizenTools.ForAction(pose.Action);
+            bool behind = pose.Direction == CitizenDirection.North;
+            if (behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
+            DrawBody(unit, pose, uv, tint, offset, mounted);
+            if (!behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
+        }
+        private void DrawTool(UnitData unit, Pose pose, Vector2 offset, OriginalCitizenTools.Tool tool)
+        {
+            Vector2 hand = new Vector2(unit.X, unit.Y) + offset + pose.StrikeOffset + pose.UpperOffset + HandOffset(unit, DirectionVector(pose.Direction));
+            float pixel = OriginalCitizenAtlas.RaceScale(unit.Species) / OriginalCitizenAtlas.PixelsPerUnit;
+            batch.Add(hand.x - 16 * pixel, hand.y - 16 * pixel, 32 * pixel, 32 * pixel, atlas.ToolRegion(tool, pose.Direction, pose.ToolFrame), Color.white);
+        }
+        private void DrawBody(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted)
+        {
+            float pixel = OriginalCitizenAtlas.RaceScale(unit.Species) / OriginalCitizenAtlas.PixelsPerUnit;
+            float x = unit.X + offset.x + pose.StrikeOffset.x - 16 * pixel;
+            float y = unit.Y + offset.y + pose.StrikeOffset.y - 2 * pixel;
+            if (mounted)
+            {
+                uv.y += uv.height * 10 / 32; uv.height *= 22f / 32;
+                batch.Add(x, y, 32 * pixel, 22 * pixel, uv, tint); return;
+            }
+            if (pose.UpperOffset.sqrMagnitude < .000001f)
+            { batch.Add(x, y, 32 * pixel, 32 * pixel * pose.HeightScale, uv, tint); return; }
+            int waist = unit.IsChild ? 8 : 11;
+            Rect lower = new Rect(uv.x, uv.y, uv.width, uv.height * (waist + 1) / 32);
+            Rect upper = new Rect(uv.x, uv.y + uv.height * waist / 32, uv.width, uv.height * (32 - waist) / 32);
+            batch.Add(x, y, 32 * pixel, (waist + 1) * pixel * pose.HeightScale, lower, tint);
+            batch.Add(x + pose.UpperOffset.x, y + waist * pixel * pose.HeightScale + pose.UpperOffset.y, 32 * pixel, (32 - waist) * pixel * pose.HeightScale, upper, tint);
+        }
+        public static float HeadHeight(UnitData unit) { return (unit.IsChild ? .90f : 1.20f) * OriginalCitizenAtlas.RaceScale(unit.Species); }
+        public static Vector2 HandOffset(UnitData unit, Vector2 direction)
+        {
+            CitizenDirection side = DirectionFor(direction);
+            float scale = OriginalCitizenAtlas.RaceScale(unit.Species) * (unit.IsChild ? .75f : 1);
+            return new Vector2(side == CitizenDirection.West ? -.27f : side == CitizenDirection.North ? -.18f : .27f, .36f) * scale;
+        }
+        public static Vector2 ParcelOffset(UnitData unit, Vector2 direction)
+        {
+            CitizenDirection side = DirectionFor(direction);
+            float scale = OriginalCitizenAtlas.RaceScale(unit.Species) * (unit.IsChild ? .75f : 1);
+            return new Vector2(side == CitizenDirection.West || side == CitizenDirection.North ? -.40f : .40f, .04f) * scale;
+        }
         public static Pose ResolvePose(WorldState world, UnitData unit, Vector2 direction)
         {
-            // Guard is reserved content. The simulation no longer assigns it automatically;
-            // legacy assignments are demobilized until real recruitment/gear exists.
-            bool warrior = unit.Profession == UnitProfession.Guard && unit.Age >= 16;
             bool moving = unit.Path != null && unit.PathCursor < unit.Path.Count;
-            bool carrying = SimulationEngine.CarriedLoad(unit) > .1f;
-            long elapsedTicks = Math.Max(0, world.Tick - unit.TaskStartedTick);
-            int phase = (int)((elapsedTicks + unit.Id * 7L) % FramesPerRow);
-            Pose pose = new Pose { Warrior = warrior, Appearance = AppearanceFor(unit), FlipX = direction.x < -.001f, Frame = phase, Row = moving ? 1 : 0 };
-            if (unit.IsChild)
+            bool carrying = SimulationEngine.CarriedLoad(unit) > .001f;
+            long elapsed = Math.Max(0, world.Tick - unit.TaskStartedTick);
+            int phase = (int)((elapsed / 2 + (uint)unit.Id % 4) % 4);
+            float wave = Mathf.Sin((elapsed + (uint)unit.Id % 8) * Mathf.PI / 4);
+            Pose pose = new Pose { Appearance = AppearanceFor(unit), Direction = DirectionFor(direction), SourceTask = unit.Task, Action = CitizenAction.Idle, Frame = 1, ToolFrame = phase, HeightScale = 1, FlipX = false, Warrior = false };
+            bool hit = (unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && !unit.IsChild && unit.AttackTimer > .5001f && unit.AttackTimer <= .8001f;
+            if (hit)
             {
-                // Children use their own proportions and empty-handed clips. Light field
-                // work is a small body gesture; actual delivery cargo remains a separate prop.
-                if (!moving && unit.Task == UnitTask.Farm) pose.StrikeOffset = new Vector2(0, phase < 3 ? -.035f : .02f);
-                if (!moving && unit.Task == UnitTask.Play) pose.StrikeOffset = new Vector2(0, phase == 2 || phase == 3 ? .09f : 0);
-                if (!moving && (unit.Task == UnitTask.Rest || unit.Task == UnitTask.Learn)) pose.Frame = 0;
+                pose.Action = CitizenAction.Attack; pose.DerivedGesture = true;
+                Vector2 aim = direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right;
+                pose.StrikeOffset = aim * (.18f * Mathf.Clamp01((unit.AttackTimer - .5f) / .3f));
+                pose.UpperOffset = aim * (.045f * Mathf.Clamp01((unit.AttackTimer - .5f) / .3f)); return pose;
+            }
+            if (moving)
+            {
+                pose.Frame = unit.Task == UnitTask.Flee ? (int)((elapsed + (uint)unit.Id % 4) % 4) : phase;
+                pose.Row = carrying ? 5 : 1;
+                pose.Action = carrying ? CitizenAction.Carry : unit.Task == UnitTask.Flee ? CitizenAction.Flee : unit.Task == UnitTask.Patrol ? CitizenAction.Patrol : unit.Task == UnitTask.Haul ? CitizenAction.Haul : unit.Task == UnitTask.Return ? CitizenAction.Return : unit.Task == UnitTask.Caravan ? CitizenAction.Caravan : unit.Task == UnitTask.Hunt ? CitizenAction.Hunt : CitizenAction.Walk;
                 return pose;
             }
-            if (warrior)
-            {
-                // The simulation resets cooldown to .8 only after a real hit. Display impact
-                // and recovery once; do not invent repeated strikes during idle cooldown.
-                if (unit.Task == UnitTask.Fight && unit.AttackTimer > .5001f && unit.AttackTimer <= .8001f)
-                {
-                    pose.Row = Mathf.Abs(direction.y) > Mathf.Abs(direction.x) ? (direction.y > 0 ? 6 : 4) : 2;
-                    pose.Frame = Math.Min(5, 3 + Mathf.FloorToInt((.8f - unit.AttackTimer + .0001f) * 10));
-                }
-                return pose;
-            }
-            if (unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt)
-            {
-                // Civilian militia keeps the unarmoured pawn. The simulation applies damage
-                // before setting this cooldown: show one short body lunge, never a free weapon.
-                if (unit.AttackTimer > .5001f && unit.AttackTimer <= .8001f)
-                    pose.StrikeOffset = (direction.sqrMagnitude > .0001f ? direction.normalized : Vector2.right) * (.18f * Mathf.Clamp01((unit.AttackTimer - .5f) / .3f));
-                return pose;
-            }
-            if (!moving && (unit.Task == UnitTask.Drink || unit.Task == UnitTask.Fish)) { pose.Row = 0; return pose; }
-            if (!moving && (unit.Task == UnitTask.Brew || unit.Task == UnitTask.Tend))
-            {
-                pose.Row = 0; if (unit.WorkTimer > 0) pose.StrikeOffset = new Vector2(Mathf.Sin(unit.WorkTimer * 5) * .025f, 0); return pose;
-            }
+            if (unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) { pose.Action = unit.Task == UnitTask.Hunt ? CitizenAction.Hunt : CitizenAction.Idle; return pose; }
             ResourceNodeData node = unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length ? world.GetResourceAt(unit.ResourceCell % world.Width, unit.ResourceCell / world.Width) : default(ResourceNodeData);
-            if (!moving && unit.Task == UnitTask.Gather && node.Amount > 0 && world.Cells[unit.ResourceCell].Fire <= .1f)
-                pose.Row = node.Type == ResourceType.Tree ? 3 : 2;
-            else if (!moving && unit.Task == UnitTask.Process && unit.WorkTimer > 0)
-                pose.Row = 2;
-            else if (!moving && unit.Task == UnitTask.CraftEquipment && unit.EquipmentProgress > 0)
-                pose.Row = 2;
-            else if (!moving && unit.Task == UnitTask.Farm)
-                pose.Row = 2; // Authored hammer/build loop reused as a work gesture; not a farming clip.
-            else if (carrying && unit.Task != UnitTask.Eat && unit.Task != UnitTask.Rest && unit.Task != UnitTask.Socialize)
-                pose.Row = moving ? 5 : 4;
-            if (unit.Task == UnitTask.Rest && !moving) pose.Frame = 0;
+            switch (unit.Task)
+            {
+                case UnitTask.Gather:
+                    if (!unit.IsChild && node.Amount > 0 && world.Cells[unit.ResourceCell].Fire <= .1f) { pose.Action = node.Type == ResourceType.Tree ? CitizenAction.Chop : CitizenAction.Mine; pose.Row = node.Type == ResourceType.Tree ? 3 : 2; WorkGesture(ref pose, wave, direction); }
+                    break;
+                case UnitTask.Farm: pose.Action = CitizenAction.Farm; pose.Row = 2; WorkGesture(ref pose, wave * (unit.IsChild ? .5f : 1), direction); break;
+                case UnitTask.Process: if (!unit.IsChild && unit.WorkTimer > 0) { pose.Action = CitizenAction.Process; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
+                case UnitTask.CraftEquipment: if (!unit.IsChild && unit.EquipmentProgress > 0 && !carrying) { pose.Action = CitizenAction.Craft; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
+                case UnitTask.BuildTransport:
+                    if (!unit.IsChild && !carrying && IsTransportWorkOnSite(world, unit)) { pose.Action = CitizenAction.Build; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
+                case UnitTask.Eat: pose.Action = CitizenAction.Eat; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(0, -.03f + wave * .015f); break;
+                case UnitTask.Rest: pose.Action = CitizenAction.Rest; pose.DerivedGesture = true; pose.HeightScale = .76f; break;
+                case UnitTask.Socialize: pose.Action = CitizenAction.Socialize; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(wave * .018f, 0); break;
+                case UnitTask.Play: pose.Action = CitizenAction.Play; pose.DerivedGesture = true; pose.StrikeOffset = new Vector2(0, Math.Max(0, wave) * .08f); break;
+                case UnitTask.Learn: pose.Action = CitizenAction.Learn; pose.DerivedGesture = true; pose.HeightScale = .94f; break;
+                case UnitTask.Drink: pose.Action = CitizenAction.Drink; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(0, -.07f + wave * .012f); break;
+                case UnitTask.Fish: pose.Action = CitizenAction.Fish; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(wave * .018f, -.025f); break;
+                case UnitTask.Tend: pose.Action = CitizenAction.Tend; if (unit.WorkTimer > 0) WorkGesture(ref pose, wave * .45f, direction); break;
+                case UnitTask.Brew: pose.Action = CitizenAction.Brew; if (unit.WorkTimer > 0) WorkGesture(ref pose, wave * .45f, direction); break;
+                case UnitTask.Flee: pose.Action = CitizenAction.Flee; break;
+                case UnitTask.Patrol: pose.Action = CitizenAction.Patrol; break;
+                case UnitTask.Haul: pose.Action = CitizenAction.Haul; break;
+                case UnitTask.Return: pose.Action = CitizenAction.Return; break;
+                case UnitTask.Caravan: pose.Action = CitizenAction.Caravan; break;
+            }
+            if (carrying && pose.Action == CitizenAction.Idle) { pose.Action = CitizenAction.Carry; pose.Row = 4; }
             return pose;
         }
-
-        public Sprite CreatePortrait()
+        private static bool IsTransportWorkOnSite(WorldState world, UnitData unit)
         {
-            Rect uv = frames[0]; RectInt crop = crops[0];
-            // Portrait excludes animation's deliberately large transparent weapon margins.
-            Rect rect = new Rect(uv.x * atlas.width + 62 - crop.x, uv.y * atlas.height + 63 - crop.y, 68, 66);
-            return Sprite.Create(atlas, rect, new Vector2(.5f, .5f), 64);
+            if (unit.TransportProjectId == 0 || world.TransportProjects == null) return false;
+            for (int i = 0; i < world.TransportProjects.Count; i++)
+            {
+                TransportProjectData project = world.TransportProjects[i];
+                if (project.Id != unit.TransportProjectId || project.WorkerId != unit.Id || project.Delivered + .00001f < project.Required) continue;
+                float dx = unit.X - (project.BankCell % world.Width + .5f), dy = unit.Y - (project.BankCell / world.Width + .5f);
+                return dx * dx + dy * dy < .4f;
+            }
+            return false;
         }
-        // The caller owns the returned Sprite. Used by UI/controlled native art inspection;
-        // it exposes the same atlas frame used by citizens, not a separately drawn mock-up.
+        private static void WorkGesture(ref Pose pose, float wave, Vector2 direction)
+        {
+            pose.DerivedGesture = true; float lean = direction.x < -.001f ? -1 : 1;
+            pose.UpperOffset = new Vector2(lean * (.025f + wave * .035f), -.025f - Mathf.Abs(wave) * .025f);
+        }
+        public static string ActionLabel(CitizenAction action)
+        {
+            switch (action)
+            {
+                case CitizenAction.Walk: return "Ходьба"; case CitizenAction.Carry: return "Несёт груз"; case CitizenAction.Chop: return "Рубка"; case CitizenAction.Mine: return "Добыча";
+                case CitizenAction.Farm: return "Работа на поле"; case CitizenAction.Process: return "Обработка"; case CitizenAction.Craft: return "Ремесло"; case CitizenAction.Build: return "Стройка";
+                case CitizenAction.Attack: return "Реальный удар"; case CitizenAction.Flee: return "Бегство"; case CitizenAction.Eat: return "Еда"; case CitizenAction.Rest: return "Отдых";
+                case CitizenAction.Socialize: return "Общение"; case CitizenAction.Play: return "Игра"; case CitizenAction.Learn: return "Учёба"; case CitizenAction.Drink: return "Питьё";
+                case CitizenAction.Fish: return "Рыбалка"; case CitizenAction.Tend: return "Уход за стадом"; case CitizenAction.Brew: return "Пивоварение"; case CitizenAction.Patrol: return "Обход";
+                case CitizenAction.Haul: return "Переноска"; case CitizenAction.Return: return "Возвращение"; case CitizenAction.Caravan: return "Караван"; case CitizenAction.Hunt: return "Охота";
+                default: return "Покой";
+            }
+        }
+        public Sprite CreatePortrait() { return CreateCitizenSprite(SpeciesType.Human, CitizenAppearance.AdultMale, CitizenDirection.South, 1); }
         public Sprite CreateAppearanceSprite(CitizenAppearance appearance, int row = 0, int frame = 0)
+        { return CreateCitizenSprite(SpeciesType.Human, appearance, CitizenDirection.South, frame); }
+        // UI/native gallery sees the exact production atlas. Caller owns returned Sprite.
+        public Sprite CreateCitizenSprite(SpeciesType race, CitizenAppearance appearance, CitizenDirection direction, int frame = 1, UnitProfession profession = UnitProfession.None)
         {
-            int rows = appearance == CitizenAppearance.Warrior ? 8 : appearance == CitizenAppearance.Boy || appearance == CitizenAppearance.Girl ? 2 : 6;
-            row = Mathf.Clamp(row, 0, rows - 1); frame = Mathf.Clamp(frame, 0, FramesPerRow - 1);
-            Rect uv = frames[FrameIndex(0, appearance, row, frame)];
-            Rect rect = new Rect(Mathf.RoundToInt(uv.x * atlas.width), Mathf.RoundToInt(uv.y * atlas.height), Mathf.RoundToInt(uv.width * atlas.width), Mathf.RoundToInt(uv.height * atlas.height));
-            return Sprite.Create(atlas, rect, new Vector2(.5f, .5f), 64);
+            if (!IsCivilized(race)) throw new ArgumentOutOfRangeException(nameof(race));
+            if (appearance == CitizenAppearance.Warrior) appearance = CitizenAppearance.AdultMale;
+            int costume = profession == UnitProfession.Guard || (int)appearance >= 2 ? 0 : (int)profession;
+            Rect uv = atlas.Region(race, (int)appearance, costume, (int)direction, frame);
+            Rect rect = new Rect(Mathf.RoundToInt(uv.x * atlas.Texture.width), Mathf.RoundToInt(uv.y * atlas.Texture.height), 32, 32);
+            return Sprite.Create(atlas.Texture, rect, new Vector2(.5f, 2f / 32), OriginalCitizenAtlas.PixelsPerUnit);
         }
-
-        public void Submit() { batch.Submit(); }
-        public void Dispose() { batch.Dispose(); UnityEngine.Object.Destroy(material); UnityEngine.Object.Destroy(atlas); }
+        public void Submit()
+        {
+            entries.Sort(Depth);
+            for (int i = 0; i < entries.Count; i++)
+            { RenderEntry entry = entries[i]; DrawPose(entry.Unit, entry.Pose, entry.Uv, entry.Tint, entry.Offset, entry.Mounted); }
+            batch.Submit();
+        }
+        public void Dispose() { batch.Dispose(); UnityEngine.Object.Destroy(material); atlas.Dispose(); }
     }
 }

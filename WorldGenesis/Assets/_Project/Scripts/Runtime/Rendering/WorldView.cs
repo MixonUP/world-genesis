@@ -178,7 +178,7 @@ namespace WorldGenesis.Runtime
                 SettlementData settlement = world.GetSettlement(unit.SettlementId);
                 if (settlement != null) tint = Color.Lerp(Color.white, PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length], .37f);
                 if (unit.Infected) tint = Color.Lerp(tint, new Color(.65f, .9f, .25f), .55f);
-                bool human = unit.Species == SpeciesType.Human;
+                bool human = CitizenSprites.IsCivilized(unit.Species);
                 float bob = unit.PathCursor < unit.Path.Count ? Mathf.Sin(simulationTime * 10 + unit.Id) * .06f : 0;
                 if (human)
                 {
@@ -191,7 +191,7 @@ namespace WorldGenesis.Runtime
                     float size = (int)unit.Species < 4 && unit.IsChild ? .81f : 1.2f;
                     people.Sprite(position.x, position.y - .15f + bob, size, size, ResourceArt.CitizenSprite(unit), tint);
                 }
-                float head = human ? (unit.IsChild ? .8f : unit.Profession == UnitProfession.Guard ? 1.62f : unit.Sex == Sex.Female ? 1.28f : 1.15f) : (int)unit.Species >= 6 ? WildlifeArt.AnimalSize(unit.Species) * .9f : unit.IsChild && (int)unit.Species < 4 ? .64f : .96f;
+                float head = human ? CitizenSprites.HeadHeight(unit) : (int)unit.Species >= 6 ? WildlifeArt.AnimalSize(unit.Species) * .9f : .96f;
                 if (unit.Blessed) people.Sprite(position.x, position.y + head, .2f, .08f, 12, PixelArt.Gold);
                 if (showDetails && (int)unit.Species < 4)
                 {
@@ -219,6 +219,7 @@ namespace WorldGenesis.Runtime
 
         public Sprite CreateWeatherIcon(WeatherKind kind) { return weatherView.CreateIcon(kind); }
         public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
+        public Sprite CreateCitizenIcon(SpeciesType species) { return citizenSprites.CreateCitizenSprite(species, CitizenSprites.CitizenAppearance.AdultMale, CitizenSprites.CitizenDirection.South); }
         public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id); }
         public Sprite CreateAnimalIcon(SpeciesType species)
         {
@@ -340,7 +341,7 @@ namespace WorldGenesis.Runtime
             float size = unit.IsChild ? .7f : 1;
             // Sprite() takes a quad's bottom Y, not its centre. Resource pixels already
             // occupy the middle of that quad, so a .5 Y offset would cover the face.
-            return new Vector2(unit.X, unit.Y) + (unit.CargoKind == ItemType.Log ? -direction * .82f + Vector2.up * .03f : new Vector2((direction.x < 0 ? -.52f : .52f) * size, -.08f * size));
+            return new Vector2(unit.X, unit.Y) + (unit.CargoKind == ItemType.Log ? -direction * .82f + Vector2.up * .03f : CitizenSprites.IsCivilized(unit.Species) ? CitizenSprites.ParcelOffset(unit, direction) : new Vector2((direction.x < 0 ? -.52f : .52f) * size, -.08f * size));
         }
         public static Vector2 WagonPosition(UnitData mount, Vector2 direction)
         {
@@ -365,12 +366,7 @@ namespace WorldGenesis.Runtime
             if (harvest) AgroSprite(agriculturalCargo, position.x + (resource || food || legacyPlanks ? .35f : 0), position.y, unit.IsChild ? .58f : .78f, AgricultureArt.ProductSprite(unit.HarvestProduct));
             if (water)
             {
-                Vector2 waterPosition = pack ? position : new Vector2(unit.X + (direction.x < 0 ? -.52f : .52f), unit.Y - .08f) + presentationOffset;
-                if (!pack && unit.Species == SpeciesType.Human && !unit.IsChild)
-                {
-                    CitizenSprites.Pose pose = CitizenSprites.ResolvePose(world, unit, direction);
-                    if (!pose.Warrior && (pose.Row == 4 || pose.Row == 5)) waterPosition.y += .5f;
-                }
+                Vector2 waterPosition = pack ? position : new Vector2(unit.X, unit.Y) + CitizenSprites.ParcelOffset(unit, direction) + presentationOffset;
                 if (resource || food || legacyPlanks || harvest) waterPosition.x -= .35f;
                 people.Sprite(waterPosition.x, waterPosition.y, .67f, .67f, SocietyArt.WaterPail, Color.white);
             }
@@ -383,18 +379,11 @@ namespace WorldGenesis.Runtime
                 // A log dragged north of a southbound citizen lies behind the body.
                 QuadBatch cargoBatch = d.y < -.2f ? buildings : people;
                 cargoBatch.OrientedSprite(position, 1.26f, .83f, angle, ResourceArt.Log, Color.white);
-                Vector2 end = position + d * .55f, hand = new Vector2(unit.X, unit.Y + .26f) + presentationOffset, rope = hand - end;
+                Vector2 end = position + d * .55f, hand = new Vector2(unit.X, unit.Y) + CitizenSprites.HandOffset(unit, direction) + presentationOffset, rope = hand - end;
                 cargoBatch.OrientedSprite((end + hand) * .5f, rope.magnitude, .035f, Mathf.Atan2(rope.y, rope.x), 12, PixelArt.Hex("bfac7f"));
                 return;
             }
-            if (!pack && unit.Species == SpeciesType.Human && !unit.IsChild)
-            {
-                CitizenSprites.Pose pose = CitizenSprites.ResolvePose(world, unit, direction);
-                // The authored carry rows raise the hands. Keep the parcel beside that
-                // hand; work rows hold it at the waist and never wear a basket as a hat.
-                if (!pose.Warrior && (pose.Row == 4 || pose.Row == 5))
-                    position = new Vector2(unit.X + (direction.x < 0 ? -.55f : .55f), unit.Y + .42f) + presentationOffset;
-            }
+            if (!pack) position = new Vector2(unit.X, unit.Y) + CitizenSprites.ParcelOffset(unit, direction) + presentationOffset;
             float bob = unit.Path != null && unit.PathCursor < unit.Path.Count ? Mathf.Sin(simulationTime * 10 + unit.Id) * .025f : 0;
             float size = unit.IsChild ? .58f : .75f;
             ItemType item = legacyPlanks ? ItemType.Plank : unit.CargoKind;

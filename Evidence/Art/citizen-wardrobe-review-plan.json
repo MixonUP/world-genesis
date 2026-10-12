@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 1,
+  "id": "citizen-wardrobe-review-v1",
+  "preparedAt": "2026-10-12T20:25:00+03:00",
+  "status": "prepared-not-run",
+  "scope": "Original citizen wardrobe matching current simulation; no added professions, items or game effects.",
+  "design": "Docs/Design/CITIZEN_WARDROBE.md",
+  "implementationStatus": "integrated-r4-hat-anchor-patch-awaits-native-review",
+  "preliminaryVerification": {
+    "performedAt": "2026-10-12T20:35:00+03:00",
+    "method": "In-memory .NET compilation of production Simulation plus CitizenWardrobe; minimal UnityEngine.Color32 DTO only; known partial-struct warning CS0282 suppressed in this command only.",
+    "nativeUnityRun": false,
+    "identityCases": 128,
+    "childLayerCases": 512,
+    "guardLayerCases": 64,
+    "determinismLayerCases": 1024,
+    "failures": [],
+    "nunitTestsPrepared": 10,
+    "wardrobeSha256": "14C84A49AC5D52A19D14712EDE4CA5C60F893350539D3EA934F8C1F08B6C4E2A",
+    "testsSha256": "1261D9CBCA2751BD0570F78BAB9F8F5CDA811CA1AB11FC673F2F2F9C4A3FD13D",
+    "limitation": "No decoded AI body fit, native image or motion acceptance is claimed. The case list below remains the native execution plan.",
+    "isolatedOverlayMaskCases": 224,
+    "maskScope": "Standalone front/back clothing alpha masks only; does not establish a unique final outline after composition with the body."
+  },
+  "preserveOriginalRevisionVerification": {
+    "performedAt": "2026-10-12T20:42:00+03:00",
+    "change": "None, reserved Guard and every child produce fully transparent front/back; common Tunic removed; adult overlays are localized and lower to preserve original outfits, hands and beards.",
+    "method": "Same in-memory production compile with Color32 DTO only; no native Unity invocation.",
+    "transparentNoneGuardChildCases": 2560,
+    "failures": [],
+    "nunitTestsPrepared": 11,
+    "wardrobeSha256": "88CFF5FB7B21ABBDFB43513E13C9AC7707D18FF4F7D93B646DF0D9A9670874F6",
+    "testsSha256": "348F64364DB14E870D0600A4C405EE1124FD57D0777282C03B4D99A18E391B62",
+    "sourceSegmentationAudit": {
+      "method": "Read-only Pillow repeat of alpha>=128 and contiguous Bands; no image writes",
+      "files": [
+        "Human-walk-v1.png",
+        "Elf-walk-v1.png",
+        "Dwarf-walk-v1.png",
+        "Orc-walk-v2.png"
+      ],
+      "eachSourceSize": [
+        1254,
+        1254
+      ],
+      "eachRows": 8,
+      "eachFiguresPerRow": 8,
+      "confirmedSegmentationDefects": 0,
+      "nativeBodyFit": "not-run"
+    },
+    "isolatedOverlayMaskCases": 224,
+    "maskScope": "Standalone front/back clothing alpha masks only; does not establish a unique final outline after composition with the body."
+  },
+  "sourceFiles": [
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs"
+  ],
+  "matrix": {
+    "races": [
+      {
+        "name": "Human",
+        "id": 0
+      },
+      {
+        "name": "Elf",
+        "id": 1
+      },
+      {
+        "name": "Dwarf",
+        "id": 2
+      },
+      {
+        "name": "Orc",
+        "id": 3
+      }
+    ],
+    "appearances": [
+      {
+        "key": "AdultMale",
+        "sex": "Male",
+        "sexId": 1,
+        "age": 32
+      },
+      {
+        "key": "AdultFemale",
+        "sex": "Female",
+        "sexId": 0,
+        "age": 32
+      },
+      {
+        "key": "Boy",
+        "sex": "Male",
+        "sexId": 1,
+        "age": 10
+      },
+      {
+        "key": "Girl",
+        "sex": "Female",
+        "sexId": 0,
+        "age": 10
+      }
+    ],
+    "professions": [
+      {
+        "name": "None",
+        "id": 0,
+        "status": "child-or-unassigned"
+      },
+      {
+        "name": "Farmer",
+        "id": 1,
+        "status": "runtime-assigned"
+      },
+      {
+        "name": "Forester",
+        "id": 2,
+        "status": "runtime-assigned-generic-resource-worker"
+      },
+      {
+        "name": "Guard",
+        "id": 3,
+        "status": "reserved-rejected-by-current-world-validation"
+      },
+      {
+        "name": "Hunter",
+        "id": 4,
+        "status": "runtime-assigned-after-hunting-tool-crafted"
+      },
+      {
+        "name": "Herder",
+        "id": 5,
+        "status": "runtime-assigned"
+      },
+      {
+        "name": "Merchant",
+        "id": 6,
+        "status": "enum-valid-not-automatically-assigned"
+      },
+      {
+        "name": "Carpenter",
+        "id": 7,
+        "status": "runtime-assigned"
+      }
+    ],
+    "baseAppearanceCases": 16,
+    "adultCivilianCostumeCases": 56,
+    "childOverrideCases": 64,
+    "adultGuardFallbackCases": 8,
+    "fullResolverCases": 128,
+    "directions": [
+      "South",
+      "West",
+      "East",
+      "North"
+    ],
+    "boundaryAges": [
+      0,
+      11.999,
+      12,
+      15.999,
+      16,
+      60
+    ]
+  },
+  "cases": [
+    {
+      "id": "CW01",
+      "kind": "native-visual",
+      "status": "not-run",
+      "setup": "One controlled view of all 4 races x 4 appearances at a shared zoom.",
+      "expect": [
+        "16 correct race/age/sex matches",
+        "Child proportions change torso and limbs, not scale only",
+        "Racial silhouettes remain readable without labels"
+      ],
+      "evidence": [
+        "player-wide.png",
+        "player-normal-zoom.png",
+        "fixture.json"
+      ]
+    },
+    {
+      "id": "CW02",
+      "kind": "resolver",
+      "status": "not-run",
+      "setup": "All 128 Race x Appearance x Profession inputs.",
+      "expect": [
+        "56 adult civilian combinations resolve within atlas",
+        "64 child combinations resolve child None",
+        "8 adult Guard inputs resolve safe civilian fallback",
+        "Species beyond Orc do not map to citizen wardrobe"
+      ]
+    },
+    {
+      "id": "CW03",
+      "kind": "native-visual",
+      "status": "not-run",
+      "setup": "56 adult costumes in identical light/background and faction color.",
+      "expect": [
+        "Visible garment cut, details or cloth patterns differ at equal faction color; a unique final outer alpha contour is not required.",
+        "Male/female share equivalent professional readability",
+        "Forester costume suits both trees and minerals"
+      ],
+      "evidence": [
+        "adult-costume-grid.png"
+      ]
+    },
+    {
+      "id": "CW04",
+      "kind": "resolver",
+      "status": "not-run",
+      "setup": "Age11.999,12,15.999,16; both Sex values, all races; both child labor policies.",
+      "expect": [
+        "Age<16 stays child",
+        "Age16 selects adult",
+        "LightWork does not change child Profession to adult costume"
+      ]
+    },
+    {
+      "id": "CW05",
+      "kind": "state-invariant",
+      "status": "not-run",
+      "setup": "Observe all wardrobe inputs before and after repeated render/pose selection, including paused world.",
+      "expect": [
+        "RngState,Tick,NextId,Profession,Health and stock fields unchanged",
+        "Same input produces same key and pixels",
+        "No world mutation used to make an outfit fit"
+      ]
+    },
+    {
+      "id": "CW06",
+      "kind": "negative-equipment",
+      "status": "not-run",
+      "setup": "Hunter or Fight with HuntingToolLevel0, and Farmer with HuntingToolLevel1.",
+      "expect": [
+        "No free spear for profession or Task",
+        "Existing spear may appear on eligible adult independently of costume",
+        "No sword/shield/armour in civilian atlas"
+      ]
+    },
+    {
+      "id": "CW07",
+      "kind": "equipment",
+      "status": "not-run",
+      "setup": "BasketLevel0..3; EquipmentOrder pending; children with malformed adult equipment flags.",
+      "expect": [
+        "Basket only follows completed eligible gear state",
+        "Pending craft never shows finished equipment",
+        "Children show no adult heavy gear or claimed extra capacity"
+      ]
+    },
+    {
+      "id": "CW08",
+      "kind": "equipment",
+      "status": "not-run",
+      "setup": "OwnsWagon versus HasWagon; valid/invalid/dead/distant mount; saddle bags.",
+      "expect": [
+        "No wagon from Merchant or Caravan task alone",
+        "No riding without actual eligible nearby mount",
+        "Gear props not duplicated in clothing pixels"
+      ]
+    },
+    {
+      "id": "CW09",
+      "kind": "cargo",
+      "status": "not-run",
+      "setup": "Cargo/Harvest/CarriedFood/CarriedWood/CarriedWater empty, partial and loaded; selected resource with no cargo.",
+      "expect": [
+        "Only actual held items visible",
+        "No harvest/ore from job or destination",
+        "Clothing never conceals all held-item pixels"
+      ],
+      "evidence": [
+        "cargo-poses.png"
+      ]
+    },
+    {
+      "id": "CW10",
+      "kind": "action",
+      "status": "not-run",
+      "setup": "Same civilian switches Idle,Walk,Gather,Process,Rest,Fight,Flee,Caravan.",
+      "expect": [
+        "Professional costume identity remains stable while the pose changes.",
+        "Task changes pose, not saved Profession",
+        "Travel is not rendered as active tool work",
+        "Fight remains civilian unless existing tool flag permits spear"
+      ]
+    },
+    {
+      "id": "CW11",
+      "kind": "native-motion",
+      "status": "not-run",
+      "setup": "All4races x4appearances x4directions with idle/walk, pause and reversals.",
+      "expect": [
+        "Feet pivot stable",
+        "No clipped hair,ears,aprons or cloaks",
+        "North/back accessories layer correctly",
+        "No side mirror turning asymmetrical equipment into a duplicate",
+        "Pause freezes animation"
+      ],
+      "evidence": [
+        "walk-directions.mp4",
+        "paused-pose.png"
+      ]
+    },
+    {
+      "id": "CW12",
+      "kind": "determinism",
+      "status": "not-run",
+      "setup": "Save/reload same units; construct renderer twice; advance visualization while Simulation paused.",
+      "expect": [
+        "Same wardrobe selection after save/reload",
+        "Cosmetic variation uses stable inputs, never UnityEngine.Random or simulation RNG"
+      ]
+    },
+    {
+      "id": "CW13",
+      "kind": "role-truth",
+      "status": "not-run",
+      "setup": "Non-Merchant on an actual Caravan; Merchant without Caravan; valid ruler/ordinary citizen/master.",
+      "expect": [
+        "Caravan activity does not invent permanent Merchant role",
+        "No coins/wallet depicted for barter economy",
+        "Optional office/master decorations require their actual references/properties"
+      ]
+    },
+    {
+      "id": "CW14",
+      "kind": "performance",
+      "status": "not-run",
+      "setup": "Native1000citizen view before/after wardrobe at same world/camera.",
+      "expect": [
+        "No per-frame atlas generation or texture readbacks",
+        "No GameObject per clothing component",
+        "Record FPS/p99/allocations without inventing a pass threshold"
+      ],
+      "evidence": [
+        "wardrobe-profile.json"
+      ]
+    },
+    {
+      "id": "CW15",
+      "kind": "artistic-acceptance",
+      "status": "not-run",
+      "setup": "Show controlled native views and motion to user.",
+      "expect": [
+        "Technical pass kept separate from artistic choice",
+        "No claim of visual acceptance until user expresses it"
+      ],
+      "evidence": [
+        "acceptance-note.md"
+      ]
+    }
+  ],
+  "sourceAndAssetPolicy": {
+    "originalCodeClothing": true,
+    "referenceDirection": "Human Villagers",
+    "copyThirdPartyPixels": false,
+    "purchaseOrImport": false,
+    "fixtureAssistanceMustBeDisclosed": true,
+    "forbiddenNewSimulationFacts": [
+      "free armour",
+      "free sword",
+      "new coins",
+      "automatic Merchant recruitment",
+      "new priest or scientist profession",
+      "clothing-derived defense or storage capacity"
+    ]
+  },
+  "journalHandoff": "Integrating root records this plan and later evidence in project journal/Obsidian; this file is a plan, not execution receipt.",
+  "reviewClarification": {
+    "performedAt": "2026-10-12T20:59:00+03:00",
+    "method": "Read-only repetition of Normalize plus alpha union with actual source PNGs and production overlay masks; frame0, 32 adult race/sex/facing groups.",
+    "groupsWithDuplicateFinalOutlines": 19,
+    "examples": [
+      "Human AdultMale South: None and Forester",
+      "Dwarf AdultMale West: None, Forester, Hunter, Merchant and Carpenter"
+    ],
+    "interpretation": "A shared outer contour does not mean costumes look identical; internal cloth details and colors remain different. Visible costumes are required; a unique outer pixel contour per role is not required.",
+    "historicalTerminologyCorrection": "Earlier silhouetteCases described isolated overlay masks, not composed bodies. Historical counts and hashes remain unchanged."
+  },
+  "nativeFirstReview": {
+    "performedAt": "2026-10-12T20:59:00+03:00",
+    "poster": "Evidence/Captures/20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.png",
+    "receipt": "Evidence/Captures/20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.json",
+    "method": "Visual inspection of a static native Unity gallery poster; prepared subjects walking in place, not ordinary gameplay.",
+    "findings": [
+      {
+        "id": "CW-R1",
+        "priority": "P1",
+        "description": "Farmer and Herder hats visibly separate from some heads. Fixed y cannot follow the height of each normalized source pose.",
+        "state": "patch-prepared-awaiting-native-r4"
+      },
+      {
+        "id": "CW-R2",
+        "priority": "P2",
+        "description": "Farmer wide horizontal waist bar extends too far across the torso.",
+        "state": "narrower-stepped-apron-prepared-awaiting-native-r4"
+      }
+    ],
+    "artisticAcceptance": false
+  },
+  "hatAttachmentRevisionVerification": {
+    "performedAt": "2026-10-12T20:59:00+03:00",
+    "method": "In-memory production Simulation and CitizenWardrobe compile, Color32 DTO only; no Unity invocation.",
+    "api": "FindHeadTop(normalizedBody) and optional Paint(..., bool isRuler=false, int headTop=-1). Brim overlaps upper two hair rows.",
+    "isolatedOverlayMaskCases": 224,
+    "syntheticHeadContactCases": 448,
+    "failures": [],
+    "nunitTestsPrepared": 12,
+    "wardrobeSha256": "43B66E8BC256439A44E452CED1C3651CC8DAD932BB0A050F7D9E2B2ABE0596E3",
+    "testsSha256": "B7E21DDCB6B6946293DF2F5D6834BBD7B8EACD55575140DA6463F46047A09869",
+    "nativeR4Review": "not-run",
+    "limitation": "Synthetic attachment and unchanged source data are checked; final visual fit is not implied."
+  }
+}

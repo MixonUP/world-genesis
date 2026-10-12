@@ -135,3 +135,7 @@ python Tools/Wrap-CaptureWorld.py Builds/rural-assisted-showcase.json Builds/rur
 `dotnet run --project Tools/WeatherShowcase -- Builds/storage-assisted-v050.save.json Builds/weather-assisted-v050-r2 Evidence/Simulation/weather-assisted-v050-r2.json` создаёт шесть погодных сцен через SetWeather и обычные тики. Каждый файл проверяется и одинаково продолжается100тиков после roundtrip. Источник наследует помощь транспортного/складского showcase, автоматическая смена отключена; снежный вариант дополнительно получает явно записанное охлаждение участка. Природная частота событий этим инструментом не доказывается.
 
 `Run-Capture.ps1`/`Run-MotionCapture.ps1 -WeatherTab` открывает погодную вкладку для нативного обзора, не меняя погоду. Погодный фронт берётся из `-WorldFile`. Исправление старого TransportShowcase: native envelope должен иметь поля Schema/Format/World; анонимный объект с IgnoreReadOnlyProperties давал `{}`. `Wrap-CaptureWorld.py` оборачивает только настоящий raw WorldState и записывает SHA256; загрузчик Player продолжает валидировать мир.
+
+### Собственные жители 0.6
+
+Галерея: [Run-CitizenGallery](CitizenGallery-README.md), режимы families, wardrobe и actions. Она использует production-renderer и подготовленные состояния, а не естественный игровой процесс. Для обычной игры используйте Run-Capture.ps1 и Run-MotionCapture.ps1 с PlayerRelativePath Builds/Windows-0.6.0/WorldGenesis.exe. Упаковка: Tools/Package-Alpha.ps1 -Version 0.6.0-alpha -BuildFolder Windows-0.6.0. Наличие локального ZIP не означает публикацию бинарника в GitHub Releases.

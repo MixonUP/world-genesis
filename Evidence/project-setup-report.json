@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T18:54:06.8923990+03:00",
+  "timestamp": "2026-10-12T21:09:17.1143268+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 464,
+  "checkCount": 547,
   "failures": [],
   "checks": [
     {
@@ -157,14 +157,14 @@
       "detail": "Found 5, expected 5"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
       "passed": true,
-      "detail": "UnityEngine.UI"
+      "detail": "WorldGenesis.Runtime"
     },
     {
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
@@ -177,14 +177,14 @@
       "detail": "WorldGenesis.Runtime"
     },
     {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
+      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
+      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
       "passed": true,
-      "detail": "WorldGenesis.Runtime"
+      "detail": "UnityEngine.UI"
     },
     {
       "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
@@ -302,6 +302,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
     },
     {
+      "id": "link:README.md:Docs/Development/ORIGINAL_CITIZENS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/ORIGINAL_CITIZENS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_REPORT.md"
+    },
+    {
       "id": "link:README.md:Docs/Research/CREATURE_ASSET_SELECTION.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
@@ -400,6 +410,21 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/ORIGINAL_CITIZENS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/ORIGINAL_CITIZENS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/WORLDBOX_ANIMATION_COVERAGE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
     },
     {
       "id": "link:00_INDEX.md:Research/CREATURE_ASSET_SELECTION.md",
@@ -652,6 +677,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
     },
     {
+      "id": "link:ACCEPTANCE.md:Development/ORIGINAL_CITIZENS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_REPORT.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/ORIGINAL_CITIZENS_VISUAL_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_VISUAL_REVIEW.md"
+    },
+    {
       "id": "link:ARCHITECTURE.md:Development/TRANSPORT_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
@@ -827,6 +862,46 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
     },
     {
+      "id": "link:STATE.md:Development/ORIGINAL_CITIZENS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:Development/ORIGINAL_CITIZENS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/ORIGINAL_CITIZENS_VISUAL_REVIEW.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_VISUAL_REVIEW.md"
+    },
+    {
+      "id": "link:STATE.md:../SourceAssets/OriginalCitizens/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\SourceAssets\\OriginalCitizens\\PROVENANCE.md"
+    },
+    {
+      "id": "link:STATE.md:Design/CITIZEN_WARDROBE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\CITIZEN_WARDROBE.md"
+    },
+    {
+      "id": "link:STATE.md:Research/WORLDBOX_ANIMATION_COVERAGE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
+    },
+    {
+      "id": "link:STATE.md:Research/CREATURE_ASSET_SELECTION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Art/creature-board-github.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Art\\creature-board-github.png"
+    },
+    {
       "id": "link:STATE.md:Research/CREATURE_ASSET_SELECTION.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
@@ -965,6 +1040,86 @@
       "id": "link:WORKFLOW.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\WorldState.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Entities\\CitizenBehavior.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Entities\\AgriculturalWork.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Entities\\Husbandry.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanTrade.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenSprites.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Entities\\Demography.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Simulation\\Entities\\AgricultureEquipment.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../Evidence/Art/citizen-wardrobe-review-plan.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Art\\citizen-wardrobe-review-plan.json"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenWardrobe.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWardrobe.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../WorldGenesis/Assets/_Project/Tests/PlayMode/CitizenWardrobeTests.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../Evidence/Captures/20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Captures\\20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.png"
+    },
+    {
+      "id": "link:CITIZEN_WARDROBE.md:../../Evidence/Captures/20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Captures\\20261012-205056-251-citizen-gallery-wardrobe-male-p0.mp4.json"
     },
     {
       "id": "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/goods.csv",
@@ -1625,6 +1780,261 @@
       "id": "link:GALLERY_0_5.md:CLIMATE_NATIVE_REVIEW.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CLIMATE_NATIVE_REVIEW.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../SourceAssets/OriginalCitizens/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\SourceAssets\\OriginalCitizens\\PROVENANCE.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:ORIGINAL_CITIZENS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_REPORT.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-205029-064-citizen-gallery-families-male-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-205029-064-citizen-gallery-families-male-p0.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-205029-064-citizen-gallery-families-male-p0.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-205029-064-citizen-gallery-families-male-p0.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-205029-064-citizen-gallery-families-male-p0.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-205029-064-citizen-gallery-families-male-p0.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210142-098-citizen-gallery-wardrobe-male-p0.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210215-781-citizen-gallery-wardrobe-female-p0.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210242-360-citizen-gallery-actions-male-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210242-360-citizen-gallery-actions-male-p0.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210242-360-citizen-gallery-actions-male-p0.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210242-360-citizen-gallery-actions-male-p0.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210242-360-citizen-gallery-actions-male-p0.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210242-360-citizen-gallery-actions-male-p0.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210322-819-citizen-gallery-actions-female-p0.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210322-819-citizen-gallery-actions-female-p0.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210322-819-citizen-gallery-actions-female-p0.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210322-819-citizen-gallery-actions-female-p0.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210322-819-citizen-gallery-actions-female-p0.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210322-819-citizen-gallery-actions-female-p0.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210358-624-citizen-gallery-actions-male-p1.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210358-624-citizen-gallery-actions-male-p1.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210358-624-citizen-gallery-actions-male-p1.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210358-624-citizen-gallery-actions-male-p1.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210358-624-citizen-gallery-actions-male-p1.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210358-624-citizen-gallery-actions-male-p1.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210410-582-citizen-gallery-actions-male-p2.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210410-582-citizen-gallery-actions-male-p2.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210410-582-citizen-gallery-actions-male-p2.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210410-582-citizen-gallery-actions-male-p2.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210410-582-citizen-gallery-actions-male-p2.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210410-582-citizen-gallery-actions-male-p2.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Development/original-citizens-final-build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\original-citizens-final-build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210551-original-citizens-town-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210551-original-citizens-town-final.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210551-original-citizens-town-final.png.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210551-original-citizens-town-final.png.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../../Evidence/Captures/20261012-210445-original-citizens-1000-final-profile.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210445-original-citizens-1000-final-profile.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_GALLERY.md:../Research/WORLDBOX_ANIMATION_COVERAGE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:ORIGINAL_CITIZENS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../SourceAssets/OriginalCitizens/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\SourceAssets\\OriginalCitizens\\PROVENANCE.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Tools/CitizenGallery-README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\CitizenGallery-README.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/20261012-204726-966-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-204726-966-playmode\\tests.xml"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/20261012-205015-545-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-205015-545-playmode\\tests.xml"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/20261012-205208-082-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-205208-082-editmode\\tests.xml"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/20261012-204856-704-build/unity.log",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-204856-704-build\\unity.log"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/20261012-205845-611-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-205845-611-playmode\\tests.xml"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Development/original-citizens-final-build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\original-citizens-final-build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Development/original-citizens-build-r4.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\original-citizens-build-r4.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Development/original-citizens-final-build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\original-citizens-final-build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210551-original-citizens-town-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210551-original-citizens-town-final.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210445-original-citizens-1000-final-profile.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210445-original-citizens-1000-final-profile.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:ORIGINAL_CITIZENS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_GALLERY.md"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210551-original-citizens-town-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210551-original-citizens-town-final.png"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210551-original-citizens-town-final.png.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210551-original-citizens-town-final.png.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../../Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4.build.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-210603-original-citizens-gameplay-final.mp4.build.json"
+    },
+    {
+      "id": "link:ORIGINAL_CITIZENS_REPORT.md:../Research/WORLDBOX_ANIMATION_COVERAGE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\WORLDBOX_ANIMATION_COVERAGE.md"
     },
     {
       "id": "link:PLAY_GUIDE.md:README.md",
@@ -2325,6 +2735,11 @@
       "id": "link:README.md:../Evidence/build-report.json",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\..\\Evidence\\build-report.json"
+    },
+    {
+      "id": "link:README.md:CitizenGallery-README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\CitizenGallery-README.md"
     }
   ],
   "unityImport": "not-run",

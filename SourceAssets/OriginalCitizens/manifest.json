@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-12",
+  "tool": "image_gen",
+  "sourceCells": 256,
+  "uniqueActionFamilies": "One authored walk family in four directions for sixteen identities; other gestures derived in runtime",
+  "selected": [
+    {
+      "race": "Human",
+      "source": "SourceAssets/OriginalCitizens/Human-walk-v1.png",
+      "runtime": "WorldGenesis/Assets/_Project/Art/Units/Resources/OriginalCitizens/Human.png",
+      "sha256": "53714355CC341C20584AF0FD9D7FA7231651FB1C1141F471ECEACE5C589BE582",
+      "width": 1254,
+      "height": 1254,
+      "rows": 8,
+      "figuresPerRow": 8,
+      "demographics": [
+        "AdultMale",
+        "AdultFemale",
+        "Boy",
+        "Girl"
+      ],
+      "directions": [
+        "South",
+        "East",
+        "North",
+        "West"
+      ],
+      "framesPerDirection": 4,
+      "method": "Built-in image_gen; original project art",
+      "status": "Imported and sampled in native Unity Player; user acceptance pending"
+    },
+    {
+      "race": "Elf",
+      "source": "SourceAssets/OriginalCitizens/Elf-walk-v1.png",
+      "runtime": "WorldGenesis/Assets/_Project/Art/Units/Resources/OriginalCitizens/Elf.png",
+      "sha256": "05ED4E2FF18AC8E0212D0E487F4651FB1BCB9E629EC3B2A7BA041FA79895FB30",
+      "width": 1254,
+      "height": 1254,
+      "rows": 8,
+      "figuresPerRow": 8,
+      "demographics": [
+        "AdultMale",
+        "AdultFemale",
+        "Boy",
+        "Girl"
+      ],
+      "directions": [
+        "South",
+        "East",
+        "North",
+        "West"
+      ],
+      "framesPerDirection": 4,
+      "method": "Built-in image_gen; original project art",
+      "status": "Imported and sampled in native Unity Player; user acceptance pending"
+    },
+    {
+      "race": "Dwarf",
+      "source": "SourceAssets/OriginalCitizens/Dwarf-walk-v1.png",
+      "runtime": "WorldGenesis/Assets/_Project/Art/Units/Resources/OriginalCitizens/Dwarf.png",
+      "sha256": "5F1A3FE8A16E473A8E4DEF9B525E66D1BC8B39F00D47FCAEA2899203140DDB2D",
+      "width": 1254,
+      "height": 1254,
+      "rows": 8,
+      "figuresPerRow": 8,
+      "demographics": [
+        "AdultMale",
+        "AdultFemale",
+        "Boy",
+        "Girl"
+      ],
+      "directions": [
+        "South",
+        "East",
+        "North",
+        "West"
+      ],
+      "framesPerDirection": 4,
+      "method": "Built-in image_gen; original project art",
+      "status": "Imported and sampled in native Unity Player; user acceptance pending"
+    },
+    {
+      "race": "Orc",
+      "source": "SourceAssets/OriginalCitizens/Orc-walk-v2.png",
+      "runtime": "WorldGenesis/Assets/_Project/Art/Units/Resources/OriginalCitizens/Orc.png",
+      "sha256": "2B565DD539D543436EF50C7680F541D73D626F4029D397BCE8F6274902D5FA17",
+      "width": 1254,
+      "height": 1254,
+      "rows": 8,
+      "figuresPerRow": 8,
+      "demographics": [
+        "AdultMale",
+        "AdultFemale",
+        "Boy",
+        "Girl"
+      ],
+      "directions": [
+        "South",
+        "East",
+        "North",
+        "West"
+      ],
+      "framesPerDirection": 4,
+      "method": "Built-in image_gen; original project art",
+      "status": "Imported and sampled in native Unity Player; user acceptance pending"
+    }
+  ],
+  "rejected": [
+    "SourceAssets/OriginalCitizens/Orc-walk-v1.png"
+  ],
+  "sourcePixelsUnmodified": true,
+  "nativeReview": "Unity 0.6 r4; sampled native phases reviewed; known P3 contour/costume limitations; see ORIGINAL_CITIZENS_VISUAL_REVIEW.md",
+  "userArtisticAcceptance": "pending"
+}
