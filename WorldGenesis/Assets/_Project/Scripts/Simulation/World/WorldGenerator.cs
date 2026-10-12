@@ -15,7 +15,7 @@ namespace WorldGenesis.Simulation
         {
             if (width < 16 || height < 16 || width > 512 || height > 512) throw new ArgumentOutOfRangeException("World dimensions must be between 16 and 512.");
             if ((int)preset < 0 || (int)preset > 2) throw new ArgumentOutOfRangeException(nameof(preset));
-            WorldState world = new WorldState { Width = width, Height = height, Seed = seed, Preset = preset, Cells = new TileData[width * height], RngState = StableRandom.Hash(seed, 13, 71, 0xA1B2C3D4u) | 1u };
+            WorldState world = new WorldState { Width = width, Height = height, Seed = seed, Preset = preset, BehaviorVersion = 2, Cells = new TileData[width * height], RngState = StableRandom.Hash(seed, 13, 71, 0xA1B2C3D4u) | 1u };
             float scale = Math.Min(width, height);
             float sea = preset == WorldPreset.Archipelago ? .535f : .445f;
             for (int y = 0; y < height; y++)

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Failed(Child)" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0,3570377">
+  <test-suite type="TestSuite" id="1011" name="World Genesis" fullname="World Genesis" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0.357038" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1008" name="WorldGenesis.PlayModeTests.dll" fullname="C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Builds/Verification/citizens-v020/WorldGenesis/Library/ScriptAssemblies/WorldGenesis.PlayModeTests.dll" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0.350877" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="62520" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1009" name="WorldGenesis" fullname="WorldGenesis" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0.334666" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1010" name="Tests" fullname="WorldGenesis.Tests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0.317958" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1002" name="RuntimeIntegrationTests" fullname="WorldGenesis.Tests.RuntimeIntegrationTests" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-12 08:24:41Z" end-time="2026-10-12 08:24:42Z" duration="0.300575" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1003" name="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" methodname="BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="781212219" result="Failed" label="Error" start-time="2026-10-12 08:24:42Z" end-time="2026-10-12 08:24:42Z" duration="0.083365" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                <stack-trace><![CDATA[  at WorldGenesis.Runtime.GameBootstrap.get_World () [0x00000] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\citizens-v020\WorldGenesis\Assets\_Project\Scripts\Runtime\GameBootstrap.cs:15 
+  at WorldGenesis.Tests.RuntimeIntegrationTests+<BootstrapRendersLiveWorldAndPauseDoesNotAccumulateTicks>d__3.MoveNext () [0x00029] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\citizens-v020\WorldGenesis\Assets\_Project\Tests\PlayMode\RuntimeIntegrationTests.cs:37 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@388540dd9ce6\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1007" name="CitizenFramesDistinguishTravelWorkCargoAndActualHits" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.CitizenFramesDistinguishTravelWorkCargoAndActualHits" methodname="CitizenFramesDistinguishTravelWorkCargoAndActualHits" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="415682261" result="Failed" start-time="2026-10-12 08:24:42Z" end-time="2026-10-12 08:24:42Z" duration="0.047073" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)
+WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+            </test-case>
+            <test-case id="1004" name="HudButtonsSelectProductionToolsAndCapturePointerHits" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.HudButtonsSelectProductionToolsAndCapturePointerHits" methodname="HudButtonsSelectProductionToolsAndCapturePointerHits" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="1340195236" result="Failed" start-time="2026-10-12 08:24:42Z" end-time="2026-10-12 08:24:42Z" duration="0.049914" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)
+WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+            </test-case>
+            <test-case id="1006" name="ImportedCitizensRenderAndTheirMeshFreezesOnPause" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ImportedCitizensRenderAndTheirMeshFreezesOnPause" methodname="ImportedCitizensRenderAndTheirMeshFreezesOnPause" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="199914982" result="Failed" start-time="2026-10-12 08:24:42Z" end-time="2026-10-12 08:24:42Z" duration="0.049861" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)
+WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+            </test-case>
+            <test-case id="1005" name="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" fullname="WorldGenesis.Tests.RuntimeIntegrationTests.ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" methodname="ReplacingWorldRebindsRenderingWithoutDuplicateBootstrap" classname="WorldGenesis.Tests.RuntimeIntegrationTests" runstate="Runnable" seed="782242074" result="Failed" start-time="2026-10-12 08:24:42Z" end-time="2026-10-12 08:24:42Z" duration="0.049886" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[InvalidOperationException: Missing or incorrectly imported readable 192px citizen sheet: TinySwordsCC0/Pawn_Blue (not found)
+WorldGenesis.Runtime.CitizenSprites..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs:42)
+WorldGenesis.Runtime.WorldView..ctor (UnityEngine.Transform parent) (at Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs:49)
+WorldGenesis.Runtime.GameBootstrap.Awake () (at Assets/_Project/Scripts/Runtime/GameBootstrap.cs:62)
+UnityEngine.GameObject:AddComponent()
+WorldGenesis.Tests.<SetUp>d__1:MoveNext() (at Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs:21)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+Saving results to: C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Evidence\20261012-112432-283-playmode\tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

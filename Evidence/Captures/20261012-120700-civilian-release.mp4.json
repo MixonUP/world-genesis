@@ -1,0 +1,308 @@
+{
+    "kind": "Native Unity Player screenshots sampled at 10 Hz; diagnostic capture affects performance",
+    "seed": 1618033,
+    "width": 1280,
+    "height": 720,
+    "frames": [
+        {
+            "index": 0,
+            "wallSeconds": 0.00048579999999986967,
+            "tick": 58
+        },
+        {
+            "index": 1,
+            "wallSeconds": 0.10389099999999996,
+            "tick": 59
+        },
+        {
+            "index": 2,
+            "wallSeconds": 0.20107609999999988,
+            "tick": 60
+        },
+        {
+            "index": 3,
+            "wallSeconds": 0.3055178999999999,
+            "tick": 62
+        },
+        {
+            "index": 4,
+            "wallSeconds": 0.40267310000000036,
+            "tick": 62
+        },
+        {
+            "index": 5,
+            "wallSeconds": 0.5067608000000003,
+            "tick": 64
+        },
+        {
+            "index": 6,
+            "wallSeconds": 0.6040606999999998,
+            "tick": 64
+        },
+        {
+            "index": 7,
+            "wallSeconds": 0.7012096000000003,
+            "tick": 65
+        },
+        {
+            "index": 8,
+            "wallSeconds": 0.8054607000000003,
+            "tick": 67
+        },
+        {
+            "index": 9,
+            "wallSeconds": 0.9027419999999999,
+            "tick": 67
+        },
+        {
+            "index": 10,
+            "wallSeconds": 1.0079178000000005,
+            "tick": 69
+        },
+        {
+            "index": 11,
+            "wallSeconds": 1.1038914000000002,
+            "tick": 69
+        },
+        {
+            "index": 12,
+            "wallSeconds": 1.2011623,
+            "tick": 70
+        },
+        {
+            "index": 13,
+            "wallSeconds": 1.3043874000000005,
+            "tick": 71
+        },
+        {
+            "index": 14,
+            "wallSeconds": 1.4027320999999998,
+            "tick": 72
+        },
+        {
+            "index": 15,
+            "wallSeconds": 1.5069187,
+            "tick": 74
+        },
+        {
+            "index": 16,
+            "wallSeconds": 1.6040500999999985,
+            "tick": 74
+        },
+        {
+            "index": 17,
+            "wallSeconds": 1.701255399999999,
+            "tick": 75
+        },
+        {
+            "index": 18,
+            "wallSeconds": 1.8053616999999989,
+            "tick": 77
+        },
+        {
+            "index": 19,
+            "wallSeconds": 1.9092095999999988,
+            "tick": 77
+        },
+        {
+            "index": 20,
+            "wallSeconds": 2.0072051999999998,
+            "tick": 79
+        },
+        {
+            "index": 21,
+            "wallSeconds": 2.1041358,
+            "tick": 79
+        },
+        {
+            "index": 22,
+            "wallSeconds": 2.206259899999999,
+            "tick": 80
+        },
+        {
+            "index": 23,
+            "wallSeconds": 2.3055420999999987,
+            "tick": 82
+        },
+        {
+            "index": 24,
+            "wallSeconds": 2.4028088999999985,
+            "tick": 82
+        },
+        {
+            "index": 25,
+            "wallSeconds": 2.5070096,
+            "tick": 84
+        },
+        {
+            "index": 26,
+            "wallSeconds": 2.604221299999999,
+            "tick": 84
+        },
+        {
+            "index": 27,
+            "wallSeconds": 2.7013228,
+            "tick": 85
+        },
+        {
+            "index": 28,
+            "wallSeconds": 2.805584099999999,
+            "tick": 87
+        },
+        {
+            "index": 29,
+            "wallSeconds": 2.9028262,
+            "tick": 87
+        },
+        {
+            "index": 30,
+            "wallSeconds": 3.013115599999999,
+            "tick": 88
+        },
+        {
+            "index": 31,
+            "wallSeconds": 3.104005299999999,
+            "tick": 89
+        },
+        {
+            "index": 32,
+            "wallSeconds": 3.201285799999999,
+            "tick": 90
+        },
+        {
+            "index": 33,
+            "wallSeconds": 3.310334899999999,
+            "tick": 91
+        },
+        {
+            "index": 34,
+            "wallSeconds": 3.4026996999999996,
+            "tick": 92
+        },
+        {
+            "index": 35,
+            "wallSeconds": 3.5069305999999988,
+            "tick": 94
+        },
+        {
+            "index": 36,
+            "wallSeconds": 3.6039683999999996,
+            "tick": 94
+        },
+        {
+            "index": 37,
+            "wallSeconds": 3.701221499999999,
+            "tick": 95
+        },
+        {
+            "index": 38,
+            "wallSeconds": 3.8054531999999989,
+            "tick": 97
+        },
+        {
+            "index": 39,
+            "wallSeconds": 3.9023597,
+            "tick": 97
+        },
+        {
+            "index": 40,
+            "wallSeconds": 4.0068588,
+            "tick": 99
+        },
+        {
+            "index": 41,
+            "wallSeconds": 4.1042356999999989,
+            "tick": 99
+        },
+        {
+            "index": 42,
+            "wallSeconds": 4.211952499999999,
+            "tick": 100
+        },
+        {
+            "index": 43,
+            "wallSeconds": 4.305634199999998,
+            "tick": 102
+        },
+        {
+            "index": 44,
+            "wallSeconds": 4.402568799999999,
+            "tick": 102
+        },
+        {
+            "index": 45,
+            "wallSeconds": 4.5071125,
+            "tick": 104
+        },
+        {
+            "index": 46,
+            "wallSeconds": 4.604411799999999,
+            "tick": 104
+        },
+        {
+            "index": 47,
+            "wallSeconds": 4.701416999999999,
+            "tick": 105
+        },
+        {
+            "index": 48,
+            "wallSeconds": 4.805539399999999,
+            "tick": 107
+        },
+        {
+            "index": 49,
+            "wallSeconds": 4.902705099999999,
+            "tick": 107
+        },
+        {
+            "index": 50,
+            "wallSeconds": 5.006108399999999,
+            "tick": 108
+        },
+        {
+            "index": 51,
+            "wallSeconds": 5.1039791999999999,
+            "tick": 109
+        },
+        {
+            "index": 52,
+            "wallSeconds": 5.201395999999999,
+            "tick": 110
+        },
+        {
+            "index": 53,
+            "wallSeconds": 5.302211199999999,
+            "tick": 111
+        },
+        {
+            "index": 54,
+            "wallSeconds": 5.402763799999999,
+            "tick": 112
+        },
+        {
+            "index": 55,
+            "wallSeconds": 5.5067615,
+            "tick": 114
+        },
+        {
+            "index": 56,
+            "wallSeconds": 5.604205799999999,
+            "tick": 114
+        },
+        {
+            "index": 57,
+            "wallSeconds": 5.701218899999999,
+            "tick": 115
+        },
+        {
+            "index": 58,
+            "wallSeconds": 5.8053767999999998,
+            "tick": 117
+        },
+        {
+            "index": 59,
+            "wallSeconds": 5.907541499999999,
+            "tick": 117
+        }
+    ]
+}

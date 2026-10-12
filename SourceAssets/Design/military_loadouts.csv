@@ -1,0 +1,5 @@
+military_role_id,name_ru,required_technology_id,min_settlement_tier,profession_id,training_building_id,min_building_grade,equipment,training_seconds,ammo_per_ranged_attack,mounted,status
+militia_spearman,Обученный копейщик,d06_spearman_training,3,guard,watchtower,1,spear=1;linen_clothes=1,45,0,false,proposed
+archer,Лучник,d07_archer_training,2,guard,watchtower,1,bow=1;arrows=12;leather_armor=1,60,1,false,proposed
+swordsman,Мечник-пехотинец,d08_infantry_training,3,guard,watchtower,2,sword=1;iron_armor=1;boots=1,90,0,false,proposed
+knight,Пеший рыцарь,d09_knight_training,4,guard,watchtower,3,sword=1;steel_armor=1;boots=1,150,0,false,proposed

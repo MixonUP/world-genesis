@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-12T08:56:54.4813301Z",
+  "scope": "Production Simulation: civilian-only founding and maturation, legacy demobilization, temporary civilian defense. Native Unity verification belongs to integrator.",
+  "probe": "Evidence/Simulation/civilian-militia-probe.json",
+  "passed": 47,
+  "failed": 0,
+  "newNUnitTests": 4,
+  "expectedEditModeTotal": 33,
+  "behaviorVersion": 2,
+  "schemaVersion": 1,
+  "sourceHashes": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "851572fb25c5d4eebc937f687b9b85ddb2d0c8e6bf566d9823817af0fd00a7de"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "02f776f4bd2cd47c9100f4ea2d41f2f67da034aacc7f93305df5b8900b3c9c2a"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "6936e42f0957a15e576ed2117c4969f1c48aeb83fb67a352964360e0060df39f"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "99387be6f1eeaa1524cb733d22a73dcebc867bbaf24a4a7b524b51bb3c8cdd3d"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "41e84b6c4a31e7f739c8623c9e91c609f295e570592747f201ee68ffbba40ab4"
+    },
+    {
+      "path": "Tools/SimulationProbe/Program.cs",
+      "sha256": "4fbfaea3f4f76086f7681dc00685a1646c6556a541203022a99785d737dc062e"
+    }
+  ]
+}

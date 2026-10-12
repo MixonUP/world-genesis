@@ -1,0 +1,2 @@
+policy_id,name_ru,min_settlement_tier,requires_technology,preserve_profession,preserve_job,equipment_policy,granted_goods,granted_armor,threat_radius_tiles,clear_threat_grace_seconds,status
+emergency_civil_defense,Временное гражданское ополчение,1,false,true,true,existing_equipped_tool_or_unarmed,,false,6,15,proposed

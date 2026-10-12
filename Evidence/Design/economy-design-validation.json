@@ -1,0 +1,55 @@
+{
+  "scope": "proposed economy design, not Unity simulation",
+  "passed": true,
+  "counts": {
+    "goods.csv": 52,
+    "roles.csv": 31,
+    "buildings.csv": 31,
+    "recipes.csv": 55,
+    "natural_sources.csv": 14,
+    "wildlife.csv": 12,
+    "bootstrap.csv": 24,
+    "settlement_tiers.csv": 5,
+    "military_loadouts.csv": 4,
+    "civil_defense.csv": 1,
+    "technologies.csv": 44,
+    "building_tiers.csv": 155
+  },
+  "structural_reachability": [
+    {
+      "tier": 1,
+      "reachable_goods": 28,
+      "reachable_recipes": 30,
+      "reachable_buildings": 14
+    },
+    {
+      "tier": 2,
+      "reachable_goods": 42,
+      "reachable_recipes": 45,
+      "reachable_buildings": 27
+    },
+    {
+      "tier": 3,
+      "reachable_goods": 49,
+      "reachable_recipes": 52,
+      "reachable_buildings": 31
+    },
+    {
+      "tier": 4,
+      "reachable_goods": 52,
+      "reachable_recipes": 55,
+      "reachable_buildings": 31
+    },
+    {
+      "tier": 5,
+      "reachable_goods": 52,
+      "reachable_recipes": 55,
+      "reachable_buildings": 31
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "No finite-stock scheduling, pathfinding, hunger or population simulation",
+    "No native or artistic acceptance"
+  ]
+}

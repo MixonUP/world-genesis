@@ -139,11 +139,12 @@ namespace WorldGenesis.Runtime
         }
         public void Clear() { vertices.Clear(); uv.Clear(); colors.Clear(); triangles.Clear(); }
         public void Sprite(float x, float y, float width, float height, int sprite, Color color) { Rect r = PixelArt.Uv(sprite); Add(x - width * .5f, y, width, height, r, color); }
-        public void Add(float x, float y, float width, float height, Rect region, Color color)
+        public void Add(float x, float y, float width, float height, Rect region, Color color, bool flipX = false)
         {
             int start = vertices.Count;
             vertices.Add(new Vector3(x, y)); vertices.Add(new Vector3(x + width, y)); vertices.Add(new Vector3(x + width, y + height)); vertices.Add(new Vector3(x, y + height));
-            uv.Add(new Vector2(region.xMin, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMax)); uv.Add(new Vector2(region.xMin, region.yMax));
+            float left = flipX ? region.xMax : region.xMin, right = flipX ? region.xMin : region.xMax;
+            uv.Add(new Vector2(left, region.yMin)); uv.Add(new Vector2(right, region.yMin)); uv.Add(new Vector2(right, region.yMax)); uv.Add(new Vector2(left, region.yMax));
             for (int i = 0; i < 4; i++) colors.Add(color);
             triangles.Add(start); triangles.Add(start + 1); triangles.Add(start + 2); triangles.Add(start); triangles.Add(start + 2); triangles.Add(start + 3);
         }

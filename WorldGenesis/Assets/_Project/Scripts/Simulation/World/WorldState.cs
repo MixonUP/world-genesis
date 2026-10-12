@@ -7,7 +7,9 @@ namespace WorldGenesis.Simulation
     public enum SpeciesType { Human, Elf, Dwarf, Orc, Sheep, Wolf }
     public enum PowerType { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague }
     public enum BuildingType { Hall, House, Farm, Tower }
-    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee }
+    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee, Eat, Rest, Socialize, Patrol }
+    public enum UnitProfession { None, Farmer, Forester, Guard }
+    public enum GovernmentType { Unset, Feudal, Republic, Theocracy }
     public enum EventKind { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague, Birth, Death, Founded, Built, War }
     public enum WorldPreset { Island, Archipelago, Continent }
     public enum WorldLaw { Births, Warfare, Aging, VegetationGrowth, FireSpread }
@@ -39,6 +41,9 @@ namespace WorldGenesis.Simulation
         public int SettlementId;
         public string Name;
         public UnitTask Task;
+        public UnitProfession Profession;
+        public float Fatigue, SocialNeed;
+        public long TaskStartedTick;
         public bool Blessed, Infected;
         public float DecisionTimer, WorkTimer, AttackTimer, CarriedFood, CarriedWood;
         public int TargetId, TargetCell = -1, PathCursor, PathRevision;
@@ -54,6 +59,9 @@ namespace WorldGenesis.Simulation
         public int X, Y, Population, Housing, Buildings, ColorIndex;
         public float Food, Wood, Stone, BuildTimer, BirthTimer;
         public int EnemyId;
+        public GovernmentType Government;
+        public int RulerId;
+        public long GovernmentSinceTick, NextElectionTick;
     }
 
     [Serializable]
@@ -88,6 +96,8 @@ namespace WorldGenesis.Simulation
     public sealed class WorldState
     {
         public int SchemaVersion = 1, GeneratorVersion = 1, ContentVersion = 1;
+        public int BehaviorVersion;
+        public int PoliticsVersion;
         public int Width, Height, Seed, Revision, TerrainRevision, NavigationRevision, NextId = 1;
         public long Tick;
         public float SimulatedSeconds, StepRemainder;
@@ -122,7 +132,7 @@ namespace WorldGenesis.Simulation
         public bool Validate(out string error)
         {
             error = null;
-            if (SchemaVersion != 1 || GeneratorVersion != 1 || ContentVersion != 1) error = "Unsupported world version.";
+            if (SchemaVersion != 1 || GeneratorVersion != 1 || ContentVersion != 1 || BehaviorVersion < 0 || BehaviorVersion > 2 || PoliticsVersion < 0 || PoliticsVersion > 1) error = "Unsupported world version.";
             else if (Width < 16 || Height < 16 || Width > 512 || Height > 512 || Cells == null || Cells.Length != Width * Height) error = "Invalid world dimensions.";
             else if (Units == null || Settlements == null || Buildings == null || Events == null || Relations == null || Laws == null || RngState == 0 || Tick < 0 || !Finite(SimulatedSeconds) || SimulatedSeconds < 0 || !UnitRange(StepRemainder) || StepRemainder >= .10001f || (int)Preset < 0 || (int)Preset > 2 || Units.Count > 10000 || Settlements.Count > 10000 || Buildings.Count > Cells.Length || Events.Count > 128 || Relations.Count > 100000) error = "Invalid world state.";
             if (error != null) return false;
@@ -151,9 +161,23 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || u.Health > u.MaxHealth || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 5 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Finite(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 6 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256)
+                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || u.Health > u.MaxHealth || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 5 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Stock(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 10 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256 || (int)u.Profession < 0 || (int)u.Profession > 3 || !UnitRange(u.Fatigue) || !UnitRange(u.SocialNeed) || u.TaskStartedTick < 0 || u.TaskStartedTick > Tick)
                 { error = "Invalid unit."; return false; }
+                if (BehaviorVersion >= 2 && u.Profession == UnitProfession.Guard)
+                { error = "Military recruitment requires research and equipment that are not implemented yet."; return false; }
                 for (int p = 0; p < u.Path.Count; p++) if (u.Path[p] < 0 || u.Path[p] >= Cells.Length) { error = "Invalid navigation path."; return false; }
+            }
+            for (int i = 0; i < Settlements.Count; i++)
+            {
+                SettlementData s = Settlements[i];
+                if ((int)s.Government < 0 || (int)s.Government > 3 || s.RulerId < 0 || s.GovernmentSinceTick < 0 || s.GovernmentSinceTick > Tick || s.NextElectionTick < 0 || (PoliticsVersion == 1 && s.Government == GovernmentType.Unset))
+                { error = "Invalid settlement government."; return false; }
+                if ((s.Government != GovernmentType.Republic && s.NextElectionTick != 0) || (s.Government == GovernmentType.Republic && (s.NextElectionTick < Tick || s.NextElectionTick - Tick > SimulationEngine.RepublicElectionIntervalTicks || s.NextElectionTick <= s.GovernmentSinceTick)))
+                { error = "Invalid election schedule."; return false; }
+                if (s.RulerId == 0) continue;
+                UnitData ruler = GetUnit(s.RulerId);
+                if (ruler == null || ruler.Health <= 0 || ruler.Age < 16 || (int)ruler.Species > (int)SpeciesType.Orc || ruler.SettlementId != s.Id || s.Government == GovernmentType.Unset)
+                { error = "Invalid settlement ruler."; return false; }
             }
             HashSet<int> buildingIds = new HashSet<int>();
             for (int i = 0; i < Buildings.Count; i++)

@@ -46,3 +46,13 @@ Build вызывает Editor.ProjectSetup.BuildWindows, использует Ma
 `powershell -File Tools/Run-Capture.ps1 -Name overview` запускает видимый Player, ждёт настоящий PNG и сохраняет SHA256 исходников. `-FocusSettlement -Power Meteor` явно включает автоматическую камеру и production-команду, что отмечается в квитанциях. `-Width 1280 -Height 720` меняет разрешение. Нагрузочный пример: `-Name load-1000 -Seconds 40 -ProfileSeconds 30 -StressPopulation 1000`; три секунды прогрева исключены из кадровой выборки.
 
 После сборки и проверки: `powershell -File Tools/Package-Alpha.ps1`. Полный ZIP получает руководство и отчёт; каждое ZIP-содержимое читается обратно и сравнивается по SHA256. Скрипт не перезаписывает уже существующий архив той же версии. Архивы лежат в ignored `Builds`, исходники и компактные evidence отправляются обычным Git. Сводка — Docs/Development/ALPHA_REPORT.md.
+
+## Итерация 0.2.0
+
+Сборка по умолчанию теперь находится в `Builds/Windows-0.2.0/`; предыдущая папка сохраняется. `Package-Alpha.ps1` по умолчанию создаёт `WorldGenesis-v0.2.0-alpha-win64.zip`, добавляет актуальное руководство, CITIZENS_REPORT и происхождение стороннего арта. Для старой версии параметры задаются явно: `-Version 0.1.0-alpha -BuildFolder Windows`.
+
+Когда исходный проект открыт в Unity, `New-VerificationSnapshot.ps1 -Name имя` создаёт копию Assets/Packages/ProjectSettings в Builds/Verification и квитанцию SHA256. Передайте абсолютный путь этой копии в `Project.ps1 -Action EditMode/PlayMode/Build -VerificationProject ...`. Не закрывайте пользовательский редактор ради batch-проверки. Не повторяйте имя snapshot: история проверок сохраняется.
+
+`Run-Capture.ps1 -Name citizens -FocusSettlement -Zoom 12 -InspectCitizen` снимает настоящий Player, записывая SHA256 DLL и исходников на момент запуска. `Run-MotionCapture.ps1 -Name citizens -Seconds 6` сохраняет короткий native MP4: кадры сняты с настоящим временем, частота выборки 10 Гц, монтаж использует timestamps. Это видеодоказательство движения, не профиль FPS; захват сам влияет на скорость. Для профиля используйте отдельный Run-Capture с ProfileSeconds.
+
+Проектные данные: `python Tools/Validate-EconomyDesign.py --report Evidence/Design/economy-design-validation.json` и `python Tools/Validate-TechnologyDesign.py`. Они проверяют ссылки, цепочки и математику, а не выполняют будущую экономику в Unity. Результаты — Evidence/Design; формулы и ограничения — Docs/Design.

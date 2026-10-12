@@ -1,0 +1,13 @@
+species_id,name_ru,habitat,navigation,diet,group_min,group_max,speed_tiles_per_second,threat_radius_tiles,birth_cooldown_seconds,cap_per_256_habitat_tiles,death_output,notes
+deer,Олень,forest_edge_grass,land,vegetation,3,8,1.8,7,900,5,large_carcass=1,juveniles_hide_in_group
+boar,Кабан,forest,land,roots_berries,2,5,1.4,5,1000,3,large_carcass=1,defends_if_cornered
+rabbit,Заяц,grass_forest_edge,land,vegetation,1,4,2.2,6,500,8,small_carcass=1,short_bursts
+fox,Лиса,forest_edge,land,rabbit_carcass,1,2,1.7,6,1400,1,small_carcass=1,avoids_town
+wolf,Волк,forest,land,prey_carcass,2,5,1.9,7,1500,2,large_carcass=1,pack_hunt_only_when_hungry
+bear,Медведь,deep_forest,land,berries_fish_carcass,1,2,1.2,5,2000,1,large_carcass=1,territorial_warning
+sheep,Овца,grass,land,vegetation,3,8,1.1,6,900,5,small_carcass=1,taming_later
+starling,Скворец,tree_grass,air,seeds_insects,6,18,3.2,7,900,6,,ambient_ecological_agent_no_food_loot_v1
+duck,Утка,freshwater_shore,air_water,aquatic_food,3,8,2.4,6,1000,4,,ambient_ecological_agent_no_food_loot_v1
+raven,Ворон,forest_town_edge,air,carrion_seeds,2,6,2.8,6,1300,2,,ambient_ecological_agent_no_food_loot_v1
+river_fish,Речная рыба,freshwater,water,aquatic_food,12,32,0.8,3,600,24,raw_fish=1,school_count_is_authoritative
+sea_fish,Морская рыба,saltwater,water,aquatic_food,18,48,1.0,3,700,32,raw_fish=1,school_count_is_authoritative

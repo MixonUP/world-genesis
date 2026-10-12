@@ -1,0 +1,6 @@
+tier,name_ru,min_population,food_reserve_days,required_goods,required_buildings,world_treasury_grant,unlock_ru
+1,Кочевой очаг,6,0,,hearth@1=1,0,сбор ручные инструменты шалаш поля
+2,Деревня,8,2,grain=16;plank=12;primitive_tool=2,hearth@1=1;house@1=2;wheat_farm@1=1;storehouse@1=1,0,лён кожа ткачество столярня бартер тележки
+3,Посёлок ремесленников,24,3,linen_cloth=4;leather=4;bread=12;furniture=2,market@1=1;carpentry@1=1;weavery@1=1;tannery@1=1,300,руда железо кирпич кузница денежная торговля
+4,Город,60,4,iron_tool=4;iron_armor=2;brick=20,house@3=6;smithy@1=1;smelter@1=1;caravanserai@1=1,0,сталь мастерские четвёртого разряда
+5,Процветающий город,120,5,steel_tool=4;steel_armor=2;warm_clothes=12,house@4=10;market@4=1;caravanserai@4=1,0,пятый разряд всех построек развитые торговые дворы

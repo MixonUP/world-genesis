@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-12T08:19:32.1828369Z",
+  "status": "passed",
+  "scope": "Offline production C# simulation compiled in memory with PowerShell Add-Type. No Unity/native performance or visual acceptance claim.",
+  "framework": ".NET 10.0.11",
+  "seed": 741,
+  "mapWidth": 128,
+  "mapHeight": 128,
+  "initialPopulation": 1000,
+  "peakPopulation": 1000,
+  "finalPopulation": 1000,
+  "ticks": 5000,
+  "simulatedSeconds": 500,
+  "validationChecks": 50,
+  "validationFailures": 0,
+  "cpuMillisecondsIncludingAudit": 56680.9399,
+  "worstMeasuredTickMilliseconds": 22.8154,
+  "allocatedBytesIncludingAudit": 3725344,
+  "gen0Collections": 0,
+  "finalFood": 60294.152,
+  "finalWood": 8612.24,
+  "setup": [
+    "Generate Island; paint Grass circle (64, 64, radius 20) and Forest circle (78, 64, radius 7).",
+    "Disable Warfare; spawn 1000 Humans at (64, 64); ordinary fixed ticks. Forced population is explicit test assistance.",
+    "Apply Fire at (67, 65), radius 3, after 1200 completed ticks; apply Rain at the same center, radius 8, after 1280 completed ticks.",
+    "Validate every 100 iterations; count activity for each living unit after every tick. No skipped ticks."
+  ],
+  "taskSamples": {
+    "Idle": 23983,
+    "Wander": 0,
+    "Gather": 429153,
+    "Farm": 2389953,
+    "Return": 973777,
+    "Fight": 0,
+    "Flee": 13250,
+    "Eat": 171069,
+    "Rest": 439220,
+    "Socialize": 54716,
+    "Patrol": 504879
+  },
+  "sourceHashes": [
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "41974172fde2b7338c8a7ee048684ca40f263493b14897bb27bca89e6330aa96"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "de85f90e81ee47abe5225f2dd7380481601e578c85ced569c0d4852af05e61b7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "63f226a93154cb8ec87bae947b87a85480c37ca88cf38bcad7aa8d907af9d575"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "bf2af920d8f38d4c646ff0b95338a1572dcbbd2fe641a6adabcaf9a2e729f816"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "7612e16b1a92c3b44a033e37f776a872b2a1776d43980932416799931d1ce003"
+    }
+  ],
+  "limitations": [
+    "Per-tick timing measured with Stopwatch under .NET; not Unity Mono/IL2CPP.",
+    "Allocation includes audit arrays and state validations, not just simulation.",
+    "This is 500 simulated seconds offline, not 30 minutes of Player stability."
+  ]
+}

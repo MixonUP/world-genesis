@@ -1,0 +1,21 @@
+{
+    "Type": "native Unity gameplay capture",
+    "Utc": "2026-10-12T09:08:54.1068752Z",
+    "UnityVersion": "6000.0.45f1",
+    "Image": "20261012-120810-citizens-1000.png",
+    "Preset": "Island",
+    "Seed": 1618033,
+    "Width": 128,
+    "Height": 128,
+    "Population": 1012,
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "Tick": 424,
+    "Speed": 1.0,
+    "CameraX": 47.81892013549805,
+    "CameraY": 42.07066345214844,
+    "OrthographicSize": 16.395931243896486,
+    "Paused": false,
+    "AutomaticCapture": true,
+    "AssistedFraming": false
+}

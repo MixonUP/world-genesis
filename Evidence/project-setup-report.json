@@ -1,9 +1,9 @@
 ﻿{
     "schemaVersion":  1,
-    "timestamp":  "2026-10-12T03:27:45.4885133+03:00",
+    "timestamp":  "2026-10-12T12:12:34.6037853+03:00",
     "scope":  "Project organization and file scaffold only",
     "passed":  true,
-    "checkCount":  177,
+    "checkCount":  259,
     "failures":  [
 
                  ],
@@ -294,9 +294,24 @@
                        "detail":  "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.45f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\UGUI\\UnityEngine.UI.asmdef"
                    },
                    {
+                       "id":  "link:README.md:Docs/STATE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
+                   },
+                   {
                        "id":  "link:README.md:Docs/Development/PLAY_GUIDE.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Development/CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/ACCEPTANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
                    },
                    {
                        "id":  "link:README.md:Docs/Development/ALPHA_REPORT.md",
@@ -304,9 +319,19 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
                    },
                    {
-                       "id":  "link:README.md:Docs/ACCEPTANCE.md",
+                       "id":  "link:README.md:Docs/Design/ECONOMY_AND_PROFESSIONS.md",
                        "passed":  true,
-                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\ACCEPTANCE.md"
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Design/TECHNOLOGY_TREE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TECHNOLOGY_TREE.md"
+                   },
+                   {
+                       "id":  "link:README.md:Docs/Design/NPC_INTELLIGENCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\NPC_INTELLIGENCE.md"
                    },
                    {
                        "id":  "link:README.md:Docs/00_INDEX.md",
@@ -369,6 +394,36 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
                    },
                    {
+                       "id":  "link:00_INDEX.md:Design/ECONOMY_AND_PROFESSIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Design/SETTLEMENT_PROGRESSION.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\SETTLEMENT_PROGRESSION.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Design/WILDLIFE_AND_TRADE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_AND_TRADE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Design/NPC_INTELLIGENCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\NPC_INTELLIGENCE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Design/TECHNOLOGY_TREE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TECHNOLOGY_TREE.md"
+                   },
+                   {
+                       "id":  "link:00_INDEX.md:Research/SETTLEMENT_POLITICS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\SETTLEMENT_POLITICS.md"
+                   },
+                   {
                        "id":  "link:00_INDEX.md:Development/README.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
@@ -419,6 +474,11 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
                    },
                    {
+                       "id":  "link:00_INDEX.md:Development/CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
+                   },
+                   {
                        "id":  "link:00_INDEX.md:Research/README.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
@@ -457,6 +517,16 @@
                        "id":  "link:ACCEPTANCE.md:Development/ALPHA_REPORT.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ALPHA_REPORT.md"
+                   },
+                   {
+                       "id":  "link:ACCEPTANCE.md:Development/CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
+                   },
+                   {
+                       "id":  "link:ACCEPTANCE.md:Development/CIVILIAN_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CIVILIAN_REVIEW.md"
                    },
                    {
                        "id":  "link:ARCHITECTURE.md:Development/README.md",
@@ -517,6 +587,16 @@
                        "id":  "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+                   },
+                   {
+                       "id":  "link:STATE.md:Development/PLAY_GUIDE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:STATE.md:Development/CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
                    },
                    {
                        "id":  "link:WORKFLOW.md:C:/Users/ohrem_6c67u02/.codex/skills/production-brief-architect/SKILL.md",
@@ -594,6 +674,161 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
                    },
                    {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/goods.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\goods.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/roles.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\roles.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/recipes.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\recipes.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/buildings.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\buildings.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/building_tiers.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\building_tiers.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/natural_sources.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\natural_sources.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/bootstrap.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\bootstrap.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/settlement_tiers.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\settlement_tiers.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/wildlife.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\wildlife.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:WILDLIFE_AND_TRADE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_AND_TRADE.md"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/military_loadouts.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\military_loadouts.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../../SourceAssets/Design/civil_defense.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\civil_defense.csv"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../Research/CITIZEN_BEHAVIOR.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Research\\CITIZEN_BEHAVIOR.md"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:NPC_INTELLIGENCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\NPC_INTELLIGENCE.md"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:TECHNOLOGY_TREE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\TECHNOLOGY_TREE.md"
+                   },
+                   {
+                       "id":  "link:ECONOMY_AND_PROFESSIONS.md:../Research/SETTLEMENT_POLITICS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Research\\SETTLEMENT_POLITICS.md"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:ECONOMY_AND_PROFESSIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:WILDLIFE_AND_TRADE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\WILDLIFE_AND_TRADE.md"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:../../SourceAssets/Design/building_tiers.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\building_tiers.csv"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:../../SourceAssets/Design/settlement_tiers.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\settlement_tiers.csv"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:../../SourceAssets/Design/military_loadouts.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\military_loadouts.csv"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_PROGRESSION.md:../../SourceAssets/Design/civil_defense.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\civil_defense.csv"
+                   },
+                   {
+                       "id":  "link:TECHNOLOGY_TREE.md:../../SourceAssets/Design/technologies.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\technologies.csv"
+                   },
+                   {
+                       "id":  "link:TECHNOLOGY_TREE.md:ECONOMY_AND_PROFESSIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:TECHNOLOGY_TREE.md:NPC_INTELLIGENCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\NPC_INTELLIGENCE.md"
+                   },
+                   {
+                       "id":  "link:TECHNOLOGY_TREE.md:../../SourceAssets/Design/military_loadouts.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\military_loadouts.csv"
+                   },
+                   {
+                       "id":  "link:TECHNOLOGY_TREE.md:../../Evidence/Design/technology-check.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Design\\technology-check.json"
+                   },
+                   {
+                       "id":  "link:WILDLIFE_AND_TRADE.md:../../SourceAssets/Design/wildlife.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\wildlife.csv"
+                   },
+                   {
+                       "id":  "link:WILDLIFE_AND_TRADE.md:../../SourceAssets/Design/natural_sources.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\natural_sources.csv"
+                   },
+                   {
+                       "id":  "link:WILDLIFE_AND_TRADE.md:ECONOMY_AND_PROFESSIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:WILDLIFE_AND_TRADE.md:../../SourceAssets/Design/military_loadouts.csv",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\SourceAssets\\Design\\military_loadouts.csv"
+                   },
+                   {
                        "id":  "link:2026-10-12-implementation-start.md:AGENT_ROLES.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
@@ -649,6 +884,126 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
                    },
                    {
+                       "id":  "link:CITIZENS_REPORT.md:../../SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\SourceAssets\\ThirdParty\\TinySwordsCC0\\PROVENANCE.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Research/CHARACTER_ASSETS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\CHARACTER_ASSETS.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Simulation/civilian-militia-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\civilian-militia-probe.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/20261012-115630-927-editmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-115630-927-editmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/20261012-120424-294-playmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-120424-294-playmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/build-report.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\build-report.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Simulation/citizen-behavior-longrun.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\citizen-behavior-longrun.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Simulation/citizen-behavior-edge-review.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\citizen-behavior-edge-review.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Development/snapshot-citizens-release-v020.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\snapshot-citizens-release-v020.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:CIVILIAN_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CIVILIAN_REVIEW.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Captures/20261012-120700-civilian-release.mp4",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-120700-civilian-release.mp4"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Captures/20261012-120810-citizens-1000-profile.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-120810-citizens-1000-profile.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Design/ECONOMY_AND_PROFESSIONS.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\ECONOMY_AND_PROFESSIONS.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Design/SETTLEMENT_PROGRESSION.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\SETTLEMENT_PROGRESSION.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Design/WILDLIFE_AND_TRADE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\WILDLIFE_AND_TRADE.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Design/TECHNOLOGY_TREE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\TECHNOLOGY_TREE.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../Design/NPC_INTELLIGENCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\NPC_INTELLIGENCE.md"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Design/economy-design-validation.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Design\\economy-design-validation.json"
+                   },
+                   {
+                       "id":  "link:CITIZENS_REPORT.md:../../Evidence/Design/technology-check.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Design\\technology-check.json"
+                   },
+                   {
+                       "id":  "link:CIVILIAN_REVIEW.md:../../Evidence/20261012-120233-432-playmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-120233-432-playmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:CIVILIAN_REVIEW.md:../../Evidence/20261012-120424-294-playmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-120424-294-playmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:CIVILIAN_REVIEW.md:../../Evidence/Simulation/civilian-militia-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\civilian-militia-probe.json"
+                   },
+                   {
+                       "id":  "link:CIVILIAN_REVIEW.md:../../Evidence/20261012-115630-927-editmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-115630-927-editmode\\tests.xml"
+                   },
+                   {
+                       "id":  "link:CIVILIAN_REVIEW.md:../../Evidence/20261012-115731-556-playmode/tests.xml",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261012-115731-556-playmode\\tests.xml"
+                   },
+                   {
                        "id":  "link:PLAY_GUIDE.md:README.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\README.md"
@@ -677,6 +1032,16 @@
                        "id":  "link:README.md:PLAY_GUIDE.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
+                   },
+                   {
+                       "id":  "link:README.md:CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CITIZENS_REPORT.md"
+                   },
+                   {
+                       "id":  "link:README.md:CIVILIAN_REVIEW.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\CIVILIAN_REVIEW.md"
                    },
                    {
                        "id":  "link:README.md:2026-10-12-implementation-start.md",
@@ -834,6 +1199,46 @@
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\agent-comparison-template.csv"
                    },
                    {
+                       "id":  "link:CHARACTER_ASSETS.md:../../SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\SourceAssets\\ThirdParty\\TinySwordsCC0\\PROVENANCE.md"
+                   },
+                   {
+                       "id":  "link:CHARACTER_ASSETS.md:../../SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\SourceAssets\\ThirdParty\\TinySwordsCC0\\PROVENANCE.md"
+                   },
+                   {
+                       "id":  "link:CHARACTER_ASSETS.md:../Development/CITIZENS_REPORT.md",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\CITIZENS_REPORT.md"
+                   },
+                   {
+                       "id":  "link:CITIZEN_BEHAVIOR.md:../../Evidence/Simulation/citizen-behavior-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\citizen-behavior-probe.json"
+                   },
+                   {
+                       "id":  "link:CITIZEN_BEHAVIOR.md:../../Evidence/Simulation/citizen-behavior-longrun.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\citizen-behavior-longrun.json"
+                   },
+                   {
+                       "id":  "link:CITIZEN_BEHAVIOR.md:../../Evidence/Simulation/citizen-behavior-edge-review.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\citizen-behavior-edge-review.json"
+                   },
+                   {
+                       "id":  "link:CITIZEN_BEHAVIOR.md:../../Evidence/Simulation/civilian-militia-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\civilian-militia-probe.json"
+                   },
+                   {
+                       "id":  "link:CITIZEN_BEHAVIOR.md:../../Evidence/Simulation/civilian-militia-source-receipt.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\civilian-militia-source-receipt.json"
+                   },
+                   {
                        "id":  "link:PROCEDURAL_FORMULAS.md:../../Evidence/Research/2026-10-12/procgen-probe.json",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Research\\2026-10-12\\procgen-probe.json"
@@ -877,6 +1282,11 @@
                        "id":  "link:README.md:IMPLEMENTATION_ROUTE.md",
                        "passed":  true,
                        "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\IMPLEMENTATION_ROUTE.md"
+                   },
+                   {
+                       "id":  "link:SETTLEMENT_POLITICS.md:../../Evidence/Simulation/settlement-politics-probe.json",
+                       "passed":  true,
+                       "detail":  "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Simulation\\settlement-politics-probe.json"
                    },
                    {
                        "id":  "link:README.md:Research/procgen_probe.py",

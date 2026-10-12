@@ -21,7 +21,7 @@ namespace WorldGenesis.Editor
             EditorSettings.defaultBehaviorMode = EditorBehaviorMode.Mode2D;
             PlayerSettings.companyName = "World Genesis Project";
             PlayerSettings.productName = "World Genesis";
-            PlayerSettings.bundleVersion = "0.1.0";
+            PlayerSettings.bundleVersion = "0.2.0";
             PlayerSettings.defaultScreenWidth = 1600;
             PlayerSettings.defaultScreenHeight = 900;
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
@@ -70,7 +70,12 @@ namespace WorldGenesis.Editor
         {
             Prepare();
             string root = Directory.GetParent(Application.dataPath).Parent.FullName;
-            string output = Path.Combine(root, "Builds", "Windows", "WorldGenesis.exe");
+            string[] arguments = Environment.GetCommandLineArgs();
+            int rootIndex = Array.IndexOf(arguments, "--artifact-root");
+            if (rootIndex >= 0 && rootIndex + 1 < arguments.Length)
+                root = Path.GetFullPath(arguments[rootIndex + 1]);
+            string relativeOutput = "Builds/Windows-" + PlayerSettings.bundleVersion + "/WorldGenesis.exe";
+            string output = Path.Combine(root, relativeOutput);
             Directory.CreateDirectory(Path.GetDirectoryName(output));
             BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
@@ -85,7 +90,7 @@ namespace WorldGenesis.Editor
                 result = report.summary.result.ToString(), errors = report.summary.totalErrors,
                 warnings = report.summary.totalWarnings, bytes = report.summary.totalSize,
                 seconds = report.summary.totalTime.TotalSeconds,
-                output = "Builds/Windows/WorldGenesis.exe"
+                output = relativeOutput
             }, true));
             if (report.summary.result != BuildResult.Succeeded)
                 throw new InvalidOperationException("Windows build failed: " + report.summary.result);

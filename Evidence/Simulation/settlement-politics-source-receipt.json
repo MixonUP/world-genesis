@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-12T08:36:54.2987017Z",
+  "scope": "Pure C# settlement politics implementation and regression probe; native Unity verification delegated to integrator",
+  "probe": "Evidence/Simulation/settlement-politics-probe.json",
+  "passed": 43,
+  "failed": 0,
+  "newNUnitTests": 5,
+  "politicsVersion": 1,
+  "schemaVersion": 1,
+  "contentVersion": 1,
+  "sourceHashes": [
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "6ccb57ddc68cd8ee3b7816f60cb4580a3186d1bc1c721e65a10581c927d8e3bf"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "779ef6d5924e784211a93c653b7d52ff9a8fd9b5addf0aa45dc75fbd6a535c8e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "cd498ef9828ea37004ec381b4d03c9e8c371e46414c3011c49ce94c798381a7e"
+    },
+    {
+      "path": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "87f82e32484e48324194989a80b2d5a2107285f04cd08a052222bae2ea316f9e"
+    },
+    {
+      "path": "Tools/SimulationProbe/Program.cs",
+      "sha256": "1770ef26ec136b8d47b2237fc036435e76317700d3680fe7247b57012a94fc9a"
+    }
+  ]
+}

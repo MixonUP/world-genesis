@@ -1,0 +1,53 @@
+good_id,name_ru,load_units,nutrition,shelf_life_seconds,base_price_coins,origin
+berries,Ягоды,1,10,1200,1,recipe
+raw_meat,Сырое мясо,2,12,600,2,recipe
+raw_fish,Свежая рыба,1,10,600,2,recipe
+grain,Пшеница,1,10,6000,2,recipe
+flour,Мука,1,0,3000,3,recipe
+bread,Хлеб,1,25,1800,4,recipe
+meal,Готовая еда,1,30,900,5,recipe
+dried_food,Сушёные припасы,1,20,12000,4,recipe
+water,Вода в ёмкости,2,0,1800,1,recipe
+wheat_seed,Семена пшеницы,1,0,0,1,recipe
+flax_seed,Семена льна,1,0,0,1,recipe
+flax_stalk,Стебли льна,1,0,0,1,recipe
+flax_fiber,Льняное волокно,1,0,0,2,recipe
+linen_cloth,Льняная ткань,1,0,0,5,recipe
+hide,Сырая шкура,2,0,1200,3,recipe
+leather,Выделанная кожа,1,0,0,5,recipe
+leather_scrap,Кожаный лоскут,1,0,0,1,recipe
+wood_log,Бревно,4,0,0,2,recipe
+branch,Ветки,1,0,0,1,recipe
+plank,Доска,2,0,0,3,recipe
+firewood,Дрова,1,0,0,1,recipe
+stone,Камень,3,0,0,2,recipe
+flint,Кремень,1,0,0,2,recipe
+clay,Глина,2,0,0,1,recipe
+brick,Кирпич,2,0,0,3,recipe
+iron_ore,Железная руда,3,0,0,3,recipe
+charcoal,Древесный уголь,1,0,0,2,recipe
+iron_ingot,Железный слиток,2,0,0,8,recipe
+steel_ingot,Стальной слиток,2,0,0,16,recipe
+primitive_tool,Примитивный набор инструментов,2,0,0,4,recipe
+iron_tool,Железный набор инструментов,2,0,0,20,recipe
+steel_tool,Стальной набор инструментов,2,0,0,38,recipe
+sword,Меч,2,0,0,30,recipe
+spear,Копьё,2,0,0,14,recipe
+bow,Лук,2,0,0,13,recipe
+arrows,Стрела,0.1,0,0,1,recipe
+leather_armor,Кожаный доспех,4,0,0,27,recipe
+iron_armor,Железный доспех,6,0,0,70,recipe
+steel_armor,Стальной доспех,6,0,0,125,recipe
+linen_clothes,Льняная одежда,2,0,0,13,recipe
+warm_clothes,Тёплая одежда,3,0,0,20,recipe
+boots,Сапоги,2,0,0,12,recipe
+furniture,Комплект мебели,6,0,0,16,recipe
+cart,Ручная тележка,16,0,0,34,recipe
+coin,Монета,0.01,0,0,1,world_treasury
+herbs,Лекарственные травы,1,0,1800,2,recipe
+bark,Кора,1,0,0,1,recipe
+rope,Верёвка,1,0,0,3,recipe
+small_carcass,Малая туша,4,0,600,4,wildlife
+large_carcass,Крупная туша,10,0,600,10,wildlife
+straw,Солома,1,0,0,1,recipe
+tree_seed,Семена дерева,1,0,0,1,recipe

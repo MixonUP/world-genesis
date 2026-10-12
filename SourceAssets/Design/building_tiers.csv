@@ -1,0 +1,156 @@
+building_id,grade,min_settlement_tier,inputs,work_seconds,worker_slots,capacity_load,work_multiplier,special_capacity,visual
+hearth,1,1,branch=6;stone=4,12,1,60,1,0,костёр и брёвна
+hearth,2,2,plank=8;stone=6;straw=4,40,1,90,1.05,0,навес старосты
+hearth,3,3,stone=20;plank=12;iron_ingot=2,65,2,120,1.1,0,общинный дом с очагом
+hearth,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,180,1.15,0,каменный совет
+hearth,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,240,1.2,0,ратуша с башенкой
+house,1,1,branch=8;wood_log=4,24,0,12,1,4,шалаш
+house,2,2,plank=8;stone=6;straw=4,40,0,18,1.05,6,сруб и солома
+house,3,3,stone=20;plank=12;iron_ingot=2,65,0,24,1.1,8,фахверк
+house,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,0,36,1.15,10,каменный дом
+house,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,0,48,1.2,12,дом с мансардой
+storehouse,1,1,branch=6;wood_log=6,24,1,100,1,0,площадка с навесом
+storehouse,2,2,plank=12;stone=9;straw=6,60,1,150,1.05,0,бревенчатый амбар
+storehouse,3,3,stone=30;plank=18;iron_ingot=3,98,2,200,1.1,0,амбар на цоколе
+storehouse,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,300,1.15,0,каменные склады
+storehouse,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,400,1.2,0,двор с краном
+well,1,1,branch=4;stone=4,16,1,16,1,0,береговая ступень
+well,2,2,plank=4;stone=3;straw=2,20,1,24,1.05,0,сруб колодца
+well,3,3,stone=10;plank=6;iron_ingot=1,33,2,32,1.1,0,каменный колодец
+well,4,4,brick=15;plank=8;iron_ingot=2;linen_cloth=1,50,2,48,1.15,0,колодец с воротом
+well,5,5,brick=25;plank=10;steel_ingot=2;furniture=1,75,3,64,1.2,0,водонапорный двор
+ranger_lodge,1,1,wood_log=6;branch=4,24,1,30,1,0,охотничий навес
+ranger_lodge,2,2,plank=6;stone=5;straw=3,30,1,45,1.05,0,лесная хижина
+ranger_lodge,3,3,stone=15;plank=9;iron_ingot=2,49,2,60,1.1,0,дом следопыта
+ranger_lodge,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,90,1.15,0,лесничество
+ranger_lodge,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,120,1.2,0,двор егерей
+logging_camp,1,1,branch=6;stone=2,16,1,40,1,0,чурбак и штабель
+logging_camp,2,2,plank=6;stone=5;straw=3,30,1,60,1.05,0,навес лесорубов
+logging_camp,3,3,stone=15;plank=9;iron_ingot=2,49,2,80,1.1,0,двор брёвен
+logging_camp,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,120,1.15,0,склад с воротом
+logging_camp,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,160,1.2,0,организованный лесной двор
+sawmill,1,1,wood_log=8;stone=4,32,1,50,1,0,козлы и ручная пила
+sawmill,2,2,plank=8;stone=6;straw=4,40,1,75,1.05,0,пильный сарай
+sawmill,3,3,stone=20;plank=12;iron_ingot=2,65,2,100,1.1,0,пильный двор
+sawmill,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,150,1.15,0,крытый механический привод
+sawmill,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,200,1.2,0,крупная лесопильная мастерская
+wheat_farm,1,1,branch=4;stone=2,16,1,30,1,4,грядки с колышками
+wheat_farm,2,2,plank=6;stone=5;straw=3,30,1,45,1.05,6,соломенный навес
+wheat_farm,3,3,stone=15;plank=9;iron_ingot=2,49,2,60,1.1,8,амбар и межи
+wheat_farm,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,90,1.15,10,двор с инвентарём
+wheat_farm,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,120,1.2,12,ферма с зерновыми башнями
+flax_farm,1,2,branch=4;stone=2,16,1,30,1,4,синие цветы и колышки
+flax_farm,2,2,plank=6;stone=5;straw=3,30,1,45,1.05,6,навес со снопами
+flax_farm,3,3,stone=15;plank=9;iron_ingot=2,49,2,60,1.1,8,сушильные рамы
+flax_farm,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,90,1.15,10,каменный двор
+flax_farm,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,120,1.2,12,ферма с крытой сушкой
+fishing_hut,1,1,branch=6;wood_log=4,20,1,24,1,0,помост на берегу
+fishing_hut,2,2,plank=6;stone=5;straw=3,30,1,36,1.05,0,хижина с сетями
+fishing_hut,3,3,stone=15;plank=9;iron_ingot=2,49,2,48,1.1,0,крытый причал
+fishing_hut,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,72,1.15,0,каменный рыбный двор
+fishing_hut,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,96,1.2,0,портовый рыбный рынок
+kitchen,1,1,wood_log=4;stone=6,24,1,32,1,0,стол и котёл
+kitchen,2,2,plank=6;stone=5;straw=3,30,1,48,1.05,0,дымный навес
+kitchen,3,3,stone=15;plank=9;iron_ingot=2,49,2,64,1.1,0,кухня с печью
+kitchen,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,96,1.15,0,каменная кухня
+kitchen,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,128,1.2,0,большая столовая
+quarry,1,1,branch=4;wood_log=4,20,1,40,1,0,отмеченные валуны
+quarry,2,2,plank=6;stone=5;straw=3,30,1,60,1.05,0,забой с навесом
+quarry,3,3,stone=15;plank=9;iron_ingot=2,49,2,80,1.1,0,тележечный забой
+quarry,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,120,1.15,0,каменный двор
+quarry,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,160,1.2,0,подъёмник и сортировка
+mine,1,3,wood_log=8;stone=6,36,1,50,1,0,укреплённый забой
+mine,2,3,plank=12;stone=9;straw=6,60,1,75,1.05,0,штольня с навесом
+mine,3,3,stone=30;plank=18;iron_ingot=3,98,2,100,1.1,0,рудный двор
+mine,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,150,1.15,0,шахтный ворот
+mine,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,200,1.2,0,большой копёр
+charcoal_kiln,1,2,wood_log=4;stone=6,24,1,40,1,0,земляная яма
+charcoal_kiln,2,2,plank=6;stone=5;straw=3,30,1,60,1.05,0,крытый бурт
+charcoal_kiln,3,3,stone=15;plank=9;iron_ingot=2,49,2,80,1.1,0,кирпичная печь
+charcoal_kiln,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,120,1.15,0,батарея печей
+charcoal_kiln,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,160,1.2,0,угольный двор
+smelter,1,3,stone=12;clay=8;wood_log=4,40,1,50,1,0,глинобитный горн
+smelter,2,3,plank=12;stone=9;straw=6,60,1,75,1.05,0,горн с мехами
+smelter,3,3,stone=30;plank=18;iron_ingot=3,98,2,100,1.1,0,кирпичная плавильня
+smelter,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,150,1.15,0,каменный литейный двор
+smelter,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,200,1.2,0,литейный комплекс
+tannery,1,2,wood_log=6;stone=4;plank=2,30,1,30,1,0,рама и чан
+tannery,2,2,plank=8;stone=6;straw=4,40,1,45,1.05,0,навес с рамами
+tannery,3,3,stone=20;plank=12;iron_ingot=2,65,2,60,1.1,0,крытая кожевня
+tannery,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,90,1.15,0,каменные чаны
+tannery,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,120,1.2,0,кожевенный двор
+weavery,1,2,wood_log=6;plank=4,30,1,30,1,0,мялка и рама
+weavery,2,2,plank=8;stone=6;straw=4,40,1,45,1.05,0,дом ткача
+weavery,3,3,stone=20;plank=12;iron_ingot=2,65,2,60,1.1,0,мастерская с сушкой
+weavery,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,90,1.15,0,ткацкий дом
+weavery,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,120,1.2,0,гильдейский ткацкий двор
+smithy,1,3,stone=10;wood_log=6;plank=4,40,1,40,1,0,горн и каменная наковальня
+smithy,2,3,plank=10;stone=8;straw=5,50,1,60,1.05,0,сарай кузнеца
+smithy,3,3,stone=25;plank=15;iron_ingot=3,82,2,80,1.1,0,кузница с трубой
+smithy,4,4,brick=38;plank=20;iron_ingot=5;linen_cloth=3,125,2,120,1.15,0,каменная кузница
+smithy,5,5,brick=63;plank=25;steel_ingot=5;furniture=3,188,3,160,1.2,0,гильдейская кузница
+carpentry,1,2,wood_log=6;plank=4,30,1,50,1,0,верстак под навесом
+carpentry,2,2,plank=8;stone=6;straw=4,40,1,75,1.05,0,дом плотника
+carpentry,3,3,stone=20;plank=12;iron_ingot=2,65,2,100,1.1,0,столярный двор
+carpentry,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,150,1.15,0,каменная мастерская
+carpentry,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,200,1.2,0,гильдейская столярня
+armory,1,2,wood_log=6;plank=4;stone=4,32,1,40,1,0,кожаный стенд
+armory,2,2,plank=10;stone=8;straw=5,50,1,60,1.05,0,сарай бронника
+armory,3,3,stone=25;plank=15;iron_ingot=3,82,2,80,1.1,0,мастерская с манекенами
+armory,4,4,brick=38;plank=20;iron_ingot=5;linen_cloth=3,125,2,120,1.15,0,каменный арсенал
+armory,5,5,brick=63;plank=25;steel_ingot=5;furniture=3,188,3,160,1.2,0,оружейный двор
+tailor,1,2,wood_log=4;plank=4,24,1,24,1,0,стол раскроя
+tailor,2,2,plank=6;stone=5;straw=3,30,1,36,1.05,0,дом портного
+tailor,3,3,stone=15;plank=9;iron_ingot=2,49,2,48,1.1,0,мастерская с вывеской
+tailor,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,72,1.15,0,каменный цех
+tailor,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,96,1.2,0,гильдия портных
+mill,1,2,stone=8;wood_log=6,28,1,40,1,0,ручные жернова
+mill,2,2,plank=8;stone=6;straw=4,40,1,60,1.05,0,мельничный сарай
+mill,3,3,stone=20;plank=12;iron_ingot=2,65,2,80,1.1,0,ветряная мельница
+mill,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,120,1.15,0,каменная мельница
+mill,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,160,1.2,0,мельничный комплекс
+bakery,1,2,stone=8;clay=4;wood_log=4,28,1,40,1,0,глиняная печь
+bakery,2,2,plank=8;stone=6;straw=4,40,1,60,1.05,0,сарай с печью
+bakery,3,3,stone=20;plank=12;iron_ingot=2,65,2,80,1.1,0,пекарня с трубой
+bakery,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,120,1.15,0,каменная пекарня
+bakery,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,160,1.2,0,городская хлебопекарня
+market,1,2,stone=4;branch=6,24,1,20,1,2,утоптанный круг
+market,2,2,plank=12;stone=9;straw=6,60,1,30,1.05,4,площадь с навесами
+market,3,3,stone=30;plank=18;iron_ingot=3,98,2,40,1.1,6,мощёная площадь
+market,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,60,1.15,8,галереи и весы
+market,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,80,1.2,12,торговые ряды
+stall,1,2,plank=4;branch=4,16,1,24,1,0,рогожа и корзины
+stall,2,2,plank=4;stone=3;straw=2,20,1,36,1.05,0,лавка с навесом
+stall,3,3,stone=10;plank=6;iron_ingot=1,33,2,48,1.1,0,деревянный киоск
+stall,4,4,brick=15;plank=8;iron_ingot=2;linen_cloth=1,50,2,72,1.15,0,каменная лавка
+stall,5,5,brick=25;plank=10;steel_ingot=2;furniture=1,75,3,96,1.2,0,дом купца
+caravanserai,1,2,wood_log=8;plank=6,36,1,80,1,1,стоянка тележек
+caravanserai,2,2,plank=12;stone=9;straw=6,60,1,120,1.05,2,постоялый двор
+caravanserai,3,3,stone=30;plank=18;iron_ingot=3,98,2,160,1.1,3,двор с конюшней
+caravanserai,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,240,1.15,4,каменное подворье
+caravanserai,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,320,1.2,6,торговый караван-сарай
+watchtower,1,1,wood_log=6;branch=4,24,1,16,1,0,пост у костра
+watchtower,2,2,plank=8;stone=6;straw=4,40,1,24,1.05,0,деревянная вышка
+watchtower,3,3,stone=20;plank=12;iron_ingot=2,65,2,32,1.1,0,частокол с башней
+watchtower,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,48,1.15,0,каменная башня
+watchtower,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,64,1.2,0,сторожевая крепость
+healer_hut,1,1,wood_log=4;branch=4,20,1,20,1,0,навес с травами
+healer_hut,2,2,plank=6;stone=5;straw=3,30,1,30,1.05,0,хижина лекаря
+healer_hut,3,3,stone=15;plank=9;iron_ingot=2,49,2,40,1.1,0,дом с сушилкой
+healer_hut,4,4,brick=23;plank=12;iron_ingot=3;linen_cloth=2,75,2,60,1.15,0,каменная лечебница
+healer_hut,5,5,brick=38;plank=15;steel_ingot=3;furniture=2,113,3,80,1.2,0,городская лечебница
+brickworks,1,3,clay=8;stone=8;wood_log=4,28,1,50,1,0,глиняная печь
+brickworks,2,3,plank=8;stone=6;straw=4,40,1,75,1.05,0,навес формовки
+brickworks,3,3,stone=20;plank=12;iron_ingot=2,65,2,100,1.1,0,кирпичный двор
+brickworks,4,4,brick=30;plank=16;iron_ingot=4;linen_cloth=2,100,2,150,1.15,0,батарея печей
+brickworks,5,5,brick=50;plank=20;steel_ingot=4;furniture=2,150,3,200,1.2,0,большой кирпичный завод
+temple,1,1,branch=6;stone=6,20,1,30,1,0,священное место у очага
+temple,2,2,plank=12;stone=9;straw=6,60,1,45,1.05,0,деревянная молельня
+temple,3,3,stone=30;plank=18;iron_ingot=3,98,2,60,1.1,0,храм с двором
+temple,4,4,brick=45;plank=24;iron_ingot=6;linen_cloth=3,150,2,90,1.15,0,каменный храм
+temple,5,5,brick=75;plank=30;steel_ingot=6;furniture=3,225,3,120,1.2,0,большой храмовый комплекс
+university,1,2,wood_log=8;plank=6;furniture=2,36,1,30,1,0,учебный навес
+university,2,2,plank=16;stone=12;straw=8,80,1,45,1.05,0,дом учителя
+university,3,3,stone=40;plank=24;iron_ingot=4,130,2,60,1.1,0,школа с библиотекой
+university,4,4,brick=60;plank=32;iron_ingot=8;linen_cloth=4,200,2,90,1.15,0,каменная академия
+university,5,5,brick=100;plank=40;steel_ingot=8;furniture=4,300,3,120,1.2,0,университетский двор

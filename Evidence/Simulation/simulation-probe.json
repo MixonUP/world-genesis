@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-12T00:09:51.2110104Z",
+  "utc": "2026-10-12T07:03:33.1590591Z",
   "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
   "framework": ".NET 8.0.20",
   "total": 32,
@@ -8,162 +8,162 @@
     {
       "name": "same seed creates identical complete world",
       "passed": true,
-      "milliseconds": 190.3868
+      "milliseconds": 233.7355
     },
     {
       "name": "generator invariants Island / 0",
       "passed": true,
-      "milliseconds": 4.395
+      "milliseconds": 6.6467
     },
     {
       "name": "generator invariants Island / 1",
       "passed": true,
-      "milliseconds": 2.5052
+      "milliseconds": 5.2309
     },
     {
       "name": "generator invariants Island / -1",
       "passed": true,
-      "milliseconds": 4.3143
+      "milliseconds": 5.2151
     },
     {
       "name": "generator invariants Island / 713",
       "passed": true,
-      "milliseconds": 2.0509
+      "milliseconds": 5.0969
     },
     {
       "name": "generator invariants Island / 20261012",
       "passed": true,
-      "milliseconds": 2.142
+      "milliseconds": 5.3942
     },
     {
       "name": "generator invariants Island / -2147483648",
       "passed": true,
-      "milliseconds": 1.9994
+      "milliseconds": 5.1868
     },
     {
       "name": "generator invariants Island / 2147483647",
       "passed": true,
-      "milliseconds": 2.0951
+      "milliseconds": 5.196
     },
     {
       "name": "generator invariants Archipelago / 0",
       "passed": true,
-      "milliseconds": 2.0968
+      "milliseconds": 5.9343
     },
     {
       "name": "generator invariants Archipelago / 1",
       "passed": true,
-      "milliseconds": 2.0471
+      "milliseconds": 5.2213
     },
     {
       "name": "generator invariants Archipelago / -1",
       "passed": true,
-      "milliseconds": 2.0992
+      "milliseconds": 5.1883
     },
     {
       "name": "generator invariants Archipelago / 713",
       "passed": true,
-      "milliseconds": 2.0217
+      "milliseconds": 5.1648
     },
     {
       "name": "generator invariants Archipelago / 20261012",
       "passed": true,
-      "milliseconds": 2.0397
+      "milliseconds": 5.4548
     },
     {
       "name": "generator invariants Archipelago / -2147483648",
       "passed": true,
-      "milliseconds": 2.0933
+      "milliseconds": 5.2771
     },
     {
       "name": "generator invariants Archipelago / 2147483647",
       "passed": true,
-      "milliseconds": 2.0286
+      "milliseconds": 5.1713
     },
     {
       "name": "generator invariants Continent / 0",
       "passed": true,
-      "milliseconds": 2.212
+      "milliseconds": 5.5508
     },
     {
       "name": "generator invariants Continent / 1",
       "passed": true,
-      "milliseconds": 3.1594
+      "milliseconds": 7.9496
     },
     {
       "name": "generator invariants Continent / -1",
       "passed": true,
-      "milliseconds": 2.4729
+      "milliseconds": 5.972
     },
     {
       "name": "generator invariants Continent / 713",
       "passed": true,
-      "milliseconds": 2.4634
+      "milliseconds": 5.9155
     },
     {
       "name": "generator invariants Continent / 20261012",
       "passed": true,
-      "milliseconds": 2.5593
+      "milliseconds": 6.4477
     },
     {
       "name": "generator invariants Continent / -2147483648",
       "passed": true,
-      "milliseconds": 2.697
+      "milliseconds": 6.8503
     },
     {
       "name": "generator invariants Continent / 2147483647",
       "passed": true,
-      "milliseconds": 3.1178
+      "milliseconds": 7.2903
     },
     {
       "name": "non-square maps, smallest and largest dimensions",
       "passed": true,
-      "milliseconds": 4.3988
+      "milliseconds": 10.9022
     },
     {
       "name": "invalid map dimensions rejected",
       "passed": true,
-      "milliseconds": 1.5568
+      "milliseconds": 1.5199
     },
     {
       "name": "simulation state remains valid with civilization development",
       "passed": true,
-      "milliseconds": 305.5914
+      "milliseconds": 685.5063
     },
     {
       "name": "full save and continued simulation stay identical",
       "passed": true,
-      "milliseconds": 168.025
+      "milliseconds": 256.3538
     },
     {
       "name": "fire rain and meteor affect actual state",
       "passed": true,
-      "milliseconds": 73.9749
+      "milliseconds": 87.6924
     },
     {
       "name": "painting at and beyond boundaries is safe",
       "passed": true,
-      "milliseconds": 7.6798
+      "milliseconds": 21.1834
     },
     {
       "name": "corrupt dimensions, references and nonfinite state rejected",
       "passed": true,
-      "milliseconds": 26.4714
+      "milliseconds": 76.8472
     },
     {
       "name": "bounded core load / 100 units",
       "passed": true,
-      "milliseconds": 12.9063
+      "milliseconds": 45.4259
     },
     {
       "name": "bounded core load / 500 units",
       "passed": true,
-      "milliseconds": 42.9169
+      "milliseconds": 237.932
     },
     {
       "name": "bounded core load / 1000 units",
       "passed": true,
-      "milliseconds": 117.7192
+      "milliseconds": 739.8385
     }
   ],
   "metrics": [
@@ -177,7 +177,7 @@
       "scenario": "core-only-100-ticks",
       "requestedUnits": 100,
       "finalUnits": 100,
-      "milliseconds": 5.6825,
+      "milliseconds": 25.7613,
       "mapWidth": 128,
       "mapHeight": 128
     },
@@ -185,7 +185,7 @@
       "scenario": "core-only-100-ticks",
       "requestedUnits": 500,
       "finalUnits": 500,
-      "milliseconds": 35.5266,
+      "milliseconds": 214.7798,
       "mapWidth": 128,
       "mapHeight": 128
     },
@@ -193,7 +193,7 @@
       "scenario": "core-only-100-ticks",
       "requestedUnits": 1000,
       "finalUnits": 1000,
-      "milliseconds": 109.3268,
+      "milliseconds": 718.2653,
       "mapWidth": 128,
       "mapHeight": 128
     }

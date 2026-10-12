@@ -1,14 +1,19 @@
 [CmdletBinding()]
-param()
+param([ValidatePattern('^\d+\.\d+\.\d+-alpha$')][string]$Version='0.2.0-alpha', [string]$BuildFolder='Windows-0.2.0')
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$build=Join-Path $root 'Builds\Windows'
-$archive=Join-Path $root 'Builds\WorldGenesis-v0.1.0-alpha-win64.zip'
+$build=[IO.Path]::GetFullPath((Join-Path $root ('Builds/'+$BuildFolder)))
+if(-not $build.StartsWith((Join-Path $root 'Builds')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) { throw 'Build folder must be inside Builds.' }
+$archive=Join-Path $root ('Builds/WorldGenesis-v'+$Version+'-win64.zip')
 foreach ($required in @('WorldGenesis.exe','UnityPlayer.dll','WorldGenesis_Data\Managed\WorldGenesis.Runtime.dll')) {
     if (-not (Test-Path -LiteralPath (Join-Path $build $required))) { throw "Missing build component: $required" }
 }
 Copy-Item -LiteralPath (Join-Path $root 'Docs\Development\PLAY_GUIDE.md') -Destination (Join-Path $build 'PLAY_GUIDE-RU.md')
-Copy-Item -LiteralPath (Join-Path $root 'Docs\Development\ALPHA_REPORT.md') -Destination (Join-Path $build 'ALPHA_REPORT.md')
+$report=if($Version -eq '0.1.0-alpha') {'ALPHA_REPORT.md'} else {'CITIZENS_REPORT.md'}
+Copy-Item -LiteralPath (Join-Path $root ('Docs/Development/'+$report)) -Destination (Join-Path $build $report)
+if ($Version -ne '0.1.0-alpha') {
+    Copy-Item -LiteralPath (Join-Path $root 'SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md') -Destination (Join-Path $build 'THIRD-PARTY-ART.md')
+}
 $files=@(Get-ChildItem -LiteralPath $build -Recurse -File | Sort-Object FullName | ForEach-Object {
     [ordered]@{path=$_.FullName.Substring($build.Length+1).Replace('\','/');bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}
 })
@@ -36,7 +41,7 @@ try {
 }
 finally { $zip.Dispose() }
 $archiveHash=(Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
-[ordered]@{utc=[DateTime]::UtcNow.ToString('o');version='0.1.0-alpha';archive=[IO.Path]::GetFileName($archive);archiveBytes=(Get-Item -LiteralPath $archive).Length;archiveSHA256=$archiveHash;verification='Every ZIP file read back and SHA256 compared with native build.';files=$files} |
-    ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $root 'Evidence\Development\alpha-package.json') -Encoding UTF8
+[ordered]@{utc=[DateTime]::UtcNow.ToString('o');version=$Version;archive=[IO.Path]::GetFileName($archive);archiveBytes=(Get-Item -LiteralPath $archive).Length;archiveSHA256=$archiveHash;verification='Every ZIP file read back and SHA256 compared with native build.';files=$files} |
+    ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $root ('Evidence/Development/package-'+$Version+'.json')) -Encoding UTF8
 Set-Content -LiteralPath ($archive+'.sha256') -Value ($archiveHash+'  '+[IO.Path]::GetFileName($archive)) -Encoding ASCII
 Write-Output "Verified complete Windows archive: $archive"

@@ -91,6 +91,65 @@ namespace WorldGenesis.Tests
             LogAssert.NoUnexpectedReceived();
         }
 
+        [UnityTest]
+        public IEnumerator ImportedCitizensRenderAndTheirMeshFreezesOnPause()
+        {
+            MeshFilter humanMesh = null;
+            foreach (MeshFilter candidate in game.GetComponentsInChildren<MeshFilter>())
+                if (candidate.name == "Animated human citizens") humanMesh = candidate;
+            Assert.NotNull(humanMesh, "Imported characters must render in the production scene.");
+            Assert.Greater(humanMesh.sharedMesh.vertexCount, 0);
+            foreach (UnitData resident in game.World.Units)
+            {
+                Assert.AreNotEqual(UnitProfession.Guard, resident.Profession, "Founding a settlement cannot recruit soldiers or grant equipment.");
+                Assert.IsFalse(CitizenSprites.ResolvePose(game.World, resident, Vector2.right).Warrior, "Starting residents must not appear in armour.");
+            }
+            Texture texture = humanMesh.GetComponent<MeshRenderer>().sharedMaterial.mainTexture;
+            Assert.Greater(texture.width, 256, "A real multi-frame citizen atlas must be present.");
+            Assert.AreEqual(FilterMode.Point, texture.filterMode);
+            Vector2[] uv = humanMesh.sharedMesh.uv;
+            Vector3[] vertices = humanMesh.sharedMesh.vertices;
+            yield return new WaitForSecondsRealtime(.4f);
+            CollectionAssert.AreEqual(uv, humanMesh.sharedMesh.uv, "Pause must freeze animation frames.");
+            CollectionAssert.AreEqual(vertices, humanMesh.sharedMesh.vertices, "Pause must freeze citizen placement.");
+            Sprite portrait = game.View.CreateHumanIcon();
+            Assert.AreSame(texture, portrait.texture);
+            Object.Destroy(portrait);
+            LogAssert.NoUnexpectedReceived();
+        }
+
+        [UnityTest]
+        public IEnumerator CitizenFramesDistinguishTravelWorkCargoAndActualHits()
+        {
+            WorldState world = WorldGenerator.Generate(31, 16, 16);
+            UnitData unit = new UnitData { Id = 4, Age = 25, Profession = UnitProfession.Forester, Task = UnitTask.Gather, TargetCell = 100 };
+            world.Cells[100].Vegetation = 1; world.Cells[100].Fire = 0;
+            unit.Path.Add(100);
+            Assert.AreEqual(1, CitizenSprites.ResolvePose(world, unit, Vector2.right).Row, "Approaching a tree is walking.");
+            unit.PathCursor = 1;
+            Assert.AreEqual(3, CitizenSprites.ResolvePose(world, unit, Vector2.right).Row, "Working at the tree uses the chop clip.");
+            unit.Task = UnitTask.Return; unit.CarriedWood = 2; unit.PathCursor = 0;
+            Assert.AreEqual(5, CitizenSprites.ResolvePose(world, unit, Vector2.left).Row, "Loaded travel uses the carry loop.");
+            Assert.IsTrue(CitizenSprites.ResolvePose(world, unit, Vector2.left).FlipX);
+            unit.Path.Clear(); unit.Task = UnitTask.Fight; unit.AttackTimer = .8f;
+            CitizenSprites.Pose militiaHit = CitizenSprites.ResolvePose(world, unit, Vector2.up);
+            Assert.IsFalse(militiaHit.Warrior, "Self-defence cannot equip armour.");
+            Assert.AreEqual(0, militiaHit.Row, "Militia cannot acquire an authored weapon from a work/cargo clip.");
+            Assert.Greater(militiaHit.StrikeOffset.y, .1f, "An actual civilian hit must show a short lunge toward its target.");
+            Assert.Greater(CitizenSprites.ResolvePose(world, unit, Vector2.zero).StrikeOffset.magnitude, .1f, "Overlapping fighters still need visible hit feedback.");
+            Assert.AreEqual(UnitProfession.Forester, unit.Profession);
+            unit.AttackTimer = .4f;
+            Assert.AreEqual(Vector2.zero, CitizenSprites.ResolvePose(world, unit, Vector2.up).StrikeOffset, "Recovery cannot repeat the hit.");
+            // Synthetic art fixture only: this reserved sheet is not available through
+            // recruitment until research and physical equipment issuance are implemented.
+            unit.Profession = UnitProfession.Guard; unit.Task = UnitTask.Fight; unit.AttackTimer = .8f;
+            CitizenSprites.Pose hit = CitizenSprites.ResolvePose(world, unit, Vector2.up);
+            Assert.AreEqual(6, hit.Row); Assert.AreEqual(3, hit.Frame);
+            unit.Path.Clear(); unit.AttackTimer = .4f;
+            Assert.AreEqual(0, CitizenSprites.ResolvePose(world, unit, Vector2.up).Row, "Cooldown cannot invent another attack.");
+            yield return null;
+        }
+
         private Button FindButton(string label)
         {
             foreach (Button button in game.GetComponentsInChildren<Button>())

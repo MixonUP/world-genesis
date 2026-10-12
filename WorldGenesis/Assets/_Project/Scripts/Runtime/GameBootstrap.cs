@@ -81,6 +81,16 @@ namespace WorldGenesis.Runtime
                 SettlementData settlement = World.Settlements[0]; FocusWorldPoint(new Vector2(settlement.X + .5f, settlement.Y + .5f), requestedZoom); InspectX = settlement.X; InspectY = settlement.Y; assistedFraming = true;
             }
             else if (zoomIndex >= 0) { FocusWorldPoint(new Vector2(World.Width * .5f, World.Height * .5f), requestedZoom); assistedFraming = true; }
+            if (Array.IndexOf(arguments, "--inspect-citizen") >= 0)
+            {
+                foreach (UnitData unit in World.Units)
+                {
+                    if (unit.Species != SpeciesType.Human || unit.Age < 16) continue;
+                    SelectedUnitId = unit.Id; InspectX = (int)unit.X; InspectY = (int)unit.Y;
+                    hud.Refresh(true); break;
+                }
+            }
+            if (Array.IndexOf(arguments, "--capture-motion") >= 0) gameObject.AddComponent<MotionCapture>();
             Debug.Log("World Genesis ready. Seed=" + World.Seed + "; size=" + World.Width + "x" + World.Height + "; save path=" + SaveStore.DefaultPath);
         }
 

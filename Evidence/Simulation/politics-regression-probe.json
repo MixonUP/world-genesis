@@ -1,0 +1,231 @@
+{
+  "utc": "2026-10-12T08:33:58.8195958Z",
+  "scope": "Production C# Simulation under .NET 8. No Unity rendering/input/performance claim.",
+  "framework": ".NET 8.0.20",
+  "total": 38,
+  "failed": 0,
+  "results": [
+    {
+      "name": "same seed creates identical complete world",
+      "passed": true,
+      "milliseconds": 232.0645
+    },
+    {
+      "name": "generator invariants Island / 0",
+      "passed": true,
+      "milliseconds": 6.4132
+    },
+    {
+      "name": "generator invariants Island / 1",
+      "passed": true,
+      "milliseconds": 5.756
+    },
+    {
+      "name": "generator invariants Island / -1",
+      "passed": true,
+      "milliseconds": 5.1757
+    },
+    {
+      "name": "generator invariants Island / 713",
+      "passed": true,
+      "milliseconds": 5.0561
+    },
+    {
+      "name": "generator invariants Island / 20261012",
+      "passed": true,
+      "milliseconds": 5.4558
+    },
+    {
+      "name": "generator invariants Island / -2147483648",
+      "passed": true,
+      "milliseconds": 5.1676
+    },
+    {
+      "name": "generator invariants Island / 2147483647",
+      "passed": true,
+      "milliseconds": 5.1755
+    },
+    {
+      "name": "generator invariants Archipelago / 0",
+      "passed": true,
+      "milliseconds": 5.2861
+    },
+    {
+      "name": "generator invariants Archipelago / 1",
+      "passed": true,
+      "milliseconds": 5.1577
+    },
+    {
+      "name": "generator invariants Archipelago / -1",
+      "passed": true,
+      "milliseconds": 5.1369
+    },
+    {
+      "name": "generator invariants Archipelago / 713",
+      "passed": true,
+      "milliseconds": 5.165
+    },
+    {
+      "name": "generator invariants Archipelago / 20261012",
+      "passed": true,
+      "milliseconds": 5.1916
+    },
+    {
+      "name": "generator invariants Archipelago / -2147483648",
+      "passed": true,
+      "milliseconds": 5.2529
+    },
+    {
+      "name": "generator invariants Archipelago / 2147483647",
+      "passed": true,
+      "milliseconds": 5.2179
+    },
+    {
+      "name": "generator invariants Continent / 0",
+      "passed": true,
+      "milliseconds": 5.5672
+    },
+    {
+      "name": "generator invariants Continent / 1",
+      "passed": true,
+      "milliseconds": 7.5243
+    },
+    {
+      "name": "generator invariants Continent / -1",
+      "passed": true,
+      "milliseconds": 5.8761
+    },
+    {
+      "name": "generator invariants Continent / 713",
+      "passed": true,
+      "milliseconds": 5.9566
+    },
+    {
+      "name": "generator invariants Continent / 20261012",
+      "passed": true,
+      "milliseconds": 6.1656
+    },
+    {
+      "name": "generator invariants Continent / -2147483648",
+      "passed": true,
+      "milliseconds": 6.3599
+    },
+    {
+      "name": "generator invariants Continent / 2147483647",
+      "passed": true,
+      "milliseconds": 7.3487
+    },
+    {
+      "name": "non-square maps, smallest and largest dimensions",
+      "passed": true,
+      "milliseconds": 11.0218
+    },
+    {
+      "name": "invalid map dimensions rejected",
+      "passed": true,
+      "milliseconds": 1.5015
+    },
+    {
+      "name": "simulation state remains valid with civilization development",
+      "passed": true,
+      "milliseconds": 657.5414
+    },
+    {
+      "name": "full save and continued simulation stay identical",
+      "passed": true,
+      "milliseconds": 242.6411
+    },
+    {
+      "name": "fire rain and meteor affect actual state",
+      "passed": true,
+      "milliseconds": 110.5509
+    },
+    {
+      "name": "painting at and beyond boundaries is safe",
+      "passed": true,
+      "milliseconds": 20.5512
+    },
+    {
+      "name": "corrupt dimensions, references and nonfinite state rejected",
+      "passed": true,
+      "milliseconds": 74.39
+    },
+    {
+      "name": "behavior / fire interrupts work and preserves carried resources",
+      "passed": true,
+      "milliseconds": 2.1612
+    },
+    {
+      "name": "behavior / eating is a single interruptible resource transaction",
+      "passed": true,
+      "milliseconds": 1.4883
+    },
+    {
+      "name": "behavior / sheep flee predators and fatigue causes interruptible rest",
+      "passed": true,
+      "milliseconds": 3.1946
+    },
+    {
+      "name": "behavior / social contact uses living nearby partners",
+      "passed": true,
+      "milliseconds": 1.5188
+    },
+    {
+      "name": "behavior / legacy v1 migrates once without RNG draws",
+      "passed": true,
+      "milliseconds": 17.254
+    },
+    {
+      "name": "behavior / save continuation retains incomplete meals and rest",
+      "passed": true,
+      "milliseconds": 15.1905
+    },
+    {
+      "name": "bounded core load / 100 units",
+      "passed": true,
+      "milliseconds": 44.9071
+    },
+    {
+      "name": "bounded core load / 500 units",
+      "passed": true,
+      "milliseconds": 229.8593
+    },
+    {
+      "name": "bounded core load / 1000 units",
+      "passed": true,
+      "milliseconds": 722.4995
+    }
+  ],
+  "metrics": [
+    {
+      "scenario": "civilization-300-seconds",
+      "units": 93,
+      "buildings": 24,
+      "settlements": 1
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 100,
+      "finalUnits": 100,
+      "milliseconds": 25.7848,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 500,
+      "finalUnits": 500,
+      "milliseconds": 210.446,
+      "mapWidth": 128,
+      "mapHeight": 128
+    },
+    {
+      "scenario": "core-only-100-ticks",
+      "requestedUnits": 1000,
+      "finalUnits": 1000,
+      "milliseconds": 702.1808,
+      "mapWidth": 128,
+      "mapHeight": 128
+    }
+  ]
+}

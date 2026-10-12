@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-12T08:23:51.5583146Z",
+  "scope": "Read-only second-pass edge audit using production Simulation in PowerShell Add-Type (.NET 10). Fixtures alter data explicitly; no Unity/native claim.",
+  "boundaries": "PASS: unreachable warehouse does not teleport food; safe local rest; emergency forage interrupts rest; adulthood assigns profession; both worlds validate",
+  "migration": "PASS: two independently reconstructed v1-shaped worlds migrate without RNG draws and remain byte-identical under full-field PowerShell JSON after 700 ticks each",
+  "migratedTicks": 700,
+  "migratedPopulation": 20,
+  "productionCodeChanged": false
+}

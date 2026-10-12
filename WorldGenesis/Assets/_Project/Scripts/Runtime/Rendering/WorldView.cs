@@ -26,6 +26,7 @@ namespace WorldGenesis.Runtime
         private readonly Transform root;
         private readonly Texture2D atlas;
         private readonly Material spriteMaterial;
+        private readonly CitizenSprites citizenSprites;
         private readonly QuadBatch buildings, people, borders, cursor;
         private Chunk[] chunks;
         private Queue<Chunk> dirtyChunks;
@@ -44,7 +45,8 @@ namespace WorldGenesis.Runtime
             root = new GameObject("World • batched pixel rendering").transform; root.SetParent(parent, false);
             atlas = PixelArt.CreateAtlas(); spriteMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas, name = "Shared pixel atlas" };
             buildings = new QuadBatch("Buildings", root, spriteMaterial, 3);
-            people = new QuadBatch("Life", root, spriteMaterial, 4);
+            people = new QuadBatch("Life and citizen markers", root, spriteMaterial, 5);
+            citizenSprites = new CitizenSprites(root);
             borders = new QuadBatch("Territories", root, spriteMaterial, 1);
             cursor = new QuadBatch("Brush", root, spriteMaterial, 8);
         }
@@ -54,6 +56,7 @@ namespace WorldGenesis.Runtime
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             if (Minimap != null) UnityEngine.Object.Destroy(Minimap);
             world = value; revision = -1; nextRefresh = 0; lastBuildingCount = -1;
+            citizenSprites.Reset();
             int across = (world.Width + ChunkSize - 1) / ChunkSize, down = (world.Height + ChunkSize - 1) / ChunkSize;
             chunks = new Chunk[across * down];
             // Replacing a world drops only the old world's work, never carries chunks across worlds.
@@ -108,7 +111,10 @@ namespace WorldGenesis.Runtime
                 SettlementData settlement = world.GetSettlement(b.SettlementId);
                 if (settlement != null && b.Type == BuildingType.Hall) { Color flag = PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length]; buildings.Sprite(b.X + 1.25f, b.Y + 1.8f, .65f, .35f, 12, flag); }
             }
-            buildings.Submit(); people.Clear();
+            buildings.Submit(); people.Clear(); citizenSprites.Begin(world);
+            Camera camera = Camera.main;
+            bool showDetails = camera != null && camera.orthographicSize <= 25;
+            float simulationTime = world.Tick * SimulationEngine.TickSeconds;
             for (int i = 0; i < world.Units.Count; i++)
             {
                 UnitData unit = world.Units[i]; if (unit.Health <= 0) continue;
@@ -116,17 +122,42 @@ namespace WorldGenesis.Runtime
                 SettlementData settlement = world.GetSettlement(unit.SettlementId);
                 if (settlement != null) tint = Color.Lerp(Color.white, PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length], .37f);
                 if (unit.Infected) tint = Color.Lerp(tint, new Color(.65f, .9f, .25f), .55f);
-                float bob = unit.Task == UnitTask.Idle ? 0 : Mathf.Sin(now * 10 + unit.Id) * .06f;
-                people.Sprite(unit.X, unit.Y - .15f + bob, 1.2f, 1.2f, 6 + (int)unit.Species, tint);
-                if (unit.Blessed) people.Sprite(unit.X, unit.Y + .73f + bob, .2f, .08f, 12, PixelArt.Gold);
+                bool human = unit.Species == SpeciesType.Human;
+                float bob = unit.PathCursor < unit.Path.Count ? Mathf.Sin(simulationTime * 10 + unit.Id) * .06f : 0;
+                if (human)
+                {
+                    Color humanTint = unit.Infected ? new Color(.74f, .93f, .65f) : Color.white;
+                    citizenSprites.Add(world, unit, settlement == null ? 0 : settlement.ColorIndex, humanTint);
+                }
+                else people.Sprite(unit.X, unit.Y - .15f + bob, 1.2f, 1.2f, 6 + (int)unit.Species, tint);
+                float head = human ? (unit.Age < 16 ? .88f : unit.Profession == UnitProfession.Guard ? 1.62f : 1.15f) : .96f;
+                if (unit.Blessed) people.Sprite(unit.X, unit.Y + head, .2f, .08f, 12, PixelArt.Gold);
+                if (showDetails && (int)unit.Species < 4)
+                {
+                    Color role = unit.Profession == UnitProfession.Forester ? PixelArt.Teal : unit.Profession == UnitProfession.Guard ? PixelArt.Hex("a6b8ed") : PixelArt.Gold;
+                    people.Sprite(unit.X - .17f, unit.Y + head + .13f, .16f, .12f, 12, role);
+                    if (unit.Task == UnitTask.Flee || unit.Task == UnitTask.Eat || unit.Task == UnitTask.Rest || unit.Task == UnitTask.Socialize)
+                    {
+                        Color activity = unit.Task == UnitTask.Flee ? PixelArt.Hex("ed8677") : unit.Task == UnitTask.Eat ? PixelArt.Teal : unit.Task == UnitTask.Rest ? PixelArt.Hex("92abb5") : PixelArt.Hex("d5a9d9");
+                        people.Sprite(unit.X + .08f, unit.Y + head + .13f, .14f, .12f, 12, activity);
+                    }
+                    if (unit.CarriedWood > .1f || unit.CarriedFood > .1f)
+                    {
+                        Color resource = unit.CarriedWood > unit.CarriedFood ? PixelArt.Hex("9b7046") : PixelArt.Hex("e3c477");
+                        people.Sprite(unit.X + .37f, unit.Y + .77f, .30f, .24f, 12, PixelArt.Ink);
+                        people.Sprite(unit.X + .37f, unit.Y + .8f, .22f, .16f, 12, resource);
+                    }
+                }
                 if (unit.Id == SelectedUnitId)
                 {
-                    people.Sprite(unit.X, unit.Y + 1.08f, .85f, .1f, 12, PixelArt.Ink);
-                    people.Sprite(unit.X - .425f + .425f * Mathf.Clamp01(unit.Health / unit.MaxHealth), unit.Y + 1.08f, .85f * Mathf.Clamp01(unit.Health / unit.MaxHealth), .1f, 12, PixelArt.Teal);
+                    people.Sprite(unit.X, unit.Y + head + .38f, .85f, .1f, 12, PixelArt.Ink);
+                    people.Sprite(unit.X - .425f + .425f * Mathf.Clamp01(unit.Health / unit.MaxHealth), unit.Y + head + .38f, .85f * Mathf.Clamp01(unit.Health / unit.MaxHealth), .1f, 12, PixelArt.Teal);
                 }
             }
-            people.Submit();
+            people.Submit(); citizenSprites.Submit();
         }
+
+        public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
 
         private uint ChunkHash(Chunk chunk)
         {
@@ -276,7 +307,7 @@ namespace WorldGenesis.Runtime
         public void Dispose()
         {
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
-            buildings.Dispose(); people.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);
+            buildings.Dispose(); people.Dispose(); citizenSprites.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);
         }
     }
 }

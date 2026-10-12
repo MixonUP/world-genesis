@@ -1,0 +1,21 @@
+{
+    "Type": "native Unity gameplay capture",
+    "Utc": "2026-10-12T08:59:56.0237277Z",
+    "UnityVersion": "6000.0.45f1",
+    "Image": "20261012-115944-civilians-government.png",
+    "Preset": "Island",
+    "Seed": 1618033,
+    "Width": 128,
+    "Height": 128,
+    "Population": 49,
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "Tick": 103,
+    "Speed": 1.0,
+    "CameraX": 42.5,
+    "CameraY": 40.926666259765628,
+    "OrthographicSize": 12.0,
+    "Paused": false,
+    "AutomaticCapture": true,
+    "AssistedFraming": true
+}

@@ -1,0 +1,637 @@
+﻿{
+    "utc":  "2026-10-12T08:56:22.1054957Z",
+    "name":  "citizens-militia-v020",
+    "purpose":  "Batch verification of a source snapshot while the interactive project remains open",
+    "source":  "WorldGenesis",
+    "snapshot":  "Builds/Verification/citizens-militia-v020/WorldGenesis",
+    "files":  [
+                  {
+                      "path":  "Assets/_Project.meta",
+                      "sha256":  "D49B989B88F293B3115DA38ED74E42CEF1411133C838F16465ED937293CF5D01"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art.meta",
+                      "sha256":  "C89FF5BD4A734A48AC7D1A223253BD479C6BFA0F01E2F289E37CBCB0AC4AA69F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio.meta",
+                      "sha256":  "D4EB5A78ECEAEE0F2133205D1443253E3F1E89149BA65B6F9FEFE42A79309A97"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content.meta",
+                      "sha256":  "8381DD4BC5EBE5D1A3B23AB2DD6C791488F5589D99D232854E3981A3407141F2"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor.meta",
+                      "sha256":  "1DE129591FC360E7F2278DDABCC528AF61ACE6DF16784C4AB953B04CDE1F2D42"
+                  },
+                  {
+                      "path":  "Assets/_Project/Prefabs.meta",
+                      "sha256":  "6AECFDA80CB8B9392773253ED39B84DB9625464029601FF613DFE7BDBE8A1923"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scenes.meta",
+                      "sha256":  "33AC2A300E5B0784547A06D0F346DD8DE744D1CF1528B8A7CCBAE896AFCE73AB"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts.meta",
+                      "sha256":  "09FBD819610FCE9B53C6C16A47CBAFCA9F05B70DE1453F9196717A922D96BBEF"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests.meta",
+                      "sha256":  "BB8502F05F9A563440630EDF1B02D36C73F3A15A4BA29D1B172B96ABED615E21"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Buildings.meta",
+                      "sha256":  "EA9EB8BFD90A032031EEF0E60337460738BC6418F95FE0150D562BEB307834D3"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Tiles.meta",
+                      "sha256":  "49369AF45F48A440230E26CE2CA0FD444E7684607F3262048D0D5DC396786498"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/UI.meta",
+                      "sha256":  "4208F2C22AA89793D483D93DC2D66833502D58352691FBCE45D0082477C86E79"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units.meta",
+                      "sha256":  "B0FA4A83287E51A000951E0D19F94206AB065EA8EBD0654B6BA7EFCBCDD6C9DF"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/VFX.meta",
+                      "sha256":  "26F6E443681683CC049870B82E9C0F4B2E9293E24018596DEE01CC9151A8B0A6"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Buildings/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Tiles/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/UI/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources.meta",
+                      "sha256":  "52B40AEA9D4FDB0F2624C959733F1B9922A9C4C2884BC9ABCC6F5F6C00C1049B"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0.meta",
+                      "sha256":  "96866581E9AB3EBEB9B9A32BD34D4F8105F9F62775516FA082497E0567B33DF6"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Blue.png",
+                      "sha256":  "38C47FC4766FA1FAD73C188E5C6A1F2D2257AEBC9DFDD5B37F1C8DAD913E8CFE"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Blue.png.meta",
+                      "sha256":  "950437946E217070E92CFAC24DDD42A47723B51995306B5499C6F04A4920B7BF"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Purple.png",
+                      "sha256":  "C88B5DB861D94D342B0420B8CEFACB4865E49AE104AF4FB934F46556D9274C12"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Purple.png.meta",
+                      "sha256":  "CCB3F08CC78BB6AC5EB288B2BADCD44CB4382E9604B1829147ECA7EA26A1B49C"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Red.png",
+                      "sha256":  "0D207AD590425917B71D3DC538B88D6765E76C90AA24ED5FF80C0AD842738705"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Red.png.meta",
+                      "sha256":  "0F7FBC8AD50396E4D6DD1AFF3F233B1B1033DF45F1E74D803DCCBB033C9400CA"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Yellow.png",
+                      "sha256":  "22CBF2126C68F61A3A359D0D19D45F8FDAA24700D2B9492C9B17F03977405D1F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Yellow.png.meta",
+                      "sha256":  "4AA72851A1BEE8B978BA392AF2FB53667F87D0BA0D2E7236CE5C60A53E545AF5"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Blue.png",
+                      "sha256":  "593A40DA14B136374D55044FD3BA3AC11E621D645BE9C75A2A6032741AB24C80"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Blue.png.meta",
+                      "sha256":  "3B5A6EA3EB82FE2E20D4EE5CCD786E31AE1E9C13D9E4C72F6F76343398835CC2"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Purple.png",
+                      "sha256":  "779F5FA986FE15736D5B1DEEC5958A07340644A163AB208714F5A43792FD662D"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Purple.png.meta",
+                      "sha256":  "3E422BDDBD764B04FD91C839ACE66099C6CE44C4026880BB1DA352981053307F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Red.png",
+                      "sha256":  "A1F67ED61134A20DF6211E1E9FFF1C33E9964512FDDF4CCDB3C1673752B9BC14"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Red.png.meta",
+                      "sha256":  "724078C3C1F804957ED7DD82034831C28B56E9C2DED854361BC2F8BFE242C535"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Yellow.png",
+                      "sha256":  "85902914CB921CC7C6EB728EB9C1D34A710CE8E4A66AE8D537E5FCC64CA54E64"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/Units/Resources/TinySwordsCC0/Warrior_Yellow.png.meta",
+                      "sha256":  "E1C2A4FE962C0B87CE4E122CF9B0B918B9E375026E7A6B4DFDCDD4B1D35D7680"
+                  },
+                  {
+                      "path":  "Assets/_Project/Art/VFX/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/Ambient.meta",
+                      "sha256":  "001412258F00AB3BBE6E2D03E979186DE2744C469FC123ACED9975469A1ED292"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/Music.meta",
+                      "sha256":  "ED35FCDA9AF216F27D9A66FFB78B8F6107CF8E9C8E50FDADAE9C381DC39377C9"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/SFX.meta",
+                      "sha256":  "CB260AAC5C284EE23BD4500CB27E82F96BC8F740289359E22F1025491CDA161A"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/Ambient/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/Music/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Audio/SFX/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Biomes.meta",
+                      "sha256":  "20860E2B22421432982D46B1BC3C89C9011A9F5317321E772DC27B42560F50E4"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Powers.meta",
+                      "sha256":  "877F86680DB97D04F93B5DFB271875B0111A92D5AA5C347261C3C960FA578750"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Species.meta",
+                      "sha256":  "6E8150D1397372258DC3A9AA9C73880DAF3ED7119910050B41A3E2FAA751D6F9"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Biomes/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Powers/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Content/Species/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/CitizenArtImporter.cs",
+                      "sha256":  "9DA81536C95D73DF6240C4B4962DF2E51ABFA0A0B6265F4AA3D46E83EB4DBE86"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/CitizenArtImporter.cs.meta",
+                      "sha256":  "AF5299E9B4F2A7B82FD33A02D3E241B90AED07B5128C31529C0A0DE91EF6B2ED"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/ProjectSetup.cs",
+                      "sha256":  "A4589EC3C079E6A79E63F570CCF5ECEC5E6CD63338B47FC8E5FE9C4CCFEFD4E0"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/ProjectSetup.cs.meta",
+                      "sha256":  "96845F86A016196322868CAA0307C67D8BABAB9E0EA1628D371D8C2DEB3AD149"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/WorldGenesis.Editor.asmdef",
+                      "sha256":  "841471529D35D08F5A3E0C91DED1135C1749DE6D001E8BDF1194FFB4E6844496"
+                  },
+                  {
+                      "path":  "Assets/_Project/Editor/WorldGenesis.Editor.asmdef.meta",
+                      "sha256":  "C29721C542C7F74730AF6641A1A6D0AF076CA2CFBAE5CD01D3983B514D8C036B"
+                  },
+                  {
+                      "path":  "Assets/_Project/Prefabs/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scenes/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scenes/Main.unity",
+                      "sha256":  "E38BBCA3CB4A77673BD693BE863B236C4B6DD13CA59A241321711DF23F7A74DF"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scenes/Main.unity.meta",
+                      "sha256":  "18C6540A1563EC7AEAA3DD3E0E24DD98CFFAD34C6EA072D9647DDB6E109D50DF"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/AGENTS.md",
+                      "sha256":  "4A1FBCAAA28EFE374BEFFB538EE9443B076AF18623A895A556E886CDD2EDB996"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/AGENTS.md.meta",
+                      "sha256":  "288679942379C879CEF26EE7A5A70B26A5BFBA64F8C17C27DCED4F73BE95A8EB"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime.meta",
+                      "sha256":  "1271583A7681A063AB0614C6B92587672940FF0CE838BC0896E90477C0DECA16"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation.meta",
+                      "sha256":  "C7647C232BD80E1781275EC944BC66BA4E34060BCEEB80BF7895EF5E246BC7B2"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Audio.meta",
+                      "sha256":  "774FF85FC7CB821B36B18D0FA0B394D5FC72C787812F2C1361059359DF870FEB"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/CaptureScenario.cs",
+                      "sha256":  "B7953337B2B36F47DA109F9D866371592B489985A32097B263D0024ADCB63F18"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/CaptureScenario.cs.meta",
+                      "sha256":  "543716365E9B1ED65CF83A76423D5B4428AF29ACA6EC64AAB684DFA762718D50"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+                      "sha256":  "6D5D9009E1E0DDAD78B0DF58CB522D181CF1B06EAEFCBBD502A5392451434625"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/GameBootstrap.cs.meta",
+                      "sha256":  "97767181DAC0E0704A4C21417A6F7BE340617A0B9EA2B682531B27674B203E78"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Input.meta",
+                      "sha256":  "59CAA36CEF55D4EEA19E5214CD6776D13EA869E39CCE31550B1DB136824F832F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/MotionCapture.cs",
+                      "sha256":  "7894E1FDB623B8985090446C1C81CCDF6F19E2D3A572A0E1956C74571B8F2574"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/MotionCapture.cs.meta",
+                      "sha256":  "1B8CF3D461A4C4ACF77F4FD6A2130BB05DAA8931396A9AF2F928C17CA2E61B73"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Persistence.meta",
+                      "sha256":  "9632D74F2382A5BB76E0E45EAAB8119D9FF27DA431B922E25C5D638C6EA8F5D7"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering.meta",
+                      "sha256":  "C75EA640FD5607E4BA5D4821FEF0A9A49F8CF2F8661FFBF83816238E9E2D144F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs",
+                      "sha256":  "7468C6A89E0D455073EEB22DBF29604B5BBD5F18B243D72DD272F144DF7C348E"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs.meta",
+                      "sha256":  "EA4CCEFDD8EBDB27D7AAF477AE4BA006F0B4C1B1437065142880C959BE295174"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/UI.meta",
+                      "sha256":  "FD68028DE1B7C74890FC1322DE536F6EF0B4C966DD97C74224CFDF55855A68B7"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/WorldGenesis.Runtime.asmdef",
+                      "sha256":  "A63114EBDFD0CA5A12965B399F524A88069752715DFED02643643C91ECC4BFAA"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/WorldGenesis.Runtime.asmdef.meta",
+                      "sha256":  "029851264053F2F90F53B9BDA28A96C1F2D6185646D8E0FFCC0B55BC97002D79"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Audio/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs",
+                      "sha256":  "7465E92CF9FB7E23CB8F8EDDC11E16DD3E40AD9C3BACD5418F42CFBDFF1CB9FA"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs.meta",
+                      "sha256":  "B775FE0E112D02BF342860FB538E8D5B7410641D9C38EE16CFD8D2E94B4756BC"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Input/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Persistence/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs",
+                      "sha256":  "FFCB01A4FFE7F100A5135C09CE9F7299A151FA3A593E4DD9CA7C94E9FD297E50"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs.meta",
+                      "sha256":  "519DCF469DFFA4D8E760C51650743F312EC642C063992A9685AE02C408AD5ECE"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs",
+                      "sha256":  "63F5FA9F96B16F6D60D2B72D65573B02926C0F706CF487F81B4BF5A716C92714"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs.meta",
+                      "sha256":  "B1ABA9AB41BFD8B4E8EE67DE966D13FF3219196E2C0F424130C5571A3D2CF42F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs",
+                      "sha256":  "969894873459693E193F050BF90D5C2DEF8D2DC7F3FB8539521A9458B5A4B621"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs.meta",
+                      "sha256":  "EEAAA5DF978043191F41BF36552D8AD36B87ECAEEAB95444A0DC1A6AE0C32777"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs",
+                      "sha256":  "57608476A4991E9B2960EECFC8BAF5F380715D25C43DC57CE70E81D805B5367B"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs.meta",
+                      "sha256":  "78BCD8FA8D2DBF7F6CE8CB3AA3AA6DC973FA7C439277554BED0CE2D13AFE2FA8"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+                      "sha256":  "891422F0B22763B2718BD6921C552C4E6B7469F5E9C45FEBBF4AF5819F8BC900"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs.meta",
+                      "sha256":  "459FC9CCC37708F2542601F796B8D0A5B47A25DB4A460497B0D77A004F68D95A"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/UI/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+                      "sha256":  "AFBFCE142E23B5289FD6671FFEE63C4856F0E61564CD00B522E7A30B793D3AAC"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Runtime/UI/GameHud.cs.meta",
+                      "sha256":  "81453FF6F75290655089E3CB3701CDA9E6829E7F6D98F76DAA885D278A0296FB"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Civilizations.meta",
+                      "sha256":  "0ECDE3714D7156B34D7D58659D7F1D7A731D13CF548EA533F4DC65ABA90D4F60"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities.meta",
+                      "sha256":  "8DACAB65D162768EE8F1FE56CD403C544C5DECBC3ED02352EEE4C87E29C87A0E"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Powers.meta",
+                      "sha256":  "E5891104EC00E9461124F710C2EE015D93CDA0D3CAC68D734EEB42D38287E64D"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+                      "sha256":  "6936E42F0957A15E576ED2117C4969F1C48AEB83FB67A352964360E0060DF39F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/SimulationEngine.cs.meta",
+                      "sha256":  "E22F08AAC2DE9EFD8BE0D518204CC071CC564796D0A65AB2B397ED8EC89E114E"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World.meta",
+                      "sha256":  "6CBAFFA0DDAB2B778BBD429F3380273DC50691A782013A600A02D37C9FAFF54B"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/WorldGenesis.Simulation.asmdef",
+                      "sha256":  "E1A60E75E23AE1EFFF2E7E23F78EB84442907A52D61C1257E94E6120025BD5BC"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/WorldGenesis.Simulation.asmdef.meta",
+                      "sha256":  "4ED1D1715B77F58492444CDFC6EDAA671D9005FB4F928BF1E299DC4A19A3DC05"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Civilizations/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+                      "sha256":  "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs.meta",
+                      "sha256":  "B4EBA8885AD7A6869BEDC837186DA6122DB78A082BC16503D62A36989D9BA5C4"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+                      "sha256":  "99387BE6F1EEAA1524CB733D22A73DCEBC867BBAF24A4A7B524B51BB3C8CDD3D"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs.meta",
+                      "sha256":  "F8740EB3D87D2AB56EDF5C6397110DC4913C590653BD2D85F0EE08032C4BA994"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+                      "sha256":  "63F226A93154CB8EC87BAE947B87A85480C37CA88CF38BCAD7AA8D907AF9D575"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs.meta",
+                      "sha256":  "A9EE9CF9C533A65DC3524E5170AB0D3210C921FBB85214965F9666EF2CAF02D9"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/Powers/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World/.gitkeep",
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+                      "sha256":  "02F776F4BD2CD47C9100F4EA2D41F2F67DA034AACC7F93305DF5B8900B3C9C2A"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs.meta",
+                      "sha256":  "D44CB782E7F3D8EC3B359EC072F1FCDBFAC7059CF60EECFE486C2D5472E02C10"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+                      "sha256":  "851572FB25C5D4EEBC937F687B9B85DDB2D0C8E6BF566D9823817AF0FD00A7DE"
+                  },
+                  {
+                      "path":  "Assets/_Project/Scripts/Simulation/World/WorldState.cs.meta",
+                      "sha256":  "EF4BC05F83E5D6AA645268A744468806CB19708E6A34DE808F416357E4DF25A3"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/AGENTS.md",
+                      "sha256":  "690D19BDCB0646272A0F0E6942B720EEEAE7705D19792E1856CAD30805B9DD5A"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/AGENTS.md.meta",
+                      "sha256":  "31E91B40A51E973A2C1ABF4900EBAEEE63DE20BE5C0245FCCB1DAA0B00852C3F"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode.meta",
+                      "sha256":  "CDC1BCBCCE700747E651443BE3F349D1D432188019BEE26B30AD87308ECA01D4"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/PlayMode.meta",
+                      "sha256":  "7BF1984D2B2AEFE20B960877D7B41D9FB71CAC414644509A76454DFFD0DB0830"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/SaveStoreTests.cs",
+                      "sha256":  "EF448BF82D028BB3F2519EB302CF54A30C0537C543ED6C484BF0DDF33064DA5D"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/SaveStoreTests.cs.meta",
+                      "sha256":  "57BEF5D4FCC5E77AEE55B5631EE35664D52E68688037C95C8881BEAD5B7FD048"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/SimulationTests.cs",
+                      "sha256":  "41E84B6C4A31E7F739C8623C9E91C609F295E570592747F201EE68FFBBA40AB4"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/SimulationTests.cs.meta",
+                      "sha256":  "41ECE9D0462DB83CE3507D792DADE423956D4351F9B8F7A58C8F9CA74FADCC40"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/WorldGenesis.EditModeTests.asmdef",
+                      "sha256":  "1B4A82EE3B6B0F1B9A8E676CFA580307B006BBBB467129A06FF64AA292E8A7CC"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/EditMode/WorldGenesis.EditModeTests.asmdef.meta",
+                      "sha256":  "6E9CAE855F3141112DCEC422B742F1FD664ED69A5BD0939EBBA5514C2BEEA091"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs",
+                      "sha256":  "4C3C8F52C9BD39412B3FB562368B30F607EA758F81FED41A9AF92D5B1791A026"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs.meta",
+                      "sha256":  "5C55C3486ECF1AFA3D77631A63E0AC7646559E42A626D809584B79F7CC0B6340"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/PlayMode/WorldGenesis.PlayModeTests.asmdef",
+                      "sha256":  "B469BDA6DF3B279CA6278C439D39E9556EEA33EBC6C69BD9B66ED12C9B4187EA"
+                  },
+                  {
+                      "path":  "Assets/_Project/Tests/PlayMode/WorldGenesis.PlayModeTests.asmdef.meta",
+                      "sha256":  "0BA2C2B41E3C1475789F67905CFD43D0BB6A7966BE54D7F24892A9093D927EE1"
+                  },
+                  {
+                      "path":  "Packages/manifest.json",
+                      "sha256":  "C40C5769F79AF30E132874B0569B2AD8128EA5C841753DF5CC3AFA66F684CFF6"
+                  },
+                  {
+                      "path":  "Packages/packages-lock.json",
+                      "sha256":  "F112C6A6B632E39847A2ACAF730A35E46129289B3DCEECAEE35782D1C94B979B"
+                  },
+                  {
+                      "path":  "ProjectSettings/AudioManager.asset",
+                      "sha256":  "9A554916FE138EBCAD8443EE9B079363ECC72795C39D0E80F5F7CA99E2C6F5E7"
+                  },
+                  {
+                      "path":  "ProjectSettings/ClusterInputManager.asset",
+                      "sha256":  "40E65DD214BF254955D2C8829CA8CE2130FD3510485560CE012E9A1DDD93E623"
+                  },
+                  {
+                      "path":  "ProjectSettings/DynamicsManager.asset",
+                      "sha256":  "67900C2934D84FA99A3CBC8701E931840F3F008781FA8D7B842A10794F082E65"
+                  },
+                  {
+                      "path":  "ProjectSettings/EditorBuildSettings.asset",
+                      "sha256":  "9F6AE298A699354AAC4F35DE6314CFB5944A107EE572C4A7EB867AE7BF9172D4"
+                  },
+                  {
+                      "path":  "ProjectSettings/EditorSettings.asset",
+                      "sha256":  "15C0DFD2D9483C792C189D7ED310109F7EB1AF24916CC17CF4BAB3C1EC898937"
+                  },
+                  {
+                      "path":  "ProjectSettings/GraphicsSettings.asset",
+                      "sha256":  "FBF0856B7693639A5388AE693A455BAAAD354C1D8DC548601DE3DC61C4AB12C3"
+                  },
+                  {
+                      "path":  "ProjectSettings/InputManager.asset",
+                      "sha256":  "D0F454DDB880912ABCAE92E3E12957A7446786BA89E24937E019FF3BBC0D4300"
+                  },
+                  {
+                      "path":  "ProjectSettings/MemorySettings.asset",
+                      "sha256":  "1E8379A461B10AE09F3F696911088C16875D63E87ED5F2D95DF9E1892703F9FD"
+                  },
+                  {
+                      "path":  "ProjectSettings/MultiplayerManager.asset",
+                      "sha256":  "ABA89FD1A1DDAD182727AD82727E536D27372E90328A8196DA2A4560398983DD"
+                  },
+                  {
+                      "path":  "ProjectSettings/NavMeshAreas.asset",
+                      "sha256":  "7EBBF8F53B8033104E1878B95CA07A28D0954092D81C220F14196A42F651E658"
+                  },
+                  {
+                      "path":  "ProjectSettings/PackageManagerSettings.asset",
+                      "sha256":  "D36DDE4AA02198BA295AF52624BEAF07DE5E204FA6C2DF5FAFD900663DE867C7"
+                  },
+                  {
+                      "path":  "ProjectSettings/Physics2DSettings.asset",
+                      "sha256":  "9B78FDD0BAC0F486C052CA65DDC0E5022D322B12874931A49456D407C5BBFC00"
+                  },
+                  {
+                      "path":  "ProjectSettings/PresetManager.asset",
+                      "sha256":  "29C125923FE6E29F90190D4FCE1C82D660E7051546E2C9D02908D18C9CF2436C"
+                  },
+                  {
+                      "path":  "ProjectSettings/ProjectSettings.asset",
+                      "sha256":  "281133CFBA77ACC0CA99E3E41C645743EE204D2BC31E61F2822C2FDC316F97E6"
+                  },
+                  {
+                      "path":  "ProjectSettings/ProjectVersion.txt",
+                      "sha256":  "100258E27F9C7B6FFFE54906EB4F31C89C915D1CAEEF4394AAEC521632931DE8"
+                  },
+                  {
+                      "path":  "ProjectSettings/QualitySettings.asset",
+                      "sha256":  "5E5F38A7CB2F7D097614AE6CB7BA8D2B95FFD40D73A97230957FBD599B3AF6B0"
+                  },
+                  {
+                      "path":  "ProjectSettings/SceneTemplateSettings.json",
+                      "sha256":  "BB9098B3BFCDE78D93E264B96F7B77B5430E64E8C57A7AAD7F5A5D9C3945E16A"
+                  },
+                  {
+                      "path":  "ProjectSettings/TagManager.asset",
+                      "sha256":  "DA4B5EEFC927F8B91BCF9E56A186D2B852F49D9CBE91D466638D26C79D6A83CE"
+                  },
+                  {
+                      "path":  "ProjectSettings/TimeManager.asset",
+                      "sha256":  "E6D0D31782B4896159D2F7249B1845004A7A9F4EB05BC952A8C64BC72CB34448"
+                  },
+                  {
+                      "path":  "ProjectSettings/UnityConnectSettings.asset",
+                      "sha256":  "D6034ACBEF6C9E3179866486C31EAB81FCBE5E7ED350CE71E0FA2B1449B77109"
+                  },
+                  {
+                      "path":  "ProjectSettings/VersionControlSettings.asset",
+                      "sha256":  "E199CDFA6A8F2BF33CFD47E549198F13E3EB2A5099E908FDB4E0F14D939CCC6B"
+                  },
+                  {
+                      "path":  "ProjectSettings/VFXManager.asset",
+                      "sha256":  "9378043DA38A17F2198D52A10C17789161D30E3285A387CA3687A71551C32448"
+                  }
+              ]
+}

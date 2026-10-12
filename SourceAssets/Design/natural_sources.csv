@@ -1,0 +1,15 @@
+node_id,name_ru,initial_charges,regrow_charges,regrow_seconds,constraint
+berry_patch,Ягодный куст,8,2,240,living_bush_water_soil
+fallen_branches,Валежник,8,2,300,near_living_tree
+surface_stone,Поверхностный камень,12,0,0,finite
+surface_flint,Поверхностный кремень,8,0,0,finite
+clay_bank,Глиняный берег,160,0,0,finite
+herb_patch,Лекарственные травы,6,1,240,living_patch
+wild_wheat,Дикая пшеница,6,2,300,living_patch
+wild_flax,Дикий лён,6,2,300,living_patch
+cone_patch,Шишки под деревом,6,2,300,mature_tree
+freshwater,Участок водозабора,40,4,10,wet_freshwater_or_aquifer
+mature_tree,Взрослое дерево,1,0,0,regrowth_via_sapling_only
+stone_deposit,Каменный пласт,400,0,0,finite
+iron_deposit,Рудная жила,240,0,0,finite
+fish_school,Косяк,24,0,0,reproduction_system_only

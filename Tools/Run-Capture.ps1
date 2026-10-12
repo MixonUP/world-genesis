@@ -4,11 +4,14 @@ param(
     [int]$Width=1920, [int]$Height=1080, [int]$Seconds=8,
     [switch]$FocusSettlement, [int]$Zoom=18,
     [ValidateSet('', 'Fire', 'Rain', 'Lightning', 'Meteor', 'Heal', 'Bless', 'Plague')][string]$Power='',
-    [int]$ProfileSeconds=0, [int]$StressPopulation=0
+    [int]$ProfileSeconds=0, [int]$StressPopulation=0,
+    [string]$PlayerRelativePath='Builds/Windows-0.2.0/WorldGenesis.exe',
+    [switch]$InspectCitizen
 )
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$player=Join-Path $root 'Builds\Windows\WorldGenesis.exe'
+$player=[IO.Path]::GetFullPath((Join-Path $root $PlayerRelativePath))
+if (-not $player.StartsWith((Join-Path $root 'Builds')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) { throw 'Capture Player must be inside project Builds.' }
 if (-not (Test-Path -LiteralPath $player)) { throw 'Build the Windows player first.' }
 if ($Width -lt 800 -or $Height -lt 600 -or $Seconds -lt 1) { throw 'Invalid capture dimensions or duration.' }
 $stamp=[DateTimeOffset]::UtcNow.ToOffset([TimeSpan]::FromHours(3)).ToString('yyyyMMdd-HHmmss')
@@ -19,6 +22,7 @@ $image=$base+'.png'; $log=$base+'.log'; $profile=$base+'-profile.json'
 function Quote([string]$value) { if ($value.Contains('"')) { throw 'Invalid quote in path' }; return '"'+$value+'"' }
 $arguments=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullscreen','0','-logFile',(Quote $log),'--capture',(Quote $image),'--capture-delay',"$Seconds",'--quit-after-capture')
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
+if ($InspectCitizen) { $arguments+='--inspect-citizen' }
 if ($Power) { $arguments+=@('--demo-power',$Power) }
 if ($ProfileSeconds -gt 0) {
     if ($Seconds -le $ProfileSeconds+4) { throw 'Capture delay must exceed profile duration + 4 seconds.' }
@@ -43,6 +47,8 @@ if ($ProfileSeconds -gt 0 -and -not (Test-Path -LiteralPath $profile)) { throw '
     playerSHA256=(Get-FileHash -LiteralPath $player -Algorithm SHA256).Hash;
     imageSHA256=(Get-FileHash -LiteralPath $image -Algorithm SHA256).Hash;
     scope='Native Unity Windows Player. Visual content still requires image inspection.';
-    automatedCamera=[bool]$FocusSettlement;automatedPower=$Power;stressPopulation=$StressPopulation;sources=$sources
+    automatedCamera=[bool]$FocusSettlement;automatedPower=$Power;stressPopulation=$StressPopulation;workspaceSourcesAtLaunch=$sources;
+    runtimeAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Runtime.dll') -Algorithm SHA256).Hash;
+    simulationAssemblySHA256=(Get-FileHash -LiteralPath (Join-Path (Split-Path $player) 'WorldGenesis_Data/Managed/WorldGenesis.Simulation.dll') -Algorithm SHA256).Hash
 } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath ($base+'-run.json') -Encoding UTF8
 Write-Output "Player exited successfully; native image and source receipt recorded: $image"

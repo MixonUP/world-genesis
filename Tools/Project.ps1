@@ -2,7 +2,8 @@
 param(
     [ValidateSet('Doctor', 'Validate', 'Import', 'Prepare', 'Build', 'Open', 'EditMode', 'PlayMode')]
     [string]$Action = 'Doctor',
-    [switch]$DryRun
+    [switch]$DryRun,
+    [string]$VerificationProject = ''
 )
 
 Set-StrictMode -Version Latest
@@ -11,6 +12,13 @@ $projectRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $toolchainPath = Join-Path $PSScriptRoot 'toolchain.json'
 $toolchain = Get-Content -LiteralPath $toolchainPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $unityProjectPath = Join-Path $projectRoot $toolchain.projectRelativePath
+if ($VerificationProject) {
+    $candidate = [IO.Path]::GetFullPath($VerificationProject)
+    $allowed = [IO.Path]::GetFullPath((Join-Path $projectRoot 'Builds')) + [IO.Path]::DirectorySeparatorChar
+    if (-not $candidate.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase) -or -not (Test-Path (Join-Path $candidate 'Assets'))) { throw 'Verification project must be an existing snapshot inside Builds.' }
+    if ($Action -in @('Open','Doctor','Validate')) { throw 'VerificationProject is for Unity batch checks only.' }
+    $unityProjectPath = $candidate
+}
 $evidenceRoot = Join-Path $projectRoot 'Evidence'
 $moscowNow = [DateTimeOffset]::UtcNow.ToOffset([TimeSpan]::FromHours(3))
 
@@ -173,7 +181,7 @@ $unityArguments = @('-projectPath', (Quote-Argument $unityProjectPath), '-logFil
 if ($Action -ne 'Open') { $unityArguments += '-batchmode' }
 if ($Action -eq 'Import') { $unityArguments += @('-nographics', '-quit') }
 if ($Action -eq 'Prepare') { $unityArguments += @('-nographics', '-quit', '-executeMethod', 'WorldGenesis.Editor.ProjectSetup.Prepare') }
-if ($Action -eq 'Build') { $unityArguments += @('-nographics', '-quit', '-executeMethod', 'WorldGenesis.Editor.ProjectSetup.BuildWindows') }
+if ($Action -eq 'Build') { $unityArguments += @('-nographics', '-quit', '-executeMethod', 'WorldGenesis.Editor.ProjectSetup.BuildWindows', '--artifact-root', (Quote-Argument $projectRoot)) }
 if ($Action -in @('EditMode', 'PlayMode')) {
     $unityArguments += @('-runTests', '-testPlatform', $Action, '-testResults', (Quote-Argument $resultPath))
 }

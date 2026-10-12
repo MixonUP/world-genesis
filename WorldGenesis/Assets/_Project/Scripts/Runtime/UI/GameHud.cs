@@ -71,13 +71,13 @@ namespace WorldGenesis.Runtime
             presetLabel = ButtonAt(left, "", new Vector2(17, -427), new Vector2(198, 29), () => { game.GenerationPreset = (WorldPreset)(((int)game.GenerationPreset + 1) % 3); RefreshPreset(); ShowToast("Выбрана форма следующего мира. Нажмите «Новый мир»."); }).GetComponentInChildren<Text>();
             RefreshPreset();
 
-            RectTransform right = PanelFixed(root.transform, "Inspector", new Vector2(-18, -95), new Vector2(236, 324), panel, true);
+            RectTransform right = PanelFixed(root.transform, "Inspector", new Vector2(-18, -95), new Vector2(236, 366), panel, true);
             Label(right, "НАБЛЮДЕНИЕ", 12, PixelArt.Gold, new Vector2(17, -16), new Vector2(202, 24)).fontStyle = FontStyle.Bold;
-            inspectorTitle = Label(right, "Живой мир", 23, white, new Vector2(17, -49), new Vector2(202, 55));
-            inspectorBody = Label(right, "", 13, muted, new Vector2(17, -107), new Vector2(202, 202));
-            RectTransform history = PanelFixed(root.transform, "Chronicle", new Vector2(-18, -436), new Vector2(236, 234), panel, true);
+            inspectorTitle = Label(right, "Живой мир", 23, white, new Vector2(17, -49), new Vector2(202, 48));
+            inspectorBody = Label(right, "", 13, muted, new Vector2(17, -101), new Vector2(202, 251));
+            RectTransform history = PanelFixed(root.transform, "Chronicle", new Vector2(-18, -478), new Vector2(236, 192), panel, true);
             Label(history, "ЛЕТОПИСЬ", 12, PixelArt.Gold, new Vector2(17, -16), new Vector2(202, 24)).fontStyle = FontStyle.Bold;
-            chronicle = Label(history, "", 12, muted, new Vector2(17, -51), new Vector2(202, 169));
+            chronicle = Label(history, "", 12, muted, new Vector2(17, -51), new Vector2(202, 127));
 
             RectTransform footer = Panel(root.transform, "Creation tools", Vector2.zero, new Vector2(1, 0), new Vector2(18, 18), new Vector2(-18, 174), panel);
             string[] categories = { "ЛАНДШАФТ", "ЖИЗНЬ", "СИЛЫ БОГА", "ЗАКОНЫ" };
@@ -179,12 +179,21 @@ namespace WorldGenesis.Runtime
                 inspectorTitle.text = selected.Name;
                 string[] species = { "Человек", "Эльф", "Гном", "Орк", "Овца", "Волк" };
                 SettlementData city = world.GetSettlement(selected.SettlementId);
-                inspectorBody.text = species[(int)selected.Species] + "  ·  ID " + selected.Id + "\n\nЗдоровье   " + selected.Health.ToString("0") + " / " + selected.MaxHealth.ToString("0") + "\nВозраст     " + selected.Age.ToString("0.0") + "\nГолод        " + selected.Hunger.ToString("0.00") + "\nЗанятие    " + TaskName(selected.Task.ToString()) + "\n\n" + (city == null ? "Свободный житель" : city.Name) + (selected.Blessed ? "\nБлагословлён" : "") + (selected.Infected ? "\nЗаражён" : "");
+                inspectorBody.text = species[(int)selected.Species] + "  ·  " + ProfessionName(selected) + "\nЗдоровье   " + selected.Health.ToString("0") + " / " + selected.MaxHealth.ToString("0") + "\nВозраст     " + selected.Age.ToString("0.0") + "\n\n<b>" + TaskName(selected) + "</b>\nГолод           " + (selected.Hunger * 100).ToString("0") + "%\nУсталость    " + (selected.Fatigue * 100).ToString("0") + "%" + ((int)selected.Species < 4 ? "\nОбщение     " + (selected.SocialNeed * 100).ToString("0") + "% потребн." : "") + "\nНоша: еда " + selected.CarriedFood.ToString("0.0") + ", дерево " + selected.CarriedWood.ToString("0.0") + "\n\n" + (city == null ? "Вне поселения" : city.Name) + (city != null && city.RulerId == selected.Id ? "\n<b>" + RulerTitle(city.Government) + "</b>" : "") + (selected.Blessed ? "\nБлагословлён" : "") + (selected.Infected ? "\nЗаражён" : "");
             }
             else if (world.InBounds(game.InspectX, game.InspectY))
             {
                 TileData tile = world.Cells[world.Index(game.InspectX, game.InspectY)]; SettlementData city = world.GetSettlement(tile.SettlementId);
-                if (city != null) { inspectorTitle.text = city.Name; inspectorBody.text = "Население   " + city.Population + "\nЖильё          " + city.Housing + "\nПостройки    " + city.Buildings + "\n\nЕда       " + city.Food.ToString("0") + "\nДерево  " + city.Wood.ToString("0") + "\nКамень  " + city.Stone.ToString("0") + "\n\nКоординаты " + city.X + ", " + city.Y; }
+                if (city != null)
+                {
+                    inspectorTitle.text = city.Name;
+                    UnitData ruler = world.GetUnit(city.RulerId);
+                    inspectorBody.text = "<b>" + GovernmentName(city.Government) + "</b>\n" +
+                        (ruler == null ? "Нет взрослого правителя" : RulerTitle(city.Government) + ": " + ruler.Name) +
+                        (city.Government == GovernmentType.Republic ? "\nВыборы через " + Mathf.Max(0, (city.NextElectionTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с" : "") +
+                        "\n\nНаселение   " + city.Population + "\nЖильё          " + city.Housing + "\nПостройки    " + city.Buildings +
+                        "\n\nЕда       " + city.Food.ToString("0") + "\nДерево  " + city.Wood.ToString("0") + "\nКамень  " + city.Stone.ToString("0");
+                }
                 else { inspectorTitle.text = TerrainName(tile.Terrain); inspectorBody.text = "Участок " + game.InspectX + ", " + game.InspectY + "\n\nВысота         " + tile.Height.ToString("0.00") + "\nВлажность   " + tile.Moisture.ToString("0.00") + "\nТемпература " + tile.Temperature.ToString("0.00") + "\nРастительность " + tile.Vegetation.ToString("0.00") + (tile.Fire > 0 ? "\n\nНа этом участке пожар" : "") + (tile.River ? "\nЗдесь проходит река" : ""); }
             }
             else { inspectorTitle.text = game.Tool?.Label ?? "Живой мир"; inspectorBody.text = (game.Tool?.Description ?? "") + "\n\nI — наблюдение\nПробел — пауза\nHome — показать весь мир\nF12 — снимок игры"; }
@@ -203,13 +212,43 @@ namespace WorldGenesis.Runtime
         {
             switch (law) { case WorldLaw.Births: return game.World.Laws.Births; case WorldLaw.Warfare: return game.World.Laws.Warfare; case WorldLaw.Aging: return game.World.Laws.Aging; case WorldLaw.VegetationGrowth: return game.World.Laws.VegetationGrowth; case WorldLaw.FireSpread: return game.World.Laws.FireSpread; default: return false; }
         }
-        private static string TaskName(string value)
+        private static string GovernmentName(GovernmentType government)
         {
-            switch (value) { case "Idle": return "отдых"; case "Wander": return "путешествие"; case "Gather": return "сбор ресурсов"; case "Farm": return "земледелие"; case "Return": return "возвращение"; case "Fight": return "бой"; case "Flee": return "бегство"; default: return value; }
+            switch (government) { case GovernmentType.Feudal: return "Феодальное правление"; case GovernmentType.Republic: return "Республика"; case GovernmentType.Theocracy: return "Теократия"; default: return "Поселение формируется"; }
+        }
+        private static string RulerTitle(GovernmentType government)
+        {
+            switch (government) { case GovernmentType.Feudal: return "Князь"; case GovernmentType.Republic: return "Консул"; case GovernmentType.Theocracy: return "Верховный жрец"; default: return "Правитель"; }
+        }
+        private static string ProfessionName(UnitData unit)
+        {
+            if ((int)unit.Species >= 4) return "животное";
+            if (unit.Age < 16) return "ребёнок";
+            switch (unit.Profession) { case UnitProfession.Farmer: return "земледелец"; case UnitProfession.Forester: return "лесоруб"; case UnitProfession.Guard: return "страж"; default: return "житель"; }
+        }
+        private static string TaskName(UnitData unit)
+        {
+            bool moving = unit.PathCursor < unit.Path.Count;
+            switch (unit.Task)
+            {
+                case UnitTask.Idle: return "Осматривается";
+                case UnitTask.Wander: return "Исследует окрестности";
+                case UnitTask.Gather: return moving ? "Идёт за древесиной" : "Заготавливает древесину";
+                case UnitTask.Farm: return moving ? "Идёт к полю" : "Работает в поле";
+                case UnitTask.Return: return "Доставляет ресурсы";
+                case UnitTask.Fight: return (int)unit.Species < 4 ? "Ополчение: защита" : moving ? "Преследует противника" : "В бою";
+                case UnitTask.Flee: return "Спасается от опасности";
+                case UnitTask.Eat: return moving ? "Идёт за едой" : "Ест";
+                case UnitTask.Rest: return moving ? "Ищет место для отдыха" : "Восстанавливает силы";
+                case UnitTask.Socialize: return moving ? "Идёт к собеседнику" : "Общается";
+                case UnitTask.Patrol: return "Охраняет поселение";
+                default: return "Наблюдает";
+            }
         }
         private Sprite IconSprite(int index)
         {
             if (iconSprites.TryGetValue(index, out Sprite sprite)) return sprite;
+            if (index == 6) { sprite = game.View.CreateHumanIcon(); iconSprites.Add(index, sprite); return sprite; }
             Texture2D atlas = game.View.SpriteMaterial.mainTexture as Texture2D; Rect uv = PixelArt.Uv(index);
             sprite = Sprite.Create(atlas, new Rect(uv.x * atlas.width, uv.y * atlas.height, uv.width * atlas.width, uv.height * atlas.height), new Vector2(.5f, .5f), 32);
             iconSprites.Add(index, sprite); return sprite;
