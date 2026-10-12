@@ -28,4 +28,3 @@ internal static class Program
         Console.WriteLine((results.Count - failures) + "/" + results.Count + " PASS"); return failures == 0 ? 0 : 1;
     }
 }
-
