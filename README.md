@@ -4,6 +4,8 @@
 
 **[Скачать Windows 0.5.1-alpha](https://github.com/MixonUP/world-genesis/releases/tag/v0.5.1-alpha)** · **[Галерея: 7 разных игровых кадров](Docs/Development/GALLERY_0_5.md)** · [Управление](Docs/Development/PLAY_GUIDE.md)
 
+[Выбираем новых существ: доска из 13 вариантов](Docs/Research/CREATURE_ASSET_SELECTION.md) — настоящие авторские превью, анимации, цены и источники. Новые персонажи пока кандидаты для выбора.
+
 ![Снег над поселением — кадр Windows Player](Evidence/Captures/20261012-170717-climate-snow-final.png)
 
 Подготовленная игровая сцена: снег вызван командой, температура участка снижена для проверки накопления покрова. Это настоящий кадр игры; подробности помощи указаны в галерее.

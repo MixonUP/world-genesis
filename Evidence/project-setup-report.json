@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T18:14:46.2467669+03:00",
+  "timestamp": "2026-10-12T18:54:06.8923990+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 451,
+  "checkCount": 464,
   "failures": [],
   "checks": [
     {
@@ -157,31 +157,6 @@
       "detail": "Found 5, expected 5"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
-    },
-    {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
       "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -200,6 +175,31 @@
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -302,6 +302,11 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PLAY_GUIDE.md"
     },
     {
+      "id": "link:README.md:Docs/Research/CREATURE_ASSET_SELECTION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
+    },
+    {
       "id": "link:README.md:Docs/Development/SUBSISTENCE_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SUBSISTENCE_REPORT.md"
@@ -395,6 +400,11 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Research/CREATURE_ASSET_SELECTION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
     },
     {
       "id": "link:00_INDEX.md:Development/SUBSISTENCE_REPORT.md",
@@ -815,6 +825,16 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:Research/CREATURE_ASSET_SELECTION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSET_SELECTION.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/github-release-0.5.1.jpg",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\github-release-0.5.1.jpg"
     },
     {
       "id": "link:STATE.md:Development/SUBSISTENCE_REPORT.md",
@@ -2125,6 +2145,51 @@
       "id": "link:CLIMATE_AND_BIOMES.md:../Development/WEATHER_REVIEW.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Development\\WEATHER_REVIEW.md"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:../Art/creature-board/index.html",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Art\\creature-board\\index.html"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:../../Evidence/Art/creature-board-full.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Art\\creature-board-full.png"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:../../Evidence/Art/creature-board-fauna.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Art\\creature-board-fauna.png"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:../Art/creature-board/manifest.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\Art\\creature-board\\manifest.json"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:../../Evidence/Art/creature-board-media-check.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\Evidence\\Art\\creature-board-media-check.json"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:CREATURE_ASSETS_PEOPLE_CANDIDATES.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSETS_PEOPLE_CANDIDATES.md"
+    },
+    {
+      "id": "link:CREATURE_ASSET_SELECTION.md:CREATURE_ASSETS_FAUNA_CANDIDATES.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\CREATURE_ASSETS_FAUNA_CANDIDATES.md"
+    },
+    {
+      "id": "link:CREATURE_ASSETS_PEOPLE_CANDIDATES.md:../../SourceAssets/ThirdParty/TinySwordsCC0/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\SourceAssets\\ThirdParty\\TinySwordsCC0\\PROVENANCE.md"
+    },
+    {
+      "id": "link:CREATURE_ASSETS_PEOPLE_CANDIDATES.md:../../SourceAssets/ThirdParty/TinySwordsCC0/Pawn_Blue.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\..\\..\\SourceAssets\\ThirdParty\\TinySwordsCC0\\Pawn_Blue.png"
     },
     {
       "id": "link:PROCEDURAL_FORMULAS.md:../../Evidence/Research/2026-10-12/procgen-probe.json",

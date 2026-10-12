@@ -1,0 +1,537 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-12T15:51:56.388Z",
+  "scope": "13 comparison cards, 14 source packs; preview curation, no new runtime import",
+  "newArchivesDownloaded": 0,
+  "purchases": 0,
+  "userSelection": [],
+  "curatorSuggestions": [
+    "03",
+    "01",
+    "09"
+  ],
+  "mediaStored": "Remote previews remain author-hosted. Two existing CC0 sheets remain in their established runtime paths.",
+  "candidates": [
+    {
+      "id": "01",
+      "title": "Sunnyside World",
+      "artist": "Daniel Diggle",
+      "groups": [
+        "people",
+        "monsters"
+      ],
+      "scale": "Сетка 16 px",
+      "motion": "20 действий",
+      "price": "Бесплатно",
+      "source": "https://danieldiggle.itch.io/sunnyside",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzQzMjIzOTEuZ2lm/original/3igDW2.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Sunnyside World — превью 1 / Daniel Diggle",
+            "complete": true,
+            "height": 896,
+            "url": "https://img.itch.zone/aW1nLzQzMjIzOTEuZ2lm/original/3igDW2.gif",
+            "width": 1344
+          },
+          "copyrightHolder": "Daniel Diggle",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Яркая деревня, где работу видно по жестам.",
+      "animations": "В основном наборе 20 действий людей и гоблинов: ходьба, переноска, рубка, добыча, стройка, рыбалка и бой.",
+      "license": "Авторская NEW LICENCE V1: коммерческие игры и изменения разрешены. Не CC0; нельзя переупаковывать/перепродавать ассеты или использовать их для обучения AI.",
+      "limitation": "Рабочие действия в основном боковые. Отдельная beta 4/6/8 направлений содержит лишь покой, ходьбу и бег; это не полный набор труда во всех ракурсах.",
+      "fit": "Сильный кандидат для заметных профессий. Нужно проверить вид сверху и переносимые грузы на нашей карте.",
+      "caution": "Работа преимущественно сбоку",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "02",
+      "title": "Time Elements",
+      "artist": "finalbossblues",
+      "groups": [
+        "people"
+      ],
+      "scale": "Фигуры 16×32",
+      "motion": "4 направления",
+      "price": "$20",
+      "source": "https://finalbossblues.itch.io/time-elements-character-core-set",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1hZ2UvMTczMTAwMC8xMDE5MTQ0OC5wbmc=/original/tYR%2BzU.png",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Time Elements — превью 1 / finalbossblues",
+            "complete": true,
+            "height": 1080,
+            "url": "https://img.itch.zone/aW1hZ2UvMTczMTAwMC8xMDE5MTQ0OC5wbmc=/original/tYR%2BzU.png",
+            "width": 1920
+          },
+          "copyrightHolder": "finalbossblues",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Стройные RPG-жители с отдельными волосами и одеждой.",
+      "animations": "Модульные части тела и костюма, 5 готовых героев и 16 NPC. Движение, приседание, прыжок и атака в четырёх направлениях.",
+      "license": "По авторскому FAQ коммерческие игры разрешены, отдельные ассеты распространять нельзя. Вложенные документы купленного архива ещё не проверены.",
+      "limitation": "Полный набор фермерских и ремесленных действий не подтверждён. На далёкой камере тонкие ноги и оружие могут потеряться.",
+      "fit": "Подходит для различимой одежды, социальных ролей и будущей экипировки. Потребуется единый размер персонажей на карте.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "03",
+      "title": "Minifantasy",
+      "artist": "Krishna Palacio",
+      "groups": [
+        "people",
+        "animals",
+        "monsters"
+      ],
+      "scale": "Мир на сетке 8 px",
+      "motion": "4 ракурса",
+      "price": "$2.99 + $5.99",
+      "source": "https://krishna-palacio.itch.io/minifantasy-creatures",
+      "extraSource": "https://krishna-palacio.itch.io/minifantasy-wildlife",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1hZ2UvNjU1ODA4LzM1MjM4ODAuZ2lm/original/xtAS0E.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Minifantasy — превью 1 / Krishna Palacio",
+            "complete": true,
+            "height": 160,
+            "url": "https://img.itch.zone/aW1hZ2UvNjU1ODA4LzM1MjM4ODAuZ2lm/original/xtAS0E.gif",
+            "width": 160
+          },
+          "copyrightHolder": "Krishna Palacio",
+          "newFileDownloaded": false
+        },
+        {
+          "url": "https://img.itch.zone/aW1hZ2UvNjU1ODA4LzM1MjM5NzMuZ2lm/original/AaOcvG.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Minifantasy — превью 2 / Krishna Palacio",
+            "complete": true,
+            "height": 160,
+            "url": "https://img.itch.zone/aW1hZ2UvNjU1ODA4LzM1MjM5NzMuZ2lm/original/AaOcvG.gif",
+            "width": 160
+          },
+          "copyrightHolder": "Krishna Palacio",
+          "newFileDownloaded": false
+        },
+        {
+          "url": "https://img.itch.zone/aW1nLzkzODI0OTAuZ2lm/original/%2FpP1jF.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "url": "https://img.itch.zone/aW1nLzkzODI0OTAuZ2lm/original/%2FpP1jF.gif",
+            "width": 1280,
+            "height": 1280
+          },
+          "copyrightHolder": "Krishna Palacio",
+          "newFileDownloaded": false
+        },
+        {
+          "url": "https://img.itch.zone/aW1nLzczNDc1NzAuZ2lm/original/HBGUWz.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "url": "https://img.itch.zone/aW1nLzczNDc1NzAuZ2lm/original/HBGUWz.gif",
+            "width": 1280,
+            "height": 320
+          },
+          "copyrightHolder": "Krishna Palacio",
+          "newFileDownloaded": false
+        }
+      ],
+      "detailImages": [
+        "https://img.itch.zone/aW1nLzkzODI0OTAuZ2lm/original/%2FpP1jF.gif",
+        "https://img.itch.zone/aW1nLzczNDc1NzAuZ2lm/original/HBGUWz.gif"
+      ],
+      "vibe": "Цельный крошечный мир: народы, звери и чудовища.",
+      "animations": "Creatures: 28 существ, покой, ходьба, прыжок, атака, получение урона и смерть. Wildlife: отдельные 28 животных с покоем, ходьбой, уроном и смертью; атаки у семи.",
+      "license": "Creatures бесплатно только некоммерчески; коммерческая версия от $2.99. Wildlife $5.99. Нужны авторство и ссылка автору после завершения; отдельные ассеты не перераздавать.",
+      "limitation": "Четыре ракурса — диагональные варианты переда и спины, не восемь независимых направлений. Лицевые детали очень условны; рыбы требуют другого решения.",
+      "fit": "Моя предварительная рекомендация для общей массы существ: одно семейство и низкая детализация, близкая масштабу симулятора. Это кураторское мнение, не выбор пользователя.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "04",
+      "title": "Human Villagers",
+      "artist": "Snoblin",
+      "groups": [
+        "people"
+      ],
+      "scale": "Сетка 16 px",
+      "motion": "4 направления",
+      "price": "$2.60 · акция",
+      "source": "https://snoblin.itch.io/human-npcs",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1hZ2UvMTc3MjA2NS8xNTQ2NzQ3MC5naWY=/original/p1HOF8.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Human Villagers — превью 1 / Snoblin",
+            "complete": true,
+            "height": 268,
+            "url": "https://img.itch.zone/aW1hZ2UvMTc3MjA2NS8xNTQ2NzQ3MC5naWY=/original/p1HOF8.gif",
+            "width": 320
+          },
+          "copyrightHolder": "Snoblin",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Компактные жители с земной палитрой и спокойным силуэтом.",
+      "animations": "Покой 2 кадра, ходьба 4, получение урона 2, смерть 3. Верх, низ и зеркальный бок; есть варианты в воде, PNG/Aseprite и портреты.",
+      "license": "Авторские условия разрешают коммерческую игру и изменения, запрещают распространение исходных и изменённых ассетов. Обычная цена $4.",
+      "limitation": "Труд и бой в заявленный список не входят. Готовая одежда не означает модульную смену экипировки.",
+      "fit": "Хороший визуальный ориентир для мирного населения. Ремесло и переноску придётся дорисовать.",
+      "caution": "Нет готовых рабочих действий",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "05",
+      "title": "Tiny RPG Workshop",
+      "artist": "tiopalada / Gabriel Lima",
+      "groups": [
+        "people",
+        "monsters"
+      ],
+      "scale": "Клетка 48×48",
+      "motion": "4 направления",
+      "price": "$15",
+      "source": "https://tiopalada.itch.io/tiny-rpg-char-workshop-i",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzE3NzUwODk3LmdpZg==/original/VDVFOk.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Tiny RPG Workshop — превью 1 / tiopalada / Gabriel Lima",
+            "complete": true,
+            "height": 432,
+            "url": "https://img.itch.zone/aW1nLzE3NzUwODk3LmdpZg==/original/VDVFOk.gif",
+            "width": 432
+          },
+          "copyrightHolder": "tiopalada / Gabriel Lima",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Крупные головы, яркие костюмы и множество фантастических форм.",
+      "animations": "7 базовых тел, 40 готовых персонажей, слои причёсок, шляп и доспехов. Ходьба по 6 или 3 кадра, четыре направления.",
+      "license": "На странице указана CC BY 4.0; отдельное бесплатное демо CC0. Автор просит не использовать для обучения AI/LLM. Купленный архив и его вложенные документы не проверены.",
+      "limitation": "Подтверждена ходьба, но не атака, рубка, переноска или рыбалка. Слои иногда требуют ручной коррекции стыков.",
+      "fit": "Интересен для редких жителей, магов и разнообразия внешности; простые гражданские костюмы надо сравнивать отдельно.",
+      "caution": "Анимации пока только ходьбы",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "06",
+      "title": "Sprout Lands",
+      "artist": "Cup Nooble",
+      "groups": [
+        "people",
+        "animals"
+      ],
+      "scale": "Пастельный пиксель-арт",
+      "motion": "6 действий · 4 стороны",
+      "price": "Premium $3.99",
+      "source": "https://cupnooble.itch.io/sprout-lands-asset-pack",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzgxNTEyNDUuZ2lm/original/haqTgP.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Sprout Lands — превью 1 / Cup Nooble",
+            "complete": true,
+            "height": 180,
+            "url": "https://img.itch.zone/aW1nLzgxNTEyNDUuZ2lm/original/haqTgP.gif",
+            "width": 528
+          },
+          "copyrightHolder": "Cup Nooble",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Мягкий мир с ушастым фермером и простыми выразительными позами.",
+      "animations": "Premium: покой, ходьба, бег, обработка земли, рубка и полив в четырёх направлениях.",
+      "license": "Premium разрешён коммерчески; бесплатный Basic только некоммерчески. Нужен credit Cup Nooble либо ссылка; отдельные ассеты не распространять.",
+      "limitation": "На превью антропоморфный зверёк, а не население людей, эльфов и гномов. Пастель потребует проверки на снегу и песке.",
+      "fit": "Отдельное уютное художественное направление. Для исторических поселений понадобятся новые тела и одежда.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "07",
+      "title": "Tiny Swords · сейчас",
+      "artist": "Pixel Frog",
+      "groups": [
+        "people"
+      ],
+      "status": "Уже в игре",
+      "scale": "Клетка 192×192",
+      "motion": "6 рабочих состояний",
+      "price": "Старый пакет CC0",
+      "source": "https://pixelfrog-assets.itch.io/tiny-swords",
+      "sprite": true,
+      "images": [
+        {
+          "url": "../../../WorldGenesis/Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Blue.png",
+          "local": true,
+          "sha256": null,
+          "decodedDimensions": {
+            "width": 1152,
+            "height": 1152
+          },
+          "copyrightHolder": "Pixel Frog",
+          "newFileDownloaded": false
+        },
+        {
+          "url": "../../../WorldGenesis/Assets/_Project/Art/Units/Resources/TinySwordsCC0/Pawn_Red.png",
+          "local": true,
+          "sha256": null,
+          "decodedDimensions": {
+            "width": 1152,
+            "height": 1152
+          },
+          "copyrightHolder": "Pixel Frog",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Текущие жители: широкие движения, крупные головы и яркие цвета.",
+      "animations": "Именно old CC0 Update 010: покой, бег, строительство, рубка, переноска стоя и в беге — по 6 кадров. Здесь циклы проигрываются из уже используемых листов.",
+      "license": "Старый CC0-архив уже проверен в проекте. У новых Free/Enemy-пакетов другие условия; их эта карточка не представляет.",
+      "limitation": "Полной четырёхсторонней локомоции нет; еда и отдых сейчас передаются позами. 192×192 — холст с прозрачными полями, не размер тела.",
+      "fit": "Контрольный вариант, с которым стоит сравнивать замену. Он уже связан с нашими реальными рабочими состояниями.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "08",
+      "title": "Animals Mega Pack",
+      "artist": "SmallScaleInt",
+      "groups": [
+        "animals"
+      ],
+      "scale": "Холст 64–128 px",
+      "motion": "8 направлений",
+      "price": "$19.99 · акция",
+      "source": "https://smallscaleint.itch.io/8direction-animated-animals-mega-pack-over-50-top-down-pixel-2d-animals",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzE4MjczMDI1LmdpZg==/original/VsDx5m.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Animals Mega Pack — превью 1 / SmallScaleInt",
+            "complete": true,
+            "height": 384,
+            "url": "https://img.itch.zone/aW1nLzE4MjczMDI1LmdpZg==/original/VsDx5m.gif",
+            "width": 384
+          },
+          "copyrightHolder": "SmallScaleInt",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Более подробные звери с объёмной формой и плавными поворотами.",
+      "animations": "56 позиций с цветовыми вариантами, включая оленей, кабанов, медведей, волков, лошадей и ослов. 8 направлений, по 15 кадров; покой, ходьба, бег, урон, смерть и атаки по виду.",
+      "license": "Обычная цена $39.99. Точная лицензия itch-версии на просмотренных страницах не найдена — условия перед импортом нужно уточнить.",
+      "limitation": "Нет подтверждённых готовых еды/питья. Есть сообщение о проблеме направлений walk кабана без найденного подтверждения исправления. Пиксельная плотность выше, чем у крошечных жителей.",
+      "fit": "Кандидат для заметных медведей, волков и вьючных животных; потребуется привести масштаб и палитру к выбранным людям.",
+      "caution": "Лицензия требует уточнения",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "09",
+      "title": "Seasons of Forest",
+      "artist": "inkBubi",
+      "groups": [
+        "animals"
+      ],
+      "scale": "Животные 8–32 px",
+      "motion": "Еда, бег и сон",
+      "price": "$5",
+      "source": "https://inkbubi.itch.io/seasons-of-forest-animal-pack",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzI2MDc2MTcxLmdpZg==/original/PnbJXt.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Seasons of Forest — превью 1 / inkBubi",
+            "complete": true,
+            "height": 288,
+            "url": "https://img.itch.zone/aW1nLzI2MDc2MTcxLmdpZg==/original/PnbJXt.gif",
+            "width": 315
+          },
+          "copyrightHolder": "inkBubi",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Лесная повседневность: звери не только ходят, но и едят, и отдыхают.",
+      "animations": "Покой, ходьба, бег, еда, сон. Четыре направления, кроме сна; минимум три окраски. PNG-кадры, листы и файл длительностей.",
+      "license": "Коммерческие проекты и изменения разрешены, отдельные ассеты перераздавать нельзя. Бесплатное демо ограничено пятью животными и покоем/бегом.",
+      "limitation": "Атаки и смерть не заявлены. Видовой состав автор показывает изображениями, поэтому точная полнота видов до проверки архива не обещается.",
+      "fit": "Предварительный фаворит для мирных лесных животных и наблюдаемого поведения; хищникам нужен дополнительный боевой набор.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "10",
+      "title": "Forest Nature",
+      "artist": "ToffeeCraft",
+      "groups": [
+        "animals"
+      ],
+      "scale": "Top-down · 32 px теги",
+      "motion": "10 заявленных анимаций",
+      "price": "Full $1.80",
+      "source": "https://toffeecraft.itch.io/forest-nature-pack",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzE5NDAwNjI3LmdpZg==/original/J13sl2.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Forest Nature — превью 1 / ToffeeCraft",
+            "complete": true,
+            "height": 300,
+            "url": "https://img.itch.zone/aW1nLzE5NDAwNjI3LmdpZg==/original/J13sl2.gif",
+            "width": 1000
+          },
+          "copyrightHolder": "ToffeeCraft",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Небольшие лесные звери и птицы для насыщенной природной сцены.",
+      "animations": "Кролики, небольшие птицы/попугаи, лиса, волк. Заявлены покой, шаг, прыжок, сидение, лежание, сон, урон, бег и смерть; матрица направлений не перечислена.",
+      "license": "Платный Full разрешён для коммерческих игр; бесплатный Free только personal use. Нельзя распространять исходные ассеты.",
+      "limitation": "Полное число ракурсов нужно проверить. Тег 32×32 не гарантирует одинаковый холст каждого зверя; бесплатный файл не означает весь набор фауны.",
+      "fit": "Недорогая альтернативная палитра для лисы, волка и птиц; сначала проверить рядом с нашей травой.",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "11",
+      "title": "Вода и воздух",
+      "artist": "Vairus Studio",
+      "groups": [
+        "animals"
+      ],
+      "scale": "Основа 16×16",
+      "motion": "Полёт и плавание",
+      "price": "Complete $2.99",
+      "source": "https://vairus-studio.itch.io/animals-pixel-art-pack",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzI0OTcwMTY2LmdpZg==/original/ry2dOF.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Вода и воздух — превью 1 / Vairus Studio",
+            "complete": true,
+            "height": 2048,
+            "url": "https://img.itch.zone/aW1nLzI0OTcwMTY2LmdpZg==/original/ry2dOF.gif",
+            "width": 2048
+          },
+          "copyrightHolder": "Vairus Studio",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Рыбы, птицы, бабочки и фермерская живность в одном компактном наборе.",
+      "animations": "10 видов. У птиц взлёт, полёт, посадка, еда и смерть; у рыб плавание и смерть; у бабочек полёт и сидячие позы. Есть фермерские животные.",
+      "license": "Есть бесплатная и полная версии. Условия коммерческого использования на просмотренных страницах не найдены; пока только кандидат для визуального выбора.",
+      "limitation": "Четыре направления не обещаны. Точный вид сверху и соответствие палитры нужно оценить; лицензию уточнить до импорта.",
+      "fit": "Закрывает интересные для нашей карты типы движения: косяки рыб и летающие птицы.",
+      "caution": "Лицензия требует уточнения",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "12",
+      "title": "Дракон Elthen",
+      "artist": "Elthen",
+      "groups": [
+        "monsters"
+      ],
+      "scale": "Крупное существо",
+      "motion": "3 атаки · урон · смерть",
+      "price": "$8",
+      "source": "https://elthen.itch.io/2d-pixel-art-dragon-sprites",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1nLzE1NzQ0NjAuZ2lm/original/NVvJt3.gif",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Дракон Elthen — превью 1 / Elthen",
+            "complete": true,
+            "height": 632,
+            "url": "https://img.itch.zone/aW1nLzE1NzQ0NjAuZ2lm/original/NVvJt3.gif",
+            "width": 1024
+          },
+          "copyrightHolder": "Elthen",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Крупная угроза с длинным силуэтом, крыльями и выразительной атакой.",
+      "animations": "Появление, угроза, покой, движение, три атаки, два получения урона и смерть. Есть левый вариант листа.",
+      "license": "Elthen Common Sense License 1.0: коммерческие игры и изменения разрешены; отдельные ассеты не перераздавать, не применять для обучения генеративных моделей.",
+      "limitation": "Профильный Side Scroller, не готовый top-down в четырёх ракурсах. Это направление для отдельного чудовища; непосредственная совместимость с нашей камерой не заявлена.",
+      "fit": "Сравниваем характер и силуэт босса. Для внедрения потребуется другое решение по ракурсам.",
+      "caution": "Вид сбоку",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    },
+    {
+      "id": "13",
+      "title": "Tiny Creatures",
+      "artist": "Clint Bellanger",
+      "groups": [
+        "animals",
+        "monsters"
+      ],
+      "scale": "Спрайты 16×16",
+      "motion": "Статичные позы",
+      "price": "Бесплатно · CC0",
+      "source": "https://clintbellanger.itch.io/tiny-creatures",
+      "images": [
+        {
+          "url": "https://img.itch.zone/aW1hZ2UvMjU5Mzc4MS8xNTQ1MDE4Ny5wbmc=/original/UFvdp3.png",
+          "local": false,
+          "sha256": null,
+          "decodedDimensions": {
+            "alt": "Tiny Creatures — превью 1 / Clint Bellanger",
+            "complete": true,
+            "height": 800,
+            "url": "https://img.itch.zone/aW1hZ2UvMjU5Mzc4MS8xNTQ1MDE4Ny5wbmc=/original/UFvdp3.png",
+            "width": 600
+          },
+          "copyrightHolder": "Clint Bellanger",
+          "newFileDownloaded": false
+        }
+      ],
+      "vibe": "Толстый контур и множество различимых маленьких существ.",
+      "animations": "180 спрайтов: более 100 монстров и более 50 животных. Автор позиционирует набор для игр, которым не нужно много анимаций; полноценные циклы не обещаются.",
+      "license": "CC0 1.0. Подходит коммерчески, можно изменять. Расширение Kenney Tiny Dungeon/Town, созданное с разрешения Kenney.",
+      "limitation": "Статичные позы не заменят бег, работу и бой. Движения придётся создавать отдельно.",
+      "fit": "Свободная база для собственного развития миниатюрного стиля и большого видового разнообразия.",
+      "caution": "Циклы нужно создавать",
+      "selectionStatus": "awaiting-user-choice",
+      "visualReview": "Public preview pixels inspected; full action cycles and new Unity import not verified."
+    }
+  ]
+}
