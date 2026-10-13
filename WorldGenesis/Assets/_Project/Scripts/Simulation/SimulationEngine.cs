@@ -31,7 +31,7 @@ namespace WorldGenesis.Simulation
             MigratePolitics();
             MigrateResources();
             MigrateDemography(); MigrateCivilEconomy(); MigrateCarrying(legacyCarrying);
-            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateFishing(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1;
+            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateFishing(); MigrateIndustry(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1; MigrateBuildingAccess();
         }
 
         public void Step(float dt)
@@ -233,7 +233,7 @@ namespace WorldGenesis.Simulation
             if (spatialNext.Length < World.Units.Count) spatialNext = new int[Math.Max(spatialNext.Length * 2, World.Units.Count)];
             for (int i = 0; i < World.Units.Count; i++)
             {
-                UnitData u = World.Units[i]; int cell = World.Index((int)u.X, (int)u.Y);
+                UnitData u = World.Units[i]; if (u.InsideBuildingId != 0) { spatialNext[i] = -1; continue; } int cell = World.Index((int)u.X, (int)u.Y);
                 spatialNext[i] = spatialHeads[cell]; spatialHeads[cell] = i;
             }
         }
@@ -291,15 +291,17 @@ namespace WorldGenesis.Simulation
             if (IsCivilized(unit.Species)) unit.Thirst = Math.Min(1, unit.Thirst + dt * SubsistenceRules.ThirstPerSecond);
             if (unit.Task != UnitTask.Rest)
             {
-                float exertion = unit.Task == UnitTask.Flee || unit.Task == UnitTask.Fight ? .012f : unit.Task == UnitTask.Gather || unit.Task == UnitTask.Farm || unit.Task == UnitTask.Process ? .006f : unit.PathCursor < unit.Path.Count ? .003f : .0015f;
-                unit.Fatigue = Math.Min(1, unit.Fatigue + dt * exertion);
+                float exertion = unit.Task == UnitTask.Flee || unit.Task == UnitTask.Fight ? .012f : unit.Task == UnitTask.Gather || unit.Task == UnitTask.Farm || unit.Task == UnitTask.Process || unit.Task == UnitTask.Produce ? .006f : unit.PathCursor < unit.Path.Count ? .003f : .0015f;
+                unit.Fatigue = Math.Min(1, unit.Fatigue + dt * exertion * IndustryCatalog.ClothingFatigueMultiplier(unit.Clothes));
             }
             if (IsCivilized(unit.Species)) unit.SocialNeed = Math.Min(1, unit.SocialNeed + dt * .0025f);
             unit.AttackTimer = Math.Max(0, unit.AttackTimer - dt);
             unit.DecisionTimer -= dt;
             TileData tile = World.Cells[World.Index(x, y)];
             unit.Health = Math.Max(0, unit.Health - tile.Fire * dt * 15);
-            if (!World.IsWalkable(x, y))
+            if (HandleIndoorSafety(unit, dt)) return;
+            x = (int)unit.X; y = (int)unit.Y; tile = World.Cells[World.Index(x, y)];
+            if (unit.InsideBuildingId == 0 && !World.IsWalkable(x, y))
             {
                 // A changed coastline never teleports inhabitants. They seek an adjacent shore and take drowning damage.
                 ChangeTask(unit, UnitTask.Flee); ClearRoute(unit);
@@ -313,7 +315,7 @@ namespace WorldGenesis.Simulation
             if (unit.Health <= 0) return;
             SettlementData home = World.GetSettlement(unit.SettlementId);
             EnforceChildWorkLaw(unit, home);
-            UnitData enemy = FindEnemy(unit, WildlifeCatalog.IsPredator(unit.Species) ? 6 : 2) ?? FindDisputeEnemy(unit) ?? HuntTarget(unit);
+            UnitData enemy = unit.InsideBuildingId != 0 ? null : FindEnemy(unit, WildlifeCatalog.IsPredator(unit.Species) ? 6 : 2) ?? FindDisputeEnemy(unit) ?? HuntTarget(unit);
             UnitData predator = WildlifeCatalog.IsAnimal(unit.Species) && !WildlifeCatalog.IsPredator(unit.Species) ? FindPredator(unit) : null;
             bool threatened = predator != null || (enemy != null && IsCivilized(unit.Species) && (unit.Age < 16 || unit.Health < unit.MaxHealth * .35f));
             bool hazard = tile.Fire > .1f || NearbyFire(x, y) > .5f;
@@ -372,10 +374,10 @@ namespace WorldGenesis.Simulation
                 int entered = World.Index((int)unit.X, (int)unit.Y);
                 if (entered != oldCell) RecordFootstep(unit, entered);
             }
-            else if (!PerformTransportActivity(unit, home, dt) && !PerformCaravanActivity(unit, home, dt) && !PerformAgriDelivery(unit, home, dt) && !PerformWaterActivity(unit, home, dt) && !PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home)))
+            else if (!PerformBuildingEntry(unit, dt) && !PerformBuildingVisit(unit, dt) && !PerformManufacturedUse(unit, home) && !PerformTransportActivity(unit, home, dt) && !PerformCaravanActivity(unit, home, dt) && !PerformAgriDelivery(unit, home, dt) && !PerformWaterActivity(unit, home, dt) && !PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home)))
             {
                 float workDt = dt * GetWorkMultiplier(unit);
-                if (!PerformFishing(unit, home, workDt)) Work(unit, home, workDt);
+                if (!PerformProduction(unit, home, workDt) && !PerformFishing(unit, home, workDt)) Work(unit, home, workDt);
             }
         }
 
@@ -386,6 +388,7 @@ namespace WorldGenesis.Simulation
             if (unit.Thirst > .55f && ChooseWater(unit, home)) return;
             if (unit.Hunger > .50f && ChooseFood(unit, home)) return;
             if (unit.Fatigue > .72f && ChooseRest(unit, home)) return;
+            if (ChooseManufacturedGoods(unit, home)) return;
             if (ChooseTransportWork(unit, home)) return;
             if (home != null && unit.Age >= 16)
             {
@@ -399,6 +402,7 @@ namespace WorldGenesis.Simulation
                 if (unit.SocialNeed > .70f && unit.Hunger < .5f && ChooseSocial(unit, home)) return;
                 if (ChooseLoot(unit, home) || ChooseGroundStock(unit)) return;
                 if (TryChooseCaravan(unit, home) || ChooseAgriculturalWork(unit, home) || ChooseHunt(unit, home)) return;
+                if (ChooseProduction(unit, home) || ChooseFurniture(unit, home)) return;
                 if (ChooseAdultLearning(unit, home)) return;
                 if (unit.Profession == UnitProfession.Forester && home.Food >= home.Population * 2 && ChooseIndustry(unit, home)) return;
                 float foodNeed = WorldGenerator.Clamp01(1 - home.Food / (home.Population * 5f + 1));
@@ -542,6 +546,8 @@ namespace WorldGenesis.Simulation
             World.Cells[World.Index(x, y)].SettlementId = s.Id;
             World.Cells[World.Index(x, y)].Vegetation = 0;
             ClearNodeForBuilding(World.Index(x, y));
+            InitializeBuildingAccess(b);
+            if (BuildingAccess.IsEnclosed(type)) World.NavigationRevision++;
             s.Buildings++; s.Housing += HousingCapacity(b);
             AddEvent(EventKind.Built, x + .5f, y + .5f, s.Name + ": " + (type == BuildingType.House ? "построен дом" : type == BuildingType.Farm ? "разбито поле" : type == BuildingType.Tower ? "построена башня" : type == BuildingType.Sawmill ? "построена лесопилка" : type == BuildingType.Stoneworks ? "построена каменоломня" : type == BuildingType.Kiln ? "построена кирпичная печь" : type == BuildingType.Well ? "вырыт колодец" : type == BuildingType.Warehouse ? "построен склад" : type == BuildingType.Granary ? "построен амбар" : type == BuildingType.Shop ? "открыта лавка" : type == BuildingType.WoodWall ? "поставлена деревянная стена" : type == BuildingType.Gate ? "поставлены ворота" : type == BuildingType.School ? "построена школа" : "разведён костёр"));
             World.TerrainRevision++;
@@ -562,7 +568,8 @@ namespace WorldGenesis.Simulation
                 TileData cell = World.Cells[World.Index(x, y)];
                 if (cell.BuildingId != 0 || cell.Fire > 0 || (cell.SettlementId != 0 && cell.SettlementId != s.Id)) continue;
                 bool tooClose = false;
-                for (int i = 0; i < World.Buildings.Count; i++) if (DistanceSquared(x, y, World.Buildings[i].X, World.Buildings[i].Y) < 4) { tooClose = true; break; }
+                for (int i = 0; i < World.Buildings.Count; i++) if (DistanceSquared(x, y, World.Buildings[i].X, World.Buildings[i].Y) < 4 || World.Buildings[i].EntranceCell == World.Index(x,y)) { tooClose = true; break; }
+                if (!tooClose) foreach (UnitData resident in World.Units) if ((int)resident.X == x && (int)resident.Y == y) { tooClose = true; break; }
                 if (!tooClose && navigation.Find(World.Index(s.X, s.Y), World.Index(x, y), scratchPath)) return World.Index(x, y);
             }
             return -1;
@@ -606,7 +613,9 @@ namespace WorldGenesis.Simulation
             {
                 BuildingData b = World.Buildings[i];
                 if (b.Health > 0 && (World.IsTerrainWalkable(b.X, b.Y) || World.IsTemporaryFlood(World.Index(b.X, b.Y)))) continue;
+                EvacuateRemovedBuilding(b);
                 SalvageConstructionMaterials(b);
+                DestroyIndustryBuilding(b);
                 DestroyResourceStorage(b);
                 LoseAgriculturalStorage(b);
                 World.Cells[World.Index(b.X, b.Y)].BuildingId = 0;
@@ -622,7 +631,7 @@ namespace WorldGenesis.Simulation
             {
                 UnitData unit = World.Units[i];
                 if (unit.Health > 0) continue;
-                ReleaseCaravanOnDeath(unit); LoseCargo(unit);
+                ReleaseIndoorDeath(unit); ReleaseCaravanOnDeath(unit); LoseManufacturedEquipment(unit); LoseCargo(unit);
                 DropAgriculturalCargo(unit); DropAnimalLoot(unit);
                 if (removedIds == null) removedIds = new HashSet<int>();
                 removedIds.Add(unit.Id);
@@ -677,7 +686,7 @@ namespace WorldGenesis.Simulation
             for (int n = spatialHeads[World.Index(cx, cy)]; n >= 0; n = spatialNext[n])
             {
                 UnitData other = World.Units[n];
-                if (other.Id == unit.Id || other.Health <= 0) continue;
+                if (other.Id == unit.Id || other.Health <= 0 || other.InsideBuildingId != 0) continue;
                 bool predator = PredatorWants(unit, other);
                 bool defense = IsCivilized(unit.Species) && WildlifeCatalog.IsPredator(other.Species) && (other.Species == SpeciesType.Wolf || other.TargetId == unit.Id || PredatorWants(other, unit));
                 bool war = IsCivilized(unit.Species) && IsCivilized(other.Species) && other.Age >= 16 && AtWar(unit.SettlementId, other.SettlementId);
@@ -749,18 +758,28 @@ namespace WorldGenesis.Simulation
 
         private bool SetTarget(UnitData unit, int x, int y)
         {
-            if (!World.IsWalkable(x, y)) return false;
-            int start = World.Index((int)unit.X, (int)unit.Y), goal = World.Index(x, y);
+            if (!World.InBounds(x,y)) return false;
+            int requested = World.Index(x,y);
+            BuildingData targetBuilding = World.GetBuilding(World.Cells[requested].BuildingId);
+            bool indoors = targetBuilding != null && BuildingAccess.IsEnclosed(targetBuilding.Type) && World.BuildingAccessVersion != 0;
+            if (indoors && (!BuildingAccess.MayEnter(World,unit,targetBuilding) || !BuildingAccess.IsUsable(World,targetBuilding))) return false;
+            if (indoors && unit.InsideBuildingId == targetBuilding.Id) { ClearRoute(unit);unit.TargetCell=requested;return true; }
+            int start = World.Index((int)unit.X, (int)unit.Y), goal = World.BuildingNavigationCell(requested);
+            if (unit.InsideBuildingId != 0)
+            { BuildingData previous = World.GetBuilding(unit.InsideBuildingId); start = previous == null ? -1 : FindBuildingExit(previous,true); }
+            if (start < 0 || goal < 0 || !World.IsWalkable(goal % World.Width, goal / World.Width)) return false;
             if (!navigation.Find(start, goal, scratchPath, 4096, true))
             {
                 // A long return from an old save or an interrupted expedition is not an unreachable home.
                 // Expand only for an owned destination, using the same reusable BFS arrays and real route.
-                BuildingData destination = World.GetBuilding(World.Cells[goal].BuildingId);
+                BuildingData destination = targetBuilding;
                 if (World.Cells.Length <= 4096 || destination == null || unit.SettlementId == 0 || destination.SettlementId != unit.SettlementId
                     || !navigation.Find(start, goal, scratchPath, World.Cells.Length, true)) return false;
             }
+            if (unit.InsideBuildingId != 0) PlaceOutsideBuilding(unit,start);
             if (unit.TargetCell != World.Index(x, y)) ReleaseReservation(unit);
             unit.Path.Clear(); unit.Path.AddRange(scratchPath); unit.PathCursor = 0; unit.PathRevision = World.NavigationRevision; unit.TargetCell = World.Index(x, y);
+            unit.EnteringBuildingId = indoors ? targetBuilding.Id : 0; unit.BuildingInteractionTimer = 0;
             return true;
         }
 

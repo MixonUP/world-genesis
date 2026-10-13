@@ -84,6 +84,7 @@ namespace WorldGenesis.Runtime
         }
         public static string ItemName(ItemType type)
         {
+            if ((int)type >= 18) return IndustryCatalog.ItemName(type);
             switch (type)
             {
                 case ItemType.Log: return "Брёвна"; case ItemType.Plank: return "Доски";
@@ -99,6 +100,7 @@ namespace WorldGenesis.Runtime
         }
         public static string BuildingName(BuildingType type)
         {
+            if (IndustryCatalog.IsWorkshop(type)) return IndustryCatalog.BuildingName(type);
             switch (type)
             {
                 case BuildingType.Hall: return "Общинный костёр"; case BuildingType.House: return "Жилище";

@@ -64,9 +64,9 @@ namespace WorldGenesis.Simulation
                 {
                     BuildingData b = World.Buildings[i];
                     if (b.Type != BuildingType.Brewery || !UsableBuilding(b, s.Id) || b.AgriculturalStock[(int)AgriculturalProduct.Ale] < 1) continue;
-                    if (DistanceSquared(u.X, u.Y, b.X + .5f, b.Y + .5f) < 2)
+                    if (AtBuilding(u, b))
                     { b.AgriculturalStock[(int)AgriculturalProduct.Ale]--; u.Intoxication = Math.Min(1, u.Intoxication + .35f); u.AlcoholHabit = Math.Min(1, u.AlcoholHabit + .08f); u.SocialNeed = Math.Max(0, u.SocialNeed - .4f); u.EventStress = Math.Max(0, u.EventStress - .08f); return false; }
-                    if (SetTarget(u, b.X, b.Y)) { ChangeTask(u, UnitTask.Wander); return true; }
+                    if (TryEnterBuilding(u.Id,b.Id)) return true;
                 }
             return false;
         }
@@ -115,7 +115,7 @@ namespace WorldGenesis.Simulation
                 BuildingData b = World.Buildings[i]; if (b.Type != BuildingType.Pasture || !UsableBuilding(b, s.Id)) continue;
                 AgriculturalProduct product = b.AgriculturalStock[(int)AgriculturalProduct.Milk] >= .01f ? AgriculturalProduct.Milk : AgriculturalProduct.Egg;
                 if (b.AgriculturalStock[(int)product] < .01f) continue;
-                if (DistanceSquared(u.X, u.Y, b.X + .5f, b.Y + .5f) <= 2)
+                if (AtBuilding(u, b))
                 {
                     float amount = Math.Min(CarrySpace(u), b.AgriculturalStock[(int)product]); b.AgriculturalStock[(int)product] -= amount; u.HarvestAmount = amount; u.HarvestProduct = product;
                     return ChooseHarvestDelivery(u, s);

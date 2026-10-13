@@ -69,3 +69,6 @@ f08_brewing,food,Пивоварение,2,65,f02_milling;c02_clean_water,brew_al
 l09_gravel_roads,transport,Щебёночные дороги,2,45,l06_paths;m02_carpentry,,stone,road@3,,road@3,road_speed_multiplier,1.15,transport,prepared,,
 l10_stone_bridges,transport,Каменные мосты,3,90,l11_wooden_bridges;m04_brick_firing;l07_paved_roads,,stone_block;brick,,,,unlock,1,transport,prepared,,
 l11_wooden_bridges,transport,Деревянные мосты,2,35,m02_carpentry;l06_paths,,plank;wood_log,,,,unlock,1,transport,prepared,,
+d11_ballista,defense,Сборка баллист,3,110,d03_iron_arms;d01_hunting_bows,ballista;ballista_bolts,ballista;ballista_bolts,carpentry@1,ballista;ballista_bolts,,unlock,1,production,prepared,,
+d12_catapult,defense,Сборка катапульт,3,150,d11_ballista;m04_brick_firing,catapult;stone_shot,catapult;stone_shot,carpentry@1,catapult;stone_shot,,unlock,1,production,prepared,,
+d13_trebuchet,defense,Противовесные требушеты,3,210,d12_catapult;k08_apprenticeship,trebuchet,trebuchet,carpentry@1,trebuchet,,unlock,1,production,prepared,,

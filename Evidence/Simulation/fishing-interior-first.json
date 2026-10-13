@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-13T19:25:01.55182Z",
+  "tests": 14,
+  "failures": 0,
+  "results": [
+    {
+      "name": "PrimitiveCatchConsumesBiomassAndRequiresPhysicalDelivery",
+      "passed": true,
+      "milliseconds": 34.1583
+    },
+    {
+      "name": "SpeciesRequireBothRodAndHabitat",
+      "passed": true,
+      "milliseconds": 4.1243
+    },
+    {
+      "name": "EpicCatchSplitsFoodAndGroundMaterialWithoutCapacityOrTaxDuplication",
+      "passed": true,
+      "milliseconds": 8.8365
+    },
+    {
+      "name": "FishingRejectsChildrenCargoShortageAndDestroyedWater",
+      "passed": true,
+      "milliseconds": 3.3329
+    },
+    {
+      "name": "NoReturnRouteMeansNoCatchAndNoStockDebit",
+      "passed": true,
+      "milliseconds": 4.2015
+    },
+    {
+      "name": "RodGradesTwoThroughFiveAreMadeWithActualWalkingAndLocalCosts",
+      "passed": true,
+      "milliseconds": 13.5627
+    },
+    {
+      "name": "RodCraftNeedsUnlockAndRareInputsAndCannotSkipGrades",
+      "passed": true,
+      "milliseconds": 3.4971
+    },
+    {
+      "name": "CancelledAndBlockedCraftKeepsAllUnspentIngredients",
+      "passed": true,
+      "milliseconds": 3.7258
+    },
+    {
+      "name": "LegacyArraysCargoAndRngMigrateWithoutFreeUpgrades",
+      "passed": true,
+      "milliseconds": 157.566
+    },
+    {
+      "name": "SaveContinuesMidCastAndDuringMaterialHaul",
+      "passed": true,
+      "milliseconds": 80.1433
+    },
+    {
+      "name": "FishFoodAndMaterialsRespectTypedStorageAndDeathDrop",
+      "passed": true,
+      "milliseconds": 4.3453
+    },
+    {
+      "name": "CorruptedGradesHistoryAndNewInventoryAreRejected",
+      "passed": true,
+      "milliseconds": 3.6197
+    },
+    {
+      "name": "DistantFishingByproductsAreCollectedButRangeIsBounded",
+      "passed": true,
+      "milliseconds": 3.6415
+    },
+    {
+      "name": "AvailableRareHabitatIsPreferredOverNearbyUnsuitableWater",
+      "passed": true,
+      "milliseconds": 3.4759
+    }
+  ],
+  "progression": [
+    {
+      "grade": 2,
+      "tick": 380,
+      "moves": 282,
+      "carriedSamples": 128,
+      "rod": "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 3,
+      "tick": 900,
+      "moves": 394,
+      "carriedSamples": 217,
+      "rod": "\u0413\u0438\u0431\u043A\u0430\u044F \u043B\u044C\u043D\u044F\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 4,
+      "tick": 1683,
+      "moves": 621,
+      "carriedSamples": 341,
+      "rod": "\u0416\u0435\u043C\u0447\u0443\u0436\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 5,
+      "tick": 2649,
+      "moves": 792,
+      "carriedSamples": 434,
+      "rod": "\u0423\u0434\u043E\u0447\u043A\u0430 \u0434\u0440\u0435\u0432\u043D\u0435\u0439 \u0447\u0435\u0448\u0443\u0438"
+    }
+  ],
+  "assistance": "Controlled flat map, workshop and known initial recipe inputs; progression uses actual resident movement and local ingredient consumption. Not natural settlement progression or native rendering."
+}

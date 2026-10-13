@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-13T18:47:52.4230367Z",
+  "output": "Builds/production-showcase-final.save.json",
+  "sha256": "87502D0DD85C93A863728A4186D54EF06F1FDF3F9598EEB6034B29957931BDAA",
+  "assistance": "Authored cleared quarter; technologies, construction budget, raw and intermediate stock granted. Buildings paid through API; production/hauling proceeds through real commands and ticks. This is not natural development.",
+  "subjects": [
+    {
+      "Id": 12,
+      "building": "Smelter",
+      "X": 53,
+      "Y": 66,
+      "worker": 26,
+      "recipe": "IronIngot",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 14,
+      "building": "Smithy",
+      "X": 57,
+      "Y": 66,
+      "worker": 27,
+      "recipe": "Armor",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 16,
+      "building": "Tannery",
+      "X": 53,
+      "Y": 61,
+      "worker": 28,
+      "recipe": "Leather",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 18,
+      "building": "Weaver",
+      "X": 57,
+      "Y": 61,
+      "worker": 29,
+      "recipe": "LinenCloth",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 20,
+      "building": "Tailor",
+      "X": 53,
+      "Y": 56,
+      "worker": 30,
+      "recipe": "LinenClothes",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 22,
+      "building": "Carpentry",
+      "X": 57,
+      "Y": 56,
+      "worker": 31,
+      "recipe": "Ballista",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 24,
+      "building": "Mint",
+      "X": 62,
+      "Y": 56,
+      "worker": 32,
+      "recipe": "SilverCoin",
+      "localInputsGranted": false
+    }
+  ],
+  "sourceTick": 10,
+  "continuationTicks": 120,
+  "validation": true,
+  "camera": {
+    "x": 59,
+    "y": 62,
+    "zoom": 11
+  }
+}

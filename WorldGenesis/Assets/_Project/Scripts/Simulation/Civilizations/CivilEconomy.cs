@@ -82,7 +82,7 @@ namespace WorldGenesis.Simulation
                     if (lot == null || owner == null || owner.Health <= 0 || owner.Age < 16 || owner.SettlementId != b.SettlementId || (int)lot.Item <= 0 || (int)lot.Item >= ResourceCatalog.ItemCount || lot.Item == ItemType.Plank || !Stock(lot.Amount) || !unique.Add(((long)lot.OwnerId << 32) | (uint)lot.Item)) { error = "Invalid private goods lot."; return false; }
                     total += lot.Amount;
                 }
-                if (!Stock(total) || (!StorageCapacity.IsDepot(b) && total > ResourceCatalog.StorageCapacity + .001f)) { error = "Combined storage capacity exceeded."; return false; }
+                if (!Stock(total) || (!StorageCapacity.IsDepot(b) && total > StorageCapacity.Capacity(b) + .001f)) { error = "Combined storage capacity exceeded."; return false; }
             }
             for (int i = 0; i < GroundStocks.Count; i++)
             {

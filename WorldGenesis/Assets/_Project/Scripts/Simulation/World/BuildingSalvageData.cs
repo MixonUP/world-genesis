@@ -26,7 +26,7 @@ namespace WorldGenesis.Simulation
                         foreach (float paid in b.PaidConstructionMaterials) if (paid != 0) { error = "Legacy building cannot claim paid materials."; return false; }
                     continue;
                 }
-                if (b.PaidConstructionMaterials == null || b.PaidConstructionMaterials.Length != ResourceCatalog.ItemCount || b.PaidConstructionMaterials[0] != 0)
+                if (!ResourceStockArrayMatchesVersion(b.PaidConstructionMaterials) || b.PaidConstructionMaterials[0] != 0)
                 { error = "Invalid construction invoice array."; return false; }
                 bool hasPaid = false;
                 foreach (float paid in b.PaidConstructionMaterials) { if (!Stock(paid)) { error = "Invalid paid construction amount."; return false; } if (paid > 0) hasPaid = true; }

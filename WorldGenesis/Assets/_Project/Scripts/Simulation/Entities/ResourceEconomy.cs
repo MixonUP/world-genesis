@@ -8,16 +8,17 @@ namespace WorldGenesis.Simulation
         {
             if (World.ResourceVersion >= 1)
             {
-                if (World.ResourceVersion < 3)
+                if (World.ResourceVersion < 4)
                 {
                     World.LostResources = ExpandSaltStock(World.LostResources);
                     for (int i = 0; i < World.Buildings.Count; i++)
                     {
                         BuildingData b = World.Buildings[i];
                         b.Inventory = ExpandSaltStock(b.Inventory); b.TaxStocks = ExpandSaltStock(b.TaxStocks);
+                        b.PaidConstructionMaterials = ExpandSaltStock(b.PaidConstructionMaterials);
                         // PersonalStocks contains typed lots, not a dense array; preserve each owner and quantity.
                     }
-                    World.ResourceVersion = 3; World.ResourceRevision++; World.Revision++;
+                    World.ResourceVersion = 4; World.ResourceRevision++; World.Revision++;
                 }
                 return;
             }
@@ -114,7 +115,7 @@ namespace WorldGenesis.Simulation
 
         private bool UsableBuilding(BuildingData building, int settlementId)
         {
-            return building != null && building.Health > 0 && building.SettlementId == settlementId && World.IsWalkable(building.X, building.Y) && World.Cells[World.Index(building.X, building.Y)].Fire <= .1f;
+            return building != null && building.SettlementId == settlementId && BuildingAccess.IsUsable(World, building);
         }
 
         private void ReleaseWorkshop(UnitData unit)
@@ -173,11 +174,11 @@ namespace WorldGenesis.Simulation
 
         private static float AvailableForHaul(BuildingData building, ItemType item)
         {
-            float reserved = 0;
+            float reserved = IndustryReserved(building, item);
             if (building.ActiveRecipe != RecipeType.None)
             {
-                if (ResourceCatalog.Input(building.ActiveRecipe) == item) reserved = ResourceCatalog.InputAmount(building.ActiveRecipe);
-                if (building.ActiveRecipe == RecipeType.Brick && item == ItemType.Firewood) reserved = 1;
+                if (ResourceCatalog.Input(building.ActiveRecipe) == item) reserved += ResourceCatalog.InputAmount(building.ActiveRecipe);
+                if (building.ActiveRecipe == RecipeType.Brick && item == ItemType.Firewood) reserved += 1;
             }
             return Math.Max(0, building.Inventory[(int)item] - reserved);
         }
@@ -294,7 +295,7 @@ namespace WorldGenesis.Simulation
             {
                 BuildingData source = World.GetBuilding(unit.SourceBuildingId), destination = World.GetBuilding(unit.TargetBuildingId);
                 ItemType item = unit.PickupKind;
-                if (!UsableBuilding(source, home.Id) || !UsableBuilding(destination, home.Id) || (int)item <= 0 || (int)item >= ResourceCatalog.ItemCount || DistanceSquared(unit.X, unit.Y, source.X + .5f, source.Y + .5f) > 1.01f) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
+                if (!UsableBuilding(source, home.Id) || !UsableBuilding(destination, home.Id) || (int)item <= 0 || (int)item >= ResourceCatalog.ItemCount || !AtBuilding(unit, source)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
                 float amount = Math.Min(CarrySpace(unit), Math.Min(AvailableForHaul(source, item), FreeStorage(destination)));
                 if (amount <= .0001f) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
                 source.Inventory[(int)item] -= amount; unit.CargoKind = item; unit.CargoAmount = amount; unit.CargoOwnerId = 0;
@@ -306,7 +307,7 @@ namespace WorldGenesis.Simulation
             if (unit.Task == UnitTask.Return && unit.CargoAmount > 0)
             {
                 BuildingData b = World.GetBuilding(unit.TargetBuildingId);
-                if (!UsableBuilding(b, home.Id) || DistanceSquared(unit.X, unit.Y, b.X + .5f, b.Y + .5f) > 1.01f) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
+                if (!UsableBuilding(b, home.Id) || !AtBuilding(unit, b)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
                 float deposited = Math.Min(unit.CargoAmount, FreeStorage(b));
                 DepositMaterial(unit, b, deposited); unit.CargoAmount -= deposited;
                 if (unit.CargoAmount <= .0001f) { unit.CargoAmount = 0; unit.CargoKind = ItemType.None; unit.CargoOwnerId = 0; }
@@ -314,7 +315,7 @@ namespace WorldGenesis.Simulation
             }
             if (unit.Task != UnitTask.Process) return false;
             BuildingData workshop = World.GetBuilding(unit.TargetBuildingId);
-            if (!UsableBuilding(workshop, home.Id) || workshop.WorkerId != unit.Id || DistanceSquared(unit.X, unit.Y, workshop.X + .5f, workshop.Y + .5f) > 1.01f) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
+            if (!UsableBuilding(workshop, home.Id) || workshop.WorkerId != unit.Id || !AtBuilding(unit, workshop)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
             AcquireRecipeInputs(unit, home, workshop);
             if (!HasInputs(workshop, workshop.ActiveRecipe)) { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
             RecipeType recipeType = workshop.ActiveRecipe;

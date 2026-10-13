@@ -331,7 +331,7 @@ namespace WorldGenesis.Tests
         public void ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState()
         {
             SimulationEngine source = new SimulationEngine(FlatWorld()); source.Spawn(SpeciesType.Human, 24, 24, 3);
-            WorldState legacy = source.World; legacy.BehaviorVersion = 1; legacy.ResourceVersion = 1; legacy.Tick = 50; legacy.SimulatedSeconds = 5;
+            WorldState legacy = source.World; legacy.BehaviorVersion = 1; SetPreIndustryResourceFixture(legacy, 1); legacy.Tick = 50; legacy.SimulatedSeconds = 5;
             UnitData patrol = legacy.Units[0], soldier = legacy.Units[1], civilian = legacy.Units[2];
             patrol.Profession = UnitProfession.Guard; patrol.Task = UnitTask.Patrol; patrol.TargetCell = legacy.Index(25, 24); patrol.Path.Add(patrol.TargetCell); patrol.CarriedWood = 2.5f; patrol.CarriedFood = .6f; patrol.Fatigue = .8f; patrol.SocialNeed = .9f;
             soldier.Profession = UnitProfession.Guard; soldier.Task = UnitTask.Fight; soldier.TargetId = civilian.Id; soldier.TargetCell = legacy.Index(24, 24); soldier.Path.Add(soldier.TargetCell);
@@ -499,22 +499,24 @@ namespace WorldGenesis.Tests
         public void ActualWorkshopRatesAndFuelControlProcessingTransactions()
         {
             SimulationEngine slow = ResourceFixture(), fast = ResourceFixture();
-            BuildingData camp = slow.World.Buildings[0], mill = fast.World.Buildings[0]; mill.Type = BuildingType.Sawmill;
+            BuildingData camp = slow.World.Buildings[0], mill = fast.World.Buildings[0]; CloseResourceFixture(fast.World, mill, BuildingType.Sawmill);
             camp.Inventory[(int)ItemType.Log] = 1; mill.Inventory[(int)ItemType.Log] = 1;
-            for (int t = 0; t < 30; t++) { slow.Step(.1f); fast.Step(.1f); }
+            // Both clocks include the mill's real door transition before its three-second job.
+            for (int t = 0; t < 40; t++) { slow.Step(.1f); fast.Step(.1f); }
             Assert.AreEqual(0, slow.World.Settlements[0].Wood); Assert.AreEqual(1, fast.World.Settlements[0].Wood); Assert.AreEqual(1, camp.Inventory[(int)ItemType.Log]); Assert.Greater(camp.ProcessProgress, 2.9f);
-            for (int t = 30; t < 100; t++) slow.Step(.1f);
+            for (int t = 40; t < 100; t++) slow.Step(.1f);
             Assert.AreEqual(1, slow.World.Settlements[0].Wood); Assert.AreEqual(0, camp.Inventory[(int)ItemType.Log]);
-            SimulationEngine stone = ResourceFixture(); BuildingData works = stone.World.Buildings[0]; works.Type = BuildingType.Stoneworks; works.Inventory[(int)ItemType.RawStone] = 4;
-            for (int t = 0; t < 50; t++) stone.Step(.1f);
+            SimulationEngine stone = ResourceFixture(); BuildingData works = stone.World.Buildings[0]; CloseResourceFixture(stone.World, works, BuildingType.Stoneworks); works.Inventory[(int)ItemType.RawStone] = 4;
+            for (int t = 0; t < 60 && works.Inventory[(int)ItemType.StoneBlock] == 0; t++) stone.Step(.1f);
             Assert.AreEqual(1, works.Inventory[(int)ItemType.StoneBlock]); Assert.AreEqual(2, works.Inventory[(int)ItemType.RawStone]); works.ActiveRecipe = RecipeType.StoneTile;
-            for (int t = 0; t < 60; t++) stone.Step(.1f);
+            // Completion releases the previous job; the next one includes a fresh doorway transition.
+            for (int t = 0; t < 70 && works.Inventory[(int)ItemType.StoneTile] == 0; t++) stone.Step(.1f);
             Assert.AreEqual(2, works.Inventory[(int)ItemType.StoneTile]); Assert.AreEqual(0, works.Inventory[(int)ItemType.RawStone]);
-            SimulationEngine clay = ResourceFixture(); BuildingData kiln = clay.World.Buildings[0]; kiln.Type = BuildingType.Kiln; kiln.Inventory[(int)ItemType.Clay] = 2;
+            SimulationEngine clay = ResourceFixture(); BuildingData kiln = clay.World.Buildings[0]; CloseResourceFixture(clay.World, kiln, BuildingType.Kiln); kiln.Inventory[(int)ItemType.Clay] = 2;
             for (int t = 0; t < 30; t++) clay.Step(.1f);
             Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Brick]); Assert.AreEqual(2, kiln.Inventory[(int)ItemType.Clay]);
-            UnitData worker = clay.World.Units[0]; worker.CarriedFood = 0; worker.DecisionTimer = 0; worker.Task = UnitTask.Idle; worker.Path.Clear(); worker.PathCursor = 0; worker.X = 24.5f; worker.Y = 24.5f; kiln.Inventory[(int)ItemType.Firewood] = 1;
-            for (int t = 0; t < 80; t++) clay.Step(.1f);
+            UnitData worker = clay.World.Units[0]; worker.CarriedFood = 0; worker.DecisionTimer = 0; worker.Task = UnitTask.Idle; worker.Path.Clear(); worker.PathCursor = 0; worker.InsideBuildingId = worker.EnteringBuildingId = 0; worker.BuildingInteractionTimer = 0; worker.X = 24.5f; worker.Y = 23.5f; kiln.Inventory[(int)ItemType.Firewood] = 1;
+            for (int t = 0; t < 90 && kiln.Inventory[(int)ItemType.Brick] == 0; t++) clay.Step(.1f);
             Assert.AreEqual(2, kiln.Inventory[(int)ItemType.Brick]); Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Clay]); Assert.AreEqual(0, kiln.Inventory[(int)ItemType.Firewood]);
         }
 
@@ -573,7 +575,7 @@ namespace WorldGenesis.Tests
             engine.Step(.1f); Assert.AreEqual(first.Id, unit.TargetBuildingId); Assert.AreEqual(UnitTask.Process, unit.Task);
             w.Cells[w.Index(first.X, first.Y)].Fire = .3f; unit.DecisionTimer = 0;
             engine.Step(.1f); Assert.AreEqual(second.Id, unit.TargetBuildingId); Assert.AreEqual(0, first.WorkerId); Assert.AreEqual(unit.Id, second.WorkerId); Assert.IsTrue(w.Validate(out string beforeError), beforeError);
-            engine.ApplyPower(PowerType.Rain, first.X, first.Y, 1); for (int t = 0; t < 16; t++) engine.Step(.1f);
+            engine.ApplyPower(PowerType.Rain, first.X, first.Y, 1); for (int t = 0; t < 100 && second.ProcessProgress == 0; t++) engine.Step(.1f);
             float progress = second.ProcessProgress, logs = second.Inventory[(int)ItemType.Log]; Assert.Greater(progress, 0); Assert.Less(progress, 3);
             engine.ApplyPower(PowerType.Fire, (int)unit.X, (int)unit.Y, 1); engine.Step(.1f);
             Assert.AreEqual(UnitTask.Flee, unit.Task); Assert.AreEqual(0, second.WorkerId); Assert.AreEqual(progress, second.ProcessProgress); Assert.AreEqual(logs, second.Inventory[(int)ItemType.Log]); Assert.IsTrue(w.Validate(out string error), error);
@@ -656,22 +658,22 @@ namespace WorldGenesis.Tests
         [Test]
         public void RecipeAcquisitionReservesFuelAndUsesOneSharedBarterBudget()
         {
-            SimulationEngine e = HouseholdTradeFixture(EconomicPolicy.Market); WorldState w=e.World; BuildingData kiln=w.Buildings[0]; UnitData buyer=w.Units[0], seller=w.Units[1]; kiln.Type=BuildingType.Kiln; kiln.PersonalStocks.Clear(); kiln.Inventory[(int)ItemType.Clay]=1;
+            SimulationEngine e = HouseholdTradeFixture(EconomicPolicy.Market); WorldState w=e.World; BuildingData kiln=w.Buildings[0]; UnitData buyer=w.Units[0], seller=w.Units[1]; CloseResourceFixture(w, kiln, BuildingType.Kiln); kiln.PersonalStocks.Clear(); kiln.Inventory[(int)ItemType.Clay]=1;
             kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=buyer.Id,Item=ItemType.Firewood,Amount=1}); kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=buyer.Id,Item=ItemType.Log,Amount=1}); kiln.PersonalStocks.Add(new OwnedGoodsData{OwnerId=seller.Id,Item=ItemType.Clay,Amount=1});
-            e.Step(.1f); Assert.IsTrue(kiln.Inventory[(int)ItemType.Clay]==2 && kiln.Inventory[(int)ItemType.Firewood]==1 && w.Trades.Count(t=>t.Kind==TradeKind.Barter)==1 && w.Trades.First(t=>t.Kind==TradeKind.Barter).PaymentItem==ItemType.Log, "Recipe fuel was used as barter tender");
+            for (int t=0;t<20 && w.Trades.Count==0;t++) e.Step(.1f); Assert.IsTrue(kiln.Inventory[(int)ItemType.Clay]==2 && kiln.Inventory[(int)ItemType.Firewood]==1 && w.Trades.Count(t=>t.Kind==TradeKind.Barter)==1 && w.Trades.First(t=>t.Kind==TradeKind.Barter).PaymentItem==ItemType.Log, "Recipe fuel was used as barter tender");
             for(int t=0;t<80;t++)e.Step(.1f); Assert.IsTrue(kiln.Inventory[(int)ItemType.Brick]==2, "Fully funded brick recipe stalled");
-            SimulationEngine insufficient=HouseholdTradeFixture(EconomicPolicy.Market); WorldState z=insufficient.World; BuildingData k=z.Buildings[0]; k.Type=BuildingType.Kiln;k.PersonalStocks.Clear();
+            SimulationEngine insufficient=HouseholdTradeFixture(EconomicPolicy.Market); WorldState z=insufficient.World; BuildingData k=z.Buildings[0]; CloseResourceFixture(z, k, BuildingType.Kiln);k.PersonalStocks.Clear();
             k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[0].Id,Item=ItemType.IronOre,Amount=2}); k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[1].Id,Item=ItemType.Clay,Amount=2});k.PersonalStocks.Add(new OwnedGoodsData{OwnerId=z.Units[1].Id,Item=ItemType.Firewood,Amount=1});
-            insufficient.Step(.1f);Assert.IsTrue(z.Trades.Count==0 && k.Inventory[(int)ItemType.Clay]==0 && z.GetCitizenStock(z.Units[0].Id,ItemType.IronOre)==2,"Incomplete barter budget partly committed");
+            for (int t=0;t<20;t++) insufficient.Step(.1f);Assert.IsTrue(z.Trades.Count==0 && k.Inventory[(int)ItemType.Clay]==0 && z.GetCitizenStock(z.Units[0].Id,ItemType.IronOre)==2,"Incomplete barter budget partly committed");
         }
 
         [Test]
         public void LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime()
         {
-            SimulationEngine source=HouseholdFixture();WorldState w=source.World;UnitData u=w.Units[0];u.CargoKind=ItemType.IronOre;u.CargoAmount=3;u.CarriedFood=2.8f;u.CarriedWood=2;w.ResourceVersion=1;
+            SimulationEngine source=HouseholdFixture();WorldState w=source.World;UnitData u=w.Units[0];u.CargoKind=ItemType.IronOre;u.CargoAmount=3;u.CarriedFood=2.8f;u.CarriedWood=2;SetPreIndustryResourceFixture(w,1);
             uint rng=w.RngState;int next=w.NextId;float x=u.X,y=u.Y; SimulationEngine e=new SimulationEngine(JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w)));w=e.World;u=w.Units[0];
             Assert.IsTrue(SimulationEngine.CarriedLoad(u)<=1 && Math.Abs(SimulationEngine.CarriedLoad(u)+w.GroundStocks.Sum(g=>g.Amount)-7.8f)<.00001f && w.GroundStocks.All(g=>g.X==x&&g.Y==y),"Legacy overflow was removed or teleported");
-            Assert.IsTrue(w.ResourceVersion==3&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=JsonUtility.ToJson(w);new SimulationEngine(w);Assert.IsTrue(once==JsonUtility.ToJson(w),"Carry migration repeated");
+            Assert.IsTrue(w.ResourceVersion==4&&w.RngState==rng&&w.NextId==next,"Carry migration consumed IDs or RNG");string once=JsonUtility.ToJson(w);new SimulationEngine(w);Assert.IsTrue(once==JsonUtility.ToJson(w),"Carry migration repeated");
             for(int t=0;t<250;t++){e.Step(.1f);Assert.IsTrue(w.Units.All(a=>SimulationEngine.CarriedLoad(a)<=1.00001f),"Pickup exceeded total carrying capacity");}
             Assert.IsTrue(w.GetSettlementStock(u.SettlementId,ItemType.IronOre)==3 && w.Settlements[0].Wood>=2,"Overflow was never physically collected in separate trips");
             Assert.IsTrue(w.Validate(out string error),error);
@@ -723,9 +725,28 @@ namespace WorldGenesis.Tests
             Assert.IsTrue(s.EconomyPolicy==EconomicPolicy.Market&&s.TaxRate==.3f&&s.ChildLabor==ChildLaborPolicy.LightWork&&s.PolicyRulerId==ruler.Id&&s.LastDecreeReason.Length>0);
             s.Food=0;s.NextPolicyReviewTick=w.Tick;e.Step(.1f);Assert.IsTrue(s.EconomyPolicy==EconomicPolicy.FreeDistribution&&s.TaxRate==0&&s.ResourceFocus==ResourceFocus.Balanced);
             ruler.Health=0;e.Step(.1f);Assert.IsTrue(s.RulerId==0&&s.EconomyPolicy==EconomicPolicy.FreeDistribution&&s.TaxRate==0&&s.ChildLabor==ChildLaborPolicy.Forbidden);
-            SimulationEngine old=HouseholdFixture();WorldState legacy=old.World;legacy.ResourceVersion=0;legacy.EconomyVersion=0;legacy.Settlements[0].Stone=7;foreach(BuildingData b in legacy.Buildings){b.PersonalStocks=null;b.TaxStocks=null;}
+            SimulationEngine old=HouseholdFixture();WorldState legacy=old.World;SetPreIndustryResourceFixture(legacy,0);legacy.EconomyVersion=0;legacy.Settlements[0].Stone=7;foreach(BuildingData b in legacy.Buildings){b.PersonalStocks=null;b.TaxStocks=null;}
             new SimulationEngine(legacy);Assert.AreEqual(7,legacy.GetSettlementStock(legacy.Settlements[0].Id,ItemType.RawStone));Assert.IsTrue(legacy.Validate(out string error),error);
             legacy.Units[0].CarriedFood=.6f;legacy.Units[0].CarriedWood=.6f;Assert.IsFalse(legacy.Validate(out _));
+        }
+
+        private static void SetPreIndustryResourceFixture(WorldState world, int version)
+        {
+            Assert.AreEqual(0, world.IndustryBatchesCompleted, "Legacy fixture must not discard real production");
+            world.ResourceVersion = version; world.IndustryVersion = 0; world.ProducedItems = world.MintIssued = null;
+            world.LostResources = world.LostResources.Take(17).ToArray();
+            foreach (BuildingData building in world.Buildings)
+            {
+                building.Inventory = building.Inventory.Take(17).ToArray();
+                if (building.TaxStocks != null) building.TaxStocks = building.TaxStocks.Take(17).ToArray();
+                if (version == 0)
+                {
+                    // Original resource-less saves predate construction invoices entirely.
+                    Assert.IsTrue(building.PaidConstructionMaterials.All(amount => amount == 0), "Cannot erase real construction payment in a legacy fixture");
+                    building.ConstructionLedgerVersion = 0; building.PaidConstructionMaterials = null;
+                }
+                else building.PaidConstructionMaterials = building.PaidConstructionMaterials.Take(17).ToArray();
+            }
         }
 
         private static SimulationEngine HouseholdTradeFixture(EconomicPolicy policy)
@@ -757,8 +778,17 @@ namespace WorldGenesis.Tests
 
         private static BuildingData ResourceBuilding(WorldState world, BuildingType type, int x, int y)
         {
-            BuildingData building = new BuildingData { Id = world.NextId++, SettlementId = world.Settlements[0].Id, X = x, Y = y, Type = type };
+            BuildingData building = new BuildingData { Id = world.NextId++, SettlementId = world.Settlements[0].Id, X = x, Y = y, Type = type, EntranceCell = BuildingAccess.IsEnclosed(type) ? world.Index(x, y - 1) : -1 };
             world.Buildings.Add(building); world.Cells[world.Index(x, y)].BuildingId = building.Id; world.Cells[world.Index(x, y)].SettlementId = building.SettlementId; return building;
+        }
+
+        private static void CloseResourceFixture(WorldState world, BuildingData building, BuildingType type)
+        {
+            // Authored workshop replaces the fixture's open camp; its worker starts at the real door.
+            building.Type = type; building.EntranceCell = world.Index(building.X, building.Y - 1);
+            UnitData worker = world.Units[0]; worker.X = building.X + .5f; worker.Y = building.Y - .5f;
+            worker.InsideBuildingId = worker.EnteringBuildingId = 0; worker.BuildingInteractionTimer = 0;
+            worker.Path.Clear(); worker.PathCursor = 0; world.NavigationRevision++;
         }
 
         private static WorldState FlatWorld()

@@ -89,3 +89,8 @@ cut_hay,Заготовка сена,farmer,wheat_farm,1,1,0,,hay=3,8,0,meadow_gr
 brew_ale,Варка эля,cook,brewery,2,1,0,grain=2;firewood=1,ale=2,12,0,freshwater,1,brew_batch_once_actual_water
 extract_salt,Добыча соли,stonecutter,quarry,1,1,0,,salt=1,2.5,0,salt_deposit,1,
 preserve_salted_fish,Засолка рыбы,cook,hearth,1,1,0,raw_fish=3;salt=1,dried_food=3,12,20,,0,
+ballista,Комплект баллисты,carpenter,carpentry,3,1,0,plank=6;iron_ingot=2;rope=2,ballista=1,24,0,,0,stock_kit_requires_future_deployment
+catapult,Комплект катапульты,carpenter,carpentry,3,1,0,plank=8;iron_ingot=3;rope=3,catapult=1,30,0,,0,stock_kit_requires_future_deployment
+trebuchet,Комплект требушета,carpenter,carpentry,3,1,0,plank=12;iron_ingot=4;rope=4;stone=4,trebuchet=1,40,0,,0,stock_kit_requires_future_deployment
+ballista_bolts,Болты баллисты,carpenter,carpentry,3,1,0,plank=2;iron_ingot=1,ballista_bolts=5,8,0,,0,
+stone_shot,Каменные ядра,carpenter,carpentry,3,1,0,stone=2,stone_shot=4,7,0,,0,

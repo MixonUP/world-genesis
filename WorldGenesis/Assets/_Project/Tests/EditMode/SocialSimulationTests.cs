@@ -168,8 +168,8 @@ namespace WorldGenesis.Tests
             foreach (BuildingType type in new[] { BuildingType.Sawmill, BuildingType.House })
             {
                 int x = type == BuildingType.House ? 20 : 22, y = 20;
-                var b = new BuildingData { Id = w.NextId++, SettlementId = s.Id, Type = type, X = x, Y = y };
-                w.Buildings.Add(b); w.Cells[w.Index(x,y)].BuildingId = b.Id; w.Cells[w.Index(x,y)].SettlementId = s.Id; w.ResourceNodes[w.Index(x,y)] = new ResourceNodeData();
+                typeof(SimulationEngine).GetMethod("AddBuilding",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic)
+                    .Invoke(e,new object[]{s,x,y,type});
             }
             s.Wood = 10; s.BuildTimer = 8; Steps(e, 10);
             Require(w.Buildings.Count(b => b.SettlementId == s.Id && b.Type == BuildingType.Farm) == 2, "Elective infrastructure or more housing starved the second crop field");

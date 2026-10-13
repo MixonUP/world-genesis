@@ -30,8 +30,9 @@ namespace WorldGenesis.Tests
         private static BuildingData Hall(WorldState w, int town) { return w.Buildings.First(b => b.SettlementId == town && b.Type == BuildingType.Hall); }
         private static void MakeLegacy(WorldState w, int version)
         {
-            w.ResourceVersion = version; w.LostResources = w.LostResources.Take(17).ToArray();
-            foreach (BuildingData b in w.Buildings) { b.Inventory = b.Inventory.Take(17).ToArray(); b.TaxStocks = b.TaxStocks.Take(17).ToArray(); }
+            // Pre-salt files have no industry version, production ledgers or enlarged material arrays.
+            w.ResourceVersion = version; w.IndustryVersion = 0; w.ProducedItems = w.MintIssued = null; w.LostResources = w.LostResources.Take(17).ToArray();
+            foreach (BuildingData b in w.Buildings) { b.Inventory = b.Inventory.Take(17).ToArray(); b.TaxStocks = b.TaxStocks.Take(17).ToArray(); b.PaidConstructionMaterials = b.PaidConstructionMaterials.Take(17).ToArray(); }
         }
         private static float Total(WorldState w, ItemType item)
         {
@@ -46,7 +47,7 @@ namespace WorldGenesis.Tests
         { for (int i = 0; i < count; i++) { e.Step(.1f); Need(e.World.Validate(out string error), error); } }
         public static void AppendedSaltKeepsEveryLegacyEnumNumber()
         {
-            Need((int)ResourceType.Tin == 11 && (int)ResourceType.Salt == 12 && (int)ItemType.TinOre == 16 && (int)ItemType.Salt == 17 && ResourceCatalog.ItemCount == 18, "IDs shifted");
+            Need((int)ResourceType.Tin == 11 && (int)ResourceType.Salt == 12 && (int)ItemType.TinOre == 16 && (int)ItemType.Salt == 17 && (int)ItemType.Charcoal == 18 && ResourceCatalog.ItemCount == 45, "Legacy IDs shifted or current catalog size differs");
             Need(ResourceCatalog.GetOutput(ResourceType.Salt) == ItemType.Salt && ResourceCatalog.GetRegrowTicks(ResourceType.Salt) == 9000, "salt catalog mapping");
         }
         public static void LegacySeventeenSlotSavePreservesAllOwnershipAndAmounts()
@@ -56,7 +57,7 @@ namespace WorldGenesis.Tests
             u.CargoKind = ItemType.CopperOre; u.CargoAmount = .4f; MakeLegacy(w, 2); w = Clone(w); Need(w.Validate(out string before), before);
             uint rng = w.RngState; int next = w.NextId; ResourceNodeData[] nodes = (ResourceNodeData[])w.ResourceNodes.Clone();
             new SimulationEngine(w); b = Hall(w, u.SettlementId);
-            Need(w.ResourceVersion == 3 && b.Inventory.Length == 18 && b.TaxStocks.Length == 18 && w.LostResources.Length == 18, "arrays not expanded");
+            Need(w.ResourceVersion == 4 && b.Inventory.Length == ResourceCatalog.ItemCount && b.TaxStocks.Length == ResourceCatalog.ItemCount && w.LostResources.Length == ResourceCatalog.ItemCount, "arrays not expanded through current schema");
             Near(7.5f, b.Inventory[9], "public iron"); Near(2.25f, b.TaxStocks[10], "tax copper"); Near(1.5f, b.PersonalStocks.Single().Amount, "private stone"); Need(b.PersonalStocks[0].OwnerId == u.Id, "private owner changed"); Near(1.25f, w.LostResources[16], "loss ledger"); Near(.4f, w.GetUnit(u.Id).CargoAmount, "held copper");
             Need(w.RngState == rng && w.NextId == next && nodes.SequenceEqual(w.ResourceNodes), "migration rewrote geography, RNG or IDs"); Near(0, Total(w, ItemType.Salt), "migration minted salt");
             Need(w.Validate(out string after), after); string once = Snapshot(w); new SimulationEngine(w); Need(Snapshot(w) == once, "migration repeated");
@@ -65,16 +66,16 @@ namespace WorldGenesis.Tests
         {
             WorldState w = Town().World; UnitData u = w.Units[0]; u.CargoKind = ItemType.CopperOre; u.CargoAmount = 2; u.CarriedFood = .8f; u.CarriedWood = 1;
             MakeLegacy(w, 1); uint rng = w.RngState; int next = w.NextId; Need(w.Validate(out string before), before); new SimulationEngine(w);
-            Need(w.ResourceVersion == 3 && w.RngState == rng && w.NextId == next, "carry migration downgraded salt schema"); Near(2, Total(w, ItemType.CopperOre), "copper overflow lost");
+            Need(w.ResourceVersion == 4 && w.RngState == rng && w.NextId == next, "carry migration downgraded current resource schema"); Near(2, Total(w, ItemType.CopperOre), "copper overflow lost");
             Near(1, u.CarriedWood + w.GroundStocks.Where(g => g.Item == ItemType.Plank).Sum(g => g.Amount), "plank overflow lost"); Near(.8f, u.CarriedFood + w.GroundStocks.Where(g => g.IsFood).Sum(g => g.Amount), "food overflow lost"); Need(w.Validate(out string after), after);
         }
         public static void VersionAndCorruptSaltSlotsAreRejected()
         {
-            WorldState w = Town().World; w.ResourceVersion = 4; Need(!w.Validate(out _), "future version accepted");
-            w = Town().World; w.Buildings[0].Inventory = new float[17]; Need(!w.Validate(out _), "v3 short inventory accepted");
-            w = Town().World; w.Buildings[0].TaxStocks = new float[17]; Need(!w.Validate(out _), "v3 short taxes accepted");
+            WorldState w = Town().World; w.ResourceVersion = 5; Need(!w.Validate(out _), "future version accepted");
+            w = Town().World; w.Buildings[0].Inventory = new float[17]; Need(!w.Validate(out _), "v4 short inventory accepted");
+            w = Town().World; w.Buildings[0].TaxStocks = new float[17]; Need(!w.Validate(out _), "v4 short taxes accepted");
             w = Town().World; w.Buildings[0].Inventory[17] = float.NaN; Need(!w.Validate(out _), "NaN salt accepted");
-            w = Town().World; w.ResourceVersion = 2; w.Buildings[0].Inventory[17] = 1; Need(!w.Validate(out _), "salt hidden in legacy slot accepted");
+            w = Town().World; MakeLegacy(w, 2); Array.Resize(ref w.Buildings[0].Inventory, 18); Array.Resize(ref w.Buildings[0].TaxStocks, 18); w.Buildings[0].Inventory[17] = 1; Need(!w.Validate(out _), "salt hidden in legacy slot accepted");
         }
         public static void SaltGenerationIsDeterministicRareAndHabitatBounded()
         {

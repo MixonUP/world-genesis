@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="254" result="Failed(Child)" total="254" passed="245" failed="9" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:59Z" duration="24,3837525">
+  <test-suite type="TestSuite" id="1000" name="World Genesis" fullname="World Genesis" runstate="Runnable" testcasecount="254" result="Failed" site="Child" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:59Z" duration="24.383753" total="254" passed="245" failed="9" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1285" name="WorldGenesis.EditModeTests.dll" fullname="C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox/Builds/Verification/production-v070-r1/WorldGenesis/Library/ScriptAssemblies/WorldGenesis.EditModeTests.dll" runstate="Runnable" testcasecount="254" result="Failed" site="Child" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:59Z" duration="24.378104" total="254" passed="245" failed="9" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="86880" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1286" name="WorldGenesis" fullname="WorldGenesis" runstate="Runnable" testcasecount="254" result="Failed" site="Child" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:59Z" duration="24.377907" total="254" passed="245" failed="9" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1287" name="Tests" fullname="WorldGenesis.Tests" runstate="Runnable" testcasecount="254" result="Failed" site="Child" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:59Z" duration="24.377679" total="254" passed="245" failed="9" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1002" name="AgricultureTests" fullname="WorldGenesis.Tests.AgricultureTests" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.259499" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1017" name="Scenario" fullname="WorldGenesis.Tests.AgricultureTests.Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.256772" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1003" name="Scenario(&quot;CartRequiresResearchRecipeTimeAndCarpenter&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;CartRequiresResearchRecipeTimeAndCarpenter&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1563673957" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.032125" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="Scenario(&quot;CancelledCraftAndChildrenCannotCreateEquipment&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;CancelledCraftAndChildrenCannotCreateEquipment&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1667791940" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.005253" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="Scenario(&quot;BasketGradesAndAnimalsUseDistinctCapacity&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;BasketGradesAndAnimalsUseDistinctCapacity&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1218626066" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.003606" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="Scenario(&quot;MountDeathDropsOverflowWithoutDuplicatingCargo&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;MountDeathDropsOverflowWithoutDuplicatingCargo&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="889211549" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.005660" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="Scenario(&quot;RareTamingRequiresRealBaitAndOnSiteContact&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;RareTamingRequiresRealBaitAndOnSiteContact&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="675237680" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.003621" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="Scenario(&quot;HarvestIsFiniteAndMustBeDelivered&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;HarvestIsFiniteAndMustBeDelivered&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="858958327" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.004236" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="Scenario(&quot;BrewingConsumesGrainFuelAndFiniteWater&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;BrewingConsumesGrainFuelAndFiniteWater&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1348021249" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.003878" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="Scenario(&quot;PastureBreedingRequiresPairFeedAndBirthLaw&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;PastureBreedingRequiresPairFeedAndBirthLaw&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="105920480" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.004286" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="Scenario(&quot;AgricultureSaveContinuesIdenticallyAndRejectsBrokenMount&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;AgricultureSaveContinuesIdenticallyAndRejectsBrokenMount&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1188293801" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.089811" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="Scenario(&quot;AlcoholIsFiniteAdultLeisureWithWorkPenalty&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;AlcoholIsFiniteAdultLeisureWithWorkPenalty&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="813583262" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.005979" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="Scenario(&quot;DestroyedPastureReleasesAnimalsAndPreservesTransportLoad&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;DestroyedPastureReleasesAnimalsAndPreservesTransportLoad&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1720750952" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.005871" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="Scenario(&quot;CarpenterFetchesPlanksThroughRealRouteBeforeCrafting&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;CarpenterFetchesPlanksThroughRealRouteBeforeCrafting&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1531788447" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.077321" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="Scenario(&quot;PastureCannotConsumeRemoteHay&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;PastureCannotConsumeRemoteHay&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="1530545260" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.004001" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1016" name="Scenario(&quot;FedWorkerCanMakeFirstBasketDespiteTownFoodShortage&quot;)" fullname="WorldGenesis.Tests.AgricultureTests.Scenario(&quot;FedWorkerCanMakeFirstBasketDespiteTownFoodShortage&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.AgricultureTests" runstate="Runnable" seed="48341739" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.003646" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1018" name="BiomeTests" fullname="WorldGenesis.Tests.BiomeTests" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:36Z" duration="0.946666" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1028" name="Scenario" fullname="WorldGenesis.Tests.BiomeTests.Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:36Z" duration="0.945955" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1019" name="Scenario(&quot;ClimateExtremesCoverAllTenBiomesWithoutChangingTerrainIds&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;ClimateExtremesCoverAllTenBiomesWithoutChangingTerrainIds&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="384476439" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.000593" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="Scenario(&quot;WaterAndMountainOverridesRespectHydrologyAndExplicitTerrain&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;WaterAndMountainOverridesRespectHydrologyAndExplicitTerrain&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="1131082015" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:35Z" duration="0.000258" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="Scenario(&quot;GenerationAcrossSeedsIsStableClusteredAndHasClimateVariety&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;GenerationAcrossSeedsIsStableClusteredAndHasClimateVariety&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="406207572" result="Passed" start-time="2026-10-13 18:48:35Z" end-time="2026-10-13 18:48:36Z" duration="0.760827" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="Scenario(&quot;LegacyBiomeMigrationPreservesResourcesTerrainRngAndEntityIds&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;LegacyBiomeMigrationPreservesResourcesTerrainRngAndEntityIds&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="943996994" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.092009" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1023" name="Scenario(&quot;ChangingWeatherMoistureDoesNotReclassifySavedBiomesOnReload&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;ChangingWeatherMoistureDoesNotReclassifySavedBiomesOnReload&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="866333582" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.045738" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1024" name="Scenario(&quot;TemporaryWaterDepthDoesNotTurnLandBiomeIntoWaterBiome&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;TemporaryWaterDepthDoesNotTurnLandBiomeIntoWaterBiome&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="183208155" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.009577" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="Scenario(&quot;ExplicitTerrainRefreshIsLocalAndPaintHookIsActive&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;ExplicitTerrainRefreshIsLocalAndPaintHookIsActive&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="195581246" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.002714" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="Scenario(&quot;UnknownBiomeVersionOrIdIsRejectedBeforeWorldReplacement&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;UnknownBiomeVersionOrIdIsRejectedBeforeWorldReplacement&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="1838973353" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.001952" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1027" name="Scenario(&quot;SaveContinuationPreservesBiomeLabelsAndDeterministicState&quot;)" fullname="WorldGenesis.Tests.BiomeTests.Scenario(&quot;SaveContinuationPreservesBiomeLabelsAndDeterministicState&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.BiomeTests" runstate="Runnable" seed="733021942" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:36Z" duration="0.031306" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1029" name="CaravanTests" fullname="WorldGenesis.Tests.CaravanTests" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:38Z" duration="1.570476" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1044" name="BlockedReturnLeavesPhysicalPile" fullname="WorldGenesis.Tests.CaravanTests.BlockedReturnLeavesPhysicalPile" methodname="BlockedReturnLeavesPhysicalPile" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="250800130" result="Passed" start-time="2026-10-13 18:48:36Z" end-time="2026-10-13 18:48:37Z" duration="0.451374" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="CancellationReturnsOriginalCargo" fullname="WorldGenesis.Tests.CaravanTests.CancellationReturnsOriginalCargo" methodname="CancellationReturnsOriginalCargo" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="480236753" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.026022" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="ChangedReserveRefusesQuotedTrade" fullname="WorldGenesis.Tests.CaravanTests.ChangedReserveRefusesQuotedTrade" methodname="ChangedReserveRefusesQuotedTrade" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="912484971" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.165106" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="CorruptQuotaMembershipAndPhaseRejected" fullname="WorldGenesis.Tests.CaravanTests.CorruptQuotaMembershipAndPhaseRejected" methodname="CorruptQuotaMembershipAndPhaseRejected" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="266109361" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.011170" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="DistantPaidHelpersCannotEatRemoteFoodButFreeHelpersMayJoin" fullname="WorldGenesis.Tests.CaravanTests.DistantPaidHelpersCannotEatRemoteFoodButFreeHelpersMayJoin" methodname="DistantPaidHelpersCannotEatRemoteFoodButFreeHelpersMayJoin" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1631252213" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.008220" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="ExchangeRequiresPhysicalArrival" fullname="WorldGenesis.Tests.CaravanTests.ExchangeRequiresPhysicalArrival" methodname="ExchangeRequiresPhysicalArrival" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1839521178" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.004941" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1039" name="ImportedBatchCannotBeSoldTwice" fullname="WorldGenesis.Tests.CaravanTests.ImportedBatchCannotBeSoldTwice" methodname="ImportedBatchCannotBeSoldTwice" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1445970162" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.097545" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1036" name="LeaderDeathDropsCargoAndSurvivorsContinue" fullname="WorldGenesis.Tests.CaravanTests.LeaderDeathDropsCargoAndSurvivorsContinue" methodname="LeaderDeathDropsCargoAndSurvivorsContinue" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1388860580" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.165617" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="LegacyMigrationPreservesRandomAndIds" fullname="WorldGenesis.Tests.CaravanTests.LegacyMigrationPreservesRandomAndIds" methodname="LegacyMigrationPreservesRandomAndIds" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="2141346393" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.003854" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="NoBudgetMeansNoPaidHelpers" fullname="WorldGenesis.Tests.CaravanTests.NoBudgetMeansNoPaidHelpers" methodname="NoBudgetMeansNoPaidHelpers" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1245404249" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.003613" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="OwnedBasketCarriesLargerSingleBatch" fullname="WorldGenesis.Tests.CaravanTests.OwnedBasketCarriesLargerSingleBatch" methodname="OwnedBasketCarriesLargerSingleBatch" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1631702578" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:37Z" duration="0.170456" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="PaidMealsAndNaturalTaxCommitOnce" fullname="WorldGenesis.Tests.CaravanTests.PaidMealsAndNaturalTaxCommitOnce" methodname="PaidMealsAndNaturalTaxCommitOnce" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="531020307" result="Passed" start-time="2026-10-13 18:48:37Z" end-time="2026-10-13 18:48:38Z" duration="0.157717" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="PhysicalCohortTradesAndReturnsConservingGoods" fullname="WorldGenesis.Tests.CaravanTests.PhysicalCohortTradesAndReturnsConservingGoods" methodname="PhysicalCohortTradesAndReturnsConservingGoods" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="1111909235" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.164489" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1038" name="SaveLoadContinuesCaravanIdentically" fullname="WorldGenesis.Tests.CaravanTests.SaveLoadContinuesCaravanIdentically" methodname="SaveLoadContinuesCaravanIdentically" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="2045199670" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.100460" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1034" name="TechnologyAndAdultGates" fullname="WorldGenesis.Tests.CaravanTests.TechnologyAndAdultGates" methodname="TechnologyAndAdultGates" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="161291893" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.006844" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="WarCancelsTradePreservingCargo" fullname="WorldGenesis.Tests.CaravanTests.WarCancelsTradePreservingCargo" methodname="WarCancelsTradePreservingCargo" classname="WorldGenesis.Tests.CaravanTests" runstate="Runnable" seed="934166102" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.030670" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1046" name="FishingTests" fullname="WorldGenesis.Tests.FishingTests" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.163961" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1054" name="CancelledCraftConservation" fullname="WorldGenesis.Tests.FishingTests.CancelledCraftConservation" methodname="CancelledCraftConservation" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="1665823027" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.004502" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1050" name="CancelledInvalidCast" fullname="WorldGenesis.Tests.FishingTests.CancelledInvalidCast" methodname="CancelledInvalidCast" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="1803260446" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003806" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="DisconnectedBank" fullname="WorldGenesis.Tests.FishingTests.DisconnectedBank" methodname="DisconnectedBank" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="679495100" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.004737" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1059" name="DistantRareMaterialCollection" fullname="WorldGenesis.Tests.FishingTests.DistantRareMaterialCollection" methodname="DistantRareMaterialCollection" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="731691801" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.004407" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="EntireRodProgression" fullname="WorldGenesis.Tests.FishingTests.EntireRodProgression" methodname="EntireRodProgression" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="614744627" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.027070" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1049" name="EpicPhysicalOutputs" fullname="WorldGenesis.Tests.FishingTests.EpicPhysicalOutputs" methodname="EpicPhysicalOutputs" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="1256944480" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.004865" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1057" name="FoodStorageAndDeath" fullname="WorldGenesis.Tests.FishingTests.FoodStorageAndDeath" methodname="FoodStorageAndDeath" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="696760385" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003599" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="GradeAndHabitatGates" fullname="WorldGenesis.Tests.FishingTests.GradeAndHabitatGates" methodname="GradeAndHabitatGates" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="18374519" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003250" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1055" name="LegacyMigration" fullname="WorldGenesis.Tests.FishingTests.LegacyMigration" methodname="LegacyMigration" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="1111905768" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.020137" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1060" name="LocalHabitatPreference" fullname="WorldGenesis.Tests.FishingTests.LocalHabitatPreference" methodname="LocalHabitatPreference" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="501210510" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003556" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1058" name="MalformedData" fullname="WorldGenesis.Tests.FishingTests.MalformedData" methodname="MalformedData" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="747930627" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003877" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1056" name="MidActivitySaveContinuation" fullname="WorldGenesis.Tests.FishingTests.MidActivitySaveContinuation" methodname="MidActivitySaveContinuation" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="3539061" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.069490" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="PrimitivePhysicalCatch" fullname="WorldGenesis.Tests.FishingTests.PrimitivePhysicalCatch" methodname="PrimitivePhysicalCatch" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="1553588652" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.004033" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1053" name="ResearchAndRareInputs" fullname="WorldGenesis.Tests.FishingTests.ResearchAndRareInputs" methodname="ResearchAndRareInputs" classname="WorldGenesis.Tests.FishingTests" runstate="Runnable" seed="492108880" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.003505" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1061" name="HydrologyTests" fullname="WorldGenesis.Tests.HydrologyTests" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:39Z" duration="1.050394" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1063" name="ConnectedLake" fullname="WorldGenesis.Tests.HydrologyTests.ConnectedLake" methodname="ConnectedLake" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="1638960424" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.002281" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1067" name="JsonUtilityContinuation" fullname="WorldGenesis.Tests.HydrologyTests.JsonUtilityContinuation" methodname="JsonUtilityContinuation" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="1767343353" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.079890" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1065" name="LegacyMigration" fullname="WorldGenesis.Tests.HydrologyTests.LegacyMigration" methodname="LegacyMigration" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="356424448" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.040364" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1066" name="LocalEditsAndValidation" fullname="WorldGenesis.Tests.HydrologyTests.LocalEditsAndValidation" methodname="LocalEditsAndValidation" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="496156385" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.002061" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1064" name="RiverFamiliesAndGeometry" fullname="WorldGenesis.Tests.HydrologyTests.RiverFamiliesAndGeometry" methodname="RiverFamiliesAndGeometry" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="1387008613" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:38Z" duration="0.000578" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1062" name="SeedMatrix" fullname="WorldGenesis.Tests.HydrologyTests.SeedMatrix" methodname="SeedMatrix" classname="WorldGenesis.Tests.HydrologyTests" runstate="Runnable" seed="1063980523" result="Passed" start-time="2026-10-13 18:48:38Z" end-time="2026-10-13 18:48:39Z" duration="0.924203" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1068" name="InfrastructureTests" fullname="WorldGenesis.Tests.InfrastructureTests" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.099980" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1076" name="DevelopmentMigrationIsRepeatableWithoutConsumingRandomnessOrMaterials" fullname="WorldGenesis.Tests.InfrastructureTests.DevelopmentMigrationIsRepeatableWithoutConsumingRandomnessOrMaterials" methodname="DevelopmentMigrationIsRepeatableWithoutConsumingRandomnessOrMaterials" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="2101545417" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.017640" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1071" name="MissingResearchAndOccupiedGatesRefuseWithoutCost" fullname="WorldGenesis.Tests.InfrastructureTests.MissingResearchAndOccupiedGatesRefuseWithoutCost" methodname="MissingResearchAndOccupiedGatesRefuseWithoutCost" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="1829882565" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.004016" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1075" name="ResearchDiminishesEveryGroupAndUnknownResearchIsRejected" fullname="WorldGenesis.Tests.InfrastructureTests.ResearchDiminishesEveryGroupAndUnknownResearchIsRejected" methodname="ResearchDiminishesEveryGroupAndUnknownResearchIsRejected" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="1802354604" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.006167" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1072" name="RoadUpgradeConsumesTilesOnceAndFloodRemovesRoad" fullname="WorldGenesis.Tests.InfrastructureTests.RoadUpgradeConsumesTilesOnceAndFloodRemovesRoad" methodname="RoadUpgradeConsumesTilesOnceAndFloodRemovesRoad" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="1337597125" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.008328" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1074" name="UpgradeIncreasesHouseComfortAndPreservesOwnerAcrossRoundtrip" fullname="WorldGenesis.Tests.InfrastructureTests.UpgradeIncreasesHouseComfortAndPreservesOwnerAcrossRoundtrip" methodname="UpgradeIncreasesHouseComfortAndPreservesOwnerAcrossRoundtrip" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="2011303005" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.047142" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1070" name="WallAndGateBlockPathWithoutDestroyingThemselves" fullname="WorldGenesis.Tests.InfrastructureTests.WallAndGateBlockPathWithoutDestroyingThemselves" methodname="WallAndGateBlockPathWithoutDestroyingThemselves" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="633377784" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.005477" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1073" name="WaterClassificationExcludesSaltWaterAndFishCannotBeInventedByFishing" fullname="WorldGenesis.Tests.InfrastructureTests.WaterClassificationExcludesSaltWaterAndFishCannotBeInventedByFishing" methodname="WaterClassificationExcludesSaltWaterAndFishCannotBeInventedByFishing" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="1160150329" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.004469" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1069" name="WellChargesOnlyPublicMaterialsAndFillsBeforeDrinking" fullname="WorldGenesis.Tests.InfrastructureTests.WellChargesOnlyPublicMaterialsAndFillsBeforeDrinking" methodname="WellChargesOnlyPublicMaterialsAndFillsBeforeDrinking" classname="WorldGenesis.Tests.InfrastructureTests" runstate="Runnable" seed="1172089688" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.005486" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1077" name="ProductionTests" fullname="WorldGenesis.Tests.ProductionTests" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" testcasecount="25" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:41Z" duration="1.405603" total="25" passed="25" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1102" name="AbandonedRecipeRecovery" fullname="WorldGenesis.Tests.ProductionTests.AbandonedRecipeRecovery" methodname="AbandonedRecipeRecovery" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1791376871" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.008335" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1100" name="ActualWorkshopConstruction" fullname="WorldGenesis.Tests.ProductionTests.ActualWorkshopConstruction" methodname="ActualWorkshopConstruction" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1091545224" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.004322" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1098" name="BrokenReturnRoute" fullname="WorldGenesis.Tests.ProductionTests.BrokenReturnRoute" methodname="BrokenReturnRoute" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1366069700" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.007694" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1087" name="CancelConservation" fullname="WorldGenesis.Tests.ProductionTests.CancelConservation" methodname="CancelConservation" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1257447770" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.008495" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1101" name="CompleteLocalReservationPriority" fullname="WorldGenesis.Tests.ProductionTests.CompleteLocalReservationPriority" methodname="CompleteLocalReservationPriority" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="343381509" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:39Z" duration="0.013198" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1093" name="ConnectedProductionChains" fullname="WorldGenesis.Tests.ProductionTests.ConnectedProductionChains" methodname="ConnectedProductionChains" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1777956570" result="Passed" start-time="2026-10-13 18:48:39Z" end-time="2026-10-13 18:48:40Z" duration="0.734628" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1091" name="CorruptData" fullname="WorldGenesis.Tests.ProductionTests.CorruptData" methodname="CorruptData" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1972206363" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.076458" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1088" name="DeathAndDestruction" fullname="WorldGenesis.Tests.ProductionTests.DeathAndDestruction" methodname="DeathAndDestruction" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="433850432" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.003837" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1079" name="DistantPhysicalInputs" fullname="WorldGenesis.Tests.ProductionTests.DistantPhysicalInputs" methodname="DistantPhysicalInputs" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="968505393" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.029304" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1097" name="EmptySharedPile" fullname="WorldGenesis.Tests.ProductionTests.EmptySharedPile" methodname="EmptySharedPile" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="596877361" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.003978" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1095" name="EquipmentAgeAndDeath" fullname="WorldGenesis.Tests.ProductionTests.EquipmentAgeAndDeath" methodname="EquipmentAgeAndDeath" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1917350036" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.004077" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1078" name="EveryRecipe" fullname="WorldGenesis.Tests.ProductionTests.EveryRecipe" methodname="EveryRecipe" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1527120315" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.194286" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1084" name="InaccessibleSource" fullname="WorldGenesis.Tests.ProductionTests.InaccessibleSource" methodname="InaccessibleSource" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1546321042" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.007113" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1081" name="InsufficientRecipe" fullname="WorldGenesis.Tests.ProductionTests.InsufficientRecipe" methodname="InsufficientRecipe" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="689772137" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.012218" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1090" name="LegacyArrayMigration" fullname="WorldGenesis.Tests.ProductionTests.LegacyArrayMigration" methodname="LegacyArrayMigration" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="379944621" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.016663" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1080" name="MixedCargo" fullname="WorldGenesis.Tests.ProductionTests.MixedCargo" methodname="MixedCargo" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1904137506" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.024420" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1085" name="OneWorkerSlot" fullname="WorldGenesis.Tests.ProductionTests.OneWorkerSlot" methodname="OneWorkerSlot" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="48406226" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.006754" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1082" name="OutputCapacity" fullname="WorldGenesis.Tests.ProductionTests.OutputCapacity" methodname="OutputCapacity" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="194435397" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.018414" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1099" name="OwnershipAtMint" fullname="WorldGenesis.Tests.ProductionTests.OwnershipAtMint" methodname="OwnershipAtMint" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1689964329" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.004617" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1094" name="PhysicalEquipmentConsumption" fullname="WorldGenesis.Tests.ProductionTests.PhysicalEquipmentConsumption" methodname="PhysicalEquipmentConsumption" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="2070247121" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.021773" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1096" name="PhysicalFurnitureInstallation" fullname="WorldGenesis.Tests.ProductionTests.PhysicalFurnitureInstallation" methodname="PhysicalFurnitureInstallation" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1883746538" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.009654" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1083" name="ResearchAndChildGates" fullname="WorldGenesis.Tests.ProductionTests.ResearchAndChildGates" methodname="ResearchAndChildGates" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1181825880" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:40Z" duration="0.003822" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1089" name="SaveContinuation" fullname="WorldGenesis.Tests.ProductionTests.SaveContinuation" methodname="SaveContinuation" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="1622674592" result="Passed" start-time="2026-10-13 18:48:40Z" end-time="2026-10-13 18:48:41Z" duration="0.110257" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1086" name="SharedScarceInputs" fullname="WorldGenesis.Tests.ProductionTests.SharedScarceInputs" methodname="SharedScarceInputs" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="790515995" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.025449" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1092" name="SiegeTechnologyAndGoods" fullname="WorldGenesis.Tests.ProductionTests.SiegeTechnologyAndGoods" methodname="SiegeTechnologyAndGoods" classname="WorldGenesis.Tests.ProductionTests" runstate="Runnable" seed="809852632" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.051321" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1103" name="ResourcePersistenceTests" fullname="WorldGenesis.Tests.ResourcePersistenceTests" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.441390" total="5" passed="3" failed="2" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1108" name="ActualBarterAndNaturalTaxSurviveUnitySaveWithoutChargingAgain" fullname="WorldGenesis.Tests.ResourcePersistenceTests.ActualBarterAndNaturalTaxSurviveUnitySaveWithoutChargingAgain" methodname="ActualBarterAndNaturalTaxSurviveUnitySaveWithoutChargingAgain" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" seed="677028452" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.150883" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1106" name="InvalidResourceInventoryCannotReplaceAValidSave" fullname="WorldGenesis.Tests.ResourcePersistenceTests.InvalidResourceInventoryCannotReplaceAValidSave" methodname="InvalidResourceInventoryCannotReplaceAValidSave" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" seed="1544808605" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.110742" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1105" name="LiveCargoWorkshopAndDepletedNodeRoundtripThenContinueExactly" fullname="WorldGenesis.Tests.ResourcePersistenceTests.LiveCargoWorkshopAndDepletedNodeRoundtripThenContinueExactly" methodname="LiveCargoWorkshopAndDepletedNodeRoundtripThenContinueExactly" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" seed="1883346049" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.154284" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1107" name="OldResourceLoadOverOneMigratesInPlaceAndRoundtripsWithoutDuplicatingGoods" fullname="WorldGenesis.Tests.ResourcePersistenceTests.OldResourceLoadOverOneMigratesInPlaceAndRoundtripsWithoutDuplicatingGoods" methodname="OldResourceLoadOverOneMigratesInPlaceAndRoundtripsWithoutDuplicatingGoods" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" seed="1424269024" result="Failed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.012887" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: 3
+  But was:  4
+]]></message>
+                <stack-trace><![CDATA[at WorldGenesis.Tests.ResourcePersistenceTests.OldResourceLoadOverOneMigratesInPlaceAndRoundtripsWithoutDuplicatingGoods () [0x000b2] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\ResourcePersistenceTests.cs:109
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1104" name="OldV020FileWithoutResourceFieldsMigratesOnlyOnceThroughUnitySerializer" fullname="WorldGenesis.Tests.ResourcePersistenceTests.OldV020FileWithoutResourceFieldsMigratesOnlyOnceThroughUnitySerializer" methodname="OldV020FileWithoutResourceFieldsMigratesOnlyOnceThroughUnitySerializer" classname="WorldGenesis.Tests.ResourcePersistenceTests" runstate="Runnable" seed="1170093966" result="Failed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.011254" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: 3
+  But was:  4
+]]></message>
+                <stack-trace><![CDATA[at WorldGenesis.Tests.ResourcePersistenceTests.OldV020FileWithoutResourceFieldsMigratesOnlyOnceThroughUnitySerializer () [0x00090] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\ResourcePersistenceTests.cs:35
+]]></stack-trace>
+              </failure>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1109" name="RulerBoundaryTests" fullname="WorldGenesis.Tests.RulerBoundaryTests" classname="WorldGenesis.Tests.RulerBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.216528" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1110" name="CatastropheCrossesFormerPileLimit" fullname="WorldGenesis.Tests.RulerBoundaryTests.CatastropheCrossesFormerPileLimit" methodname="CatastropheCrossesFormerPileLimit" classname="WorldGenesis.Tests.RulerBoundaryTests" runstate="Runnable" seed="1946779221" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.200371" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1111" name="LargeLedgerStillValidatesEveryRecord" fullname="WorldGenesis.Tests.RulerBoundaryTests.LargeLedgerStillValidatesEveryRecord" methodname="LargeLedgerStillValidatesEveryRecord" classname="WorldGenesis.Tests.RulerBoundaryTests" runstate="Runnable" seed="1763779144" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.011416" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1112" name="NullLegacyInvoiceOnlyRecordsUpgrade" fullname="WorldGenesis.Tests.RulerBoundaryTests.NullLegacyInvoiceOnlyRecordsUpgrade" methodname="NullLegacyInvoiceOnlyRecordsUpgrade" classname="WorldGenesis.Tests.RulerBoundaryTests" runstate="Runnable" seed="259004838" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.003784" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1113" name="RulerPlanningTests" fullname="WorldGenesis.Tests.RulerPlanningTests" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:46Z" duration="4.566041" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1135" name="Scenario" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:46Z" duration="4.565491" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1114" name="Scenario(&quot;SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;SeatPrefersReachableElevationNearFoodAndFreshWaterWithoutRng&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1312115970" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.002950" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1115" name="Scenario(&quot;SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;SeatNeverCrossesUnreachableRingOrLeavesSixCellSearch&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="821648864" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.002359" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1116" name="Scenario(&quot;SpawnActuallyFoundHallOnTheChosenReachableHighland&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;SpawnActuallyFoundHallOnTheChosenReachableHighland&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="837335705" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.002712" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1117" name="Scenario(&quot;DryStartRetainsOriginalLocationAndBasicWellEscape&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;DryStartRetainsOriginalLocationAndBasicWellEscape&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="27256804" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.006056" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1118" name="Scenario(&quot;ShallowFordFoundingUsesDryBankAndRejectsWaterOnlyStart&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;ShallowFordFoundingUsesDryBankAndRejectsWaterOnlyStart&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1442771006" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.004322" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1119" name="Scenario(&quot;HallLastFarmAndWellAreProtectedWithoutMutation&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;HallLastFarmAndWellAreProtectedWithoutMutation&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1306577957" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.013294" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1120" name="Scenario(&quot;DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;DemolitionPreservesPublicPrivateTaxAndAgriculturalGoodsAtSite&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="313996640" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.007074" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1121" name="Scenario(&quot;SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;SecondFarmHarvestSurvivesAndUnsealedBrewWaterBlocksDemolition&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1223079731" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.012727" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1122" name="Scenario(&quot;PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;PrudentRoadClearancePlansRealWorkAndDoesNotCreateRoadOrMaterial&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="183498421" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.014352" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1123" name="Scenario(&quot;AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;AmbitiousReplacementNeedsTechnologyAndConsumesActualPlanks&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="2131821637" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.005230" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1124" name="Scenario(&quot;PrudentSchoolReplacementRequiresResearchAndPreservesHousing&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;PrudentSchoolReplacementRequiresResearchAndPreservesHousing&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="826324096" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.004976" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1125" name="Scenario(&quot;ActiveHaulerKeepsEveryCargoChannelWhenDestinationIsDemolished&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;ActiveHaulerKeepsEveryCargoChannelWhenDestinationIsDemolished&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1449550102" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.013732" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1126" name="Scenario(&quot;PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;PlanningCooldownAndReasonSurviveSaveAndMalformedDatesFail&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="10945302" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.012061" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1127" name="Scenario(&quot;RealCombatUsesElevationBonusWithoutRngDifferenceAndCapsAtTwentyPercent&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;RealCombatUsesElevationBonusWithoutRngDifferenceAndCapsAtTwentyPercent&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="81797052" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.049565" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1128" name="Scenario(&quot;FreeFoundingAndUnknownLegacyConstructionNeverMintSalvage&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;FreeFoundingAndUnknownLegacyConstructionNeverMintSalvage&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="191261347" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.005085" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1129" name="Scenario(&quot;RealConstructionAndEveryUpgradeUseOneRecordedPercentageAfterSave&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;RealConstructionAndEveryUpgradeUseOneRecordedPercentageAfterSave&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="943102065" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.014075" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1130" name="Scenario(&quot;CatastrophicStorageLossAndBuildingSalvageUseSeparateLedgersOnce&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;CatastrophicStorageLossAndBuildingSalvageUseSeparateLedgersOnce&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1396409067" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.016291" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1131" name="Scenario(&quot;PlannedDemolitionPreservesContentsPlusRolledConstructionAndRejectsBadInvoice&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;PlannedDemolitionPreservesContentsPlusRolledConstructionAndRejectsBadInvoice&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1954278748" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:41Z" duration="0.005399" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1132" name="Scenario(&quot;RecoverySeedMatrixIncludesBothBoundsAndUsesExactlyOneRngDraw&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;RecoverySeedMatrixIncludesBothBoundsAndUsesExactlyOneRngDraw&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="1008881307" result="Passed" start-time="2026-10-13 18:48:41Z" end-time="2026-10-13 18:48:46Z" duration="4.352778" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1133" name="Scenario(&quot;RolledRecoveryPersistsAcrossCleanupSaveWithoutSecondDrawOrEvent&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;RolledRecoveryPersistsAcrossCleanupSaveWithoutSecondDrawOrEvent&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="510123942" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.012169" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1134" name="Scenario(&quot;RecoveryValidatorRejectsPrematureOutOfRangeAndUnpaidRolls&quot;)" fullname="WorldGenesis.Tests.RulerPlanningTests.Scenario(&quot;RecoveryValidatorRejectsPrematureOutOfRangeAndUnpaidRolls&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.RulerPlanningTests" runstate="Runnable" seed="995660502" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.005926" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1136" name="SaltTests" fullname="WorldGenesis.Tests.SaltTests" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:47Z" duration="0.702519" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="ParameterizedMethod" id="1146" name="Scenario" fullname="WorldGenesis.Tests.SaltTests.Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:47Z" duration="0.702019" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1137" name="Scenario(&quot;AppendedSaltKeepsEveryLegacyEnumNumber&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;AppendedSaltKeepsEveryLegacyEnumNumber&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1099714373" result="Failed" label="Error" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.001436" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----> System.InvalidOperationException : IDs shifted]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at WorldGenesis.Tests.SaltTests.Scenario (System.String name) [0x00000] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:144 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 
+--InvalidOperationException
+  at WorldGenesis.Tests.SaltScenarios.AppendedSaltKeepsEveryLegacyEnumNumber () [0x00031] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:51 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1138" name="Scenario(&quot;LegacySeventeenSlotSavePreservesAllOwnershipAndAmounts&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;LegacySeventeenSlotSavePreservesAllOwnershipAndAmounts&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1081530725" result="Failed" label="Error" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.012056" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----> System.InvalidOperationException : Invalid industry ledgers.]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at WorldGenesis.Tests.SaltTests.Scenario (System.String name) [0x00000] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:144 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 
+--InvalidOperationException
+  at WorldGenesis.Tests.SaltScenarios.LegacySeventeenSlotSavePreservesAllOwnershipAndAmounts () [0x0024f] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:63 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1139" name="Scenario(&quot;EarlierCarryingMigrationDoesNotDowngradeResourceVersion&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;EarlierCarryingMigrationDoesNotDowngradeResourceVersion&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1505170812" result="Failed" label="Error" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.002796" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----> System.InvalidOperationException : Invalid industry ledgers.]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at WorldGenesis.Tests.SaltTests.Scenario (System.String name) [0x00000] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:144 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 
+--InvalidOperationException
+  at WorldGenesis.Tests.SaltScenarios.EarlierCarryingMigrationDoesNotDowngradeResourceVersion () [0x00182] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:70 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1140" name="Scenario(&quot;VersionAndCorruptSaltSlotsAreRejected&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;VersionAndCorruptSaltSlotsAreRejected&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1916500722" result="Failed" label="Error" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.002468" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----> System.InvalidOperationException : future version accepted]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <314938d17f3848e8ac683e11b27f62ee>:0 
+  at WorldGenesis.Tests.SaltTests.Scenario (System.String name) [0x00000] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:144 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 
+--InvalidOperationException
+  at WorldGenesis.Tests.SaltScenarios.VersionAndCorruptSaltSlotsAreRejected () [0x00106] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SaltTests.cs:78 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1141" name="Scenario(&quot;SaltGenerationIsDeterministicRareAndHabitatBounded&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;SaltGenerationIsDeterministicRareAndHabitatBounded&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="651049203" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.418779" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1142" name="Scenario(&quot;SaltIsPhysicallyGatheredThenDeliveredWithoutDuplication&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;SaltIsPhysicallyGatheredThenDeliveredWithoutDuplication&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1292776748" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.031399" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1143" name="Scenario(&quot;SaltRegrowthIsSlowAndPausesOnIncompatibleTerrain&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;SaltRegrowthIsSlowAndPausesOnIncompatibleTerrain&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1395213889" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.024681" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1144" name="Scenario(&quot;SaltMovesThroughOrdinaryCaravanAndTaxContainers&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;SaltMovesThroughOrdinaryCaravanAndTaxContainers&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="1643173305" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:46Z" duration="0.149913" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1145" name="Scenario(&quot;SaltSaveContinuesCargoStocksAndTimerIdentically&quot;)" fullname="WorldGenesis.Tests.SaltTests.Scenario(&quot;SaltSaveContinuesCargoStocksAndTimerIdentically&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SaltTests" runstate="Runnable" seed="2036553032" result="Passed" start-time="2026-10-13 18:48:46Z" end-time="2026-10-13 18:48:47Z" duration="0.056180" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1147" name="SaveStoreTests" fullname="WorldGenesis.Tests.SaveStoreTests" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.690367" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1148" name="DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" fullname="WorldGenesis.Tests.SaveStoreTests.DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" methodname="DiskRoundtripUsesActualUnitySerializerAndContinuesExactly" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="254843863" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.286722" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1153" name="MalformedOrUnsupportedFilesReturnNoCandidate" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.009620" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1150" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{unclosed&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{unclosed&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="1938963734" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.002637" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1151" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{}&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{}&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="2097978939" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.001031" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1152" name="MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{\&quot;Schema\&quot;:999,\&quot;Format\&quot;:\&quot;WorldGenesis\&quot;}&quot;)" fullname="WorldGenesis.Tests.SaveStoreTests.MalformedOrUnsupportedFilesReturnNoCandidate(&quot;{\&quot;Schema\&quot;:999,\&quot;Format\&quot;:\&quot;WorldGenesis\&quot;}&quot;)" methodname="MalformedOrUnsupportedFilesReturnNoCandidate" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="1783487476" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.005466" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1149" name="SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" fullname="WorldGenesis.Tests.SaveStoreTests.SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" methodname="SecondSavePreservesBackupAndInvalidReplacementLeavesSlotIntact" classname="WorldGenesis.Tests.SaveStoreTests" runstate="Runnable" seed="1682134831" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.393105" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1154" name="SimulationTests" fullname="WorldGenesis.Tests.SimulationTests" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" testcasecount="47" result="Failed" site="Child" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:56Z" duration="8.809755" total="47" passed="44" failed="3" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1186" name="ActualWorkshopRatesAndFuelControlProcessingTransactions" fullname="WorldGenesis.Tests.SimulationTests.ActualWorkshopRatesAndFuelControlProcessingTransactions" methodname="ActualWorkshopRatesAndFuelControlProcessingTransactions" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="911301450" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.030175" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1189" name="AllDepositKindsRegrowOnTheirSavedTimersOnlyOnCompatibleTerrain" fullname="WorldGenesis.Tests.SimulationTests.AllDepositKindsRegrowOnTheirSavedTimersOnlyOnCompatibleTerrain" methodname="AllDepositKindsRegrowOnTheirSavedTimersOnlyOnCompatibleTerrain" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1358190342" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.079463" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1163" name="ASeparatedResidentCannotConsumeFoodAcrossWater" fullname="WorldGenesis.Tests.SimulationTests.ASeparatedResidentCannotConsumeFoodAcrossWater" methodname="ASeparatedResidentCannotConsumeFoodAcrossWater" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1654864151" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.004497" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1194" name="BarterTransfersExistingGoodsAndNaturalTaxOnceAtTheWorkplace" fullname="WorldGenesis.Tests.SimulationTests.BarterTransfersExistingGoodsAndNaturalTaxOnceAtTheWorkplace" methodname="BarterTransfersExistingGoodsAndNaturalTaxOnceAtTheWorkplace" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="2013826228" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.023763" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1199" name="ChildLaborLawRestrictsFarmingHeavyCargoAndPrivateTrade" fullname="WorldGenesis.Tests.SimulationTests.ChildLaborLawRestrictsFarmingHeavyCargoAndPrivateTrade" methodname="ChildLaborLawRestrictsFarmingHeavyCargoAndPrivateTrade" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="993971589" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.007930" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1179" name="ChildrenAndSeverelyWoundedCiviliansFleeInsteadOfJoiningMilitia" fullname="WorldGenesis.Tests.SimulationTests.ChildrenAndSeverelyWoundedCiviliansFleeInsteadOfJoiningMilitia" methodname="ChildrenAndSeverelyWoundedCiviliansFleeInsteadOfJoiningMilitia" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="776025424" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.013516" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1182" name="ChildrenReceiveNoOfficeUntilMatureAndForeignRulersAreReplaced" fullname="WorldGenesis.Tests.SimulationTests.ChildrenReceiveNoOfficeUntilMatureAndForeignRulersAreReplaced" methodname="ChildrenReceiveNoOfficeUntilMatureAndForeignRulersAreReplaced" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1415324322" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.006805" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1178" name="CivilianMilitiaRespondsLocallyAndReturnsToItsWorkingProfession" fullname="WorldGenesis.Tests.SimulationTests.CivilianMilitiaRespondsLocallyAndReturnsToItsWorkingProfession" methodname="CivilianMilitiaRespondsLocallyAndReturnsToItsWorkingProfession" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="855439165" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.008563" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1191" name="DeathAndBuildingDestructionRecordCargoAndInventoryLosses" fullname="WorldGenesis.Tests.SimulationTests.DeathAndBuildingDestructionRecordCargoAndInventoryLosses" methodname="DeathAndBuildingDestructionRecordCargoAndInventoryLosses" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="2043881935" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.007452" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1162" name="EditingLandInvalidatesAnAlreadyPlannedRoute" fullname="WorldGenesis.Tests.SimulationTests.EditingLandInvalidatesAnAlreadyPlannedRoute" methodname="EditingLandInvalidatesAnAlreadyPlannedRoute" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="67640653" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.021158" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1161" name="EquivalentFrameDurationsProduceIdenticalFixedTicks" fullname="WorldGenesis.Tests.SimulationTests.EquivalentFrameDurationsProduceIdenticalFixedTicks" methodname="EquivalentFrameDurationsProduceIdenticalFixedTicks" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1281530037" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:47Z" duration="0.057684" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1192" name="EveryRawMaterialIsHarvestedIntoCargoAndPhysicallyDelivered" fullname="WorldGenesis.Tests.SimulationTests.EveryRawMaterialIsHarvestedIntoCargoAndPhysicallyDelivered" methodname="EveryRawMaterialIsHarvestedIntoCargoAndPhysicallyDelivered" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1142798662" result="Passed" start-time="2026-10-13 18:48:47Z" end-time="2026-10-13 18:48:48Z" duration="0.136625" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1177" name="ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState" fullname="WorldGenesis.Tests.SimulationTests.ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState" methodname="ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1392786265" result="Failed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.006345" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Invalid industry ledgers.
+  Expected: True
+  But was:  False
+]]></message>
+                <stack-trace><![CDATA[at WorldGenesis.Tests.SimulationTests.ExperimentalGuardsDemobilizeWithoutLosingNeedsCargoOrRandomState () [0x0011d] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SimulationTests.cs:339
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1167" name="ExplicitPeaceStopsNewAttacksAndSurvivesSave" fullname="WorldGenesis.Tests.SimulationTests.ExplicitPeaceStopsNewAttacksAndSurvivesSave" methodname="ExplicitPeaceStopsNewAttacksAndSurvivesSave" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="384237988" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.022732" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1171" name="FireInterruptsWorkAndEscapesWithoutLosingCarriedResources" fullname="WorldGenesis.Tests.SimulationTests.FireInterruptsWorkAndEscapesWithoutLosingCarriedResources" methodname="FireInterruptsWorkAndEscapesWithoutLosingCarriedResources" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="122629450" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.009351" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1170" name="FoodIsConsumedOnceAfterEatingFinishesAndNotWhenInterrupted" fullname="WorldGenesis.Tests.SimulationTests.FoodIsConsumedOnceAfterEatingFinishesAndNotWhenInterrupted" methodname="FoodIsConsumedOnceAfterEatingFinishesAndNotWhenInterrupted" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="2101809631" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.006114" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1176" name="FoundingSpawningAndMaturingNeverAssignMilitaryProfessions" fullname="WorldGenesis.Tests.SimulationTests.FoundingSpawningAndMaturingNeverAssignMilitaryProfessions" methodname="FoundingSpawningAndMaturingNeverAssignMilitaryProfessions" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="659054089" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.119956" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1195" name="FreeGiftsAndInsolvencyPreserveCommunalStartup" fullname="WorldGenesis.Tests.SimulationTests.FreeGiftsAndInsolvencyPreserveCommunalStartup" methodname="FreeGiftsAndInsolvencyPreserveCommunalStartup" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1507419384" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:48Z" duration="0.008904" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1158" name="GeneratorIsReproducibleAndDrainageConservesMass" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:54Z" duration="5.829622" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1155" name="GeneratorIsReproducibleAndDrainageConservesMass(Island)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Island)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="233946590" result="Passed" start-time="2026-10-13 18:48:48Z" end-time="2026-10-13 18:48:49Z" duration="1.617395" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1156" name="GeneratorIsReproducibleAndDrainageConservesMass(Archipelago)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Archipelago)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="915394973" result="Passed" start-time="2026-10-13 18:48:49Z" end-time="2026-10-13 18:48:51Z" duration="1.656122" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1157" name="GeneratorIsReproducibleAndDrainageConservesMass(Continent)" fullname="WorldGenesis.Tests.SimulationTests.GeneratorIsReproducibleAndDrainageConservesMass(Continent)" methodname="GeneratorIsReproducibleAndDrainageConservesMass" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="944374633" result="Passed" start-time="2026-10-13 18:48:51Z" end-time="2026-10-13 18:48:54Z" duration="2.555369" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1180" name="GovernmentsAreSeededAndAssignedOnlyOnceWithRealRulers" fullname="WorldGenesis.Tests.SimulationTests.GovernmentsAreSeededAndAssignedOnlyOnceWithRealRulers" methodname="GovernmentsAreSeededAndAssignedOnlyOnceWithRealRulers" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1565067810" result="Passed" start-time="2026-10-13 18:48:54Z" end-time="2026-10-13 18:48:55Z" duration="1.113901" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1200" name="LearningNeedsALivingNearbyAdultAndImprovesAdultWork" fullname="WorldGenesis.Tests.SimulationTests.LearningNeedsALivingNearbyAdultAndImprovesAdultWork" methodname="LearningNeedsALivingNearbyAdultAndImprovesAdultWork" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1089011069" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.013055" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1197" name="LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime" fullname="WorldGenesis.Tests.SimulationTests.LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime" methodname="LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="304723336" result="Failed" label="Error" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.012737" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.ArgumentException : Invalid industry ledgers.
+Parameter name: state]]></message>
+                <stack-trace><![CDATA[  at WorldGenesis.Simulation.SimulationEngine..ctor (WorldGenesis.Simulation.WorldState state) [0x0013e] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Scripts\Simulation\SimulationEngine.cs:35 
+  at WorldGenesis.Tests.SimulationTests.LegacyCombinedLoadIsPreservedInLocalPilesAndCollectedOneUnitAtATime () [0x00075] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SimulationTests.cs:672 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1168" name="LegacyEnemyCacheCannotCaptureAPeacefulAbandonedTown" fullname="WorldGenesis.Tests.SimulationTests.LegacyEnemyCacheCannotCaptureAPeacefulAbandonedTown" methodname="LegacyEnemyCacheCannotCaptureAPeacefulAbandonedTown" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="672094337" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.025501" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1184" name="LegacyPoliticsMigratesWithoutRandomDrawsAndRejectsInvalidLinksAndSchedules" fullname="WorldGenesis.Tests.SimulationTests.LegacyPoliticsMigratesWithoutRandomDrawsAndRejectsInvalidLinksAndSchedules" methodname="LegacyPoliticsMigratesWithoutRandomDrawsAndRejectsInvalidLinksAndSchedules" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1443189858" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.103570" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1166" name="MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" fullname="WorldGenesis.Tests.SimulationTests.MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" methodname="MalformedSavesAndInvalidInputsAreRejectedBeforeMutation" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1187318757" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.006791" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1174" name="OriginalV1WithoutBehaviorFieldsMigratesWithoutConsumingRandomness" fullname="WorldGenesis.Tests.SimulationTests.OriginalV1WithoutBehaviorFieldsMigratesWithoutConsumingRandomness" methodname="OriginalV1WithoutBehaviorFieldsMigratesWithoutConsumingRandomness" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="689686453" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.073563" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1169" name="PausedStepAndOffWorldBrushAreHarmless" fullname="WorldGenesis.Tests.SimulationTests.PausedStepAndOffWorldBrushAreHarmless" methodname="PausedStepAndOffWorldBrushAreHarmless" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1972270537" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.022269" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1201" name="PrivateGoodsAndNaturalTaxHaveExplicitDeathAndDestructionOutcomes" fullname="WorldGenesis.Tests.SimulationTests.PrivateGoodsAndNaturalTaxHaveExplicitDeathAndDestructionOutcomes" methodname="PrivateGoodsAndNaturalTaxHaveExplicitDeathAndDestructionOutcomes" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="68787964" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.004842" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1164" name="RainExtinguishesAndDestructivePowersChangeRealState" fullname="WorldGenesis.Tests.SimulationTests.RainExtinguishesAndDestructivePowersChangeRealState" methodname="RainExtinguishesAndDestructivePowersChangeRealState" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1183474407" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.007905" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1196" name="RecipeAcquisitionReservesFuelAndUsesOneSharedBarterBudget" fullname="WorldGenesis.Tests.SimulationTests.RecipeAcquisitionReservesFuelAndUsesOneSharedBarterBudget" methodname="RecipeAcquisitionReservesFuelAndUsesOneSharedBarterBudget" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1028783" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.008830" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1183" name="RepublicElectionOccursAtTheSavedDeadlineAndContinuesAfterLoad" fullname="WorldGenesis.Tests.SimulationTests.RepublicElectionOccursAtTheSavedDeadlineAndContinuesAfterLoad" methodname="RepublicElectionOccursAtTheSavedDeadlineAndContinuesAfterLoad" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="283830836" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.109556" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1188" name="ResourceCargoCannotTeleportAcrossWaterAndResumesAfterBridgeRepair" fullname="WorldGenesis.Tests.SimulationTests.ResourceCargoCannotTeleportAcrossWaterAndResumesAfterBridgeRepair" methodname="ResourceCargoCannotTeleportAcrossWaterAndResumesAfterBridgeRepair" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="143067002" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.025122" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1202" name="RulerReviewExplainsActualPolicyAndNullLegacyContainersMigrate" fullname="WorldGenesis.Tests.SimulationTests.RulerReviewExplainsActualPolicyAndNullLegacyContainersMigrate" methodname="RulerReviewExplainsActualPolicyAndNullLegacyContainersMigrate" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1757754372" result="Failed" label="Error" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.007691" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.ArgumentException : Invalid industry ledgers.
+Parameter name: state]]></message>
+                <stack-trace><![CDATA[  at WorldGenesis.Simulation.SimulationEngine..ctor (WorldGenesis.Simulation.WorldState state) [0x0013e] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Scripts\Simulation\SimulationEngine.cs:35 
+  at WorldGenesis.Tests.SimulationTests.RulerReviewExplainsActualPolicyAndNullLegacyContainersMigrate () [0x00197] in C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Builds\Verification\production-v070-r1\WorldGenesis\Assets\_Project\Tests\EditMode\SimulationTests.cs:727 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <314938d17f3848e8ac683e11b27f62ee>:0 ]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1175" name="SaveContinuationPreservesUnfinishedEatingAndRest" fullname="WorldGenesis.Tests.SimulationTests.SaveContinuationPreservesUnfinishedEatingAndRest" methodname="SaveContinuationPreservesUnfinishedEatingAndRest" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="467816391" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.063899" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1159" name="SaveLoadContinuationPreservesGameplayAndRandomStream" fullname="WorldGenesis.Tests.SimulationTests.SaveLoadContinuationPreservesGameplayAndRandomStream" methodname="SaveLoadContinuationPreservesGameplayAndRandomStream" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1371015399" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.139880" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1187" name="SeparateWorkshopReceivesStoneThroughARealHaulingTrip" fullname="WorldGenesis.Tests.SimulationTests.SeparateWorkshopReceivesStoneThroughARealHaulingTrip" methodname="SeparateWorkshopReceivesStoneThroughARealHaulingTrip" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1527861711" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:55Z" duration="0.057244" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1165" name="SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" fullname="WorldGenesis.Tests.SimulationTests.SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" methodname="SettlersWorkBuildAndHaveChildrenWhileAnEmptyTownCannotRepopulate" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1842786310" result="Passed" start-time="2026-10-13 18:48:55Z" end-time="2026-10-13 18:48:56Z" duration="0.158837" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1198" name="SexMigrationIsDeterministicAndBirthsNeedBothAdultSexes" fullname="WorldGenesis.Tests.SimulationTests.SexMigrationIsDeterministicAndBirthsNeedBothAdultSexes" methodname="SexMigrationIsDeterministicAndBirthsNeedBothAdultSexes" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="2018673125" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.034903" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1172" name="SheepFleesAWolfAndExhaustedCitizensRest" fullname="WorldGenesis.Tests.SimulationTests.SheepFleesAWolfAndExhaustedCitizensRest" methodname="SheepFleesAWolfAndExhaustedCitizensRest" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1868172381" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.012987" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1173" name="SocialContactRequiresALiveNearbyPartner" fullname="WorldGenesis.Tests.SimulationTests.SocialContactRequiresALiveNearbyPartner" methodname="SocialContactRequiresALiveNearbyPartner" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1398904401" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.005971" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1181" name="SuccessionUsesEligibleCitizensAndClearsDeadRulersImmediatelyAfterPowers" fullname="WorldGenesis.Tests.SimulationTests.SuccessionUsesEligibleCitizensAndClearsDeadRulersImmediatelyAfterPowers" methodname="SuccessionUsesEligibleCitizensAndClearsDeadRulersImmediatelyAfterPowers" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1205931174" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.005219" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1185" name="TreeHarvestDeliveryAndCampfireProcessingConserveRealMaterial" fullname="WorldGenesis.Tests.SimulationTests.TreeHarvestDeliveryAndCampfireProcessingConserveRealMaterial" methodname="TreeHarvestDeliveryAndCampfireProcessingConserveRealMaterial" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1667852388" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.175643" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1160" name="WaterBarrierCannotBeCrossedByWanderingUnits" fullname="WorldGenesis.Tests.SimulationTests.WaterBarrierCannotBeCrossedByWanderingUnits" methodname="WaterBarrierCannotBeCrossedByWanderingUnits" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1389873252" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.086018" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1190" name="WorkshopReassignmentAndFireInterruptionReleaseSlotsWithoutDuplicatingInputs" fullname="WorldGenesis.Tests.SimulationTests.WorkshopReassignmentAndFireInterruptionReleaseSlotsWithoutDuplicatingInputs" methodname="WorkshopReassignmentAndFireInterruptionReleaseSlotsWithoutDuplicatingInputs" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="1903569382" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.007139" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1193" name="ZeroPlankFoundingBootstrapsCampfireSawmillStoneAndBrickProduction" fullname="WorldGenesis.Tests.SimulationTests.ZeroPlankFoundingBootstrapsCampfireSawmillStoneAndBrickProduction" methodname="ZeroPlankFoundingBootstrapsCampfireSawmillStoneAndBrickProduction" classname="WorldGenesis.Tests.SimulationTests" runstate="Runnable" seed="808884999" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.116821" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1203" name="SocialSimulationTests" fullname="WorldGenesis.Tests.SocialSimulationTests" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:57Z" duration="1.202492" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1216" name="AvailableHarvestAndWorkerCapacity" fullname="WorldGenesis.Tests.SocialSimulationTests.AvailableHarvestAndWorkerCapacity" methodname="AvailableHarvestAndWorkerCapacity" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1501005976" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.009659" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1209" name="BoundedAdultDispute" fullname="WorldGenesis.Tests.SocialSimulationTests.BoundedAdultDispute" methodname="BoundedAdultDispute" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="2109345343" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.026940" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1214" name="CombustibleWallsAndGates" fullname="WorldGenesis.Tests.SocialSimulationTests.CombustibleWallsAndGates" methodname="CombustibleWallsAndGates" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="715103957" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.005481" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1210" name="ConditionalLethalFanaticalViolence" fullname="WorldGenesis.Tests.SocialSimulationTests.ConditionalLethalFanaticalViolence" methodname="ConditionalLethalFanaticalViolence" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="148680209" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.006918" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1207" name="GradualProceduralReligions" fullname="WorldGenesis.Tests.SocialSimulationTests.GradualProceduralReligions" methodname="GradualProceduralReligions" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="663649131" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.045446" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1219" name="JsonUtilitySocialContinuation" fullname="WorldGenesis.Tests.SocialSimulationTests.JsonUtilitySocialContinuation" methodname="JsonUtilitySocialContinuation" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1514223218" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.258190" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1212" name="LearningAndMastery" fullname="WorldGenesis.Tests.SocialSimulationTests.LearningAndMastery" methodname="LearningAndMastery" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="682071155" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.009044" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1204" name="LegacyMigration" fullname="WorldGenesis.Tests.SocialSimulationTests.LegacyMigration" methodname="LegacyMigration" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="139970761" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.048840" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1206" name="MajorityAndTieVoting" fullname="WorldGenesis.Tests.SocialSimulationTests.MajorityAndTieVoting" methodname="MajorityAndTieVoting" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1259121640" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.006718" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1205" name="NeedDrivenMood" fullname="WorldGenesis.Tests.SocialSimulationTests.NeedDrivenMood" methodname="NeedDrivenMood" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="980337855" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.005778" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1208" name="RealConversationConversion" fullname="WorldGenesis.Tests.SocialSimulationTests.RealConversationConversion" methodname="RealConversationConversion" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1149712762" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.011968" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1217" name="RealSecondFieldPriority" fullname="WorldGenesis.Tests.SocialSimulationTests.RealSecondFieldPriority" methodname="RealSecondFieldPriority" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="272664291" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:56Z" duration="0.005650" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1218" name="RecoverDistantCarrierByWalking" fullname="WorldGenesis.Tests.SocialSimulationTests.RecoverDistantCarrierByWalking" methodname="RecoverDistantCarrierByWalking" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1816893897" result="Passed" start-time="2026-10-13 18:48:56Z" end-time="2026-10-13 18:48:57Z" duration="0.623091" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1215" name="RejectCorruptSocialState" fullname="WorldGenesis.Tests.SocialSimulationTests.RejectCorruptSocialState" methodname="RejectCorruptSocialState" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1672424239" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.077464" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1211" name="SustainedRevolt" fullname="WorldGenesis.Tests.SocialSimulationTests.SustainedRevolt" methodname="SustainedRevolt" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="986116951" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.053141" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1213" name="WarLossTrust" fullname="WorldGenesis.Tests.SocialSimulationTests.WarLossTrust" methodname="WarLossTrust" classname="WorldGenesis.Tests.SocialSimulationTests" runstate="Runnable" seed="1845966325" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.005748" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1220" name="SubsistenceTests" fullname="WorldGenesis.Tests.SubsistenceTests" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:58Z" duration="0.421251" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1235" name="Scenario" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:58Z" duration="0.419382" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1221" name="Scenario(&quot;OneDayProducesTwentyFivePortionsWithoutWorkersOrRandomDraws&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;OneDayProducesTwentyFivePortionsWithoutWorkersOrRandomDraws&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="132143116" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.021926" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1222" name="Scenario(&quot;DuplicateCampfireAndLevelDoNotMultiplyProduction&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;DuplicateCampfireAndLevelDoNotMultiplyProduction&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="2116268007" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.008759" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1223" name="Scenario(&quot;TwoDayReserveStopsNewProductionWithoutDeletingExistingFood&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;TwoDayReserveStopsNewProductionWithoutDeletingExistingFood&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="883202036" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.004319" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1224" name="Scenario(&quot;DeadBurningOrFloodedCampfireDoesNotProduce&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;DeadBurningOrFloodedCampfireDoesNotProduce&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1772570879" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.003974" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1225" name="Scenario(&quot;RemovedCampfireStopsSupplyAndDoesNotReappear&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;RemovedCampfireStopsSupplyAndDoesNotReappear&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="117453588" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.005460" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1226" name="Scenario(&quot;ARealDayAddsOnePortionOfNeedToAdultsAndChildren&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;ARealDayAddsOnePortionOfNeedToAdultsAndChildren&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1184098791" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.112088" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1227" name="Scenario(&quot;ResidentWalksToCampfireAndDrinksExactlyOnce&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;ResidentWalksToCampfireAndDrinksExactlyOnce&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1371379520" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.005810" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1228" name="Scenario(&quot;WaterBarrierPreventsRemoteFoodAndWaterConsumption&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;WaterBarrierPreventsRemoteFoodAndWaterConsumption&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="268708998" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.032906" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1229" name="Scenario(&quot;DrinkUsesOneWaterAndPartialCarriedWaterGivesProportionalRelief&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;DrinkUsesOneWaterAndPartialCarriedWaterGivesProportionalRelief&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1774993489" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.004737" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1230" name="Scenario(&quot;TwentyFiveResidentsBalanceOneDayWhileTheTwentySixthNeedsOtherFoodAndWater&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;TwentyFiveResidentsBalanceOneDayWhileTheTwentySixthNeedsOtherFoodAndWater&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1729777621" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.018809" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1231" name="Scenario(&quot;CampfireWaterCannotReplaceWellWaterInBrewing&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;CampfireWaterCannotReplaceWellWaterInBrewing&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1287497723" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:57Z" duration="0.004704" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1232" name="Scenario(&quot;CampfireReserveRoundTripsAndContinuesIdenticallyDuringADrinkJourney&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;CampfireReserveRoundTripsAndContinuesIdenticallyDuringADrinkJourney&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="875739376" result="Passed" start-time="2026-10-13 18:48:57Z" end-time="2026-10-13 18:48:58Z" duration="0.051501" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1233" name="Scenario(&quot;ExistingEmptyCampfireLoadsWithoutStockGrantOrDevelopmentReset&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;ExistingEmptyCampfireLoadsWithoutStockGrantOrDevelopmentReset&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1645511457" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.041680" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1234" name="Scenario(&quot;InvalidWaterReservesRemainRejected&quot;)" fullname="WorldGenesis.Tests.SubsistenceTests.Scenario(&quot;InvalidWaterReservesRemainRejected&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.SubsistenceTests" runstate="Runnable" seed="1927507696" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.101201" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1236" name="TransportBoundaryTests" fullname="WorldGenesis.Tests.TransportBoundaryTests" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.226539" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1237" name="BridgeFire" fullname="WorldGenesis.Tests.TransportBoundaryTests.BridgeFire" methodname="BridgeFire" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" seed="1527856792" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.008006" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1239" name="ChangedSpanEligibility" fullname="WorldGenesis.Tests.TransportBoundaryTests.ChangedSpanEligibility" methodname="ChangedSpanEligibility" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" seed="1845803629" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.004355" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1240" name="MalformedProjectSave" fullname="WorldGenesis.Tests.TransportBoundaryTests.MalformedProjectSave" methodname="MalformedProjectSave" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" seed="1001910494" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.025967" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1238" name="UnreachableConstructionTimeout" fullname="WorldGenesis.Tests.TransportBoundaryTests.UnreachableConstructionTimeout" methodname="UnreachableConstructionTimeout" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" seed="563965809" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.136433" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1241" name="WorkerDeathAndSave" fullname="WorldGenesis.Tests.TransportBoundaryTests.WorkerDeathAndSave" methodname="WorkerDeathAndSave" classname="WorldGenesis.Tests.TransportBoundaryTests" runstate="Runnable" seed="2101261922" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.050471" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1242" name="TransportTests" fullname="WorldGenesis.Tests.TransportTests" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.133116" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1245" name="BridgeConstruction" fullname="WorldGenesis.Tests.TransportTests.BridgeConstruction" methodname="BridgeConstruction" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="102482216" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.031951" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1246" name="BridgeRequirements" fullname="WorldGenesis.Tests.TransportTests.BridgeRequirements" methodname="BridgeRequirements" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="1448981747" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.003657" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1248" name="Cancellation" fullname="WorldGenesis.Tests.TransportTests.Cancellation" methodname="Cancellation" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="1596748088" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.003875" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1250" name="Migration" fullname="WorldGenesis.Tests.TransportTests.Migration" methodname="Migration" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="129350665" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.022982" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1249" name="Persistence" fullname="WorldGenesis.Tests.TransportTests.Persistence" methodname="Persistence" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="1306014899" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.048586" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1243" name="TerrainCosts" fullname="WorldGenesis.Tests.TransportTests.TerrainCosts" methodname="TerrainCosts" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="1115751778" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.003648" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1247" name="TrailsAndRoads" fullname="WorldGenesis.Tests.TransportTests.TrailsAndRoads" methodname="TrailsAndRoads" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="325742902" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.009957" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1244" name="WeightedPath" fullname="WorldGenesis.Tests.TransportTests.WeightedPath" methodname="WeightedPath" classname="WorldGenesis.Tests.TransportTests" runstate="Runnable" seed="1876502731" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.007156" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1251" name="WarehouseCapacityTests" fullname="WorldGenesis.Tests.WarehouseCapacityTests" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.082796" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1260" name="Scenario" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.082324" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1252" name="Scenario(&quot;FourCapacitiesAndLegacyFifthLevelNeverRewriteGoods&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;FourCapacitiesAndLegacyFifthLevelNeverRewriteGoods&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="1259201595" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.000649" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1253" name="Scenario(&quot;FoodAndMaterialDepotsHaveExclusiveIncomingCategories&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;FoodAndMaterialDepotsHaveExclusiveIncomingCategories&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="35205396" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.000276" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1254" name="Scenario(&quot;MaterialDeliverySharesSpaceWithPersonalTaxAndAgriculturalGoods&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;MaterialDeliverySharesSpaceWithPersonalTaxAndAgriculturalGoods&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="2058802358" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.006029" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1255" name="Scenario(&quot;FoodDeliveryCountsLegacyMaterialsAndLeavesExcessOnCarrier&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;FoodDeliveryCountsLegacyMaterialsAndLeavesExcessOnCarrier&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="83156218" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.005273" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1256" name="Scenario(&quot;WrongIncomingGoodsStayWithTheirCarrier&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;WrongIncomingGoodsStayWithTheirCarrier&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="472667525" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.003520" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1257" name="Scenario(&quot;OverloadedAndLegacyWrongStocksRoundTripWithoutTruncation&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;OverloadedAndLegacyWrongStocksRoundTripWithoutTruncation&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="1618928225" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.054541" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1258" name="Scenario(&quot;BothDepotUpgradesStopAtFourthLevelAndRetainInventory&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;BothDepotUpgradesStopAtFourthLevelAndRetainInventory&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="807780285" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.004015" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1259" name="Scenario(&quot;NonDepotLimitsAndMalformedStocksRemainProtected&quot;)" fullname="WorldGenesis.Tests.WarehouseCapacityTests.Scenario(&quot;NonDepotLimitsAndMalformedStocksRemainProtected&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WarehouseCapacityTests" runstate="Runnable" seed="2101082288" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.005855" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1261" name="WeatherSimulationTests" fullname="WorldGenesis.Tests.WeatherSimulationTests" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:59Z" duration="1.017414" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1275" name="Scenario" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:59Z" duration="1.016887" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1262" name="Scenario(&quot;LegacyWeatherMigrationPreservesCellsRngIdsAndTick&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;LegacyWeatherMigrationPreservesCellsRngIdsAndTick&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="501249109" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.040817" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1263" name="Scenario(&quot;InvalidWeatherCommandsAreAtomicAndBoundsAreClamped&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;InvalidWeatherCommandsAreAtomicAndBoundsAreClamped&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1266287431" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.023829" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1264" name="Scenario(&quot;RainIsLocalExtinguishesAndFeedsRealGrowthWithoutGrantingStock&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;RainIsLocalExtinguishesAndFeedsRealGrowthWithoutGrantingStock&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="589954633" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.003783" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1265" name="Scenario(&quot;SnowAccumulationRespectsTemperatureSlowsTraversalAndMelts&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;SnowAccumulationRespectsTemperatureSlowsTraversalAndMelts&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1615790042" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.031288" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1266" name="Scenario(&quot;DroughtDriesActualSoilAndStartsBoundedWildfire&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;DroughtDriesActualSoilAndStartsBoundedWildfire&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1151543785" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.004983" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1267" name="Scenario(&quot;FloodRequiresRealWaterIsBoundedAndRecedesWithoutResurrectingStock&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;FloodRequiresRealWaterIsBoundedAndRecedesWithoutResurrectingStock&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="781928202" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.039499" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1268" name="Scenario(&quot;PaintingFloodedLandWinsOverLaterRecession&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;PaintingFloodedLandWinsOverLaterRecession&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="213217707" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.016874" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1269" name="Scenario(&quot;HurricaneMovesDamagesLivingActorsAndContinuesIdenticallyAfterSave&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;HurricaneMovesDamagesLivingActorsAndContinuesIdenticallyAfterSave&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="948480803" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.056632" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1270" name="Scenario(&quot;FloodSavePersistsUnderlyingTerrainExpiryAndNoDuplicateRecords&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;FloodSavePersistsUnderlyingTerrainExpiryAndNoDuplicateRecords&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="178722577" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:58Z" duration="0.106415" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1271" name="Scenario(&quot;ThreeSeedAutomaticCyclesAreDeterministicAndClimateCanSelectSnowAndDrought&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;ThreeSeedAutomaticCyclesAreDeterministicAndClimateCanSelectSnowAndDrought&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1443082894" result="Passed" start-time="2026-10-13 18:48:58Z" end-time="2026-10-13 18:48:59Z" duration="0.537128" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1272" name="Scenario(&quot;StormFloodNeverExceeds192AtAnyTick&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;StormFloodNeverExceeds192AtAnyTick&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="905028164" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.065733" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1273" name="Scenario(&quot;StormStartedBetweenSecondBoundariesStillStrikesWithoutCorruptingUnitIndex&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;StormStartedBetweenSecondBoundariesStillStrikesWithoutCorruptingUnitIndex&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1723180055" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.017339" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1274" name="Scenario(&quot;BrokenDurationAndForgedWetUnderlyingSnapshotsAreRejected&quot;)" fullname="WorldGenesis.Tests.WeatherSimulationTests.Scenario(&quot;BrokenDurationAndForgedWetUnderlyingSnapshotsAreRejected&quot;)" methodname="Scenario" classname="WorldGenesis.Tests.WeatherSimulationTests" runstate="Runnable" seed="1615761149" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.070486" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1276" name="WildlifeSimulationTests" fullname="WorldGenesis.Tests.WildlifeSimulationTests" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.366010" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1281" name="ActualPredationAndLoot" fullname="WorldGenesis.Tests.WildlifeSimulationTests.ActualPredationAndLoot" methodname="ActualPredationAndLoot" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="266410223" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.004876" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1282" name="EquipmentAndAgeGateHunting" fullname="WorldGenesis.Tests.WildlifeSimulationTests.EquipmentAndAgeGateHunting" methodname="EquipmentAndAgeGateHunting" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="507610878" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.004893" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1279" name="ForestEcologySaveContinuation" fullname="WorldGenesis.Tests.WildlifeSimulationTests.ForestEcologySaveContinuation" methodname="ForestEcologySaveContinuation" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="729418492" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.266662" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1280" name="HealthyPairReproduction" fullname="WorldGenesis.Tests.WildlifeSimulationTests.HealthyPairReproduction" methodname="HealthyPairReproduction" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="825888250" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.008838" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1278" name="MigrationAndValidation" fullname="WorldGenesis.Tests.WildlifeSimulationTests.MigrationAndValidation" methodname="MigrationAndValidation" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="1363718343" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.040711" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1283" name="RareTrophyAndPackSuccession" fullname="WorldGenesis.Tests.WildlifeSimulationTests.RareTrophyAndPackSuccession" methodname="RareTrophyAndPackSuccession" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="1714066660" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.005399" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1284" name="RealMountedMovement" fullname="WorldGenesis.Tests.WildlifeSimulationTests.RealMountedMovement" methodname="RealMountedMovement" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="1510223634" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.025156" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1277" name="SpeciesAndPacks" fullname="WorldGenesis.Tests.WildlifeSimulationTests.SpeciesAndPacks" methodname="SpeciesAndPacks" classname="WorldGenesis.Tests.WildlifeSimulationTests" runstate="Runnable" seed="956141519" result="Passed" start-time="2026-10-13 18:48:59Z" end-time="2026-10-13 18:48:59Z" duration="0.007997" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:\Users\ohrem_6c67u02\OneDrive\Документы\ChatGPT\Игра WorldBox\Evidence\20261013-214802-539-editmode\tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -23,7 +23,7 @@ namespace WorldGenesis.Runtime
             public int Row, Frame, ToolFrame;
             public Vector2 StrikeOffset, UpperOffset;
             public float HeightScale;
-            public bool DerivedGesture;
+            public bool DerivedGesture, SuppressTool;
         }
         private readonly OriginalCitizenAtlas atlas;
         private readonly Material material;
@@ -44,7 +44,7 @@ namespace WorldGenesis.Runtime
         public CitizenSprites(Transform parent)
         {
             atlas = new OriginalCitizenAtlas();
-            material = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas.Texture, name = "Original citizen animation atlas" };
+            material = WorldDepth.Material(atlas.Texture); material.name = "Original citizen animation atlas";
             // Kept for production mesh inspection compatibility; now contains all four peoples.
             batch = new QuadBatch("Animated human citizens", parent, material, 50);
         }
@@ -73,7 +73,7 @@ namespace WorldGenesis.Runtime
         { return direction == CitizenDirection.North ? Vector2.up : direction == CitizenDirection.South ? Vector2.down : direction == CitizenDirection.West ? Vector2.left : Vector2.right; }
         public void Add(WorldState world, UnitData unit, int colorIndex, Color tint, Vector2 presentationOffset = default(Vector2), bool mounted = false)
         {
-            if (!IsCivilized(unit.Species)) return;
+            if (!IsCivilized(unit.Species) || unit.InsideBuildingId != 0) return;
             Vector2 previous = Facing(unit.Id), delta = previous;
             if ((unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && unit.TargetId != 0 && unitLookup.TryGetValue(unit.TargetId, out UnitData target))
                 delta = new Vector2(target.X - unit.X, target.Y - unit.Y);
@@ -83,6 +83,8 @@ namespace WorldGenesis.Runtime
             }
             else if (unit.Task == UnitTask.Gather && unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length)
                 delta = new Vector2(unit.ResourceCell % world.Width + .5f - unit.X, unit.ResourceCell / world.Width + .5f - unit.Y);
+            else if (unit.Task == UnitTask.Produce && IsIndustryWorkOnSite(world, unit, out BuildingData workplace))
+                delta = new Vector2(workplace.X + .5f - unit.X, workplace.Y + .5f - unit.Y);
             else if (FishingPresentation.IsFishing(world, unit))
                 delta = new Vector2(unit.ResourceCell % world.Width + .5f - unit.X, unit.ResourceCell / world.Width + .5f - unit.Y);
             Vector2 direction = DirectionVector(DirectionFor(delta, DirectionFor(previous)));
@@ -96,10 +98,15 @@ namespace WorldGenesis.Runtime
         }
         private void DrawPose(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted, CitizenWaterPresentation.State water)
         {
-            OriginalCitizenTools.Tool tool = unit.IsChild || mounted ? OriginalCitizenTools.Tool.None : OriginalCitizenTools.ForAction(pose.Action);
+            OriginalCitizenTools.Tool tool = unit.IsChild || mounted || pose.SuppressTool ? OriginalCitizenTools.Tool.None : OriginalCitizenTools.ForAction(pose.Action);
             bool behind = pose.Direction == CitizenDirection.North;
+            float foot = unit.Y + offset.y - water.VerticalOffset;
+            if (mounted && unitLookup.TryGetValue(unit.MountId, out UnitData mount)) foot = mount.Y;
+            batch.SetFootDepth(foot, WorldDepth.Back);
             if (behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
+            batch.SetFootDepth(foot, WorldDepth.Body);
             DrawBody(unit, pose, uv, tint, offset, mounted, water);
+            batch.SetFootDepth(foot, WorldDepth.Front);
             if (!behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
         }
         private void DrawTool(UnitData unit, Pose pose, Vector2 offset, OriginalCitizenTools.Tool tool)
@@ -177,6 +184,14 @@ namespace WorldGenesis.Runtime
                     break;
                 case UnitTask.Farm: pose.Action = CitizenAction.Farm; pose.Row = 2; WorkGesture(ref pose, wave * (unit.IsChild ? .5f : 1), direction); break;
                 case UnitTask.Process: if (!unit.IsChild && unit.WorkTimer > 0) { pose.Action = CitizenAction.Process; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
+                case UnitTask.Produce:
+                    if (IsIndustryWorkOnSite(world, unit, out BuildingData workplace))
+                    {
+                        pose.Action = CitizenAction.Craft; pose.Row = 2;
+                        pose.SuppressTool = workplace.Type != BuildingType.Smithy && workplace.Type != BuildingType.Carpentry && workplace.Type != BuildingType.Mint;
+                        WorkGesture(ref pose, wave * (pose.SuppressTool ? .45f : 1), direction);
+                    }
+                    break;
                 case UnitTask.CraftEquipment: if (!unit.IsChild && unit.EquipmentProgress > 0 && !carrying) { pose.Action = CitizenAction.Craft; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
                 case UnitTask.BuildTransport:
                     if (!unit.IsChild && !carrying && IsTransportWorkOnSite(world, unit)) { pose.Action = CitizenAction.Build; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
@@ -209,6 +224,11 @@ namespace WorldGenesis.Runtime
                 return dx * dx + dy * dy < .4f;
             }
             return false;
+        }
+        private static bool IsIndustryWorkOnSite(WorldState world, UnitData unit, out BuildingData workplace)
+        {
+            workplace = world.GetBuilding(unit.TargetBuildingId);
+            return workplace != null && workplace.IndustryWorkerId == unit.Id && IndustryCatalog.IsWorking(world, workplace);
         }
         private static void WorkGesture(ref Pose pose, float wave, Vector2 direction)
         {

@@ -14,6 +14,8 @@ ids = [
     'k02_schools', 'c06_stream_management', 'l07_paved_roads',
     'l10_stone_bridges',
     't01_flax', 't02_linen', 'l02_carts', 'l03_caravans', 'f02_milling', 'f08_brewing', 'l08_stock_ownership', 'm11_town_houses', 'm12_stone_houses', 'm13_estates',
+    'm03_tanning', 'z01_charcoal', 'z02_ironworking', 'z06_nonferrous', 'z07_bronze', 'z08_coinage',
+    't03_leather_tailoring', 'd01_hunting_bows', 'd02_leather_armor', 'd03_iron_arms', 'd11_ballista', 'd12_catapult', 'd13_trebuchet',
 ]
 with (root / 'SourceAssets/Design/technologies.csv').open(encoding='utf-8-sig', newline='') as file:
     rows = {r['technology_id']: r for r in csv.DictReader(file)}

@@ -22,12 +22,13 @@ namespace WorldGenesis.Simulation
             if (slot == 6) return source.Type == BuildingType.Well ? source.WaterStored : 0;
             ItemType item = SupplyMaterial(slot);
             if (item != ItemType.None) return AvailableForHaul(source, item) + (slot == 0 && source.Type == BuildingType.Hall ? s.Wood : 0);
-            return source.AgriculturalStock[(int)SupplyHarvest(slot)];
+            AgriculturalProduct product = SupplyHarvest(slot);
+            return Math.Max(0, source.AgriculturalStock[(int)product] - IndustryAgricultureReserved(source, product));
         }
         // Both path legs are checked before pickup. The resident carries each batch; a workshop never debits a remote ledger.
         private bool SupplyAgriculturalWorkshop(UnitData u, SettlementData s, BuildingData b, float plank, float stone, float fiber, float hide, float grain, float fuel, float water, float hay = 0, float berries = 0, float pearls = 0, float scales = 0)
         {
-            bool atWorkplace = DistanceSquared(u.X, u.Y, b.X + .5f, b.Y + .5f) < 2;
+            bool atWorkplace = AtBuilding(u, b);
             if (!atWorkplace && CarriedLoad(u) > .00001f) { if (!SetTarget(u, b.X, b.Y)) ChangeTask(u, UnitTask.Idle); return false; }
             if (atWorkplace)
             {
@@ -45,7 +46,7 @@ namespace WorldGenesis.Simulation
                 {
                     BuildingData source = World.Buildings[i];
                     if (!UsableBuilding(source, s.Id) || SupplyAvailable(source, s, slot) <= .00001f || (source.Id == b.Id && !(slot == 0 && b.Type == BuildingType.Hall))) continue;
-                    if (DistanceSquared(u.X, u.Y, source.X + .5f, source.Y + .5f) >= 2) continue;
+                    if (!AtBuilding(u, source)) continue;
                     if (!navigation.Find(World.Index(source.X, source.Y), World.Index(b.X, b.Y), scratchPath)) continue;
                     float amount = Math.Min(missing, Math.Min(CarrySpace(u), SupplyAvailable(source, s, slot)));
                     if (slot == 6) amount = Math.Min(1, amount);

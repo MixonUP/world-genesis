@@ -1,0 +1,2038 @@
+{
+  "source": "Builds/production-showcase-final.save.json",
+  "assistance": "Read-only original save; ordinary40 ticks; second run reissues only original seven production commands at tick10 after navigation changes.",
+  "original": {
+    "reassign": false,
+    "snapshots": [
+      {
+        "Tick": 10,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "Idle",
+            "profession": "Farmer",
+            "X": 64.5,
+            "Y": 67.5,
+            "PathCursor": 0,
+            "pathCount": 0,
+            "PathRevision": 0,
+            "DecisionTimer": 0.18585074,
+            "TargetBuildingId": 0,
+            "Hunger": 0.05066668,
+            "Thirst": 0.15066668,
+            "Fatigue": 0.10281495
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.484566,
+            "Y": 65.5,
+            "PathCursor": 0,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.8553286,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 57.788334,
+            "Y": 65.5,
+            "PathCursor": 1,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.6865902,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.788334,
+            "Y": 60.5,
+            "PathCursor": 1,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.5375507,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 58.007088,
+            "Y": 60.5,
+            "PathCursor": 1,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.2985849,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.788334,
+            "Y": 55.5,
+            "PathCursor": 1,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": 3.0563889,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 57.484566,
+            "Y": 55.5,
+            "PathCursor": 0,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.3969938,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 62.788334,
+            "Y": 55.5,
+            "PathCursor": 1,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.222272,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          }
+        ]
+      },
+      {
+        "Tick": 20,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 67.641174,
+            "PathCursor": 1,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.740296,
+            "TargetBuildingId": 2,
+            "Hunger": 0.051333357,
+            "Thirst": 0.15133336,
+            "Fatigue": 0.105514936
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 54.48382,
+            "Y": 65.5,
+            "PathCursor": 1,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.8553283,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 59.220367,
+            "Y": 65.5,
+            "PathCursor": 2,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.68658996,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 55.220367,
+            "Y": 60.5,
+            "PathCursor": 2,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.537551,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 59.668888,
+            "Y": 60.5,
+            "PathCursor": 3,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.2985848,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 55.220367,
+            "Y": 55.5,
+            "PathCursor": 2,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.0563898,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 58.48382,
+            "Y": 55.5,
+            "PathCursor": 1,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.39699358,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 56.220367,
+            "PathCursor": 2,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.2222719,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.026149992
+          }
+        ]
+      },
+      {
+        "Tick": 30,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 68.21784,
+            "PathCursor": 0,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.7402965,
+            "TargetBuildingId": 2,
+            "Hunger": 0.052000035,
+            "Thirst": 0.15200004,
+            "Fatigue": 0.10836492
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 55.483086,
+            "Y": 65.5,
+            "PathCursor": 2,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.14467174,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 60.643944,
+            "Y": 65.5,
+            "PathCursor": 4,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.31341004,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 56.643944,
+            "Y": 60.5,
+            "PathCursor": 4,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.5375508,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 61.343933,
+            "Y": 60.5,
+            "PathCursor": 4,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.70141524,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 56.643944,
+            "Y": 55.5,
+            "PathCursor": 4,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.0563896,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 59.483086,
+            "Y": 55.5,
+            "PathCursor": 2,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.6030064,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 57.643944,
+            "PathCursor": 4,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.22227177,
+            "TargetBuildingId": 2,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.029149987
+          }
+        ]
+      },
+      {
+        "Tick": 40,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 66.93608,
+            "PathCursor": 1,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.74029624,
+            "TargetBuildingId": 2,
+            "Hunger": 0.052666713,
+            "Thirst": 0.15266672,
+            "Fatigue": 0.11136489
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 56.482338,
+            "Y": 65.5,
+            "PathCursor": 3,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.1446718,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 62.0754,
+            "Y": 65.5,
+            "PathCursor": 5,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.3134102,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 58.0754,
+            "Y": 60.5,
+            "PathCursor": 5,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.46244916,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.00594,
+            "Y": 60.5,
+            "PathCursor": 6,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.7014154,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 58.0754,
+            "Y": 55.5,
+            "PathCursor": 5,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.056389473,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 60.482338,
+            "Y": 55.5,
+            "PathCursor": 3,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.6030066,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 59.0754,
+            "PathCursor": 5,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.77772826,
+            "TargetBuildingId": 2,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.032149985
+          }
+        ]
+      },
+      {
+        "Tick": 50,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 65.65472,
+            "PathCursor": 2,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.2597038,
+            "TargetBuildingId": 2,
+            "Hunger": 0.05333339,
+            "Thirst": 0.1533334,
+            "Fatigue": 0.11436487
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 57.481598,
+            "Y": 65.5,
+            "PathCursor": 4,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.144672,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 65.5,
+            "PathCursor": 7,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.31341,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 59.5,
+            "Y": 60.5,
+            "PathCursor": 7,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.4624493,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 61.668507,
+            "PathCursor": 8,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.7014148,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 59.5,
+            "Y": 55.5,
+            "PathCursor": 7,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.9436106,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 61.481598,
+            "Y": 55.5,
+            "PathCursor": 4,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.6030061,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 60.5,
+            "PathCursor": 7,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.7777284,
+            "TargetBuildingId": 2,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.03515
+          }
+        ]
+      }
+    ]
+  },
+  "reissuedOrders": {
+    "reassign": true,
+    "snapshots": [
+      {
+        "Tick": 10,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 0,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "Idle",
+            "profession": "Farmer",
+            "X": 64.5,
+            "Y": 67.5,
+            "PathCursor": 0,
+            "pathCount": 0,
+            "PathRevision": 0,
+            "DecisionTimer": 0.18585074,
+            "TargetBuildingId": 0,
+            "Hunger": 0.05066668,
+            "Thirst": 0.15066668,
+            "Fatigue": 0.10281495
+          },
+          {
+            "Id": 26,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.484566,
+            "Y": 65.5,
+            "PathCursor": 0,
+            "pathCount": 14,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.8553286,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 27,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 57.788334,
+            "Y": 65.5,
+            "PathCursor": 1,
+            "pathCount": 10,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.6865902,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 28,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.788334,
+            "Y": 60.5,
+            "PathCursor": 1,
+            "pathCount": 19,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.5375507,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 29,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 58.007088,
+            "Y": 60.5,
+            "PathCursor": 1,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.2985849,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 30,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 53.788334,
+            "Y": 55.5,
+            "PathCursor": 1,
+            "pathCount": 24,
+            "PathRevision": 1450,
+            "DecisionTimer": 3.0563889,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 31,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 57.484566,
+            "Y": 55.5,
+            "PathCursor": 0,
+            "pathCount": 20,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.3969938,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 32,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 62.788334,
+            "Y": 55.5,
+            "PathCursor": 1,
+            "pathCount": 15,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.222272,
+            "TargetBuildingId": 2,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          }
+        ]
+      },
+      {
+        "Tick": 10,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 26,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 27,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 28,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 29,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 30,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 31,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 32,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "Idle",
+            "profession": "Farmer",
+            "X": 64.5,
+            "Y": 67.5,
+            "PathCursor": 0,
+            "pathCount": 0,
+            "PathRevision": 0,
+            "DecisionTimer": 0.18585074,
+            "TargetBuildingId": 0,
+            "Hunger": 0.05066668,
+            "Thirst": 0.15066668,
+            "Fatigue": 0.10281495
+          },
+          {
+            "Id": 26,
+            "task": "Produce",
+            "profession": "Smelter",
+            "X": 53.484566,
+            "Y": 65.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 12,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 27,
+            "task": "Produce",
+            "profession": "Blacksmith",
+            "X": 57.788334,
+            "Y": 65.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 14,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 28,
+            "task": "Produce",
+            "profession": "Tanner",
+            "X": 53.788334,
+            "Y": 60.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 16,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 29,
+            "task": "Produce",
+            "profession": "Weaver",
+            "X": 58.007088,
+            "Y": 60.5,
+            "PathCursor": 0,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 18,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 30,
+            "task": "Produce",
+            "profession": "Tailor",
+            "X": 53.788334,
+            "Y": 55.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 20,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 31,
+            "task": "Produce",
+            "profession": "Carpenter",
+            "X": 57.484566,
+            "Y": 55.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 22,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          },
+          {
+            "Id": 32,
+            "task": "Produce",
+            "profession": "MintWorker",
+            "X": 62.788334,
+            "Y": 55.5,
+            "PathCursor": 0,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 2,
+            "TargetBuildingId": 24,
+            "Hunger": 0.020666659,
+            "Thirst": 0.020666659,
+            "Fatigue": 0.023149997
+          }
+        ]
+      },
+      {
+        "Tick": 20,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 26,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 27,
+            "IndustryProgress": 0.20000036,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 28,
+            "IndustryProgress": 0.20000058,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 29,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 30,
+            "IndustryProgress": 0.20000055,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 31,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 32,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 67.641174,
+            "PathCursor": 1,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": 2.740296,
+            "TargetBuildingId": 2,
+            "Hunger": 0.051333357,
+            "Thirst": 0.15133336,
+            "Fatigue": 0.105514936
+          },
+          {
+            "Id": 26,
+            "task": "Produce",
+            "profession": "Smelter",
+            "X": 53.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 12,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 27,
+            "task": "Produce",
+            "profession": "Blacksmith",
+            "X": 57.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 14,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 28,
+            "task": "Produce",
+            "profession": "Tanner",
+            "X": 53.5,
+            "Y": 61.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 16,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 29,
+            "task": "Produce",
+            "profession": "Weaver",
+            "X": 57.5,
+            "Y": 61.5,
+            "PathCursor": 2,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 18,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 30,
+            "task": "Produce",
+            "profession": "Tailor",
+            "X": 53.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 20,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 31,
+            "task": "Produce",
+            "profession": "Carpenter",
+            "X": 57.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 22,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          },
+          {
+            "Id": 32,
+            "task": "Produce",
+            "profession": "MintWorker",
+            "X": 62.5,
+            "Y": 56.643944,
+            "PathCursor": 0,
+            "pathCount": 4,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.99999976,
+            "TargetBuildingId": 24,
+            "Hunger": 0.021333318,
+            "Thirst": 0.021333318,
+            "Fatigue": 0.029150005
+          }
+        ]
+      },
+      {
+        "Tick": 30,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 26,
+            "IndustryProgress": 1.0000172,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 27,
+            "IndustryProgress": 1.2000238,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 28,
+            "IndustryProgress": 1.2000376,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 29,
+            "IndustryProgress": 1.0000135,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 30,
+            "IndustryProgress": 1.2000358,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 31,
+            "IndustryProgress": 1.0000099,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 32,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 68.21784,
+            "PathCursor": 0,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": 1.7402965,
+            "TargetBuildingId": 2,
+            "Hunger": 0.052000035,
+            "Thirst": 0.15200004,
+            "Fatigue": 0.10836492
+          },
+          {
+            "Id": 26,
+            "task": "Produce",
+            "profession": "Smelter",
+            "X": 53.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 12,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 27,
+            "task": "Produce",
+            "profession": "Blacksmith",
+            "X": 57.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 14,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 28,
+            "task": "Produce",
+            "profession": "Tanner",
+            "X": 53.5,
+            "Y": 61.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 16,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 29,
+            "task": "Produce",
+            "profession": "Weaver",
+            "X": 57.5,
+            "Y": 61.5,
+            "PathCursor": 2,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 18,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 30,
+            "task": "Produce",
+            "profession": "Tailor",
+            "X": 53.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 20,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 31,
+            "task": "Produce",
+            "profession": "Carpenter",
+            "X": 57.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 22,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          },
+          {
+            "Id": 32,
+            "task": "Produce",
+            "profession": "MintWorker",
+            "X": 62.5,
+            "Y": 58.075035,
+            "PathCursor": 1,
+            "pathCount": 4,
+            "PathRevision": 1450,
+            "DecisionTimer": -3.1292439E-07,
+            "TargetBuildingId": 24,
+            "Hunger": 0.021999978,
+            "Thirst": 0.021999978,
+            "Fatigue": 0.035150003
+          }
+        ]
+      },
+      {
+        "Tick": 40,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 26,
+            "IndustryProgress": 2.0000722,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 27,
+            "IndustryProgress": 2.2000828,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 28,
+            "IndustryProgress": 2.2001317,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 29,
+            "IndustryProgress": 2.0000567,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 30,
+            "IndustryProgress": 2.2001255,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 31,
+            "IndustryProgress": 2.0000417,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 32,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 66.93608,
+            "PathCursor": 1,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": 0.74029624,
+            "TargetBuildingId": 2,
+            "Hunger": 0.052666713,
+            "Thirst": 0.15266672,
+            "Fatigue": 0.11136489
+          },
+          {
+            "Id": 26,
+            "task": "Produce",
+            "profession": "Smelter",
+            "X": 53.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 12,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 27,
+            "task": "Produce",
+            "profession": "Blacksmith",
+            "X": 57.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 14,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 28,
+            "task": "Produce",
+            "profession": "Tanner",
+            "X": 53.5,
+            "Y": 61.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 16,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 29,
+            "task": "Produce",
+            "profession": "Weaver",
+            "X": 57.5,
+            "Y": 61.5,
+            "PathCursor": 2,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 18,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 30,
+            "task": "Produce",
+            "profession": "Tailor",
+            "X": 53.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 20,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 31,
+            "task": "Produce",
+            "profession": "Carpenter",
+            "X": 57.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 22,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          },
+          {
+            "Id": 32,
+            "task": "Produce",
+            "profession": "MintWorker",
+            "X": 62.5,
+            "Y": 59.5,
+            "PathCursor": 3,
+            "pathCount": 4,
+            "PathRevision": 1450,
+            "DecisionTimer": -1.0000004,
+            "TargetBuildingId": 24,
+            "Hunger": 0.022666637,
+            "Thirst": 0.022666637,
+            "Fatigue": 0.041149992
+          }
+        ]
+      },
+      {
+        "Tick": 50,
+        "NavigationRevision": 1450,
+        "workshops": [
+          {
+            "Id": 12,
+            "type": "Smelter",
+            "IndustryWorkerId": 26,
+            "IndustryProgress": 3.0001652,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 14,
+            "type": "Smithy",
+            "IndustryWorkerId": 27,
+            "IndustryProgress": 3.2001784,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 16,
+            "type": "Tannery",
+            "IndustryWorkerId": 28,
+            "IndustryProgress": 3.2002828,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 18,
+            "type": "Weaver",
+            "IndustryWorkerId": 29,
+            "IndustryProgress": 3.0001297,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 20,
+            "type": "Tailor",
+            "IndustryWorkerId": 30,
+            "IndustryProgress": 3.2002697,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 22,
+            "type": "Carpentry",
+            "IndustryWorkerId": 31,
+            "IndustryProgress": 3.0000951,
+            "CompletedIndustryBatches": 0,
+            "working": true
+          },
+          {
+            "Id": 24,
+            "type": "Mint",
+            "IndustryWorkerId": 32,
+            "IndustryProgress": 0,
+            "CompletedIndustryBatches": 0,
+            "working": false
+          }
+        ],
+        "citizens": [
+          {
+            "Id": 7,
+            "task": "CraftEquipment",
+            "profession": "Carpenter",
+            "X": 63.5,
+            "Y": 65.65472,
+            "PathCursor": 2,
+            "pathCount": 9,
+            "PathRevision": 1450,
+            "DecisionTimer": -0.2597038,
+            "TargetBuildingId": 2,
+            "Hunger": 0.05333339,
+            "Thirst": 0.1533334,
+            "Fatigue": 0.11436487
+          },
+          {
+            "Id": 26,
+            "task": "Produce",
+            "profession": "Smelter",
+            "X": 53.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 12,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 27,
+            "task": "Produce",
+            "profession": "Blacksmith",
+            "X": 57.5,
+            "Y": 66.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 14,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 28,
+            "task": "Produce",
+            "profession": "Tanner",
+            "X": 53.5,
+            "Y": 61.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 16,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 29,
+            "task": "Produce",
+            "profession": "Weaver",
+            "X": 57.5,
+            "Y": 61.5,
+            "PathCursor": 2,
+            "pathCount": 2,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 18,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 30,
+            "task": "Produce",
+            "profession": "Tailor",
+            "X": 53.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 20,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 31,
+            "task": "Produce",
+            "profession": "Carpenter",
+            "X": 57.5,
+            "Y": 56.5,
+            "PathCursor": 1,
+            "pathCount": 1,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 22,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          },
+          {
+            "Id": 32,
+            "task": "Produce",
+            "profession": "MintWorker",
+            "X": 62.5,
+            "Y": 60.213394,
+            "PathCursor": 0,
+            "pathCount": 4,
+            "PathRevision": 1450,
+            "DecisionTimer": -2.0000005,
+            "TargetBuildingId": 24,
+            "Hunger": 0.023333296,
+            "Thirst": 0.023333296,
+            "Fatigue": 0.047149982
+          }
+        ]
+      }
+    ]
+  }
+}

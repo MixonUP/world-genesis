@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-13T19:23:23.9638389Z",
+  "tests": 8,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "FourCapacitiesAndLegacyFifthLevelNeverRewriteGoods",
+      "passed": true,
+      "milliseconds": 7.0127
+    },
+    {
+      "name": "FoodAndMaterialDepotsHaveExclusiveIncomingCategories",
+      "passed": true,
+      "milliseconds": 0.8128
+    },
+    {
+      "name": "MaterialDeliverySharesSpaceWithPersonalTaxAndAgriculturalGoods",
+      "passed": true,
+      "milliseconds": 30.2423
+    },
+    {
+      "name": "FoodDeliveryCountsLegacyMaterialsAndLeavesExcessOnCarrier",
+      "passed": true,
+      "milliseconds": 3.9049
+    },
+    {
+      "name": "WrongIncomingGoodsStayWithTheirCarrier",
+      "passed": true,
+      "milliseconds": 4.5257
+    },
+    {
+      "name": "OverloadedAndLegacyWrongStocksRoundTripWithoutTruncation",
+      "passed": true,
+      "milliseconds": 190.5668
+    },
+    {
+      "name": "BothDepotUpgradesStopAtFourthLevelAndRetainInventory",
+      "passed": true,
+      "milliseconds": 4.0849
+    },
+    {
+      "name": "NonDepotLimitsAndMalformedStocksRemainProtected",
+      "passed": true,
+      "milliseconds": 3.5386
+    }
+  ]
+}

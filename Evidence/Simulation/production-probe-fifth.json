@@ -1,0 +1,371 @@
+{
+  "utc": "2026-10-13T18:46:56.9495277Z",
+  "tests": 25,
+  "failures": 0,
+  "sourceUnchanged": true,
+  "sourceChangedDuringRun": [],
+  "sourceSHA256": {
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs": "6F36BAC4AE6A97C22CDD03A50FC6A73300E822E1DC3B0E5DDD7C3E4DD5959BD0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs": "56C04383226BA757BD1CEA94034E3F47808B214305272A76E216734196D71734",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs": "547407127225ECE3A498CDE7C24AD883FA9E9DF918B305D9FCCF9F98F67009D0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs": "3791A213575B8903039B02FB6BB12B1200381380DD71ABB2287D1A47FA15D719",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs": "ADDBD51F7FD1DD10B92FA122AE1B438077F8974ACB4EFA325FA8C6082EB0C5E8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs": "49A047552764FACB6899104BBBBE137ADAACA53D76DF2EEB63ACB57DD3290245",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs": "0248FE7E1A03D2290C358EBCE412CD4B06195ADAA53292357AC846C8A3C1BF58",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs": "0C5D8C33C526B3EEC4509BAFAF05D7935DDD4F1B6ED7EAC0AB0FFD1DF93725D5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs": "417267CD9DBCDE3DCD66ABF465B215A5AB1ABCE544878E9CF6735AEE0768A7AB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs": "36D21CDE878170E2A7AAD2D9F56F533EA0816ACBD68E3AEED4471926C8595E1D",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs": "54AC6B54D515FF0DFBA41B866A784EFDAB7F911A5EB9E738B3C112C61373D170",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs": "E4F16F3F1DD8CF6C6EDB3F2ACFD9651CCAB3E55E44AA17B00DC30A5B44DD0DC2",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/IndustrySimulation.cs": "37031A5E1DEE04383FB3905E12474CA71F40BD561B566FC17D5B8D17857290F7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs": "01B62D9D1141B88920C7A2CD93DABB2C6C6E4569B982242EDE2366356CC55E89",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs": "92BA48B74DB3702EAC0323D1BE5897D627155D536EC2B5F992DDC37E3C988038",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs": "7DC4AAAE8E6F74E998852017323C923B888DA7C675EDAF6D2BC05F5DAEF8EF0D",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs": "87E2C4F7174933A49AA71952D5A3F902EFBDF488774C8E6A50F762460BC2596E",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs": "146E0D4E1A889E10697F25EE27FF8D2A4077BC7C455DA3935612D675528C5086",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/FishingData.cs": "8C4D03980B3927AC780147C74421BB10218ACE151146890A12F8F77EEA035825",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/HydrologyData.cs": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryCatalog.cs": "512CF406C2C702318AE5C9A96CEBD00B1CE5016B19337B16E93CCFBD226F7EB7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryData.cs": "135413B70A5AEDA215238DD47E9B152B4B95CC866AD4E3DB06CBF7F8E1B076CD",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs": "A940061579CF69A8A574FD57D36E475F60FC0A5F0951D9C126804A1B0CA20338",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs": "C8B7B9AF0FC80150B40594788193181A1545877A7E36A27C26627FD80D999793",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs": "8654D742E1F6FC44D15718E13D018DBEE41BDA043E69BAB2A9945D82FD2E3FAB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs": "132231154006EAB97729D03597463A5140427F0C326A9364959A6A1BFD1F820A",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs": "6C98BAFCD184831CD76F9D4DA1780D40C93826686AA826BD02634E682F893203",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/TransportData.cs": "AA7D42A3907A870D342329121ECAFFE61371FBB215F3CFDC79DEBCB31647FDE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs": "3A419C3FCB36C5C0D84562492EB0E8D26FA7F329A684AAA27EC28033B41D869F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs": "2482E971225AC31F31CDE6EE003CF1F16BD6D330E48F85F92611141767FBF48F"
+  },
+  "assemblySHA256": "8C9015A033E59058934C27F48CBAB4F8C2479DCF509F4A2C0A1B6EA028C507B7",
+  "results": [
+    {
+      "name": "EveryRecipeDebitsExactlyOneBatchAndProducesPhysicalOutput",
+      "passed": true,
+      "milliseconds": 179.2371
+    },
+    {
+      "name": "DistantOreAndFuelTravelBeforeAnyIngotExists",
+      "passed": true,
+      "milliseconds": 21.0567
+    },
+    {
+      "name": "MixedHideAndWoodTravelThroughDistinctLedgers",
+      "passed": true,
+      "milliseconds": 20.0167
+    },
+    {
+      "name": "MissingInputCannotMintAnOutputOrPartiallyConsumeRecipe",
+      "passed": true,
+      "milliseconds": 11.8706
+    },
+    {
+      "name": "FullOutputStoragePreservesInputsUntilRoomExists",
+      "passed": true,
+      "milliseconds": 11.2659
+    },
+    {
+      "name": "ResearchAgeWorkplaceAndForeignSettlementAreHardGates",
+      "passed": true,
+      "milliseconds": 3.4808
+    },
+    {
+      "name": "UnreachableSourceCannotBeDebitedOrTeleportToWorkshop",
+      "passed": true,
+      "milliseconds": 6.518
+    },
+    {
+      "name": "OneWorkplaceCannotHaveTwoWorkersOrStealAnActiveOrder",
+      "passed": true,
+      "milliseconds": 5.2771
+    },
+    {
+      "name": "TwoWorkshopsSharingLastInputsCannotDuplicateGoods",
+      "passed": true,
+      "milliseconds": 16.3561
+    },
+    {
+      "name": "CancellingAfterPickupKeepsCargoAndReleasesTheWorkplace",
+      "passed": true,
+      "milliseconds": 5.7939
+    },
+    {
+      "name": "DeathAndDestroyedWorkshopAccountForInputsAndReleaseLinks",
+      "passed": true,
+      "milliseconds": 5.136
+    },
+    {
+      "name": "MidHaulAndMidWorkSaveContinueIdentically",
+      "passed": true,
+      "milliseconds": 237.6026
+    },
+    {
+      "name": "LegacyMaterialArraysAndPaidInvoicesExpandWithoutLossOrRng",
+      "passed": true,
+      "milliseconds": 19.6617
+    },
+    {
+      "name": "ForgedProgressNanAndCoinIssuanceAreRejected",
+      "passed": true,
+      "milliseconds": 70.6029
+    },
+    {
+      "name": "SiegeGoodsNeedResearchAndCarpenterButNeverCreateWarriors",
+      "passed": true,
+      "milliseconds": 38.5617
+    },
+    {
+      "name": "ConnectedChainsUseEarlierOutputsWithoutIntermediateGrants",
+      "passed": true,
+      "milliseconds": 511.4085
+    },
+    {
+      "name": "ToolsAndClothesRequirePhysicalVisitAndConsumeOnlyOneObject",
+      "passed": true,
+      "milliseconds": 24.7683
+    },
+    {
+      "name": "ChildCannotEquipToolAndDeadOwnerDropsManufacturedGoods",
+      "passed": true,
+      "milliseconds": 3.6977
+    },
+    {
+      "name": "FurnitureIsCarriedToHomeAndSurvivesCancellationAccounting",
+      "passed": true,
+      "milliseconds": 7.2735
+    },
+    {
+      "name": "TwoCollectorsAtAnExhaustedPileLeaveNoZeroAmountTypedCargo",
+      "passed": true,
+      "milliseconds": 3.4657
+    },
+    {
+      "name": "RouteCutAfterPickupPreservesThePhysicalCargo",
+      "passed": true,
+      "milliseconds": 5.7802
+    },
+    {
+      "name": "PrivateAndTaxLotsAreNotFreePublicMintInputs",
+      "passed": true,
+      "milliseconds": 3.449
+    },
+    {
+      "name": "NewWorkshopNeedsResearchMaterialsAndPaidConstructionLedger",
+      "passed": true,
+      "milliseconds": 3.9613
+    },
+    {
+      "name": "CompleteLocalInputsOutrankAnUnfulfilledRemoteClaim",
+      "passed": true,
+      "milliseconds": 10.4736
+    },
+    {
+      "name": "AbandonedUnreachableRecipeCanBeReplannedWithoutDeletingInputs",
+      "passed": true,
+      "milliseconds": 5.3486
+    }
+  ],
+  "batches": [
+    {
+      "recipe": "Charcoal",
+      "output": "Charcoal",
+      "amount": 3,
+      "tick": 80,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "IronIngot",
+      "output": "IronIngot",
+      "amount": 1,
+      "tick": 100,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "CopperIngot",
+      "output": "CopperIngot",
+      "amount": 1,
+      "tick": 80,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "TinIngot",
+      "output": "TinIngot",
+      "amount": 1,
+      "tick": 80,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "BronzeIngot",
+      "output": "BronzeIngot",
+      "amount": 2,
+      "tick": 100,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "GoldIngot",
+      "output": "GoldIngot",
+      "amount": 1,
+      "tick": 120,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "SilverIngot",
+      "output": "SilverIngot",
+      "amount": 1,
+      "tick": 100,
+      "profession": "Smelter"
+    },
+    {
+      "recipe": "IronTools",
+      "output": "IronTools",
+      "amount": 1,
+      "tick": 80,
+      "profession": "Blacksmith"
+    },
+    {
+      "recipe": "BronzeTools",
+      "output": "BronzeTools",
+      "amount": 1,
+      "tick": 70,
+      "profession": "Blacksmith"
+    },
+    {
+      "recipe": "Sword",
+      "output": "Sword",
+      "amount": 1,
+      "tick": 120,
+      "profession": "Blacksmith"
+    },
+    {
+      "recipe": "Spear",
+      "output": "Spear",
+      "amount": 1,
+      "tick": 90,
+      "profession": "Blacksmith"
+    },
+    {
+      "recipe": "Armor",
+      "output": "Armor",
+      "amount": 1,
+      "tick": 160,
+      "profession": "Blacksmith"
+    },
+    {
+      "recipe": "Leather",
+      "output": "Leather",
+      "amount": 2,
+      "tick": 80,
+      "profession": "Tanner"
+    },
+    {
+      "recipe": "LinenCloth",
+      "output": "LinenCloth",
+      "amount": 2,
+      "tick": 70,
+      "profession": "Weaver"
+    },
+    {
+      "recipe": "LeatherClothes",
+      "output": "LeatherClothes",
+      "amount": 1,
+      "tick": 80,
+      "profession": "Tailor"
+    },
+    {
+      "recipe": "LinenClothes",
+      "output": "LinenClothes",
+      "amount": 1,
+      "tick": 60,
+      "profession": "Tailor"
+    },
+    {
+      "recipe": "Furniture",
+      "output": "Furniture",
+      "amount": 1,
+      "tick": 90,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "Bow",
+      "output": "Bow",
+      "amount": 1,
+      "tick": 80,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "CopperCoin",
+      "output": "CopperCoin",
+      "amount": 10,
+      "tick": 60,
+      "profession": "MintWorker"
+    },
+    {
+      "recipe": "SilverCoin",
+      "output": "SilverCoin",
+      "amount": 10,
+      "tick": 80,
+      "profession": "MintWorker"
+    },
+    {
+      "recipe": "GoldCoin",
+      "output": "GoldCoin",
+      "amount": 10,
+      "tick": 100,
+      "profession": "MintWorker"
+    },
+    {
+      "recipe": "Rope",
+      "output": "Rope",
+      "amount": 2,
+      "tick": 60,
+      "profession": "Weaver"
+    },
+    {
+      "recipe": "Ballista",
+      "output": "Ballista",
+      "amount": 1,
+      "tick": 240,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "Catapult",
+      "output": "Catapult",
+      "amount": 1,
+      "tick": 300,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "Trebuchet",
+      "output": "Trebuchet",
+      "amount": 1,
+      "tick": 400,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "BallistaBolts",
+      "output": "BallistaBolts",
+      "amount": 5,
+      "tick": 80,
+      "profession": "Carpenter"
+    },
+    {
+      "recipe": "StoneShot",
+      "output": "StoneShot",
+      "amount": 4,
+      "tick": 70,
+      "profession": "Carpenter"
+    }
+  ],
+  "assistance": "Controlled flat worlds, explicit research/workshop/material fixtures; real production worker movement and local recipe debit. Separate --natural mode gives no technology/material grants. Not native performance or artistic acceptance."
+}

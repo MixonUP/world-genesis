@@ -3,23 +3,23 @@
   "design_version": "technology-design-v4-social-agriculture",
   "design_status": "prepared_not_implemented",
   "validation_scope": "CSV references, dependency DAG, stage gates and proposed math only; no Unity or gameplay validation",
-  "created_at": "2026-10-12T16:08:02+03:00",
+  "created_at": "2026-10-13T21:47:30+03:00",
   "passed": true,
   "counts": {
-    "technologies": 70,
+    "technologies": 73,
     "branches": 8,
-    "dependency_edges": 120,
-    "recipe_unlocks": 53,
+    "dependency_edges": 126,
+    "recipe_unlocks": 58,
     "building_grade_unlocks": 75,
     "military_training_unlocks": 4,
-    "goods": 84,
-    "recipes": 90,
+    "goods": 89,
+    "recipes": 95,
     "buildings": 39,
     "building_grades": 193,
     "roles": 33
   },
   "branches": {
-    "defense": 10,
+    "defense": 13,
     "food": 8,
     "health_civics": 6,
     "knowledge": 8,
@@ -34,11 +34,11 @@
       "failed": 0
     },
     "unique_ids": {
-      "passed": 77,
+      "passed": 80,
       "failed": 0
     },
     "shape": {
-      "passed": 73,
+      "passed": 76,
       "failed": 0
     },
     "currency": {
@@ -46,27 +46,27 @@
       "failed": 0
     },
     "values": {
-      "passed": 350,
+      "passed": 365,
       "failed": 0
     },
     "status": {
-      "passed": 70,
+      "passed": 73,
       "failed": 0
     },
     "dag": {
-      "passed": 191,
+      "passed": 200,
       "failed": 0
     },
     "references": {
-      "passed": 632,
+      "passed": 654,
       "failed": 0
     },
     "stage_order": {
-      "passed": 225,
+      "passed": 234,
       "failed": 0
     },
     "unlocks": {
-      "passed": 384,
+      "passed": 399,
       "failed": 0
     },
     "research_materials": {
@@ -142,7 +142,7 @@
       "failed": 0
     }
   },
-  "check_count": 3602,
+  "check_count": 3681,
   "failed_count": 0,
   "errors": [],
   "topological_order": [
@@ -206,6 +206,7 @@
     "d05_steel_armor",
     "d06_spearman_training",
     "d08_infantry_training",
+    "d11_ballista",
     "k03_natural_studies",
     "c05_civic_works",
     "f05_granary_network",
@@ -213,8 +214,10 @@
     "t05_textile_guilds",
     "z09_jewelry",
     "d09_knight_training",
+    "d12_catapult",
     "k04_experiments",
     "l05_supply_contracts",
+    "d13_trebuchet",
     "k05_university_network"
   ],
   "research_cycle_seconds": 10,
@@ -536,9 +539,9 @@
       {
         "stage": 3,
         "closure_iterations": 4,
-        "researchable_technologies": 55,
-        "producible_goods": 80,
-        "executable_recipes": 86,
+        "researchable_technologies": 58,
+        "producible_goods": 85,
+        "executable_recipes": 91,
         "buildable_types": 39,
         "buildable_grades": 118,
         "trainable_military_roles": [
@@ -550,9 +553,9 @@
       {
         "stage": 4,
         "closure_iterations": 3,
-        "researchable_technologies": 67,
-        "producible_goods": 84,
-        "executable_recipes": 90,
+        "researchable_technologies": 70,
+        "producible_goods": 89,
+        "executable_recipes": 95,
         "buildable_types": 39,
         "buildable_grades": 156,
         "trainable_military_roles": [
@@ -565,9 +568,9 @@
       {
         "stage": 5,
         "closure_iterations": 2,
-        "researchable_technologies": 70,
-        "producible_goods": 84,
-        "executable_recipes": 90,
+        "researchable_technologies": 73,
+        "producible_goods": 89,
+        "executable_recipes": 95,
         "buildable_types": 39,
         "buildable_grades": 193,
         "trainable_military_roles": [
@@ -868,9 +871,9 @@
     "No game simulation, UI, saves or research runtime executed"
   ],
   "source_sha256": {
-    "SourceAssets/Design/technologies.csv": "b64041e13ea37a088e700fb4d497d80df4724856fe4c75ac46d17c7791d307b4",
-    "SourceAssets/Design/goods.csv": "b435a422ee7df6b67079f8644f0c297c14dcfc0ee3e6c789dc173850b00cad03",
-    "SourceAssets/Design/recipes.csv": "43c7105360a8c2a6ebf27ad6d81ddf8e275ef5c327db805b207061f9f57a9690",
+    "SourceAssets/Design/technologies.csv": "d4e9429b893a15c6b05109f29d1785c7818882f1976431a0cfad9aee959a9afa",
+    "SourceAssets/Design/goods.csv": "9336654060db45ffa0ba7f63b374e7c81d89863fe3d216761fc95ffc5fd1e04f",
+    "SourceAssets/Design/recipes.csv": "4e2e091f52107b796e33f421733cca49b91dde46f945831b69abc9c01ab0df85",
     "SourceAssets/Design/buildings.csv": "c440b3ad2f856a09d49896006d4f2c699c15f4d13a9b80823600d289bfc094d3",
     "SourceAssets/Design/building_tiers.csv": "ed3035ba39d3e026bb70940d950fdb5a81fa6f97b80c08dd17fe095d36a80c8c",
     "SourceAssets/Design/roles.csv": "04479818f02d2c2027c401e4b251c18312a17449473ffb104c68cfaec7b1150b",
@@ -888,5 +891,5 @@
     "SourceAssets/Design/minting_policy.csv": "e81e6c08e7047f18201ee8299ae167e69709f41763311f839a153190ad55c08d",
     "SourceAssets/Design/housing_comfort.csv": "80e21c1ca51e0697560d40cec72ba040cdc467c0f923276ed5e3e663d08d92f6"
   },
-  "validator_sha256": "26b6075689debe87503ea972fd8f967fcd1d0962dffe0052f6685af29b5d241a"
+  "validator_sha256": "4e346cb64572f3e44f419947eb50f5de2f7c14a2172de16dadc784ea4789211d"
 }

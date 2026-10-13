@@ -12,7 +12,7 @@ namespace WorldGenesis.Simulation
         public static float Capacity(BuildingData building)
         {
             if (building == null) return 0;
-            if (!IsDepot(building)) return ResourceCatalog.StorageCapacity;
+            if (!IsDepot(building)) return ResourceCatalog.StorageCapacity * (IndustryCatalog.IsWorkshop(building.Type) ? Math.Max(1, Math.Min(5, building.Level)) : 1);
             switch (EffectiveLevel(building)) { case 1: return 1000; case 2: return 2500; case 3: return 5000; default: return 10000; }
         }
         public static bool IsFood(AgriculturalProduct product)
@@ -59,7 +59,7 @@ namespace WorldGenesis.Simulation
         {
             if (building == null) return 0;
             return IsDepot(building) ? Math.Max(0, TotalUsed(building) - Capacity(building)) :
-                Math.Max(0, MaterialUsed(building) - ResourceCatalog.StorageCapacity) + Math.Max(0, AgriculturalUsed(building) - ResourceCatalog.StorageCapacity * Math.Max(1, building.Level));
+                Math.Max(0, MaterialUsed(building) - Capacity(building)) + Math.Max(0, AgriculturalUsed(building) - ResourceCatalog.StorageCapacity * Math.Max(1, building.Level));
         }
         private static double Sum(float[] values)
         { double amount = 0; if (values != null) for (int i = 1; i < values.Length; i++) amount += values[i]; return amount; }

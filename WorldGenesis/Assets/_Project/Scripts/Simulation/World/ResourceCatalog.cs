@@ -4,7 +4,7 @@ namespace WorldGenesis.Simulation
 {
     public static class ResourceCatalog
     {
-        public const int LegacyItemCount = 17, ItemCount = 18;
+        public const int LegacyItemCount = 17, SaltItemCount = 18, ItemCount = 45;
         public const float CarryCapacity = 1, StorageCapacity = 120;
         private static readonly int[] Regrow = { 0, 900, 1500, 3000, 2700, 6000, 4800, 2400, 1200, 900, 1800, 3600, 9000 };
         private static readonly ItemType[] Outputs = { ItemType.None, ItemType.Log, ItemType.RawStone, ItemType.IronOre, ItemType.CopperOre, ItemType.GoldOre, ItemType.SilverOre, ItemType.Coal, ItemType.Clay, ItemType.Sand, ItemType.Limestone, ItemType.TinOre, ItemType.Salt };
@@ -20,6 +20,7 @@ namespace WorldGenesis.Simulation
         public static float HarvestPerSecond(ResourceType type) { return type == ResourceType.Salt ? .4f : type == ResourceType.Tree ? .75f : type == ResourceType.Clay || type == ResourceType.Sand ? .65f : type == ResourceType.Stone ? .55f : .45f; }
         public static float StockTarget(ItemType item, int population)
         {
+            if ((int)item >= SaltItemCount) return IndustryCatalog.TargetStock(item, population);
             switch (item)
             {
                 case ItemType.None: return 0;
@@ -57,7 +58,7 @@ namespace WorldGenesis.Simulation
             world.ResourceNodes = new ResourceNodeData[world.Cells.Length];
             world.LostResources = new float[ItemCount];
             for (int i = 0; i < world.Cells.Length; i++) world.ResourceNodes[i] = GenerateCell(world, i);
-            world.ResourceVersion = 3;
+            world.ResourceVersion = 4;
             world.ResourceRevision = 1;
         }
 

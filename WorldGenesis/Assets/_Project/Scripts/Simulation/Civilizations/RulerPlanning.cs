@@ -89,6 +89,7 @@ namespace WorldGenesis.Simulation
             SettlementData s = World.GetSettlement(settlementId); BuildingData b = World.GetBuilding(buildingId);
             if (s == null || World.Tick < s.NextPlanningTick || string.IsNullOrWhiteSpace(reason) || !EligibleRuler(World.GetUnit(s.RulerId), s.Id) || !CanDemolish(s, b)) return false;
             float x = b.X + .5f, y = b.Y + .5f;
+            if (b.FurnitureCount > 0) { World.GroundStocks.Add(new GroundStockData { Item = ItemType.Furniture, Amount = b.FurnitureCount, X = x, Y = y }); b.FurnitureCount = 0; }
             for (int i = 1; i < ResourceCatalog.ItemCount; i++)
             {
                 // The ruler releases tax goods to the public salvage pile; private title is kept separately.

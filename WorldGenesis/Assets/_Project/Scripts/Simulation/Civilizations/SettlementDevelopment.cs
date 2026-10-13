@@ -134,7 +134,7 @@ namespace WorldGenesis.Simulation
                 UnitData u = World.Units[i];
                 if (u.SettlementId != s.Id || u.Age < 16 || u.Health <= 0) continue;
                 double effective = Math.Max(.1, 1 - .5 * u.Hunger - .3 * u.Thirst);
-                if (u.Task == UnitTask.Process) crafts += effective; else ordinary += effective;
+                if (u.Task == UnitTask.Process || u.Task == UnitTask.Produce || u.Task == UnitTask.CraftEquipment) crafts += effective; else ordinary += effective;
                 quality += (1 + u.Education * .6f) * (.65f + .35f * u.Mood); count++;
             }
             // Points per second. No inactive scholar/priest roles are fabricated.
@@ -142,12 +142,15 @@ namespace WorldGenesis.Simulation
             if (count == 0) return;
             if (s.ActiveTechnology.Length == 0)
             {
+                TechnologyDefinition chosen = null; float priority = float.NegativeInfinity;
                 for (int i = 0; i < TechnologyCatalog.All.Length; i++)
                 {
                     TechnologyDefinition candidate = TechnologyCatalog.All[i];
                     if (s.UnlockedTechnologies.Contains(candidate.Id) || !ResearchReady(s, candidate)) continue;
-                    s.ActiveTechnology = candidate.Id; s.ResearchProgress = 0; break;
+                    float score = IndustryResearchPriority(s, candidate) + 1f / (i + 1);
+                    if (score > priority) { chosen = candidate; priority = score; }
                 }
+                if (chosen != null) { s.ActiveTechnology = chosen.Id; s.ResearchProgress = 0; }
             }
             TechnologyDefinition tech = TechnologyCatalog.Get(s.ActiveTechnology);
             if (tech == null) return;
@@ -182,6 +185,7 @@ namespace WorldGenesis.Simulation
         }
         private string RequiredTechnology(BuildingType type)
         {
+            if (IndustryCatalog.IsWorkshop(type)) return IndustryCatalog.RequiredTechnology(type);
             switch (type)
             {
                 case BuildingType.Well: return ""; // A basic well precedes improved clean-water engineering.
@@ -197,13 +201,19 @@ namespace WorldGenesis.Simulation
         public bool TryBuildInfrastructure(int settlementId, BuildingType type, int x, int y)
         {
             SettlementData s = World.GetSettlement(settlementId);
-            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 15 || !World.IsWalkable(x, y)) return false;
+            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 22 || !World.IsWalkable(x, y)) return false;
             int cell = World.Index(x, y);
             if (World.Cells[cell].BuildingId != 0 || World.Cells[cell].Fire > 0 || (World.Cells[cell].SettlementId != 0 && World.Cells[cell].SettlementId != s.Id) || DistanceSquared(x, y, s.X, s.Y) > 18 * 18) return false;
+            if (BuildingAccess.IsEnclosed(type))
+            {
+                int doorway=ChooseBuildingEntrance(x,y);
+                if(doorway<0 || !World.IsWalkable(doorway%World.Width,doorway/World.Width))return false;
+                foreach(UnitData u in World.Units) if((int)u.X==x && (int)u.Y==y)return false;
+            }
             string requiredTechnology = RequiredTechnology(type);
             if (requiredTechnology.Length > 0 && !World.HasTechnology(s.Id, requiredTechnology)) return false;
             float wood = type == BuildingType.WoodWall ? 2 : type == BuildingType.Gate ? 4 : 8;
-            float stone = type == BuildingType.Well ? 2 : 0;
+            float stone = type == BuildingType.Smelter || type == BuildingType.Smithy || type == BuildingType.Mint ? 3 : type == BuildingType.Well ? 2 : 0;
             if (s.Wood < wood || FreePublicStock(s.Id, ItemType.RawStone) < stone || !navigation.Find(World.Index(s.X, s.Y), cell, scratchPath)) return false;
             // Never wall over a person or directly seal a occupied work site.
             if (type == BuildingType.WoodWall)
@@ -242,6 +252,7 @@ namespace WorldGenesis.Simulation
         private bool TryDevelopSettlement(SettlementData s)
         {
             if (s.BuildTimer < 8 || s.Population < 3) return false;
+            if (TryDevelopIndustry(s)) return true;
             BuildingType[] priorities = { BuildingType.Well, BuildingType.Granary, BuildingType.Warehouse, BuildingType.Shop, BuildingType.Pasture, BuildingType.School, BuildingType.Brewery };
             // Preserve the founding processing loop and shelter before elective projects.
             if (CountBuildings(s.Id, BuildingType.Sawmill) == 0 || CountBuildings(s.Id, BuildingType.House) == 0) return false;

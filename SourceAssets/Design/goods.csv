@@ -83,3 +83,8 @@ rare_horn,Редкий рог,1,0,0,120,wildlife
 rare_pelt,Редкая шкура,2,0,0,180,wildlife
 ale,Эль,1,2,2400,4,recipe
 salt,Соль,1,0,0,3,recipe
+ballista,Комплект баллисты,1,0,0,120,recipe
+catapult,Комплект катапульты,1,0,0,160,recipe
+trebuchet,Комплект требушета,1,0,0,240,recipe
+ballista_bolts,Болты баллисты,1,0,0,4,recipe
+stone_shot,Каменные ядра,1,0,0,2,recipe

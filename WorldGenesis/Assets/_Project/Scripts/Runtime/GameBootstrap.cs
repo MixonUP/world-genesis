@@ -267,7 +267,17 @@ namespace WorldGenesis.Runtime
         {
             int x = Mathf.FloorToInt(position.x), y = Mathf.FloorToInt(position.y);
             InspectX = x; InspectY = y; SelectedUnitId = 0; float distance = 2.25f;
-            foreach (UnitData unit in World.Units) { Vector2 shown = View.GetPresentationPosition(unit); float dx = shown.x - position.x, dy = shown.y - position.y, squared = dx * dx + dy * dy; if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; } }
+            // A wall click selects the building; hidden occupants are selected
+            // explicitly through its inspector, never through their hidden sprite.
+            BuildingData clickedBuilding = World.InBounds(x, y) ? World.GetBuilding(World.Cells[World.Index(x, y)].BuildingId) : null;
+            if (clickedBuilding == null || !BuildingAccess.IsEnclosed(clickedBuilding.Type))
+                foreach (UnitData unit in World.Units)
+                {
+                    if (unit.Health <= 0 || unit.InsideBuildingId != 0) continue;
+                    Vector2 shown = View.GetPresentationPosition(unit);
+                    float dx = shown.x - position.x, dy = shown.y - position.y, squared = dx * dx + dy * dy;
+                    if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; }
+                }
             hud?.Refresh(true);
         }
         public void InspectUnit(int id)
@@ -361,14 +371,20 @@ namespace WorldGenesis.Runtime
             yield return CaptureRoutine(path, quit, true);
         }
         [Serializable]
-        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
+        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit, InsideBuilding; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
         private bool InspectRequestedCell(string[] arguments)
         {
             int index = Array.IndexOf(arguments, "--inspect-cell");
             if (index < 0 || index + 2 >= arguments.Length || !int.TryParse(arguments[index + 1], out int x) || !int.TryParse(arguments[index + 2], out int y) || !World.InBounds(x, y)) return false;
             int zoomIndex = Array.IndexOf(arguments, "--zoom"); float zoom = 10;
             if (zoomIndex >= 0 && zoomIndex + 1 < arguments.Length && float.TryParse(arguments[zoomIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requested)) zoom = requested;
-            InspectSite(x, y); FocusWorldPoint(new Vector2(x + .5f, y + .5f), zoom); assistedFraming = true; hud?.Refresh(true); return true;
+            InspectSite(x, y); FocusWorldPoint(new Vector2(x + .5f, y + .5f), zoom); assistedFraming = true;
+            if (Array.IndexOf(arguments, "--inspect-occupant") >= 0)
+            {
+                int resident = GameHud.NextOccupantId(World, World.Cells[World.Index(x, y)].BuildingId, 0);
+                if (resident != 0) InspectUnit(resident);
+            }
+            hud?.Refresh(true); return true;
         }
         private IEnumerator CaptureRoutine(string path, bool quit, bool automatic)
         {
@@ -380,7 +396,7 @@ namespace WorldGenesis.Runtime
             CaptureReceipt receipt = new CaptureReceipt { Type = "native Unity gameplay capture", Utc = DateTime.UtcNow.ToString("O"), UnityVersion = Application.unityVersion, Image = Path.GetFileName(fullPath), Seed = World.Seed, Width = World.Width, Height = World.Height, Population = World.Units.Count, Tick = World.Tick, Speed = Speed, Paused = Paused, AutomaticCapture = automatic, AssistedFraming = assistedFraming, CameraX = MainCamera.transform.position.x, CameraY = MainCamera.transform.position.y, OrthographicSize = MainCamera.orthographicSize, ScreenWidth = Screen.width, ScreenHeight = Screen.height, Preset = World.Preset.ToString() };
             receipt.LoadedWorld = captureWorldSource;
             UnitData observed = World.GetUnit(SelectedUnitId);
-            if (observed != null) { receipt.SelectedUnit = observed.Id; receipt.SelectedTask = observed.Task.ToString(); receipt.Cargo = observed.CargoKind.ToString(); receipt.CargoAmount = observed.CargoAmount; receipt.Sex = observed.Sex.ToString(); receipt.Age = observed.Age; }
+            if (observed != null) { receipt.SelectedUnit = observed.Id; receipt.InsideBuilding = observed.InsideBuildingId; receipt.SelectedTask = observed.Task.ToString(); receipt.Cargo = observed.CargoKind.ToString(); receipt.CargoAmount = observed.CargoAmount; receipt.Sex = observed.Sex.ToString(); receipt.Age = observed.Age; }
             float deadline = Time.realtimeSinceStartup + 8;
             yield return null;
             while (!File.Exists(fullPath) && Time.realtimeSinceStartup < deadline) yield return null;

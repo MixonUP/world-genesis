@@ -64,7 +64,7 @@ namespace WorldGenesis.Simulation
             bool light = LightWorkAllowed(unit, home);
             bool heavy = unit.CargoAmount > 0 && unit.CargoKind != ItemType.Firewood;
             bool forbiddenHaul = unit.Task == UnitTask.Haul && unit.PickupKind != ItemType.Firewood;
-            bool forbidden = heavy || forbiddenHaul || unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Fish || unit.Task == UnitTask.Hunt || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Caravan || unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Brew || unit.Task == UnitTask.Fight || unit.Task == UnitTask.Patrol || (!light && (unit.Task == UnitTask.Farm || unit.Task == UnitTask.Haul || unit.Task == UnitTask.Return));
+            bool forbidden = heavy || forbiddenHaul || unit.Task == UnitTask.Gather || unit.Task == UnitTask.Process || unit.Task == UnitTask.Produce || unit.Task == UnitTask.InstallFurniture || unit.Task == UnitTask.Fish || unit.Task == UnitTask.Hunt || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Caravan || unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Brew || unit.Task == UnitTask.Fight || unit.Task == UnitTask.Patrol || (!light && (unit.Task == UnitTask.Farm || unit.Task == UnitTask.Haul || unit.Task == UnitTask.Return));
             if ((!light || heavy) && CarriedLoad(unit) > 0) { DropCarrying(unit); DropAgriculturalCargo(unit); }
             if (forbidden) { ChangeTask(unit, UnitTask.Idle); ClearRoute(unit); unit.GroundStockIndex = -1; unit.DecisionTimer = 0; }
         }
@@ -89,10 +89,15 @@ namespace WorldGenesis.Simulation
                 if ((g.OwnerId == 0 || g.OwnerId == unit.Id) && DistanceSquared(unit.X, unit.Y, g.X, g.Y) <= 2 && unit.Age >= 16)
                 {
                     float amount = Math.Min(CarrySpace(unit), g.Amount);
-                    if (g.IsFood) unit.CarriedFood += amount;
-                    else if (g.Item == ItemType.Plank) unit.CarriedWood += amount;
-                    else { unit.CargoKind = g.Item; unit.CargoAmount += amount; unit.CargoOwnerId = 0; }
-                    g.Amount -= amount; World.ResourceRevision++;
+                    // Another citizen may have emptied this pile after the route was chosen.
+                    // A zero pickup must not create a typed, empty cargo slot.
+                    if (amount > .000001f)
+                    {
+                        if (g.IsFood) unit.CarriedFood += amount;
+                        else if (g.Item == ItemType.Plank) unit.CarriedWood += amount;
+                        else { unit.CargoKind = g.Item; unit.CargoAmount += amount; unit.CargoOwnerId = 0; }
+                        g.Amount -= amount; World.ResourceRevision++;
+                    }
                 }
             }
             unit.GroundStockIndex = -1; ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;

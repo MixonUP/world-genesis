@@ -7,6 +7,9 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [Галерея0.7](Development/PRODUCTION_BUILDINGS_GALLERY.md) — пять кадров и ролик входа в здания.
+- [Физические здания0.7](Design/BUILDING_INTERACTIONS.md) — стены, двери, реальные занятия внутри и эвакуация.
+- [Производство0.7](Development/PRODUCTION_REPORT.md) — реализация и проверки; [цепочки и рецепты](Design/PRODUCTION_CHAINS.md); [независимый аналитик](Development/GAME_ANALYST_REVIEW_0_7.md).
 - [Рыбалка, течение и берег 0.6.1](Development/FISHING_RIVERS_REPORT.md) — реализация и проверка; [снасти и уловы](Design/FISHING.md).
 - [Собственные жители 0.6: расы, одежда, анимации](Development/ORIGINAL_CITIZENS_REPORT.md) — фактическое покрытие и проверки.
 - [Галерея жителей](Development/ORIGINAL_CITIZENS_GALLERY.md) — нативные изображения и движение.

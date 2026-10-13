@@ -12,11 +12,11 @@ namespace WorldGenesis.Simulation
         }
         public float GetWorkMultiplier(UnitData unit)
         {
-            return (unit.Age >= 16 ? 1 + unit.Education * .1f + unit.CraftSkill * .1f + (unit.IsMaster ? .1f : 0) : .65f) * (1 - .45f * unit.Intoxication);
+            return (unit.Age >= 16 ? 1 + unit.Education * .1f + unit.CraftSkill * .1f + (unit.IsMaster ? .1f : 0) : .65f) * (1 - .45f * unit.Intoxication) * IndustryCatalog.ToolMultiplier(unit.WorkTool);
         }
         private void GainCraftExperience(UnitData unit, float workingSeconds)
         {
-            if (unit.Age < 16 || workingSeconds <= 0 || (unit.Task != UnitTask.Process && unit.Task != UnitTask.Gather && unit.Task != UnitTask.Farm && unit.Task != UnitTask.Fish && unit.Task != UnitTask.CraftEquipment && unit.Task != UnitTask.Brew && unit.Task != UnitTask.Tend && unit.Task != UnitTask.Hunt)) return;
+            if (unit.Age < 16 || workingSeconds <= 0 || (unit.Task != UnitTask.Process && unit.Task != UnitTask.Produce && unit.Task != UnitTask.Gather && unit.Task != UnitTask.Farm && unit.Task != UnitTask.Fish && unit.Task != UnitTask.CraftEquipment && unit.Task != UnitTask.Brew && unit.Task != UnitTask.Tend && unit.Task != UnitTask.Hunt)) return;
             unit.CraftSkill = Math.Min(1, unit.CraftSkill + workingSeconds * .0008f * (.5f + unit.LearningTalent) * (.5f + unit.Education));
             if (unit.IsMaster && !unit.MasteryAnnounced)
             { unit.MasteryAnnounced = true; AddSocialEvent(SocialEventKind.Mastery, World.GetSettlement(unit.SettlementId), unit.Id, 0, unit.Name + " после учёбы и практики становится мастером."); }

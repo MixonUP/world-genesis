@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-13T18:51:56.525646Z",
+  "tests": 9,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "AppendedSaltKeepsEveryLegacyEnumNumber",
+      "passed": true,
+      "milliseconds": 0.2834
+    },
+    {
+      "name": "LegacySeventeenSlotSavePreservesAllOwnershipAndAmounts",
+      "passed": true,
+      "milliseconds": 185.9189
+    },
+    {
+      "name": "EarlierCarryingMigrationDoesNotDowngradeResourceVersion",
+      "passed": true,
+      "milliseconds": 4.4985
+    },
+    {
+      "name": "VersionAndCorruptSaltSlotsAreRejected",
+      "passed": true,
+      "milliseconds": 8.9528
+    },
+    {
+      "name": "SaltGenerationIsDeterministicRareAndHabitatBounded",
+      "passed": true,
+      "milliseconds": 328.9219
+    },
+    {
+      "name": "SaltIsPhysicallyGatheredThenDeliveredWithoutDuplication",
+      "passed": true,
+      "milliseconds": 42.4277
+    },
+    {
+      "name": "SaltRegrowthIsSlowAndPausesOnIncompatibleTerrain",
+      "passed": true,
+      "milliseconds": 35.3035
+    },
+    {
+      "name": "SaltMovesThroughOrdinaryCaravanAndTaxContainers",
+      "passed": true,
+      "milliseconds": 151.6518
+    },
+    {
+      "name": "SaltSaveContinuesCargoStocksAndTimerIdentically",
+      "passed": true,
+      "milliseconds": 68.8857
+    }
+  ]
+}

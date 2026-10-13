@@ -10,7 +10,7 @@ param(
     [switch]$InspectCitizen, [switch]$InspectResourceWorker, [switch]$WeatherTab,
     [ValidateSet('', 'Woman', 'Man', 'Child')][string]$Demographic='',
     [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin', 'Salt')][string]$Resource='',
-    [string]$WorldFile='', [switch]$InspectCaravan,
+    [string]$WorldFile='', [switch]$InspectCaravan, [switch]$InspectOccupant,
     [int]$InspectX=-1, [int]$InspectY=-1
 )
 $ErrorActionPreference='Stop'
@@ -29,6 +29,7 @@ $arguments=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullsc
 $arguments+=@('--simulation-speed',"$Speed")
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
 if ($InspectCitizen) { $arguments+='--inspect-citizen' }
+if ($InspectOccupant) { $arguments+='--inspect-occupant' }
 if ($WeatherTab) { $arguments+='--weather-tab' }
 if ($InspectCaravan) { $arguments+='--inspect-caravan' }
 if ($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }

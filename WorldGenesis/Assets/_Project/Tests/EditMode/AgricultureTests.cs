@@ -30,7 +30,14 @@ namespace WorldGenesis.Tests
         {
             Call(e, "AddBuilding", e.World.Settlements[0], x, y, type); return e.World.Buildings[e.World.Buildings.Count - 1];
         }
-        private static void At(UnitData u, BuildingData b) { u.X = b.X + .5f; u.Y = b.Y + .5f; u.Path.Clear(); u.PathCursor = 0; u.TargetCell = b.Y * 40 + b.X; }
+        // These isolated recipe checks begin after arrival. Real doorway traversal is
+        // covered separately by CarpenterFetchesPlanks and BuildingInteractionScenarios.
+        private static void At(UnitData u, BuildingData b)
+        {
+            u.X = b.X + .5f; u.Y = b.Y + .5f; u.Path.Clear(); u.PathCursor = 0; u.TargetCell = b.Y * 40 + b.X;
+            u.InsideBuildingId = BuildingAccess.IsEnclosed(b.Type) ? b.Id : 0;
+            u.EnteringBuildingId = 0; u.BuildingInteractionTimer = 0;
+        }
         private static void Work(SimulationEngine e, UnitData u, float seconds) { Call(e, "PerformAgriculturalWork", u, e.World.Settlements[0], seconds); }
         private static UnitData Animal(SimulationEngine e, SpeciesType species, int x = 22, int y = 20)
         {
@@ -39,7 +46,9 @@ namespace WorldGenesis.Tests
         private static UnitData Tame(SimulationEngine e, UnitData u, SpeciesType species)
         {
             BuildingData p = e.World.Buildings.Find(b => b.Type == BuildingType.Pasture) ?? Add(e, BuildingType.Pasture, 22, 20);
-            UnitData a = Animal(e, species); u.X = a.X; u.Y = a.Y; u.HarvestProduct = AgriculturalProduct.Hay; u.HarvestAmount = 1;
+            UnitData a = Animal(e, species);
+            if (u.InsideBuildingId != 0) Need(e.TryExitBuilding(u.Id), "leave workshop before approaching animal");
+            u.X = a.X; u.Y = a.Y; u.HarvestProduct = AgriculturalProduct.Hay; u.HarvestAmount = 1;
             Need(e.TryTameAnimal(u.Id, a.Id, p.Id), "tame with physical hay"); return a;
         }
         public static void CartRequiresResearchRecipeTimeAndCarpenter()
@@ -69,7 +78,9 @@ namespace WorldGenesis.Tests
             hall.AgriculturalStock[2] = 3; mill.AgriculturalStock[2] = 10; mill.AgriculturalStock[7] = 4; mill.Inventory[2] = 2;
             for (int grade = 1; grade <= 3; grade++) { Need(e.TryStartEquipment(u.Id, grade), "start basket grade"); At(u, grade == 1 ? hall : mill); Work(e, u, 8); Near(grade == 1 ? 10 : grade == 2 ? 15 : 25, SimulationEngine.CarryCapacityFor(u), "basket grade"); }
             Near(0, hall.AgriculturalStock[2] + mill.AgriculturalStock[2], "fiber3+4+6 consumed"); UnitData a = Tame(e, u, SpeciesType.Horse); Need(e.TryMountNearby(u), "mount horse"); Near(75, SimulationEngine.CarryCapacityFor(u), "horse75");
-            mill.AgriculturalStock[2] = 2; Need(e.TryStartEquipment(u.Id, 6), "craft bags"); At(u, mill); a.X = u.X; a.Y = u.Y; Work(e, u, 8); Near(100, SimulationEngine.CarryCapacityFor(u), "horse with bags100"); Need(a.HasSaddleBags, "bags belong to animal");
+            mill.AgriculturalStock[2] = 2; Need(e.TryStartEquipment(u.Id, 6), "craft bags"); At(u, mill);
+            a.X = mill.EntranceCell % e.World.Width + .5f; a.Y = mill.EntranceCell / e.World.Width + .5f;
+            Work(e, u, 8); Near(100, SimulationEngine.CarryCapacityFor(u), "horse with bags100"); Need(a.HasSaddleBags, "bags belong to animal");
         }
         public static void MountDeathDropsOverflowWithoutDuplicatingCargo()
         {

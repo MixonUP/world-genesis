@@ -174,10 +174,10 @@ def main() -> int:
         read("resource_regions.csv")
         minting_policy = read("minting_policy.csv")
 
-        check(len(tech) == 70, "shape", "expected 70 technologies including roads and bridges")
+        check(len(tech) == 73, "shape", "expected 73 technologies including roads, bridges and carpenter siege production")
         branch_counts = Counter(r["branch_id"] for r in tech_rows)
         check(set(branch_counts) == BRANCHES, "shape", "expected eight named branches")
-        expected_branch_counts = {"food": 8, "materials": 13, "metals": 9, "textiles": 5, "transport": 11, "defense": 10, "health_civics": 6, "knowledge": 8}
+        expected_branch_counts = {"food": 8, "materials": 13, "metals": 9, "textiles": 5, "transport": 11, "defense": 13, "health_civics": 6, "knowledge": 8}
         check(dict(branch_counts) == expected_branch_counts, "shape", "unexpected per-branch technology counts")
         check(not any(r["kind"] == "world_treasury" or (r["kind"] == "inventory" and r["ref_id"] == "coin") for r in bootstrap), "currency", "coins must originate from metal-backed minting")
         check(all(int(r["world_treasury_grant"]) == 0 for r in tiers), "currency", "obsolete treasury grant")

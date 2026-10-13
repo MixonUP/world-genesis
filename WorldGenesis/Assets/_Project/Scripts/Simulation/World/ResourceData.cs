@@ -3,7 +3,7 @@ using System;
 namespace WorldGenesis.Simulation
 {
     public enum ResourceType { None, Tree, Stone, IronOre, CopperOre, GoldOre, SilverOre, Coal, Clay, Sand, Limestone, Tin, Salt }
-    public enum ItemType { None, Log, Plank, Firewood, RawStone, StoneBlock, StoneTile, Clay, Brick, IronOre, CopperOre, GoldOre, SilverOre, Coal, Sand, Limestone, TinOre, Salt }
+    public enum ItemType { None, Log, Plank, Firewood, RawStone, StoneBlock, StoneTile, Clay, Brick, IronOre, CopperOre, GoldOre, SilverOre, Coal, Sand, Limestone, TinOre, Salt, Charcoal, IronIngot, CopperIngot, TinIngot, BronzeIngot, GoldIngot, SilverIngot, IronTools, BronzeTools, Sword, Spear, Armor, Leather, LinenCloth, LeatherClothes, LinenClothes, Furniture, Bow, CopperCoin, SilverCoin, GoldCoin, Rope, Ballista, Catapult, Trebuchet, BallistaBolts, StoneShot }
     public enum RecipeType { None, Plank, Firewood, StoneBlock, StoneTile, Brick }
 
     [Serializable]
@@ -58,15 +58,18 @@ namespace WorldGenesis.Simulation
         private bool ResourceStockArrayMatchesVersion(float[] values)
         {
             if (values == null) return false;
-            if (ResourceVersion >= 3) return values.Length == ResourceCatalog.ItemCount;
-            // Older fixtures may already have the expanded zero slot; genuine 0.4 saves contain 17 values.
-            return values.Length == ResourceCatalog.LegacyItemCount || (values.Length == ResourceCatalog.ItemCount && values[(int)ItemType.Salt] == 0);
+            if (ResourceVersion == 4) return values.Length == ResourceCatalog.ItemCount;
+            int count = ResourceVersion == 3 ? ResourceCatalog.SaltItemCount : ResourceCatalog.LegacyItemCount;
+            if (values.Length == count) return true;
+            if (values.Length != ResourceCatalog.ItemCount && !(count == 17 && values.Length == 18)) return false;
+            for (int i = count; i < values.Length; i++) if (values[i] != 0) return false;
+            return true;
         }
 
         private bool ValidateResources(out string error)
         {
             error = null;
-            if (ResourceVersion < 0 || ResourceVersion > 3) { error = "Unsupported resource version."; return false; }
+            if (ResourceVersion < 0 || ResourceVersion > 4) { error = "Unsupported resource version."; return false; }
             if (ResourceVersion == 0) return true; // Original saves have no resource fields; the engine migrates them once.
             if (ResourceNodes == null || ResourceNodes.Length != Cells.Length || !ResourceStockArrayMatchesVersion(LostResources))
             { error = "Invalid resource arrays."; return false; }
@@ -80,7 +83,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                int itemLimit = ResourceVersion >= 3 ? ResourceCatalog.ItemCount : ResourceCatalog.LegacyItemCount;
+                int itemLimit = ResourceVersion >= 4 ? ResourceCatalog.ItemCount : ResourceVersion == 3 ? ResourceCatalog.SaltItemCount : ResourceCatalog.LegacyItemCount;
                 if ((int)u.CargoKind < 0 || (int)u.CargoKind >= itemLimit || (int)u.PickupKind < 0 || (int)u.PickupKind >= itemLimit || !Stock(u.CargoAmount) || u.CargoAmount > (ResourceVersion < 2 ? 3 : AgricultureVersion == 0 ? ResourceCatalog.CarryCapacity : SimulationEngine.CarryCapacityFor(u)) + .0001f || (ResourceVersion >= 2 && SimulationEngine.CarriedLoad(u) > (AgricultureVersion == 0 ? ResourceCatalog.CarryCapacity : SimulationEngine.CarryCapacityFor(u)) + .0001f) || (u.CargoAmount > 0 && (u.CargoKind == ItemType.None || (u.CargoKind == ItemType.Plank && AgricultureVersion == 0))) || (u.CargoAmount == 0 && u.CargoKind != ItemType.None) || u.ResourceCell < -1 || u.ResourceCell >= Cells.Length || u.SourceBuildingId < 0 || u.TargetBuildingId < 0 || (u.SourceBuildingId != 0 && GetBuilding(u.SourceBuildingId) == null) || (u.TargetBuildingId != 0 && GetBuilding(u.TargetBuildingId) == null))
                 { error = "Invalid resource cargo or job."; return false; }
             }
@@ -91,7 +94,7 @@ namespace WorldGenesis.Simulation
                 { error = "Invalid workshop state."; return false; }
                 float stored = 0;
                 for (int j = 0; j < b.Inventory.Length; j++) { if (!Stock(b.Inventory[j])) { error = "Invalid stored resource."; return false; } stored += b.Inventory[j]; }
-                if (!Stock(stored) || (!StorageCapacity.IsDepot(b) && stored > ResourceCatalog.StorageCapacity + .001f)) { error = "Storage capacity exceeded."; return false; }
+                if (!Stock(stored) || (!StorageCapacity.IsDepot(b) && stored > StorageCapacity.Capacity(b) + .001f)) { error = "Storage capacity exceeded."; return false; }
                 if (b.WorkerId != 0)
                 {
                     UnitData worker = GetUnit(b.WorkerId);

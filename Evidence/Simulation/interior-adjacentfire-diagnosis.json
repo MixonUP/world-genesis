@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-13T19:24:34.095883+00:00",
+  "seed": 1618033,
+  "tick": 12300,
+  "sourceWorld": "Builds/ProductionProbeFailures/seed-1618033-tick-12300.json",
+  "originalReceipt": "Evidence/Simulation/production-interior-natural-final.json",
+  "validationError": "Indoor resident has an exterior position or route.",
+  "diagnosis": "Adjacent fire used EscapeDanger without leaving the interior; outside movement retained InsideBuildingId. Independently observed in natural run and by core author read-only inspection.",
+  "affected": [
+    {
+      "unit": {
+        "Id": 406,
+        "Species": 3,
+        "X": 89.5,
+        "Y": 44.32774,
+        "Task": 6,
+        "InsideBuildingId": 97,
+        "EnteringBuildingId": 0,
+        "TargetCell": 5593,
+        "Path": [
+          5593
+        ],
+        "PathCursor": 0
+      },
+      "building": {
+        "Id": 97,
+        "Type": 4,
+        "X": 89,
+        "Y": 44,
+        "EntranceCell": 5593
+      },
+      "centerFire": 0,
+      "neighborFire": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "unit": {
+        "Id": 438,
+        "Species": 3,
+        "X": 89.5,
+        "Y": 44.32774,
+        "Task": 6,
+        "InsideBuildingId": 97,
+        "EnteringBuildingId": 0,
+        "TargetCell": 5593,
+        "Path": [
+          5593
+        ],
+        "PathCursor": 0
+      },
+      "building": {
+        "Id": 97,
+        "Type": 4,
+        "X": 89,
+        "Y": 44,
+        "EntranceCell": 5593
+      },
+      "centerFire": 0,
+      "neighborFire": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "regression": "BuildingInteractionScenarios.AdjacentFireCannotCreateAnExteriorRouteForAnIndoorResident",
+  "fixedControlledReceipt": "Evidence/Simulation/building-interaction-final-r2.json",
+  "fullNaturalRepeat": "in progress; not passed at time of this diagnostic"
+}

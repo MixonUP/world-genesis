@@ -43,6 +43,19 @@ namespace WorldGenesis.Simulation
             new TechnologyDefinition("m11_town_houses", "Городские дома", 80f, new string[] { "m10_comfort_housing", "m04_brick_firing" }),
             new TechnologyDefinition("m12_stone_houses", "Каменные жилые кварталы", 150f, new string[] { "m11_town_houses", "c03_civic_records" }),
             new TechnologyDefinition("m13_estates", "Благоустроенные усадьбы", 220f, new string[] { "m12_stone_houses", "l01_local_trade" }),
+            new TechnologyDefinition("m03_tanning", "Кожевенное дело", 80f, new string[] { "m01_forestry" }),
+            new TechnologyDefinition("z01_charcoal", "Углежжение", 50f, new string[] { "m01_forestry" }),
+            new TechnologyDefinition("z02_ironworking", "Железное дело", 100f, new string[] { "z01_charcoal", "m02_carpentry" }),
+            new TechnologyDefinition("z06_nonferrous", "Цветная металлургия", 130f, new string[] { "z02_ironworking" }),
+            new TechnologyDefinition("z07_bronze", "Бронзовое литьё", 100f, new string[] { "z06_nonferrous" }),
+            new TechnologyDefinition("z08_coinage", "Чеканка монеты", 160f, new string[] { "z06_nonferrous", "c03_civic_records" }),
+            new TechnologyDefinition("t03_leather_tailoring", "Кожаное шитьё", 100f, new string[] { "t02_linen", "m03_tanning" }),
+            new TechnologyDefinition("d01_hunting_bows", "Охотничьи луки", 55f, new string[] { "m02_carpentry", "t02_linen" }),
+            new TechnologyDefinition("d02_leather_armor", "Кожаные доспехи", 90f, new string[] { "m03_tanning", "t02_linen" }),
+            new TechnologyDefinition("d03_iron_arms", "Железное вооружение", 150f, new string[] { "z02_ironworking", "d02_leather_armor" }),
+            new TechnologyDefinition("d11_ballista", "Сборка баллист", 110f, new string[] { "d03_iron_arms", "d01_hunting_bows" }),
+            new TechnologyDefinition("d12_catapult", "Сборка катапульт", 150f, new string[] { "d11_ballista", "m04_brick_firing" }),
+            new TechnologyDefinition("d13_trebuchet", "Противовесные требушеты", 210f, new string[] { "d12_catapult", "k08_apprenticeship" }),
         };
         public static TechnologyDefinition Get(string id)
         {

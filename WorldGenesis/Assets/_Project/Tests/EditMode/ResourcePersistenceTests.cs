@@ -32,7 +32,7 @@ namespace WorldGenesis.Tests
             Assert.AreEqual(87, oldWorld.Tick);
             float allCarriedPlanksBefore = TotalLegacyPlanks(oldWorld);
             SimulationEngine migrated = new SimulationEngine(oldWorld);
-            Assert.AreEqual(3, migrated.World.ResourceVersion);
+            Assert.AreEqual(4, migrated.World.ResourceVersion);
             Assert.AreEqual(3796401059u, migrated.World.RngState, "Migration must not consume simulation randomness.");
             Assert.AreEqual(15, migrated.World.NextId, "Deposits use cell identity, never new citizen/building IDs.");
             SettlementData town = migrated.World.Settlements[0];
@@ -106,7 +106,7 @@ namespace WorldGenesis.Tests
             int oldId = oldWorld.Units[0].Id;
             float oldX = oldWorld.Units[0].X, oldY = oldWorld.Units[0].Y;
             SimulationEngine engine = new SimulationEngine(oldWorld);
-            Assert.AreEqual(3, oldWorld.ResourceVersion);
+            Assert.AreEqual(4, oldWorld.ResourceVersion);
             Assert.AreEqual(3539512653u, oldWorld.RngState);
             Assert.AreEqual(13, oldWorld.NextId);
             Assert.AreEqual(before, TotalTransported(oldWorld), .0001f);

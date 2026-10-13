@@ -23,6 +23,7 @@ namespace WorldGenesis.Simulation
         public bool Find(int start, int goal, List<int> result, int budget = 4096, bool avoidFire = false)
         {
             result.Clear();
+            start = world.BuildingNavigationCell(start); goal = world.BuildingNavigationCell(goal);
             if (start < 0 || goal < 0 || start >= visit.Length || goal >= visit.Length || !world.IsWalkable(goal % world.Width, goal / world.Width)) return false;
             if (start == goal) return true;
             if (++stamp == int.MaxValue) { Array.Clear(visit, 0, visit.Length); stamp = 1; }

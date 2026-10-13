@@ -32,7 +32,7 @@ namespace WorldGenesis.Simulation
                 int otherId = d.InstigatorId == unit.Id ? d.TargetId : d.TargetId == unit.Id ? d.InstigatorId : 0;
                 if (unit.Age < 16) otherId = d.InstigatorId; // A child may flee a nearby brawl but never enters it as a combatant.
                 UnitData other = World.GetUnit(otherId);
-                if (other != null && other.Health > 0 && DistanceSquared(unit.X, unit.Y, other.X, other.Y) < 9) return other;
+                if (other != null && other.Health > 0 && other.InsideBuildingId == 0 && DistanceSquared(unit.X, unit.Y, other.X, other.Y) < 9) return other;
             }
             return null;
         }

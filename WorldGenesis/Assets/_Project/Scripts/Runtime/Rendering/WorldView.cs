@@ -24,10 +24,14 @@ namespace WorldGenesis.Runtime
         private readonly Transform root;
         private readonly Texture2D atlas;
         private readonly Material spriteMaterial;
+        private readonly Material depthSpriteMaterial, depthEffectMaterial, wagonMaterial;
         private readonly Texture2D wildlifeAtlas, agricultureAtlas;
         private readonly Material wildlifeMaterial, agricultureMaterial;
         private readonly Texture2D transportAtlas;
         private readonly Material transportMaterial;
+        private readonly Texture2D industryAtlas;
+        private readonly Material industryMaterial;
+        private readonly QuadBatch industryBuildings, industryCargo, industryEffects;
         private readonly QuadBatch waterFlow, wagons;
         private readonly QuadBatch wildlife, equipmentBack, equipmentFront, agriculture, agriculturalCargo;
         private readonly CitizenSprites citizenSprites;
@@ -54,19 +58,25 @@ namespace WorldGenesis.Runtime
         {
             root = new GameObject("World • batched pixel rendering").transform; root.SetParent(parent, false);
             atlas = PixelArt.CreateAtlas(); spriteMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = atlas, name = "Shared pixel atlas" };
-            buildings = new QuadBatch("Buildings", root, spriteMaterial, 30);
-            people = new QuadBatch("Life and citizen markers", root, spriteMaterial, 60);
+            depthSpriteMaterial = WorldDepth.Material(atlas); depthEffectMaterial = WorldDepth.Material(atlas, false);
+            buildings = new QuadBatch("Buildings", root, depthSpriteMaterial, 30);
+            people = new QuadBatch("Life and citizen markers", root, depthSpriteMaterial, 60);
             waterLife = new QuadBatch("Actual fish stocks", root, spriteMaterial, 10);
-            wildlifeAtlas = WildlifeArt.CreateAtlas(); wildlifeMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = wildlifeAtlas };
-            agricultureAtlas = AgricultureArt.CreateAtlas(); agricultureMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = agricultureAtlas };
+            wildlifeAtlas = WildlifeArt.CreateAtlas(); wildlifeMaterial = WorldDepth.Material(wildlifeAtlas);
+            agricultureAtlas = AgricultureArt.CreateAtlas(); agricultureMaterial = WorldDepth.Material(agricultureAtlas);
             wildlife = new QuadBatch("Actual wildlife", root, wildlifeMaterial, 40);
             equipmentBack = new QuadBatch("Owned carried equipment", root, wildlifeMaterial, 45);
             equipmentFront = new QuadBatch("Actual parcels and pack bags", root, wildlifeMaterial, 60);
             agriculture = new QuadBatch("Fields and rural buildings", root, agricultureMaterial, 30);
             agriculturalCargo = new QuadBatch("Actual agricultural goods", root, agricultureMaterial, 60);
             transportAtlas = TransportArt.CreateAtlas(); transportMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = transportAtlas };
+            wagonMaterial = WorldDepth.Material(transportAtlas);
             waterFlow = new QuadBatch("Actual water current", root, spriteMaterial, 11);
-            wagons = new QuadBatch("Actual wagons", root, transportMaterial, 45);
+            wagons = new QuadBatch("Actual wagons", root, wagonMaterial, 45);
+            industryAtlas = IndustryArt.CreateAtlas(); industryMaterial = WorldDepth.Material(industryAtlas);
+            industryBuildings = new QuadBatch("Production workshops", root, industryMaterial, 30);
+            industryCargo = new QuadBatch("Manufactured goods", root, industryMaterial, 60);
+            industryEffects = new QuadBatch("Active workshop effects", root, depthEffectMaterial, 31);
             citizenSprites = new CitizenSprites(root);
             weatherView = new WeatherView(root, spriteMaterial);
             borders = new QuadBatch("Territories", root, spriteMaterial, 10);
@@ -91,7 +101,7 @@ namespace WorldGenesis.Runtime
                 chunk.Material = new Material(Shader.Find("Sprites/Default")) { mainTexture = chunk.Texture };
                 chunk.Ground = new QuadBatch("Ground " + cx + "," + cy, root, chunk.Material, 0);
                 chunk.Ground.Add(chunk.X, chunk.Y, chunk.Width, chunk.Height, new Rect(0, 0, 1, 1), Color.white); chunk.Ground.Submit();
-                chunk.Nature = new QuadBatch("Nature " + cx + "," + cy, root, spriteMaterial, 20);
+                chunk.Nature = new QuadBatch("Nature " + cx + "," + cy, root, depthSpriteMaterial, 20);
                 chunk.Bridges = new QuadBatch("Transport deck " + cx + "," + cy, root, transportMaterial, 14);
                 chunks[cy * across + cx] = chunk; Rebuild(chunk); chunk.Hash = ChunkHash(chunk);
             }
@@ -128,28 +138,40 @@ namespace WorldGenesis.Runtime
                 uint renderedHash = ChunkHash(chunk); Rebuild(chunk); chunk.Hash = renderedHash;
             }
             buildings.Clear(); wildlife.Clear(); equipmentBack.Clear(); equipmentFront.Clear(); agriculture.Clear(); agriculturalCargo.Clear(); wagons.Clear(); buildingLookup.Clear(); unitLookup.Clear();
+            industryBuildings.Clear(); industryCargo.Clear(); industryEffects.Clear();
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
             if (animalFacing.Count > world.Units.Count * 2 + 64) animalFacing.Clear();
             for (int i = 0; i < world.Buildings.Count; i++) buildingLookup[world.Buildings[i].Id] = world.Buildings[i];
             if (world.GroundStocks != null) for (int i = 0; i < world.GroundStocks.Count; i++)
             {
                 GroundStockData stock = world.GroundStocks[i]; if (stock.Amount <= 0) continue;
+                buildings.SetFootDepth(stock.Y); industryBuildings.SetFootDepth(stock.Y); equipmentBack.SetFootDepth(stock.Y);
                 int glyph = stock.IsFood ? ResourceArt.FoodBasket : ResourceArt.CargoSprite(stock.Item);
                 if (stock.IsFood) Equipment(equipmentBack, stock.X, stock.Y - .15f, .82f, WildlifeArt.FoodBundle);
+                else if (IndustryArt.SupportsItem(stock.Item)) IndustryArt.DrawItem(industryBuildings, stock.Item, new Vector2(stock.X, stock.Y - .15f), .82f, Color.white);
                 else if (glyph >= 0) buildings.Sprite(stock.X, stock.Y - .15f, .82f, .82f, glyph, ResourceArt.CargoColor(stock.Item));
             }
             if (world.AgriculturalDrops != null) for (int i = 0; i < world.AgriculturalDrops.Count; i++)
             {
                 AgriculturalDrop drop = world.AgriculturalDrops[i]; if (drop.Amount <= .001f) continue;
+                agriculture.SetFootDepth(drop.Y);
                 AgroSprite(agriculture, drop.X, drop.Y - .14f, .85f, AgricultureArt.ProductSprite(drop.Product));
             }
             for (int i = 0; i < world.Buildings.Count; i++)
             {
                 BuildingData b = world.Buildings[i]; if (b.Health <= 0) continue;
+                float buildingFoot = b.Y + .25f;
+                buildings.SetFootDepth(buildingFoot); industryBuildings.SetFootDepth(buildingFoot); agriculture.SetFootDepth(buildingFoot);
+                industryEffects.SetFootDepth(buildingFoot, WorldDepth.Front);
                 int sprite = ResolveBuildingSprite(b);
                 bool barrier = b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate;
                 float size = barrier ? 1.1f : b.Type == BuildingType.Hall ? 2.5f : b.Type == BuildingType.Well ? 1.65f : b.Type == BuildingType.Sawmill || b.Type == BuildingType.Stoneworks || b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary ? 2.8f : b.Type == BuildingType.House ? 2.15f + Mathf.Clamp(b.Level, 1, 5) * .09f : 2.3f;
-                if (b.Type == BuildingType.Farm) AgroSprite(agriculture, b.X + .5f, b.Y - .2f, 2.55f, AgricultureArt.FieldSprite(b.FarmCrop, b.CropGrowth));
+                if (IndustryArt.SupportsBuilding(b.Type))
+                {
+                    IndustryArt.DrawBuilding(industryBuildings, b);
+                    IndustryArt.DrawActivity(industryEffects, world, b);
+                }
+                else if (b.Type == BuildingType.Farm) AgroSprite(agriculture, b.X + .5f, b.Y - .2f, 2.55f, AgricultureArt.FieldSprite(b.FarmCrop, b.CropGrowth));
                 else if (b.Type == BuildingType.Pasture || b.Type == BuildingType.Brewery) AgroSprite(agriculture, b.X + .5f, b.Y - .2f, b.Type == BuildingType.Pasture ? 3.2f : 2.75f, b.Type == BuildingType.Pasture ? AgricultureArt.Pasture : AgricultureArt.Brewery);
                 else buildings.Sprite(b.X + .5f, b.Y - (barrier ? 0 : .15f), size, size, sprite, Color.white);
                 SettlementData settlement = world.GetSettlement(b.SettlementId);
@@ -169,10 +191,12 @@ namespace WorldGenesis.Runtime
             DrawWaterCurrent(camera, showDetails);
             for (int i = 0; i < world.Units.Count; i++)
             {
-                UnitData unit = world.Units[i]; if (unit.Health <= 0) continue;
+                UnitData unit = world.Units[i]; if (unit.Health <= 0 || unit.InsideBuildingId != 0) continue;
                 Vector2 offset = crowd.Offset(unit.Id), position = new Vector2(unit.X, unit.Y) + offset;
                 bool riding = IsRiding(world, unit);
                 if (riding && unitLookup.TryGetValue(unit.MountId, out UnitData ridden)) { position = new Vector2(ridden.X, ridden.Y + WildlifeArt.AnimalSize(ridden.Species) * .2f); offset = position - new Vector2(unit.X, unit.Y); }
+                float unitFoot = riding ? unitLookup[unit.MountId].Y : position.y;
+                SetUnitDepth(unitFoot);
                 Color tint = Color.white;
                 SettlementData settlement = world.GetSettlement(unit.SettlementId);
                 if (settlement != null) tint = Color.Lerp(Color.white, PixelArt.Factions[(uint)settlement.ColorIndex % (uint)PixelArt.Factions.Length], .37f);
@@ -210,7 +234,10 @@ namespace WorldGenesis.Runtime
                 }
                 Vector2 facing = human ? citizenSprites.Facing(unit.Id) : TravelDirection(unit);
                 DrawEquipment(unit, facing);
+                SetUnitDepth(unitFoot);
+                if (showDetails && human) IndustryArt.DrawEquipment(people, world, unit, position, facing, riding);
                 DrawCargo(unit, facing, simulationTime, offset);
+                SetUnitDepth(unitFoot);
                 if (showDetails) DrawWaterActivity(unit, position, facing);
                 if (unit.Id == SelectedUnitId)
                 {
@@ -219,13 +246,26 @@ namespace WorldGenesis.Runtime
                 }
             }
             buildings.Submit(); people.Submit(); wildlife.Submit(); equipmentBack.Submit(); equipmentFront.Submit(); agriculture.Submit(); agriculturalCargo.Submit(); wagons.Submit(); citizenSprites.Submit();
+            industryBuildings.Submit(); industryCargo.Submit(); industryEffects.Submit();
             weatherView.Update(world, camera);
         }
 
         public Sprite CreateWeatherIcon(WeatherKind kind) { return weatherView.CreateIcon(kind); }
         public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
         public Sprite CreateCitizenIcon(SpeciesType species) { return citizenSprites.CreateCitizenSprite(species, CitizenSprites.CitizenAppearance.AdultMale, CitizenSprites.CitizenDirection.South); }
-        public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id) + CitizenWaterPresentation.Resolve(world, unit).Offset; }
+        public Vector2 GetPresentationPosition(UnitData unit)
+        {
+            if (unit.InsideBuildingId != 0) { BuildingData inside = world.GetBuilding(unit.InsideBuildingId); if (inside != null) return new Vector2(inside.X + .5f, inside.Y + .5f); }
+            if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); }
+            return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id) + CitizenWaterPresentation.Resolve(world, unit).Offset;
+        }
+        private void SetUnitDepth(float foot)
+        {
+            wildlife.SetFootDepth(foot); equipmentBack.SetFootDepth(foot, WorldDepth.Back);
+            equipmentFront.SetFootDepth(foot, WorldDepth.Front); people.SetFootDepth(foot, WorldDepth.Front);
+            agriculturalCargo.SetFootDepth(foot, WorldDepth.Front); industryCargo.SetFootDepth(foot, WorldDepth.Front);
+            buildings.SetFootDepth(foot, WorldDepth.Back); wagons.SetFootDepth(foot, WorldDepth.Back);
+        }
         public Sprite CreateAnimalIcon(SpeciesType species)
         {
             int sprite = ((int)species - 6) * WildlifeArt.FramesPerAnimal; Rect uv = WildlifeArt.Uv(sprite);
@@ -269,6 +309,7 @@ namespace WorldGenesis.Runtime
                 if (unit.HasWagon)
                 {
                     Vector2 wagon = WagonPosition(mount, facing);
+                    wagons.SetFootDepth(wagon.y, WorldDepth.Back); people.SetFootDepth(wagon.y, WorldDepth.Front);
                     bool vertical = Mathf.Abs(facing.y) > Mathf.Abs(facing.x);
                     float size = vertical ? 1.7f : 1.9f;
                     wagons.Add(wagon.x - size * .5f, wagon.y - size * .35f, size, size, TransportArt.Uv(vertical ? TransportArt.WagonVertical : TransportArt.WagonSide), Color.white, facing.x < 0);
@@ -282,7 +323,8 @@ namespace WorldGenesis.Runtime
                     }
                     people.OrientedSprite(hitch, .42f, .055f, Mathf.Atan2(normal.y, normal.x), 12, PixelArt.Hex("5d4b3a"));
                 }
-                else Equipment(equipmentBack, mount.X, mount.Y + .11f, WildlifeArt.AnimalSize(mount.Species) * .70f, WildlifeArt.Saddle, facing.x < 0);
+                else { equipmentBack.SetFootDepth(mount.Y, WorldDepth.Front); Equipment(equipmentBack, mount.X, mount.Y + .11f, WildlifeArt.AnimalSize(mount.Species) * .70f, WildlifeArt.Saddle, facing.x < 0); }
+                equipmentFront.SetFootDepth(mount.Y, WorldDepth.Front);
                 if (unit.MountBags && !mount.HasSaddleBags) Equipment(equipmentFront, mount.X, mount.Y - .08f, WildlifeArt.AnimalSize(mount.Species) * .68f, WildlifeArt.SaddleBags, facing.x < 0);
             }
             else if (unit.BasketLevel > 0)
@@ -372,6 +414,9 @@ namespace WorldGenesis.Runtime
             {
                 UnitData mount = unitLookup[unit.MountId]; Vector2 travel = animalFacing.TryGetValue(mount.Id, out Vector2 savedDirection) ? savedDirection : TravelDirection(mount);
                 position = unit.HasWagon ? WagonPosition(mount, travel) + new Vector2(0, -.04f) : new Vector2(mount.X + .28f, mount.Y + .12f);
+                float foot = unit.HasWagon ? WagonPosition(mount, travel).y : mount.Y;
+                people.SetFootDepth(foot, WorldDepth.Front); equipmentFront.SetFootDepth(foot, WorldDepth.Front);
+                agriculturalCargo.SetFootDepth(foot, WorldDepth.Front); industryCargo.SetFootDepth(foot, WorldDepth.Front);
             }
             if (harvest) AgroSprite(agriculturalCargo, position.x + (resource || food || legacyPlanks ? .35f : 0), position.y, unit.IsChild ? .58f : .78f, AgricultureArt.ProductSprite(unit.HarvestProduct));
             if (water)
@@ -399,6 +444,7 @@ namespace WorldGenesis.Runtime
             ItemType item = legacyPlanks ? ItemType.Plank : unit.CargoKind;
             int glyph = food ? ResourceArt.FoodBasket : ResourceArt.CargoSprite(item);
             if (food) Equipment(equipmentFront, position.x, position.y + bob, size, WildlifeArt.FoodBundle);
+            else if (IndustryArt.SupportsItem(item)) IndustryArt.DrawItem(industryCargo, item, position + Vector2.up * bob, size, Color.white);
             else people.Sprite(position.x, position.y + bob, size, size, glyph, ResourceArt.CargoColor(item));
         }
         private void DrawWaterCurrent(Camera camera, bool visible)
@@ -437,6 +483,8 @@ namespace WorldGenesis.Runtime
         }
         private void DrawBuildingSupplies(BuildingData building)
         {
+            float supplyFoot = building.Y - .12f;
+            buildings.SetFootDepth(supplyFoot); agriculturalCargo.SetFootDepth(supplyFoot); industryCargo.SetFootDepth(supplyFoot);
             if (building.Type == BuildingType.Brewery && building.BrewWaterStored > .001f)
                 buildings.Sprite(building.X - .45f, building.Y - .25f, .65f, .65f, SocietyArt.WaterPail, Color.white);
             if (building.AgriculturalStock != null)
@@ -451,16 +499,30 @@ namespace WorldGenesis.Runtime
             if (building.Inventory != null)
             {
                 int drawn = 0;
+                IndustryRecipe production = IndustryCatalog.Get(building.ActiveIndustryRecipe);
+                ItemType visibleOutput = production != null && building.Inventory[(int)production.Output] > .001f ? production.Output : ItemType.None;
+                if (visibleOutput != ItemType.None)
+                {
+                    IndustryArt.DrawItem(industryCargo, visibleOutput, new Vector2(building.X - .3f, building.Y - .27f), .78f, Color.white);
+                    drawn++;
+                }
                 for (int item = 1; item < building.Inventory.Length && drawn < 3; item++)
                 {
-                    if (building.Inventory[item] <= .001f) continue;
-                    ItemType type = (ItemType)item; int sprite = ResourceArt.CargoSprite(type); if (sprite < 0) continue;
-                    buildings.Sprite(building.X - .3f + drawn * .48f, building.Y - .27f, .78f, .78f, sprite, ResourceArt.CargoColor(type)); drawn++;
+                    if (building.Inventory[item] <= .001f || (ItemType)item == visibleOutput) continue;
+                    ItemType type = (ItemType)item;
+                    if (IndustryArt.SupportsItem(type)) IndustryArt.DrawItem(industryCargo, type, new Vector2(building.X - .3f + drawn * .48f, building.Y - .27f), .78f, Color.white);
+                    else
+                    {
+                        int sprite = ResourceArt.CargoSprite(type); if (sprite < 0) continue;
+                        buildings.Sprite(building.X - .3f + drawn * .48f, building.Y - .27f, .78f, .78f, sprite, ResourceArt.CargoColor(type));
+                    }
+                    drawn++;
                 }
             }
             UnitData worker = building.WorkerId != 0 ? world.GetUnit(building.WorkerId) : null;
             if (worker == null || worker.Task != UnitTask.Process || worker.WorkTimer <= 0 || worker.PathCursor < worker.Path.Count || building.ActiveRecipe == RecipeType.None) return;
             float phase = building.ProcessProgress * 5;
+            buildings.SetFootDepth(building.Y + .25f, WorldDepth.Front);
             if (building.Type == BuildingType.Sawmill)
             {
                 buildings.Sprite(building.X + .9f, building.Y + 1.25f + Mathf.Sin(phase) * .055f, .50f, .055f, 12, PixelArt.Hex("d3ded1"));
@@ -563,6 +625,7 @@ namespace WorldGenesis.Runtime
             for (int localY = chunk.Height - 1; localY >= 0; localY--) for (int localX = 0; localX < chunk.Width; localX++)
             {
                 int x = chunk.X + localX, y = chunk.Y + localY;
+                chunk.Nature.SetFootDepth(y + .25f);
                 TileData cell = world.Cells[world.Index(x, y)]; uint hash = PixelArt.Hash(x, y, world.Seed);
                 Color baseColor = PixelArt.Terrain(cell.Terrain);
                 bool water = cell.Terrain == TerrainType.DeepWater || cell.Terrain == TerrainType.ShallowWater;
@@ -692,6 +755,8 @@ namespace WorldGenesis.Runtime
         }
         public void Dispose()
         {
+            UnityEngine.Object.Destroy(depthSpriteMaterial); UnityEngine.Object.Destroy(depthEffectMaterial); UnityEngine.Object.Destroy(wagonMaterial);
+            industryBuildings.Dispose(); industryCargo.Dispose(); industryEffects.Dispose(); UnityEngine.Object.Destroy(industryMaterial); UnityEngine.Object.Destroy(industryAtlas);
             weatherView.Dispose();
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); chunk.Bridges.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             waterFlow.Dispose(); wagons.Dispose(); UnityEngine.Object.Destroy(transportMaterial); UnityEngine.Object.Destroy(transportAtlas);

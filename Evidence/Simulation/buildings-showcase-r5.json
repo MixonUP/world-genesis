@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-13T19:26:06.2287875Z",
+  "output": "Builds/buildings-showcase-r5.save.json",
+  "sha256": "D9B6D534D80D5313D487BE8DEAAC949C18D464385D137DFAA35FD5EBE7B19CBE",
+  "assistance": "Authored cleared quarter; technologies, construction budget, raw and intermediate stock granted. Buildings paid through API; production/hauling proceeds through real commands and ticks. This is not natural development.",
+  "approach": false,
+  "subjects": [
+    {
+      "Id": 12,
+      "building": "Smelter",
+      "X": 53,
+      "Y": 66,
+      "worker": 26,
+      "recipe": "IronIngot",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 14,
+      "building": "Smithy",
+      "X": 57,
+      "Y": 66,
+      "worker": 27,
+      "recipe": "Armor",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 16,
+      "building": "Tannery",
+      "X": 53,
+      "Y": 61,
+      "worker": 28,
+      "recipe": "Leather",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 18,
+      "building": "Weaver",
+      "X": 57,
+      "Y": 61,
+      "worker": 29,
+      "recipe": "LinenCloth",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 20,
+      "building": "Tailor",
+      "X": 53,
+      "Y": 56,
+      "worker": 30,
+      "recipe": "LinenClothes",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 22,
+      "building": "Carpentry",
+      "X": 57,
+      "Y": 56,
+      "worker": 31,
+      "recipe": "Ballista",
+      "localInputsGranted": true
+    },
+    {
+      "Id": 24,
+      "building": "Mint",
+      "X": 62,
+      "Y": 56,
+      "worker": 32,
+      "recipe": "SilverCoin",
+      "localInputsGranted": false
+    }
+  ],
+  "occupants": [
+    {
+      "Id": 26,
+      "Name": "\u041B\u0430\u0434\u0430 \u00B7 \u043F\u043B\u0430\u0432\u0438\u043B\u044C\u0449\u0438\u0446\u0430",
+      "InsideBuildingId": 12
+    },
+    {
+      "Id": 27,
+      "Name": "\u0411\u043E\u0440 \u00B7 \u043A\u0443\u0437\u043D\u0435\u0446",
+      "InsideBuildingId": 14
+    },
+    {
+      "Id": 28,
+      "Name": "\u041C\u0438\u0440\u0430 \u00B7 \u043A\u043E\u0436\u0435\u0432\u043D\u0438\u0446\u0430",
+      "InsideBuildingId": 16
+    },
+    {
+      "Id": 29,
+      "Name": "\u042D\u043B\u044C \u00B7 \u0442\u043A\u0430\u0447",
+      "InsideBuildingId": 18
+    },
+    {
+      "Id": 30,
+      "Name": "\u0412\u0435\u0440\u0430 \u00B7 \u043F\u043E\u0440\u0442\u043D\u0430\u044F",
+      "InsideBuildingId": 20
+    },
+    {
+      "Id": 31,
+      "Name": "\u0422\u0430\u0440 \u00B7 \u043F\u043B\u043E\u0442\u043D\u0438\u043A",
+      "InsideBuildingId": 22
+    }
+  ],
+  "sourceTick": 30,
+  "continuationTicks": 120,
+  "validation": true,
+  "camera": {
+    "x": 59,
+    "y": 62,
+    "zoom": 11
+  }
+}

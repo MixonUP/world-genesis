@@ -147,3 +147,11 @@ python Tools/Wrap-CaptureWorld.py Builds/rural-assisted-showcase.json Builds/rur
 [Подготовленный мир для сравнения снастей и брода](FishingShowcase/README.md) явно выдаёт снасти1–5 и меняет локальный берег, продлевая первый заброс до20с. Его кадры не доказывают естественное исследование этих грейдов. Используйте `-PlayerRelativePath Builds/Windows-0.6.1/WorldGenesis.exe` в существующих Run-Capture/Run-MotionCapture.
 
 Упаковка: `Tools/Package-Alpha.ps1 -Version 0.6.1-alpha -BuildFolder Windows-0.6.1`. Архив включает отчёт, руководство и происхождение арта; каждый файл ZIP перечитывается и сверяется поSHA256. Это локальная упаковка, не создание GitHub Release. Project Validate теперь также проверяет длину32 и уникальность GUID всех Asset.meta; результат организации не заменяет Unity-тесты.
+
+## Производство0.7
+
+`dotnet run --project Tools/ProductionProbe -- Evidence/Simulation/production-probe.json` — независимые сценарии на настоящих исходниках Simulation. Параметры естественного прогона и выделенная помощь: `Tools/ProductionProbe/README.md`. Контролируемые рецепты не доказывают баланс обычного мира.
+
+`dotnet run --project Tools/ProductionShowcase -- Builds/production-showcase.save.json Evidence/Simulation/production-showcase.json` — подготовленный квартал мастерских для настоящего Windows Player. Карта очищена, исследования/сырьё выданы; стройка оплачена через API, дальнейшее производство/доставка настоящие. Это не естественная прогрессия.
+
+Новый снимок для Unity: `Tools/New-VerificationSnapshot.ps1 -Name production-v070-rN`, затем Project.ps1 EditMode/PlayMode/Build с VerificationProject. Итоговые проверенные пути и ограничения — `Docs/Development/PRODUCTION_REPORT.md`.

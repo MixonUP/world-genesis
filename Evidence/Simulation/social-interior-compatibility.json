@@ -1,0 +1,88 @@
+{
+  "utc": "2026-10-13T19:23:24.8171198Z",
+  "tests": 16,
+  "failures": 0,
+  "runtime": "8.0.20",
+  "results": [
+    {
+      "name": "LegacySocialMigrationConsumesNoRandomIdsOrGoods",
+      "passed": true,
+      "milliseconds": 208.0788
+    },
+    {
+      "name": "MoodUsesNeedsLawsAndActualHousing",
+      "passed": true,
+      "milliseconds": 18.5795
+    },
+    {
+      "name": "RepublicCountsAdultsAndRequiresStrictMajority",
+      "passed": true,
+      "milliseconds": 5.595
+    },
+    {
+      "name": "ReligionsEmergeGraduallyAndCanExceedThree",
+      "passed": true,
+      "milliseconds": 59.9667
+    },
+    {
+      "name": "ConversionRequiresActualAdultConversation",
+      "passed": true,
+      "milliseconds": 13.8922
+    },
+    {
+      "name": "ReligiousDifferenceAloneIsPeacefulAndCrisisBrawlIsBounded",
+      "passed": true,
+      "milliseconds": 41.0943
+    },
+    {
+      "name": "ExtremeFanaticalCrisisCanCauseLethalAdultViolence",
+      "passed": true,
+      "milliseconds": 5.5259
+    },
+    {
+      "name": "SustainedMajorityCrisisChangesRegimeWithCooldown",
+      "passed": true,
+      "milliseconds": 71.2145
+    },
+    {
+      "name": "LearningNeedsMentorAndMasterNeedsBothEducationAndPractice",
+      "passed": true,
+      "milliseconds": 7.8293
+    },
+    {
+      "name": "WarDeathsReduceTrustOnlyForActualWarLoss",
+      "passed": true,
+      "milliseconds": 6.0293
+    },
+    {
+      "name": "WallsBurnAndTerrainPaintPreservesValidWallOwnership",
+      "passed": true,
+      "milliseconds": 5.2759
+    },
+    {
+      "name": "SocialValidationRejectsCorruptFaithMoodAndBallot",
+      "passed": true,
+      "milliseconds": 90.8559
+    },
+    {
+      "name": "WorkersChooseReadyHarvestWithoutCrowdingAnEmptyField",
+      "passed": true,
+      "milliseconds": 8.372
+    },
+    {
+      "name": "AdditionalFieldPrecedesExtraHousingAndConsumesRealPlanks",
+      "passed": true,
+      "milliseconds": 6.1394
+    },
+    {
+      "name": "DistantSavedCarrierReturnsByRouteWithoutLosingGoods",
+      "passed": true,
+      "milliseconds": 785.7623
+    },
+    {
+      "name": "SocialSaveContinuesAllStateDeterministically",
+      "passed": true,
+      "milliseconds": 328.7731
+    }
+  ]
+}

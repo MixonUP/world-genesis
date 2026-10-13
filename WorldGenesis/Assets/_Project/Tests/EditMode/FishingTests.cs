@@ -137,7 +137,9 @@ namespace WorldGenesis.Tests
             hall.AgriculturalStock[(int)AgriculturalProduct.RiverPearl] = .5f; hall.AgriculturalStock[(int)AgriculturalProduct.AncientScale] = .25f;
             for (int grade = 2; grade <= 5; grade++)
             {
-                u.X = hall.X + .5f; u.Y = hall.Y + .5f; u.Hunger = u.Thirst = u.Fatigue = u.SocialNeed = 0;
+                // Keep the actual position and indoor state from the preceding grade;
+                // the next order must leave the workshop and fetch its own inputs.
+                u.Hunger = u.Thirst = u.Fatigue = u.SocialNeed = 0;
                 Need(e.TryStartFishingRod(u.Id), "Cannot request grade " + grade); Near(grade - 1, FishingCatalog.RodLevel(u), "Instant rod grant");
                 int moves = 0, carriedSamples = 0; float lastX = u.X, lastY = u.Y;
                 for (int tick = 0; tick < 6000 && u.FishingRodLevel < grade; tick++)

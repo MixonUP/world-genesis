@@ -36,11 +36,15 @@ namespace WorldGenesis.Tests
             }
             throw new InvalidOperationException("No free depot fixture site.");
         }
-        private static void At(UnitData unit, BuildingData building)
+        private static void At(SimulationEngine engine, UnitData unit, BuildingData building)
         {
-            unit.X = building.X + .5f; unit.Y = building.Y + .5f; unit.Path.Clear(); unit.PathCursor = 0;
-            unit.TargetBuildingId = building.Id; unit.Task = UnitTask.Return; unit.CargoOwnerId = 0;
+            int door=BuildingAccess.EntranceCell(engine.World,building);Need(door>=0,"Depot fixture has no door");
+            unit.X=door%engine.World.Width+.5f;unit.Y=door/engine.World.Width+.5f;unit.Path.Clear();unit.PathCursor=0;
+            unit.InsideBuildingId=unit.EnteringBuildingId=0;unit.BuildingInteractionTimer=0;unit.Task=UnitTask.Idle;unit.CargoOwnerId=0;
             unit.CargoKind = ItemType.None; unit.CargoAmount = unit.CarriedFood = unit.CarriedWood = unit.CarriedWater = unit.HarvestAmount = 0; unit.HarvestProduct = AgriculturalProduct.None;
+            Need(engine.TryEnterBuilding(unit.Id,building.Id),"Depot entry refused");
+            for(int i=0;i<20&&unit.InsideBuildingId!=building.Id;i++)engine.Step(.1f);
+            Need(unit.InsideBuildingId==building.Id,"Carrier never entered depot");unit.TargetBuildingId=building.Id;unit.Task=UnitTask.Return;
         }
         public static void FourCapacitiesAndLegacyFifthLevelNeverRewriteGoods()
         {
@@ -69,7 +73,7 @@ namespace WorldGenesis.Tests
             SimulationEngine engine = Town(); BuildingData depot = Add(engine, BuildingType.Warehouse); UnitData unit = engine.World.Units[0];
             depot.Inventory[(int)ItemType.RawStone] = 600; depot.TaxStocks[(int)ItemType.Coal] = 100;
             depot.PersonalStocks.Add(new OwnedGoodsData { OwnerId = unit.Id, Item = ItemType.Clay, Amount = 100 }); depot.AgriculturalStock[(int)AgriculturalProduct.Fiber] = 199.5f;
-            At(unit, depot); unit.CargoKind = ItemType.Log; unit.CargoAmount = 1;
+            At(engine, unit, depot); unit.CargoKind = ItemType.Log; unit.CargoAmount = 1;
             Call(engine, "WorkResources", unit, engine.World.Settlements[0], .1f);
             Near(1000, StorageCapacity.TotalUsed(depot), "material delivery respects cross-compartment capacity"); Near(.5f, unit.CargoAmount, "overflow stays in hands");
             Near(100.0f, depot.PersonalStocks[0].Amount, "private lot preserved"); Near(100, depot.TaxStocks[(int)ItemType.Coal], "tax preserved");
@@ -80,7 +84,7 @@ namespace WorldGenesis.Tests
             SimulationEngine engine = Town(); BuildingData depot = Add(engine, BuildingType.Granary); UnitData unit = engine.World.Units[0];
             depot.Inventory[(int)ItemType.RawStone] = 100; depot.TaxStocks[(int)ItemType.Coal] = 100;
             depot.PersonalStocks.Add(new OwnedGoodsData { OwnerId = unit.Id, Item = ItemType.Clay, Amount = 100 }); depot.AgriculturalStock[(int)AgriculturalProduct.Grain] = 699.5f;
-            At(unit, depot); unit.HarvestProduct = AgriculturalProduct.Berries; unit.HarvestAmount = 1;
+            At(engine, unit, depot); unit.HarvestProduct = AgriculturalProduct.Berries; unit.HarvestAmount = 1;
             Call(engine, "PerformAgriDelivery", unit, engine.World.Settlements[0], .1f);
             Near(1000, StorageCapacity.TotalUsed(depot), "food admission counts legacy wrong goods"); Near(.5f, unit.HarvestAmount, "food excess stays with carrier");
             Near(100, depot.Inventory[(int)ItemType.RawStone], "legacy material not deleted"); Need(engine.World.Validate(out string error), error);
@@ -88,11 +92,11 @@ namespace WorldGenesis.Tests
         public static void WrongIncomingGoodsStayWithTheirCarrier()
         {
             SimulationEngine engine = Town(); BuildingData warehouse = Add(engine, BuildingType.Warehouse), granary = Add(engine, BuildingType.Granary); UnitData unit = engine.World.Units[0];
-            At(unit, warehouse); unit.HarvestProduct = AgriculturalProduct.Grain; unit.HarvestAmount = 1; Call(engine, "PerformAgriDelivery", unit, engine.World.Settlements[0], .1f);
+            At(engine, unit, warehouse); unit.HarvestProduct = AgriculturalProduct.Grain; unit.HarvestAmount = 1; Call(engine, "PerformAgriDelivery", unit, engine.World.Settlements[0], .1f);
             Near(1, unit.HarvestAmount, "warehouse refuses new food without losing it"); Near(0, StorageCapacity.TotalUsed(warehouse), "no wrong food admission");
-            At(unit, granary); unit.CargoKind = ItemType.Log; unit.CargoAmount = 1; Call(engine, "WorkResources", unit, engine.World.Settlements[0], .1f);
+            At(engine, unit, granary); unit.CargoKind = ItemType.Log; unit.CargoAmount = 1; Call(engine, "WorkResources", unit, engine.World.Settlements[0], .1f);
             Near(1, unit.CargoAmount, "granary refuses material without losing it"); Near(0, StorageCapacity.TotalUsed(granary), "no wrong material admission");
-            At(unit, granary); unit.HarvestProduct = AgriculturalProduct.Fiber; unit.HarvestAmount = 1; Call(engine, "PerformAgriDelivery", unit, engine.World.Settlements[0], .1f);
+            At(engine, unit, granary); unit.HarvestProduct = AgriculturalProduct.Fiber; unit.HarvestAmount = 1; Call(engine, "PerformAgriDelivery", unit, engine.World.Settlements[0], .1f);
             Near(1, unit.HarvestAmount, "granary refuses fibre"); Near(0, StorageCapacity.TotalUsed(granary), "no wrong crop admission");
         }
         public static void OverloadedAndLegacyWrongStocksRoundTripWithoutTruncation()

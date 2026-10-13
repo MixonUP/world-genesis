@@ -61,7 +61,7 @@ namespace WorldGenesis.Simulation
         {
             BuildingData house = GetBuilding(unit.HomeBuildingId);
             if (house == null || house.Health <= 0 || house.SettlementId != unit.SettlementId) return .08f;
-            return house.Type == BuildingType.Hall ? .25f : Math.Min(1, .32f + house.Level * .13f);
+            return Math.Min(1, (house.Type == BuildingType.Hall ? .25f : .32f + house.Level * .13f) + house.FurnitureCount * .1f);
         }
         public float GetHousingComfort(int settlementId)
         {

@@ -143,7 +143,7 @@ namespace WorldGenesis.Simulation
             if (m.Phase == CaravanMemberPhase.Loading)
             {
                 BuildingData b = World.GetBuilding(m.SourceBuildingId);
-                if (!UsableBuilding(b, c.OriginId) || DistanceSquared(unit.X, unit.Y, b.X + .5f, b.Y + .5f) >= 2) { if (unit.DecisionTimer <= 0) RouteCaravanMember(unit, c, m); return true; }
+                if (!UsableBuilding(b, c.OriginId) || !AtBuilding(unit, b)) { if (unit.DecisionTimer <= 0) RouteCaravanMember(unit, c, m); return true; }
                 float amount = Math.Min(m.ExportQuota, Math.Min(CarrySpace(unit), Math.Min(AvailableForHaul(b, c.ExportItem), World.GetResourceBalance(c.OriginId, c.ExportItem).Surplus)));
                 if (amount <= .0001f) { FinishCaravanMember(unit, m); return true; }
                 b.Inventory[(int)c.ExportItem] -= amount; unit.CargoKind = c.ExportItem; unit.CargoAmount = amount; unit.CargoOwnerId = 0; m.Phase = CaravanMemberPhase.Ready; World.ResourceRevision++;
@@ -151,13 +151,13 @@ namespace WorldGenesis.Simulation
             else if (m.Phase == CaravanMemberPhase.Outbound)
             {
                 BuildingData market = World.GetBuilding(c.MarketBuildingId);
-                if (UsableBuilding(market, c.DestinationId) && DistanceSquared(unit.X, unit.Y, market.X + .5f, market.Y + .5f) < 2) m.Phase = CaravanMemberPhase.AtMarket;
+                if (UsableBuilding(market, c.DestinationId) && AtBuilding(unit, market)) m.Phase = CaravanMemberPhase.AtMarket;
                 else if (unit.DecisionTimer <= 0) RouteCaravanMember(unit, c, m);
             }
             else if (m.Phase == CaravanMemberPhase.Returning)
             {
                 int cell = World.Index((int)unit.X, (int)unit.Y); BuildingData b = World.GetBuilding(World.Cells[cell].BuildingId);
-                if (UsableBuilding(b, c.OriginId) && DistanceSquared(unit.X, unit.Y, b.X + .5f, b.Y + .5f) < 2)
+                if (UsableBuilding(b, c.OriginId) && AtBuilding(unit, b))
                 {
                     float amount = Math.Min(unit.CargoAmount, FreeStorage(b));
                     if (amount > 0) { b.Inventory[(int)unit.CargoKind] += amount; unit.CargoAmount -= amount; World.ResourceRevision++; }
@@ -174,7 +174,7 @@ namespace WorldGenesis.Simulation
         private bool ExchangeCaravanLoad(CaravanData c, UnitData unit, BuildingData market)
         {
             SettlementData home = World.GetSettlement(c.OriginId), destination = World.GetSettlement(c.DestinationId);
-            if (home == null || destination == null || AtWar(home.Id, destination.Id) || unit.CargoKind != c.ExportItem || unit.CargoAmount <= 0 || !UsableBuilding(market, destination.Id) || DistanceSquared(unit.X, unit.Y, market.X + .5f, market.Y + .5f) >= 2) return false;
+            if (home == null || destination == null || AtWar(home.Id, destination.Id) || unit.CargoKind != c.ExportItem || unit.CargoAmount <= 0 || !UsableBuilding(market, destination.Id) || !AtBuilding(unit, market)) return false;
             float incoming = 0;
             for (int i = 0; i < c.Members.Count; i++) { UnitData other = World.GetUnit(c.Members[i].UnitId); if (other != null && other.CargoKind == c.ImportItem) incoming += other.CargoAmount; }
             float taxRate = destination.EconomyPolicy == EconomicPolicy.Market ? destination.TaxRate : 0;
@@ -238,7 +238,7 @@ namespace WorldGenesis.Simulation
                     if (m.Phase == CaravanMemberPhase.Done) continue;
                     active++; if (m.Phase == CaravanMemberPhase.Ready) ready++;
                     BuildingData market = World.GetBuilding(c.MarketBuildingId);
-                    if (m.Phase == CaravanMemberPhase.AtMarket && market != null && DistanceSquared(u.X, u.Y, market.X + .5f, market.Y + .5f) < 2) atMarket++;
+                    if (m.Phase == CaravanMemberPhase.AtMarket && market != null && AtBuilding(u, market)) atMarket++;
                 }
                 if (active == 0) { c.Phase = c.Aborted ? CaravanPhase.Cancelled : CaravanPhase.Completed; c.LastChangeTick = World.Tick; continue; }
                 if (c.Phase == CaravanPhase.Loading && ready == active)

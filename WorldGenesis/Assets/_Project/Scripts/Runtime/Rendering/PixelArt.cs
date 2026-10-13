@@ -155,6 +155,8 @@ namespace WorldGenesis.Runtime
         private readonly List<Vector2> uv = new List<Vector2>(4096);
         private readonly List<Color32> colors = new List<Color32>(4096);
         private readonly List<int> triangles = new List<int>(6144);
+        private float depth;
+        public void SetFootDepth(float footY, int part = WorldDepth.Body) { depth = WorldDepth.Z(footY, part); }
         public QuadBatch(string name, Transform parent, Material material, int order)
         {
             root = new GameObject(name, typeof(MeshFilter), typeof(MeshRenderer)); root.transform.SetParent(parent, false);
@@ -167,7 +169,7 @@ namespace WorldGenesis.Runtime
         public void Add(float x, float y, float width, float height, Rect region, Color color, bool flipX = false)
         {
             int start = vertices.Count;
-            vertices.Add(new Vector3(x, y)); vertices.Add(new Vector3(x + width, y)); vertices.Add(new Vector3(x + width, y + height)); vertices.Add(new Vector3(x, y + height));
+            vertices.Add(new Vector3(x, y, depth)); vertices.Add(new Vector3(x + width, y, depth)); vertices.Add(new Vector3(x + width, y + height, depth)); vertices.Add(new Vector3(x, y + height, depth));
             float left = flipX ? region.xMax : region.xMin, right = flipX ? region.xMin : region.xMax;
             uv.Add(new Vector2(left, region.yMin)); uv.Add(new Vector2(right, region.yMin)); uv.Add(new Vector2(right, region.yMax)); uv.Add(new Vector2(left, region.yMax));
             for (int i = 0; i < 4; i++) colors.Add(color);
@@ -178,7 +180,8 @@ namespace WorldGenesis.Runtime
             Rect region = PixelArt.Uv(sprite); int start = vertices.Count;
             float cosine = Mathf.Cos(radians), sine = Mathf.Sin(radians);
             Vector2 right = new Vector2(cosine, sine) * (width * .5f), up = new Vector2(-sine, cosine) * (height * .5f);
-            vertices.Add(center - right - up); vertices.Add(center + right - up); vertices.Add(center + right + up); vertices.Add(center - right + up);
+            Vector2 a = center - right - up, b = center + right - up, c = center + right + up, d = center - right + up;
+            vertices.Add(new Vector3(a.x, a.y, depth)); vertices.Add(new Vector3(b.x, b.y, depth)); vertices.Add(new Vector3(c.x, c.y, depth)); vertices.Add(new Vector3(d.x, d.y, depth));
             uv.Add(new Vector2(region.xMin, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMin)); uv.Add(new Vector2(region.xMax, region.yMax)); uv.Add(new Vector2(region.xMin, region.yMax));
             for (int i = 0; i < 4; i++) colors.Add(color);
             triangles.Add(start); triangles.Add(start + 1); triangles.Add(start + 2); triangles.Add(start); triangles.Add(start + 2); triangles.Add(start + 3);

@@ -44,16 +44,18 @@ namespace WorldGenesis.Simulation
             if (unit.Task == task) return;
             if (unit.Task == UnitTask.Brew) { BuildingData previous = World.GetBuilding(unit.TargetBuildingId); if (previous != null) previous.BrewingProgress = 0; }
             ReleaseReservation(unit);
-            ReleaseWorkshop(unit);
+            ReleaseWorkshop(unit); ReleaseIndustry(unit);
             unit.Task = task; unit.TaskStartedTick = World.Tick; unit.WorkTimer = 0;
+            if (!IndoorTask(task)) { unit.EnteringBuildingId = 0; unit.BuildingInteractionTimer = 0; }
             if (task != UnitTask.Fight && task != UnitTask.Hunt && task != UnitTask.Tend && task != UnitTask.Socialize) unit.TargetId = 0;
             if (task != UnitTask.Gather && task != UnitTask.Fish) unit.ResourceCell = -1;
-            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process && task != UnitTask.Drink && task != UnitTask.Tend && task != UnitTask.Brew && task != UnitTask.CraftEquipment && task != UnitTask.Caravan) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
+            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process && task != UnitTask.Drink && task != UnitTask.Tend && task != UnitTask.Brew && task != UnitTask.CraftEquipment && task != UnitTask.Caravan && task != UnitTask.Produce && task != UnitTask.InstallFurniture && task != UnitTask.EquipGoods && task != UnitTask.VisitBuilding) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
             if (task != UnitTask.CraftEquipment) { unit.EquipmentProgress = 0; unit.EquipmentOrder = 0; }
             if (task != UnitTask.Haul) unit.GroundStockIndex = -1;
+            if (task != UnitTask.EquipGoods) unit.DesiredIndustryEquipment = ItemType.None;
         }
 
-        private static void ClearRoute(UnitData unit) { unit.Path.Clear(); unit.PathCursor = 0; }
+        private static void ClearRoute(UnitData unit) { unit.Path.Clear(); unit.PathCursor = 0; unit.EnteringBuildingId = 0; unit.BuildingInteractionTimer = 0; }
 
         private bool NeedsImmediateDecision(UnitData unit)
         {
@@ -65,6 +67,7 @@ namespace WorldGenesis.Simulation
 
         private bool CommittedActivity(UnitData unit)
         {
+            if (unit.Task == UnitTask.Produce || unit.Task == UnitTask.InstallFurniture || unit.Task == UnitTask.EquipGoods || unit.Task == UnitTask.VisitBuilding) return World.GetBuilding(unit.TargetBuildingId) != null;
             if (unit.Task == UnitTask.BuildTransport && unit.TransportProjectId != 0) return true;
             if (unit.Task == UnitTask.Caravan && unit.CaravanId != 0) return true;
             if (unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Brew) return World.GetBuilding(unit.TargetBuildingId) != null && (unit.Task != UnitTask.CraftEquipment || unit.EquipmentOrder != 0);
@@ -105,6 +108,15 @@ namespace WorldGenesis.Simulation
         {
             bool entering = unit.Task != UnitTask.Flee;
             ChangeTask(unit, UnitTask.Flee);
+            // Adjacent flames can trigger escape while the building's own tile is still safe.
+            // Never attach an exterior route to a resident who still occupies the interior.
+            if (unit.InsideBuildingId != 0)
+            {
+                BuildingData inside=World.GetBuilding(unit.InsideBuildingId);
+                int exit=inside==null ? -1 : FindBuildingExit(inside,true);
+                if(exit<0){ClearRoute(unit);unit.DecisionTimer=.8f;return;}
+                PlaceOutsideBuilding(unit,exit);
+            }
             if (!entering && unit.DecisionTimer > 0 && unit.PathCursor < unit.Path.Count && unit.PathRevision == World.NavigationRevision) return;
             int start = World.Index((int)unit.X, (int)unit.Y);
             int goal = navigation.Escape(start, threat == null ? unit.X : threat.X, threat == null ? unit.Y : threat.Y, threat != null, scratchPath);
@@ -145,10 +157,13 @@ namespace WorldGenesis.Simulation
             if (home != null)
             {
                 int attempts = 0;
-                for (int i = 0; i < World.Buildings.Count && attempts < 3; i++)
+                for (int pass = 0; pass < 3; pass++)
+                for (int i = 0; i < World.Buildings.Count && attempts < 12; i++)
                 {
                     BuildingData house = World.Buildings[i];
                     if (house.SettlementId != home.Id || (house.Type != BuildingType.House && house.Type != BuildingType.Hall) || house.Health <= 0 || World.Cells[World.Index(house.X, house.Y)].Fire > 0) continue;
+                    if (pass == 0 && house.Id != unit.HomeBuildingId || pass == 1 && (house.Type != BuildingType.House || house.Id == unit.HomeBuildingId) || pass == 2 && house.Type != BuildingType.Hall) continue;
+                    if (BuildingAccess.IsEnclosed(house.Type) && unit.InsideBuildingId != house.Id && BuildingAccess.Occupants(World,house) >= BuildingAccess.Capacity(house)) continue;
                     attempts++;
                     if (SetTarget(unit, house.X, house.Y)) { ChangeTask(unit, UnitTask.Rest); return true; }
                 }

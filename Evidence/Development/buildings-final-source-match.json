@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-13T19:35:14.7950084Z",
+  "snapshot": "buildings-v070-r7",
+  "files": 353,
+  "workspaceMismatch": null,
+  "deltaSinceEditR6": "Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+  "editModeAppliesToUnchangedSimulationAndEditTests": true,
+  "change": "Only native capture helper now preserves the requested indoor selection; no gameplay changes."
+}

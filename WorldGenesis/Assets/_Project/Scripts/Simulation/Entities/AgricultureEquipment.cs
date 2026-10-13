@@ -145,7 +145,7 @@ namespace WorldGenesis.Simulation
         {
             if (unit.Task != UnitTask.Return || unit.HarvestAmount <= 0) return false;
             BuildingData b = World.GetBuilding(unit.TargetBuildingId);
-            if (b != null && b.SettlementId == unit.SettlementId && UsableBuilding(b, unit.SettlementId) && DistanceSquared(unit.X, unit.Y, b.X + .5f, b.Y + .5f) < 2)
+            if (b != null && b.SettlementId == unit.SettlementId && UsableBuilding(b, unit.SettlementId) && AtBuilding(unit, b))
             {
                 float amount = Math.Min(unit.HarvestAmount, StorageCapacity.FreeAgriculture(b, unit.HarvestProduct)); b.AgriculturalStock[(int)unit.HarvestProduct] += amount; unit.HarvestAmount -= amount;
                 if (unit.HarvestAmount <= .00001f) { unit.HarvestAmount = 0; unit.HarvestProduct = AgriculturalProduct.None; }
