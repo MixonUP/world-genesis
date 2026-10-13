@@ -7,6 +7,7 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [ТЗ для фоновой музыки в Suno](Design/MUSIC_BRIEF_SUNO.md) — семь тем, готовые промпты, петли и формат передачи в Unity; музыка ещё не создана.
 - [Море и рынок 0.8](Development/MARITIME_REPORT.md) — итоговая проверка; [галерея](Development/MARITIME_GALLERY.md).
 - [Морской контракт](Design/MARITIME.md) — суда, экипажи, провизия, порты и складская сеть.
 - [Рынок](Design/MARKET.md) — реальные товары, оплата и спрос; [измерение обычных миров](Development/MARKET_PROGRESS_REPORT.md).
