@@ -1,0 +1,32 @@
+{
+  "checkedAtMoscow": "2026-10-13T22:54:00+03:00",
+  "status": "published-and-browser-verified",
+  "repository": "https://github.com/MixonUP/world-genesis",
+  "branch": "codex/world-genesis",
+  "tag": "v0.7.0-alpha",
+  "releaseCommit": "07ac93245628b6218ce8243977c075e700ae06bb",
+  "annotatedTagObject": "ed5a06e92f57ee7c83da3bdd393f726e2de80c06",
+  "releaseUrl": "https://github.com/MixonUP/world-genesis/releases/tag/v0.7.0-alpha",
+  "releaseTitle": "World Genesis 0.7 — производство и физические здания",
+  "prerelease": true,
+  "draft": false,
+  "downloadUrl": "https://github.com/MixonUP/world-genesis/releases/download/v0.7.0-alpha/WorldGenesis-v0.7.0-alpha-win64.zip",
+  "archiveBytes": 38271367,
+  "archiveFiles": 140,
+  "archiveSHA256": "989E1919C0F7927E57A1D7842ABDAE5F9789514E8A54F908AE273CDECE062D14",
+  "githubDisplayedDigestMatchesLocal": true,
+  "githubDisplayedAssetSize": "36.5 MB",
+  "screenshot": "Evidence/Development/github-release-0.7.0.jpg",
+  "galleryUrl": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/PRODUCTION_BUILDINGS_GALLERY.md",
+  "galleryCheck": "All five native PNG images completed loading at 1920x1080; clip poster loaded at 1280x720. Read-only DOM observation in GitHub preview.",
+  "galleryImages": [
+    "20261013-223534-buildings-resident-r7.png",
+    "20261013-223044-buildings-forge-final.png",
+    "20261013-223134-buildings-carpenter-final.png",
+    "20261013-223143-buildings-quarter-final.png",
+    "20261013-223208-buildings-natural-final.png"
+  ],
+  "video": "Evidence/Captures/20261013-223558-buildings-entrance-r7.mp4",
+  "videoVerification": "Local native frames reviewed; GitHub link present. Remote playback not repeated.",
+  "packageReceipt": "Evidence/Development/package-0.7.0-alpha.json"
+}
