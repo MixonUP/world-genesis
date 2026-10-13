@@ -5,13 +5,14 @@ namespace WorldGenesis.Simulation
     /// <summary>One physical capacity per depot, independent of ownership or item compartment.</summary>
     public static class StorageCapacity
     {
-        public static bool IsDepot(BuildingData building) { return building != null && (building.Type == BuildingType.Warehouse || building.Type == BuildingType.Granary); }
-        public static int MaximumLevel(BuildingType type) { return type == BuildingType.Warehouse || type == BuildingType.Granary ? 4 : 5; }
+        public static bool IsDepot(BuildingData building) { return building != null && (building.Type == BuildingType.Warehouse || building.Type == BuildingType.Granary || building.Type == BuildingType.HarborWarehouse); }
+        public static int MaximumLevel(BuildingType type) { return type == BuildingType.HarborWarehouse ? 3 : type == BuildingType.Warehouse || type == BuildingType.Granary ? 4 : 5; }
         public static int EffectiveLevel(BuildingData building) { return building == null ? 0 : Math.Max(1, Math.Min(MaximumLevel(building.Type), building.Level)); }
         // Legacy level 5 is interpreted as tier 4. No saved goods or level field is rewritten here.
         public static float Capacity(BuildingData building)
         {
             if (building == null) return 0;
+            if (building.Type == BuildingType.HarborWarehouse) return EffectiveLevel(building) == 1 ? 5000 : EffectiveLevel(building) == 2 ? 10000 : 20000;
             if (!IsDepot(building)) return ResourceCatalog.StorageCapacity * (IndustryCatalog.IsWorkshop(building.Type) ? Math.Max(1, Math.Min(5, building.Level)) : 1);
             switch (EffectiveLevel(building)) { case 1: return 1000; case 2: return 2500; case 3: return 5000; default: return 10000; }
         }
@@ -41,7 +42,7 @@ namespace WorldGenesis.Simulation
             return (float)used;
         }
         public static float AgriculturalUsed(BuildingData building) { return building == null ? 0 : (float)Sum(building.AgriculturalStock); }
-        public static float TotalUsed(BuildingData building) { return MaterialUsed(building) + AgriculturalUsed(building); }
+        public static float TotalUsed(BuildingData building) { return MaterialUsed(building) + AgriculturalUsed(building) + (building != null && building.Type == BuildingType.HarborWarehouse ? building.PortFoodStored + building.WaterStored : 0); }
         public static float FreeMaterials(BuildingData building)
         {
             if (building == null || building.Type == BuildingType.Granary) return 0;

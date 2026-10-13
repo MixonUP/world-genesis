@@ -101,6 +101,10 @@ namespace WorldGenesis.Runtime
         public static string BuildingName(BuildingType type)
         {
             if (IndustryCatalog.IsWorkshop(type)) return IndustryCatalog.BuildingName(type);
+            if (type == BuildingType.Port) return "Порт";
+            if (type == BuildingType.Shipyard) return "Верфь";
+            if (type == BuildingType.PortAuthority) return "Портовое управление";
+            if (type == BuildingType.HarborWarehouse) return "Портовый склад";
             switch (type)
             {
                 case BuildingType.Hall: return "Общинный костёр"; case BuildingType.House: return "Жилище";

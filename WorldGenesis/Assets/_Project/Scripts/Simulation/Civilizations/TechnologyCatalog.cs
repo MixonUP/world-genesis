@@ -56,6 +56,12 @@ namespace WorldGenesis.Simulation
             new TechnologyDefinition("d11_ballista", "Сборка баллист", 110f, new string[] { "d03_iron_arms", "d01_hunting_bows" }),
             new TechnologyDefinition("d12_catapult", "Сборка катапульт", 150f, new string[] { "d11_ballista", "m04_brick_firing" }),
             new TechnologyDefinition("d13_trebuchet", "Противовесные требушеты", 210f, new string[] { "d12_catapult", "k08_apprenticeship" }),
+            new TechnologyDefinition("n01_boats", "Прибрежные лодки", 35f, new string[] { "m02_carpentry", "f06_river_fishing" }),
+            new TechnologyDefinition("n02_shipbuilding", "Судостроение", 60f, new string[] { "n01_boats", "t02_linen" }),
+            new TechnologyDefinition("n03_navigation", "Навигация и портовая служба", 80f, new string[] { "n02_shipbuilding", "l01_local_trade" }),
+            new TechnologyDefinition("n04_deepsea", "Глубоководный промысел", 120f, new string[] { "n03_navigation", "z02_ironworking" }),
+            new TechnologyDefinition("n05_overseas_trade", "Заморская торговля", 160f, new string[] { "n03_navigation", "z08_coinage" }),
+            new TechnologyDefinition("n06_naval_warfare", "Военный флот", 180f, new string[] { "n03_navigation", "d03_iron_arms" }),
         };
         public static TechnologyDefinition Get(string id)
         {

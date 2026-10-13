@@ -3,12 +3,12 @@
   "design_version": "technology-design-v4-social-agriculture",
   "design_status": "prepared_not_implemented",
   "validation_scope": "CSV references, dependency DAG, stage gates and proposed math only; no Unity or gameplay validation",
-  "created_at": "2026-10-13T21:47:30+03:00",
+  "created_at": "2026-10-14T00:07:19+03:00",
   "passed": true,
   "counts": {
-    "technologies": 73,
+    "technologies": 79,
     "branches": 8,
-    "dependency_edges": 126,
+    "dependency_edges": 138,
     "recipe_unlocks": 58,
     "building_grade_unlocks": 75,
     "military_training_unlocks": 4,
@@ -26,7 +26,7 @@
     "materials": 13,
     "metals": 9,
     "textiles": 5,
-    "transport": 11
+    "transport": 17
   },
   "checks": {
     "catalogs": {
@@ -34,11 +34,11 @@
       "failed": 0
     },
     "unique_ids": {
-      "passed": 80,
+      "passed": 86,
       "failed": 0
     },
     "shape": {
-      "passed": 76,
+      "passed": 82,
       "failed": 0
     },
     "currency": {
@@ -46,23 +46,23 @@
       "failed": 0
     },
     "values": {
-      "passed": 365,
+      "passed": 395,
       "failed": 0
     },
     "status": {
-      "passed": 73,
+      "passed": 79,
       "failed": 0
     },
     "dag": {
-      "passed": 200,
+      "passed": 218,
       "failed": 0
     },
     "references": {
-      "passed": 654,
+      "passed": 672,
       "failed": 0
     },
     "stage_order": {
-      "passed": 234,
+      "passed": 246,
       "failed": 0
     },
     "unlocks": {
@@ -142,7 +142,7 @@
       "failed": 0
     }
   },
-  "check_count": 3681,
+  "check_count": 3777,
   "failed_count": 0,
   "errors": [],
   "topological_order": [
@@ -170,6 +170,7 @@
     "l11_wooden_bridges",
     "m04_brick_firing",
     "m10_comfort_housing",
+    "n01_boats",
     "f03_crop_rotation",
     "t02_linen",
     "z02_ironworking",
@@ -185,6 +186,7 @@
     "d02_leather_armor",
     "k06_writing_materials",
     "l02_carts",
+    "n02_shipbuilding",
     "t03_leather_tailoring",
     "z03_tempered_tools",
     "z04_steelmaking",
@@ -196,6 +198,7 @@
     "d07_archer_training",
     "k07_libraries",
     "l03_caravans",
+    "n03_navigation",
     "t04_winter_clothing",
     "m05_standard_parts",
     "z05_steel_tools",
@@ -211,7 +214,10 @@
     "c05_civic_works",
     "f05_granary_network",
     "l04_regional_markets",
+    "n04_deepsea",
+    "n06_naval_warfare",
     "t05_textile_guilds",
+    "n05_overseas_trade",
     "z09_jewelry",
     "d09_knight_training",
     "d12_catapult",
@@ -527,7 +533,7 @@
       {
         "stage": 2,
         "closure_iterations": 3,
-        "researchable_technologies": 32,
+        "researchable_technologies": 34,
         "producible_goods": 53,
         "executable_recipes": 57,
         "buildable_types": 32,
@@ -539,7 +545,7 @@
       {
         "stage": 3,
         "closure_iterations": 4,
-        "researchable_technologies": 58,
+        "researchable_technologies": 63,
         "producible_goods": 85,
         "executable_recipes": 91,
         "buildable_types": 39,
@@ -553,7 +559,7 @@
       {
         "stage": 4,
         "closure_iterations": 3,
-        "researchable_technologies": 70,
+        "researchable_technologies": 76,
         "producible_goods": 89,
         "executable_recipes": 95,
         "buildable_types": 39,
@@ -568,7 +574,7 @@
       {
         "stage": 5,
         "closure_iterations": 2,
-        "researchable_technologies": 73,
+        "researchable_technologies": 79,
         "producible_goods": 89,
         "executable_recipes": 95,
         "buildable_types": 39,
@@ -871,7 +877,7 @@
     "No game simulation, UI, saves or research runtime executed"
   ],
   "source_sha256": {
-    "SourceAssets/Design/technologies.csv": "d4e9429b893a15c6b05109f29d1785c7818882f1976431a0cfad9aee959a9afa",
+    "SourceAssets/Design/technologies.csv": "44325d20a2ffa63951de993b2f0a2f81db8ba2d5db84774cc564b861ca4ba6d5",
     "SourceAssets/Design/goods.csv": "9336654060db45ffa0ba7f63b374e7c81d89863fe3d216761fc95ffc5fd1e04f",
     "SourceAssets/Design/recipes.csv": "4e2e091f52107b796e33f421733cca49b91dde46f945831b69abc9c01ab0df85",
     "SourceAssets/Design/buildings.csv": "c440b3ad2f856a09d49896006d4f2c699c15f4d13a9b80823600d289bfc094d3",
@@ -891,5 +897,5 @@
     "SourceAssets/Design/minting_policy.csv": "e81e6c08e7047f18201ee8299ae167e69709f41763311f839a153190ad55c08d",
     "SourceAssets/Design/housing_comfort.csv": "80e21c1ca51e0697560d40cec72ba040cdc467c0f923276ed5e3e663d08d92f6"
   },
-  "validator_sha256": "4e346cb64572f3e44f419947eb50f5de2f7c14a2172de16dadc784ea4789211d"
+  "validator_sha256": "364b5be8e4b7cc31025a3adca865a8895570507874f0b754f19eca8b900103f9"
 }

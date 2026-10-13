@@ -1,0 +1,159 @@
+{
+  "utc": "2026-10-13T20:56:08.8174259Z",
+  "tests": 18,
+  "failures": 0,
+  "sourceUnchanged": true,
+  "sourceChangedDuringRun": [],
+  "sourceSHA256": {
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs": "BFAE407AC1F253F07F74AF559E469AADADFAA9F872A0FBE3C9D881E0C7C09087",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs": "56C04383226BA757BD1CEA94034E3F47808B214305272A76E216734196D71734",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeInfrastructure.cs": "AAA89C3815D13C58904DAF3824B8E794ED522543E7F2CAD2ABCF1EDBC4F63130",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulation.cs": "778CBDA7490D1D60790CDD53F535BCBF3A596B5BC77BB777D7F8EC82BE28D36F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationHarbor.cs": "A9889428003E0726BF8E57B53E78EE053E0267521F665C716DFA1B28E1D1645A",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationJobs.cs": "F976CAD60A5EC43B4C1309DFCA249DCEB3217FA2A03D8D89104C6D6FFDE604A3",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationVoyages.cs": "AFEFF36DE493A6D302E3C575E1125CC65EF99BE5F6068024B94BFD64D4DD7198",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.cs": "AD86B6F85D6AC61F4394249674B1FA8D32B9137E069B0D0003FF2C4D5E140C69",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.Maritime.cs": "AFDDDDACACF78BF8864CB5F36C1335ABC91E17437633603701C9833E154D4BE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.Planning.cs": "C1DB45D45C6A2A6F769BA45B18254CC9C52E04D164776063C7BE9F3C406E10AB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs": "547407127225ECE3A498CDE7C24AD883FA9E9DF918B305D9FCCF9F98F67009D0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs": "48D9A4BD118A6F9BE1D2EB9F94AAE5EA923F774745DA837B5A327024018CEF1A",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs": "D176D2A5BD770E8FE0F2B59CF43B588442806F902B8EDED4A25817FB8F28DCB8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs": "F22D3F60A2DFB8E725CCEE29784B184B639275809E516B28CE0BC2248D3A1FD6",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs": "199F71C8F1F89EF29A4435FB70906CA7410C8EABA7AA09D1F7FD473A702D3EA0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs": "9F96E502D92D7A9C9036A20D1ABC1E198D6C15D0A68379463E63B919BE413624",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/BuildingInteraction.cs": "846B3F2D60C863C5B3C27896153F293C80F3A6BE09B103A412071B4321C51DB4",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs": "E0EE90AD87EFBC2C745B2813E3AB95A366FCB8CF9BDC21E8E4ABE67FD8FED2A8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs": "36D21CDE878170E2A7AAD2D9F56F533EA0816ACBD68E3AEED4471926C8595E1D",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs": "54AC6B54D515FF0DFBA41B866A784EFDAB7F911A5EB9E738B3C112C61373D170",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs": "914B1DB99BE203B7DE1EEE994D0D8EA62D39FA290F94D4EDF7116C48217BB54B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/IndustrySimulation.cs": "3E84BD11AC65B2A5CBD5816414D727986778FF62D62B68CB3AFD4677A64D5149",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs": "BCAE443C87C65B1EC063E07A763FB8F2D13120B26D91299F80D3D4AC51EF34CC",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs": "92BA48B74DB3702EAC0323D1BE5897D627155D536EC2B5F992DDC37E3C988038",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs": "7D01521A109FDB66DAA2D4918ECCD977E275EE7F558FAD431760FB9039E169AF",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs": "61FE188E701C514B0F5D8EADC6652DA1138333ABB96EBCF40FF3FEEDDDA1E989",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingAccess.cs": "6FE3C785B3A2C05ED49544993C4E8DFD1148609EFD662FD6F45C12B05575698B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs": "146E0D4E1A889E10697F25EE27FF8D2A4077BC7C455DA3935612D675528C5086",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/FishingData.cs": "8C4D03980B3927AC780147C74421BB10218ACE151146890A12F8F77EEA035825",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/HydrologyData.cs": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryCatalog.cs": "847DCC86C96C8B465603C350DE44160207EBB02AC1CA54EC5C630324467EA28B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryData.cs": "135413B70A5AEDA215238DD47E9B152B4B95CC866AD4E3DB06CBF7F8E1B076CD",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs": "672339E93BFD18FB20171A1BE7A9ACA02236F1759798B1FDB4C5C30CCA644B45",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MaritimeCatalog.cs": "95B46BFED79303BA43D72ED1314C845B6BA3E503E9CDE59C9A4A1D2A335391B7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MaritimeData.cs": "DFE4ADD9BABF3E671A3FBDEE42470B91AC92A084CBA8CB92616E3794B9E60878",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MarketCatalog.cs": "AD7EE89C8FF820FC4C037577FAB561A40EC2FE3E2FEDB3C7311EB14F85A37FBD",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MarketData.cs": "BB0AE9D977C03C6F89DF7B157BACF52969585C5517E543CFCE771DD6EBF08BBE",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs": "C8B7B9AF0FC80150B40594788193181A1545877A7E36A27C26627FD80D999793",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs": "8654D742E1F6FC44D15718E13D018DBEE41BDA043E69BAB2A9945D82FD2E3FAB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs": "2FE0F2213194F0455A94010BEBCA622D196F639624EB35E05205013F4F0A2174",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs": "29402082B24654A3336C9A9EFE173D980505F99FED35999E6ECBE127E41E62AF",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/TransportData.cs": "AA7D42A3907A870D342329121ECAFFE61371FBB215F3CFDC79DEBCB31647FDE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs": "3A419C3FCB36C5C0D84562492EB0E8D26FA7F329A684AAA27EC28033B41D869F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs": "BFDA5E3164A949F6641432F73535B1DC3513CE78B3FE8EEA5A7D343285680CA0"
+  },
+  "assemblySHA256": "53BF2316637A6FE41DE579EA32A6AFC7E32FF3FD00F70EC20BD8F2FAF32EB538",
+  "results": [
+    {
+      "name": "ExactDenominationsAndChangeNeverMintMoney",
+      "passed": true,
+      "milliseconds": 2.9109
+    },
+    {
+      "name": "RemoteOrderWaitsForDoorThenTransfersExactlyOnce",
+      "passed": true,
+      "milliseconds": 57.2181
+    },
+    {
+      "name": "LastPrivateGoodCannotBeReservedTwice",
+      "passed": true,
+      "milliseconds": 20.3016
+    },
+    {
+      "name": "CancelledOrderReleasesStockAndPreservesBothPurses",
+      "passed": true,
+      "milliseconds": 4.3641
+    },
+    {
+      "name": "InsolventChildForeignAndMissingSupplyNeverCreateGoods",
+      "passed": true,
+      "milliseconds": 3.5158
+    },
+    {
+      "name": "ChangedPaymentBudgetCancelsBeforeAnyGoodsDebit",
+      "passed": true,
+      "milliseconds": 17.6023
+    },
+    {
+      "name": "DeadBuyerAndDemolishedShopReleasePendingReservations",
+      "passed": true,
+      "milliseconds": 10.3447
+    },
+    {
+      "name": "SaveDuringApproachContinuesWithSamePaymentAndTax",
+      "passed": true,
+      "milliseconds": 348.3182
+    },
+    {
+      "name": "TreasuryProcurementIsPaidFromExistingLocalCoins",
+      "passed": true,
+      "milliseconds": 5.8248
+    },
+    {
+      "name": "MaritimeImportUsesRealHoldAndWholeCoinChange",
+      "passed": true,
+      "milliseconds": 4.6209
+    },
+    {
+      "name": "MaritimeExportTaxAndDenominationsConserveBothSides",
+      "passed": true,
+      "milliseconds": 3.378
+    },
+    {
+      "name": "ShipAndShoreCapacityFailAtomically",
+      "passed": true,
+      "milliseconds": 4.1685
+    },
+    {
+      "name": "RareAgriculturalTradeRequiresAnActuallyCarriedRareItem",
+      "passed": true,
+      "milliseconds": 3.972
+    },
+    {
+      "name": "MintPaysRealCompletedWorkButNoIdleStipend",
+      "passed": true,
+      "milliseconds": 35.5936
+    },
+    {
+      "name": "MigrationCreatesNoCashAndRejectsForgedMarketState",
+      "passed": true,
+      "milliseconds": 66.7244
+    },
+    {
+      "name": "FundedScarcityRaisesPriceSmoothlyWithoutCreatingStock",
+      "passed": true,
+      "milliseconds": 3.6011
+    },
+    {
+      "name": "PlannedChainProducesAndEquipsToolsAndClothesWithoutIntermediateGrants",
+      "passed": true,
+      "milliseconds": 186.9251
+    },
+    {
+      "name": "PlannerExplainsMissingDepositAndCannotBypassResearch",
+      "passed": true,
+      "milliseconds": 6.3086
+    }
+  ],
+  "assistance": "Controlled flat worlds with explicit participants, goods and coins; real entry/atomic market. Natural mode gives no grants. Not native FPS or independent review of authored market code."
+}

@@ -147,7 +147,7 @@ namespace WorldGenesis.Simulation
                 {
                     TechnologyDefinition candidate = TechnologyCatalog.All[i];
                     if (s.UnlockedTechnologies.Contains(candidate.Id) || !ResearchReady(s, candidate)) continue;
-                    float score = IndustryResearchPriority(s, candidate) + 1f / (i + 1);
+                    float score = Math.Max(IndustryResearchPriority(s, candidate), MarketResearchPriority(s, candidate)) + 1f / (i + 1);
                     if (score > priority) { chosen = candidate; priority = score; }
                 }
                 if (chosen != null) { s.ActiveTechnology = chosen.Id; s.ResearchProgress = 0; }
@@ -195,13 +195,17 @@ namespace WorldGenesis.Simulation
                 case BuildingType.School: return "k01_teaching";
                 case BuildingType.Pasture: return "f07_husbandry";
                 case BuildingType.Brewery: return "f08_brewing";
+                case BuildingType.Port: case BuildingType.HarborWarehouse: return "n01_boats";
+                case BuildingType.Shipyard: return "n02_shipbuilding";
+                case BuildingType.PortAuthority: return "n03_navigation";
                 default: return "";
             }
         }
         public bool TryBuildInfrastructure(int settlementId, BuildingType type, int x, int y)
         {
             SettlementData s = World.GetSettlement(settlementId);
-            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 22 || !World.IsWalkable(x, y)) return false;
+            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 26 || !World.IsWalkable(x, y)) return false;
+            if (!CanBuildMaritimeSite(s, type, x, y)) return false;
             int cell = World.Index(x, y);
             if (World.Cells[cell].BuildingId != 0 || World.Cells[cell].Fire > 0 || (World.Cells[cell].SettlementId != 0 && World.Cells[cell].SettlementId != s.Id) || DistanceSquared(x, y, s.X, s.Y) > 18 * 18) return false;
             if (BuildingAccess.IsEnclosed(type))
@@ -214,12 +218,14 @@ namespace WorldGenesis.Simulation
             if (requiredTechnology.Length > 0 && !World.HasTechnology(s.Id, requiredTechnology)) return false;
             float wood = type == BuildingType.WoodWall ? 2 : type == BuildingType.Gate ? 4 : 8;
             float stone = type == BuildingType.Smelter || type == BuildingType.Smithy || type == BuildingType.Mint ? 3 : type == BuildingType.Well ? 2 : 0;
+            if (type >= BuildingType.Port) { wood = type == BuildingType.Port ? 12 : type == BuildingType.HarborWarehouse ? 16 : 20; stone = type == BuildingType.Port ? 4 : 8; }
             if (s.Wood < wood || FreePublicStock(s.Id, ItemType.RawStone) < stone || !navigation.Find(World.Index(s.X, s.Y), cell, scratchPath)) return false;
             // Never wall over a person or directly seal a occupied work site.
             if (type == BuildingType.WoodWall)
                 for (int i = 0; i < World.Units.Count; i++) if ((int)World.Units[i].X == x && (int)World.Units[i].Y == y) return false;
             SpendPublicStock(s, ItemType.Plank, wood); SpendPublicStock(s, ItemType.RawStone, stone);
             BuildingData built = AddBuilding(s, x, y, type);
+            if (type == BuildingType.Port || type == BuildingType.Shipyard) built.BerthCell = FindMaritimeConstructionBerth(x, y);
             RecordConstructionCost(built, ItemType.Plank, wood); RecordConstructionCost(built, ItemType.RawStone, stone);
             World.NavigationRevision++; World.TerrainRevision++;
             return true;
@@ -227,10 +233,11 @@ namespace WorldGenesis.Simulation
         public bool TryUpgradeBuilding(int buildingId)
         {
             BuildingData b = World.GetBuilding(buildingId);
-            if (b == null || b.Health <= 0 || b.Level >= (b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary ? 4 : 5) || b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate) return false;
+            if (b == null || b.Health <= 0 || b.Level >= StorageCapacity.MaximumLevel(b.Type) || b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate) return false;
             SettlementData s = World.GetSettlement(b.SettlementId);
             string[] ids = { "m10_comfort_housing", "m11_town_houses", "m12_stone_houses", "m13_estates" };
-            if (s == null || !World.HasTechnology(s.Id, ids[b.Level - 1])) return false;
+            string upgradeTechnology = b.Type == BuildingType.HarborWarehouse ? (b.Level == 1 ? "n02_shipbuilding" : "n03_navigation") : ids[b.Level - 1];
+            if (s == null || !World.HasTechnology(s.Id, upgradeTechnology)) return false;
             float wood = 6 * b.Level, masonry = b.Level >= 2 ? 2 * b.Level : 0;
             ItemType material = b.Level >= 3 ? ItemType.StoneBlock : ItemType.Brick;
             if (s.Wood < wood || FreePublicStock(s.Id, material) < masonry) return false;
@@ -253,6 +260,7 @@ namespace WorldGenesis.Simulation
         {
             if (s.BuildTimer < 8 || s.Population < 3) return false;
             if (TryDevelopIndustry(s)) return true;
+            if (TryDevelopMaritimeInfrastructure(s)) return true;
             BuildingType[] priorities = { BuildingType.Well, BuildingType.Granary, BuildingType.Warehouse, BuildingType.Shop, BuildingType.Pasture, BuildingType.School, BuildingType.Brewery };
             // Preserve the founding processing loop and shelter before elective projects.
             if (CountBuildings(s.Id, BuildingType.Sawmill) == 0 || CountBuildings(s.Id, BuildingType.House) == 0) return false;

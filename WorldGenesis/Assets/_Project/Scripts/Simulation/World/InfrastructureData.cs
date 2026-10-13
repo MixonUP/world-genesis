@@ -101,7 +101,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Buildings.Count; i++)
             {
                 BuildingData b = Buildings[i];
-                if (b.Level < 1 || b.Level > 5 || (int)b.Ownership < 0 || (int)b.Ownership > 1 || b.OwnerId < 0 || !Stock(b.WaterStored) || b.WaterStored > SubsistenceRules.WaterCapacity(b) + .0001f || (b.Type != BuildingType.Well && b.Type != BuildingType.Hall && b.WaterStored != 0))
+                if (b.Level < 1 || b.Level > 5 || (b.Type == BuildingType.HarborWarehouse && b.Level > 3) || (int)b.Ownership < 0 || (int)b.Ownership > 1 || b.OwnerId < 0 || !Stock(b.WaterStored) || b.WaterStored > SubsistenceRules.WaterCapacity(b) + .0001f || (b.Type != BuildingType.Well && b.Type != BuildingType.Hall && b.Type != BuildingType.HarborWarehouse && b.WaterStored != 0))
                 { error = "Invalid building development."; return false; }
                 UnitData owner = GetUnit(b.OwnerId);
                 if ((b.Ownership == BuildingOwnership.Public && b.OwnerId != 0) || (b.Ownership == BuildingOwnership.Private && (owner == null || owner.Age < 16 || owner.Health <= 0 || owner.SettlementId != b.SettlementId)))

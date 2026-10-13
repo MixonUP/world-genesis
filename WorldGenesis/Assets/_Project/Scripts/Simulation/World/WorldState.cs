@@ -6,10 +6,10 @@ namespace WorldGenesis.Simulation
     public enum TerrainType { DeepWater, ShallowWater, Sand, Grass, Forest, Desert, Snow, Mountain, Swamp, Hills, Ravine, Highlands }
     public enum SpeciesType { Human, Elf, Dwarf, Orc, Sheep, Wolf, Deer, Boar, Fox, Bear, DireWolf, SpiritStag, Goat, Cow, Chicken, Donkey, Horse }
     public enum PowerType { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague }
-    public enum BuildingType { Hall, House, Farm, Tower, Sawmill, Stoneworks, Kiln, Well, Warehouse, Shop, WoodWall, Gate, School, Pasture, Brewery, Granary, Smelter, Smithy, Tannery, Weaver, Tailor, Carpentry, Mint }
-    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee, Eat, Rest, Socialize, Patrol, Process, Haul, Play, Learn, Drink, Fish, Caravan, Hunt, Tend, Brew, CraftEquipment, BuildTransport, Produce, InstallFurniture, EquipGoods, VisitBuilding }
+    public enum BuildingType { Hall, House, Farm, Tower, Sawmill, Stoneworks, Kiln, Well, Warehouse, Shop, WoodWall, Gate, School, Pasture, Brewery, Granary, Smelter, Smithy, Tannery, Weaver, Tailor, Carpentry, Mint, Port, Shipyard, PortAuthority, HarborWarehouse }
+    public enum UnitTask { Idle, Wander, Gather, Farm, Return, Fight, Flee, Eat, Rest, Socialize, Patrol, Process, Haul, Play, Learn, Drink, Fish, Caravan, Hunt, Tend, Brew, CraftEquipment, BuildTransport, Produce, InstallFurniture, EquipGoods, VisitBuilding, Shipbuild, Dockwork, Sail, Market }
     public enum Sex { Female, Male }
-    public enum UnitProfession { None, Farmer, Forester, Guard, Hunter, Herder, Merchant, Carpenter, Smelter, Blacksmith, Tanner, Weaver, Tailor, MintWorker }
+    public enum UnitProfession { None, Farmer, Forester, Guard, Hunter, Herder, Merchant, Carpenter, Smelter, Blacksmith, Tanner, Weaver, Tailor, MintWorker, Shipwright, Dockworker, HarborMaster, Sailor, NavalGuard, Captain }
     public enum GovernmentType { Unset, Feudal, Republic, Theocracy }
     public enum EventKind { Fire, Rain, Lightning, Meteor, Heal, Bless, Plague, Birth, Death, Founded, Built, War }
     public enum WorldPreset { Island, Archipelago, Continent }
@@ -187,7 +187,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 16 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Stock(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 26 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256 || (int)u.Profession < 0 || (int)u.Profession > 13 || !UnitRange(u.Fatigue) || !UnitRange(u.SocialNeed) || u.TaskStartedTick < 0 || u.TaskStartedTick > Tick || u.Health > u.MaxHealth)
+                if (u == null || !AddId(u.Id, ids, ref maximumId) || !Finite(u.X) || !Finite(u.Y) || u.X < 0 || u.Y < 0 || u.X >= Width || u.Y >= Height || !Stock(u.MaxHealth) || u.MaxHealth <= 0 || !Stock(u.Health) || !Stock(u.Age) || !Stock(u.Hunger) || u.Hunger > 1 || (int)u.Species < 0 || (int)u.Species > 16 || u.Path == null || u.Path.Count > Cells.Length || u.PathCursor < 0 || u.PathCursor > u.Path.Count || (u.SettlementId != 0 && GetSettlement(u.SettlementId) == null) || !Finite(u.DecisionTimer) || !Stock(u.WorkTimer) || !Finite(u.AttackTimer) || !Stock(u.CarriedFood) || !Stock(u.CarriedWood) || (int)u.Task < 0 || (int)u.Task > 30 || u.TargetCell < -1 || u.TargetCell >= Cells.Length || u.Name == null || u.Name.Length > 256 || (int)u.Profession < 0 || (int)u.Profession > 19 || !UnitRange(u.Fatigue) || !UnitRange(u.SocialNeed) || u.TaskStartedTick < 0 || u.TaskStartedTick > Tick || u.Health > u.MaxHealth)
                 { error = "Invalid unit."; return false; }
                 if (BehaviorVersion >= 2 && u.Profession == UnitProfession.Guard)
                 { error = "Military recruitment requires research and equipment that are not implemented yet."; return false; }
@@ -209,7 +209,7 @@ namespace WorldGenesis.Simulation
             for (int i = 0; i < Buildings.Count; i++)
             {
                 BuildingData b = Buildings[i];
-                if (b == null || !AddId(b.Id, ids, ref maximumId) || !InBounds(b.X, b.Y) || GetSettlement(b.SettlementId) == null || !Stock(b.Health) || b.Health > 100 || (int)b.Type < 0 || (int)b.Type > 22 || Cells[Index(b.X, b.Y)].BuildingId != b.Id)
+                if (b == null || !AddId(b.Id, ids, ref maximumId) || !InBounds(b.X, b.Y) || GetSettlement(b.SettlementId) == null || !Stock(b.Health) || b.Health > 100 || (int)b.Type < 0 || (int)b.Type > 26 || Cells[Index(b.X, b.Y)].BuildingId != b.Id)
                 { error = "Invalid building."; return false; }
                 buildingIds.Add(b.Id);
             }
@@ -227,7 +227,7 @@ namespace WorldGenesis.Simulation
                 if (e == null || !AddId(e.Id, ids, ref maximumId) || !Finite(e.X) || !Finite(e.Y) || e.Tick < 0 || e.Tick > Tick || (int)e.Kind < 0 || (int)e.Kind > 11) { error = "Invalid world event."; return false; }
             }
             if (NextId <= maximumId) { error = "Invalid next entity identifier."; return false; }
-            return ValidateSubsistence(out error) && ValidateHydrology(out error) && ValidateBiomes(out error) && ValidateWeather(out error) && ValidateTransport(out error) && ValidateRulerPlanning(out error) && ValidateBuildingSalvage(out error) && ValidateResources(out error) && ValidateCivilEconomy(out error) && ValidateDevelopment(out error) && ValidateSocial(out error) && ValidateAgriculture(out error) && ValidateFishing(out error) && ValidateIndustry(out error) && ValidateBuildingAccess(out error) && ValidateWildlife(out error) && ValidateCaravans(out error);
+            return ValidateSubsistence(out error) && ValidateHydrology(out error) && ValidateBiomes(out error) && ValidateWeather(out error) && ValidateTransport(out error) && ValidateRulerPlanning(out error) && ValidateBuildingSalvage(out error) && ValidateResources(out error) && ValidateCivilEconomy(out error) && ValidateDevelopment(out error) && ValidateSocial(out error) && ValidateAgriculture(out error) && ValidateFishing(out error) && ValidateIndustry(out error) && ValidateBuildingAccess(out error) && ValidateWildlife(out error) && ValidateCaravans(out error) && ValidateMaritime(out error) && ValidateMarket(out error);
         }
         private static bool AddId(int id, HashSet<int> ids, ref int maximum) { maximum = Math.Max(id, maximum); return id > 0 && ids.Add(id); }
         private static bool Finite(float v) { return !float.IsNaN(v) && !float.IsInfinity(v); }

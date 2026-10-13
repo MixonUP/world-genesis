@@ -36,6 +36,7 @@ namespace WorldGenesis.Runtime
         private readonly QuadBatch wildlife, equipmentBack, equipmentFront, agriculture, agriculturalCargo;
         private readonly CitizenSprites citizenSprites;
         private readonly WeatherView weatherView;
+        private readonly MaritimeView maritimeView;
         private readonly QuadBatch buildings, people, borders, cursor, waterLife;
         private readonly CrowdPresentation crowd = new CrowdPresentation();
         private readonly Dictionary<int, BuildingData> buildingLookup = new Dictionary<int, BuildingData>();
@@ -51,7 +52,8 @@ namespace WorldGenesis.Runtime
         private WorldState world;
         public Texture2D Minimap { get; private set; }
         public bool ShowBorders = true;
-        public int SelectedUnitId;
+        public int SelectedUnitId, SelectedShipId;
+        public void SetMaritimeQueries(Func<int, List<BuildingData>> query) { maritimeView.SetQueries(query); }
         public Material SpriteMaterial => spriteMaterial;
 
         public WorldView(Transform parent)
@@ -77,6 +79,7 @@ namespace WorldGenesis.Runtime
             industryBuildings = new QuadBatch("Production workshops", root, industryMaterial, 30);
             industryCargo = new QuadBatch("Manufactured goods", root, industryMaterial, 60);
             industryEffects = new QuadBatch("Active workshop effects", root, depthEffectMaterial, 31);
+            maritimeView = new MaritimeView(root, depthSpriteMaterial, depthEffectMaterial, spriteMaterial);
             citizenSprites = new CitizenSprites(root);
             weatherView = new WeatherView(root, spriteMaterial);
             borders = new QuadBatch("Territories", root, spriteMaterial, 10);
@@ -138,7 +141,7 @@ namespace WorldGenesis.Runtime
                 uint renderedHash = ChunkHash(chunk); Rebuild(chunk); chunk.Hash = renderedHash;
             }
             buildings.Clear(); wildlife.Clear(); equipmentBack.Clear(); equipmentFront.Clear(); agriculture.Clear(); agriculturalCargo.Clear(); wagons.Clear(); buildingLookup.Clear(); unitLookup.Clear();
-            industryBuildings.Clear(); industryCargo.Clear(); industryEffects.Clear();
+            industryBuildings.Clear(); industryCargo.Clear(); industryEffects.Clear(); maritimeView.Begin();
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
             if (animalFacing.Count > world.Units.Count * 2 + 64) animalFacing.Clear();
             for (int i = 0; i < world.Buildings.Count; i++) buildingLookup[world.Buildings[i].Id] = world.Buildings[i];
@@ -166,7 +169,8 @@ namespace WorldGenesis.Runtime
                 int sprite = ResolveBuildingSprite(b);
                 bool barrier = b.Type == BuildingType.WoodWall || b.Type == BuildingType.Gate;
                 float size = barrier ? 1.1f : b.Type == BuildingType.Hall ? 2.5f : b.Type == BuildingType.Well ? 1.65f : b.Type == BuildingType.Sawmill || b.Type == BuildingType.Stoneworks || b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary ? 2.8f : b.Type == BuildingType.House ? 2.15f + Mathf.Clamp(b.Level, 1, 5) * .09f : 2.3f;
-                if (IndustryArt.SupportsBuilding(b.Type))
+                if (MaritimeArt.SupportsBuilding(b.Type)) maritimeView.DrawBuilding(world, b);
+                else if (IndustryArt.SupportsBuilding(b.Type))
                 {
                     IndustryArt.DrawBuilding(industryBuildings, b);
                     IndustryArt.DrawActivity(industryEffects, world, b);
@@ -191,7 +195,7 @@ namespace WorldGenesis.Runtime
             DrawWaterCurrent(camera, showDetails);
             for (int i = 0; i < world.Units.Count; i++)
             {
-                UnitData unit = world.Units[i]; if (unit.Health <= 0 || unit.InsideBuildingId != 0) continue;
+                UnitData unit = world.Units[i]; if (unit.Health <= 0 || unit.InsideBuildingId != 0 || unit.ShipId != 0) continue;
                 Vector2 offset = crowd.Offset(unit.Id), position = new Vector2(unit.X, unit.Y) + offset;
                 bool riding = IsRiding(world, unit);
                 if (riding && unitLookup.TryGetValue(unit.MountId, out UnitData ridden)) { position = new Vector2(ridden.X, ridden.Y + WildlifeArt.AnimalSize(ridden.Species) * .2f); offset = position - new Vector2(unit.X, unit.Y); }
@@ -247,6 +251,7 @@ namespace WorldGenesis.Runtime
             }
             buildings.Submit(); people.Submit(); wildlife.Submit(); equipmentBack.Submit(); equipmentFront.Submit(); agriculture.Submit(); agriculturalCargo.Submit(); wagons.Submit(); citizenSprites.Submit();
             industryBuildings.Submit(); industryCargo.Submit(); industryEffects.Submit();
+            maritimeView.Finish(world, SelectedShipId);
             weatherView.Update(world, camera);
         }
 
@@ -255,6 +260,7 @@ namespace WorldGenesis.Runtime
         public Sprite CreateCitizenIcon(SpeciesType species) { return citizenSprites.CreateCitizenSprite(species, CitizenSprites.CitizenAppearance.AdultMale, CitizenSprites.CitizenDirection.South); }
         public Vector2 GetPresentationPosition(UnitData unit)
         {
+            if (unit.ShipId != 0) { ShipData ship = world.GetShip(unit.ShipId); if (ship != null) return new Vector2(ship.X, ship.Y); }
             if (unit.InsideBuildingId != 0) { BuildingData inside = world.GetBuilding(unit.InsideBuildingId); if (inside != null) return new Vector2(inside.X + .5f, inside.Y + .5f); }
             if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); }
             return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id) + CitizenWaterPresentation.Resolve(world, unit).Offset;
@@ -757,7 +763,7 @@ namespace WorldGenesis.Runtime
         {
             UnityEngine.Object.Destroy(depthSpriteMaterial); UnityEngine.Object.Destroy(depthEffectMaterial); UnityEngine.Object.Destroy(wagonMaterial);
             industryBuildings.Dispose(); industryCargo.Dispose(); industryEffects.Dispose(); UnityEngine.Object.Destroy(industryMaterial); UnityEngine.Object.Destroy(industryAtlas);
-            weatherView.Dispose();
+            weatherView.Dispose(); maritimeView.Dispose();
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); chunk.Bridges.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             waterFlow.Dispose(); wagons.Dispose(); UnityEngine.Object.Destroy(transportMaterial); UnityEngine.Object.Destroy(transportAtlas);
             buildings.Dispose(); people.Dispose(); waterLife.Dispose(); wildlife.Dispose(); equipmentBack.Dispose(); equipmentFront.Dispose(); agriculture.Dispose(); agriculturalCargo.Dispose(); citizenSprites.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(wildlifeAtlas); UnityEngine.Object.Destroy(agricultureAtlas); UnityEngine.Object.Destroy(wildlifeMaterial); UnityEngine.Object.Destroy(agricultureMaterial); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);

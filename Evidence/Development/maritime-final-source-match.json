@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-13T21:21:50.6035424Z",
+  "snapshot": "maritime-v080-r2",
+  "files": 391,
+  "workspaceMismatch": [],
+  "scope": "Workspace Assets Packages ProjectSettings compared to the immutable pre-Unity snapshot manifest. Unity generated snapshot files are not claimed unchanged."
+}

@@ -73,7 +73,7 @@ namespace WorldGenesis.Runtime
         { return direction == CitizenDirection.North ? Vector2.up : direction == CitizenDirection.South ? Vector2.down : direction == CitizenDirection.West ? Vector2.left : Vector2.right; }
         public void Add(WorldState world, UnitData unit, int colorIndex, Color tint, Vector2 presentationOffset = default(Vector2), bool mounted = false)
         {
-            if (!IsCivilized(unit.Species) || unit.InsideBuildingId != 0) return;
+            if (!IsCivilized(unit.Species) || unit.InsideBuildingId != 0 || unit.ShipId != 0) return;
             Vector2 previous = Facing(unit.Id), delta = previous;
             if ((unit.Task == UnitTask.Fight || unit.Task == UnitTask.Hunt) && unit.TargetId != 0 && unitLookup.TryGetValue(unit.TargetId, out UnitData target))
                 delta = new Vector2(target.X - unit.X, target.Y - unit.Y);
@@ -193,6 +193,7 @@ namespace WorldGenesis.Runtime
                     }
                     break;
                 case UnitTask.CraftEquipment: if (!unit.IsChild && unit.EquipmentProgress > 0 && !carrying) { pose.Action = CitizenAction.Craft; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
+                case UnitTask.Shipbuild: if (MaritimeArt.IsShipwrightWorking(world, unit)) { pose.Action = CitizenAction.Craft; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
                 case UnitTask.BuildTransport:
                     if (!unit.IsChild && !carrying && IsTransportWorkOnSite(world, unit)) { pose.Action = CitizenAction.Build; pose.Row = 2; WorkGesture(ref pose, wave, direction); } break;
                 case UnitTask.Eat: pose.Action = CitizenAction.Eat; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(0, -.03f + wave * .015f); break;

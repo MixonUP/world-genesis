@@ -11,7 +11,7 @@ param(
     [ValidateSet('', 'Woman', 'Man', 'Child')][string]$Demographic='',
     [ValidateSet('', 'Tree', 'Stone', 'IronOre', 'CopperOre', 'GoldOre', 'SilverOre', 'Coal', 'Clay', 'Sand', 'Limestone', 'Tin', 'Salt')][string]$Resource='',
     [string]$WorldFile='', [switch]$InspectCaravan, [switch]$InspectOccupant,
-    [int]$InspectX=-1, [int]$InspectY=-1
+    [int]$InspectX=-1, [int]$InspectY=-1, [int]$InspectShip=0
 )
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -30,6 +30,7 @@ $arguments+=@('--simulation-speed',"$Speed")
 if ($FocusSettlement) { $arguments+=@('--focus-settlement','--zoom',"$Zoom") }
 if ($InspectCitizen) { $arguments+='--inspect-citizen' }
 if ($InspectOccupant) { $arguments+='--inspect-occupant' }
+if ($InspectShip -gt 0) { $arguments+=@('--inspect-ship',"$InspectShip",'--zoom',"$Zoom") }
 if ($WeatherTab) { $arguments+='--weather-tab' }
 if ($InspectCaravan) { $arguments+='--inspect-caravan' }
 if ($InspectResourceWorker) { $arguments+='--inspect-resource-worker' }

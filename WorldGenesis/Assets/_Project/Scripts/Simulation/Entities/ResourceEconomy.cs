@@ -174,7 +174,7 @@ namespace WorldGenesis.Simulation
 
         private static float AvailableForHaul(BuildingData building, ItemType item)
         {
-            float reserved = IndustryReserved(building, item);
+            float reserved = IndustryReserved(building, item) + MarketReserved(building, item);
             if (building.ActiveRecipe != RecipeType.None)
             {
                 if (ResourceCatalog.Input(building.ActiveRecipe) == item) reserved += ResourceCatalog.InputAmount(building.ActiveRecipe);

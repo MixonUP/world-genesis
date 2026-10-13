@@ -7,6 +7,9 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [Море и рынок 0.8](Development/MARITIME_REPORT.md) — итоговая проверка; [галерея](Development/MARITIME_GALLERY.md).
+- [Морской контракт](Design/MARITIME.md) — суда, экипажи, провизия, порты и складская сеть.
+- [Рынок](Design/MARKET.md) — реальные товары, оплата и спрос; [измерение обычных миров](Development/MARKET_PROGRESS_REPORT.md).
 - [Галерея0.7](Development/PRODUCTION_BUILDINGS_GALLERY.md) — пять кадров и ролик входа в здания.
 - [Физические здания0.7](Design/BUILDING_INTERACTIONS.md) — стены, двери, реальные занятия внутри и эвакуация.
 - [Производство0.7](Development/PRODUCTION_REPORT.md) — реализация и проверки; [цепочки и рецепты](Design/PRODUCTION_CHAINS.md); [независимый аналитик](Development/GAME_ANALYST_REVIEW_0_7.md).

@@ -1,0 +1,7 @@
+{
+  "source": "Builds/ProductionNatural/seed-1618033-tick-18000.world.json",
+  "target": "Builds/MaritimeShowcase/legacy-0.7-verified-envelope.save.json",
+  "sourceSHA256": "f3a3b34ec729fcc30ce93da1b50df02fabed1fefe19cdc9a960c9bebf54715b1",
+  "targetSHA256": "f3a3b34ec729fcc30ce93da1b50df02fabed1fefe19cdc9a960c9bebf54715b1",
+  "operation": "Existing envelope copied unchanged; native validation pending."
+}

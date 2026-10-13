@@ -24,6 +24,7 @@ namespace WorldGenesis.Runtime
         public bool ToolAffectsTerrain => Tool == null || Tool.Kind != ToolKind.Power || (PowerType)Tool.Value == PowerType.Fire || (PowerType)Tool.Value == PowerType.Rain || (PowerType)Tool.Value == PowerType.Lightning || (PowerType)Tool.Value == PowerType.Meteor;
         public int UnitImpactRadius => Tool != null && Tool.Kind == ToolKind.Power && (PowerType)Tool.Value != PowerType.Fire && (PowerType)Tool.Value != PowerType.Rain ? EffectiveBrushRadius + 1 : -1;
         public int SelectedUnitId { get; private set; }
+        public int SelectedShipId { get; private set; }
         public int InspectX { get; private set; } = -1;
         public int InspectY { get; private set; } = -1;
         public float SimulationBacklogSeconds => tickAccumulator;
@@ -143,9 +144,9 @@ namespace WorldGenesis.Runtime
         }
         private void ReplaceWorld(SimulationEngine engine)
         {
-            Engine = engine; GenerationPreset = World.Preset; tickAccumulator = 0; SelectedUnitId = 0; InspectX = -1; InspectY = -1;
+            Engine = engine; GenerationPreset = World.Preset; tickAccumulator = 0; SelectedUnitId = 0; SelectedShipId = 0; InspectX = -1; InspectY = -1;
             gestureStartedInWorld = false; dragCamera = false; previousBrushX = -1000;
-            View.SetWorld(World); effects.Reset(World); hud?.WorldChanged();
+            View.SetWorld(World); View.SetMaritimeQueries(Engine.GetHarborWarehouses); effects.Reset(World); hud?.WorldChanged();
         }
         public void Save()
         {
@@ -192,7 +193,7 @@ namespace WorldGenesis.Runtime
                 while (tickAccumulator >= .1f && work < 20) { Engine.Step(.1f); tickAccumulator -= .1f; work++; }
                 // A slow frame retains its backlog. It never silently skips simulation ticks.
             }
-            View.SelectedUnitId = SelectedUnitId; View.Update(Time.unscaledTime); effects.Update(World, dt, Paused); hud?.Refresh();
+            View.SelectedUnitId = SelectedUnitId; View.SelectedShipId = SelectedShipId; View.Update(Time.unscaledTime); effects.Update(World, dt, Paused); hud?.Refresh();
         }
         private void HandleKeyboard()
         {
@@ -266,14 +267,25 @@ namespace WorldGenesis.Runtime
         private void Inspect(Vector3 position)
         {
             int x = Mathf.FloorToInt(position.x), y = Mathf.FloorToInt(position.y);
-            InspectX = x; InspectY = y; SelectedUnitId = 0; float distance = 2.25f;
+            InspectX = x; InspectY = y; SelectedUnitId = 0; SelectedShipId = 0; float distance = 2.25f;
+            if (World.InBounds(x, y) && !World.IsTerrainWalkable(x, y))
+            {
+                for (int i = 0; i < World.Ships.Count; i++)
+                {
+                    ShipData ship = World.Ships[i];
+                    if (ship.Health <= 0 || ship.Phase == ShipPhase.Departed || ship.Phase == ShipPhase.Abroad || ship.Phase == ShipPhase.Sunk) continue;
+                    float dx = ship.X - position.x, dy = ship.Y - position.y, squared = dx * dx + dy * dy;
+                    if (squared < distance) { distance = squared; SelectedShipId = ship.Id; }
+                }
+                if (SelectedShipId != 0) { hud?.Refresh(true); return; }
+            }
             // A wall click selects the building; hidden occupants are selected
             // explicitly through its inspector, never through their hidden sprite.
             BuildingData clickedBuilding = World.InBounds(x, y) ? World.GetBuilding(World.Cells[World.Index(x, y)].BuildingId) : null;
             if (clickedBuilding == null || !BuildingAccess.IsEnclosed(clickedBuilding.Type))
                 foreach (UnitData unit in World.Units)
                 {
-                    if (unit.Health <= 0 || unit.InsideBuildingId != 0) continue;
+                    if (unit.Health <= 0 || unit.InsideBuildingId != 0 || unit.ShipId != 0) continue;
                     Vector2 shown = View.GetPresentationPosition(unit);
                     float dx = shown.x - position.x, dy = shown.y - position.y, squared = dx * dx + dy * dy;
                     if (squared < distance) { distance = squared; SelectedUnitId = unit.Id; }
@@ -284,13 +296,20 @@ namespace WorldGenesis.Runtime
         {
             UnitData unit = World.GetUnit(id);
             if (unit == null) return;
-            SelectedUnitId = id; InspectX = (int)unit.X; InspectY = (int)unit.Y;
+            SelectedShipId = 0; SelectedUnitId = id; InspectX = (int)unit.X; InspectY = (int)unit.Y;
             hud?.Refresh(true);
         }
         public void InspectSite(int x, int y)
         {
             if (!World.InBounds(x, y)) return;
-            SelectedUnitId = 0; InspectX = x; InspectY = y; hud?.Refresh(true);
+            SelectedShipId = 0; SelectedUnitId = 0; InspectX = x; InspectY = y; hud?.Refresh(true);
+        }
+        public void InspectShip(int id)
+        {
+            ShipData ship = World.GetShip(id);
+            if (ship == null || ship.Phase == ShipPhase.Departed || ship.Phase == ShipPhase.Sunk) return;
+            SelectedShipId = id; SelectedUnitId = 0; InspectX = (int)ship.X; InspectY = (int)ship.Y;
+            hud?.Refresh(true);
         }
         // Opt-in evidence framing observes real jobs; it never grants stock or changes orders.
         public bool InspectResourceWorker(float zoom, bool onlyLogDelivery = false)
@@ -371,9 +390,20 @@ namespace WorldGenesis.Runtime
             yield return CaptureRoutine(path, quit, true);
         }
         [Serializable]
-        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit, InsideBuilding; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age; public bool Paused, AutomaticCapture, AssistedFraming; }
+        private sealed class CaptureReceipt { public string Type, Utc, UnityVersion, Image, Preset, SelectedTask, Cargo, Sex, LoadedWorld, ShipType, ShipState; public int Seed, Width, Height, Population, ScreenWidth, ScreenHeight, SelectedUnit, InsideBuilding, SelectedShip, ShipCrew; public long Tick; public float Speed, CameraX, CameraY, OrthographicSize, CargoAmount, Age, ShipHold, ShipFood, ShipWater; public bool Paused, AutomaticCapture, AssistedFraming; }
         private bool InspectRequestedCell(string[] arguments)
         {
+            int shipIndex = Array.IndexOf(arguments, "--inspect-ship");
+            if (shipIndex >= 0 && shipIndex + 1 < arguments.Length && int.TryParse(arguments[shipIndex + 1], out int shipId))
+            {
+                ShipData ship = World.GetShip(shipId);
+                if (ship != null)
+                {
+                    int shipZoomIndex = Array.IndexOf(arguments, "--zoom"); float shipZoom = 10;
+                    if (shipZoomIndex >= 0 && shipZoomIndex + 1 < arguments.Length && float.TryParse(arguments[shipZoomIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requestedZoom)) shipZoom = requestedZoom;
+                    InspectShip(shipId); FocusWorldPoint(new Vector2(ship.X, ship.Y), shipZoom); assistedFraming = true; return true;
+                }
+            }
             int index = Array.IndexOf(arguments, "--inspect-cell");
             if (index < 0 || index + 2 >= arguments.Length || !int.TryParse(arguments[index + 1], out int x) || !int.TryParse(arguments[index + 2], out int y) || !World.InBounds(x, y)) return false;
             int zoomIndex = Array.IndexOf(arguments, "--zoom"); float zoom = 10;
@@ -395,6 +425,8 @@ namespace WorldGenesis.Runtime
             ScreenCapture.CaptureScreenshot(fullPath);
             CaptureReceipt receipt = new CaptureReceipt { Type = "native Unity gameplay capture", Utc = DateTime.UtcNow.ToString("O"), UnityVersion = Application.unityVersion, Image = Path.GetFileName(fullPath), Seed = World.Seed, Width = World.Width, Height = World.Height, Population = World.Units.Count, Tick = World.Tick, Speed = Speed, Paused = Paused, AutomaticCapture = automatic, AssistedFraming = assistedFraming, CameraX = MainCamera.transform.position.x, CameraY = MainCamera.transform.position.y, OrthographicSize = MainCamera.orthographicSize, ScreenWidth = Screen.width, ScreenHeight = Screen.height, Preset = World.Preset.ToString() };
             receipt.LoadedWorld = captureWorldSource;
+            ShipData observedShip = World.GetShip(SelectedShipId);
+            if (observedShip != null) { receipt.SelectedShip = observedShip.Id; receipt.ShipType = observedShip.Kind.ToString(); receipt.ShipState = observedShip.Phase.ToString(); receipt.ShipCrew = observedShip.CrewIds.Count; receipt.ShipHold = MaritimeCatalog.UsedHold(observedShip); receipt.ShipFood = observedShip.Food; receipt.ShipWater = observedShip.Water; }
             UnitData observed = World.GetUnit(SelectedUnitId);
             if (observed != null) { receipt.SelectedUnit = observed.Id; receipt.InsideBuilding = observed.InsideBuildingId; receipt.SelectedTask = observed.Task.ToString(); receipt.Cargo = observed.CargoKind.ToString(); receipt.CargoAmount = observed.CargoAmount; receipt.Sex = observed.Sex.ToString(); receipt.Age = observed.Age; }
             float deadline = Time.realtimeSinceStartup + 8;

@@ -1,0 +1,13 @@
+{
+  "status": "verified-local-not-yet-published",
+  "snapshot": "maritime-v080-r2",
+  "editMode": {"passed":326,"failed":0,"xml":"Evidence/20261014-001943-064-editmode/tests.xml"},
+  "playMode": {"passed":54,"failed":0,"xml":"Evidence/20261014-002119-864-playmode/tests.xml"},
+  "build":"Evidence/Development/build-maritime-v080-r2.json",
+  "sourceMatch":"Evidence/Development/maritime-final-source-match.json",
+  "gallery":"Docs/Development/MARITIME_GALLERY.md",
+  "profile":"Evidence/Captures/20261014-002614-maritime-1000-profile-final-profile.json",
+  "package":"Evidence/Development/package-0.8.0-alpha.json",
+  "failuresRetained":["R1 EditMode310/311 and PlayMode52/53, corrected before final r2", "Two invalid native capture envelopes rejected, preparation script fixed; authentic saves loaded without content changes"],
+  "limits":["No natural tools, coins or port by1800simsec in two worlds", "Large fleet not separately profiled", "Overlapping ships at close berths/combat", "Native30minute soak not run", "User artistic acceptance pending"]
+}

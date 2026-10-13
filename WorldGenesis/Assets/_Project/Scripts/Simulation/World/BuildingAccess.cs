@@ -12,7 +12,7 @@ namespace WorldGenesis.Simulation
     {
         public const float EntrySeconds = .3f;
         public static bool IsEnclosed(BuildingType type)
-        { return type != BuildingType.Hall && type != BuildingType.Farm && type != BuildingType.Pasture && type != BuildingType.Well && type != BuildingType.WoodWall && type != BuildingType.Gate; }
+        { return type != BuildingType.Hall && type != BuildingType.Farm && type != BuildingType.Pasture && type != BuildingType.Well && type != BuildingType.WoodWall && type != BuildingType.Gate && type != BuildingType.Port && type != BuildingType.Shipyard; }
         public static int Capacity(BuildingData b)
         { return b == null || !IsEnclosed(b.Type) ? 0 : b.Type == BuildingType.House ? 4 + Math.Max(0, b.Level - 1) * 2 : 4 + Math.Max(1, b.Level); }
         public static int Occupants(WorldState world, BuildingData b)

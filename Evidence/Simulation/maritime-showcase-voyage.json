@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-13T21:19:27.5328929Z",
+  "output": "Builds/MaritimeShowcase/voyage.save.json",
+  "sha256": "E4A0D6B5E53AE645587DC1466540E98136FC82CACD365034386054445BCD20FE",
+  "sourceTick": 0,
+  "subjects": {
+    "inspectShip": 5
+  },
+  "continuationTicks": 120,
+  "validation": true,
+  "assistance": "Authored coastal terrain, all research, finite building budget/stocks and prepared hulls/aboard crew/positions granted. Infrastructure uses paid public commands. Movement, trade, capture and provisions use production simulation. Ship construction and physical boarding separately tested; this scene does not prove natural progression."
+}

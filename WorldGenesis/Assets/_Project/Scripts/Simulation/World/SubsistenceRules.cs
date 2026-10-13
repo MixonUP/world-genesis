@@ -20,6 +20,7 @@ namespace WorldGenesis.Simulation
         public static float WaterCapacity(BuildingData building)
         {
             if (building == null) return 0;
+            if (building.Type == BuildingType.HarborWarehouse) return StorageCapacity.Capacity(building);
             return building.Type == BuildingType.Hall ? WaterReserve : building.Type == BuildingType.Well ? 12 + 6 * building.Level : 0;
         }
 

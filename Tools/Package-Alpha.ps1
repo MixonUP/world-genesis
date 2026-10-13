@@ -12,8 +12,9 @@ Copy-Item -LiteralPath (Join-Path $root 'Docs\Development\PLAY_GUIDE.md') -Desti
 $report=if($Version -eq '0.1.0-alpha') {'ALPHA_REPORT.md'} elseif($Version -eq '0.2.0-alpha') {'CITIZENS_REPORT.md'} elseif($Version -eq '0.3.0-alpha') {'RESOURCES_REPORT.md'} elseif($Version -eq '0.4.0-alpha') {'SOCIETY_REPORT.md'} elseif($Version -eq '0.5.1-alpha') {'SUBSISTENCE_REPORT.md'} elseif($Version -eq '0.6.0-alpha') {'ORIGINAL_CITIZENS_REPORT.md'} else {'TRANSPORT_REPORT.md'}
 if ($Version -eq '0.6.1-alpha') { $report = 'FISHING_RIVERS_REPORT.md' }
 if ($Version -eq '0.7.0-alpha') { $report = 'PRODUCTION_REPORT.md' }
+if ($Version -eq '0.8.0-alpha') { $report = 'MARITIME_REPORT.md' }
 Copy-Item -LiteralPath (Join-Path $root ('Docs/Development/'+$report)) -Destination (Join-Path $build $report)
-if ($Version -in @('0.6.0-alpha','0.6.1-alpha','0.7.0-alpha')) {
+if ($Version -in @('0.6.0-alpha','0.6.1-alpha','0.7.0-alpha','0.8.0-alpha')) {
     Copy-Item -LiteralPath (Join-Path $root 'SourceAssets/OriginalCitizens/PROVENANCE.md') -Destination (Join-Path $build 'ORIGINAL-CITIZENS-ART.md')
 }
 if ($Version -ne '0.1.0-alpha') {

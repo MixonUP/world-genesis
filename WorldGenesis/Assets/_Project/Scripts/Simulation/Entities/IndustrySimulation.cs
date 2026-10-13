@@ -234,7 +234,7 @@ namespace WorldGenesis.Simulation
             b.Inventory[(int)recipe.Output] += recipe.OutputAmount;
             World.ProducedItems[(int)recipe.Output] += recipe.OutputAmount;
             if (IndustryCatalog.IsCoin(recipe.Output)) World.MintIssued[(int)recipe.Output] += recipe.OutputAmount;
-            b.CompletedIndustryBatches++; World.IndustryBatchesCompleted++;
+            b.CompletedIndustryBatches++; World.IndustryBatchesCompleted++; PayProductionWage(u, b, recipe);
             b.IndustryProgress = 0; b.ActiveIndustryRecipe = IndustryRecipeType.None; b.IndustryWorkerId = 0;
             World.ResourceRevision++; ChangeTask(u, UnitTask.Idle); u.DecisionTimer = 0; return true;
         }

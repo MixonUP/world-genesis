@@ -1,0 +1,147 @@
+{
+  "utc": "2026-10-13T21:16:26.442408+00:00",
+  "baselineReceipt": "Evidence/Simulation/production-interior-natural-final-r2.json",
+  "baselineReceiptSHA256": "0F5107129599B156B774B19A8BF3A99D91D3D32DE3CB87B2A34B515CBCDBEE3C",
+  "marketReceipt": "Evidence/Simulation/market-natural-final.json",
+  "marketReceiptSHA256": "09F9301114A61BFB5CAF46D1579A6940AF43EB72CFE8F84B8A1B9C36185E5696",
+  "naturalSourceUnchangedDuringRun": true,
+  "sourceChangedSinceNatural": [
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulation.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationHarbor.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationJobs.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationVoyages.cs"
+  ],
+  "comparisonLimit": "Same seeds/startup/duration, different deterministic revisions; not an isolated A/B effect or native performance result. No fleet/port at final snapshot; subsequent marine guards not retrospectively tested by this run.",
+  "rows": [
+    {
+      "seed": 1618033,
+      "baseline": {
+        "citizens": 56,
+        "batches": 14,
+        "workToolsIssued": 0,
+        "clothesIssued": 0
+      },
+      "market": {
+        "citizens": 90,
+        "batches": 23,
+        "workToolsIssued": 0,
+        "clothesIssued": 9,
+        "marketTransactions": 0,
+        "marketWages": 0
+      },
+      "firstTechnologyTick": {
+        "f01_preservation": 1250,
+        "m01_forestry": 2360,
+        "c01_herbalism": 3540,
+        "c02_clean_water": 5690,
+        "m02_carpentry": 6880,
+        "t01_flax": 7510,
+        "t02_linen": 8450,
+        "z01_charcoal": 9260,
+        "z02_ironworking": 10140,
+        "m03_tanning": 11400,
+        "z06_nonferrous": 14730,
+        "f07_husbandry": 15610
+      },
+      "firstProductTick": {
+        "LinenCloth": 9752,
+        "Charcoal": 10082,
+        "LinenClothes": 10279,
+        "Furniture": 11297,
+        "Leather": 15199,
+        "Rope": 15343
+      },
+      "firstClothesIssuedTick": 10282,
+      "firstToolIssuedTick": 0,
+      "worldValidations": 182,
+      "carrierChecks": 2460271,
+      "adultResidentSeconds": 103606.20000000001,
+      "hungryAdultResidentSeconds": 0,
+      "thirstyAdultResidentSeconds": 0,
+      "shipsAtEnd": 0,
+      "portsAtEnd": 0,
+      "portWarehousesAtEnd": 0,
+      "actualClothesWearersAtEnd": 4,
+      "batchCountsFromOutputLedger": {
+        "Charcoal": 3.0,
+        "Leather": 2.0,
+        "LinenCloth": 6.0,
+        "LinenClothes": 4.0,
+        "Furniture": 7.0,
+        "Rope": 1.0
+      },
+      "recipeConsumptionDerivedFromCompletedBatches": {
+        "materials": {
+          "Log": 8.0,
+          "LinenCloth": 8.0,
+          "Plank": 21.0
+        },
+        "agriculture": {
+          "Hide": 4.0,
+          "Fiber": 21.0
+        }
+      },
+      "derivationLimit": "Only completed Industry batches; excludes construction, incomplete deliveries, food, death and baskets. Inputs derived from unchanged recipe and production counters, not a per-pickup trace.",
+      "exportedWorld": "Builds/MarketNatural/seed-1618033-tick-18000.world.json",
+      "sha256": "12ACFFF857733015B599D8FBFA13DB4D8B58F810E7022EC44B1B5849FA3542D5"
+    },
+    {
+      "seed": 271828,
+      "baseline": {
+        "citizens": 41,
+        "batches": 3,
+        "workToolsIssued": 0,
+        "clothesIssued": 0
+      },
+      "market": {
+        "citizens": 46,
+        "batches": 2,
+        "workToolsIssued": 0,
+        "clothesIssued": 0,
+        "marketTransactions": 0,
+        "marketWages": 0
+      },
+      "firstTechnologyTick": {
+        "f01_preservation": 1580,
+        "m01_forestry": 3230,
+        "c01_herbalism": 5060,
+        "c02_clean_water": 10380,
+        "m02_carpentry": 13510,
+        "t01_flax": 14010,
+        "t02_linen": 15330,
+        "z01_charcoal": 16290,
+        "z02_ironworking": 17160
+      },
+      "firstProductTick": {
+        "LinenCloth": 17249,
+        "Furniture": 17702
+      },
+      "firstClothesIssuedTick": 0,
+      "firstToolIssuedTick": 0,
+      "worldValidations": 182,
+      "carrierChecks": 1759482,
+      "adultResidentSeconds": 58076.8,
+      "hungryAdultResidentSeconds": 0,
+      "thirstyAdultResidentSeconds": 0,
+      "shipsAtEnd": 0,
+      "portsAtEnd": 0,
+      "portWarehousesAtEnd": 0,
+      "actualClothesWearersAtEnd": 0,
+      "batchCountsFromOutputLedger": {
+        "LinenCloth": 1.0,
+        "Furniture": 1.0
+      },
+      "recipeConsumptionDerivedFromCompletedBatches": {
+        "materials": {
+          "Plank": 3.0
+        },
+        "agriculture": {
+          "Fiber": 3.0
+        }
+      },
+      "derivationLimit": "Only completed Industry batches; excludes construction, incomplete deliveries, food, death and baskets. Inputs derived from unchanged recipe and production counters, not a per-pickup trace.",
+      "exportedWorld": "Builds/MarketNatural/seed-271828-tick-18000.world.json",
+      "sha256": "2766379A7E8C6CD8EF9107283A5B48AB0D061B8C4D4FCC09AC7FF3A9474FC7F4"
+    }
+  ]
+}

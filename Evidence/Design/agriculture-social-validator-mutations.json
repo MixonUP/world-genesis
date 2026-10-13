@@ -1,6 +1,6 @@
 {
   "scope": "prepared design validator sensitivity, not game simulation",
-  "created_at": "2026-10-12T14:35:23+03:00",
+  "created_at": "2026-10-14T00:03:47+03:00",
   "passed": true,
   "positive_catalog_passed": true,
   "negative_cases": [
@@ -88,25 +88,25 @@
     }
   ],
   "source_sha256": {
-    "bootstrap.csv": "9a91dcadb1eac26d34b1c1c7180af7a5d0a17ee8455ffccae0420a5610f869fa",
-    "building_tiers.csv": "b8f69875ba11d7b6e89fb286d056a8dcf9f958a7a63bc4e457f64e12ab5a53cc",
-    "buildings.csv": "c8f2ffef38577931455390f17483677b0b666553e6be16cc3671b22057dca7eb",
+    "bootstrap.csv": "610bca872a47fd4d7978aa248a5ad16d616b1f737a13836e2f8d8e6c1dee13a1",
+    "building_tiers.csv": "ed3035ba39d3e026bb70940d950fdb5a81fa6f97b80c08dd17fe095d36a80c8c",
+    "buildings.csv": "c440b3ad2f856a09d49896006d4f2c699c15f4d13a9b80823600d289bfc094d3",
     "carrying_equipment.csv": "06af8d423c5a7a3bd6077d09f2cf9f660a2c388dad1f71f43c2d3b2af99714ed",
     "civil_defense.csv": "33eaf4946cc405811a1fed9277f0ad4aad09fa73a0743752f82fd106c780f018",
     "crops.csv": "72f6b413d387cfe58952b0a4b2e8e028c0caf95973b3f3bb0deb22b8d5bc6e55",
-    "goods.csv": "a7a70c7362f632123612ee4fe6911e22863fad80f4994c6e8f05b8b63e63d012",
+    "goods.csv": "9336654060db45ffa0ba7f63b374e7c81d89863fe3d216761fc95ffc5fd1e04f",
     "housing_comfort.csv": "80e21c1ca51e0697560d40cec72ba040cdc467c0f923276ed5e3e663d08d92f6",
     "military_loadouts.csv": "4d0a62f122531cb15c4727c880b34a9f797b77e22e02a5aeaad4f9f25e2d6e01",
     "minting_policy.csv": "e81e6c08e7047f18201ee8299ae167e69709f41763311f839a153190ad55c08d",
-    "natural_sources.csv": "69b729ae2384db9647ceb8ed2299173406b4a3af5869287ed4f1ab67775b43e1",
-    "recipes.csv": "2f4329b3e2f3b15beb5572f12583c2b220068771f6c37035dff78d3f15951cd9",
-    "resource_deposits.csv": "c7c702f2dd571deb41ef6d77b9baa105b6b997b819edc39b5aa098cce912f0eb",
+    "natural_sources.csv": "f5bff5a1f5f71ee3ba3a5420fe7499eaeb3edc92f600da994fabb5059e927cd2",
+    "recipes.csv": "4e2e091f52107b796e33f421733cca49b91dde46f945831b69abc9c01ab0df85",
+    "resource_deposits.csv": "7eb11ba37a70226b5128de07c09fb0e88ed69f4d8984a44d4f03f4496fbd0189",
     "resource_regions.csv": "0c01a55f0ff03f4cd93928d871766ea302159e8685995fd96a1a828aeff06ba4",
-    "roles.csv": "439aae75b7655da0f8f8861c481ae1e87a7ec63d91d5f2e038acbe6a181e8879",
+    "roles.csv": "04479818f02d2c2027c401e4b251c18312a17449473ffb104c68cfaec7b1150b",
     "ruler_decisions.csv": "47c4e6fe63b583bc5ded0eac9579b04492201eb8ad3b1d9952e987b063c47baf",
     "settlement_tiers.csv": "381f089055bfae6fca0b75c72794a72321b377e622a521bbad3ffeea5372d7c3",
     "species_behaviors.csv": "991d4735f76043ac83e31e643557e0edadcc6e3486e4df8d04bb671a0b1e28d8",
-    "technologies.csv": "bfe7d8175b7d615179290b522e8e6ed3f16d6b876724684303654e398e39bd35",
+    "technologies.csv": "44325d20a2ffa63951de993b2f0a2f81db8ba2d5db84774cc564b861ca4ba6d5",
     "wildlife.csv": "bcb42b97ca418c9d2460aaff86dbded8097144449bab6e56fa40733e26017862",
     "wildlife_variants.csv": "09265d679b79c676a088cb488ff8c902ee88d17565e5c160c7f6ed89992ec98b"
   }

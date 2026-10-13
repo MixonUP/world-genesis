@@ -58,6 +58,17 @@ namespace WorldGenesis.Tests
         { return w.LostAgriculture[(int)product] + w.Buildings.Sum(b => b.AgriculturalStock[(int)product]) + w.Units.Where(u => u.HarvestProduct == product).Sum(u => u.HarvestAmount) + w.AgriculturalDrops.Where(p => p.Product == product).Sum(p => p.Amount); }
         private static void MixedCargo(UnitData u) { u.CargoKind = ItemType.IronOre; u.CargoAmount = .6f; u.HarvestProduct = AgriculturalProduct.Fiber; u.HarvestAmount = .4f; }
 
+        public static void OffCenterResidentCompletesDoorApproachWithoutTeleportOrDeadlock()
+        {
+            SimulationEngine e = Fixture(); WorldState w = e.World; BuildingData b = Add(e, BuildingType.House); UnitData u = w.Units[0];
+            int door = b.EntranceCell; u.X = door % w.Width + .0782f; u.Y = door / w.Width + .5f;
+            float before = u.X; Need(e.TryEnterBuilding(u.Id, b.Id), "Same-cell entry command rejected");
+            Near(before, u.X, "Command teleported resident to doorway"); Need(u.InsideBuildingId == 0, "Entered before approaching");
+            Step(e); Need(u.X > before && u.InsideBuildingId == 0, "No physical final approach");
+            Until(e, () => u.InsideBuildingId == b.Id, "Off-centre doorway never entered", 30);
+            Valid(w);
+        }
+
         public static void TransitRouteGoesAroundAClosedBuildingFootprint()
         {
             SimulationEngine e = Fixture(); WorldState w = e.World; BuildingData b = Add(e, BuildingType.House); UnitData u = w.Units[0];
@@ -212,6 +223,7 @@ namespace WorldGenesis.Tests
     public sealed class BuildingInteractionTests
     {
         [SetUp] public void Serializer(){BuildingInteractionScenarios.Clone=w=>JsonUtility.FromJson<WorldState>(JsonUtility.ToJson(w));BuildingInteractionScenarios.Snapshot=w=>JsonUtility.ToJson(w);}
+        [Test] public void OffCenterDoorApproach(){BuildingInteractionScenarios.OffCenterResidentCompletesDoorApproachWithoutTeleportOrDeadlock();}
         [Test] public void TransitWalls(){BuildingInteractionScenarios.TransitRouteGoesAroundAClosedBuildingFootprint();}
         [Test] public void RealDoorApproach(){BuildingInteractionScenarios.DistantEntryWalksToTheSavedDoorBeforeGoingInside();}
         [Test] public void RealExit(){BuildingInteractionScenarios.ANewOutdoorDestinationRequiresAnActualExit();}

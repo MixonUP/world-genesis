@@ -44,12 +44,12 @@ namespace WorldGenesis.Simulation
             if (unit.Task == task) return;
             if (unit.Task == UnitTask.Brew) { BuildingData previous = World.GetBuilding(unit.TargetBuildingId); if (previous != null) previous.BrewingProgress = 0; }
             ReleaseReservation(unit);
-            ReleaseWorkshop(unit); ReleaseIndustry(unit);
+            ReleaseMaritimeJob(unit, task); if (unit.Task == UnitTask.Market) ReleaseMarket(unit); ReleaseWorkshop(unit); ReleaseIndustry(unit);
             unit.Task = task; unit.TaskStartedTick = World.Tick; unit.WorkTimer = 0;
             if (!IndoorTask(task)) { unit.EnteringBuildingId = 0; unit.BuildingInteractionTimer = 0; }
             if (task != UnitTask.Fight && task != UnitTask.Hunt && task != UnitTask.Tend && task != UnitTask.Socialize) unit.TargetId = 0;
             if (task != UnitTask.Gather && task != UnitTask.Fish) unit.ResourceCell = -1;
-            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process && task != UnitTask.Drink && task != UnitTask.Tend && task != UnitTask.Brew && task != UnitTask.CraftEquipment && task != UnitTask.Caravan && task != UnitTask.Produce && task != UnitTask.InstallFurniture && task != UnitTask.EquipGoods && task != UnitTask.VisitBuilding) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
+            if (task != UnitTask.Haul && task != UnitTask.Return && task != UnitTask.Process && task != UnitTask.Drink && task != UnitTask.Tend && task != UnitTask.Brew && task != UnitTask.CraftEquipment && task != UnitTask.Caravan && task != UnitTask.Produce && task != UnitTask.InstallFurniture && task != UnitTask.EquipGoods && task != UnitTask.VisitBuilding && task != UnitTask.Shipbuild && task != UnitTask.Dockwork && task != UnitTask.Market) { unit.SourceBuildingId = 0; unit.TargetBuildingId = 0; unit.PickupKind = ItemType.None; }
             if (task != UnitTask.CraftEquipment) { unit.EquipmentProgress = 0; unit.EquipmentOrder = 0; }
             if (task != UnitTask.Haul) unit.GroundStockIndex = -1;
             if (task != UnitTask.EquipGoods) unit.DesiredIndustryEquipment = ItemType.None;
@@ -68,6 +68,8 @@ namespace WorldGenesis.Simulation
         private bool CommittedActivity(UnitData unit)
         {
             if (unit.Task == UnitTask.Produce || unit.Task == UnitTask.InstallFurniture || unit.Task == UnitTask.EquipGoods || unit.Task == UnitTask.VisitBuilding) return World.GetBuilding(unit.TargetBuildingId) != null;
+            if ((unit.Task == UnitTask.Shipbuild || unit.Task == UnitTask.Dockwork) && unit.MaritimeOrderId != 0) return true;
+            if (unit.Task == UnitTask.Market && unit.MarketOrderId != 0) return true;
             if (unit.Task == UnitTask.BuildTransport && unit.TransportProjectId != 0) return true;
             if (unit.Task == UnitTask.Caravan && unit.CaravanId != 0) return true;
             if (unit.Task == UnitTask.CraftEquipment || unit.Task == UnitTask.Tend || unit.Task == UnitTask.Brew) return World.GetBuilding(unit.TargetBuildingId) != null && (unit.Task != UnitTask.CraftEquipment || unit.EquipmentOrder != 0);

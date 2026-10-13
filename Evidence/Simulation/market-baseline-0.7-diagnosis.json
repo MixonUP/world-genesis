@@ -1,0 +1,4767 @@
+{
+  "utc": "2026-10-13T20:57:04.960202+00:00",
+  "kind": "Read-only baseline 0.7 diagnosis from immutable final receipt and unchanged exported worlds",
+  "limits": "Endpoint recipe gates and task ages are measured. Six 300-second interval snapshots are not continuous blocked-time measurements; no single causal share or permanent deadlock is inferred. Current IDs preserve 0.7 ordering. No 0.8 constructor or migration applied.",
+  "results": [
+    {
+      "seed": 1618033,
+      "saved_world": "Builds/ProductionNatural/seed-1618033-tick-18000.world.json",
+      "sha256": "f3a3b34ec729fcc30ce93da1b50df02fabed1fefe19cdc9a960c9bebf54715b1",
+      "tick": 18000,
+      "first_technology_tick": {
+        "f01_preservation": 1260,
+        "m01_forestry": 2530,
+        "c01_herbalism": 3670,
+        "c02_clean_water": 6220,
+        "t01_flax": 6830,
+        "m03_tanning": 8210,
+        "m02_carpentry": 9220,
+        "z01_charcoal": 9970,
+        "f07_husbandry": 10810,
+        "l06_paths": 11040,
+        "f06_river_fishing": 11290,
+        "t02_linen": 12670,
+        "t03_leather_tailoring": 15180
+      },
+      "first_product_tick": {
+        "Leather": 9289,
+        "Charcoal": 10240,
+        "Furniture": 10271
+      },
+      "coarse_timeline": [
+        {
+          "tick": 0,
+          "creatures": 45,
+          "citizens": 36,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 45
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 90,
+          "citizens": 44,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 14,
+            "Gather": 10,
+            "Rest": 4,
+            "Wander": 48,
+            "Fish": 2,
+            "Process": 2,
+            "Socialize": 1,
+            "Farm": 1,
+            "Learn": 4,
+            "Play": 4
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 9,
+              "Food": 89.24933,
+              "Wood": 0,
+              "ResearchRate": 0.042984184,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 10.112816,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 7.200001
+                },
+                {
+                  "item": "Clay",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 2.4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 9,
+              "Food": 68,
+              "Wood": 3,
+              "ResearchRate": 0.04210947,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 18.667461,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.10255158
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 10.400002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 13,
+              "Food": 49.830902,
+              "Wood": 3,
+              "ResearchRate": 0.17784926,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 4.895843,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "Clay",
+                  "amount": 2.4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 13,
+              "Food": 96,
+              "Wood": 5,
+              "ResearchRate": 0.1769244,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 29.526115,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 2.1999993
+                },
+                {
+                  "item": "Plank",
+                  "amount": 5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 10.884856
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 116,
+          "citizens": 63,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 21,
+            "Gather": 5,
+            "Rest": 9,
+            "Haul": 1,
+            "Farm": 2,
+            "Socialize": 1,
+            "Wander": 50,
+            "Process": 2,
+            "Fish": 2,
+            "Fight": 1,
+            "Play": 13,
+            "Learn": 5,
+            "Flee": 1,
+            "Idle": 3
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 13,
+              "Food": 112.74932,
+              "Wood": 1,
+              "ResearchRate": 0.042920906,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 3.6360517,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 1
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 13.600002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 7.200001
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Salt",
+                  "amount": 2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 9,
+              "Food": 92,
+              "Wood": 9,
+              "ResearchRate": 0.035185095,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 19.33698,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 9
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 10.400002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 11.999999
+                },
+                {
+                  "item": "Hide",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 18,
+              "Food": 37.0801,
+              "Wood": 8,
+              "ResearchRate": 0.15154861,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 28.145994,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1.4978209
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 0.4000001
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 1
+                },
+                {
+                  "item": "Clay",
+                  "amount": 1.5999999
+                },
+                {
+                  "item": "Brick",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 23,
+              "Food": 30.083183,
+              "Wood": 8,
+              "ResearchRate": 0.15121378,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 59.421497,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 7.2976065
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 11
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 2
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 2.8000002
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4.4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 9000,
+          "creatures": 141,
+          "citizens": 81,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Gather": 22,
+            "Return": 20,
+            "Farm": 5,
+            "Rest": 14,
+            "Process": 4,
+            "Produce": 1,
+            "Fish": 7,
+            "Wander": 55,
+            "Learn": 6,
+            "Play": 5,
+            "Eat": 1,
+            "Idle": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 13,
+              "Food": 117.74932,
+              "Wood": 1,
+              "ResearchRate": 0.167102,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 15.854363,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 1
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 23.799484
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Salt",
+                  "amount": 3.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 4
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 13,
+              "Food": 124.99999,
+              "Wood": 3,
+              "ResearchRate": 0.0538065,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 10.919546,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 14.4000025
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 14.999999
+                },
+                {
+                  "item": "Hide",
+                  "amount": 11
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 23,
+              "Food": 33.371197,
+              "Wood": 0,
+              "ResearchRate": 0.21782395,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 33.60439,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 5
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 1.6
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 3
+                },
+                {
+                  "item": "Clay",
+                  "amount": 1.5999995
+                },
+                {
+                  "item": "Brick",
+                  "amount": 6
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 32,
+              "Food": 66.58355,
+              "Wood": 1,
+              "ResearchRate": 0.47570807,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 36.39075,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "t01_flax",
+                "m03_tanning"
+              ],
+              "workshops": [
+                {
+                  "Id": 697,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "Leather",
+                  "IndustryWorkerId": 118,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "Доставка сырья или освобождение места"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 11.428074
+                },
+                {
+                  "item": "Plank",
+                  "amount": 1
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 12
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 6.5212173
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 16
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "Coal",
+                  "amount": 5
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2.0000381
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12.000011
+                },
+                {
+                  "item": "Hay",
+                  "amount": 12.000026
+                },
+                {
+                  "item": "Hide",
+                  "amount": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 12000,
+          "creatures": 136,
+          "citizens": 91,
+          "batches": 8,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 2,
+          "produced": {
+            "Charcoal": 9,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 6,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 2,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Process": 4,
+            "Farm": 8,
+            "Rest": 11,
+            "Return": 14,
+            "Wander": 48,
+            "Flee": 15,
+            "CraftEquipment": 9,
+            "Gather": 3,
+            "BuildTransport": 1,
+            "Produce": 1,
+            "Eat": 2,
+            "Haul": 2,
+            "Drink": 2,
+            "Socialize": 2,
+            "Fish": 1,
+            "Idle": 1,
+            "Fight": 1,
+            "Learn": 7,
+            "Play": 4
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 17,
+              "Food": 109.24932,
+              "Wood": 4,
+              "ResearchRate": 0.1748879,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 5.266486,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 13.700579
+                },
+                {
+                  "item": "Plank",
+                  "amount": 4
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 19.799484
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 8
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 7.4000015
+                },
+                {
+                  "item": "Brick",
+                  "amount": 8
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Salt",
+                  "amount": 3.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Meat",
+                  "amount": 6
+                },
+                {
+                  "item": "Hide",
+                  "amount": 10
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 13,
+              "Food": 124.99999,
+              "Wood": 0,
+              "ResearchRate": 0.24697533,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 46.327087,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 28.400003
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 58.999992
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 1.9073486e-06
+                },
+                {
+                  "item": "Berries",
+                  "amount": 15.999998
+                },
+                {
+                  "item": "Hide",
+                  "amount": 11
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 23,
+              "Food": 61.2874,
+              "Wood": 9,
+              "ResearchRate": 0.44121778,
+              "ActiveTechnology": "m03_tanning",
+              "ResearchProgress": 32.18753,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "f07_husbandry"
+              ],
+              "workshops": [
+                {
+                  "Id": 842,
+                  "X": 47,
+                  "Y": 70,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 368,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "Доставка сырья или освобождение места"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 2.3999982
+                },
+                {
+                  "item": "Plank",
+                  "amount": 13
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "Clay",
+                  "amount": 25.000002
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 7.2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1.999999
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hay",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 38,
+              "Food": 238.08356,
+              "Wood": 9,
+              "ResearchRate": 0.8524181,
+              "ActiveTechnology": "t02_linen",
+              "ResearchProgress": 52.39017,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "t01_flax",
+                "m03_tanning",
+                "m02_carpentry",
+                "z01_charcoal",
+                "f07_husbandry",
+                "l06_paths",
+                "f06_river_fishing"
+              ],
+              "workshops": [
+                {
+                  "Id": 697,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                },
+                {
+                  "Id": 824,
+                  "X": 91,
+                  "Y": 46,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 2,
+                  "waiting": "Постройка или вход недоступны"
+                },
+                {
+                  "Id": 844,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 42.138184
+                },
+                {
+                  "item": "Plank",
+                  "amount": 11
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 14
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 39.521072
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 19
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "Coal",
+                  "amount": 5
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.6
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 4.8
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 9
+                },
+                {
+                  "item": "Leather",
+                  "amount": 6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 13.000035
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12.000011
+                },
+                {
+                  "item": "Hay",
+                  "amount": 21.000027
+                },
+                {
+                  "item": "Hide",
+                  "amount": 12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 15000,
+          "creatures": 138,
+          "citizens": 85,
+          "batches": 11,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 4,
+          "produced": {
+            "Charcoal": 9,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 6,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 5,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 60,
+            "Return": 21,
+            "Idle": 4,
+            "Rest": 16,
+            "InstallFurniture": 2,
+            "Produce": 1,
+            "Gather": 14,
+            "CraftEquipment": 4,
+            "Socialize": 1,
+            "Drink": 1,
+            "BuildTransport": 1,
+            "Farm": 2,
+            "Play": 5,
+            "Learn": 6
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 23,
+              "Food": 122.24933,
+              "Wood": 9,
+              "ResearchRate": 0.053178806,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 58.66229,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 9
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 17.999847
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.200002
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4.3999996
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Salt",
+                  "amount": 4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 14
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 13,
+              "Food": 124.99999,
+              "Wood": 5,
+              "ResearchRate": 0.05354852,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 34.064312,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.49723148
+                },
+                {
+                  "item": "Plank",
+                  "amount": 5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 37.600002
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 16.800003
+                },
+                {
+                  "item": "Brick",
+                  "amount": 8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 9.99999
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 2.5446756
+                },
+                {
+                  "item": "Berries",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 19,
+              "Food": 66.34927,
+              "Wood": 2.4000034,
+              "ResearchRate": 0.6522047,
+              "ActiveTechnology": "z01_charcoal",
+              "ResearchProgress": 20.419529,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "f07_husbandry",
+                "m03_tanning",
+                "l06_paths",
+                "t02_linen"
+              ],
+              "workshops": [
+                {
+                  "Id": 1141,
+                  "X": 43,
+                  "Y": 76,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 574,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Доставка сырья или освобождение места"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 4.1934557
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3.8000011
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 26.802704
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 13
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 9
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2.193451e-05
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 30,
+              "Food": 282.34857,
+              "Wood": 81.5,
+              "ResearchRate": 0.07031641,
+              "ActiveTechnology": "t03_leather_tailoring",
+              "ResearchProgress": 95.756905,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "t01_flax",
+                "m03_tanning",
+                "m02_carpentry",
+                "z01_charcoal",
+                "f07_husbandry",
+                "l06_paths",
+                "f06_river_fishing",
+                "t02_linen"
+              ],
+              "workshops": [
+                {
+                  "Id": 697,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                },
+                {
+                  "Id": 824,
+                  "X": 91,
+                  "Y": 46,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 2,
+                  "waiting": "Ожидает свободного взрослого работника"
+                },
+                {
+                  "Id": 844,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 32.990765
+                },
+                {
+                  "item": "Plank",
+                  "amount": 81.5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 16
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 44.52113
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 19
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 4.999637
+                },
+                {
+                  "item": "Coal",
+                  "amount": 9.799238
+                },
+                {
+                  "item": "Sand",
+                  "amount": 7.175941
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.1995351
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 9
+                },
+                {
+                  "item": "Leather",
+                  "amount": 6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 38.0874
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12.000011
+                },
+                {
+                  "item": "Hay",
+                  "amount": 24.000025
+                },
+                {
+                  "item": "Hide",
+                  "amount": 21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 18000,
+          "creatures": 114,
+          "citizens": 56,
+          "batches": 14,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 5,
+          "produced": {
+            "Charcoal": 9,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 6,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 8,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 6,
+            "Return": 15,
+            "Rest": 11,
+            "Wander": 62,
+            "Process": 2,
+            "Farm": 2,
+            "Eat": 3,
+            "BuildTransport": 2,
+            "Drink": 1,
+            "Gather": 3,
+            "Flee": 1,
+            "CraftEquipment": 2,
+            "Learn": 3,
+            "Fight": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 28,
+              "Food": 159.74933,
+              "Wood": 8,
+              "ResearchRate": 0.4710444,
+              "ActiveTechnology": "m03_tanning",
+              "ResearchProgress": 2.3559265,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 10
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 7
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 17.199844
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 14
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 12.800003
+                },
+                {
+                  "item": "Brick",
+                  "amount": 14
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4.9999995
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Salt",
+                  "amount": 9.6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Herbs",
+                  "amount": 11.999993
+                },
+                {
+                  "item": "Hay",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 21
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "Ветроград 2",
+              "Population": 5,
+              "Food": 116.99999,
+              "Wood": 6,
+              "ResearchRate": 0.021020958,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 46.234123,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 4.7524104
+                },
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 43.200005
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 20.800003
+                },
+                {
+                  "item": "Brick",
+                  "amount": 8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 33.999992
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 2.5446756
+                },
+                {
+                  "item": "Berries",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "Каменный бор 3",
+              "Population": 8,
+              "Food": 97.84927,
+              "Wood": 26.75,
+              "ResearchRate": 0.15815866,
+              "ActiveTechnology": "z02_ironworking",
+              "ResearchProgress": 61.939312,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "f07_husbandry",
+                "m03_tanning",
+                "l06_paths",
+                "t02_linen",
+                "z01_charcoal"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 3.149376
+                },
+                {
+                  "item": "Plank",
+                  "amount": 27
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 30.602894
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 13
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 5.9387445
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 9
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2.193451e-05
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 14
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "Медная долина 4",
+              "Population": 15,
+              "Food": 257.34857,
+              "Wood": 81.5,
+              "ResearchRate": 0.052953184,
+              "ActiveTechnology": "l11_wooden_bridges",
+              "ResearchProgress": 28.780539,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "t01_flax",
+                "m03_tanning",
+                "m02_carpentry",
+                "z01_charcoal",
+                "f07_husbandry",
+                "l06_paths",
+                "f06_river_fishing",
+                "t02_linen",
+                "t03_leather_tailoring"
+              ],
+              "workshops": [
+                {
+                  "Id": 697,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                },
+                {
+                  "Id": 824,
+                  "X": 91,
+                  "Y": 46,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 2,
+                  "waiting": "Ожидает свободного взрослого работника"
+                },
+                {
+                  "Id": 844,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 45.47056
+                },
+                {
+                  "item": "Plank",
+                  "amount": 81.5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 16
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 52.99983
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 19
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 9.199636
+                },
+                {
+                  "item": "Coal",
+                  "amount": 12.599189
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.1199255
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.5995352
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 4.999739
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 9
+                },
+                {
+                  "item": "Leather",
+                  "amount": 6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 35.999996
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 62.000034
+                },
+                {
+                  "item": "Berries",
+                  "amount": 24.999996
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12.000011
+                },
+                {
+                  "item": "Hay",
+                  "amount": 24.000025
+                },
+                {
+                  "item": "Hide",
+                  "amount": 23
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "towns": [
+        {
+          "id": 1,
+          "population": 28,
+          "food": 159.74933,
+          "wood": 8,
+          "active_technology": "m03_tanning",
+          "research_progress": 2.3559265,
+          "research_rate": 0.4710444,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "m02_carpentry",
+            "t01_flax",
+            "t02_linen"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": false,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {
+                "Log": 1
+              },
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {
+                "Fiber": 3
+              }
+            }
+          },
+          "workshops": [],
+          "tasks": {
+            "Idle": 1,
+            "Wander": 3,
+            "Gather": 3,
+            "Farm": 1,
+            "Return": 9,
+            "Rest": 6,
+            "Process": 1,
+            "Learn": 1,
+            "Drink": 1,
+            "CraftEquipment": 2
+          },
+          "longest_current_jobs": [
+            {
+              "id": 1295,
+              "task": "Return",
+              "age_seconds": 80.9,
+              "destination": 102,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 0.7999997,
+              "remaining_path": 0,
+              "hunger": 0.23866986,
+              "thirst": 0.33866987
+            },
+            {
+              "id": 1282,
+              "task": "Rest",
+              "age_seconds": 56.9,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.24533664,
+              "thirst": 0.34533665
+            },
+            {
+              "id": 1249,
+              "task": "Return",
+              "age_seconds": 54.9,
+              "destination": 572,
+              "source": 0,
+              "cargo": "RawStone",
+              "amount": 10,
+              "remaining_path": 0,
+              "hunger": 0.2700037,
+              "thirst": 0.37000373
+            },
+            {
+              "id": 1257,
+              "task": "Return",
+              "age_seconds": 54.9,
+              "destination": 765,
+              "source": 0,
+              "cargo": "Clay",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.26267025,
+              "thirst": 0.36267027
+            },
+            {
+              "id": 1156,
+              "task": "Return",
+              "age_seconds": 49.9,
+              "destination": 102,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 0.79999995,
+              "remaining_path": 0,
+              "hunger": 0.33800486,
+              "thirst": 0.43800488
+            },
+            {
+              "id": 1240,
+              "task": "Return",
+              "age_seconds": 44.9,
+              "destination": 870,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.2766705,
+              "thirst": 0.3766705
+            },
+            {
+              "id": 1037,
+              "task": "Return",
+              "age_seconds": 37.9,
+              "destination": 572,
+              "source": 0,
+              "cargo": "RawStone",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.44467333,
+              "thirst": 0.54465336
+            },
+            {
+              "id": 1159,
+              "task": "Rest",
+              "age_seconds": 31.9,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.33133808,
+              "thirst": 0.4313381
+            }
+          ],
+          "material_stock": {
+            "Log": 1,
+            "Plank": 10,
+            "Firewood": 7,
+            "RawStone": 17.1998,
+            "StoneBlock": 14,
+            "StoneTile": 4,
+            "Clay": 12.8,
+            "Brick": 14,
+            "IronOre": 5.0,
+            "SilverOre": 4,
+            "Coal": 4,
+            "Sand": 4,
+            "Salt": 9.6
+          },
+          "agriculture_stock": {
+            "Herbs": 12.0,
+            "Hay": 1,
+            "Hide": 21,
+            "RareHorn": 1
+          }
+        },
+        {
+          "id": 19,
+          "population": 5,
+          "food": 116.99999,
+          "wood": 6,
+          "active_technology": "m02_carpentry",
+          "research_progress": 46.234123,
+          "research_rate": 0.021020958,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronOre": 2,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": false,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {
+                "Fiber": 0.4553
+              }
+            }
+          },
+          "workshops": [],
+          "tasks": {
+            "Idle": 4,
+            "Learn": 1
+          },
+          "longest_current_jobs": [
+            {
+              "id": 1474,
+              "task": "Learn",
+              "age_seconds": 3.6,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.13200139,
+              "thirst": 0.2320014
+            },
+            {
+              "id": 526,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Limestone",
+              "amount": 8.000001,
+              "remaining_path": 0,
+              "hunger": 0.41467804,
+              "thirst": 0.51464206
+            },
+            {
+              "id": 543,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Limestone",
+              "amount": 9.000001,
+              "remaining_path": 0,
+              "hunger": 0.40601084,
+              "thirst": 0.5059863
+            },
+            {
+              "id": 558,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Limestone",
+              "amount": 8,
+              "remaining_path": 0,
+              "hunger": 0.3993456,
+              "thirst": 0.4993085
+            },
+            {
+              "id": 590,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Limestone",
+              "amount": 7.9999995,
+              "remaining_path": 0,
+              "hunger": 0.38400623,
+              "thirst": 0.4839831
+            }
+          ],
+          "material_stock": {
+            "Log": 4.7524,
+            "Plank": 6,
+            "Firewood": 2,
+            "RawStone": 43.2,
+            "StoneBlock": 7,
+            "StoneTile": 4,
+            "Clay": 20.8,
+            "Brick": 8
+          },
+          "agriculture_stock": {
+            "Grain": 34.0,
+            "Fiber": 2.5447,
+            "Berries": 15
+          }
+        },
+        {
+          "id": 37,
+          "population": 8,
+          "food": 97.84927,
+          "wood": 26.75,
+          "active_technology": "z02_ironworking",
+          "research_progress": 61.939312,
+          "research_rate": 0.15815866,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "m02_carpentry",
+            "t01_flax",
+            "f07_husbandry",
+            "m03_tanning",
+            "l06_paths",
+            "t02_linen",
+            "z01_charcoal"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": true,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {
+                "Fiber": 3.0
+              }
+            }
+          },
+          "workshops": [],
+          "tasks": {
+            "Farm": 1,
+            "Return": 4,
+            "Eat": 1,
+            "Process": 1,
+            "BuildTransport": 1
+          },
+          "longest_current_jobs": [
+            {
+              "id": 1033,
+              "task": "Return",
+              "age_seconds": 182.4,
+              "destination": 1112,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.44667336,
+              "thirst": 0.5466525
+            },
+            {
+              "id": 1043,
+              "task": "Return",
+              "age_seconds": 74.9,
+              "destination": 1112,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.44000658,
+              "thirst": 0.5399887
+            },
+            {
+              "id": 740,
+              "task": "Return",
+              "age_seconds": 62.9,
+              "destination": 1112,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.26467445,
+              "thirst": 0.36465335
+            },
+            {
+              "id": 754,
+              "task": "Return",
+              "age_seconds": 50.9,
+              "destination": 274,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.25800833,
+              "thirst": 0.3579846
+            },
+            {
+              "id": 920,
+              "task": "Process",
+              "age_seconds": 34.9,
+              "destination": 1112,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.5153343,
+              "thirst": 0.215309
+            },
+            {
+              "id": 960,
+              "task": "BuildTransport",
+              "age_seconds": 2.4,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 12,
+              "hunger": 0.49534085,
+              "thirst": 0.1953167
+            },
+            {
+              "id": 946,
+              "task": "Eat",
+              "age_seconds": 1.7,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 0.08920646,
+              "remaining_path": 3,
+              "hunger": 0.5020067,
+              "thirst": 0.20198408
+            },
+            {
+              "id": 934,
+              "task": "Farm",
+              "age_seconds": 0.2,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 5,
+              "hunger": 0.1086722,
+              "thirst": 0.20865142
+            }
+          ],
+          "material_stock": {
+            "Log": 3.1494,
+            "Plank": 27.0,
+            "Firewood": 6,
+            "RawStone": 30.6029,
+            "StoneBlock": 13,
+            "StoneTile": 4,
+            "Clay": 5.9387,
+            "IronOre": 4,
+            "Coal": 4,
+            "Sand": 9,
+            "Limestone": 4,
+            "TinOre": 0.8,
+            "Furniture": 1
+          },
+          "agriculture_stock": {
+            "Fiber": 0.0,
+            "Herbs": 12,
+            "Hide": 14
+          }
+        },
+        {
+          "id": 52,
+          "population": 15,
+          "food": 257.34857,
+          "wood": 81.5,
+          "active_technology": "l11_wooden_bridges",
+          "research_progress": 28.780539,
+          "research_rate": 0.052953184,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "t01_flax",
+            "m03_tanning",
+            "m02_carpentry",
+            "z01_charcoal",
+            "f07_husbandry",
+            "l06_paths",
+            "f06_river_fishing",
+            "t02_linen",
+            "t03_leather_tailoring"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 1,
+              "missing_materials": {
+                "IronOre": 2
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": true,
+              "required_technology": "z01_charcoal",
+              "workshops": 1,
+              "missing_materials": {},
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": true,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {}
+            }
+          },
+          "workshops": [
+            {
+              "id": 697,
+              "type": "Tannery",
+              "recipe": "None",
+              "worker": 0,
+              "progress": 0,
+              "batches": 3
+            },
+            {
+              "id": 824,
+              "type": "Carpentry",
+              "recipe": "Furniture",
+              "worker": 0,
+              "progress": 0,
+              "batches": 2
+            },
+            {
+              "id": 844,
+              "type": "Smelter",
+              "recipe": "None",
+              "worker": 0,
+              "progress": 0,
+              "batches": 3
+            }
+          ],
+          "tasks": {
+            "Idle": 1,
+            "Wander": 5,
+            "Return": 2,
+            "Rest": 5,
+            "Learn": 1,
+            "BuildTransport": 1
+          },
+          "longest_current_jobs": [
+            {
+              "id": 756,
+              "task": "Rest",
+              "age_seconds": 489.8,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.6579396,
+              "thirst": 0.75789493
+            },
+            {
+              "id": 742,
+              "task": "Rest",
+              "age_seconds": 415.8,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Log",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.6646034,
+              "thirst": 0.76455873
+            },
+            {
+              "id": 773,
+              "task": "Rest",
+              "age_seconds": 72.9,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.25133803,
+              "thirst": 0.35131812
+            },
+            {
+              "id": 902,
+              "task": "Wander",
+              "age_seconds": 16.8,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 8,
+              "hunger": 0.12667096,
+              "thirst": 0.22664902
+            },
+            {
+              "id": 950,
+              "task": "Return",
+              "age_seconds": 10.3,
+              "destination": 262,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 1,
+              "hunger": 0.50000757,
+              "thirst": 0.19998255
+            },
+            {
+              "id": 966,
+              "task": "Wander",
+              "age_seconds": 9.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 3,
+              "hunger": 0.49334082,
+              "thirst": 0.19331667
+            },
+            {
+              "id": 925,
+              "task": "Wander",
+              "age_seconds": 8.8,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 3,
+              "hunger": 0.11333951,
+              "thirst": 0.2133156
+            },
+            {
+              "id": 782,
+              "task": "Rest",
+              "age_seconds": 7.2,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 6,
+              "hunger": 0.24467483,
+              "thirst": 0.34465155
+            }
+          ],
+          "material_stock": {
+            "Log": 45.4706,
+            "Plank": 81.5,
+            "Firewood": 16,
+            "RawStone": 52.9998,
+            "StoneBlock": 19,
+            "StoneTile": 4,
+            "CopperOre": 9.1996,
+            "Coal": 12.5992,
+            "Sand": 8.1199,
+            "Limestone": 3.5995,
+            "TinOre": 4.9997,
+            "Charcoal": 9,
+            "Leather": 6
+          },
+          "agriculture_stock": {
+            "Grain": 36.0,
+            "Fiber": 62.0,
+            "Berries": 25.0,
+            "Herbs": 12.0,
+            "Hay": 24.0,
+            "Hide": 23
+          }
+        }
+      ]
+    },
+    {
+      "seed": 271828,
+      "saved_world": "Builds/ProductionNatural/seed-271828-tick-18000.world.json",
+      "sha256": "cbc54d9a7fd5ba1c73b4abc0dc99a86aaf7deb207dc110423ce53397495e3d51",
+      "tick": 18000,
+      "first_technology_tick": {
+        "f01_preservation": 1580,
+        "m01_forestry": 3960,
+        "c01_herbalism": 5780,
+        "c02_clean_water": 11780,
+        "m02_carpentry": 13860,
+        "t01_flax": 15130,
+        "m03_tanning": 17490,
+        "z01_charcoal": 17930
+      },
+      "first_product_tick": {
+        "Furniture": 15495
+      },
+      "coarse_timeline": [
+        {
+          "tick": 0,
+          "creatures": 30,
+          "citizens": 27,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 30
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 71,
+          "citizens": 31,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 58,
+            "Wander": 3,
+            "Process": 1,
+            "Return": 7,
+            "Learn": 1,
+            "Rest": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 9,
+              "Food": 89.45755,
+              "Wood": 0,
+              "ResearchRate": 0.04219274,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 13.734219,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 13.600001
+                },
+                {
+                  "item": "Sand",
+                  "amount": 6.4000006
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 9,
+              "Food": 60.791348,
+              "Wood": 0,
+              "ResearchRate": 0.04249764,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 13.775724,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 13,
+              "Food": 74.79052,
+              "Wood": 2,
+              "ResearchRate": 0.17537211,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 21.849483,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.9999999
+                },
+                {
+                  "item": "Plank",
+                  "amount": 2
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 14.4000025
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 1.6
+                }
+              ],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 72,
+          "citizens": 29,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 9,
+            "Rest": 2,
+            "Wander": 50,
+            "Farm": 2,
+            "Gather": 1,
+            "Process": 1,
+            "Eat": 2,
+            "Learn": 2,
+            "Play": 2,
+            "Idle": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 7,
+              "Food": 85.45755,
+              "Wood": 0,
+              "ResearchRate": 0.022677308,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 0.04536797,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 15.600001
+                },
+                {
+                  "item": "Sand",
+                  "amount": 7.4000006
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.3999996
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 18.000004
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 9,
+              "Food": 92.79134,
+              "Wood": 0,
+              "ResearchRate": 0.035154063,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 0.3878314,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 7.9999976
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 13,
+              "Food": 78.79052,
+              "Wood": 6,
+              "ResearchRate": 0.16184592,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 3.37548,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1.2213295
+                },
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 1.70098
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 6
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.9997463
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 9000,
+          "creatures": 86,
+          "citizens": 30,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 58,
+            "Socialize": 1,
+            "Eat": 1,
+            "Gather": 3,
+            "Return": 6,
+            "Farm": 3,
+            "Rest": 8,
+            "Process": 1,
+            "Learn": 4,
+            "Idle": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 8,
+              "Food": 85.45755,
+              "Wood": 0,
+              "ResearchRate": 0.02965054,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 5.7007303,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 20.000002
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 9,
+              "Food": 93.79134,
+              "Wood": 0,
+              "ResearchRate": 0.042307332,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 13.345374,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 26.999998
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 13,
+              "Food": 106.79052,
+              "Wood": 4,
+              "ResearchRate": 0.19687425,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 27.010168,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 4
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 3.5433483
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9600925
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.8000002
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.9997463
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 12000,
+          "creatures": 103,
+          "citizens": 36,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 74,
+            "Rest": 5,
+            "Gather": 7,
+            "Return": 9,
+            "Drink": 1,
+            "Flee": 3,
+            "Fight": 1,
+            "Play": 2,
+            "Idle": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 8,
+              "Food": 85.45755,
+              "Wood": 0,
+              "ResearchRate": 0.036450837,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 16.865088,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 53.000004
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 9,
+              "Food": 93.79134,
+              "Wood": 0,
+              "ResearchRate": 0.035393167,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 24.975931,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 51
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 19,
+              "Food": 112.29052,
+              "Wood": 0,
+              "ResearchRate": 0.05843357,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 3.2294283,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 12.343127
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 9
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 1
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9600925
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.9997463
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 5
+                },
+                {
+                  "item": "Hide",
+                  "amount": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 15000,
+          "creatures": 88,
+          "citizens": 44,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 53,
+            "Return": 12,
+            "Idle": 1,
+            "Gather": 3,
+            "Rest": 6,
+            "Produce": 1,
+            "Process": 1,
+            "CraftEquipment": 1,
+            "Fish": 2,
+            "Eat": 2,
+            "Farm": 1,
+            "Learn": 5
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 8,
+              "Food": 85.45755,
+              "Wood": 0,
+              "ResearchRate": 0.03896895,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 28.797592,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 93.00001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 8,
+              "Food": 92.79134,
+              "Wood": 0,
+              "ResearchRate": 0.039065626,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 7.8480887,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.600002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 71
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 28,
+              "Food": 90.290535,
+              "Wood": 4,
+              "ResearchRate": 0.42021295,
+              "ActiveTechnology": "t01_flax",
+              "ResearchProgress": 30.061747,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry"
+              ],
+              "workshops": [
+                {
+                  "Id": 900,
+                  "X": 87,
+                  "Y": 36,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 515,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "Доставка сырья или освобождение места"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 4
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 29.432777
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 9
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 1
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9600925
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.9997463
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 18000,
+          "creatures": 88,
+          "citizens": 41,
+          "batches": 3,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 2,
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 3,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "CraftEquipment": 15,
+            "Rest": 2,
+            "Return": 9,
+            "Eat": 3,
+            "Socialize": 1,
+            "Gather": 2,
+            "Idle": 5,
+            "Wander": 44,
+            "Farm": 2,
+            "Play": 3,
+            "Learn": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "Каменный бор 1",
+              "Population": 3,
+              "Food": 85.45755,
+              "Wood": 0,
+              "ResearchRate": 0.019538747,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 6.0998445,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "Медная долина 2",
+              "Population": 0,
+              "Food": 92.79134,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 12.310781,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 20.000004
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 83
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "Ветроград 3",
+              "Population": 38,
+              "Food": 94.290405,
+              "Wood": 1,
+              "ResearchRate": 1.2637607,
+              "ActiveTechnology": "t02_linen",
+              "ResearchProgress": 8.527664,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "m03_tanning",
+                "z01_charcoal"
+              ],
+              "workshops": [
+                {
+                  "Id": 900,
+                  "X": 87,
+                  "Y": 36,
+                  "type": "Carpentry",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "Нет заказа: проверяются спрос, сырьё и исследования"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 38.2315
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 9
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 1.8
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9600925
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.9997463
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 5.0000215
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hay",
+                  "amount": 2
+                },
+                {
+                  "item": "Hide",
+                  "amount": 13
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "towns": [
+        {
+          "id": 1,
+          "population": 3,
+          "food": 85.45755,
+          "wood": 0,
+          "active_technology": "c01_herbalism",
+          "research_progress": 6.0998445,
+          "research_rate": 0.019538747,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Plank": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronOre": 2,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": false,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {
+                "Log": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {
+                "Fiber": 3
+              }
+            }
+          },
+          "workshops": [],
+          "tasks": {
+            "Idle": 3
+          },
+          "longest_current_jobs": [
+            {
+              "id": 912,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "RawStone",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.2553368,
+              "thirst": 0.35533682
+            },
+            {
+              "id": 936,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Sand",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.24200325,
+              "thirst": 0.34200326
+            },
+            {
+              "id": 961,
+              "task": "Idle",
+              "age_seconds": 0.0,
+              "destination": 0,
+              "source": 0,
+              "cargo": "Sand",
+              "amount": 1,
+              "remaining_path": 0,
+              "hunger": 0.23000304,
+              "thirst": 0.33000305
+            }
+          ],
+          "material_stock": {},
+          "agriculture_stock": {}
+        },
+        {
+          "id": 16,
+          "population": 0,
+          "food": 92.79134,
+          "wood": 0,
+          "active_technology": "c01_herbalism",
+          "research_progress": 12.310781,
+          "research_rate": 0,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Plank": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronOre": 2,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": false,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {
+                "Log": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {
+                "Fiber": 3
+              }
+            }
+          },
+          "workshops": [],
+          "tasks": {},
+          "longest_current_jobs": [],
+          "material_stock": {
+            "RawStone": 20.0,
+            "CopperOre": 4,
+            "Coal": 8
+          },
+          "agriculture_stock": {
+            "Grain": 83,
+            "Hide": 6
+          }
+        },
+        {
+          "id": 34,
+          "population": 38,
+          "food": 94.290405,
+          "wood": 1,
+          "active_technology": "t02_linen",
+          "research_progress": 8.527664,
+          "research_rate": 1.2637607,
+          "unlocked": [
+            "f01_preservation",
+            "m01_forestry",
+            "c01_herbalism",
+            "c02_clean_water",
+            "m02_carpentry",
+            "t01_flax",
+            "m03_tanning",
+            "z01_charcoal"
+          ],
+          "gates": {
+            "IronTools": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronIngot": 1,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "IronIngot": {
+              "research_unlocked": false,
+              "required_technology": "z02_ironworking",
+              "workshops": 0,
+              "missing_materials": {
+                "IronOre": 0.2,
+                "Charcoal": 1
+              },
+              "missing_agriculture": {}
+            },
+            "Charcoal": {
+              "research_unlocked": true,
+              "required_technology": "z01_charcoal",
+              "workshops": 0,
+              "missing_materials": {
+                "Log": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenClothes": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {
+                "LinenCloth": 2
+              },
+              "missing_agriculture": {}
+            },
+            "LinenCloth": {
+              "research_unlocked": false,
+              "required_technology": "t02_linen",
+              "workshops": 0,
+              "missing_materials": {},
+              "missing_agriculture": {}
+            }
+          },
+          "workshops": [
+            {
+              "id": 900,
+              "type": "Carpentry",
+              "recipe": "None",
+              "worker": 0,
+              "progress": 0,
+              "batches": 3
+            }
+          ],
+          "tasks": {
+            "Wander": 1,
+            "Gather": 2,
+            "Farm": 2,
+            "Return": 9,
+            "Eat": 1,
+            "Rest": 2,
+            "Socialize": 1,
+            "Play": 3,
+            "Learn": 2,
+            "CraftEquipment": 15
+          },
+          "longest_current_jobs": [
+            {
+              "id": 580,
+              "task": "Eat",
+              "age_seconds": 64.2,
+              "destination": 0,
+              "source": 0,
+              "cargo": "IronOre",
+              "amount": 1,
+              "remaining_path": 6,
+              "hunger": 0.572643,
+              "thirst": 0.27264762
+            },
+            {
+              "id": 816,
+              "task": "Rest",
+              "age_seconds": 35.7,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.35267177,
+              "thirst": 0.4526718
+            },
+            {
+              "id": 932,
+              "task": "Gather",
+              "age_seconds": 25.6,
+              "destination": 0,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 61,
+              "hunger": 0.24466996,
+              "thirst": 0.34466997
+            },
+            {
+              "id": 984,
+              "task": "CraftEquipment",
+              "age_seconds": 25.1,
+              "destination": 70,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.21266942,
+              "thirst": 0.31266943
+            },
+            {
+              "id": 1032,
+              "task": "CraftEquipment",
+              "age_seconds": 22.8,
+              "destination": 35,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.17266874,
+              "thirst": 0.27266875
+            },
+            {
+              "id": 989,
+              "task": "CraftEquipment",
+              "age_seconds": 20.3,
+              "destination": 35,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.20600264,
+              "thirst": 0.30600265
+            },
+            {
+              "id": 971,
+              "task": "CraftEquipment",
+              "age_seconds": 20.1,
+              "destination": 35,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.2193362,
+              "thirst": 0.3193362
+            },
+            {
+              "id": 611,
+              "task": "CraftEquipment",
+              "age_seconds": 20.0,
+              "destination": 35,
+              "source": 0,
+              "cargo": "None",
+              "amount": 0,
+              "remaining_path": 0,
+              "hunger": 0.14066952,
+              "thirst": 0.24065036
+            }
+          ],
+          "material_stock": {
+            "Plank": 3,
+            "Firewood": 8,
+            "RawStone": 38.2315,
+            "StoneBlock": 9,
+            "StoneTile": 4,
+            "IronOre": 1.8,
+            "CopperOre": 0.8,
+            "SilverOre": 4.9601,
+            "Coal": 4,
+            "Limestone": 0.9997,
+            "Furniture": 1
+          },
+          "agriculture_stock": {
+            "Fiber": 5.0,
+            "Herbs": 12,
+            "Hay": 2,
+            "Hide": 13
+          }
+        }
+      ]
+    }
+  ]
+}

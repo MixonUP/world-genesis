@@ -1,0 +1,5579 @@
+{
+  "utc": "2026-10-13T21:00:52.3270558Z",
+  "requestedSimulatedSecondsPerSeed": 1800,
+  "wallBudgetSecondsPerSeed": 180,
+  "actualWallSeconds": 130.3558443,
+  "allInvariantsPassed": true,
+  "allRequestedDurationsCompleted": true,
+  "sourceUnchanged": false,
+  "sourceChangedDuringRun": [
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulation.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationJobs.cs",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationVoyages.cs"
+  ],
+  "sourceSHA256": {
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs": "1918F9F200F7BF034A3D237CEAF0F09F82D25EC680D59CD2EE777DECA838D283",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs": "56C04383226BA757BD1CEA94034E3F47808B214305272A76E216734196D71734",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeInfrastructure.cs": "AAA89C3815D13C58904DAF3824B8E794ED522543E7F2CAD2ABCF1EDBC4F63130",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulation.cs": "778CBDA7490D1D60790CDD53F535BCBF3A596B5BC77BB777D7F8EC82BE28D36F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationHarbor.cs": "1CD347A32C785D6270B0FE002A3C396EF4B6973C82B88157256E3C210DFE49AA",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationJobs.cs": "E7E80B35F6610DB481FF66571D4531270B265A6D69D7C34BFB7B04FE8CC4F947",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MaritimeSimulationVoyages.cs": "AFEFF36DE493A6D302E3C575E1125CC65EF99BE5F6068024B94BFD64D4DD7198",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.cs": "AD86B6F85D6AC61F4394249674B1FA8D32B9137E069B0D0003FF2C4D5E140C69",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.Maritime.cs": "AFDDDDACACF78BF8864CB5F36C1335ABC91E17437633603701C9833E154D4BE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/MarketSimulation.Planning.cs": "C1DB45D45C6A2A6F769BA45B18254CC9C52E04D164776063C7BE9F3C406E10AB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs": "547407127225ECE3A498CDE7C24AD883FA9E9DF918B305D9FCCF9F98F67009D0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs": "48D9A4BD118A6F9BE1D2EB9F94AAE5EA923F774745DA837B5A327024018CEF1A",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs": "D176D2A5BD770E8FE0F2B59CF43B588442806F902B8EDED4A25817FB8F28DCB8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs": "F22D3F60A2DFB8E725CCEE29784B184B639275809E516B28CE0BC2248D3A1FD6",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs": "199F71C8F1F89EF29A4435FB70906CA7410C8EABA7AA09D1F7FD473A702D3EA0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs": "9F96E502D92D7A9C9036A20D1ABC1E198D6C15D0A68379463E63B919BE413624",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/BuildingInteraction.cs": "846B3F2D60C863C5B3C27896153F293C80F3A6BE09B103A412071B4321C51DB4",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs": "E0EE90AD87EFBC2C745B2813E3AB95A366FCB8CF9BDC21E8E4ABE67FD8FED2A8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs": "36D21CDE878170E2A7AAD2D9F56F533EA0816ACBD68E3AEED4471926C8595E1D",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs": "54AC6B54D515FF0DFBA41B866A784EFDAB7F911A5EB9E738B3C112C61373D170",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs": "914B1DB99BE203B7DE1EEE994D0D8EA62D39FA290F94D4EDF7116C48217BB54B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/IndustrySimulation.cs": "3E84BD11AC65B2A5CBD5816414D727986778FF62D62B68CB3AFD4677A64D5149",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs": "BCAE443C87C65B1EC063E07A763FB8F2D13120B26D91299F80D3D4AC51EF34CC",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs": "92BA48B74DB3702EAC0323D1BE5897D627155D536EC2B5F992DDC37E3C988038",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs": "7D01521A109FDB66DAA2D4918ECCD977E275EE7F558FAD431760FB9039E169AF",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs": "8D2FE489A645CCFD1EEFA0E8EDE4F49260143A4B9ACFB20A08B8D57CA7B1EFE9",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingAccess.cs": "6FE3C785B3A2C05ED49544993C4E8DFD1148609EFD662FD6F45C12B05575698B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs": "146E0D4E1A889E10697F25EE27FF8D2A4077BC7C455DA3935612D675528C5086",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/FishingData.cs": "8C4D03980B3927AC780147C74421BB10218ACE151146890A12F8F77EEA035825",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/HydrologyData.cs": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryCatalog.cs": "847DCC86C96C8B465603C350DE44160207EBB02AC1CA54EC5C630324467EA28B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/IndustryData.cs": "135413B70A5AEDA215238DD47E9B152B4B95CC866AD4E3DB06CBF7F8E1B076CD",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs": "672339E93BFD18FB20171A1BE7A9ACA02236F1759798B1FDB4C5C30CCA644B45",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MaritimeCatalog.cs": "95B46BFED79303BA43D72ED1314C845B6BA3E503E9CDE59C9A4A1D2A335391B7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MaritimeData.cs": "286768462936B55768F52FF5EEA0FE6D245A46C75D17FA529FBA9926C3A3B2E4",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MarketCatalog.cs": "AD7EE89C8FF820FC4C037577FAB561A40EC2FE3E2FEDB3C7311EB14F85A37FBD",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/MarketData.cs": "BB0AE9D977C03C6F89DF7B157BACF52969585C5517E543CFCE771DD6EBF08BBE",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs": "C8B7B9AF0FC80150B40594788193181A1545877A7E36A27C26627FD80D999793",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs": "8654D742E1F6FC44D15718E13D018DBEE41BDA043E69BAB2A9945D82FD2E3FAB",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs": "2FE0F2213194F0455A94010BEBCA622D196F639624EB35E05205013F4F0A2174",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs": "29402082B24654A3336C9A9EFE173D980505F99FED35999E6ECBE127E41E62AF",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/TransportData.cs": "AA7D42A3907A870D342329121ECAFFE61371FBB215F3CFDC79DEBCB31647FDE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs": "3A419C3FCB36C5C0D84562492EB0E8D26FA7F329A684AAA27EC28033B41D869F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs": "BFDA5E3164A949F6641432F73535B1DC3513CE78B3FE8EEA5A7D343285680CA0"
+  },
+  "assemblySHA256": "30DD1613543F1564C8F074C1B2A87E31878B0B30E424A800C85350D28C8117B8",
+  "kind": "Independent offline .NET natural simulation; not native FPS, prepared showcase, or full natural technology-tree proof",
+  "startup": "Island128x128; ordinary nearest walkable non-snow positions to GameBootstrap four anchors; Spawn9 citizens and3 sheep per race; no post-start overrides/grants of resources, technologies, profession, equipment, needs, law or weather. Only Step(.1).",
+  "results": [
+    {
+      "seed": 1618033,
+      "commands": [
+        {
+          "race": "Human",
+          "x": 42,
+          "y": 42,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Elf",
+          "x": 85,
+          "y": 85,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Dwarf",
+          "x": 42,
+          "y": 78,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Orc",
+          "x": 86,
+          "y": 42,
+          "citizens": 9,
+          "sheep": 3
+        }
+      ],
+      "simulatedSeconds": 1800,
+      "wallSeconds": 16.9911199,
+      "completed": true,
+      "invariantsPassed": true,
+      "failure": null,
+      "failedWorld": null,
+      "exportedWorld": "Builds/MarketNatural/seed-1618033-tick-18000.world.json",
+      "exportedWorldSHA256": "B1D9B42CD11AFDE2F7BB4D2BAEA059F7337F5F2D73F16DFEC882D6BC3B42115F",
+      "exportedBytes": 15623921,
+      "suspiciousResourceJobs": [],
+      "worldValidations": 182,
+      "carrierChecks": 2315725,
+      "peakCreatures": 183,
+      "firstProductTick": {
+        "Charcoal": 11153,
+        "Furniture": 11646,
+        "LinenCloth": 13575,
+        "Leather": 16144
+      },
+      "firstWorkshopTick": {
+        "Carpentry": 10040,
+        "Weaver": 10634,
+        "Smelter": 10947,
+        "Tailor": 13646,
+        "Tannery": 14440
+      },
+      "firstTechnologyTick": {
+        "f01_preservation": 1250,
+        "m01_forestry": 2410,
+        "c01_herbalism": 3330,
+        "c02_clean_water": 6290,
+        "m02_carpentry": 7620,
+        "t01_flax": 8570,
+        "t02_linen": 9940,
+        "z01_charcoal": 10640,
+        "z02_ironworking": 12200,
+        "m03_tanning": 13430,
+        "f07_husbandry": 14300,
+        "l06_paths": 15260,
+        "f06_river_fishing": 16010,
+        "z06_nonferrous": 16220,
+        "l11_wooden_bridges": 17740
+      },
+      "firstToolIssuedTick": 0,
+      "firstClothesIssuedTick": 0,
+      "adultResidentSeconds": 100622.5,
+      "hungryAdultResidentSeconds": 0,
+      "thirstyAdultResidentSeconds": 0,
+      "adultTaskResidentSeconds": {
+        "1:Idle": 330.40000000000003,
+        "19:Idle": 331.90000000000003,
+        "37:Idle": 422.5,
+        "52:Idle": 1052.7,
+        "1:Gather": 5046.6,
+        "37:Gather": 3740.4,
+        "19:Gather": 4932.5,
+        "37:Fish": 1277.8000000000002,
+        "19:Fish": 125.5,
+        "52:Fish": 834.5,
+        "52:Gather": 5217.5,
+        "1:Fish": 88.80000000000001,
+        "37:Return": 7307.700000000001,
+        "52:Return": 7995.700000000001,
+        "1:Return": 7102.6,
+        "52:Process": 2090.4,
+        "19:Return": 4951.8,
+        "37:Process": 1213.8,
+        "1:Process": 977.6,
+        "52:Rest": 5080,
+        "1:Rest": 2455.5,
+        "19:Process": 1071,
+        "52:Fight": 73.10000000000001,
+        "19:Rest": 2841.4,
+        "52:Wander": 2775,
+        "37:Rest": 3041.1000000000004,
+        "1:Farm": 358.40000000000003,
+        "37:Haul": 1124.2,
+        "52:Farm": 1532.1000000000001,
+        "19:Farm": 1128.7,
+        "37:Socialize": 417.8,
+        "52:Socialize": 511.90000000000003,
+        "52:Haul": 1034.9,
+        "37:Farm": 1185,
+        "1:Haul": 890.6,
+        "1:Socialize": 341.20000000000005,
+        "19:Socialize": 338.8,
+        "19:Wander": 1945.3000000000002,
+        "1:Fight": 31.900000000000002,
+        "1:Wander": 1563.5,
+        "52:CraftEquipment": 3090.8,
+        "37:Learn": 34.300000000000004,
+        "52:Learn": 40.6,
+        "37:CraftEquipment": 3104.9,
+        "19:Haul": 542.9,
+        "1:Learn": 29.6,
+        "1:CraftEquipment": 912.1,
+        "52:Play": 21.1,
+        "52:Drink": 264.40000000000003,
+        "19:Drink": 336.6,
+        "37:Drink": 402.5,
+        "1:Drink": 186.70000000000002,
+        "1:Eat": 137.70000000000002,
+        "37:Eat": 245.4,
+        "19:Eat": 245.20000000000002,
+        "52:Eat": 333.20000000000005,
+        "37:Wander": 1125.7,
+        "1:Play": 9.200000000000001,
+        "19:Learn": 25.900000000000002,
+        "19:CraftEquipment": 1454.8000000000002,
+        "1:Flee": 36,
+        "37:Flee": 561.1,
+        "52:Produce": 1209.4,
+        "37:Produce": 516,
+        "52:Flee": 258.40000000000003,
+        "37:InstallFurniture": 191.10000000000002,
+        "19:Flee": 34.6,
+        "52:InstallFurniture": 7,
+        "37:BuildTransport": 257.1,
+        "52:Tend": 22.700000000000003,
+        "19:Produce": 128.9,
+        "19:InstallFurniture": 73.7,
+        "19:Play": 0.8
+      },
+      "sampledNeedStateSeconds": {
+        "1:IronTools:Requested:": 140,
+        "1:LinenClothes:Requested:": 140,
+        "19:IronTools:Requested:": 400,
+        "19:LinenClothes:Requested:": 400,
+        "37:IronTools:Requested:": 101,
+        "37:LinenClothes:Requested:": 104,
+        "52:IronTools:Requested:": 128,
+        "52:LinenClothes:Requested:": 128,
+        "37:IronTools:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 74,
+        "37:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 75,
+        "37:IronTools:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal": 857,
+        "37:LinenClothes:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen": 1034,
+        "52:IronTools:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 28,
+        "52:LinenClothes:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen": 857,
+        "52:IronTools:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal": 889,
+        "1:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 46,
+        "1:LinenClothes:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen": 1651,
+        "1:IronTools:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 87,
+        "1:IronTools:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 453,
+        "1:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430": 13,
+        "1:IronTools:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal": 1052,
+        "37:IronTools:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 114,
+        "52:IronTools:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 74,
+        "52:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 64,
+        "19:IronTools:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 220,
+        "19:LinenClothes:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen": 1296,
+        "19:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430": 4,
+        "19:IronTools:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal": 1089,
+        "19:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 26,
+        "19:IronTools:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 52,
+        "52:LinenClothes:Gather:\u041B\u044C\u043D\u044F\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u043E\u043B\u043E\u043A\u043D\u043E \u0434\u043B\u044F \u0442\u043A\u0430\u043D\u0438": 70,
+        "52:LinenClothes:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 61,
+        "52:LinenClothes:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 29,
+        "52:IronTools:Blocked:\u0426\u0435\u0445 \u0437\u0430\u043D\u044F\u0442, \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u0440\u044B\u0442, \u0441\u044B\u0440\u044C\u0451 \u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u0438\u043B\u0438 \u043D\u0435\u0442 \u043C\u0435\u0441\u0442\u0430": 45,
+        "52:LinenClothes:Blocked:\u0426\u0435\u0445 \u0437\u0430\u043D\u044F\u0442, \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u0440\u044B\u0442, \u0441\u044B\u0440\u044C\u0451 \u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u0438\u043B\u0438 \u043D\u0435\u0442 \u043C\u0435\u0441\u0442\u0430": 624,
+        "52:IronTools:Blocked:\u041D\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u0433\u043E \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0430 \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430: \u043D\u0443\u0436\u0435\u043D \u0438\u043C\u043F\u043E\u0440\u0442 \u0438\u043B\u0438 \u043D\u043E\u0432\u044B\u0439 \u043F\u0443\u0442\u044C": 563,
+        "37:LinenClothes:Gather:\u041B\u044C\u043D\u044F\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u043E\u043B\u043E\u043A\u043D\u043E \u0434\u043B\u044F \u0442\u043A\u0430\u043D\u0438": 21,
+        "37:LinenClothes:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 27,
+        "37:LinenClothes:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 1,
+        "37:LinenClothes:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 1,
+        "37:LinenClothes:Deliver:\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445": 603,
+        "52:LinenClothes:Workshop:\u0417\u0430 \u0440\u0435\u0430\u043B\u044C\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u043F\u043E\u0441\u0442\u0440\u043E\u0435\u043D \u0446\u0435\u0445: \u0422\u043A\u0430\u0446\u043A\u0430\u044F \u043C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0430\u044F": 1,
+        "37:IronTools:Deliver:\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445": 570,
+        "52:LinenClothes:Produce:\u0418\u0437\u0433\u043E\u0442\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0441\u044F: \u041B\u044C\u043D\u044F\u043D\u0430\u044F \u0442\u043A\u0430\u043D\u044C": 9,
+        "52:LinenClothes:Deliver:\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445": 7,
+        "19:LinenClothes:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 12,
+        "19:LinenClothes:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 12,
+        "19:LinenClothes:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 71,
+        "52:LinenClothes:Produce:\u0418\u0437\u0433\u043E\u0442\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0441\u044F: \u041B\u044C\u043D\u044F\u043D\u0430\u044F \u043E\u0434\u0435\u0436\u0434\u0430": 5
+      },
+      "timeline": [
+        {
+          "tick": 0,
+          "creatures": 45,
+          "citizens": 36,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 45
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 90,
+          "citizens": 44,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Rest": 8,
+            "Gather": 9,
+            "Return": 9,
+            "Socialize": 1,
+            "Wander": 43,
+            "Process": 2,
+            "Fish": 1,
+            "CraftEquipment": 6,
+            "Haul": 1,
+            "Fight": 1,
+            "Flee": 2,
+            "Learn": 3,
+            "Play": 4
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 9,
+              "Food": 73.24933,
+              "Wood": 5,
+              "ResearchRate": 0.042803124,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 8.908461,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Plank",
+                  "amount": 5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Clay",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 1.6
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 0.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 9,
+              "Food": 68,
+              "Wood": 3,
+              "ResearchRate": 0.17314045,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 20.308306,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 11.200002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 13,
+              "Food": 51.123993,
+              "Wood": 8,
+              "ResearchRate": 0.17791909,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 7.552935,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 2.4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 13,
+              "Food": 78.5,
+              "Wood": 1,
+              "ResearchRate": 0.6782057,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 14.371857,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Plank",
+                  "amount": 1
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 6.000002
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 2
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 5
+                },
+                {
+                  "item": "Hide",
+                  "amount": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 109,
+          "citizens": 58,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Produce",
+              "Reason": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Rest": 12,
+            "Gather": 5,
+            "Process": 1,
+            "Return": 20,
+            "Wander": 53,
+            "Fight": 1,
+            "Idle": 3,
+            "Flee": 1,
+            "Play": 11,
+            "Learn": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 13,
+              "Food": 92.24932,
+              "Wood": 0,
+              "ResearchRate": 0.15017165,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 9.058857,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1.8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 17.600002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 7.200001
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3
+                },
+                {
+                  "item": "Sand",
+                  "amount": 2
+                },
+                {
+                  "item": "Salt",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 9,
+              "Food": 92,
+              "Wood": 6,
+              "ResearchRate": 0.035202485,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 20.75766,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 11.200002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 2.4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 13,
+              "Food": 75.12399,
+              "Wood": 6,
+              "ResearchRate": 0.04461625,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 25.661325,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 0.8
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 5
+                },
+                {
+                  "item": "Brick",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 23,
+              "Food": 103,
+              "Wood": 9,
+              "ResearchRate": 0.05141506,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 61.257763,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 13.086376
+                },
+                {
+                  "item": "Plank",
+                  "amount": 9
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 11.800003
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 1.8
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4.4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 3.2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 9000,
+          "creatures": 135,
+          "citizens": 79,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 19,
+            "Wander": 59,
+            "Gather": 14,
+            "Rest": 5,
+            "CraftEquipment": 5,
+            "Haul": 3,
+            "Socialize": 2,
+            "Process": 3,
+            "Fish": 3,
+            "Farm": 4,
+            "Learn": 11,
+            "Play": 5,
+            "Idle": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 13,
+              "Food": 87.74932,
+              "Wood": 9,
+              "ResearchRate": 0.1904382,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 22.821653,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 9
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 4
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 6.000002
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 2
+                },
+                {
+                  "item": "Clay",
+                  "amount": 9.000001
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3
+                },
+                {
+                  "item": "Sand",
+                  "amount": 2.8
+                },
+                {
+                  "item": "Salt",
+                  "amount": 1.3228996
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 13,
+              "Food": 125,
+              "Wood": 2,
+              "ResearchRate": 0.053832512,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 13.093957,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 2
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "Clay",
+                  "amount": 8.800001
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 11.000001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 20,
+              "Food": 1.6240299,
+              "Wood": 3,
+              "ResearchRate": 0.5531318,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 39.53464,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 3.1999996
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 3
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 0.8
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 6
+                },
+                {
+                  "item": "Clay",
+                  "amount": 2.7999997
+                },
+                {
+                  "item": "Brick",
+                  "amount": 6
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 33,
+              "Food": 89.74994,
+              "Wood": 1,
+              "ResearchRate": 0.47523776,
+              "ActiveTechnology": "t02_linen",
+              "ResearchProgress": 16.74372,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 23.104649
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 14
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 23.000002
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 17
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 1.8
+                },
+                {
+                  "item": "Coal",
+                  "amount": 5
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2.9999974
+                },
+                {
+                  "item": "Hide",
+                  "amount": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 12000,
+          "creatures": 151,
+          "citizens": 82,
+          "batches": 2,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Deliver",
+              "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Blocked",
+              "Reason": "\u041D\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u0433\u043E \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0430 \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430: \u043D\u0443\u0436\u0435\u043D \u0438\u043C\u043F\u043E\u0440\u0442 \u0438\u043B\u0438 \u043D\u043E\u0432\u044B\u0439 \u043F\u0443\u0442\u044C"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430"
+            }
+          ],
+          "produced": {
+            "Charcoal": 3,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 1,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Gather": 4,
+            "CraftEquipment": 12,
+            "Return": 10,
+            "Wander": 66,
+            "Process": 2,
+            "Farm": 3,
+            "Haul": 12,
+            "Rest": 9,
+            "Flee": 19,
+            "Eat": 1,
+            "Drink": 1,
+            "Idle": 4,
+            "Fight": 1,
+            "Play": 2,
+            "Learn": 5
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 13,
+              "Food": 87.74932,
+              "Wood": 8,
+              "ResearchRate": 0.20009023,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 6.8154683,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 3.8516598
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 14.800001
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 11.4
+                },
+                {
+                  "item": "Brick",
+                  "amount": 8
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.400001
+                },
+                {
+                  "item": "Salt",
+                  "amount": 4.999998
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 13,
+              "Food": 125,
+              "Wood": 2,
+              "ResearchRate": 0.24789289,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 45.66399,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 2
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 5
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 41.200005
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 6.800001
+                },
+                {
+                  "item": "Brick",
+                  "amount": 2
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 0.79949355
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 47
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 4.7043433
+                },
+                {
+                  "item": "Berries",
+                  "amount": 32
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 23,
+              "Food": 49.66458,
+              "Wood": 6,
+              "ResearchRate": 0.9879551,
+              "ActiveTechnology": "z01_charcoal",
+              "ResearchProgress": 27.14651,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen"
+              ],
+              "workshops": [
+                {
+                  "Id": 894,
+                  "X": 47,
+                  "Y": 72,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 1,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 5.5999994
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 0.99999964
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 2
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 4.000001
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hay",
+                  "amount": 11.999999
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 33,
+              "Food": 221.74994,
+              "Wood": 6,
+              "ResearchRate": 0.06955863,
+              "ActiveTechnology": "z02_ironworking",
+              "ResearchProgress": 98.676544,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal"
+              ],
+              "workshops": [
+                {
+                  "Id": 828,
+                  "X": 93,
+                  "Y": 46,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                },
+                {
+                  "Id": 875,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Weaver",
+                  "recipe": "LinenCloth",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u041F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u0438\u043B\u0438 \u0432\u0445\u043E\u0434 \u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B"
+                },
+                {
+                  "Id": 900,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "Charcoal",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 1,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 41.762943
+                },
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 14
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 43.79976
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 17
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 9.199491
+                },
+                {
+                  "item": "Coal",
+                  "amount": 5
+                },
+                {
+                  "item": "Sand",
+                  "amount": 4
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 1.6
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 3
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 5.0000033
+                },
+                {
+                  "item": "Hide",
+                  "amount": 25
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 15000,
+          "creatures": 161,
+          "citizens": 87,
+          "batches": 8,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 4,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Deliver",
+              "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Deliver",
+              "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Blocked",
+              "Reason": "\u041D\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u0433\u043E \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0430 \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430: \u043D\u0443\u0436\u0435\u043D \u0438\u043C\u043F\u043E\u0440\u0442 \u0438\u043B\u0438 \u043D\u043E\u0432\u044B\u0439 \u043F\u0443\u0442\u044C"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Blocked",
+              "Reason": "\u0426\u0435\u0445 \u0437\u0430\u043D\u044F\u0442, \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u0440\u044B\u0442, \u0441\u044B\u0440\u044C\u0451 \u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u0438\u043B\u0438 \u043D\u0435\u0442 \u043C\u0435\u0441\u0442\u0430"
+            }
+          ],
+          "produced": {
+            "Charcoal": 9,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 2,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 4,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 24,
+            "Farm": 1,
+            "Wander": 73,
+            "Process": 2,
+            "Rest": 15,
+            "Produce": 3,
+            "Haul": 5,
+            "Gather": 17,
+            "CraftEquipment": 2,
+            "Eat": 2,
+            "Flee": 1,
+            "Idle": 2,
+            "Learn": 6,
+            "Play": 7,
+            "Fight": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 21,
+              "Food": 108.74933,
+              "Wood": 3,
+              "ResearchRate": 0.06149368,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 48.76632,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1.4981458
+                },
+                {
+                  "item": "Plank",
+                  "amount": 3
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 3
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 27.799997
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 10
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 10.2
+                },
+                {
+                  "item": "Brick",
+                  "amount": 10
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3
+                },
+                {
+                  "item": "Sand",
+                  "amount": 9.8
+                },
+                {
+                  "item": "Salt",
+                  "amount": 5.999997
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2
+                },
+                {
+                  "item": "Hide",
+                  "amount": 19
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 21,
+              "Food": 179,
+              "Wood": 5,
+              "ResearchRate": 0.19000529,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 46.641132,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 4.2
+                },
+                {
+                  "item": "Plank",
+                  "amount": 5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 5
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 33.200005
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 10
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 19.339516
+                },
+                {
+                  "item": "Brick",
+                  "amount": 10
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Sand",
+                  "amount": 5.6000004
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4.8
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 0.79949355
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 42.5832
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 45
+                },
+                {
+                  "item": "Berries",
+                  "amount": 27.000002
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 23,
+              "Food": 73.583206,
+              "Wood": 7.5600004,
+              "ResearchRate": 0.3335125,
+              "ActiveTechnology": "l06_paths",
+              "ResearchProgress": 11.508518,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal",
+                "z02_ironworking",
+                "f07_husbandry"
+              ],
+              "workshops": [
+                {
+                  "Id": 894,
+                  "X": 47,
+                  "Y": 72,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 406,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0441\u044B\u0440\u044C\u044F \u0438\u043B\u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043C\u0435\u0441\u0442\u0430"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 24.42135
+                },
+                {
+                  "item": "Plank",
+                  "amount": 10.56
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 23.8
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 14
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1.6093969
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 22,
+              "Food": 225.04994,
+              "Wood": 5.92,
+              "ResearchRate": 0.5958066,
+              "ActiveTechnology": "z06_nonferrous",
+              "ResearchProgress": 49.762497,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal",
+                "z02_ironworking",
+                "m03_tanning",
+                "f07_husbandry"
+              ],
+              "workshops": [
+                {
+                  "Id": 900,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u0430: \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E\u0442\u0441\u044F \u0441\u043F\u0440\u043E\u0441, \u0441\u044B\u0440\u044C\u0451 \u0438 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F"
+                },
+                {
+                  "Id": 1048,
+                  "X": 94,
+                  "Y": 39,
+                  "type": "Weaver",
+                  "recipe": "LinenCloth",
+                  "IndustryWorkerId": 490,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 1,
+                  "waiting": "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0441\u044B\u0440\u044C\u044F \u0438\u043B\u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043C\u0435\u0441\u0442\u0430"
+                },
+                {
+                  "Id": 1189,
+                  "X": 91,
+                  "Y": 42,
+                  "type": "Tailor",
+                  "recipe": "LinenClothes",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                },
+                {
+                  "Id": 1288,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "Leather",
+                  "IndustryWorkerId": 581,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0441\u044B\u0440\u044C\u044F \u0438\u043B\u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043C\u0435\u0441\u0442\u0430"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 29.680344
+                },
+                {
+                  "item": "Plank",
+                  "amount": 5.92
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 10
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 45.1797
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 17
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 21.599833
+                },
+                {
+                  "item": "Coal",
+                  "amount": 11.998945
+                },
+                {
+                  "item": "Sand",
+                  "amount": 11.200001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 15.097785
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 9
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 3
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 11.000001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 18000,
+          "creatures": 172,
+          "citizens": 85,
+          "batches": 15,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 7,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            },
+            {
+              "SettlementId": 19,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Produce",
+              "Reason": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432"
+            },
+            {
+              "SettlementId": 19,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430"
+            },
+            {
+              "SettlementId": 37,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Deliver",
+              "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+            },
+            {
+              "SettlementId": 37,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Deliver",
+              "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+            },
+            {
+              "SettlementId": 52,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430"
+            },
+            {
+              "SettlementId": 52,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Blocked",
+              "Reason": "\u0426\u0435\u0445 \u0437\u0430\u043D\u044F\u0442, \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u0440\u044B\u0442, \u0441\u044B\u0440\u044C\u0451 \u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u0438\u043B\u0438 \u043D\u0435\u0442 \u043C\u0435\u0441\u0442\u0430"
+            }
+          ],
+          "produced": {
+            "Charcoal": 9,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 2,
+            "LinenCloth": 4,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 9,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Return": 18,
+            "Rest": 11,
+            "Socialize": 1,
+            "Process": 3,
+            "Idle": 3,
+            "Produce": 2,
+            "Wander": 80,
+            "CraftEquipment": 7,
+            "Gather": 8,
+            "Haul": 1,
+            "Flee": 11,
+            "Fight": 2,
+            "Learn": 12,
+            "Play": 11,
+            "Eat": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 23,
+              "Food": 162.24933,
+              "Wood": 8,
+              "ResearchRate": 0.43438295,
+              "ActiveTechnology": "t02_linen",
+              "ResearchProgress": 52.328968,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.64476395
+                },
+                {
+                  "item": "Plank",
+                  "amount": 10
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 27.399998
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 14.400001
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3
+                },
+                {
+                  "item": "Sand",
+                  "amount": 10
+                },
+                {
+                  "item": "Salt",
+                  "amount": 5.999997
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 1
+                },
+                {
+                  "item": "Hide",
+                  "amount": 23
+                }
+              ]
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "Population": 23,
+              "Food": 205,
+              "Wood": 6,
+              "ResearchRate": 0.6230045,
+              "ActiveTechnology": "z02_ironworking",
+              "ResearchProgress": 11.930898,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal"
+              ],
+              "workshops": [
+                {
+                  "Id": 1425,
+                  "X": 81,
+                  "Y": 85,
+                  "type": "Carpentry",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 5,
+                  "waiting": "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u0430: \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E\u0442\u0441\u044F \u0441\u043F\u0440\u043E\u0441, \u0441\u044B\u0440\u044C\u0451 \u0438 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 6
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 37.99077
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 22.139515
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 3.9603562
+                },
+                {
+                  "item": "Sand",
+                  "amount": 6.9933667
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 5.82
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 0.79949355
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 16.000008
+                },
+                {
+                  "item": "Fiber",
+                  "amount": 23.000004
+                },
+                {
+                  "item": "Berries",
+                  "amount": 33.000004
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 24
+                },
+                {
+                  "item": "Hay",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "Population": 14,
+              "Food": 84.291245,
+              "Wood": 30.920002,
+              "ResearchRate": 0.31318146,
+              "ActiveTechnology": "m03_tanning",
+              "ResearchProgress": 7.9104695,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal",
+                "z02_ironworking",
+                "f07_husbandry",
+                "l06_paths",
+                "f06_river_fishing",
+                "l11_wooden_bridges"
+              ],
+              "workshops": [
+                {
+                  "Id": 894,
+                  "X": 47,
+                  "Y": 72,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 928,
+                  "IndustryProgress": 5.9352303,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 29.014345
+                },
+                {
+                  "item": "Plank",
+                  "amount": 33.920002
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 8
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 30.199999
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "Clay",
+                  "amount": 40.800003
+                },
+                {
+                  "item": "Brick",
+                  "amount": 12
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 4
+                },
+                {
+                  "item": "Sand",
+                  "amount": 15.6
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.6000013
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 2.0000012
+                },
+                {
+                  "item": "Herbs",
+                  "amount": 11.999996
+                },
+                {
+                  "item": "Hay",
+                  "amount": 12
+                },
+                {
+                  "item": "Hide",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "Population": 25,
+              "Food": 131.24994,
+              "Wood": 0.03999996,
+              "ResearchRate": 0.2942802,
+              "ActiveTechnology": "t03_leather_tailoring",
+              "ResearchProgress": 63.56801,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen",
+                "z01_charcoal",
+                "z02_ironworking",
+                "m03_tanning",
+                "f07_husbandry",
+                "z06_nonferrous"
+              ],
+              "workshops": [
+                {
+                  "Id": 900,
+                  "X": 93,
+                  "Y": 44,
+                  "type": "Smelter",
+                  "recipe": "CopperIngot",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                },
+                {
+                  "Id": 1048,
+                  "X": 94,
+                  "Y": 39,
+                  "type": "Weaver",
+                  "recipe": "Rope",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 2,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                },
+                {
+                  "Id": 1189,
+                  "X": 91,
+                  "Y": 42,
+                  "type": "Tailor",
+                  "recipe": "LinenClothes",
+                  "IndustryWorkerId": 904,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0441\u044B\u0440\u044C\u044F \u0438\u043B\u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043C\u0435\u0441\u0442\u0430"
+                },
+                {
+                  "Id": 1288,
+                  "X": 93,
+                  "Y": 42,
+                  "type": "Tannery",
+                  "recipe": "Leather",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 1,
+                  "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 33.468937
+                },
+                {
+                  "item": "Plank",
+                  "amount": 0.03999996
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 10
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 45.9797
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 17
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 24.799793
+                },
+                {
+                  "item": "Coal",
+                  "amount": 13.598754
+                },
+                {
+                  "item": "Sand",
+                  "amount": 12.999999
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 18.57895
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 13.669812
+                },
+                {
+                  "item": "Charcoal",
+                  "amount": 9
+                },
+                {
+                  "item": "Leather",
+                  "amount": 2
+                },
+                {
+                  "item": "LinenCloth",
+                  "amount": 2
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Fiber",
+                  "amount": 10.000004
+                },
+                {
+                  "item": "Hide",
+                  "amount": 22
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final": {
+        "tick": 18000,
+        "creatures": 172,
+        "citizens": 85,
+        "batches": 15,
+        "workToolsIssued": 0,
+        "clothesIssued": 0,
+        "furnitureInstalled": 7,
+        "marketTransactions": 0,
+        "marketWages": 0,
+        "marketTaxes": 0,
+        "marketNeeds": [
+          {
+            "SettlementId": 1,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Research",
+            "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+          },
+          {
+            "SettlementId": 1,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Research",
+            "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+          },
+          {
+            "SettlementId": 19,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Produce",
+            "Reason": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432"
+          },
+          {
+            "SettlementId": 19,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Gather",
+            "Reason": "\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430"
+          },
+          {
+            "SettlementId": 37,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Deliver",
+            "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+          },
+          {
+            "SettlementId": 37,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Deliver",
+            "Reason": "\u0415\u0441\u0442\u044C \u0437\u0430\u043F\u0430\u0441 \u0434\u043E\u0441\u043A\u0438; \u043E\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438\u043B\u0438 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0446\u0435\u0445"
+          },
+          {
+            "SettlementId": 52,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Gather",
+            "Reason": "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430"
+          },
+          {
+            "SettlementId": 52,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Blocked",
+            "Reason": "\u0426\u0435\u0445 \u0437\u0430\u043D\u044F\u0442, \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u0440\u044B\u0442, \u0441\u044B\u0440\u044C\u0451 \u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u0438\u043B\u0438 \u043D\u0435\u0442 \u043C\u0435\u0441\u0442\u0430"
+          }
+        ],
+        "produced": {
+          "Charcoal": 9,
+          "IronIngot": 0,
+          "CopperIngot": 0,
+          "TinIngot": 0,
+          "BronzeIngot": 0,
+          "GoldIngot": 0,
+          "SilverIngot": 0,
+          "IronTools": 0,
+          "BronzeTools": 0,
+          "Sword": 0,
+          "Spear": 0,
+          "Armor": 0,
+          "Leather": 2,
+          "LinenCloth": 4,
+          "LeatherClothes": 0,
+          "LinenClothes": 0,
+          "Furniture": 9,
+          "Bow": 0,
+          "CopperCoin": 0,
+          "SilverCoin": 0,
+          "GoldCoin": 0,
+          "Rope": 0,
+          "Ballista": 0,
+          "Catapult": 0,
+          "Trebuchet": 0,
+          "BallistaBolts": 0,
+          "StoneShot": 0
+        },
+        "mint": {
+          "CopperCoin": 0,
+          "SilverCoin": 0,
+          "GoldCoin": 0
+        },
+        "tasks": {
+          "Return": 18,
+          "Rest": 11,
+          "Socialize": 1,
+          "Process": 3,
+          "Idle": 3,
+          "Produce": 2,
+          "Wander": 80,
+          "CraftEquipment": 7,
+          "Gather": 8,
+          "Haul": 1,
+          "Flee": 11,
+          "Fight": 2,
+          "Learn": 12,
+          "Play": 11,
+          "Eat": 2
+        },
+        "settlements": [
+          {
+            "Id": 1,
+            "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+            "Population": 23,
+            "Food": 162.24933,
+            "Wood": 8,
+            "ResearchRate": 0.43438295,
+            "ActiveTechnology": "t02_linen",
+            "ResearchProgress": 52.328968,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry",
+              "c01_herbalism",
+              "c02_clean_water",
+              "m02_carpentry",
+              "t01_flax"
+            ],
+            "workshops": [],
+            "materialStocks": [
+              {
+                "item": "Log",
+                "amount": 0.64476395
+              },
+              {
+                "item": "Plank",
+                "amount": 10
+              },
+              {
+                "item": "Firewood",
+                "amount": 2
+              },
+              {
+                "item": "RawStone",
+                "amount": 27.399998
+              },
+              {
+                "item": "StoneBlock",
+                "amount": 12
+              },
+              {
+                "item": "StoneTile",
+                "amount": 4
+              },
+              {
+                "item": "Clay",
+                "amount": 14.400001
+              },
+              {
+                "item": "Brick",
+                "amount": 12
+              },
+              {
+                "item": "IronOre",
+                "amount": 4
+              },
+              {
+                "item": "SilverOre",
+                "amount": 4
+              },
+              {
+                "item": "Coal",
+                "amount": 3
+              },
+              {
+                "item": "Sand",
+                "amount": 10
+              },
+              {
+                "item": "Salt",
+                "amount": 5.999997
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Fiber",
+                "amount": 1
+              },
+              {
+                "item": "Hide",
+                "amount": 23
+              }
+            ]
+          },
+          {
+            "Id": 19,
+            "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+            "Population": 23,
+            "Food": 205,
+            "Wood": 6,
+            "ResearchRate": 0.6230045,
+            "ActiveTechnology": "z02_ironworking",
+            "ResearchProgress": 11.930898,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry",
+              "c01_herbalism",
+              "c02_clean_water",
+              "m02_carpentry",
+              "t01_flax",
+              "t02_linen",
+              "z01_charcoal"
+            ],
+            "workshops": [
+              {
+                "Id": 1425,
+                "X": 81,
+                "Y": 85,
+                "type": "Carpentry",
+                "recipe": "None",
+                "IndustryWorkerId": 0,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 5,
+                "waiting": "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u0430: \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E\u0442\u0441\u044F \u0441\u043F\u0440\u043E\u0441, \u0441\u044B\u0440\u044C\u0451 \u0438 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F"
+              }
+            ],
+            "materialStocks": [
+              {
+                "item": "Log",
+                "amount": 1
+              },
+              {
+                "item": "Plank",
+                "amount": 6
+              },
+              {
+                "item": "Firewood",
+                "amount": 6
+              },
+              {
+                "item": "RawStone",
+                "amount": 37.99077
+              },
+              {
+                "item": "StoneBlock",
+                "amount": 12
+              },
+              {
+                "item": "StoneTile",
+                "amount": 4
+              },
+              {
+                "item": "Clay",
+                "amount": 22.139515
+              },
+              {
+                "item": "Brick",
+                "amount": 12
+              },
+              {
+                "item": "IronOre",
+                "amount": 4
+              },
+              {
+                "item": "SilverOre",
+                "amount": 3.9603562
+              },
+              {
+                "item": "Sand",
+                "amount": 6.9933667
+              },
+              {
+                "item": "Limestone",
+                "amount": 5.82
+              },
+              {
+                "item": "TinOre",
+                "amount": 0.79949355
+              },
+              {
+                "item": "Furniture",
+                "amount": 2
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Grain",
+                "amount": 16.000008
+              },
+              {
+                "item": "Fiber",
+                "amount": 23.000004
+              },
+              {
+                "item": "Berries",
+                "amount": 33.000004
+              },
+              {
+                "item": "Herbs",
+                "amount": 24
+              },
+              {
+                "item": "Hay",
+                "amount": 12
+              },
+              {
+                "item": "Hide",
+                "amount": 6
+              }
+            ]
+          },
+          {
+            "Id": 37,
+            "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+            "Population": 14,
+            "Food": 84.291245,
+            "Wood": 30.920002,
+            "ResearchRate": 0.31318146,
+            "ActiveTechnology": "m03_tanning",
+            "ResearchProgress": 7.9104695,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry",
+              "c01_herbalism",
+              "c02_clean_water",
+              "m02_carpentry",
+              "t01_flax",
+              "t02_linen",
+              "z01_charcoal",
+              "z02_ironworking",
+              "f07_husbandry",
+              "l06_paths",
+              "f06_river_fishing",
+              "l11_wooden_bridges"
+            ],
+            "workshops": [
+              {
+                "Id": 894,
+                "X": 47,
+                "Y": 72,
+                "type": "Carpentry",
+                "recipe": "Furniture",
+                "IndustryWorkerId": 928,
+                "IndustryProgress": 5.9352303,
+                "CompletedIndustryBatches": 3,
+                "waiting": "\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E"
+              }
+            ],
+            "materialStocks": [
+              {
+                "item": "Log",
+                "amount": 29.014345
+              },
+              {
+                "item": "Plank",
+                "amount": 33.920002
+              },
+              {
+                "item": "Firewood",
+                "amount": 8
+              },
+              {
+                "item": "RawStone",
+                "amount": 30.199999
+              },
+              {
+                "item": "StoneBlock",
+                "amount": 12
+              },
+              {
+                "item": "StoneTile",
+                "amount": 4
+              },
+              {
+                "item": "Clay",
+                "amount": 40.800003
+              },
+              {
+                "item": "Brick",
+                "amount": 12
+              },
+              {
+                "item": "IronOre",
+                "amount": 4
+              },
+              {
+                "item": "Coal",
+                "amount": 4
+              },
+              {
+                "item": "Sand",
+                "amount": 15.6
+              },
+              {
+                "item": "Limestone",
+                "amount": 4
+              },
+              {
+                "item": "TinOre",
+                "amount": 5.6000013
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Fiber",
+                "amount": 2.0000012
+              },
+              {
+                "item": "Herbs",
+                "amount": 11.999996
+              },
+              {
+                "item": "Hay",
+                "amount": 12
+              },
+              {
+                "item": "Hide",
+                "amount": 2
+              }
+            ]
+          },
+          {
+            "Id": 52,
+            "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+            "Population": 25,
+            "Food": 131.24994,
+            "Wood": 0.03999996,
+            "ResearchRate": 0.2942802,
+            "ActiveTechnology": "t03_leather_tailoring",
+            "ResearchProgress": 63.56801,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry",
+              "c01_herbalism",
+              "c02_clean_water",
+              "m02_carpentry",
+              "t01_flax",
+              "t02_linen",
+              "z01_charcoal",
+              "z02_ironworking",
+              "m03_tanning",
+              "f07_husbandry",
+              "z06_nonferrous"
+            ],
+            "workshops": [
+              {
+                "Id": 900,
+                "X": 93,
+                "Y": 44,
+                "type": "Smelter",
+                "recipe": "CopperIngot",
+                "IndustryWorkerId": 0,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 3,
+                "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+              },
+              {
+                "Id": 1048,
+                "X": 94,
+                "Y": 39,
+                "type": "Weaver",
+                "recipe": "Rope",
+                "IndustryWorkerId": 0,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 2,
+                "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+              },
+              {
+                "Id": 1189,
+                "X": 91,
+                "Y": 42,
+                "type": "Tailor",
+                "recipe": "LinenClothes",
+                "IndustryWorkerId": 904,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 0,
+                "waiting": "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0441\u044B\u0440\u044C\u044F \u0438\u043B\u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \u043C\u0435\u0441\u0442\u0430"
+              },
+              {
+                "Id": 1288,
+                "X": 93,
+                "Y": 42,
+                "type": "Tannery",
+                "recipe": "Leather",
+                "IndustryWorkerId": 0,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 1,
+                "waiting": "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u0432\u0437\u0440\u043E\u0441\u043B\u043E\u0433\u043E \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430"
+              }
+            ],
+            "materialStocks": [
+              {
+                "item": "Log",
+                "amount": 33.468937
+              },
+              {
+                "item": "Plank",
+                "amount": 0.03999996
+              },
+              {
+                "item": "Firewood",
+                "amount": 10
+              },
+              {
+                "item": "RawStone",
+                "amount": 45.9797
+              },
+              {
+                "item": "StoneBlock",
+                "amount": 17
+              },
+              {
+                "item": "StoneTile",
+                "amount": 4
+              },
+              {
+                "item": "CopperOre",
+                "amount": 24.799793
+              },
+              {
+                "item": "Coal",
+                "amount": 13.598754
+              },
+              {
+                "item": "Sand",
+                "amount": 12.999999
+              },
+              {
+                "item": "Limestone",
+                "amount": 18.57895
+              },
+              {
+                "item": "TinOre",
+                "amount": 13.669812
+              },
+              {
+                "item": "Charcoal",
+                "amount": 9
+              },
+              {
+                "item": "Leather",
+                "amount": 2
+              },
+              {
+                "item": "LinenCloth",
+                "amount": 2
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Fiber",
+                "amount": 10.000004
+              },
+              {
+                "item": "Hide",
+                "amount": 22
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seed": 271828,
+      "commands": [
+        {
+          "race": "Human",
+          "x": 30,
+          "y": 42,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Elf",
+          "x": 85,
+          "y": 85,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Dwarf",
+          "x": 36,
+          "y": 87,
+          "citizens": 9,
+          "sheep": 3
+        },
+        {
+          "race": "Orc",
+          "x": 85,
+          "y": 42,
+          "citizens": 9,
+          "sheep": 3
+        }
+      ],
+      "simulatedSeconds": 1800,
+      "wallSeconds": 113.2528484,
+      "completed": true,
+      "invariantsPassed": true,
+      "failure": null,
+      "failedWorld": null,
+      "exportedWorld": "Builds/MarketNatural/seed-271828-tick-18000.world.json",
+      "exportedWorldSHA256": "F09C35BA6EF1F2F383FB00AA40E73E2AE84FF2A49C7AE5CC0923E7A5F6955403",
+      "exportedBytes": 15086496,
+      "suspiciousResourceJobs": [],
+      "worldValidations": 182,
+      "carrierChecks": 1238220,
+      "peakCreatures": 85,
+      "firstProductTick": {
+        "Furniture": 15081
+      },
+      "firstWorkshopTick": {
+        "Carpentry": 14320
+      },
+      "firstTechnologyTick": {
+        "f01_preservation": 1590,
+        "m01_forestry": 4450,
+        "c01_herbalism": 5420,
+        "c02_clean_water": 10480,
+        "m02_carpentry": 13710,
+        "t01_flax": 14870,
+        "t02_linen": 17050
+      },
+      "firstToolIssuedTick": 0,
+      "firstClothesIssuedTick": 0,
+      "adultResidentSeconds": 54729.700000000004,
+      "hungryAdultResidentSeconds": 0,
+      "thirstyAdultResidentSeconds": 0,
+      "adultTaskResidentSeconds": {
+        "1:Idle": 949.1,
+        "16:Idle": 333.20000000000005,
+        "16:Gather": 185.10000000000002,
+        "34:Idle": 602.7,
+        "34:Gather": 3015.7000000000003,
+        "1:Gather": 613.6,
+        "1:Fish": 106,
+        "34:Fish": 387.40000000000003,
+        "16:Return": 487,
+        "34:Return": 10851.5,
+        "1:Return": 995.8000000000001,
+        "34:Process": 1365.5,
+        "16:Wander": 11550.5,
+        "34:Rest": 3460.2000000000003,
+        "34:Farm": 1318.4,
+        "1:Rest": 920,
+        "1:Farm": 1193.9,
+        "16:Rest": 781.7,
+        "1:Socialize": 142.9,
+        "34:Haul": 2256.9,
+        "1:Wander": 6911.3,
+        "34:Socialize": 428.6,
+        "16:Socialize": 247.9,
+        "16:Farm": 602,
+        "34:Wander": 3448.9,
+        "34:Flee": 63.7,
+        "34:Play": 25.900000000000002,
+        "34:Learn": 59.6,
+        "34:CraftEquipment": 427.3,
+        "16:Drink": 92.5,
+        "1:Drink": 68.7,
+        "34:Drink": 249.8,
+        "16:Eat": 81.4,
+        "34:Eat": 116.80000000000001,
+        "1:Eat": 61.900000000000006,
+        "1:Learn": 7.5,
+        "34:Fight": 11.200000000000001,
+        "34:Produce": 234.10000000000002,
+        "34:InstallFurniture": 35.2,
+        "1:Flee": 30.700000000000003,
+        "1:Play": 7.6000000000000005
+      },
+      "sampledNeedStateSeconds": {
+        "1:IronTools:Requested:": 710,
+        "1:LinenClothes:Requested:": 710,
+        "16:IronTools:Requested:": 1670,
+        "16:LinenClothes:Requested:": 1670,
+        "34:IronTools:Requested:": 140,
+        "34:LinenClothes:Requested:": 140,
+        "34:IronTools:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 92,
+        "34:LinenClothes:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen": 1556,
+        "34:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0436\u0435\u043B\u0435\u0437\u043D\u0430\u044F \u0440\u0443\u0434\u0430": 61,
+        "34:IronTools:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 82,
+        "34:IronTools:Research:\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal": 1346,
+        "34:IronTools:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 70,
+        "1:IronTools:Satisfied:\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430": 30,
+        "1:LinenClothes:Satisfied:\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430": 30,
+        "1:IronTools:Requested:\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435": 1051,
+        "1:LinenClothes:Requested:\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435": 1051,
+        "16:IronTools:Satisfied:\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430": 121,
+        "16:LinenClothes:Satisfied:\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430": 121,
+        "34:LinenClothes:Gather:\u041B\u044C\u043D\u044F\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u043E\u043B\u043E\u043A\u043D\u043E \u0434\u043B\u044F \u0442\u043A\u0430\u043D\u0438": 31,
+        "34:LinenClothes:Produce:\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0431\u0430\u0437\u043E\u0432\u044B\u0445 \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u043E\u0432": 32,
+        "34:LinenClothes:Gather:\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u0431\u044B\u0447\u0438: \u0431\u0440\u0451\u0432\u043D\u0430": 2,
+        "34:LinenClothes:Gather:\u0414\u0432\u0430 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0430 \u0443\u0436\u0435 \u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0442: \u0431\u0440\u0451\u0432\u043D\u0430": 30
+      },
+      "timeline": [
+        {
+          "tick": 0,
+          "creatures": 30,
+          "citizens": 27,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 30
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 9,
+              "Food": 28,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "ResearchProgress": 0,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 70,
+          "citizens": 31,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Idle": 61,
+            "Wander": 3,
+            "Return": 5,
+            "Rest": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 9,
+              "Food": 89.45754,
+              "Wood": 0,
+              "ResearchRate": 0.042159006,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 13.732732,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 13.600001
+                },
+                {
+                  "item": "Sand",
+                  "amount": 6.4000006
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.2
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 4.8
+                }
+              ],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 9,
+              "Food": 60.749695,
+              "Wood": 0,
+              "ResearchRate": 0.042550053,
+              "ActiveTechnology": "f01_preservation",
+              "ResearchProgress": 13.772574,
+              "tech": [],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 13,
+              "Food": 40.748375,
+              "Wood": 5,
+              "ResearchRate": 0.042719282,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 16.407618,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Plank",
+                  "amount": 5
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 2
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 14.4000025
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 1.6
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 1.6
+                }
+              ],
+              "agriculturalStocks": []
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 74,
+          "citizens": 29,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Farm": 2,
+            "Return": 10,
+            "Wander": 56,
+            "Idle": 2,
+            "Play": 3,
+            "Learn": 1
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 7,
+              "Food": 77.45754,
+              "Wood": 0,
+              "ResearchRate": 0.0227909,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 0.045595907,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 15.600001
+                },
+                {
+                  "item": "Sand",
+                  "amount": 7.4000006
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.3999996
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 26.000006
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 9,
+              "Food": 92.74969,
+              "Wood": 0,
+              "ResearchRate": 0.035219096,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 0.4241205,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 13,
+              "Food": 85.539635,
+              "Wood": 0,
+              "ResearchRate": 0.04137384,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 10.628932,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 1.2235086
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 3
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 2.4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.465289
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.3799999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 9000,
+          "creatures": 79,
+          "citizens": 31,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 48,
+            "Gather": 3,
+            "Rest": 7,
+            "Eat": 2,
+            "Return": 5,
+            "Farm": 2,
+            "Process": 1,
+            "Flee": 4,
+            "Learn": 2,
+            "Play": 2,
+            "Fight": 1,
+            "Idle": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 8,
+              "Food": 85.45754,
+              "Wood": 0,
+              "ResearchRate": 0.03376396,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 5.975241,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 17.000004
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 9,
+              "Food": 93.74969,
+              "Wood": 0,
+              "ResearchRate": 0.04234511,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 13.405588,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 27
+                },
+                {
+                  "item": "Hide",
+                  "amount": 8
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 14,
+              "Food": 94.039635,
+              "Wood": 2,
+              "ResearchRate": 0.20135802,
+              "ActiveTechnology": "c02_clean_water",
+              "ResearchProgress": 44.178402,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 0.8
+                },
+                {
+                  "item": "Plank",
+                  "amount": 2
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 0.8
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 7
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9126215
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.58
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 0.8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Hide",
+                  "amount": 10
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 12000,
+          "creatures": 70,
+          "citizens": 40,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Rest": 5,
+            "Wander": 38,
+            "Farm": 6,
+            "Return": 4,
+            "Drink": 1,
+            "Socialize": 1,
+            "Process": 1,
+            "Gather": 2,
+            "Haul": 1,
+            "Eat": 2,
+            "Learn": 4,
+            "Play": 2,
+            "Idle": 3
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 8,
+              "Food": 85.45754,
+              "Wood": 0,
+              "ResearchRate": 0.035907414,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 17.403267,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 53.000008
+                },
+                {
+                  "item": "Hide",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 9,
+              "Food": 93.74969,
+              "Wood": 0,
+              "ResearchRate": 0.035337303,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 25.039915,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.000002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 51
+                },
+                {
+                  "item": "Hide",
+                  "amount": 8
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 23,
+              "Food": 95.53964,
+              "Wood": 9,
+              "ResearchRate": 0.1697954,
+              "ActiveTechnology": "m02_carpentry",
+              "ResearchProgress": 28.352604,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 2.6
+                },
+                {
+                  "item": "Plank",
+                  "amount": 9
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 6
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 5.2
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 12
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "GoldOre",
+                  "amount": 2.4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9126215
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.98
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Herbs",
+                  "amount": 7
+                },
+                {
+                  "item": "Hay",
+                  "amount": 5
+                },
+                {
+                  "item": "Hide",
+                  "amount": 10
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 15000,
+          "creatures": 72,
+          "citizens": 49,
+          "batches": 0,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 0,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": ""
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: t02_linen"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 0,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Wander": 39,
+            "Socialize": 1,
+            "Return": 16,
+            "Rest": 5,
+            "Process": 1,
+            "Gather": 2,
+            "Produce": 1,
+            "Eat": 1,
+            "Learn": 2,
+            "Play": 1,
+            "Idle": 3
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 8,
+              "Food": 85.45754,
+              "Wood": 0,
+              "ResearchRate": 0.04154043,
+              "ActiveTechnology": "m01_forestry",
+              "ResearchProgress": 29.487534,
+              "tech": [
+                "f01_preservation"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 17.000002
+                },
+                {
+                  "item": "Sand",
+                  "amount": 8.000001
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "TinOre",
+                  "amount": 5.999999
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 97.00001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 4
+                }
+              ]
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 8,
+              "Food": 92.74969,
+              "Wood": 0,
+              "ResearchRate": 0.03924241,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 7.9059925,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 16.600002
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 3.2
+                },
+                {
+                  "item": "Coal",
+                  "amount": 6.4000006
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 71
+                },
+                {
+                  "item": "Hide",
+                  "amount": 8
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 33,
+              "Food": 201.53964,
+              "Wood": 5,
+              "ResearchRate": 0.31474712,
+              "ActiveTechnology": "t02_linen",
+              "ResearchProgress": 4.1232343,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax"
+              ],
+              "workshops": [
+                {
+                  "Id": 777,
+                  "X": 91,
+                  "Y": 40,
+                  "type": "Carpentry",
+                  "recipe": "Furniture",
+                  "IndustryWorkerId": 644,
+                  "IndustryProgress": 0.9039956,
+                  "CompletedIndustryBatches": 0,
+                  "waiting": "\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 1
+                },
+                {
+                  "item": "Plank",
+                  "amount": 8
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 10
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 13.998628
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 17
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "GoldOre",
+                  "amount": 2.4
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9126215
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.98
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 3.6
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Herbs",
+                  "amount": 14.999996
+                },
+                {
+                  "item": "Hay",
+                  "amount": 24.00001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 17
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 18000,
+          "creatures": 68,
+          "citizens": 46,
+          "batches": 3,
+          "workToolsIssued": 0,
+          "clothesIssued": 0,
+          "furnitureInstalled": 2,
+          "marketTransactions": 0,
+          "marketWages": 0,
+          "marketTaxes": 0,
+          "marketNeeds": [
+            {
+              "SettlementId": 1,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 1,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Requested",
+              "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+            },
+            {
+              "SettlementId": 16,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Satisfied",
+              "Reason": "\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430"
+            },
+            {
+              "SettlementId": 16,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Satisfied",
+              "Reason": "\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430"
+            },
+            {
+              "SettlementId": 34,
+              "item": "IronTools",
+              "Target": 1,
+              "state": "Research",
+              "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+            },
+            {
+              "SettlementId": 34,
+              "item": "LinenClothes",
+              "Target": 1,
+              "state": "Gather",
+              "Reason": "\u041B\u044C\u043D\u044F\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u043E\u043B\u043E\u043A\u043D\u043E \u0434\u043B\u044F \u0442\u043A\u0430\u043D\u0438"
+            }
+          ],
+          "produced": {
+            "Charcoal": 0,
+            "IronIngot": 0,
+            "CopperIngot": 0,
+            "TinIngot": 0,
+            "BronzeIngot": 0,
+            "GoldIngot": 0,
+            "SilverIngot": 0,
+            "IronTools": 0,
+            "BronzeTools": 0,
+            "Sword": 0,
+            "Spear": 0,
+            "Armor": 0,
+            "Leather": 0,
+            "LinenCloth": 0,
+            "LeatherClothes": 0,
+            "LinenClothes": 0,
+            "Furniture": 3,
+            "Bow": 0,
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0,
+            "Rope": 0,
+            "Ballista": 0,
+            "Catapult": 0,
+            "Trebuchet": 0,
+            "BallistaBolts": 0,
+            "StoneShot": 0
+          },
+          "mint": {
+            "CopperCoin": 0,
+            "SilverCoin": 0,
+            "GoldCoin": 0
+          },
+          "tasks": {
+            "Farm": 19,
+            "Wander": 23,
+            "Return": 10,
+            "Rest": 5,
+            "Eat": 1,
+            "Idle": 5,
+            "CraftEquipment": 1,
+            "Play": 2,
+            "Learn": 2
+          },
+          "settlements": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "Population": 3,
+              "Food": 85.45754,
+              "Wood": 0,
+              "ResearchRate": 0.02004641,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 5.753289,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [],
+              "agriculturalStocks": []
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "Population": 0,
+              "Food": 92.74969,
+              "Wood": 0,
+              "ResearchRate": 0,
+              "ActiveTechnology": "c01_herbalism",
+              "ResearchProgress": 12.382785,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry"
+              ],
+              "workshops": [],
+              "materialStocks": [
+                {
+                  "item": "RawStone",
+                  "amount": 20.000004
+                },
+                {
+                  "item": "CopperOre",
+                  "amount": 4
+                },
+                {
+                  "item": "Coal",
+                  "amount": 8
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Grain",
+                  "amount": 83
+                },
+                {
+                  "item": "Hide",
+                  "amount": 8
+                }
+              ]
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "Population": 43,
+              "Food": 185.53964,
+              "Wood": 6,
+              "ResearchRate": 0.22566792,
+              "ActiveTechnology": "z01_charcoal",
+              "ResearchProgress": 49.309074,
+              "tech": [
+                "f01_preservation",
+                "m01_forestry",
+                "c01_herbalism",
+                "c02_clean_water",
+                "m02_carpentry",
+                "t01_flax",
+                "t02_linen"
+              ],
+              "workshops": [
+                {
+                  "Id": 777,
+                  "X": 91,
+                  "Y": 40,
+                  "type": "Carpentry",
+                  "recipe": "None",
+                  "IndustryWorkerId": 0,
+                  "IndustryProgress": 0,
+                  "CompletedIndustryBatches": 3,
+                  "waiting": "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u0430: \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E\u0442\u0441\u044F \u0441\u043F\u0440\u043E\u0441, \u0441\u044B\u0440\u044C\u0451 \u0438 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F"
+                }
+              ],
+              "materialStocks": [
+                {
+                  "item": "Log",
+                  "amount": 7.999999
+                },
+                {
+                  "item": "Plank",
+                  "amount": 7
+                },
+                {
+                  "item": "Firewood",
+                  "amount": 14
+                },
+                {
+                  "item": "RawStone",
+                  "amount": 18.404676
+                },
+                {
+                  "item": "StoneBlock",
+                  "amount": 22
+                },
+                {
+                  "item": "StoneTile",
+                  "amount": 4
+                },
+                {
+                  "item": "IronOre",
+                  "amount": 3.0000002
+                },
+                {
+                  "item": "GoldOre",
+                  "amount": 2.8000002
+                },
+                {
+                  "item": "SilverOre",
+                  "amount": 4.9126215
+                },
+                {
+                  "item": "Coal",
+                  "amount": 3.98
+                },
+                {
+                  "item": "Limestone",
+                  "amount": 4
+                },
+                {
+                  "item": "Furniture",
+                  "amount": 1
+                }
+              ],
+              "agriculturalStocks": [
+                {
+                  "item": "Herbs",
+                  "amount": 14.999996
+                },
+                {
+                  "item": "Hay",
+                  "amount": 24.00001
+                },
+                {
+                  "item": "Hide",
+                  "amount": 25
+                },
+                {
+                  "item": "RareHorn",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final": {
+        "tick": 18000,
+        "creatures": 68,
+        "citizens": 46,
+        "batches": 3,
+        "workToolsIssued": 0,
+        "clothesIssued": 0,
+        "furnitureInstalled": 2,
+        "marketTransactions": 0,
+        "marketWages": 0,
+        "marketTaxes": 0,
+        "marketNeeds": [
+          {
+            "SettlementId": 1,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Requested",
+            "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+          },
+          {
+            "SettlementId": 1,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Requested",
+            "Reason": "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C\u0443 \u0436\u0438\u0442\u0435\u043B\u044E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0438\u0437\u0434\u0435\u043B\u0438\u0435"
+          },
+          {
+            "SettlementId": 16,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Satisfied",
+            "Reason": "\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430"
+          },
+          {
+            "SettlementId": 16,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Satisfied",
+            "Reason": "\u041F\u043E\u0442\u0440\u0435\u0431\u043D\u043E\u0441\u0442\u044C \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0430"
+          },
+          {
+            "SettlementId": 34,
+            "item": "IronTools",
+            "Target": 1,
+            "state": "Research",
+            "Reason": "\u041D\u0443\u0436\u043D\u043E \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435: z01_charcoal"
+          },
+          {
+            "SettlementId": 34,
+            "item": "LinenClothes",
+            "Target": 1,
+            "state": "Gather",
+            "Reason": "\u041B\u044C\u043D\u044F\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u043E\u043B\u043E\u043A\u043D\u043E \u0434\u043B\u044F \u0442\u043A\u0430\u043D\u0438"
+          }
+        ],
+        "produced": {
+          "Charcoal": 0,
+          "IronIngot": 0,
+          "CopperIngot": 0,
+          "TinIngot": 0,
+          "BronzeIngot": 0,
+          "GoldIngot": 0,
+          "SilverIngot": 0,
+          "IronTools": 0,
+          "BronzeTools": 0,
+          "Sword": 0,
+          "Spear": 0,
+          "Armor": 0,
+          "Leather": 0,
+          "LinenCloth": 0,
+          "LeatherClothes": 0,
+          "LinenClothes": 0,
+          "Furniture": 3,
+          "Bow": 0,
+          "CopperCoin": 0,
+          "SilverCoin": 0,
+          "GoldCoin": 0,
+          "Rope": 0,
+          "Ballista": 0,
+          "Catapult": 0,
+          "Trebuchet": 0,
+          "BallistaBolts": 0,
+          "StoneShot": 0
+        },
+        "mint": {
+          "CopperCoin": 0,
+          "SilverCoin": 0,
+          "GoldCoin": 0
+        },
+        "tasks": {
+          "Farm": 19,
+          "Wander": 23,
+          "Return": 10,
+          "Rest": 5,
+          "Eat": 1,
+          "Idle": 5,
+          "CraftEquipment": 1,
+          "Play": 2,
+          "Learn": 2
+        },
+        "settlements": [
+          {
+            "Id": 1,
+            "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+            "Population": 3,
+            "Food": 85.45754,
+            "Wood": 0,
+            "ResearchRate": 0.02004641,
+            "ActiveTechnology": "c01_herbalism",
+            "ResearchProgress": 5.753289,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry"
+            ],
+            "workshops": [],
+            "materialStocks": [],
+            "agriculturalStocks": []
+          },
+          {
+            "Id": 16,
+            "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+            "Population": 0,
+            "Food": 92.74969,
+            "Wood": 0,
+            "ResearchRate": 0,
+            "ActiveTechnology": "c01_herbalism",
+            "ResearchProgress": 12.382785,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry"
+            ],
+            "workshops": [],
+            "materialStocks": [
+              {
+                "item": "RawStone",
+                "amount": 20.000004
+              },
+              {
+                "item": "CopperOre",
+                "amount": 4
+              },
+              {
+                "item": "Coal",
+                "amount": 8
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Grain",
+                "amount": 83
+              },
+              {
+                "item": "Hide",
+                "amount": 8
+              }
+            ]
+          },
+          {
+            "Id": 34,
+            "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+            "Population": 43,
+            "Food": 185.53964,
+            "Wood": 6,
+            "ResearchRate": 0.22566792,
+            "ActiveTechnology": "z01_charcoal",
+            "ResearchProgress": 49.309074,
+            "tech": [
+              "f01_preservation",
+              "m01_forestry",
+              "c01_herbalism",
+              "c02_clean_water",
+              "m02_carpentry",
+              "t01_flax",
+              "t02_linen"
+            ],
+            "workshops": [
+              {
+                "Id": 777,
+                "X": 91,
+                "Y": 40,
+                "type": "Carpentry",
+                "recipe": "None",
+                "IndustryWorkerId": 0,
+                "IndustryProgress": 0,
+                "CompletedIndustryBatches": 3,
+                "waiting": "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u0430: \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E\u0442\u0441\u044F \u0441\u043F\u0440\u043E\u0441, \u0441\u044B\u0440\u044C\u0451 \u0438 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F"
+              }
+            ],
+            "materialStocks": [
+              {
+                "item": "Log",
+                "amount": 7.999999
+              },
+              {
+                "item": "Plank",
+                "amount": 7
+              },
+              {
+                "item": "Firewood",
+                "amount": 14
+              },
+              {
+                "item": "RawStone",
+                "amount": 18.404676
+              },
+              {
+                "item": "StoneBlock",
+                "amount": 22
+              },
+              {
+                "item": "StoneTile",
+                "amount": 4
+              },
+              {
+                "item": "IronOre",
+                "amount": 3.0000002
+              },
+              {
+                "item": "GoldOre",
+                "amount": 2.8000002
+              },
+              {
+                "item": "SilverOre",
+                "amount": 4.9126215
+              },
+              {
+                "item": "Coal",
+                "amount": 3.98
+              },
+              {
+                "item": "Limestone",
+                "amount": 4
+              },
+              {
+                "item": "Furniture",
+                "amount": 1
+              }
+            ],
+            "agriculturalStocks": [
+              {
+                "item": "Herbs",
+                "amount": 14.999996
+              },
+              {
+                "item": "Hay",
+                "amount": 24.00001
+              },
+              {
+                "item": "Hide",
+                "amount": 25
+              },
+              {
+                "item": "RareHorn",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

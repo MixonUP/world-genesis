@@ -43,7 +43,7 @@ namespace WorldGenesis.Runtime
         private Text presetLabel;
         private ScrollRect inspectorScroll;
         private int previousInspectedUnit = -1, previousInspectedCell = -2;
-        public bool IsTextFocused => seed != null && seed.isFocused;
+        public bool IsTextFocused => seed != null && seed.isFocused || maritimeQuantity != null && maritimeQuantity.isFocused;
         public string InspectorText => inspectorBody != null ? inspectorBody.text : "";
 
         public GameHud(GameBootstrap owner)
@@ -93,6 +93,7 @@ namespace WorldGenesis.Runtime
             inspectorScroll.horizontal = false; inspectorScroll.vertical = true; inspectorScroll.movementType = ScrollRect.MovementType.Clamped; inspectorScroll.inertia = false; inspectorScroll.scrollSensitivity = 24;
             inspectorHint = Label(right, "Колесо над панелью — подробности", 10, muted, new Vector2(17, -348), new Vector2(204, 16));
             CreateBuildingAccessControls(right);
+            CreateMaritimeControls();
             RectTransform history = PanelFixed(root.transform, "Chronicle", new Vector2(-18, -478), new Vector2(236, 192), panel, true);
             Label(history, "ЛЕТОПИСЬ", 12, PixelArt.Gold, new Vector2(17, -16), new Vector2(202, 24)).fontStyle = FontStyle.Bold;
             chronicle = Label(history, "", 12, muted, new Vector2(17, -51), new Vector2(202, 127));
@@ -233,7 +234,8 @@ namespace WorldGenesis.Runtime
             int inspectedCell = world.InBounds(game.InspectX, game.InspectY) ? world.Index(game.InspectX, game.InspectY) : -1;
             if (previousInspectedUnit != game.SelectedUnitId || previousInspectedCell != inspectedCell)
             { inspectorScroll.verticalNormalizedPosition = 1; previousInspectedUnit = game.SelectedUnitId; previousInspectedCell = inspectedCell; }
-            if (selected != null)
+            if (TryDescribeSelectedShip(world)) { }
+            else if (selected != null)
             {
                 inspectorTitle.text = selected.Name;
                 SettlementData city = world.GetSettlement(selected.SettlementId);
@@ -252,7 +254,7 @@ namespace WorldGenesis.Runtime
                     inspectorTitle.text = inspectedBuilding != null ? ResourceArt.BuildingName(inspectedBuilding.Type) : showNode ? ResourceArt.ResourceName(node.Type) : city.Name;
                     UnitData ruler = world.GetUnit(city.RulerId);
                     builder.Clear();
-                    bool buildingFirst = inspectedBuilding != null && (inspectedBuilding.Type == BuildingType.Hall || IndustryCatalog.IsWorkshop(inspectedBuilding.Type));
+                    bool buildingFirst = inspectedBuilding != null && (inspectedBuilding.Type == BuildingType.Hall || IndustryCatalog.IsWorkshop(inspectedBuilding.Type) || MaritimeArt.SupportsBuilding(inspectedBuilding.Type));
                     if (buildingFirst) AppendBuildingDescription(world, inspectedBuilding);
                     builder.Append(SubsistenceDescription(world, city)).Append("\n\n");
                     if (inspectedBuilding != null && !buildingFirst) AppendBuildingDescription(world, inspectedBuilding);
@@ -268,6 +270,7 @@ namespace WorldGenesis.Runtime
                         "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nОбщинные порции  " + city.Food.ToString("0.#"));
                     AppendSettlementStocks(world, city.Id);
                     builder.Append("\n\n").Append(TreasuryDescription(world, city.Id));
+                    builder.Append("\n\n").Append(MarketDescription(world, city.Id));
                     builder.Append("\n\n").Append(RecentTradesDescription(world, city.Id, 0));
                     builder.Append("\n\n").Append(CaravansDescription(world, city.Id));
                     inspectorBody.text = builder.ToString();
@@ -276,8 +279,9 @@ namespace WorldGenesis.Runtime
             }
             else { inspectorTitle.text = game.Tool?.Label ?? "Живой мир"; inspectorBody.text = (game.Tool?.Description ?? "") + "\n\nI — наблюдение\nПробел — пауза\nHome — показать весь мир\nF12 — снимок игры"; }
             if (selected != null) inspectorBody.text += "\n\n" + WeatherSiteDescription(world, (int)selected.X, (int)selected.Y);
-            else if (world.InBounds(game.InspectX, game.InspectY) && world.GetSettlement(world.Cells[world.Index(game.InspectX, game.InspectY)].SettlementId) == null) inspectorBody.text = WeatherSiteDescription(world, game.InspectX, game.InspectY) + "\n\n" + inspectorBody.text;
+            else if (game.SelectedShipId == 0 && world.InBounds(game.InspectX, game.InspectY) && world.GetSettlement(world.Cells[world.Index(game.InspectX, game.InspectY)].SettlementId) == null) inspectorBody.text = WeatherSiteDescription(world, game.InspectX, game.InspectY) + "\n\n" + inspectorBody.text;
             RefreshBuildingAccessControls(world);
+            RefreshMaritimeControls(world);
             builder.Clear(); int count = 0, eventIndex = world.Events.Count - 1, socialIndex = world.SocialEvents == null ? -1 : world.SocialEvents.Count - 1;
             while ((eventIndex >= 0 || socialIndex >= 0) && count < 5)
             {
@@ -332,6 +336,7 @@ namespace WorldGenesis.Runtime
         {
             if ((int)unit.Species >= 4) return "животное";
             if (unit.Age < 16) return "ребёнок";
+            string marine = MaritimeProfessionName(unit.Profession); if (marine.Length > 0) return marine;
             string industrial = IndustryProfessionName(unit.Profession); if (industrial.Length > 0) return industrial;
             switch (unit.Profession) { case UnitProfession.Farmer: return "земледелец"; case UnitProfession.Forester: return "добытчик / мастер"; case UnitProfession.Guard: return "страж"; case UnitProfession.Hunter: return "охотник"; case UnitProfession.Herder: return "животновод"; case UnitProfession.Merchant: return "торговец"; case UnitProfession.Carpenter: return "плотник"; default: return "житель"; }
         }
@@ -464,7 +469,7 @@ namespace WorldGenesis.Runtime
         public static string BuildingStatusDescription(WorldState world, BuildingData building)
         {
             UnitData owner = world.GetUnit(building.OwnerId);
-            string grade = StorageCapacity.IsDepot(building) ? StorageCapacity.EffectiveLevel(building) + " / 4" : building.Level.ToString();
+            string grade = StorageCapacity.IsDepot(building) ? StorageCapacity.EffectiveLevel(building) + " / " + StorageCapacity.MaximumLevel(building.Type) : building.Level.ToString();
             string result = "<b>" + ResourceArt.BuildingName(building.Type) + "</b>\nУровень " + grade + "\nПрочность " + building.Health.ToString("0.#");
             result += building.Ownership == BuildingOwnership.Public ? "\nСобственность: общинная" : "\nСобственность: частная\nВладелец: " + (owner == null ? "житель #" + building.OwnerId : owner.Name);
             if (building.Type == BuildingType.Hall) result += "\n\n" + CampfireDescription(world, building);
@@ -764,6 +769,7 @@ namespace WorldGenesis.Runtime
         private void AppendBuildingDescription(WorldState world, BuildingData building)
         {
             builder.Append(BuildingStatusDescription(world, building)).Append('\n');
+            string maritime = MaritimeBuildingDescription(world, building); if (maritime.Length > 0) builder.Append(maritime).Append("\n\n");
             if (IndustryCatalog.IsWorkshop(building.Type)) builder.Append(ProductionDescription(world, building)).Append("\n\n");
             string access = BuildingAccessDescription(world, building); if (access.Length > 0) builder.Append(access).Append("\n\n");
             string agricultural = AgricultureDescription(building); if (agricultural.Length > 0) builder.Append(agricultural).Append('\n');
@@ -856,6 +862,9 @@ namespace WorldGenesis.Runtime
                     BuildingData workplace = world.GetBuilding(unit.TargetBuildingId);
                     return workplace == null ? "Ожидает мастерскую" : IndustryCatalog.IsWorking(world, workplace) ? "Изготавливает: " + IndustryCatalog.Name(workplace.ActiveIndustryRecipe) : "Снабжает: " + ResourceArt.BuildingName(workplace.Type);
                 case UnitTask.InstallFurniture: return "Доставляет и устанавливает мебель";
+                case UnitTask.Shipbuild: return MaritimeArt.IsShipwrightWorking(world, unit) ? "Строит корабль" : "Снабжает верфь";
+                case UnitTask.Dockwork: return moving ? "Идёт к причалу" : "Исполняет портовый заказ";
+                case UnitTask.Sail: return "На борту корабля #" + unit.ShipId;
                 case UnitTask.EquipGoods: return "Получает изготовленное снаряжение";
                 case UnitTask.VisitBuilding: return unit.InsideBuildingId != 0 ? "Находится в здании" : unit.EnteringBuildingId != 0 ? "Входит через дверь" : "Идёт ко входу";
                 case UnitTask.Fight: return (int)unit.Species < 4 ? "Ополчение: защита" : moving ? "Преследует противника" : "В бою";

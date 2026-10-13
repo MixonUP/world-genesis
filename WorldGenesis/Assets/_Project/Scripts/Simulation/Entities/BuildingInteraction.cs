@@ -76,7 +76,7 @@ namespace WorldGenesis.Simulation
         }
         private static bool IndoorTask(UnitTask task)
         {
-            return task==UnitTask.Produce || task==UnitTask.Process || task==UnitTask.Rest || task==UnitTask.Learn || task==UnitTask.Haul || task==UnitTask.Return || task==UnitTask.Brew || task==UnitTask.CraftEquipment || task==UnitTask.EquipGoods || task==UnitTask.InstallFurniture || task==UnitTask.Caravan || task==UnitTask.Drink || task==UnitTask.VisitBuilding;
+            return task==UnitTask.Produce || task==UnitTask.Process || task==UnitTask.Rest || task==UnitTask.Learn || task==UnitTask.Haul || task==UnitTask.Return || task==UnitTask.Brew || task==UnitTask.CraftEquipment || task==UnitTask.EquipGoods || task==UnitTask.InstallFurniture || task==UnitTask.Caravan || task==UnitTask.Drink || task==UnitTask.VisitBuilding || task==UnitTask.Shipbuild || task==UnitTask.Dockwork || task==UnitTask.Market;
         }
         private bool HandleIndoorSafety(UnitData u,float dt)
         {
