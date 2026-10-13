@@ -10,7 +10,6 @@ namespace WorldGenesis.Runtime
         private const int ChunkSize = 32;
         private const int PixelsPerCell = 8;
         private const int MaxChunkRebuildsPerFrame = 2;
-        private static readonly Color ShoreColor = PixelArt.Hex("80b7ad");
         private static readonly Color ScorchedColor = PixelArt.Hex("7e553c");
         private sealed class Chunk
         {
@@ -66,7 +65,7 @@ namespace WorldGenesis.Runtime
             agriculture = new QuadBatch("Fields and rural buildings", root, agricultureMaterial, 30);
             agriculturalCargo = new QuadBatch("Actual agricultural goods", root, agricultureMaterial, 60);
             transportAtlas = TransportArt.CreateAtlas(); transportMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = transportAtlas };
-            waterFlow = new QuadBatch("Actual water current", root, transportMaterial, 11);
+            waterFlow = new QuadBatch("Actual water current", root, spriteMaterial, 11);
             wagons = new QuadBatch("Actual wagons", root, transportMaterial, 45);
             citizenSprites = new CitizenSprites(root);
             weatherView = new WeatherView(root, spriteMaterial);
@@ -191,6 +190,12 @@ namespace WorldGenesis.Runtime
                     float size = (int)unit.Species < 4 && unit.IsChild ? .81f : 1.2f;
                     people.Sprite(position.x, position.y - .15f + bob, size, size, ResourceArt.CitizenSprite(unit), tint);
                 }
+                CitizenWaterPresentation.State immersion = CitizenWaterPresentation.Resolve(world, unit, riding);
+                if (immersion.Wet)
+                {
+                    CitizenWaterPresentation.DrawWake(people, world, unit, immersion.SurfacePosition + offset, immersion);
+                    position += immersion.Offset; offset += immersion.Offset;
+                }
                 float head = human ? CitizenSprites.HeadHeight(unit) : (int)unit.Species >= 6 ? WildlifeArt.AnimalSize(unit.Species) * .9f : .96f;
                 if (unit.Blessed) people.Sprite(position.x, position.y + head, .2f, .08f, 12, PixelArt.Gold);
                 if (showDetails && (int)unit.Species < 4)
@@ -206,7 +211,7 @@ namespace WorldGenesis.Runtime
                 Vector2 facing = human ? citizenSprites.Facing(unit.Id) : TravelDirection(unit);
                 DrawEquipment(unit, facing);
                 DrawCargo(unit, facing, simulationTime, offset);
-                if (showDetails) DrawWaterActivity(unit, position);
+                if (showDetails) DrawWaterActivity(unit, position, facing);
                 if (unit.Id == SelectedUnitId)
                 {
                     people.Sprite(position.x, position.y + head + .38f, .85f, .1f, 12, PixelArt.Ink);
@@ -220,7 +225,7 @@ namespace WorldGenesis.Runtime
         public Sprite CreateWeatherIcon(WeatherKind kind) { return weatherView.CreateIcon(kind); }
         public Sprite CreateHumanIcon() { return citizenSprites.CreatePortrait(); }
         public Sprite CreateCitizenIcon(SpeciesType species) { return citizenSprites.CreateCitizenSprite(species, CitizenSprites.CitizenAppearance.AdultMale, CitizenSprites.CitizenDirection.South); }
-        public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id); }
+        public Vector2 GetPresentationPosition(UnitData unit) { if (IsRiding(world, unit)) { UnitData mount = world.GetUnit(unit.MountId); return new Vector2(mount.X, mount.Y + WildlifeArt.AnimalSize(mount.Species) * .2f); } return new Vector2(unit.X, unit.Y) + crowd.Offset(unit.Id) + CitizenWaterPresentation.Resolve(world, unit).Offset; }
         public Sprite CreateAnimalIcon(SpeciesType species)
         {
             int sprite = ((int)species - 6) * WildlifeArt.FramesPerAnimal; Rect uv = WildlifeArt.Uv(sprite);
@@ -283,7 +288,12 @@ namespace WorldGenesis.Runtime
             else if (unit.BasketLevel > 0)
             {
                 Vector2 position = GetPresentationPosition(unit);
-                Equipment(equipmentBack, position.x + (direction.x < 0 ? .27f : -.27f), position.y + .03f, .8f + .08f * unit.BasketLevel, WildlifeArt.BasketSmall + Mathf.Clamp(unit.BasketLevel - 1, 0, 2));
+                float size = .8f + .08f * unit.BasketLevel;
+                Rect geometry = new Rect(position.x + (direction.x < 0 ? .27f : -.27f) - size * .5f, position.y + .03f, size, size);
+                Rect uv = WildlifeArt.Uv(WildlifeArt.BasketSmall + Mathf.Clamp(unit.BasketLevel - 1, 0, 2));
+                CitizenWaterPresentation.State water = CitizenWaterPresentation.Resolve(world, unit);
+                if (!water.Wet || CitizenWaterPresentation.Clip(ref geometry, ref uv, water.SurfacePosition.y + crowd.Offset(unit.Id).y))
+                    equipmentBack.Add(geometry.x, geometry.y, geometry.width, geometry.height, uv, Color.white);
             }
         }
 
@@ -393,28 +403,7 @@ namespace WorldGenesis.Runtime
         }
         private void DrawWaterCurrent(Camera camera, bool visible)
         {
-            waterFlow.Clear();
-            if (!visible || camera == null) { waterFlow.Submit(); return; }
-            float height = camera.orthographicSize, width = height * camera.aspect;
-            int minX = Mathf.Max(0, Mathf.FloorToInt(camera.transform.position.x - width)), maxX = Mathf.Min(world.Width - 1, Mathf.CeilToInt(camera.transform.position.x + width));
-            int minY = Mathf.Max(0, Mathf.FloorToInt(camera.transform.position.y - height)), maxY = Mathf.Min(world.Height - 1, Mathf.CeilToInt(camera.transform.position.y + height));
-            for (int y = minY; y <= maxY; y++) for (int x = minX; x <= maxX; x++)
-            {
-                int index = world.Index(x, y); TileData cell = world.Cells[index];
-                uint hash = PixelArt.Hash(x, y, world.Seed);
-                if (cell.WaterDepth <= 0 || cell.CurrentStrength <= .01f || hash % 3 != 0 || InfrastructureAt(x, y).BridgeLevel > 0) continue;
-                // No made-up downstream direction when hydrology has no parent.
-                int parent = cell.DrainageParent; if (parent < 0 || parent >= world.Cells.Length || parent == index) continue;
-                Vector2 direction = new Vector2(parent % world.Width - x, parent / world.Width - y).normalized;
-                bool vertical = Mathf.Abs(direction.y) > Mathf.Abs(direction.x);
-                float clock = world.Tick * SimulationEngine.TickSeconds * (.3f + cell.CurrentStrength * 1.5f);
-                float phase = Mathf.Repeat(clock + hash % 100 * .01f, 1);
-                Vector2 center = new Vector2(x + .5f, y + .5f) + direction * ((phase - .5f) * .42f);
-                int glyph = (vertical ? TransportArt.VerticalFlowFirst : TransportArt.FlowFirst) + (int)(phase * 4);
-                Color tint = new Color(.8f, .96f, .93f, .16f + .31f * cell.CurrentStrength);
-                waterFlow.Add(center.x - .4f, center.y - .4f, .8f, .8f, TransportArt.Uv(glyph), tint, direction.x < 0);
-            }
-            waterFlow.Submit();
+            RiverArt.DrawSurface(world, camera, waterFlow, visible);
         }
         private void DrawFishStocks(Camera camera, bool visible)
         {
@@ -439,22 +428,12 @@ namespace WorldGenesis.Runtime
             }
             waterLife.Submit();
         }
-        private void DrawWaterActivity(UnitData unit, Vector2 position)
+        private void DrawWaterActivity(UnitData unit, Vector2 position, Vector2 facing)
         {
-            if (unit.PathCursor < unit.Path.Count || unit.WorkTimer <= 0) return;
+            if (unit.Path != null && unit.PathCursor < unit.Path.Count || unit.WorkTimer <= 0) return;
             if (unit.Task == UnitTask.Drink && unit.CarriedWater <= .001f)
                 people.Sprite(position.x + .28f, position.y + .06f, .58f, .58f, SocietyArt.WaterPail, Color.white);
-            else if (unit.Task == UnitTask.Fish && unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length)
-            {
-                int cell = unit.ResourceCell; if (world.Infrastructure == null || world.Infrastructure[cell].Fish <= 0) return;
-                Vector2 water = new Vector2(cell % world.Width + .5f, cell / world.Width + .5f);
-                Vector2 hand = position + new Vector2(.12f, .32f), direction = water - hand;
-                Vector2 tip = hand + direction.normalized * .68f + new Vector2(0, .34f);
-                Vector2 rod = tip - hand, line = water - tip;
-                people.OrientedSprite((hand + tip) * .5f, rod.magnitude, .04f, Mathf.Atan2(rod.y, rod.x), 12, PixelArt.Hex("ba9f6c"));
-                people.OrientedSprite((tip + water) * .5f, line.magnitude, .016f, Mathf.Atan2(line.y, line.x), 12, PixelArt.Hex("c9d5bd"));
-                people.Sprite(water.x, water.y, .1f, .12f, 12, PixelArt.Hex("de9b78"));
-            }
+            else FishingPresentation.Draw(people, world, unit, position, facing);
         }
         private void DrawBuildingSupplies(BuildingData building)
         {
@@ -590,6 +569,7 @@ namespace WorldGenesis.Runtime
                 if (water && cell.WaterDepth > 0) baseColor = TransportArt.WaterColor(cell);
                 else baseColor = WeatherView.TerrainColor(baseColor, cell, world.GetBiome(world.Index(x, y)));
                 InfrastructureCell infrastructure = InfrastructureAt(x, y);
+                RiverArt.Bank bank = RiverArt.SampleBank(world, x, y);
                 bool watercourse = cell.River || infrastructure.Stream > .01f;
                 int riverConnections = watercourse ? RiverConnections(x, y, cell) : 0;
                 int roadConnections = infrastructure.RoadLevel > 0 ? RoadConnections(x, y) : 0;
@@ -606,11 +586,9 @@ namespace WorldGenesis.Runtime
                     float variation = 1;
                     uint grain = PixelArt.Hash(x * PixelsPerCell + px, y * PixelsPerCell + py, world.Seed);
                     if (grain % 31 == 0) variation = 1.1f; else if (grain % 29 == 0) variation = .92f;
-                    if (water && py == (int)(hash % 5 + 1) && px > 1 && px < 6 && hash % 6 == 0) variation = 1.16f;
                     if (cell.Terrain == TerrainType.Mountain && grain % 17 == 0) variation *= .86f;
                     Color color = baseColor * light * variation; color.a = 1;
-                    if (water && cell.Terrain == TerrainType.ShallowWater && ((py == 7 && IsLand(x, y + 1)) || (px == 0 && IsLand(x - 1, y)))) color = ShoreColor;
-                    if (!water && ((py == 0 && IsWater(x, y - 1)) || (px == 7 && IsWater(x + 1, y)))) color *= .82f;
+                    color = RiverArt.ShadePixel(cell, bank, x * PixelsPerCell + px, y * PixelsPerCell + py, world.Seed, color);
                     if (cell.Terrain == TerrainType.Swamp && hash % 3 == 0 && (px - 4) * (px - 4) + (py - 4) * (py - 4) * 2 < 7) color = PixelArt.Hex("527a70");
                     if (cell.Terrain == TerrainType.Ravine && py == 7 && world.InBounds(x, y + 1) && world.Cells[world.Index(x, y + 1)].Terrain != TerrainType.Ravine) color *= .64f;
                     if (cell.Terrain == TerrainType.Highlands && py == 0 && world.InBounds(x, y - 1) && world.Cells[world.Index(x, y - 1)].Height < cell.Height - .04f) color *= .76f;
@@ -627,6 +605,8 @@ namespace WorldGenesis.Runtime
                 ResourceNodeData node = world.GetResourceAt(x, y);
                 if (infrastructure.BridgeLevel > 0)
                     chunk.Bridges.Add(x, y, 1, 1, TransportArt.Uv(TransportArt.BridgeSprite(infrastructure)), Color.white);
+                if (!water && bank.HasShore && !bank.Sandy && !bank.Rocky && infrastructure.RoadLevel == 0 && infrastructure.BridgeLevel == 0 && cell.BuildingId == 0 && node.Type == ResourceType.None && hash % 13 == 0)
+                    chunk.Nature.Sprite(x + .5f + ((hash >> 9) % 5 - 2f) * .05f, y - .05f, .64f, .64f, 122, Color.white);
                 if (cell.Terrain == TerrainType.Swamp && cell.BuildingId == 0 && node.Type == ResourceType.None && hash % 7 == 0)
                     chunk.Nature.Sprite(x + .5f, y - .07f, .8f, .8f, 122, Color.white);
                 if (cell.Terrain == TerrainType.Mountain && node.Type == ResourceType.None)

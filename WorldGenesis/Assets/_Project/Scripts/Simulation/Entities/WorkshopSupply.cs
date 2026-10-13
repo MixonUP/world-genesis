@@ -11,7 +11,7 @@ namespace WorldGenesis.Simulation
             return amount;
         }
         private static ItemType SupplyMaterial(int slot) { return slot == 0 ? ItemType.Plank : slot == 1 ? ItemType.RawStone : slot == 5 ? ItemType.Firewood : ItemType.None; }
-        private static AgriculturalProduct SupplyHarvest(int slot) { return slot == 2 ? AgriculturalProduct.Fiber : slot == 3 ? AgriculturalProduct.Hide : slot == 4 ? AgriculturalProduct.Grain : slot == 7 ? AgriculturalProduct.Hay : slot == 8 ? AgriculturalProduct.Berries : AgriculturalProduct.None; }
+        private static AgriculturalProduct SupplyHarvest(int slot) { return slot == 2 ? AgriculturalProduct.Fiber : slot == 3 ? AgriculturalProduct.Hide : slot == 4 ? AgriculturalProduct.Grain : slot == 7 ? AgriculturalProduct.Hay : slot == 8 ? AgriculturalProduct.Berries : slot == 9 ? AgriculturalProduct.RiverPearl : slot == 10 ? AgriculturalProduct.AncientScale : AgriculturalProduct.None; }
         private static float SupplyStored(BuildingData b, int slot)
         {
             if (slot == 6) return b.BrewWaterStored;
@@ -25,7 +25,7 @@ namespace WorldGenesis.Simulation
             return source.AgriculturalStock[(int)SupplyHarvest(slot)];
         }
         // Both path legs are checked before pickup. The resident carries each batch; a workshop never debits a remote ledger.
-        private bool SupplyAgriculturalWorkshop(UnitData u, SettlementData s, BuildingData b, float plank, float stone, float fiber, float hide, float grain, float fuel, float water, float hay = 0, float berries = 0)
+        private bool SupplyAgriculturalWorkshop(UnitData u, SettlementData s, BuildingData b, float plank, float stone, float fiber, float hide, float grain, float fuel, float water, float hay = 0, float berries = 0, float pearls = 0, float scales = 0)
         {
             bool atWorkplace = DistanceSquared(u.X, u.Y, b.X + .5f, b.Y + .5f) < 2;
             if (!atWorkplace && CarriedLoad(u) > .00001f) { if (!SetTarget(u, b.X, b.Y)) ChangeTask(u, UnitTask.Idle); return false; }
@@ -36,9 +36,9 @@ namespace WorldGenesis.Simulation
                 if (u.CarriedWater > 0) { float amount = Math.Min(u.CarriedWater, 4 - b.BrewWaterStored); b.BrewWaterStored += amount; u.CarriedWater -= amount; }
                 if (CarriedLoad(u) > .00001f) { ChangeTask(u, UnitTask.Idle); return false; }
             }
-            for (int slot = 0; slot < 9; slot++)
+            for (int slot = 0; slot < 11; slot++)
             {
-                float required = slot == 0 ? plank : slot == 1 ? stone : slot == 2 ? fiber : slot == 3 ? hide : slot == 4 ? grain : slot == 5 ? fuel : slot == 6 ? water : slot == 7 ? hay : berries;
+                float required = slot == 0 ? plank : slot == 1 ? stone : slot == 2 ? fiber : slot == 3 ? hide : slot == 4 ? grain : slot == 5 ? fuel : slot == 6 ? water : slot == 7 ? hay : slot == 8 ? berries : slot == 9 ? pearls : scales;
                 float missing = required - SupplyStored(b, slot); if (missing <= .00001f) continue;
                 // A first basket is woven beside the hearth; workshop planks still need withdrawing from the hearth pile.
                 for (int i = 0; i < World.Buildings.Count; i++)

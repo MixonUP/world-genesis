@@ -16,12 +16,13 @@ namespace WorldGenesis.Simulation
                 case 4: plank = 2; stone = 1; return u.HuntingToolLevel == 0 && World.HasTechnology(s.Id, "m02_carpentry");
                 case 5: plank = 12; fiber = 4; hide = 2; return !u.OwnsWagon && World.HasTechnology(s.Id, "l02_carts");
                 case 6: fiber = 2; hide = 2; UnitData mount = World.GetUnit(u.MountId); return mount != null && mount.IsDomestic && mount.HandlerId == u.Id && !mount.HasSaddleBags && World.HasTechnology(s.Id, "f07_husbandry");
+                case 7: case 8: case 9: case 10: return RodRecipe(u, s, order, out plank, out fiber, out hide);
                 default: return false;
             }
         }
         private bool CanCraftEquipment(UnitData u, SettlementData s, int order)
         {
-            return EquipmentRecipe(u, s, order, out float p, out float r, out float f, out float h) && CraftingPlanksAvailable(s) >= p && FreePublicStock(s.Id, ItemType.RawStone) >= r && World.GetAgriculturalStock(s.Id, AgriculturalProduct.Fiber) >= f && World.GetAgriculturalStock(s.Id, AgriculturalProduct.Hide) >= h;
+            return EquipmentRecipe(u, s, order, out float p, out float r, out float f, out float h) && CraftingPlanksAvailable(s) >= p && FreePublicStock(s.Id, ItemType.RawStone) >= r && World.GetAgriculturalStock(s.Id, AgriculturalProduct.Fiber) >= f && World.GetAgriculturalStock(s.Id, AgriculturalProduct.Hide) >= h && World.GetAgriculturalStock(s.Id, AgriculturalProduct.RiverPearl) >= RodPearls(order) && World.GetAgriculturalStock(s.Id, AgriculturalProduct.AncientScale) >= RodScales(order);
         }
         // A work order spends nothing until on-site completion. Competing workers recheck the full recipe atomically.
         public bool TryStartEquipment(int unitId, int order)
@@ -41,6 +42,7 @@ namespace WorldGenesis.Simulation
         {
             if (u.Age < 16 || !IsCivilized(u.Species) || CarriedLoad(u) > .0001f) return false;
             if (ChoosePastureProduce(u, s)) return true;
+            if (u.FishCaughtCount >= 3 && u.Hunger < .5f && u.Fatigue < .72f && TryStartFishingRod(u.Id)) return true;
             bool equipmentTime = u.BasketLevel == 0 ? u.Hunger < .5f && u.Fatigue < .72f : s.Food > s.Population;
             if (equipmentTime && u.BasketLevel < 3 && TryStartEquipment(u.Id, u.BasketLevel + 1)) return true;
             if (u.Id % 8 == 0 && u.HuntingToolLevel == 0 && TryStartEquipment(u.Id, 4)) return true;
@@ -87,15 +89,19 @@ namespace WorldGenesis.Simulation
             }
             int order = u.EquipmentOrder;
             if (b.Type != (order == 1 ? BuildingType.Hall : BuildingType.Sawmill) || !EquipmentRecipe(u, s, order, out float plank, out float stone, out float fiber, out float hide)) { u.EquipmentOrder = 0; ChangeTask(u, UnitTask.Idle); return true; }
-            if (!SupplyAgriculturalWorkshop(u, s, b, plank, stone, fiber, hide, 0, 0, 0)) return true;
-            u.EquipmentProgress = Math.Min(8, u.EquipmentProgress + dt);
-            if (u.EquipmentProgress < 8) return true;
+            if (!SupplyAgriculturalWorkshop(u, s, b, plank, stone, fiber, hide, 0, 0, 0, 0, 0, RodPearls(order), RodScales(order))) return true;
+            float seconds = EquipmentSeconds(order);
+            u.EquipmentProgress = Math.Min(seconds, u.EquipmentProgress + dt);
+            if (u.EquipmentProgress < seconds) return true;
             b.Inventory[(int)ItemType.Plank] = Math.Max(0, b.Inventory[(int)ItemType.Plank] - plank); b.Inventory[(int)ItemType.RawStone] = Math.Max(0, b.Inventory[(int)ItemType.RawStone] - stone); b.AgriculturalStock[(int)AgriculturalProduct.Fiber] = Math.Max(0, b.AgriculturalStock[(int)AgriculturalProduct.Fiber] - fiber); b.AgriculturalStock[(int)AgriculturalProduct.Hide] = Math.Max(0, b.AgriculturalStock[(int)AgriculturalProduct.Hide] - hide);
-            if (order <= 3) u.BasketLevel = order;
+            b.AgriculturalStock[(int)AgriculturalProduct.RiverPearl] = Math.Max(0, b.AgriculturalStock[(int)AgriculturalProduct.RiverPearl] - RodPearls(order));
+            b.AgriculturalStock[(int)AgriculturalProduct.AncientScale] = Math.Max(0, b.AgriculturalStock[(int)AgriculturalProduct.AncientScale] - RodScales(order));
+            if (order >= 7) u.FishingRodLevel = order - 5;
+            else if (order <= 3) u.BasketLevel = order;
             else if (order == 4) { u.HuntingToolLevel = 1; u.Profession = UnitProfession.Hunter; }
             else if (order == 5) u.OwnsWagon = true;
             else if (order == 6) { World.GetUnit(u.MountId).HasSaddleBags = true; u.MountBags = true; }
-            GainCraftExperience(u, 8); u.EquipmentOrder = 0; u.EquipmentProgress = 0; EnforceEquipment(u); ChangeTask(u, UnitTask.Idle); u.DecisionTimer = 0; return true;
+            GainCraftExperience(u, seconds); u.EquipmentOrder = 0; u.EquipmentProgress = 0; EnforceEquipment(u); ChangeTask(u, UnitTask.Idle); u.DecisionTimer = 0; return true;
         }
         private BuildingData BrewingWell(SettlementData s, BuildingData brewery)
         {

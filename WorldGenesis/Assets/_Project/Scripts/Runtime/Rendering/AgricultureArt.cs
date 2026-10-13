@@ -10,13 +10,20 @@ namespace WorldGenesis.Runtime
         public const int Size = 256, Frame = 32, Pasture = 20, Brewery = 21, Wagon = 22, ProductFirst = 23;
         public static Rect Uv(int sprite) { return new Rect((sprite % 8 * 32 + .25f) / Size, (sprite / 8 * 32 + .25f) / Size, 31.5f / Size, 31.5f / Size); }
         public static int FieldSprite(CropType crop, float growth) { return Mathf.Clamp((int)crop, 0, 4) * 4 + Mathf.Clamp((int)(growth * 4), 0, 3); }
-        public static int ProductSprite(AgriculturalProduct product) { return ProductFirst + Mathf.Clamp((int)product - 1, 0, 11); }
+        public static int ProductSprite(AgriculturalProduct product) { return ProductFirst + Mathf.Clamp((int)product - 1, 0, FishingCatalog.AgriculturalProductCount - 2); }
         public static string CropName(CropType crop)
         {
             switch (crop) { case CropType.Flax: return "Лён"; case CropType.BerryOrchard: return "Ягодный сад"; case CropType.HerbGarden: return "Лекарственный сад"; case CropType.Hay: return "Сенокос"; default: return "Пшеница"; }
         }
         public static string ProductName(AgriculturalProduct product)
         {
+            switch (product)
+            {
+                case AgriculturalProduct.Fish: return "Рыба";
+                case AgriculturalProduct.DelicacyFish: return "Редкая деликатесная рыба";
+                case AgriculturalProduct.RiverPearl: return "Речная жемчужина";
+                case AgriculturalProduct.AncientScale: return "Древняя чешуя";
+            }
             switch (product) { case AgriculturalProduct.Grain: return "Зерно"; case AgriculturalProduct.Fiber: return "Волокно"; case AgriculturalProduct.Berries: return "Ягоды"; case AgriculturalProduct.Herbs: return "Травы"; case AgriculturalProduct.Hay: return "Сено"; case AgriculturalProduct.Meat: return "Мясо"; case AgriculturalProduct.Hide: return "Шкура"; case AgriculturalProduct.Milk: return "Молоко"; case AgriculturalProduct.Egg: return "Яйца"; case AgriculturalProduct.RareHorn: return "Редкий рог"; case AgriculturalProduct.RarePelt: return "Редкий мех"; case AgriculturalProduct.Ale: return "Эль"; default: return "Нет"; }
         }
         public static Texture2D CreateAtlas()
@@ -61,7 +68,7 @@ namespace WorldGenesis.Runtime
             p.Rect(Wagon, 4, 8, 21, 2, pale); p.Rect(Wagon, 23, 9, 9, 2, wood);
             for (int x = 7; x < 24; x += 5) p.Rect(Wagon, x, 10, 1, 9, pale);
             p.Ellipse(Wagon, 8, 6, 4, 4, dark); p.Ellipse(Wagon, 21, 6, 4, 4, dark); p.Rect(Wagon, 7, 3, 2, 7, pale); p.Rect(Wagon, 18, 5, 7, 2, pale); p.Dot(Wagon, 8, 6, wood);
-            for (int product = 1; product <= 12; product++) PaintProduct(p, ProductFirst + product - 1, (AgriculturalProduct)product);
+            for (int product = 1; product < FishingCatalog.AgriculturalProductCount; product++) PaintProduct(p, ProductFirst + product - 1, (AgriculturalProduct)product);
             Texture2D atlas = new Texture2D(Size, Size, TextureFormat.RGBA32, false) { name = "World Genesis • authored farms and goods", filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
             atlas.SetPixels32(pixels); atlas.Apply(false, true); return atlas;
         }
@@ -70,6 +77,24 @@ namespace WorldGenesis.Runtime
             Color gold = PixelArt.Hex("d9b969"), leaf = PixelArt.Hex("719059"), cloth = PixelArt.Hex("b8b397"), ink = PixelArt.Ink;
             switch (product)
             {
+                case AgriculturalProduct.Fish: case AgriculturalProduct.DelicacyFish:
+                    Color fish = product == AgriculturalProduct.Fish ? PixelArt.Hex("7baaaa") : PixelArt.Hex("aa80c4");
+                    p.Ellipse(s, 17, 16, 9, 5, ink); p.Ellipse(s, 17, 17, 8, 4, fish);
+                    p.Line(s, 8, 16, 4, 21, fish); p.Line(s, 8, 16, 4, 11, fish); p.Line(s, 4, 11, 4, 21, fish);
+                    p.Line(s, 13, 21, 17, 24, fish); p.Line(s, 17, 24, 19, 21, fish);
+                    p.Ellipse(s, 18, 18, 5, 1, product == AgriculturalProduct.Fish ? PixelArt.Hex("c2ded3") : PixelArt.Hex("ead1ba"));
+                    p.Dot(s, 23, 18, ink); p.Line(s, 20, 14, 20, 18, ink); break;
+                case AgriculturalProduct.RiverPearl:
+                    p.Ellipse(s, 16, 12, 11, 5, PixelArt.Hex("829893")); p.Ellipse(s, 16, 14, 9, 4, PixelArt.Hex("bed2c5"));
+                    p.Ellipse(s, 16, 19, 6, 6, PixelArt.Hex("b3cdd9")); p.Ellipse(s, 15, 20, 4, 4, PixelArt.Hex("e7eee0"));
+                    p.Ellipse(s, 13, 22, 1, 1, Color.white); break;
+                case AgriculturalProduct.AncientScale:
+                    for (int y = 7; y <= 26; y++)
+                    {
+                        int width = y < 16 ? y - 5 : 28 - y;
+                        p.Rect(s, 16 - width, y, width * 2, 1, y % 4 == 0 ? PixelArt.Hex("cbb970") : PixelArt.Hex("6488b2"));
+                    }
+                    p.Line(s, 14, 10, 14, 23, PixelArt.Hex("acced2")); break;
                 case AgriculturalProduct.Grain: case AgriculturalProduct.Fiber: case AgriculturalProduct.Hay: case AgriculturalProduct.Herbs:
                     for (int i = 0; i < 7; i++) { int x = 8 + i * 2; p.Line(s, 13 + i % 3, 7, x, 25 - i % 3, product == AgriculturalProduct.Hay || product == AgriculturalProduct.Grain ? gold : leaf); p.Ellipse(s, x, 23 - i % 3, 2, 3, product == AgriculturalProduct.Fiber ? cloth : product == AgriculturalProduct.Herbs ? PixelArt.Hex("a78db0") : gold); }
                     p.Rect(s, 11, 11, 11, 3, PixelArt.Hex("a47550")); break;

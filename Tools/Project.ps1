@@ -59,6 +59,16 @@ if ($Action -eq 'Validate') {
     $versionMatch = [regex]::Match($version, '(?m)^m_EditorVersion:\s*(\S+)')
     Add-Check 'unity-version' ($versionMatch.Success -and $versionMatch.Groups[1].Value -eq $toolchain.unityVersion) $version.Trim()
 
+    # A malformed GUID can silently exclude a C# test from Unity's suite. Counted PASS
+    # is meaningful only after every script can be imported.
+    $assetGuids = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+    foreach ($metaFile in Get-ChildItem -LiteralPath (Join-Path $unityProjectPath 'Assets') -Recurse -Filter '*.meta') {
+        $metaText = Get-Content -LiteralPath $metaFile.FullName -Raw
+        $guidMatch = [regex]::Match($metaText, '(?m)^guid: ([0-9a-fA-F]{32})\r?$')
+        $metaRelative = $metaFile.FullName.Substring($unityProjectPath.Length + 1)
+        Add-Check "meta-guid:$metaRelative" $guidMatch.Success $metaRelative
+        if ($guidMatch.Success) { Add-Check "meta-unique:$metaRelative" ($assetGuids.Add($guidMatch.Groups[1].Value)) $metaRelative }
+    }
     $assemblies = @{}
     $assemblyFiles = @(Get-ChildItem -LiteralPath (Join-Path $unityProjectPath 'Assets/_Project') -Recurse -Filter '*.asmdef')
     foreach ($file in $assemblyFiles) {

@@ -331,36 +331,5 @@ namespace WorldGenesis.Simulation
             else if (well != null) well.WaterStored -= drunk;
             unit.Thirst = Math.Max(0, unit.Thirst - SubsistenceRules.NeedReliefPerPortion * drunk); ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;
         }
-        private bool ChooseFishing(UnitData unit, SettlementData home)
-        {
-            if (home == null || unit.Age < 16 || CarrySpace(unit) <= .01f || home.Food >= home.Population * 4 || (unit.Id & 1) != 0) return false;
-            int ux = (int)unit.X, uy = (int)unit.Y;
-            for (int radius = 1; radius <= 10; radius++)
-            for (int oy = -radius; oy <= radius; oy++) for (int ox = -radius; ox <= radius; ox++)
-            {
-                if (Math.Max(Math.Abs(ox), Math.Abs(oy)) != radius) continue;
-                int x = ux + ox, y = uy + oy; if (!World.InBounds(x, y)) continue;
-                int cell = World.Index(x, y); if (World.Infrastructure[cell].Fish < .1f) continue;
-                for (int d = 0; d < 4; d++)
-                {
-                    if (!World.IsWalkable(x + Dx[d], y + Dy[d]) || !SetTarget(unit, x + Dx[d], y + Dy[d])) continue;
-                    ChangeTask(unit, UnitTask.Fish); unit.ResourceCell = cell; unit.WorkTimer = 4; return true;
-                }
-            }
-            return false;
-        }
-        private bool PerformFishing(UnitData unit, SettlementData home, float dt)
-        {
-            if (unit.Task != UnitTask.Fish) return false;
-            int cell = unit.ResourceCell;
-            if (unit.Age < 16 || cell < 0 || cell >= World.Cells.Length || DistanceSquared(unit.X, unit.Y, cell % World.Width + .5f, cell / World.Width + .5f) > 2 || World.Infrastructure[cell].Fish <= 0 || CarrySpace(unit) <= .01f)
-            { ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true; }
-            unit.WorkTimer -= dt * (World.HasTechnology(unit.SettlementId, "f06_river_fishing") ? 1.3f : 1);
-            if (unit.WorkTimer > 0) return true;
-            float amount = Math.Min(CarrySpace(unit), World.Infrastructure[cell].Fish);
-            World.Infrastructure[cell].Fish -= amount; unit.CarriedFood += amount;
-            if (amount > 0) GainCraftExperience(unit, 4 * amount);
-            ChangeTask(unit, UnitTask.Idle); unit.DecisionTimer = 0; return true;
-        }
     }
 }

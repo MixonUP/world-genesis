@@ -139,3 +139,11 @@ python Tools/Wrap-CaptureWorld.py Builds/rural-assisted-showcase.json Builds/rur
 ### Собственные жители 0.6
 
 Галерея: [Run-CitizenGallery](CitizenGallery-README.md), режимы families, wardrobe и actions. Она использует production-renderer и подготовленные состояния, а не естественный игровой процесс. Для обычной игры используйте Run-Capture.ps1 и Run-MotionCapture.ps1 с PlayerRelativePath Builds/Windows-0.6.0/WorldGenesis.exe. Упаковка: Tools/Package-Alpha.ps1 -Version 0.6.0-alpha -BuildFolder Windows-0.6.0. Наличие локального ZIP не означает публикацию бинарника в GitHub Releases.
+
+### Рыбалка, реки и берег 0.6.1
+
+`dotnet run --project Tools/FishingProbe -- Evidence/Simulation/fishing-new-run.json` исполняет14 целевых сценариев на production Simulation. `dotnet run --project Tools/FishingNaturalProbe -- Evidence/Simulation/fishing-natural-new-run.json` проверяет два обычных мира без последующей выдачи технологий/снастей; ограничения и параметры — в README инструмента. Для первого запуска используйте `dotnet restore <проект> --configfile Tools/FishingProbe/NuGet.Config`.
+
+[Подготовленный мир для сравнения снастей и брода](FishingShowcase/README.md) явно выдаёт снасти1–5 и меняет локальный берег, продлевая первый заброс до20с. Его кадры не доказывают естественное исследование этих грейдов. Используйте `-PlayerRelativePath Builds/Windows-0.6.1/WorldGenesis.exe` в существующих Run-Capture/Run-MotionCapture.
+
+Упаковка: `Tools/Package-Alpha.ps1 -Version 0.6.1-alpha -BuildFolder Windows-0.6.1`. Архив включает отчёт, руководство и происхождение арта; каждый файл ZIP перечитывается и сверяется поSHA256. Это локальная упаковка, не создание GitHub Release. Project Validate теперь также проверяет длину32 и уникальность GUID всех Asset.meta; результат организации не заменяет Unity-тесты.

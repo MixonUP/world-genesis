@@ -1,0 +1,2731 @@
+{
+  "utc": "2026-10-13T11:56:40.2990759Z",
+  "kind": "Offline .NET production simulation natural opening smoke; not native performance or visual acceptance",
+  "startup": "WorldGenerator Island128x128, nearest ordinary non-snow walkable positions to four GameBootstrap anchors; Spawn9 civilization residents plus Spawn3 sheep per anchor. All initial grants are only the production Spawn contract.",
+  "mutationsAfterStartup": "Only SimulationEngine.Step(.1); no TryStartFishing commands, map edits, stock grants, research grants, professions, equipment, laws, weather or needs overridden",
+  "requestedSimulatedSecondsPerSeed": 600,
+  "wallBudgetSeconds": 110,
+  "elapsedWallSeconds": 13.2556903,
+  "allInvariantsPassed": true,
+  "allRequestedDurationsCompleted": true,
+  "sourceUnchanged": true,
+  "naturalRodOneToFiveProven": false,
+  "notes": "Catch increments and last species observed every tick, including retained references to deceased residents. Stored product maxima sampled every tick; ending fish stock can be zero after real conversion to Food. Active-fishing counters are unit-tick observations. No forced rare habitats or catches.",
+  "assemblySHA256": "E54ACDBDD4255F8C0BC7058996BFB97F21076B4C18DA0F2AF47FEDDAB52B3AE3",
+  "sourceSHA256": {
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs": "6F36BAC4AE6A97C22CDD03A50FC6A73300E822E1DC3B0E5DDD7C3E4DD5959BD0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs": "808B179BDDF32761A46FCFD7ECAA5E0C6E6D4AB5090D01482F409A297DD755E4",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs": "8935F43768FB294F1E3F5D03E428359D38ABC5BDC5E8AFCEB707CB48E3E87770",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs": "05752768FFACB0EF71D683E8998C6710A5AC457094996975A4669D5FF9EFBD3F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs": "ADDBD51F7FD1DD10B92FA122AE1B438077F8974ACB4EFA325FA8C6082EB0C5E8",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs": "F7934F764ADDD38C94F4192A256E866B0ADC30F716530A8340099CF65E21DF0B",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs": "0248FE7E1A03D2290C358EBCE412CD4B06195ADAA53292357AC846C8A3C1BF58",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs": "0C5D8C33C526B3EEC4509BAFAF05D7935DDD4F1B6ED7EAC0AB0FFD1DF93725D5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs": "91565828532F2A094E9770BAED380765BF68C6C978B3D7A5F36BBB9CC0A46834",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs": "27920D7C2AED40AD9F4BBE77FDF295040773BB09E12B092A0F46B655FDD44E39",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs": "54AC6B54D515FF0DFBA41B866A784EFDAB7F911A5EB9E738B3C112C61373D170",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs": "E4F16F3F1DD8CF6C6EDB3F2ACFD9651CCAB3E55E44AA17B00DC30A5B44DD0DC2",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs": "24A90FAE19AC2D75D61E54C66D3EC6DE9AC294DE779B84FA06EBDC60F4C4FF4C",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs": "3D0CF69D7BCE21D371452F6B829318D33815DAB87800071544ACB63001548064",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs": "BD451B59760739D339DD7A6FC194D8F990B71D5B55F60B6481053D9776C84570",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs": "0C4528E7C8F6D0C06CBE71B65B2F42CD23AE5BDE566CA9BA8E945B0A6ADCCB48",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs": "035D574273AB79FC3AE6D3526093B2500D0A00949DAD8680EA2A71870EA2DA19",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/FishingData.cs": "8C4D03980B3927AC780147C74421BB10218ACE151146890A12F8F77EEA035825",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/HydrologyData.cs": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs": "AA10DEE770FE653A6B7ABD735FE8CA2C429608C9C36D2B772E88569FA5BEEC38",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs": "B85977856130ACFEDBCDA0E6AEDCAAFE1EA7B9B47C6D1F0CF978213EB65E0D77",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs": "FA60FD09461CB68FEC6D500379868F4EB48AA402BBBD28AA121EC5235A94EDE4",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs": "05EC5052FDF0201FDA76511D4CEAB6889BD4A02DDCB03EE22593F990760BD07F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs": "6C98BAFCD184831CD76F9D4DA1780D40C93826686AA826BD02634E682F893203",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/TransportData.cs": "AA7D42A3907A870D342329121ECAFFE61371FBB215F3CFDC79DEBCB31647FDE0",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs": "3A419C3FCB36C5C0D84562492EB0E8D26FA7F329A684AAA27EC28033B41D869F",
+    "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs": "8813177BDC0462823BB23A04E7E792088F46C286669E03DF4EE8F81716EC3D00"
+  },
+  "sourceChangedDuringRun": [],
+  "results": [
+    {
+      "seed": 1618033,
+      "commands": [
+        {
+          "civilization": "Human",
+          "x": 42,
+          "y": 42,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Elf",
+          "x": 85,
+          "y": 85,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Dwarf",
+          "x": 42,
+          "y": 78,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Orc",
+          "x": 86,
+          "y": 42,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        }
+      ],
+      "requestedTicks": 6000,
+      "completedTicks": 6000,
+      "completedSimulatedSeconds": 600,
+      "completedRequestedDuration": true,
+      "truncatedByWallBudget": false,
+      "wallSeconds": 1.7473337,
+      "invariantsPassed": true,
+      "failure": null,
+      "validations": 62,
+      "loadChecks": 533566,
+      "peakPopulation": 133,
+      "fishTaskUnitTicks": 9025,
+      "activelyFishingUnitTicks": 3431,
+      "distinctFishTaskResidents": 17,
+      "distinctActiveFishers": 16,
+      "observedCatches": 64,
+      "catchesBySpecies": {
+        "Minnow": 47,
+        "Crucian": 9,
+        "Roach": 8,
+        "Perch": 0,
+        "Trout": 0,
+        "Pike": 0,
+        "PearlCarp": 0,
+        "MoonTrout": 0,
+        "AncientSturgeon": 0,
+        "StarMarlin": 0
+      },
+      "firstCatchTick": 85,
+      "firstManufacturedRodTick": null,
+      "maximumRodAcrossObservedResidents": 1,
+      "maximumRodDistributionAcrossObservedResidents": {
+        "1": 48,
+        "0": 19
+      },
+      "maximumStoredProductsAcrossWorld": {
+        "Fish": 3,
+        "DelicacyFish": 0,
+        "RiverPearl": 0,
+        "AncientScale": 0
+      },
+      "finalProductLedger": {
+        "Fish": {
+          "stored": 0,
+          "carried": 3,
+          "ground": 0,
+          "lost": 0
+        },
+        "DelicacyFish": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        },
+        "RiverPearl": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        },
+        "AncientScale": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        }
+      },
+      "timeline": [
+        {
+          "tick": 0,
+          "creatures": 45,
+          "citizens": 36,
+          "fishBiomass": 40664.44323682785,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 600,
+          "creatures": 50,
+          "citizens": 36,
+          "fishBiomass": 40636.74301832914,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 37.5,
+              "ResearchRate": 0.048417762,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 36.50004,
+              "ResearchRate": 0.04810234,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 9,
+              "Food": 37.499847,
+              "ResearchRate": 0.20925483,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 40.499733,
+              "ResearchRate": 0.20897503,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 1200,
+          "creatures": 58,
+          "citizens": 36,
+          "fishBiomass": 40641.096783936024,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 44.99939,
+              "ResearchRate": 0.19856142,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 7,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 41.999428,
+              "ResearchRate": 0.046198387,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 1,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 9,
+              "Food": 41.999237,
+              "ResearchRate": 0.19867033,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 62.5,
+              "ResearchRate": 0.1978795,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 8,
+                "fiber": 0,
+                "hide": 1
+              }
+            }
+          ]
+        },
+        {
+          "tick": 1800,
+          "creatures": 75,
+          "citizens": 42,
+          "fishBiomass": 40641.19948488474,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 65.24933,
+              "ResearchRate": 0.19109386,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 1,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 50,
+              "ResearchRate": 0.044769928,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 13,
+              "Food": 31.499065,
+              "ResearchRate": 0.19478232,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 11,
+              "Food": 70.5,
+              "ResearchRate": 0.3252656,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 2
+              }
+            }
+          ]
+        },
+        {
+          "tick": 2400,
+          "creatures": 82,
+          "citizens": 44,
+          "fishBiomass": 40637.43651333079,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 67.24933,
+              "ResearchRate": 0.044044696,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 61.5,
+              "ResearchRate": 0.04335384,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 13,
+              "Food": 48.99857,
+              "ResearchRate": 0.18575335,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 69.5,
+              "ResearchRate": 0.04431693,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 2,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 1,
+                "fiber": 0,
+                "hide": 4
+              }
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 95,
+          "citizens": 46,
+          "fishBiomass": 40635.99050782621,
+          "liveAdultRodLevels": {
+            "1": 36
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 11,
+              "Food": 73.24932,
+              "ResearchRate": 0.04288258,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 75.50001,
+              "ResearchRate": 0.04243566,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 0,
+                "hide": 3
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 13,
+              "Food": 54.58176,
+              "ResearchRate": 0.043233853,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Kiln": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 100.5,
+              "ResearchRate": 0.29634067,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 6
+              }
+            }
+          ]
+        },
+        {
+          "tick": 3600,
+          "creatures": 98,
+          "citizens": 48,
+          "fishBiomass": 40639.937619656324,
+          "liveAdultRodLevels": {
+            "1": 44
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 13,
+              "Food": 81.24933,
+              "ResearchRate": 0.041797448,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 8,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 75.50001,
+              "ResearchRate": 0.16790001,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 0,
+                "hide": 3
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 13,
+              "Food": 64.58176,
+              "ResearchRate": 0.053704407,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Kiln": 1,
+                "Granary": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 108.49999,
+              "ResearchRate": 0.18472537,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Stoneworks": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 0,
+                "hide": 9
+              }
+            }
+          ]
+        },
+        {
+          "tick": 4200,
+          "creatures": 110,
+          "citizens": 48,
+          "fishBiomass": 40643.89079892635,
+          "liveAdultRodLevels": {
+            "1": 44
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 13,
+              "Food": 81.24933,
+              "ResearchRate": 0.040626124,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 2,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 93.50001,
+              "ResearchRate": 0.16012287,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 3
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 13,
+              "Food": 85.58176,
+              "ResearchRate": 0.17929342,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Kiln": 1,
+                "Granary": 1,
+                "Warehouse": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 1,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 108.49999,
+              "ResearchRate": 0.19551212,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Stoneworks": 1,
+                "Well": 1,
+                "Granary": 1,
+                "Warehouse": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 2,
+                "hide": 9
+              }
+            }
+          ]
+        },
+        {
+          "tick": 4800,
+          "creatures": 112,
+          "citizens": 53,
+          "fishBiomass": 40648.60247093439,
+          "liveAdultRodLevels": {
+            "1": 48
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 13,
+              "Food": 105.24933,
+              "ResearchRate": 0.17207125,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 2,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 93.50001,
+              "ResearchRate": 0.037997738,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 4,
+                "fiber": 0,
+                "hide": 5
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 16,
+              "Food": 75.58176,
+              "ResearchRate": 0.17108782,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 2,
+                "Kiln": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 4,
+                "fiber": 1,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 15,
+              "Food": 92.49999,
+              "ResearchRate": 0.3925173,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 2,
+                "Stoneworks": 1,
+                "Well": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 2,
+                "hide": 12
+              }
+            }
+          ]
+        },
+        {
+          "tick": 5400,
+          "creatures": 131,
+          "citizens": 58,
+          "fishBiomass": 40651.59829927329,
+          "liveAdultRodLevels": {
+            "1": 48
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 13,
+              "Food": 105.24933,
+              "ResearchRate": 0.1644009,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 93.50001,
+              "ResearchRate": 0.036890738,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 158,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 0,
+                "hide": 6
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 18,
+              "Food": 60.581757,
+              "ResearchRate": 0.048940305,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 4,
+                "Sawmill": 1,
+                "House": 2,
+                "Kiln": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 2,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 18,
+              "Food": 131,
+              "ResearchRate": 0.26273465,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 2,
+                "Stoneworks": 1,
+                "Well": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 9,
+                "fiber": 2,
+                "hide": 16
+              }
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 128,
+          "citizens": 62,
+          "fishBiomass": 40641.262930199504,
+          "liveAdultRodLevels": {
+            "1": 43
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 12,
+              "Food": 89.24933,
+              "ResearchRate": 0.17635833,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 119,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Stoneworks": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 0,
+                "hide": 1
+              }
+            },
+            {
+              "Id": 19,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 93.50001,
+              "ResearchRate": 0.035110354,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 112,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 8,
+                "fiber": 0,
+                "hide": 8
+              }
+            },
+            {
+              "Id": 37,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 3",
+              "race": "Dwarf",
+              "Population": 21,
+              "Food": 40.12329,
+              "ResearchRate": 0.046039615,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 359,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 4,
+                "Sawmill": 1,
+                "House": 3,
+                "Kiln": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 7,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 52,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 4",
+              "race": "Orc",
+              "Population": 20,
+              "Food": 110.5,
+              "ResearchRate": 0.045246806,
+              "ActiveTechnology": "c02_clean_water",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry",
+                "c01_herbalism"
+              ],
+              "nearbyWaterCellsWithin18": 113,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 4,
+                "Sawmill": 1,
+                "House": 3,
+                "Stoneworks": 1,
+                "Well": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 2,
+                "hide": 17
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 271828,
+      "commands": [
+        {
+          "civilization": "Human",
+          "x": 30,
+          "y": 42,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Elf",
+          "x": 85,
+          "y": 85,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Dwarf",
+          "x": 36,
+          "y": 87,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        },
+        {
+          "civilization": "Orc",
+          "x": 85,
+          "y": 42,
+          "residentsRequested": 9,
+          "sheepRequested": 3
+        }
+      ],
+      "requestedTicks": 6000,
+      "completedTicks": 6000,
+      "completedSimulatedSeconds": 600,
+      "completedRequestedDuration": true,
+      "truncatedByWallBudget": false,
+      "wallSeconds": 11.4984541,
+      "invariantsPassed": true,
+      "failure": null,
+      "validations": 62,
+      "loadChecks": 355999,
+      "peakPopulation": 76,
+      "fishTaskUnitTicks": 2757,
+      "activelyFishingUnitTicks": 1765,
+      "distinctFishTaskResidents": 6,
+      "distinctActiveFishers": 6,
+      "observedCatches": 32,
+      "catchesBySpecies": {
+        "Minnow": 17,
+        "Crucian": 9,
+        "Roach": 6,
+        "Perch": 0,
+        "Trout": 0,
+        "Pike": 0,
+        "PearlCarp": 0,
+        "MoonTrout": 0,
+        "AncientSturgeon": 0,
+        "StarMarlin": 0
+      },
+      "firstCatchTick": 66,
+      "firstManufacturedRodTick": null,
+      "maximumRodAcrossObservedResidents": 1,
+      "maximumRodDistributionAcrossObservedResidents": {
+        "1": 31,
+        "0": 5
+      },
+      "maximumStoredProductsAcrossWorld": {
+        "Fish": 3,
+        "DelicacyFish": 0,
+        "RiverPearl": 0,
+        "AncientScale": 0
+      },
+      "finalProductLedger": {
+        "Fish": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        },
+        "DelicacyFish": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        },
+        "RiverPearl": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        },
+        "AncientScale": {
+          "stored": 0,
+          "carried": 0,
+          "ground": 0,
+          "lost": 0
+        }
+      },
+      "timeline": [
+        {
+          "tick": 0,
+          "creatures": 30,
+          "citizens": 27,
+          "fishBiomass": 39380.20404601097,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 28,
+              "ResearchRate": 0,
+              "ActiveTechnology": "",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 600,
+          "creatures": 38,
+          "citizens": 27,
+          "fishBiomass": 39364.90142813325,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 34.50019,
+              "ResearchRate": 0.047979876,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 30.500534,
+              "ResearchRate": 0.048293807,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 43.499657,
+              "ResearchRate": 0.20729733,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 5,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 1200,
+          "creatures": 44,
+          "citizens": 27,
+          "fishBiomass": 39366.53466361761,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 39.99958,
+              "ResearchRate": 0.045788694,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 33.00061,
+              "ResearchRate": 0.046315983,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 59.45751,
+              "ResearchRate": 0.046115734,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 8,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 1800,
+          "creatures": 50,
+          "citizens": 27,
+          "fishBiomass": 39369.25771808624,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 65.45755,
+              "ResearchRate": 0.045443963,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 35.5,
+              "ResearchRate": 0.044828832,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 9,
+              "Food": 69.45751,
+              "ResearchRate": 0.32079965,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1,
+                "Sawmill": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 9,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 2400,
+          "creatures": 62,
+          "citizens": 31,
+          "fishBiomass": 39360.25989584625,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 65.45755,
+              "ResearchRate": 0.04399536,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 60.749695,
+              "ResearchRate": 0.04416744,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 2
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 60.54058,
+              "ResearchRate": 0.18466249,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 3000,
+          "creatures": 70,
+          "citizens": 31,
+          "fishBiomass": 39363.99563792348,
+          "liveAdultRodLevels": {
+            "1": 27
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 89.45755,
+              "ResearchRate": 0.042084925,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 60.749695,
+              "ResearchRate": 0.0423676,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 3
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 74.54058,
+              "ResearchRate": 0.043080196,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Stoneworks": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 4,
+                "fiber": 0,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 3600,
+          "creatures": 70,
+          "citizens": 31,
+          "fishBiomass": 39366.79239603877,
+          "liveAdultRodLevels": {
+            "1": 29
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 89.45755,
+              "ResearchRate": 0.041060045,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 74.749695,
+              "ResearchRate": 0.040754866,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 3
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 74.54058,
+              "ResearchRate": 0.2962067,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 3,
+                "Sawmill": 1,
+                "House": 1,
+                "Stoneworks": 1,
+                "Granary": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 1,
+                "hide": 0
+              }
+            }
+          ]
+        },
+        {
+          "tick": 4200,
+          "creatures": 70,
+          "citizens": 31,
+          "fishBiomass": 39367.997765660286,
+          "liveAdultRodLevels": {
+            "1": 31
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 93.45755,
+              "ResearchRate": 0.039704125,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 84.74969,
+              "ResearchRate": 0.03974593,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 4
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 84.54058,
+              "ResearchRate": 0.39274365,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Sawmill": 1,
+                "House": 1,
+                "Farm": 2,
+                "Stoneworks": 1,
+                "Granary": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 6,
+                "fiber": 1,
+                "hide": 3
+              }
+            }
+          ]
+        },
+        {
+          "tick": 4800,
+          "creatures": 73,
+          "citizens": 31,
+          "fishBiomass": 39369.16705048084,
+          "liveAdultRodLevels": {
+            "1": 31
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 93.45755,
+              "ResearchRate": 0.038028345,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 84.74969,
+              "ResearchRate": 0.038251713,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 5
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 84.54058,
+              "ResearchRate": 0.29233816,
+              "ActiveTechnology": "m01_forestry",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Sawmill": 1,
+                "House": 1,
+                "Farm": 3,
+                "Stoneworks": 1,
+                "Granary": 1,
+                "Warehouse": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 1,
+                "fiber": 2,
+                "hide": 3
+              }
+            }
+          ]
+        },
+        {
+          "tick": 5400,
+          "creatures": 74,
+          "citizens": 31,
+          "fishBiomass": 39370.503393769264,
+          "liveAdultRodLevels": {
+            "1": 31
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 9,
+              "Food": 93.45755,
+              "ResearchRate": 0.036734547,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 92.74969,
+              "ResearchRate": 0.036439493,
+              "ActiveTechnology": "f01_preservation",
+              "unlockedTechnologies": [],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 5
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 84.54058,
+              "ResearchRate": 0.16018574,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Sawmill": 1,
+                "House": 1,
+                "Farm": 3,
+                "Stoneworks": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1,
+                "Well": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 3,
+                "hide": 4
+              }
+            }
+          ]
+        },
+        {
+          "tick": 6000,
+          "creatures": 72,
+          "citizens": 29,
+          "fishBiomass": 39371.8696590662,
+          "liveAdultRodLevels": {
+            "1": 24
+          },
+          "towns": [
+            {
+              "Id": 1,
+              "Name": "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0431\u043E\u0440 1",
+              "race": "Human",
+              "Population": 7,
+              "Food": 79.45755,
+              "ResearchRate": 0.02256648,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 143,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 0
+              }
+            },
+            {
+              "Id": 16,
+              "Name": "\u041C\u0435\u0434\u043D\u0430\u044F \u0434\u043E\u043B\u0438\u043D\u0430 2",
+              "race": "Elf",
+              "Population": 9,
+              "Food": 92.74969,
+              "ResearchRate": 0.03526916,
+              "ActiveTechnology": "f07_husbandry",
+              "unlockedTechnologies": [
+                "f01_preservation"
+              ],
+              "nearbyWaterCellsWithin18": 105,
+              "buildings": {
+                "Hall": 1,
+                "Farm": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 0,
+                "fiber": 0,
+                "hide": 6
+              }
+            },
+            {
+              "Id": 34,
+              "Name": "\u0412\u0435\u0442\u0440\u043E\u0433\u0440\u0430\u0434 3",
+              "race": "Orc",
+              "Population": 13,
+              "Food": 93.04058,
+              "ResearchRate": 0.26299736,
+              "ActiveTechnology": "c01_herbalism",
+              "unlockedTechnologies": [
+                "f01_preservation",
+                "f07_husbandry",
+                "m01_forestry"
+              ],
+              "nearbyWaterCellsWithin18": 418,
+              "buildings": {
+                "Hall": 1,
+                "Sawmill": 1,
+                "House": 2,
+                "Farm": 3,
+                "Stoneworks": 1,
+                "Granary": 1,
+                "Warehouse": 1,
+                "Pasture": 1,
+                "Well": 1
+              },
+              "fishProducts": {
+                "Fish": 0,
+                "DelicacyFish": 0,
+                "RiverPearl": 0,
+                "AncientScale": 0
+              },
+              "rodMaterials": {
+                "plank": 3,
+                "fiber": 0,
+                "hide": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

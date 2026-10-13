@@ -1,0 +1,402 @@
+{
+  "utc": "2026-10-13T12:08:16.1654852Z",
+  "playerExitCode": 0,
+  "image": "20261013-150804-fishing-natural-town-final.png",
+  "playerSHA256": "E6FE27700B3C3C2C4B2D8021B384E698A22925DDFCC62A814274B5F49932704E",
+  "imageSHA256": "31A71708149692F67DBADCD7533F74D098554858182675A5A19379B8F1383B8C",
+  "scope": "Native Unity Windows Player. Visual content still requires image inspection.",
+  "automatedCamera": true,
+  "inspectedCell": [
+    -1,
+    -1
+  ],
+  "weatherTab": false,
+  "automatedPower": "",
+  "stressPopulation": 0,
+  "workspaceSourcesAtLaunch": [
+    {
+      "file": "WorldGenesis/Assets/_Project/Editor/CitizenArtImporter.cs",
+      "sha256": "9DA81536C95D73DF6240C4B4962DF2E51ABFA0A0B6265F4AA3D46E83EB4DBE86"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Editor/OriginalCitizenArtImporter.cs",
+      "sha256": "86996710C5602B5F97AE73E25F6FB97403DF1B2FBFE651007C56381DA6C189A8"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Editor/ProjectSetup.cs",
+      "sha256": "7B3689669F2EE9DCD3DBACF48412895F4212ED825D1B3BAB3A671BB3E4F13AC6"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Audio/ProceduralAudio.cs",
+      "sha256": "7465E92CF9FB7E23CB8F8EDDC11E16DD3E40AD9C3BACD5418F42CFBDFF1CB9FA"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/CaptureScenario.cs",
+      "sha256": "B7953337B2B36F47DA109F9D866371592B489985A32097B263D0024ADCB63F18"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/GameBootstrap.cs",
+      "sha256": "C38190E551E6C57C789BDBEFC21EC145BCBC8966A4DCB89D79DDFC7FB83F1A74"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/MotionCapture.cs",
+      "sha256": "498EED03FCC9199F96A496FB27E64C69E5E739E0F60B5EDB64AF709EE468C857"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/NativeCitizenGallery.cs",
+      "sha256": "47A704A8DD2EDAD5E91BE228A50009168950592FBE123DAF8EF08FAB014217C7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Persistence/SaveStore.cs",
+      "sha256": "FFCB01A4FFE7F100A5135C09CE9F7299A151FA3A593E4DD9CA7C94E9FD297E50"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/AgricultureArt.cs",
+      "sha256": "9E94B298022DAD40E3E9CD8B858822148AE1C78882A196EFE117EFAD71A7C3C8"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenSprites.cs",
+      "sha256": "95EAD33E3EC0C68B1E8CC166144D59C4E165A795B60E60A1F4E74DAB98FD21A7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenVariants.cs",
+      "sha256": "F5236E4F56468F0B5F8D9DF7D4E09D5A3BBB2588419CBF631DA23771B871F9E6"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenWardrobe.cs",
+      "sha256": "43B66E8BC256439A44E452CED1C3651CC8DAD932BB0A050F7D9E2B2ABE0596E3"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CitizenWaterPresentation.cs",
+      "sha256": "BD80CD3F9092E703C6B676DBBEDE4CED60010D5DA5607A9FB166D89CB72EA1FE"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/CrowdPresentation.cs",
+      "sha256": "58AF76BB709D2BCCD972EA871B43D97AEA80C7752CD38A862ABA6D94A48E3BBD"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/FishingPresentation.cs",
+      "sha256": "21BDB180D56FF7572BDD0C8475CF14F2B28020C1F61E915A05BBDCA8580AD1E5"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/OriginalCitizenAtlas.cs",
+      "sha256": "5B14AF64A96E7601594C555D00C632F4B2770B65ED401286ED62AF2661264B5F"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/OriginalCitizenTools.cs",
+      "sha256": "17784D42D5E58D6A1285434E0C47D0F1D71C645C2A33BD2B7219AC7064EA2514"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/PixelArt.cs",
+      "sha256": "B6DFF32B6259D5FAE21A391EB3EDFB7CDDED3D7667FE3066A0365987FC9FF7B7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/ResourceArt.cs",
+      "sha256": "9D52F5682FB6E43FBE0C2B72D09C51956038426E3E42FB10D121A73DDCE66D1E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/RiverArt.cs",
+      "sha256": "79010668F6943085C7B0DFE34454A980721887ACB0E40FED13A87F79692A6362"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/SocietyArt.cs",
+      "sha256": "279889F812C138BEFF09E1E60D41E4A7CC9636EFB91946E6C2315C82CB4461ED"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/TransportArt.cs",
+      "sha256": "E65DE38E213AD1D9C34B405F992BAA22797A0E32842FDBEC4EEA2DDA35AEA456"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WeatherView.cs",
+      "sha256": "5B3C516F50CB589B48CC7C2655F601CF3090EE633F732CFCDD55E60EB9C16864"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WildlifeArt.cs",
+      "sha256": "3EFA0C730FAB9481744D464A662174DF74618E9A5A4B30D282A2559A04E9CB80"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldEffects.cs",
+      "sha256": "B962B3D02F2A2018B9FCD2AEFB1C9B67B67DE754F1E9EBC25D279A36B28C49B6"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+      "sha256": "9F2FBAECF26AF5475EDC6414C3704760F0B2F14F9759E13D3B656687D494C05A"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/RuntimeDiagnostics.cs",
+      "sha256": "7468C6A89E0D455073EEB22DBF29604B5BBD5F18B243D72DD272F144DF7C348E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Runtime/UI/GameHud.cs",
+      "sha256": "DA01074183CCB063D66E5C201C6D3E97E22F7898C830426A8CAE1FA65CB3BD8B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanData.cs",
+      "sha256": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs",
+      "sha256": "6F36BAC4AE6A97C22CDD03A50FC6A73300E822E1DC3B0E5DDD7C3E4DD5959BD0"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CivilEconomy.cs",
+      "sha256": "808B179BDDF32761A46FCFD7ECAA5E0C6E6D4AB5090D01482F409A297DD755E4"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/RulerPlanning.cs",
+      "sha256": "8935F43768FB294F1E3F5D03E428359D38ABC5BDC5E8AFCEB707CB48E3E87770"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs",
+      "sha256": "05752768FFACB0EF71D683E8998C6710A5AC457094996975A4669D5FF9EFBD3F"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementPolitics.cs",
+      "sha256": "CD498EF9828EA37004EC381B4D03C9E8C371E46414C3011C49CE94C798381A7E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialData.cs",
+      "sha256": "DFBAFEFC7697A3284B714B045782AACCE670D1CCCA3D50C5AF56C3F28992B2A7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialPolitics.cs",
+      "sha256": "ADDBD51F7FD1DD10B92FA122AE1B438077F8974ACB4EFA325FA8C6082EB0C5E8"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SocialSimulation.cs",
+      "sha256": "DBA67868A884453ECF8FAADC44B3EB3ACF009680799C585254C7E03D71A3F544"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TechnologyCatalog.cs",
+      "sha256": "F7934F764ADDD38C94F4192A256E866B0ADC30F716530A8340099CF65E21DF0B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/TransportConstruction.cs",
+      "sha256": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Climate/WeatherSimulation.cs",
+      "sha256": "4639075C3F6F26FE513CCE56BC60B7A5E64CCB43EC8007A129C8C82C5CC22FF0"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgriculturalWork.cs",
+      "sha256": "0248FE7E1A03D2290C358EBCE412CD4B06195ADAA53292357AC846C8A3C1BF58"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/AgricultureEquipment.cs",
+      "sha256": "0C5D8C33C526B3EEC4509BAFAF05D7935DDD4F1B6ED7EAC0AB0FFD1DF93725D5"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs",
+      "sha256": "91565828532F2A094E9770BAED380765BF68C6C978B3D7A5F36BBB9CC0A46834"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Demography.cs",
+      "sha256": "27920D7C2AED40AD9F4BBE77FDF295040773BB09E12B092A0F46B655FDD44E39"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs",
+      "sha256": "54AC6B54D515FF0DFBA41B866A784EFDAB7F911A5EB9E738B3C112C61373D170"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/GridNavigation.cs",
+      "sha256": "E4F16F3F1DD8CF6C6EDB3F2ACFD9651CCAB3E55E44AA17B00DC30A5B44DD0DC2"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/Husbandry.cs",
+      "sha256": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/ResourceEconomy.cs",
+      "sha256": "24A90FAE19AC2D75D61E54C66D3EC6DE9AC294DE779B84FA06EBDC60F4C4FF4C"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/SocialLearning.cs",
+      "sha256": "3D0CF69D7BCE21D371452F6B829318D33815DAB87800071544ACB63001548064"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeData.cs",
+      "sha256": "CCBB777BCFBAD7CDE794680C15D169337CD870434CAC8CF4CB5FBCB75F6AE671"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WildlifeEcology.cs",
+      "sha256": "82BBDC58BB8C3BD19EE23F9926ED36DE43CABAABCC313AA75EEFFABBFEC88879"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/WorkshopSupply.cs",
+      "sha256": "BD451B59760739D339DD7A6FC194D8F990B71D5B55F60B6481053D9776C84570"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs",
+      "sha256": "0C4528E7C8F6D0C06CBE71B65B2F42CD23AE5BDE566CA9BA8E945B0A6ADCCB48"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/AgricultureData.cs",
+      "sha256": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BiomeData.cs",
+      "sha256": "BF5CBFE2585420014D5856179001208712CED1AC24AD216552A94DE12FCC56C9"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/BuildingSalvageData.cs",
+      "sha256": "035D574273AB79FC3AE6D3526093B2500D0A00949DAD8680EA2A71870EA2DA19"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/FishingData.cs",
+      "sha256": "8C4D03980B3927AC780147C74421BB10218ACE151146890A12F8F77EEA035825"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/HydrologyData.cs",
+      "sha256": "646272038535173B0646E98D85D55616168492237F1729A77A61132B7810F2C5"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/InfrastructureData.cs",
+      "sha256": "AA10DEE770FE653A6B7ABD735FE8CA2C429608C9C36D2B772E88569FA5BEEC38"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceCatalog.cs",
+      "sha256": "B85977856130ACFEDBCDA0E6AEDCAAFE1EA7B9B47C6D1F0CF978213EB65E0D77"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/ResourceData.cs",
+      "sha256": "FA60FD09461CB68FEC6D500379868F4EB48AA402BBBD28AA121EC5235A94EDE4"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/StorageCapacity.cs",
+      "sha256": "05EC5052FDF0201FDA76511D4CEAB6889BD4A02DDCB03EE22593F990760BD07F"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/SubsistenceRules.cs",
+      "sha256": "6C98BAFCD184831CD76F9D4DA1780D40C93826686AA826BD02634E682F893203"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/TransportData.cs",
+      "sha256": "AA7D42A3907A870D342329121ECAFFE61371FBB215F3CFDC79DEBCB31647FDE0"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WeatherData.cs",
+      "sha256": "071ACA77BCD3E5D91A034D66CF846E343D3C372F5F194BDF1AAB80484C8CAA72"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldGenerator.cs",
+      "sha256": "3A419C3FCB36C5C0D84562492EB0E8D26FA7F329A684AAA27EC28033B41D869F"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Scripts/Simulation/World/WorldState.cs",
+      "sha256": "8813177BDC0462823BB23A04E7E792088F46C286669E03DF4EE8F81716EC3D00"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/AgricultureTests.cs",
+      "sha256": "7B2C3F3701306E5CFA29E93FE59CEA6DDD263F6E8A851D8501D81AEA7B7537B7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/BiomeTests.cs",
+      "sha256": "D9E7938285940B1ED7A0377603C52FBA004B9F6E2EA81E1D7632985C892572CF"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/CaravanTests.cs",
+      "sha256": "316AD0200B809E34448F41028B784D311F9727A8497BE8130F1A2FA1E7ECD6A2"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/FishingTests.cs",
+      "sha256": "5B276A62F2DBFCBDA8E07B7AC4F7D9CA2845A7ACCF5E200743C97B92FBA74D88"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/HydrologyTests.cs",
+      "sha256": "03EB6C1570FDCA8D34FA0D4A058346F8E6BD28D02AD00DB52B05403032503D71"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/InfrastructureTests.cs",
+      "sha256": "F000C68E6903F943C1E768D16CF2A6DE9125D80B445E4D891EE1CE74C7C37754"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/ResourcePersistenceTests.cs",
+      "sha256": "55488A8BFBE9E444AB96C9FA325215B1432DF45AEC79883EC9DC069276010A08"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/RulerBoundaryTests.cs",
+      "sha256": "B9751D2BABC75F2FEDE906F41272957F106FC663EF391C2ACE441D311788144D"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/RulerPlanningTests.cs",
+      "sha256": "BE6B05CA368EAF5296F0812DA26888727EB41F17DA426AD7975C9817CAC72922"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SaltTests.cs",
+      "sha256": "50EC9E534DAF13CF753B1877560B57FAE9CED60713EA56BDCB1663B889FF3775"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SaveStoreTests.cs",
+      "sha256": "EF448BF82D028BB3F2519EB302CF54A30C0537C543ED6C484BF0DDF33064DA5D"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SimulationTests.cs",
+      "sha256": "CB37B19605F09C041DF396B7915FF5359F90B79210923D1A2559AD40AF3A25EA"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SocialSimulationTests.cs",
+      "sha256": "6C54A083089A2AF82C18B6B7EAA229D3C0F449F968D4071CB0D7CF0F8BC1466E"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/SubsistenceTests.cs",
+      "sha256": "B82BD6D4B43759090EBF9BD2B1A03B82E76C151D62C179FD22353728DAE7B3F2"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/TransportBoundaryTests.cs",
+      "sha256": "965F921FDCDABF1EAA7BCCF1CCF115F5BF86C4CB1A0CA8519284A1B30681C259"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/TransportTests.cs",
+      "sha256": "C0CDD98F03D332462828168817035E1C3BFFBF417AC3E178B2F37A06FBA4819A"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/WarehouseCapacityTests.cs",
+      "sha256": "137C99682BC5C82F0E502EB87115CF35CE75907F522F1E05FFBB51DA8024F842"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/WeatherSimulationTests.cs",
+      "sha256": "84147A83945CABE54D2BE9CFC27741B41479E60CB7B4EE73A6BC63B408E27D32"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/EditMode/WildlifeSimulationTests.cs",
+      "sha256": "789A5D01183EF55E982585A618FD6F0CC677CF62ECB38DE19C30204ED92F338B"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/CitizenWardrobeTests.cs",
+      "sha256": "B7E21DDCB6B6946293DF2F5D6834BBD7B8EACD55575140DA6463F46047A09869"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/FishingPresentationTests.cs",
+      "sha256": "8A31E906B1A47A98D2918AC71D44E1B0C9FB07F7C6F61E4CD76AC77D78B2F476"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/RiverVisualTests.cs",
+      "sha256": "1EE7402EE725F30709C9E24814C1D2A78426C9B63BB2A5FFF87C36BC455FEEBC"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/RuntimeIntegrationTests.cs",
+      "sha256": "956F841579CA3F1CEBCE944C3B20925A83C3BA16E86D7D12268413DC7A3BB791"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/RuralRenderingIntegrationTests.cs",
+      "sha256": "0BF0FEF7D6B61000FC916A0505553AEBCEB246538C067EEC1BD738BA5EB1F163"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/SubsistenceHudTests.cs",
+      "sha256": "8D4BEEE47E9713849F724CD4157761B76B9388C5FBFDFEE3E9C0461F2991C2F7"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/TransportRenderingTests.cs",
+      "sha256": "1C83FBCBE86F76E621A2998933514EB91194D9FCA090BBD83310E8E85A8D74C8"
+    },
+    {
+      "file": "WorldGenesis/Assets/_Project/Tests/PlayMode/WeatherTests.cs",
+      "sha256": "5B049D77852D0ABCD89FDABDA02331728FE4BA3FA54131723DB270B8D2100040"
+    }
+  ],
+  "loadedWorld": "",
+  "loadedWorldSHA256": "",
+  "runtimeAssemblySHA256": "197960100B4A3CBD850CA56A5181F650B7967C429FBA86F6C023914EFDD4D87E",
+  "simulationAssemblySHA256": "6F15ED2D6C6824D1DE7D1B14D700B932E5F775232B33119A40CDD6A3D4AB6DBC"
+}

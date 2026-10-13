@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-13T11:59:10.0164447Z",
+  "output": "Builds/fishing-river-showcase.save.json",
+  "sha256": "FD95A958ECCCBBB04317163045C3F9A4990E28812C5E5C031C6F7030CAF702C7",
+  "assistance": "Authored valley, fish biomass, bridge, granted rods, races/ages, initial fishing tasks and wading routes. This proves native production rendering and ordinary simulation continuation, not natural technology progression.",
+  "subjects": [
+    {
+      "Id": 8,
+      "Name": "\u0420\u044B\u0431\u0430\u043A \u00B7 \u0441\u043D\u0430\u0441\u0442\u044C 1",
+      "grade": 1,
+      "bank": [
+        55,
+        65
+      ],
+      "fishCell": 8503,
+      "assistance": "Granted rod, selected a stocked spot, initial cast extended to20s for visual review across loading frames. Ordinary catch and delivery follow"
+    },
+    {
+      "Id": 9,
+      "Name": "\u0420\u044B\u0431\u0430\u043A \u00B7 \u0441\u043D\u0430\u0441\u0442\u044C 2",
+      "grade": 2,
+      "bank": [
+        58,
+        65
+      ],
+      "fishCell": 8506,
+      "assistance": "Granted rod, selected a stocked spot, initial cast extended to20s for visual review across loading frames. Ordinary catch and delivery follow"
+    },
+    {
+      "Id": 10,
+      "Name": "\u0420\u044B\u0431\u0430\u043A \u00B7 \u0441\u043D\u0430\u0441\u0442\u044C 3",
+      "grade": 3,
+      "bank": [
+        61,
+        65
+      ],
+      "fishCell": 8509,
+      "assistance": "Granted rod, selected a stocked spot, initial cast extended to20s for visual review across loading frames. Ordinary catch and delivery follow"
+    },
+    {
+      "Id": 11,
+      "Name": "\u0420\u044B\u0431\u0430\u043A \u00B7 \u0441\u043D\u0430\u0441\u0442\u044C 4",
+      "grade": 4,
+      "bank": [
+        64,
+        65
+      ],
+      "fishCell": 8512,
+      "assistance": "Granted rod, selected a stocked spot, initial cast extended to20s for visual review across loading frames. Ordinary catch and delivery follow"
+    },
+    {
+      "Id": 12,
+      "Name": "\u0420\u044B\u0431\u0430\u043A \u00B7 \u0441\u043D\u0430\u0441\u0442\u044C 5",
+      "grade": 5,
+      "bank": [
+        67,
+        64
+      ],
+      "fishCell": 8387,
+      "assistance": "Granted rod, selected a stocked spot, initial cast extended to20s for visual review across loading frames. Ordinary catch and delivery follow"
+    },
+    {
+      "Id": 13,
+      "Name": "\u0411\u0440\u043E\u0434 \u00B7 \u044D\u043B\u044C\u0444\u0438\u0439\u043A\u0430",
+      "start": [
+        69.5,
+        66
+      ],
+      "end": [
+        69,
+        70
+      ],
+      "task": "Prepared walking route, normal movement speed"
+    },
+    {
+      "Id": 14,
+      "Name": "\u0411\u0440\u043E\u0434 \u00B7 \u0440\u0435\u0431\u0451\u043D\u043E\u043A",
+      "start": [
+        71.5,
+        65
+      ],
+      "end": [
+        71,
+        69
+      ],
+      "task": "Prepared walking route, normal movement speed"
+    },
+    {
+      "Id": 15,
+      "Name": "\u041C\u043E\u0441\u0442 \u00B7 \u043E\u0440\u043A",
+      "start": [
+        76.5,
+        62.5
+      ],
+      "end": [
+        76,
+        68
+      ],
+      "task": "Prepared walking route, normal movement speed"
+    }
+  ],
+  "continuationTicks": 100,
+  "validation": true,
+  "camera": {
+    "x": 65,
+    "y": 66,
+    "zoom": 10
+  }
+}

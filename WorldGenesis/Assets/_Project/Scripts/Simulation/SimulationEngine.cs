@@ -31,7 +31,7 @@ namespace WorldGenesis.Simulation
             MigratePolitics();
             MigrateResources();
             MigrateDemography(); MigrateCivilEconomy(); MigrateCarrying(legacyCarrying);
-            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1;
+            MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateFishing(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1;
         }
 
         public void Step(float dt)
@@ -286,6 +286,7 @@ namespace WorldGenesis.Simulation
             int x = (int)unit.X, y = (int)unit.Y;
             if (World.Laws.Aging) unit.Age += dt * .1f;
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.Profession == UnitProfession.None) unit.Profession = ProfessionFor(unit.Id);
+            if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.FishingRodLevel == 0) unit.FishingRodLevel = 1;
             unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? SubsistenceRules.HungerPerSecond : .004f));
             if (IsCivilized(unit.Species)) unit.Thirst = Math.Min(1, unit.Thirst + dt * SubsistenceRules.ThirstPerSecond);
             if (unit.Task != UnitTask.Rest)
@@ -524,6 +525,7 @@ namespace WorldGenesis.Simulation
             unit.Profession = !child && IsCivilized(species) ? ProfessionFor(unit.Id) : UnitProfession.None;
             InitializeDemography(unit);
             InitializeSocialUnit(unit);
+            unit.FishingRodLevel = !child && IsCivilized(species) ? 1 : 0;
             if (WildlifeCatalog.IsAnimal(species)) { unit.PackId = unit.PackLeaderId = unit.Id; unit.Name = WildlifeCatalog.Name(species); }
             unit.Fatigue = StableRandom.Coordinate(World.Seed, unit.Id, 0, 3001) * .4f;
             unit.SocialNeed = IsCivilized(species) ? StableRandom.Coordinate(World.Seed, unit.Id, 0, 3002) * .4f : 0;

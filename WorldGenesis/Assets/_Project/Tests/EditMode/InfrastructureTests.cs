@@ -88,7 +88,7 @@ namespace WorldGenesis.Tests
             w.Infrastructure[cell].Fish = 1;
             UnitData fisher = w.Units[0]; fisher.X = 17.5f; fisher.Y = 16.5f; fisher.Task = UnitTask.Fish; fisher.ResourceCell = cell; fisher.WorkTimer = .01f; fisher.DecisionTimer = 10;
             fisher.TargetCell = w.Index(17, 16); fisher.Path.Clear(); fisher.PathCursor = 0; fisher.CarriedFood = fisher.CarriedWood = fisher.CargoAmount = 0;
-            engine.Step(.1f); Assert.AreEqual(1, fisher.CarriedFood, .00001f); Assert.AreEqual(0, w.Infrastructure[cell].Fish, .00001f);
+            engine.Step(.1f); Assert.AreEqual(AgriculturalProduct.Fish, fisher.HarvestProduct); Assert.AreEqual(1, fisher.HarvestAmount, .00001f); Assert.AreEqual(0, w.Infrastructure[cell].Fish, .00001f);
             Assert.LessOrEqual(SimulationEngine.CarriedLoad(fisher), 1.00001f);
         }
 

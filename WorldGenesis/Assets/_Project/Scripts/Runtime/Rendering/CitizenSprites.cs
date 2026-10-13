@@ -30,7 +30,7 @@ namespace WorldGenesis.Runtime
         private readonly QuadBatch batch;
         private readonly Dictionary<int, Vector2> facing = new Dictionary<int, Vector2>(1024);
         private readonly Dictionary<int, UnitData> unitLookup = new Dictionary<int, UnitData>(1024);
-        private struct RenderEntry { public UnitData Unit; public Pose Pose; public Rect Uv; public Color Tint; public Vector2 Offset; public bool Mounted; }
+        private struct RenderEntry { public UnitData Unit; public Pose Pose; public Rect Uv; public Color Tint; public Vector2 Offset; public bool Mounted; public CitizenWaterPresentation.State Water; }
         private sealed class DepthOrder : IComparer<RenderEntry>
         {
             public int Compare(RenderEntry a, RenderEntry b)
@@ -83,20 +83,23 @@ namespace WorldGenesis.Runtime
             }
             else if (unit.Task == UnitTask.Gather && unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length)
                 delta = new Vector2(unit.ResourceCell % world.Width + .5f - unit.X, unit.ResourceCell / world.Width + .5f - unit.Y);
+            else if (FishingPresentation.IsFishing(world, unit))
+                delta = new Vector2(unit.ResourceCell % world.Width + .5f - unit.X, unit.ResourceCell / world.Width + .5f - unit.Y);
             Vector2 direction = DirectionVector(DirectionFor(delta, DirectionFor(previous)));
             facing[unit.Id] = direction;
             Pose pose = ResolvePose(world, unit, direction);
             if (mounted) { pose.Frame = 1; pose.StrikeOffset = pose.UpperOffset = Vector2.zero; pose.HeightScale = 1; }
             WardrobeKey key = CitizenWardrobe.Resolve(unit);
             Rect uv = atlas.Region(unit.Species, (int)pose.Appearance, key.IsValid ? (int)key.Costume : 0, (int)pose.Direction, pose.Frame);
-            entries.Add(new RenderEntry { Unit = unit, Pose = pose, Uv = uv, Tint = tint, Offset = presentationOffset, Mounted = mounted });
+            CitizenWaterPresentation.State water = CitizenWaterPresentation.Resolve(world, unit, mounted);
+            entries.Add(new RenderEntry { Unit = unit, Pose = pose, Uv = uv, Tint = tint, Offset = presentationOffset + water.Offset, Mounted = mounted, Water = water });
         }
-        private void DrawPose(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted)
+        private void DrawPose(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted, CitizenWaterPresentation.State water)
         {
             OriginalCitizenTools.Tool tool = unit.IsChild || mounted ? OriginalCitizenTools.Tool.None : OriginalCitizenTools.ForAction(pose.Action);
             bool behind = pose.Direction == CitizenDirection.North;
             if (behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
-            DrawBody(unit, pose, uv, tint, offset, mounted);
+            DrawBody(unit, pose, uv, tint, offset, mounted, water);
             if (!behind && tool != OriginalCitizenTools.Tool.None) DrawTool(unit, pose, offset, tool);
         }
         private void DrawTool(UnitData unit, Pose pose, Vector2 offset, OriginalCitizenTools.Tool tool)
@@ -105,7 +108,7 @@ namespace WorldGenesis.Runtime
             float pixel = OriginalCitizenAtlas.RaceScale(unit.Species) / OriginalCitizenAtlas.PixelsPerUnit;
             batch.Add(hand.x - 16 * pixel, hand.y - 16 * pixel, 32 * pixel, 32 * pixel, atlas.ToolRegion(tool, pose.Direction, pose.ToolFrame), Color.white);
         }
-        private void DrawBody(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted)
+        private void DrawBody(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted, CitizenWaterPresentation.State water)
         {
             float pixel = OriginalCitizenAtlas.RaceScale(unit.Species) / OriginalCitizenAtlas.PixelsPerUnit;
             float x = unit.X + offset.x + pose.StrikeOffset.x - 16 * pixel;
@@ -116,12 +119,18 @@ namespace WorldGenesis.Runtime
                 batch.Add(x, y, 32 * pixel, 22 * pixel, uv, tint); return;
             }
             if (pose.UpperOffset.sqrMagnitude < .000001f)
-            { batch.Add(x, y, 32 * pixel, 32 * pixel * pose.HeightScale, uv, tint); return; }
+            { DrawBodyPart(new Rect(x, y, 32 * pixel, 32 * pixel * pose.HeightScale), uv, tint, water.Wet, unit.Y + offset.y - water.VerticalOffset - 2 * pixel); return; }
             int waist = unit.IsChild ? 8 : 11;
             Rect lower = new Rect(uv.x, uv.y, uv.width, uv.height * (waist + 1) / 32);
             Rect upper = new Rect(uv.x, uv.y + uv.height * waist / 32, uv.width, uv.height * (32 - waist) / 32);
-            batch.Add(x, y, 32 * pixel, (waist + 1) * pixel * pose.HeightScale, lower, tint);
-            batch.Add(x + pose.UpperOffset.x, y + waist * pixel * pose.HeightScale + pose.UpperOffset.y, 32 * pixel, (32 - waist) * pixel * pose.HeightScale, upper, tint);
+            float waterline = unit.Y + offset.y - water.VerticalOffset - 2 * pixel;
+            DrawBodyPart(new Rect(x, y, 32 * pixel, (waist + 1) * pixel * pose.HeightScale), lower, tint, water.Wet, waterline);
+            DrawBodyPart(new Rect(x + pose.UpperOffset.x, y + waist * pixel * pose.HeightScale + pose.UpperOffset.y, 32 * pixel, (32 - waist) * pixel * pose.HeightScale), upper, tint, water.Wet, waterline);
+        }
+        private void DrawBodyPart(Rect geometry, Rect uv, Color tint, bool wet, float waterline)
+        {
+            if (wet && !CitizenWaterPresentation.Clip(ref geometry, ref uv, waterline)) return;
+            batch.Add(geometry.x, geometry.y, geometry.width, geometry.height, uv, tint);
         }
         public static float HeadHeight(UnitData unit) { return (unit.IsChild ? .90f : 1.20f) * OriginalCitizenAtlas.RaceScale(unit.Species); }
         public static Vector2 HandOffset(UnitData unit, Vector2 direction)
@@ -177,7 +186,7 @@ namespace WorldGenesis.Runtime
                 case UnitTask.Play: pose.Action = CitizenAction.Play; pose.DerivedGesture = true; pose.StrikeOffset = new Vector2(0, Math.Max(0, wave) * .08f); break;
                 case UnitTask.Learn: pose.Action = CitizenAction.Learn; pose.DerivedGesture = true; pose.HeightScale = .94f; break;
                 case UnitTask.Drink: pose.Action = CitizenAction.Drink; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(0, -.07f + wave * .012f); break;
-                case UnitTask.Fish: pose.Action = CitizenAction.Fish; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(wave * .018f, -.025f); break;
+                case UnitTask.Fish: if (FishingPresentation.IsFishing(world, unit)) { pose.Action = CitizenAction.Fish; pose.DerivedGesture = true; pose.UpperOffset = new Vector2(wave * .018f, -.025f); } break;
                 case UnitTask.Tend: pose.Action = CitizenAction.Tend; if (unit.WorkTimer > 0) WorkGesture(ref pose, wave * .45f, direction); break;
                 case UnitTask.Brew: pose.Action = CitizenAction.Brew; if (unit.WorkTimer > 0) WorkGesture(ref pose, wave * .45f, direction); break;
                 case UnitTask.Flee: pose.Action = CitizenAction.Flee; break;
@@ -236,7 +245,7 @@ namespace WorldGenesis.Runtime
         {
             entries.Sort(Depth);
             for (int i = 0; i < entries.Count; i++)
-            { RenderEntry entry = entries[i]; DrawPose(entry.Unit, entry.Pose, entry.Uv, entry.Tint, entry.Offset, entry.Mounted); }
+            { RenderEntry entry = entries[i]; DrawPose(entry.Unit, entry.Pose, entry.Uv, entry.Tint, entry.Offset, entry.Mounted, entry.Water); }
             batch.Submit();
         }
         public void Dispose() { batch.Dispose(); UnityEngine.Object.Destroy(material); atlas.Dispose(); }

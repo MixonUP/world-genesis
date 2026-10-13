@@ -7,7 +7,14 @@ if (-not $entryPath.StartsWith($root + [IO.Path]::DirectorySeparatorChar)) { thr
 $body = [IO.File]::ReadAllText($entryPath).Trim()
 $heading = ($body -split "`n")[0].Trim()
 $vault = 'E:\Krea_tren_AI\Knowledge'
-$paths = @((Join-Path $vault '01_Project\World_Genesis.md'), (Join-Path $vault '07_Journal\2026-10-12.md'))
+$dateMatch = [regex]::Match($heading, '^##\s+(\d{4}-\d{2}-\d{2})\b')
+if (-not $dateMatch.Success) { throw 'Entry heading must begin with ## YYYY-MM-DD, in Europe/Moscow.' }
+$journalDate = [DateTime]::ParseExact($dateMatch.Groups[1].Value, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)
+$journal = Join-Path $vault ('07_Journal\' + $journalDate.ToString('yyyy-MM-dd') + '.md')
+$projectNote = Join-Path $vault '01_Project\World_Genesis.md'
+if (-not (Test-Path -LiteralPath $projectNote)) { throw 'Established World Genesis project card missing.' }
+if (-not (Test-Path -LiteralPath $journal)) { [IO.File]::WriteAllText($journal, '# ' + $journalDate.ToString('yyyy-MM-dd') + "`n", [Text.UTF8Encoding]::new($false)) }
+$paths = @($projectNote, $journal)
 foreach ($path in $paths) {
     if (-not (Test-Path -LiteralPath $path)) { throw "Expected established note missing: $path" }
     $existing = [IO.File]::ReadAllText($path)

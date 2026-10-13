@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-12T21:15:43.0180468+03:00",
+  "timestamp": "2026-10-13T15:15:22.5864645+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 552,
+  "checkCount": 886,
   "failures": [],
   "checks": [
     {
@@ -127,6 +127,1566 @@
       "detail": "m_EditorVersion: 6000.0.45f1\nm_EditorVersionWithRevision: 6000.0.45f1 (d91bd3d4e081)"
     },
     {
+      "id": "meta-guid:Assets\\_Project.meta",
+      "passed": true,
+      "detail": "Assets\\_Project.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project.meta",
+      "passed": true,
+      "detail": "Assets\\_Project.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Audio.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Audio.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Content.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Content.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Editor.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Prefabs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Prefabs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Prefabs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Prefabs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scenes.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scenes.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scenes.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scenes.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Buildings.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Buildings.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Buildings.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Buildings.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Tiles.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Tiles.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Tiles.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Tiles.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\UI.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\UI.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\UI.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\UI.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\VFX.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\VFX.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\VFX.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\VFX.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Dwarf.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Dwarf.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Dwarf.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Dwarf.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Elf.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Elf.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Elf.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Elf.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Human.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Human.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Human.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Human.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Orc.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Orc.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Orc.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Orc.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Blue.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Blue.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Blue.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Blue.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Purple.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Purple.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Purple.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Purple.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Red.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Red.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Red.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Red.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Yellow.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Yellow.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Yellow.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Pawn_Yellow.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Blue.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Blue.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Blue.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Blue.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Purple.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Purple.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Purple.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Purple.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Red.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Red.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Red.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Red.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Yellow.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Yellow.png.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Yellow.png.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Art\\Units\\Resources\\TinySwordsCC0\\Warrior_Yellow.png.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Audio\\Ambient.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\Ambient.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Audio\\Ambient.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\Ambient.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Audio\\Music.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\Music.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Audio\\Music.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\Music.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Audio\\SFX.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\SFX.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Audio\\SFX.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Audio\\SFX.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Content\\Biomes.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Biomes.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Content\\Biomes.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Biomes.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Content\\Powers.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Powers.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Content\\Powers.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Powers.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Content\\Species.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Species.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Content\\Species.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Content\\Species.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Editor\\OriginalCitizenArtImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\OriginalCitizenArtImporter.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor\\OriginalCitizenArtImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\OriginalCitizenArtImporter.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Editor\\ProjectSetup.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\ProjectSetup.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor\\ProjectSetup.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\ProjectSetup.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scenes\\Main.unity.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scenes\\Main.unity.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scenes\\Main.unity.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scenes\\Main.unity.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\AGENTS.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\AGENTS.md.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\AGENTS.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\AGENTS.md.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Audio.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Audio.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\CaptureScenario.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\CaptureScenario.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\CaptureScenario.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\CaptureScenario.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\GameBootstrap.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\GameBootstrap.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\GameBootstrap.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\GameBootstrap.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Input.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Input.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Input.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Input.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\MotionCapture.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\MotionCapture.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\MotionCapture.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\MotionCapture.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\NativeCitizenGallery.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\NativeCitizenGallery.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\NativeCitizenGallery.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\NativeCitizenGallery.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Persistence.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Persistence.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Persistence.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Persistence.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\RuntimeDiagnostics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\RuntimeDiagnostics.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\RuntimeDiagnostics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\RuntimeDiagnostics.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\UI.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\UI.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Audio\\ProceduralAudio.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio\\ProceduralAudio.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Audio\\ProceduralAudio.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio\\ProceduralAudio.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Persistence\\SaveStore.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Persistence\\SaveStore.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Persistence\\SaveStore.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Persistence\\SaveStore.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\AgricultureArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\AgricultureArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\AgricultureArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\AgricultureArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenSprites.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenSprites.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenSprites.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenSprites.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenVariants.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenVariants.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenVariants.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenVariants.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWardrobe.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWardrobe.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWardrobe.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWardrobe.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWaterPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWaterPresentation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWaterPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CitizenWaterPresentation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CrowdPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CrowdPresentation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\CrowdPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\CrowdPresentation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\FishingPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\FishingPresentation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\FishingPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\FishingPresentation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenAtlas.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenAtlas.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenAtlas.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenAtlas.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenTools.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenTools.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenTools.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\OriginalCitizenTools.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\PixelArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\PixelArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\PixelArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\PixelArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\SocietyArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\SocietyArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\SocietyArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\SocietyArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\TransportArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\TransportArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\TransportArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\TransportArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WeatherView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WeatherView.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WeatherView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WeatherView.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WildlifeArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WildlifeArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WildlifeArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WildlifeArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldEffects.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldEffects.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldEffects.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldEffects.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\WorldView.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\UI\\GameHud.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI\\GameHud.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\UI\\GameHud.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI\\GameHud.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Climate.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Climate.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Climate.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Climate.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Powers.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Powers.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Powers.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Powers.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\SimulationEngine.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\SimulationEngine.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\SimulationEngine.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\SimulationEngine.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\WorldGenesis.Simulation.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\WorldGenesis.Simulation.asmdef.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\WorldGenesis.Simulation.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\WorldGenesis.Simulation.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanTrade.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanTrade.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanTrade.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CaravanTrade.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CivilEconomy.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CivilEconomy.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CivilEconomy.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\CivilEconomy.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\RulerPlanning.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\RulerPlanning.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\RulerPlanning.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\RulerPlanning.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementPolitics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementPolitics.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementPolitics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementPolitics.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialPolitics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialPolitics.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialPolitics.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialPolitics.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialSimulation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SocialSimulation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TechnologyCatalog.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TechnologyCatalog.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TechnologyCatalog.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TechnologyCatalog.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TransportConstruction.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TransportConstruction.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TransportConstruction.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\TransportConstruction.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Climate\\WeatherSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Climate\\WeatherSimulation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Climate\\WeatherSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Climate\\WeatherSimulation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\AgriculturalWork.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\AgriculturalWork.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\AgriculturalWork.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\AgriculturalWork.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\AgricultureEquipment.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\AgricultureEquipment.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\AgricultureEquipment.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\AgricultureEquipment.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\CitizenBehavior.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\CitizenBehavior.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\CitizenBehavior.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\CitizenBehavior.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\Demography.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\Demography.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\Demography.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\Demography.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\FishingSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\FishingSimulation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\FishingSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\FishingSimulation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\GridNavigation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\GridNavigation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\GridNavigation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\GridNavigation.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\Husbandry.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\Husbandry.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\Husbandry.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\Husbandry.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\SocialLearning.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\SocialLearning.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\SocialLearning.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\SocialLearning.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeEcology.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeEcology.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeEcology.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WildlifeEcology.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\WorkshopSupply.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WorkshopSupply.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\WorkshopSupply.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WorkshopSupply.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\BiomeData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\BiomeData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\BiomeData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\BiomeData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\FishingData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\FishingData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\FishingData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\FishingData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\HydrologyData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\InfrastructureData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\InfrastructureData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\InfrastructureData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\InfrastructureData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\ResourceCatalog.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ResourceCatalog.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\ResourceCatalog.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ResourceCatalog.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\ResourceData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ResourceData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\ResourceData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ResourceData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\StorageCapacity.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\StorageCapacity.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\StorageCapacity.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\StorageCapacity.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\SubsistenceRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\SubsistenceRules.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\SubsistenceRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\SubsistenceRules.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\TransportData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\TransportData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\TransportData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\TransportData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\WeatherData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WeatherData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\WeatherData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WeatherData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\WorldGenerator.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WorldGenerator.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\WorldGenerator.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WorldGenerator.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\WorldState.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WorldState.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\WorldState.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\WorldState.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\AGENTS.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\AGENTS.md.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\AGENTS.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\AGENTS.md.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\BiomeTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\FishingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\FishingTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\FishingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\FishingTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\Fixtures.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\Fixtures.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\HydrologyTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\InfrastructureTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\InfrastructureTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\InfrastructureTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\InfrastructureTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\RulerBoundaryTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RulerBoundaryTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\RulerBoundaryTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RulerBoundaryTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RulerPlanningTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SaltTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SaltTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SaltTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SaltTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SocialSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SubsistenceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SubsistenceTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SubsistenceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SubsistenceTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\TransportBoundaryTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\TransportTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\TransportTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\TransportTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\TransportTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\WarehouseCapacityTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WarehouseCapacityTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\WarehouseCapacityTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WarehouseCapacityTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WeatherSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\WildlifeSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WildlifeSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\WildlifeSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WildlifeSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\WorldGenesis.EditModeTests.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WorldGenesis.EditModeTests.asmdef.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\WorldGenesis.EditModeTests.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\WorldGenesis.EditModeTests.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-resources-v1.json.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-resources-v1.json.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-resources-v1.json.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-resources-v1.json.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-v020.json.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-v020.json.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-v020.json.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\legacy-v020.json.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\Fixtures\\README.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\README.md.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\Fixtures\\README.md.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\README.md.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\RiverVisualTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RiverVisualTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\RiverVisualTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RiverVisualTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\RuntimeIntegrationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RuntimeIntegrationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\RuntimeIntegrationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RuntimeIntegrationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\RuralRenderingIntegrationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RuralRenderingIntegrationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\RuralRenderingIntegrationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RuralRenderingIntegrationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\SubsistenceHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\SubsistenceHudTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\SubsistenceHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\SubsistenceHudTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\TransportRenderingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\TransportRenderingTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\TransportRenderingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\TransportRenderingTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\WeatherTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\WeatherTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\WeatherTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\WeatherTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\WorldGenesis.PlayModeTests.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\WorldGenesis.PlayModeTests.asmdef.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\WorldGenesis.PlayModeTests.asmdef.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\WorldGenesis.PlayModeTests.asmdef.meta"
+    },
+    {
       "id": "assembly-unique:WorldGenesis.Editor",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\WorldGenesis\\Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef"
@@ -157,17 +1717,12 @@
       "detail": "Found 5, expected 5"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
     },
     {
-      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
-      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
+      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
       "passed": true,
       "detail": "UnityEngine.UI"
     },
@@ -182,16 +1737,6 @@
       "detail": "WorldGenesis.Runtime"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
-    },
-    {
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -200,6 +1745,21 @@
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.PlayModeTests->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -292,6 +1852,21 @@
       "detail": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.45f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\UGUI\\UnityEngine.UI.asmdef"
     },
     {
+      "id": "link:README.md:Docs/Development/FISHING_RIVERS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_GALLERY.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
+    },
+    {
+      "id": "link:README.md:Docs/Design/FISHING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\FISHING.md"
+    },
+    {
       "id": "link:README.md:Docs/Development/GALLERY_0_5.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\GALLERY_0_5.md"
@@ -340,6 +1915,11 @@
       "id": "link:README.md:Tools/README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
     },
     {
       "id": "link:README.md:Docs/Development/SUBSISTENCE_REPORT.md",
@@ -410,6 +1990,16 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Design/FISHING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\FISHING.md"
     },
     {
       "id": "link:00_INDEX.md:Development/ORIGINAL_CITIZENS_REPORT.md",
@@ -687,6 +2277,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\ORIGINAL_CITIZENS_VISUAL_REVIEW.md"
     },
     {
+      "id": "link:ACCEPTANCE.md:Development/FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/FISHING_RIVERS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_GALLERY.md"
+    },
+    {
       "id": "link:ARCHITECTURE.md:Development/TRANSPORT_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
@@ -860,6 +2460,21 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:Development/FISHING_RIVERS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:Development/FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Design/FISHING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\FISHING.md"
     },
     {
       "id": "link:STATE.md:../Evidence/Development/published-original-citizens.json",
@@ -1260,6 +2875,21 @@
       "id": "link:ECONOMY_AND_PROFESSIONS.md:../Development/SUBSISTENCE_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\Development\\SUBSISTENCE_REPORT.md"
+    },
+    {
+      "id": "link:FISHING.md:../../WorldGenesis/Assets/_Project/Tests/EditMode/FishingTests.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\FishingTests.cs"
+    },
+    {
+      "id": "link:FISHING.md:../../Tools/FishingProbe/FishingProbe.csproj",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Tools\\FishingProbe\\FishingProbe.csproj"
+    },
+    {
+      "id": "link:FISHING.md:../../Evidence/Simulation/fishing-probe.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\..\\..\\Evidence\\Simulation\\fishing-probe.json"
     },
     {
       "id": "link:RESIDENT_EXCHANGE_AND_DEMOGRAPHY.md:RESOURCE_DEPOSITS_AND_PROCESSING.md",
@@ -1765,6 +3395,41 @@
       "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:FISHING_RIVERS_GALLERY.md:FISHING_RIVERS_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_REPORT.md"
+    },
+    {
+      "id": "link:FISHING_RIVERS_GALLERY.md:../Design/FISHING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\FISHING.md"
+    },
+    {
+      "id": "link:FISHING_RIVERS_GALLERY.md:../../Evidence/Captures/20261013-150516-river-current-and-wading-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261013-150516-river-current-and-wading-final.mp4"
+    },
+    {
+      "id": "link:FISHING_RIVERS_GALLERY.md:../../Evidence/Captures/20261013-150516-river-current-and-wading-final.mp4.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261013-150516-river-current-and-wading-final.mp4.png"
+    },
+    {
+      "id": "link:FISHING_RIVERS_GALLERY.md:../../Tools/FishingShowcase/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\FishingShowcase\\README.md"
+    },
+    {
+      "id": "link:FISHING_RIVERS_REPORT.md:../Design/FISHING.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\FISHING.md"
+    },
+    {
+      "id": "link:FISHING_RIVERS_REPORT.md:FISHING_RIVERS_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FISHING_RIVERS_GALLERY.md"
     },
     {
       "id": "link:GALLERY_0_5.md:../../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
@@ -2765,6 +4430,11 @@
       "id": "link:README.md:CitizenGallery-README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\CitizenGallery-README.md"
+    },
+    {
+      "id": "link:README.md:FishingShowcase/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\FishingShowcase\\README.md"
     }
   ],
   "unityImport": "not-run",

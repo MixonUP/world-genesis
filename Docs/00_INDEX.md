@@ -7,6 +7,7 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [Рыбалка, течение и берег 0.6.1](Development/FISHING_RIVERS_REPORT.md) — реализация и проверка; [снасти и уловы](Design/FISHING.md).
 - [Собственные жители 0.6: расы, одежда, анимации](Development/ORIGINAL_CITIZENS_REPORT.md) — фактическое покрытие и проверки.
 - [Галерея жителей](Development/ORIGINAL_CITIZENS_GALLERY.md) — нативные изображения и движение.
 - [Что известно об анимациях WorldBox](Research/WORLDBOX_ANIMATION_COVERAGE.md) — первоисточники, неизвестные числа и наша матрица.

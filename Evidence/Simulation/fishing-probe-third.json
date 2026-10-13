@@ -1,0 +1,98 @@
+{
+  "utc": "2026-10-13T11:50:42.3187829Z",
+  "tests": 12,
+  "failures": 1,
+  "results": [
+    {
+      "name": "PrimitiveCatchConsumesBiomassAndRequiresPhysicalDelivery",
+      "passed": true,
+      "milliseconds": 30.5572
+    },
+    {
+      "name": "SpeciesRequireBothRodAndHabitat",
+      "passed": true,
+      "milliseconds": 4.0392
+    },
+    {
+      "name": "EpicCatchSplitsFoodAndGroundMaterialWithoutCapacityOrTaxDuplication",
+      "passed": true,
+      "milliseconds": 8.544
+    },
+    {
+      "name": "FishingRejectsChildrenCargoShortageAndDestroyedWater",
+      "passed": true,
+      "milliseconds": 3.1427
+    },
+    {
+      "name": "NoReturnRouteMeansNoCatchAndNoStockDebit",
+      "passed": true,
+      "milliseconds": 4.2698
+    },
+    {
+      "name": "RodGradesTwoThroughFiveAreMadeWithActualWalkingAndLocalCosts",
+      "passed": false,
+      "error": "System.InvalidOperationException: Invalid election schedule.\r\n   at WorldGenesis.Tests.FishingScenarios.Need(Boolean ok, String message) in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\FishingTests.cs:line 18\r\n   at WorldGenesis.Tests.FishingScenarios.RodGradesTwoThroughFiveAreMadeWithActualWalkingAndLocalCosts() in C:\\Users\\ohrem_6c67u02\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\ChatGPT\\\u0418\u0433\u0440\u0430 WorldBox\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\FishingTests.cs:line 157\r\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "RodCraftNeedsUnlockAndRareInputsAndCannotSkipGrades",
+      "passed": true,
+      "milliseconds": 3.4771
+    },
+    {
+      "name": "CancelledAndBlockedCraftKeepsAllUnspentIngredients",
+      "passed": true,
+      "milliseconds": 3.6856
+    },
+    {
+      "name": "LegacyArraysCargoAndRngMigrateWithoutFreeUpgrades",
+      "passed": true,
+      "milliseconds": 146.9147
+    },
+    {
+      "name": "SaveContinuesMidCastAndDuringMaterialHaul",
+      "passed": true,
+      "milliseconds": 76.8258
+    },
+    {
+      "name": "FishFoodAndMaterialsRespectTypedStorageAndDeathDrop",
+      "passed": true,
+      "milliseconds": 4.4047
+    },
+    {
+      "name": "CorruptedGradesHistoryAndNewInventoryAreRejected",
+      "passed": true,
+      "milliseconds": 3.7117
+    }
+  ],
+  "progression": [
+    {
+      "grade": 2,
+      "tick": 411,
+      "moves": 322,
+      "carriedSamples": 149,
+      "rod": "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 3,
+      "tick": 1052,
+      "moves": 527,
+      "carriedSamples": 253,
+      "rod": "\u0413\u0438\u0431\u043A\u0430\u044F \u043B\u044C\u043D\u044F\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 4,
+      "tick": 2009,
+      "moves": 815,
+      "carriedSamples": 401,
+      "rod": "\u0416\u0435\u043C\u0447\u0443\u0436\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+    },
+    {
+      "grade": 5,
+      "tick": 3192,
+      "moves": 1035,
+      "carriedSamples": 514,
+      "rod": "\u0423\u0434\u043E\u0447\u043A\u0430 \u0434\u0440\u0435\u0432\u043D\u0435\u0439 \u0447\u0435\u0448\u0443\u0438"
+    }
+  ],
+  "assistance": "Controlled flat map, workshop and known initial recipe inputs; progression uses actual resident movement and local ingredient consumption. Not natural settlement progression or native rendering."
+}

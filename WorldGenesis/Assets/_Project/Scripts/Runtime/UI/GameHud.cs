@@ -555,6 +555,10 @@ namespace WorldGenesis.Runtime
             {
                 if (text.Length > 0) text.Append('\n'); text.Append("Рыба ").Append(cell.Fish.ToString("0.##")).Append(" / ").Append(cell.FishCapacity.ToString("0.##"));
                 if (cell.Fish <= .001f) text.Append(" · выловлена");
+                text.Append("\nОбщий запас водоёма; возможный улов:");
+                foreach (FishDefinition fish in FishingCatalog.All)
+                    if (FishingCatalog.Eligible(world, index, 5, fish.Id))
+                        text.Append('\n').Append(fish.Name).Append(" · снасть ").Append(fish.MinimumRodLevel).Append(" · ").Append(FishRarityName(fish.Rarity));
             }
             if (world.TransportProjects != null) foreach (TransportProjectData project in world.TransportProjects)
             {
@@ -709,12 +713,27 @@ namespace WorldGenesis.Runtime
         public static string EquipmentDescription(WorldState world, UnitData unit)
         {
             string text = "<b>СНАРЯЖЕНИЕ</b>\n" + (unit.BasketLevel == 0 ? "Без корзины" : "Корзина · уровень " + unit.BasketLevel);
+            int rod = FishingCatalog.RodLevel(unit);
+            if (rod > 0) text += "\n" + FishingCatalog.RodName(rod) + " · грейд " + rod + "/5";
+            FishDefinition lastCatch = FishingCatalog.Get(unit.FishSpeciesId);
+            if (lastCatch != null) text += "\nПоследний улов: " + lastCatch.Name + " (" + FishRarityName(lastCatch.Rarity) + ")\nВсего поймано: " + unit.FishCaughtCount;
             if (unit.HuntingToolLevel > 0) text += "\nОхотничье копьё · уровень " + unit.HuntingToolLevel;
             UnitData mount = world.GetUnit(unit.MountId);
             if (mount != null && mount.Health > 0)
                 text += "\n" + WildlifeArt.SpeciesName(mount.Species) + ": " + mount.Name + (WorldView.IsRiding(world, unit) ? " · верхом" : " · вьючное животное") + (unit.MountBags ? "\nВьючные сумки" : "") + (unit.HasWagon ? "\nЗапряжена телега" : "");
             else if (unit.OwnsWagon) text += "\nЕсть телега; не запряжена";
             return text + "\nОпьянение " + Percent(unit.Intoxication) + "\nПривычка к алкоголю " + Percent(unit.AlcoholHabit);
+        }
+        public static string FishRarityName(FishRarity rarity)
+        {
+            switch (rarity)
+            {
+                case FishRarity.Uncommon: return "необычная";
+                case FishRarity.Rare: return "редкая";
+                case FishRarity.Epic: return "эпическая";
+                case FishRarity.Legendary: return "легендарная";
+                default: return "обычная";
+            }
         }
         public static string WildlifeDescription(WorldState world, UnitData unit)
         {

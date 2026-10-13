@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-13T12:15:49.8959983Z",
+  "version": "0.6.1",
+  "snapshot": "fishing-rivers-v061-r3",
+  "sourceFiles": 320,
+  "sourceMismatches": 0,
+  "editMode": {
+    "evidence": "Evidence/20261013-145317-683-editmode/tests.xml",
+    "passed": 229,
+    "failed": 0,
+    "scope": "Simulation unchanged after this run"
+  },
+  "playMode": {
+    "evidence": "Evidence/20261013-150143-145-playmode/tests.xml",
+    "passed": 41,
+    "failed": 0
+  },
+  "build": "Evidence/Development/fishing-rivers-build-r3.json",
+  "nativeRun": "completed",
+  "nativeVisualReview": "Final rod, ford, lake, natural and stress PNGs; frames 0/30/59 of native clip; assisted conditions in gallery",
+  "captures": [
+    "20261013-150412-fishing-rods-final.png",
+    "20261013-150420-river-ford-bridge-final.png",
+    "20261013-150531-river-lake-bank-final.png",
+    "20261013-150804-fishing-natural-town-final.png",
+    "20261013-150516-river-current-and-wading-final.mp4"
+  ],
+  "archiveBytes": 39134716,
+  "archiveSHA256": "D2434ED2E72DC1C2528FFF12BC3696442FDE0097D9908BC35B821D2A1E62511A",
+  "naturalProgression": "Only rod 1 observed in two 600-second natural worlds; full 1-5 progression not proven",
+  "native30MinuteTest": "not-run",
+  "userArtisticAcceptance": "pending",
+  "githubRelease061": "not-created"
+}

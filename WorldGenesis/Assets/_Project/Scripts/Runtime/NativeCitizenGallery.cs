@@ -259,6 +259,14 @@ namespace WorldGenesis.Runtime
                         preview.ResourceNodes[unit.ResourceCell] = new ResourceNodeData { Type = action == 3 ? ResourceType.Tree : ResourceType.Stone, Amount = 3, Capacity = 3 };
                     }
                     if (task == UnitTask.Process || task == UnitTask.Tend || task == UnitTask.Brew) unit.WorkTimer = 1;
+                    if (task == UnitTask.Fish)
+                    {
+                        unit.X = Mathf.Floor(unit.X) + .5f; unit.Y = Mathf.Floor(unit.Y) + .5f;
+                        unit.ResourceCell = preview.Index((int)unit.X + 1, (int)unit.Y); unit.WorkTimer = 4;
+                        preview.Cells[unit.ResourceCell].Terrain = TerrainType.ShallowWater;
+                        preview.Cells[unit.ResourceCell].WaterDepth = .5f;
+                        preview.Infrastructure[unit.ResourceCell].Fish = preview.Infrastructure[unit.ResourceCell].FishCapacity = 2;
+                    }
                     if (task == UnitTask.CraftEquipment) unit.EquipmentProgress = 1;
                     if (task == UnitTask.BuildTransport)
                     {
@@ -281,6 +289,11 @@ namespace WorldGenesis.Runtime
             Vector2 point = Position(px, py), facing = CitizenSprites.DirectionVector((CitizenSprites.CitizenDirection)direction);
             UnitData unit = new UnitData { Id = preview.NextId++, Name = "Gallery fixture", Species = race, Sex = profileSex, Age = child ? 10 : 24,
                 Profession = profession, Task = task, X = point.x, Y = point.y, MaxHealth = 100, Health = 100 };
+            // Board figures are explicitly standing on dry ground. Random preview geography
+            // must not immerse a family card after water rendering becomes state-aware.
+            int standingCell = preview.Index((int)unit.X, (int)unit.Y);
+            preview.Cells[standingCell].Terrain = TerrainType.Grass;
+            preview.Cells[standingCell].WaterDepth = 0; preview.Cells[standingCell].Fire = 0;
             int targetX = Mathf.Clamp(Mathf.FloorToInt(point.x + facing.x * 2), 0, preview.Width - 1);
             int targetY = Mathf.Clamp(Mathf.FloorToInt(point.y + facing.y * 2), 0, preview.Height - 1);
             unit.Path.Add(preview.Index(targetX, targetY));

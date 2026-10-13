@@ -16,14 +16,23 @@ namespace WorldGenesis.Simulation
         }
         private void MigrateAgriculture()
         {
-            if (World.AgricultureVersion == 1) return;
-            World.AgriculturalDrops = new System.Collections.Generic.List<AgriculturalDrop>(); World.LostAgriculture = new float[13];
-            for (int i = 0; i < World.Buildings.Count; i++) InitializeAgricultureBuilding(World.Buildings[i]);
-            World.AgricultureVersion = 1;
+            if (World.AgricultureVersion == 2) return;
+            if (World.AgricultureVersion == 0)
+            {
+                World.AgriculturalDrops = new System.Collections.Generic.List<AgriculturalDrop>();
+                World.LostAgriculture = new float[FishingCatalog.AgriculturalProductCount];
+                for (int i = 0; i < World.Buildings.Count; i++) InitializeAgricultureBuilding(World.Buildings[i]);
+            }
+            else
+            {
+                Array.Resize(ref World.LostAgriculture, FishingCatalog.AgriculturalProductCount);
+                for (int i = 0; i < World.Buildings.Count; i++) Array.Resize(ref World.Buildings[i].AgriculturalStock, FishingCatalog.AgriculturalProductCount);
+            }
+            World.AgricultureVersion = 2;
         }
         private void InitializeAgricultureBuilding(BuildingData b)
         {
-            b.AgriculturalStock = new float[13]; b.CropGrowth = b.HarvestReady = b.BrewingProgress = 0;
+            b.AgriculturalStock = new float[FishingCatalog.AgriculturalProductCount]; b.CropGrowth = b.HarvestReady = b.BrewingProgress = 0;
             if (b.Type == BuildingType.Farm)
             {
                 int earlier = 0;
@@ -37,7 +46,7 @@ namespace WorldGenesis.Simulation
         }
         public void DropAgriculturalLoot(UnitData at, AgriculturalProduct product, float amount)
         {
-            if (at == null || amount <= 0 || float.IsNaN(amount) || float.IsInfinity(amount) || (int)product < 1 || (int)product >= 13) return;
+            if (at == null || amount <= 0 || float.IsNaN(amount) || float.IsInfinity(amount) || (int)product < 1 || (int)product >= FishingCatalog.AgriculturalProductCount) return;
             for (int i = 0; i < World.AgriculturalDrops.Count; i++)
             {
                 AgriculturalDrop drop = World.AgriculturalDrops[i];
@@ -80,13 +89,13 @@ namespace WorldGenesis.Simulation
                 if (b.Type == BuildingType.Hall || b.Type == BuildingType.Warehouse || b.Type == BuildingType.Granary)
                 {
                     SettlementData s = World.GetSettlement(b.SettlementId);
-                    AgriculturalProduct[] food = { AgriculturalProduct.Grain, AgriculturalProduct.Berries, AgriculturalProduct.Meat, AgriculturalProduct.Milk, AgriculturalProduct.Egg };
+                    AgriculturalProduct[] food = { AgriculturalProduct.Grain, AgriculturalProduct.Berries, AgriculturalProduct.Meat, AgriculturalProduct.Milk, AgriculturalProduct.Egg, AgriculturalProduct.Fish, AgriculturalProduct.DelicacyFish };
                     for (int p = 0; p < food.Length; p++)
                     {
                         float reserve = food[p] == AgriculturalProduct.Grain && s != null && World.HasTechnology(s.Id, "f08_brewing") && s.Food > s.Population * 2 ? 4 : 0;
                         float amount = Math.Min(1, Math.Max(0, b.AgriculturalStock[(int)food[p]] - reserve));
                         if (s != null && amount > 0 && s.Food < s.Population * 8 + 20)
-                        { b.AgriculturalStock[(int)food[p]] -= amount; s.Food += amount * (food[p] == AgriculturalProduct.Meat ? 2.5f : food[p] == AgriculturalProduct.Grain ? 2 : 1); }
+                        { b.AgriculturalStock[(int)food[p]] -= amount; s.Food += amount * (food[p] == AgriculturalProduct.DelicacyFish ? 4 : food[p] == AgriculturalProduct.Fish ? 1 : food[p] == AgriculturalProduct.Meat ? 2.5f : food[p] == AgriculturalProduct.Grain ? 2 : 1); }
                     }
                 }
             }
@@ -166,7 +175,8 @@ namespace WorldGenesis.Simulation
             {
                 AgriculturalDrop drop = World.AgriculturalDrops[i];
                 float distance = DistanceSquared(unit.X, unit.Y, drop.X, drop.Y);
-                if (drop.Amount <= 0 || (drop.OwnerSettlementId != 0 && drop.OwnerSettlementId != home.Id) || distance >= nearest || DistanceSquared(home.X + .5f, home.Y + .5f, drop.X, drop.Y) > homeRange * homeRange) continue;
+                float range = drop.Product == AgriculturalProduct.RiverPearl || drop.Product == AgriculturalProduct.AncientScale ? 18 : homeRange;
+                if (drop.Amount <= 0 || (drop.OwnerSettlementId != 0 && drop.OwnerSettlementId != home.Id) || distance >= nearest || DistanceSquared(home.X + .5f, home.Y + .5f, drop.X, drop.Y) > range * range) continue;
                 if (drop.Product == AgriculturalProduct.Meat && home.Food > home.Population * 6) continue;
                 if (drop.Product == AgriculturalProduct.Hide && World.GetAgriculturalStock(home.Id, drop.Product) >= home.Population * .5f + 8) continue;
                 bool canReturn = false;

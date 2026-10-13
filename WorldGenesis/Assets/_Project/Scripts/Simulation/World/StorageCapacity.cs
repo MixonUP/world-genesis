@@ -20,7 +20,7 @@ namespace WorldGenesis.Simulation
             switch (product)
             {
                 case AgriculturalProduct.Grain: case AgriculturalProduct.Berries: case AgriculturalProduct.Hay:
-                case AgriculturalProduct.Meat: case AgriculturalProduct.Milk: case AgriculturalProduct.Egg: case AgriculturalProduct.Ale: return true;
+                case AgriculturalProduct.Meat: case AgriculturalProduct.Milk: case AgriculturalProduct.Egg: case AgriculturalProduct.Ale: case AgriculturalProduct.Fish: case AgriculturalProduct.DelicacyFish: return true;
                 default: return false;
             }
         }
@@ -28,7 +28,7 @@ namespace WorldGenesis.Simulation
         { return building != null && (int)item > 0 && (int)item < ResourceCatalog.ItemCount && building.Type != BuildingType.Granary; }
         public static bool Accepts(BuildingData building, AgriculturalProduct product)
         {
-            if (building == null || (int)product <= 0 || (int)product >= 13) return false;
+            if (building == null || (int)product <= 0 || (int)product >= FishingCatalog.AgriculturalProductCount) return false;
             if (building.Type == BuildingType.Granary) return IsFood(product);
             return building.Type != BuildingType.Warehouse || !IsFood(product);
         }
