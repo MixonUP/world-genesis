@@ -1,0 +1,14 @@
+{
+  "moscow": "2026-10-14 00:41:01 +03:00",
+  "release": "https://github.com/MixonUP/world-genesis/releases/tag/v0.8.0-alpha",
+  "commit": "a82d0f29e51f7a6d8b3c8565b4af003ba08d4720",
+  "tag": "v0.8.0-alpha",
+  "archiveBytes": 39212935,
+  "archiveSHA256": "0C2CB5FAAD2A7E7EFBBD0E951BC5D95C9E496240817915617774C0588E2EB703",
+  "githubDigestMatches": true,
+  "verified": "Visible published release, matching tag and commit, ZIP link and GitHub-generated SHA256; five gallery PNGs and clip poster loaded at expected dimensions",
+  "proof": "Evidence/Development/github-release-0.8.0.jpg",
+  "gallery": "Docs/Development/MARITIME_GALLERY.md",
+  "editMode": 326,
+  "playMode": 54
+}
