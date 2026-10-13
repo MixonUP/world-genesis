@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-13T22:54:07.6375760Z",
+  "snapshot": "speed-fauna-music-v090-r3",
+  "files": 423,
+  "mismatches": [],
+  "changesSinceR2": [
+    "Assets/_Project/Scripts/Runtime/Rendering/WorldView.cs",
+    "Assets/_Project/Tests/PlayMode/FaunaPresentationTests.cs"
+  ],
+  "status": "PASS",
+  "scope": "Only WorldView facing and corresponding PlayMode regression changed after r2; Simulation/EditMode/audio/importer unchanged."
+}

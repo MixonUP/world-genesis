@@ -16,6 +16,8 @@ namespace WorldGenesis.Runtime
         private readonly float[] nextCueTimes = new float[12];
         private readonly AudioClip[,] clips = new AudioClip[12, 2];
         private AudioSource ambience;
+        private BackgroundMusic music;
+        private bool ownsMusic;
         private AudioClip ambientClip;
         private GameBootstrap game;
         private WorldState observedWorld;
@@ -38,11 +40,17 @@ namespace WorldGenesis.Runtime
                 }
             }
             for (int i = 0; i < VoiceCount; i++) voices[i] = CreateSource("Event voice " + i);
-            float[] ambient = ProceduralSound.RenderAmbient();
-            ambientClip = AudioClip.Create("WG quiet wind and glass • 8 seconds", ambient.Length, 1, ProceduralSound.SampleRate, false);
-            ambientClip.SetData(ambient, 0);
-            ambience = CreateSource("World ambience"); ambience.clip = ambientClip; ambience.loop = true;
-            ambience.volume = 0; ambience.Play();
+            music = GetComponent<BackgroundMusic>();
+            if (music == null) { music = gameObject.AddComponent<BackgroundMusic>(); ownsMusic = true; }
+            music.Muted = muted;
+            if (!music.HasTracks)
+            {
+                float[] ambient = ProceduralSound.RenderAmbient();
+                ambientClip = AudioClip.Create("WG quiet wind and glass • 8 seconds", ambient.Length, 1, ProceduralSound.SampleRate, false);
+                ambientClip.SetData(ambient, 0);
+                ambience = CreateSource("World ambience"); ambience.clip = ambientClip; ambience.loop = true;
+                ambience.volume = 0; ambience.Play();
+            }
             ApplyMute();
         }
 
@@ -66,7 +74,12 @@ namespace WorldGenesis.Runtime
                 for (int i = 0; i < nextCueTimes.Length; i++) nextCueTimes[i] = 0;
             }
             float now = Time.unscaledTime;
-            ambience.volume = Mathf.MoveTowards(ambience.volume, masterVolume * (game.Paused ? .08f : .16f), Time.unscaledDeltaTime * .025f);
+            if (music != null) music.Paused = game.Paused;
+            if (ambience != null)
+            {
+                if (music != null && music.HasTracks) { ambience.Stop(); ambience.volume = 0; }
+                else ambience.volume = Mathf.MoveTowards(ambience.volume, masterVolume * (game.Paused ? .08f : .16f), Time.unscaledDeltaTime * .025f);
+            }
             for (int i = 0; i < world.Events.Count; i++)
             {
                 WorldEvent item = world.Events[i];
@@ -111,19 +124,22 @@ namespace WorldGenesis.Runtime
         {
             for (int i = 0; i < VoiceCount; i++) if (voices[i] != null) voices[i].mute = muted;
             if (ambience != null) ambience.mute = muted;
+            if (music != null) music.Muted = muted;
         }
         private void OnDisable()
         {
             for (int i = 0; i < VoiceCount; i++) if (voices[i] != null) voices[i].Stop();
             if (ambience != null) ambience.Stop();
+            if (music != null) music.enabled = false;
         }
-        private void OnEnable() { observedWorld = null; if (ambience != null && !ambience.isPlaying) ambience.Play(); }
+        private void OnEnable() { observedWorld = null; if (music != null) music.enabled = true; if (ambience != null && (music == null || !music.HasTracks) && !ambience.isPlaying) ambience.Play(); }
         private void OnDestroy()
         {
             for (int i = 0; i < VoiceCount; i++) if (voices[i] != null) Destroy(voices[i].gameObject);
             if (ambience != null) Destroy(ambience.gameObject);
             for (int i = 0; i < 12; i++) for (int v = 0; v < 2; v++) if (clips[i, v] != null) Destroy(clips[i, v]);
             if (ambientClip != null) Destroy(ambientClip);
+            if (ownsMusic && music != null) Destroy(music);
         }
     }
 

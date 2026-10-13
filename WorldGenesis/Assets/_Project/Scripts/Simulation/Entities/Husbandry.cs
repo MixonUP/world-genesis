@@ -98,7 +98,8 @@ namespace WorldGenesis.Simulation
                 BuildingData p = World.GetBuilding(a.PastureId); SettlementData s = World.GetSettlement(a.AnimalOwnerId);
                 if (p == null || p.Health <= 0 || s == null || s.Population <= 0)
                 { a.IsDomestic = false; a.PastureId = a.AnimalOwnerId = a.HandlerId = 0; continue; }
-                if (a.HandlerId != 0 || DistanceSquared(a.X, a.Y, p.X + .5f, p.Y + .5f) > 16 || a.Age < 2) continue;
+                if(!PlacementRules.IsDryGround(World,p.X,p.Y))continue;
+                if (a.HandlerId != 0 || DistanceSquared(a.X, a.Y, p.X + .5f, p.Y + .5f) > 16 || a.Age < WildlifeCatalog.MaturityAge(a.Species)) continue;
                 a.AnimalProduceTimer = Math.Min(30, a.AnimalProduceTimer + 1);
                 if (a.AnimalProduceTimer >= 30 && AgriStorageSpace(p) >= 1 && p.AgriculturalStock[(int)AgriculturalProduct.Hay] >= 1)
                 {
@@ -108,14 +109,15 @@ namespace WorldGenesis.Simulation
                     if (output != AgriculturalProduct.None) p.AgriculturalStock[(int)output] += 1;
                 }
                 if (!World.Laws.Births || a.Sex != Sex.Female || a.Hunger > .5f || a.Health < a.MaxHealth * .7f || PasturePopulation(p.Id) >= 4 + 2 * p.Level) continue;
-                a.BreedingSeconds = Math.Min(180, a.BreedingSeconds + 1); if (a.BreedingSeconds < 120 || World.Units.Count >= 9999) continue;
-                bool male = false;
-                for (int m = 0; m < originalCount; m++) { UnitData other = World.Units[m]; if (other.IsDomestic && other.PastureId == p.Id && other.Species == a.Species && other.Sex == Sex.Male && other.Age >= 2 && other.Health > 0 && DistanceSquared(a.X, a.Y, other.X, other.Y) < 25) { male = true; break; } }
+                float interval=WildlifeCatalog.BreedingInterval(a.Species,true);
+                a.BreedingSeconds=Math.Min(interval,a.BreedingSeconds+1);if(a.BreedingSeconds<interval||!BreedingHealthy(a)||World.Units.Count>=9999)continue;
+                UnitData father=null;
+                for (int m = 0; m < originalCount; m++) { UnitData other = World.Units[m]; if (other.IsDomestic && other.PastureId == p.Id && other.Species == a.Species && other.Sex == Sex.Male && BreedingHealthy(other) && other.HandlerId==0 && DistanceSquared(a.X, a.Y, other.X, other.Y) < 25) { father=other; break; } }
                 AgriculturalProduct feed = a.Species == SpeciesType.SpiritStag ? AgriculturalProduct.Berries : AgriculturalProduct.Hay;
                 float feedCost = a.Species == SpeciesType.SpiritStag ? 10 : 2;
-                if (!male || p.AgriculturalStock[(int)feed] < feedCost) continue;
+                if (father==null || !AnimalPairReachable(a,father) || !PlacementRules.IsDryGround(World,p.X,p.Y) || p.AgriculturalStock[(int)feed] < feedCost) continue;
                 p.AgriculturalStock[(int)feed] -= feedCost;
-                AddUnit(a.Species, (int)a.X, (int)a.Y, 0, true); UnitData baby = World.Units[World.Units.Count - 1]; baby.IsDomestic = true; baby.AnimalOwnerId = s.Id; baby.PastureId = p.Id; baby.PackId = baby.Id; baby.PackLeaderId = baby.Id; a.BreedingSeconds = 0;
+                AddUnit(a.Species, (int)a.X, (int)a.Y, 0, true); UnitData baby = World.Units[World.Units.Count - 1]; baby.IsDomestic = true; baby.AnimalOwnerId = s.Id; baby.PastureId = p.Id; baby.PackId = baby.Id; baby.PackLeaderId = baby.Id; FinishAnimalBirth(a,father,true);
                 AddEvent(EventKind.Birth, baby.X, baby.Y, "Пастбище: появился детёныш «" + WildlifeCatalog.Name(a.Species) + "»");
             }
         }
@@ -126,7 +128,7 @@ namespace WorldGenesis.Simulation
                 UnitData a = World.Units[i]; if (!a.IsDomestic) continue;
                 BuildingData p = World.GetBuilding(a.PastureId); SettlementData s = World.GetSettlement(a.AnimalOwnerId);
                 if (p == null || p.Type != BuildingType.Pasture || p.Health <= 0 || s == null || s.Population <= 0 || p.SettlementId != s.Id)
-                { a.IsDomestic = false; a.PastureId = a.AnimalOwnerId = a.HandlerId = 0; a.BreedingSeconds = Math.Min(120, a.BreedingSeconds); }
+                { a.IsDomestic = false; a.PastureId = a.AnimalOwnerId = a.HandlerId = 0; a.BreedingSeconds=Math.Min(WildlifeCatalog.BreedingInterval(a.Species,false),a.BreedingSeconds); }
                 else if (a.HandlerId != 0) { UnitData u = World.GetUnit(a.HandlerId); if (u == null || u.Health <= 0 || u.MountId != a.Id) a.HandlerId = 0; }
             }
             for (int i = 0; i < World.Units.Count; i++) EnforceEquipment(World.Units[i]);

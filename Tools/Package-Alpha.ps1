@@ -13,8 +13,12 @@ $report=if($Version -eq '0.1.0-alpha') {'ALPHA_REPORT.md'} elseif($Version -eq '
 if ($Version -eq '0.6.1-alpha') { $report = 'FISHING_RIVERS_REPORT.md' }
 if ($Version -eq '0.7.0-alpha') { $report = 'PRODUCTION_REPORT.md' }
 if ($Version -eq '0.8.0-alpha') { $report = 'MARITIME_REPORT.md' }
+if ($Version -eq '0.9.0-alpha') { $report = 'SPEED_FAUNA_REPORT.md' }
 Copy-Item -LiteralPath (Join-Path $root ('Docs/Development/'+$report)) -Destination (Join-Path $build $report)
-if ($Version -in @('0.6.0-alpha','0.6.1-alpha','0.7.0-alpha','0.8.0-alpha')) {
+if ($Version -eq '0.9.0-alpha') {
+    Copy-Item -LiteralPath (Join-Path $root 'SourceAssets/Music/PROVENANCE.md') -Destination (Join-Path $build 'BACKGROUND-MUSIC.md')
+}
+if ($Version -in @('0.6.0-alpha','0.6.1-alpha','0.7.0-alpha','0.8.0-alpha','0.9.0-alpha')) {
     Copy-Item -LiteralPath (Join-Path $root 'SourceAssets/OriginalCitizens/PROVENANCE.md') -Destination (Join-Path $build 'ORIGINAL-CITIZENS-ART.md')
 }
 if ($Version -ne '0.1.0-alpha') {

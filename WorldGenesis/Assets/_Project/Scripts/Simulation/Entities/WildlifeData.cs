@@ -4,6 +4,13 @@ namespace WorldGenesis.Simulation
 {
     public static class WildlifeCatalog
     {
+        public const float AgeRate=.025f;
+        public const int ImmigrationSeconds=120;
+        public static float MaturityAge(SpeciesType species){return species==SpeciesType.Bear||species==SpeciesType.Horse||species==SpeciesType.Cow||species==SpeciesType.SpiritStag?4:2;}
+        public static float BreedingInterval(SpeciesType species,bool domestic)
+        {return species==SpeciesType.Chicken?(domestic?180:240):IsRare(species)?600:species==SpeciesType.Bear||species==SpeciesType.Horse||species==SpeciesType.Cow||species==SpeciesType.Donkey?(domestic?420:600):IsPredator(species)?480:domestic?300:360;}
+        public static float MaximumBreedingSeconds(SpeciesType species,bool domestic){return BreedingInterval(species,domestic);}
+
         public static bool IsAnimal(SpeciesType s) { return s >= SpeciesType.Sheep && s <= SpeciesType.Horse; }
         public static bool IsPredator(SpeciesType s) { return s == SpeciesType.Wolf || s == SpeciesType.Fox || s == SpeciesType.Bear || s == SpeciesType.DireWolf; }
         public static bool IsRare(SpeciesType s) { return s == SpeciesType.DireWolf || s == SpeciesType.SpiritStag; }
@@ -28,21 +35,25 @@ namespace WorldGenesis.Simulation
     {
         public int PackId, PackLeaderId;
         public float BreedingSeconds;
+        public long NextBreedingTick;
     }
     public sealed partial class WorldState
     {
         public int WildlifeVersion;
+        public int WildlifeHabitatCapacity;
+        public long NextWildlifeHabitatTick,WildlifeBirths,DomesticAnimalBirths,WildlifeImmigrations,WildlifeDeaths;
         public long NextWildlifeSpawnTick;
         public bool NaturalWildlife = true;
         private bool ValidateWildlife(out string error)
         {
             error = null;
-            if (WildlifeVersion < 0 || WildlifeVersion > 1 || NextWildlifeSpawnTick < 0) { error = "Invalid wildlife version or clock."; return false; }
+            if (WildlifeVersion < 0 || WildlifeVersion > 2 || NextWildlifeSpawnTick < 0) { error = "Invalid wildlife version or clock."; return false; }
             if (WildlifeVersion == 0) return true;
+            if(WildlifeVersion>=2&&(WildlifeHabitatCapacity<0||WildlifeHabitatCapacity>128||NextWildlifeHabitatTick<0||WildlifeBirths<0||DomesticAnimalBirths<0||WildlifeImmigrations<0||WildlifeDeaths<0)){error="Invalid ecology accounting.";return false;}
             for (int i = 0; i < Units.Count; i++)
             {
                 UnitData u = Units[i];
-                if (!Stock(u.BreedingSeconds) || u.BreedingSeconds > (u.IsDomestic ? 180 : 120) || u.PackId < 0 || u.PackId >= NextId || u.PackLeaderId < 0 || u.PackLeaderId >= NextId || (!WildlifeCatalog.IsAnimal(u.Species) && (u.PackId != 0 || u.PackLeaderId != 0))) { error = "Invalid herd state."; return false; }
+                if (!Stock(u.BreedingSeconds) || u.BreedingSeconds > (WildlifeVersion<2?(u.IsDomestic?180:120):WildlifeCatalog.MaximumBreedingSeconds(u.Species,u.IsDomestic)) || u.NextBreedingTick<0 || u.PackId < 0 || u.PackId >= NextId || u.PackLeaderId < 0 || u.PackLeaderId >= NextId || (!WildlifeCatalog.IsAnimal(u.Species) && (u.PackId != 0 || u.PackLeaderId != 0))) { error = "Invalid herd state."; return false; }
                 UnitData leader = GetUnit(u.PackLeaderId);
                 if (u.PackLeaderId != 0 && (leader == null || leader.Health <= 0 || leader.Species != u.Species || leader.PackId != u.PackId || u.PackId == 0)) { error = "Invalid living pack leader."; return false; }
             }

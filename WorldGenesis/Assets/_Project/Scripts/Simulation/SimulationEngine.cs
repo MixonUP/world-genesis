@@ -112,7 +112,9 @@ namespace WorldGenesis.Simulation
             UpdateCampfireSupply(TickSeconds);
             if (World.Tick % 10 == 0) UpdateMarkets();
             UpdateMaritime(TickSeconds);
-            for (int i = 0; i < World.Units.Count; i++) UpdateUnit(World.Units[i], TickSeconds);
+            navigation.BeginUnitBatch();
+            try { for (int i = 0; i < World.Units.Count; i++) UpdateUnit(World.Units[i], TickSeconds); }
+            finally { navigation.EndUnitBatch(); }
             RemoveDead(); UpdateTransport();
             if (World.Tick % 10 == 0) { UpdateSettlements(1f); UpdateDevelopment(); UpdateAgriculture(); UpdateWildlife(); UpdateCaravans(); }
             UpdatePolitics();
@@ -288,7 +290,7 @@ namespace WorldGenesis.Simulation
             if (unit.Health <= 0) return;
             if (UpdateMaritimeUnit(unit, dt)) return;
             int x = (int)unit.X, y = (int)unit.Y;
-            if (World.Laws.Aging) unit.Age += dt * .1f;
+            if (World.Laws.Aging) unit.Age += dt * (WildlifeCatalog.IsAnimal(unit.Species) ? WildlifeCatalog.AgeRate : .1f);
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.Profession == UnitProfession.None) unit.Profession = ProfessionFor(unit.Id);
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.FishingRodLevel == 0) unit.FishingRodLevel = 1;
             unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? SubsistenceRules.HungerPerSecond : .004f));
@@ -512,7 +514,7 @@ namespace WorldGenesis.Simulation
         private SettlementData FoundSettlement(SpeciesType species, int x, int y)
         {
             int seat = ChooseSettlementSeat(x, y);
-            if (seat < 0) return null;
+            if (seat < 0 || !PlacementRules.CanPlaceBuilding(World, BuildingType.Hall, seat % World.Width, seat / World.Width)) return null;
             x = seat % World.Width; y = seat / World.Width;
             SettlementData s = new SettlementData { Id = World.NextId++, Species = species, X = x, Y = y, Food = 28, Wood = 0, Stone = 0, ColorIndex = World.Settlements.Count % 8, Name = TownRoots[RandomRange(0, TownRoots.Length)] + " " + (World.Settlements.Count + 1) };
             InitializeGovernment(s);
@@ -543,6 +545,7 @@ namespace WorldGenesis.Simulation
 
         private BuildingData AddBuilding(SettlementData s, int x, int y, BuildingType type)
         {
+            if (!PlacementRules.CanPlaceBuilding(World, type, x, y)) return null;
             BuildingData b = new BuildingData { Id = World.NextId++, SettlementId = s.Id, X = x, Y = y, Type = type, ConstructionLedgerVersion = 1 };
             InitializeDevelopmentBuilding(b);
             InitializeAgricultureBuilding(b);
@@ -569,7 +572,7 @@ namespace WorldGenesis.Simulation
                 int d = (side + offset) % 4;
                 int x = s.X + (d == 0 ? radius : d == 1 ? -radius : t);
                 int y = s.Y + (d == 2 ? radius : d == 3 ? -radius : t);
-                if (!World.IsWalkable(x, y)) continue;
+                if (!PlacementRules.IsDryGround(World, x, y) || !World.IsWalkable(x, y)) continue;
                 TileData cell = World.Cells[World.Index(x, y)];
                 if (cell.BuildingId != 0 || cell.Fire > 0 || (cell.SettlementId != 0 && cell.SettlementId != s.Id)) continue;
                 bool tooClose = false;
@@ -617,7 +620,7 @@ namespace WorldGenesis.Simulation
             for (int i = World.Buildings.Count - 1; i >= 0; i--)
             {
                 BuildingData b = World.Buildings[i];
-                if (b.Health > 0 && (World.IsTerrainWalkable(b.X, b.Y) || World.IsTemporaryFlood(World.Index(b.X, b.Y)))) continue;
+                if (b.Health > 0 && (PlacementRules.IsDryGround(World, b.X, b.Y) || World.IsTemporaryFlood(World.Index(b.X, b.Y)))) continue;
                 OnMaritimeBuildingRemoved(b); EvacuateRemovedBuilding(b);
                 SalvageConstructionMaterials(b);
                 DestroyIndustryBuilding(b);
@@ -641,6 +644,7 @@ namespace WorldGenesis.Simulation
                 if (removedIds == null) removedIds = new HashSet<int>();
                 removedIds.Add(unit.Id);
                 AddEvent(EventKind.Death, unit.X, unit.Y, unit.Name + " погибает");
+                if (WildlifeCatalog.IsAnimal(unit.Species)) World.WildlifeDeaths++;
                 World.Units.RemoveAt(i);
             }
             if (removedIds == null) return;

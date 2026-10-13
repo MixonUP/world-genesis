@@ -1,0 +1,9 @@
+## 2026-10-14 01:30:00 +03:00 · World Genesis — три фоновых трека и проверка0.9
+
+ТЗ Docs/Design/MUSIC_BRIEF_SUNO.md опубликовано отдельным коммитом37099533a59de24ad12758b09b964f3fd358ee52; удалённый SHA проверен. Ссылка: https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Design/MUSIC_BRIEF_SUNO.md . Пользователь затем передал три MP3 Dawn over the Settlement для фоновой музыки.
+
+Исходные файлы скопированы побайтно с проверкой SHA256 в WorldGenesis/Assets/_Project/Resources/Music/WG_MUS_01..03.mp3. Длительности224.712/225/228.72с, стерео48кГц, inputLUFS−17.23/−17.67/−16.90, truepeak около−5dBTP. FFmpeg выполнял только анализ с выводом в null, материал не нормализован и не перекодирован в исходниках. Происхождение и измерения: SourceAssets/Music/PROVENANCE.md, manifest.json, Evidence/Development/music-source-analysis.json. Сведения о конкретной модели/ID генерации не получены; не приписываем им CC0 или lossless-качество.
+
+Субагентriver подготовил BackgroundMusic: два AudioSource, очередь трёх треков,5сDSP-переход, pitch1, громкость0.1, пауза приглушает, M сохраняет общее отключение звука, процедурные событийные SFX остаются. Root добавил потоковый импорт и реальные показатели музыки в NativeDiagnostics. Шесть PlayMode-проверок подготовлены; полноценного прослушивания пока не было.
+
+Первая Unity-проверка0.9:355/356EditMode и57/59PlayMode. Найдены расхождение пути из-за промежуточного float-округления в Mono, совпадающие фазы овцы и устаревшая константа размера атласа в старом тесте. Исправлены код/fixture без ослабления сравнения маршрутов и пикселей. Проверяется новый snapshot speed-fauna-music-v090-r2. Выпуск0.9 ещё не подтверждён. Следом: Unity→Windows→нативные скорость/фауна/музыка→публикация. Проект: C:/Users/ohrem_6c67u02/OneDrive/Документы/ChatGPT/Игра WorldBox.

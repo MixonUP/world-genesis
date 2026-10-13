@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-13T22:25:07.3111011Z",
+  "output": "Builds/FaunaShowcase/fields-rulers.save.json",
+  "sha256": "41A2E9B099ADC7F6C3DA684F3D3CCE01270B401A38E62C92B88B4EF363AA1F99",
+  "sourceTick": 0,
+  "camera": {
+    "x": 65,
+    "y": 68,
+    "zoom": 13,
+    "crownCloseup": {
+      "x": 53,
+      "y": 70,
+      "zoom": 6
+    },
+    "fieldsCloseup": {
+      "x": 56,
+      "y": 64,
+      "zoom": 6
+    }
+  },
+  "subjects": [
+    {
+      "ruler": 7,
+      "species": "Human",
+      "sex": "Female",
+      "rulerPoint": [
+        53.5,
+        70.5
+      ],
+      "field": 4,
+      "farmer": 8,
+      "farmerPoint": [
+        53.5,
+        64.5
+      ]
+    },
+    {
+      "ruler": 15,
+      "species": "Elf",
+      "sex": "Male",
+      "rulerPoint": [
+        61.5,
+        70.5
+      ],
+      "field": 12,
+      "farmer": 16,
+      "farmerPoint": [
+        61.5,
+        64.5
+      ]
+    },
+    {
+      "ruler": 23,
+      "species": "Dwarf",
+      "sex": "Female",
+      "rulerPoint": [
+        69.5,
+        70.5
+      ],
+      "field": 20,
+      "farmer": 24,
+      "farmerPoint": [
+        69.5,
+        64.5
+      ]
+    },
+    {
+      "ruler": 31,
+      "species": "Orc",
+      "sex": "Male",
+      "rulerPoint": [
+        77.5,
+        70.5
+      ],
+      "field": 28,
+      "farmer": 32,
+      "farmerPoint": [
+        77.5,
+        64.5
+      ]
+    },
+    {
+      "pasture": 33,
+      "herder": 34,
+      "cow": 35
+    }
+  ],
+  "continuedTicks": 120,
+  "validation": true,
+  "allOriginalSubjectsSurvive": true,
+  "assistance": "Authored dry meadow and controlled initial positions, needs, ages, directions, one-cell or long paths; births/war/automatic weather and new wildlife disabled. Fields/pasture, crop stage, ownership, four towns and rulers prepared explicitly. Ordinary simulation moves units and performs work; this is not evidence of natural progression, balance or taming. The generator does not render images."
+}

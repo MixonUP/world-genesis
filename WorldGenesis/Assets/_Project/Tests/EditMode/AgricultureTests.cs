@@ -111,7 +111,7 @@ namespace WorldGenesis.Tests
         }
         public static void PastureBreedingRequiresPairFeedAndBirthLaw()
         {
-            SimulationEngine e = Town(); WorldState w = e.World; UnitData u = w.Units[0]; UnitData female = Tame(e, u, SpeciesType.Goat), male = Tame(e, u, SpeciesType.Goat); female.Sex = Sex.Female; male.Sex = Sex.Male; female.BreedingSeconds = 120; female.Hunger = male.Hunger = .1f;
+            SimulationEngine e = Town(); WorldState w = e.World; UnitData u = w.Units[0]; UnitData female = Tame(e, u, SpeciesType.Goat), male = Tame(e, u, SpeciesType.Goat); female.Sex = Sex.Female; male.Sex = Sex.Male; female.BreedingSeconds = WildlifeCatalog.BreedingInterval(female.Species,true); female.NextBreedingTick=male.NextBreedingTick=0; female.Age=male.Age=WildlifeCatalog.MaturityAge(female.Species); female.Hunger = male.Hunger = .1f;
             BuildingData p = w.GetBuilding(female.PastureId); female.X = male.X = p.X + .5f; female.Y = male.Y = p.Y + .5f; p.AgriculturalStock[(int)AgriculturalProduct.Hay] = 2;
             int before = w.Units.Count; Call(e, "UpdateDomesticAnimals"); Need(w.Units.Count == before, "birth law respected"); w.Laws.Births = true; Call(e, "UpdateDomesticAnimals"); Need(w.Units.Count == before + 1, "one fed birth"); Near(0, p.AgriculturalStock[5], "two hay spent");
             Call(e, "UpdateDomesticAnimals"); Need(w.Units.Count == before + 1, "no repeated birth"); Need(w.Validate(out string error), error);

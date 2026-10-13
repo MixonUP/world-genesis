@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-13T22:23:48.266951+00:00",
+  "repeats": 3,
+  "kind": "Offline .NET Release fixed-tick comparison, not Unity FPS",
+  "environment": {
+    "DOTNET_TieredCompilation": "0",
+    "sharedDesktop": "Other project work may run concurrently; report medians and do not claim CPU-isolated timings."
+  },
+  "sourceDifference": [
+    "Entities/GridNavigation.cs",
+    "SimulationEngine.cs"
+  ],
+  "exactDeterministicComparisonPassed": true,
+  "scope": "Frozen 0.8 source versus the same source with only GridNavigation.cs and Engine Begin/EndUnitBatch hooks. Fauna/placement changes excluded intentionally.",
+  "baselineReceipts": [
+    "Evidence/Simulation/speed-baseline-repeat-1.json",
+    "Evidence/Simulation/speed-baseline-repeat-2.json",
+    "Evidence/Simulation/speed-baseline-repeat-3.json"
+  ],
+  "optimizedReceipts": [
+    "Evidence/Simulation/speed-optimized-repeat-1.json",
+    "Evidence/Simulation/speed-optimized-repeat-2.json",
+    "Evidence/Simulation/speed-optimized-repeat-3.json"
+  ],
+  "cases": [
+    {
+      "preset": "Island",
+      "requestedPopulation": 100,
+      "initialPopulation": 100,
+      "finalPopulation": 105,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 758.5047343337168,
+      "medianOptimizedSimulationSecondsPerWallSecond": 757.4332606618199,
+      "ratio": 0.9985873869688656,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 0.723,
+      "medianOptimizedP99TickMs": 0.778
+    },
+    {
+      "preset": "Island",
+      "requestedPopulation": 1000,
+      "initialPopulation": 1000,
+      "finalPopulation": 1005,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 70.6455912029284,
+      "medianOptimizedSimulationSecondsPerWallSecond": 67.39102281938655,
+      "ratio": 0.9539310475271818,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 4.2271,
+      "medianOptimizedP99TickMs": 3.9521
+    },
+    {
+      "preset": "Archipelago",
+      "requestedPopulation": 100,
+      "initialPopulation": 100,
+      "finalPopulation": 105,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 925.8987776592971,
+      "medianOptimizedSimulationSecondsPerWallSecond": 791.6966851659793,
+      "ratio": 0.8550574903742878,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 0.5006,
+      "medianOptimizedP99TickMs": 0.7201
+    },
+    {
+      "preset": "Archipelago",
+      "requestedPopulation": 1000,
+      "initialPopulation": 1000,
+      "finalPopulation": 1005,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 9.292239395777708,
+      "medianOptimizedSimulationSecondsPerWallSecond": 50.659566446987085,
+      "ratio": 5.451814604561979,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 173.8344,
+      "medianOptimizedP99TickMs": 7.6185
+    },
+    {
+      "preset": "Continent",
+      "requestedPopulation": 100,
+      "initialPopulation": 75,
+      "finalPopulation": 83,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 738.3143299428299,
+      "medianOptimizedSimulationSecondsPerWallSecond": 772.7766250526454,
+      "ratio": 1.0466769961142215,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 0.591,
+      "medianOptimizedP99TickMs": 0.5748
+    },
+    {
+      "preset": "Continent",
+      "requestedPopulation": 1000,
+      "initialPopulation": 750,
+      "finalPopulation": 758,
+      "ticks": 600,
+      "medianBaselineSimulationSecondsPerWallSecond": 86.03818259826134,
+      "medianOptimizedSimulationSecondsPerWallSecond": 85.96374020783453,
+      "ratio": 0.9991347749548081,
+      "stateAndPathHashesMatch": true,
+      "medianBaselineP99TickMs": 4.7105,
+      "medianOptimizedP99TickMs": 3.3342
+    }
+  ]
+}

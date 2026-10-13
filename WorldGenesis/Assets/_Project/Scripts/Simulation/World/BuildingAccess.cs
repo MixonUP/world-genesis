@@ -32,7 +32,7 @@ namespace WorldGenesis.Simulation
         public static bool DoorAvailable(WorldState world, BuildingData b, bool safe = true)
         { int cell = EntranceCell(world,b); return cell >= 0 && cell < world.Cells.Length && world.IsWalkable(cell % world.Width, cell / world.Width) && (!safe || world.Cells[cell].Fire <= .1f); }
         public static bool IsUsable(WorldState world, BuildingData b)
-        { return b != null && b.Health > 0 && world.IsTerrainWalkable(b.X,b.Y) && world.Cells[world.Index(b.X,b.Y)].Fire <= .1f && (!IsEnclosed(b.Type) || world.BuildingAccessVersion == 0 || DoorAvailable(world,b)); }
+        { return b != null && b.Health > 0 && PlacementRules.IsDryGround(world,b.X,b.Y) && world.Cells[world.Index(b.X,b.Y)].Fire <= .1f && (!IsEnclosed(b.Type) || world.BuildingAccessVersion == 0 || DoorAvailable(world,b)); }
         public static string WaitingReason(WorldState world, BuildingData b)
         {
             if (b == null || !IsEnclosed(b.Type)) return "Открытая площадка";

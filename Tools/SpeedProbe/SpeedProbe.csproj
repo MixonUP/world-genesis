@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><ImplicitUsings>disable</ImplicitUsings><Nullable>disable</Nullable><EnableDefaultCompileItems>false</EnableDefaultCompileItems><SimulationSourceRoot Condition="'$(SimulationSourceRoot)' == ''">../../WorldGenesis/Assets/_Project/Scripts/Simulation</SimulationSourceRoot><DefineConstants Condition="'$(IncludeCorrectness)' != 'false'">$(DefineConstants);SPEED_CORRECTNESS</DefineConstants></PropertyGroup>
+<ItemGroup><Compile Include="$(SimulationSourceRoot)/**/*.cs" /><Compile Include="Program.cs" /><Compile Include="NativeSpeedWorlds.cs" /><Compile Include="../../WorldGenesis/Assets/_Project/Tests/EditMode/SimulationPerformanceCorrectnessTests.cs" Condition="'$(IncludeCorrectness)' != 'false'" /></ItemGroup>
+</Project>

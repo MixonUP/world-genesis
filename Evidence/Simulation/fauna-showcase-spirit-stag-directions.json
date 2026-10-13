@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-13T22:53:18.7753266Z",
+  "output": "Builds/FaunaShowcase/spirit-stag-directions.save.json",
+  "sha256": "22A9426084A53828313AB2469DEDE6DCA75B4004B87FF37FA2D8A87B92F7A17B",
+  "sourceTick": 0,
+  "camera": {
+    "x": 64,
+    "y": 65,
+    "zoom": 15,
+    "recommendedSeconds": 1
+  },
+  "subjects": [
+    {
+      "Id": 1,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 south",
+      "species": "SpiritStag",
+      "direction": "south",
+      "start": [
+        64.5,
+        63.5
+      ],
+      "routeLength": 32
+    },
+    {
+      "Id": 2,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 west",
+      "species": "SpiritStag",
+      "direction": "west",
+      "start": [
+        62.5,
+        65.5
+      ],
+      "routeLength": 32
+    },
+    {
+      "Id": 3,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 east",
+      "species": "SpiritStag",
+      "direction": "east",
+      "start": [
+        66.5,
+        65.5
+      ],
+      "routeLength": 32
+    },
+    {
+      "Id": 4,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 north",
+      "species": "SpiritStag",
+      "direction": "north",
+      "start": [
+        64.5,
+        67.5
+      ],
+      "routeLength": 32
+    }
+  ],
+  "continuedTicks": 120,
+  "validation": true,
+  "allOriginalSubjectsSurvive": true,
+  "allRoutesRemainActiveFor120Ticks": true,
+  "assistance": "Authored dry meadow and controlled initial positions, needs, ages, directions, one-cell or long paths; births/war/automatic weather and new wildlife disabled. Fields/pasture, crop stage, ownership, four towns and rulers prepared explicitly. Ordinary simulation moves units and performs work; this is not evidence of natural progression, balance or taming. The generator does not render images."
+}

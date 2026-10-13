@@ -2,7 +2,7 @@
 param(
     [ValidatePattern('^[a-z0-9-]+$')][string]$Name='overview',
     [int]$Width=1920, [int]$Height=1080, [int]$Seconds=8,
-    [ValidateSet(1,2,5,10)][int]$Speed=1,
+    [ValidateSet(1,2,5,10,20,50,100)][int]$Speed=1,
     [switch]$FocusSettlement, [int]$Zoom=18,
     [ValidateSet('', 'Fire', 'Rain', 'Lightning', 'Meteor', 'Heal', 'Bless', 'Plague')][string]$Power='',
     [int]$ProfileSeconds=0, [int]$StressPopulation=0,

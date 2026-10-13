@@ -17,7 +17,8 @@ namespace WorldGenesis.Runtime
         public Camera MainCamera { get; private set; }
         public WorldTool Tool { get; set; }
         public WorldPreset GenerationPreset { get; set; } = WorldPreset.Island;
-        public float Speed { get; set; } = 1;
+        public float Speed { get => speed; set { float requested = float.IsNaN(value) ? 1 : Mathf.Clamp(value, 1, 100); if (requested != speed) { speed = requested; pacer.Reset(); } } }
+        private float speed = 1;
         public int BrushRadius { get; set; } = 2;
         // Presentation of the command's documented radius contract; commands still use the engine's validation.
         public int EffectiveBrushRadius => Tool != null && Tool.Kind == ToolKind.Power ? Mathf.Max((PowerType)Tool.Value == PowerType.Meteor ? 3 : 1, BrushRadius) : BrushRadius;
@@ -27,10 +28,16 @@ namespace WorldGenesis.Runtime
         public int SelectedShipId { get; private set; }
         public int InspectX { get; private set; } = -1;
         public int InspectY { get; private set; } = -1;
-        public float SimulationBacklogSeconds => tickAccumulator;
-        public bool Paused { get => paused; set { paused = value; tickAccumulator = 0; } }
+        public float SimulationBacklogSeconds => (float)pacer.PendingSeconds;
+        public float ActualSimulationSpeed => (float)pacer.ActualMultiplier;
+        public double SimulationWorkMilliseconds => pacer.LastWorkMilliseconds;
+        public double LimitedRequestedSeconds => pacer.LimitedRequestedSeconds;
+        public bool SimulationBudgetLimited => pacer.BudgetLimited;
+        public bool Paused { get => paused; set { paused = value; pacer.Reset(); } }
         private bool paused;
-        private float tickAccumulator, targetZoom, nextBrushTime;
+        private float targetZoom, nextBrushTime;
+        private readonly SimulationPacer pacer = new SimulationPacer();
+        private Action advanceFixedTick;
         private Vector3 targetCamera, lastMouse;
         private bool dragCamera, gestureStartedInWorld;
         private int previousBrushX = -1000, previousBrushY = -1000;
@@ -62,6 +69,7 @@ namespace WorldGenesis.Runtime
             MainCamera.transform.rotation = Quaternion.identity;
             if (EventSystem.current == null) { eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule)); ownsEventSystem = true; }
             View = new WorldView(transform); effects = new WorldEffects(transform, View.SpriteMaterial);
+            advanceFixedTick = () => Engine.Step(SimulationEngine.TickSeconds);
             NewWorld(1618033); hud = new GameHud(this);
             gameObject.AddComponent<ProceduralAudio>();
             string[] arguments = Environment.GetCommandLineArgs();
@@ -85,7 +93,7 @@ namespace WorldGenesis.Runtime
             }
             int zoomIndex = Array.IndexOf(arguments, "--zoom"); float requestedZoom = 20;
             int speedIndex = Array.IndexOf(arguments, "--simulation-speed");
-            if (speedIndex >= 0 && speedIndex + 1 < arguments.Length && float.TryParse(arguments[speedIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requestedSpeed)) Speed = Mathf.Clamp(requestedSpeed, 1, 10);
+            if (speedIndex >= 0 && speedIndex + 1 < arguments.Length && float.TryParse(arguments[speedIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float requestedSpeed)) Speed = requestedSpeed;
             if (zoomIndex >= 0 && zoomIndex + 1 < arguments.Length && float.TryParse(arguments[zoomIndex + 1], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out float parsedZoom)) requestedZoom = Mathf.Clamp(parsedZoom, 5, 120);
             if (Array.IndexOf(arguments, "--focus-settlement") >= 0 && World.Settlements.Count > 0)
             {
@@ -144,7 +152,7 @@ namespace WorldGenesis.Runtime
         }
         private void ReplaceWorld(SimulationEngine engine)
         {
-            Engine = engine; GenerationPreset = World.Preset; tickAccumulator = 0; SelectedUnitId = 0; SelectedShipId = 0; InspectX = -1; InspectY = -1;
+            Engine = engine; GenerationPreset = World.Preset; pacer.Reset(); SelectedUnitId = 0; SelectedShipId = 0; InspectX = -1; InspectY = -1;
             gestureStartedInWorld = false; dragCamera = false; previousBrushX = -1000;
             View.SetWorld(World); View.SetMaritimeQueries(Engine.GetHarborWarehouses); effects.Reset(World); hud?.WorldChanged();
         }
@@ -188,10 +196,7 @@ namespace WorldGenesis.Runtime
             HandleCamera(dt, focus); HandleWorldInput();
             if (!Paused)
             {
-                tickAccumulator += Time.unscaledDeltaTime * Speed;
-                int work = 0;
-                while (tickAccumulator >= .1f && work < 20) { Engine.Step(.1f); tickAccumulator -= .1f; work++; }
-                // A slow frame retains its backlog. It never silently skips simulation ticks.
+                pacer.Advance(Time.unscaledDeltaTime, Speed, advanceFixedTick);
             }
             View.SelectedUnitId = SelectedUnitId; View.SelectedShipId = SelectedShipId; View.Update(Time.unscaledTime); effects.Update(World, dt, Paused); hud?.Refresh();
         }

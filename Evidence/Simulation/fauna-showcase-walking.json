@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-13T22:25:06.9130992Z",
+  "output": "Builds/FaunaShowcase/walking.save.json",
+  "sha256": "D3C5377F8CD4CD13E5C6728D231807E507FA5785F6495674B0D692F866D7BAD3",
+  "sourceTick": 0,
+  "camera": {
+    "x": 64,
+    "y": 65,
+    "zoom": 20,
+    "recommendedDelay": 0,
+    "recommendedSeconds": 4
+  },
+  "subjects": [
+    {
+      "Id": 1,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 \u0448\u0430\u0433 south",
+      "species": "Deer",
+      "direction": "south",
+      "start": [
+        64.5,
+        62.5
+      ],
+      "routeLength": 12
+    },
+    {
+      "Id": 2,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 \u0448\u0430\u0433 west",
+      "species": "Deer",
+      "direction": "west",
+      "start": [
+        61.5,
+        65.5
+      ],
+      "routeLength": 12
+    },
+    {
+      "Id": 3,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 \u0448\u0430\u0433 east",
+      "species": "Deer",
+      "direction": "east",
+      "start": [
+        67.5,
+        65.5
+      ],
+      "routeLength": 12
+    },
+    {
+      "Id": 4,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 \u0448\u0430\u0433 north",
+      "species": "Deer",
+      "direction": "north",
+      "start": [
+        64.5,
+        68.5
+      ],
+      "routeLength": 12
+    }
+  ],
+  "continuedTicks": 120,
+  "validation": true,
+  "allOriginalSubjectsSurvive": true,
+  "assistance": "Authored dry meadow and controlled initial positions, needs, ages, directions, one-cell or long paths; births/war/automatic weather and new wildlife disabled. Fields/pasture, crop stage, ownership, four towns and rulers prepared explicitly. Ordinary simulation moves units and performs work; this is not evidence of natural progression, balance or taming. The generator does not render images."
+}

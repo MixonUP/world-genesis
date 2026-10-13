@@ -8,6 +8,7 @@ using WorldGenesis.Simulation;
 namespace WorldGenesis.Runtime
 {
     /// <summary>Opt-in native Player measurements. No overhead in ordinary play.</summary>
+    [DefaultExecutionOrder(1000)]
     public sealed class RuntimeDiagnostics : MonoBehaviour
     {
         private string reportPath;
@@ -15,6 +16,13 @@ namespace WorldGenesis.Runtime
         private int initialPopulation, requestedPopulation, startCollections;
         private bool initialized;
         private readonly List<float> frameTimes = new List<float>(12000);
+        private readonly List<float> simulationTimes = new List<float>(12000);
+        private long previousTick, measuredStartTick;
+        private int measuredStartPopulation, peakPopulation, budgetLimitedFrames;
+        private double maximumBacklog, lastLimitedRequested, measuredLimitedRequested;
+        private float previousSpeed;
+        private bool previousPaused;
+        private int configurationChanges;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void InstallWhenRequested()
@@ -49,15 +57,26 @@ namespace WorldGenesis.Runtime
                     }
                 }
                 initialPopulation = game.World.Units.Count; started = Time.realtimeSinceStartup; initialized = true;
-                startCollections = GC.CollectionCount(0);
+                startCollections = GC.CollectionCount(0); previousTick = game.World.Tick;
             }
             float elapsed = Time.realtimeSinceStartup - started;
-            if (elapsed < 3) return; // Exclude loading and shader warm-up explicitly.
+            if (elapsed < 3) { previousTick = game.World.Tick; return; } // Exclude loading and shader warm-up explicitly.
+            if (frameTimes.Count == 0) { measuredStartTick = previousTick; measuredStartPopulation = game.World.Units.Count; lastLimitedRequested = game.LimitedRequestedSeconds; previousSpeed = game.Speed; previousPaused = game.Paused; startCollections = GC.CollectionCount(0); }
+            double currentLimited = game.LimitedRequestedSeconds;
+            measuredLimitedRequested += currentLimited >= lastLimitedRequested ? currentLimited - lastLimitedRequested : currentLimited;
+            lastLimitedRequested = currentLimited;
+            if (previousSpeed != game.Speed || previousPaused != game.Paused) { configurationChanges++; previousSpeed = game.Speed; previousPaused = game.Paused; }
             frameTimes.Add(Time.unscaledDeltaTime * 1000);
+            simulationTimes.Add((float)game.SimulationWorkMilliseconds);
+            peakPopulation = Math.Max(peakPopulation, game.World.Units.Count);
+            maximumBacklog = Math.Max(maximumBacklog, game.SimulationBacklogSeconds);
+            if (game.SimulationBudgetLimited) budgetLimitedFrames++;
             if (elapsed < seconds + 3) return;
             double total = 0;
             foreach (float time in frameTimes) total += time;
             frameTimes.Sort();
+            simulationTimes.Sort();
+            BackgroundMusic music = game.GetComponent<BackgroundMusic>();
             Report report = new Report
             {
                 Utc = DateTime.UtcNow.ToString("o"), Kind = "native Windows Player frame sample",
@@ -72,8 +91,25 @@ namespace WorldGenesis.Runtime
                 MaxFrameMS = frameTimes[frameTimes.Count - 1], MeanFPS = frameTimes.Count * 1000 / total,
                 AllocatedMemoryBytes = Profiler.GetTotalAllocatedMemoryLong(), ReservedMemoryBytes = Profiler.GetTotalReservedMemoryLong(),
                 Gen0Collections = GC.CollectionCount(0) - startCollections,
-                Tick = game.World.Tick, Speed = game.Speed, Paused = game.Paused
+                Tick = game.World.Tick, Speed = game.Speed, Paused = game.Paused,
+                MeasuredStartTick = measuredStartTick, MeasuredSimulationSeconds = (game.World.Tick - measuredStartTick) * (double)SimulationEngine.TickSeconds,
+                ActualSpeed = (game.World.Tick - measuredStartTick) * (double)SimulationEngine.TickSeconds / (total / 1000),
+                MeasuredStartPopulation = measuredStartPopulation, PeakPopulation = peakPopulation, BudgetLimitedFrames = budgetLimitedFrames,
+                MaximumBacklogSeconds = maximumBacklog, LimitedRequestedSeconds = measuredLimitedRequested, SpeedOrPauseChanges = configurationChanges,
+                SimulationP95MS = simulationTimes[Mathf.Clamp((int)Math.Ceiling(simulationTimes.Count * .95) - 1, 0, simulationTimes.Count - 1)],
+                SimulationMaxMS = simulationTimes[simulationTimes.Count - 1]
             };
+            if (music != null)
+            {
+                report.MusicTracks = music.TrackCount; report.MusicTrackIndex = music.CurrentTrackIndex;
+                report.MusicPlaybackActive = music.IsPlaybackActive; report.MusicMuted = music.Muted;
+                report.MusicTransitions = music.CompletedTransitions;
+                foreach (AudioSource source in music.GetComponentsInChildren<AudioSource>())
+                {
+                    if (!source.name.StartsWith("Background music ") || !source.isPlaying) continue;
+                    if (source.time > report.MusicPlaybackSeconds) { report.MusicPlaybackSeconds = source.time; report.MusicPitch = source.pitch; }
+                }
+            }
             try
             {
                 string path = Path.GetFullPath(reportPath); Directory.CreateDirectory(Path.GetDirectoryName(path));
@@ -93,6 +129,13 @@ namespace WorldGenesis.Runtime
             public float P50FrameMS, P95FrameMS, P99FrameMS, MaxFrameMS, Speed;
             public long AllocatedMemoryBytes, ReservedMemoryBytes, Tick;
             public bool Paused;
+            public int MeasuredStartPopulation, PeakPopulation, BudgetLimitedFrames, SpeedOrPauseChanges;
+            public long MeasuredStartTick;
+            public double MeasuredSimulationSeconds, ActualSpeed, MaximumBacklogSeconds, LimitedRequestedSeconds;
+            public float SimulationP95MS, SimulationMaxMS;
+            public int MusicTracks, MusicTrackIndex, MusicTransitions;
+            public bool MusicPlaybackActive, MusicMuted;
+            public float MusicPlaybackSeconds, MusicPitch;
         }
     }
 }

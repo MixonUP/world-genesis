@@ -78,7 +78,7 @@ namespace WorldGenesis.Simulation
                 BuildingData b = World.Buildings[i]; if (b.Health <= 0) continue;
                 if (b.Type == BuildingType.Brewery) b.BrewingProgress = 0;
                 TileData tile = World.Cells[World.Index(b.X, b.Y)];
-                if (b.Type == BuildingType.Farm && b.HarvestReady <= .00001f && tile.Fire <= .01f)
+                if (b.Type == BuildingType.Farm && b.HarvestReady <= .00001f && tile.Fire <= .01f && PlacementRules.IsDryGround(World,b.X,b.Y))
                 {
                     float water = Math.Max(.2f, tile.Moisture);
                     b.CropGrowth = Math.Min(1, b.CropGrowth + (.005f + .01f * water) * (1 + .15f * (b.Level - 1)) * World.GetWeatherGrowthMultiplier(World.Index(b.X, b.Y)));

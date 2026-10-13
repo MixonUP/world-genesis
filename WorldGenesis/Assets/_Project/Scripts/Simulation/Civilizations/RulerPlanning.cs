@@ -24,7 +24,7 @@ namespace WorldGenesis.Simulation
         private bool DrySeat(int cell)
         {
             TileData t = World.Cells[cell];
-            return World.IsWalkable(cell % World.Width, cell / World.Width) && t.WaterDepth == 0 && t.Fire == 0 && t.BuildingId == 0 && t.SettlementId == 0 && t.Terrain != TerrainType.Swamp && t.Terrain != TerrainType.Ravine;
+            return PlacementRules.IsDryGround(World, cell % World.Width, cell / World.Width) && World.IsWalkable(cell % World.Width, cell / World.Width) && t.WaterDepth == 0 && t.Fire == 0 && t.BuildingId == 0 && t.SettlementId == 0 && t.Terrain != TerrainType.Swamp && t.Terrain != TerrainType.Ravine;
         }
         // Bounded flood fill: prefer elevation only inside the founder's reachable component.
         private int ChooseSettlementSeat(int x, int y)

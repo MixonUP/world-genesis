@@ -60,9 +60,9 @@ namespace WorldGenesis.Runtime
             seed = Input(header, new Vector2(389, -34), new Vector2(112, 29), game.World.Seed.ToString());
             ButtonAt(header, "Новый мир", new Vector2(513, -24), new Vector2(120, 39), () => { if (int.TryParse(seed.text, out int value)) game.NewWorld(value); else ShowToast("Seed — целое число от −2147483648 до 2147483647"); });
             Button pause = ButtonAt(header, "II", new Vector2(660, -24), new Vector2(46, 39), () => game.Paused = !game.Paused); pauseLabel = pause.GetComponentInChildren<Text>();
-            float[] speeds = { 1, 2, 5, 10 };
-            for (int i = 0; i < speeds.Length; i++) { float speed = speeds[i]; speedButtons.Add(ButtonAt(header, speed + "×", new Vector2(713 + i * 45, -24), new Vector2(39, 39), () => { game.Speed = speed; game.Paused = false; })); }
-            clockLabel = Label(header, "", 13, PixelArt.Teal, new Vector2(905, -25), new Vector2(190, 34));
+            int[] speeds = SimulationPacer.Speeds;
+            for (int i = 0; i < speeds.Length; i++) { float speed = speeds[i]; speedButtons.Add(ButtonAt(header, speed + "×", new Vector2(713 + i * 49, -24), new Vector2(45, 39), () => { game.Speed = speed; game.Paused = false; })); }
+            clockLabel = Label(header, "", 12, PixelArt.Teal, new Vector2(1064, -19), new Vector2(275, 48));
             ButtonAt(header, "Сохранить", new Vector2(-248, -24), new Vector2(104, 39), game.Save, true);
             ButtonAt(header, "Загрузить", new Vector2(-134, -24), new Vector2(108, 39), game.Load, true);
 
@@ -218,9 +218,9 @@ namespace WorldGenesis.Runtime
             PopulationCounts population = CountPopulation(world);
             stats.text = "Поселений " + world.Settlements.Count + " · построек " + world.Buildings.Count + "\nВзрослые  М " + population.Men + " · Ж " + population.Women + "\nДети " + (population.Boys + population.Girls) + " (м " + population.Boys + " · д " + population.Girls + ")\nЖивотные " + population.Animals;
             clockLabel.text = (game.Paused ? "МИР НА ПАУЗЕ" : "МИР ЖИВЁТ") + "\nТик " + world.Tick.ToString("N0");
-            if (game.SimulationBacklogSeconds > 1) clockLabel.text = "ОБРАБОТКА ТИКОВ\nОчередь " + game.SimulationBacklogSeconds.ToString("0.0") + " с";
+            if (!game.Paused && game.Speed >= 20) clockLabel.text = "Скорость " + game.Speed.ToString("0") + "× · факт " + game.ActualSimulationSpeed.ToString("0.0") + "×\nТик " + world.Tick.ToString("N0") + (game.SimulationBudgetLimited ? " · предел расчёта" : "");
             pauseLabel.text = game.Paused ? "▶" : "II";
-            float[] speeds = { 1, 2, 5, 10 }; for (int i = 0; i < speeds.Length; i++) speedButtons[i].GetComponent<Image>().color = game.Speed == speeds[i] && !game.Paused ? PixelArt.Hex("3b635f") : surface;
+            int[] speeds = SimulationPacer.Speeds; for (int i = 0; i < speeds.Length; i++) speedButtons[i].GetComponent<Image>().color = game.Speed == speeds[i] && !game.Paused ? PixelArt.Hex("3b635f") : surface;
             radiusLabel.text = "Радиус: " + game.BrushRadius + "  [ / ]";
             if (game.Tool != null && game.Tool.Kind == ToolKind.Power)
             {

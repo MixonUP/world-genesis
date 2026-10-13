@@ -1,0 +1,384 @@
+{
+  "utc": "2026-10-13T22:16:29.6354869Z",
+  "kind": "Offline .NET exact fixed-tick benchmark; not Unity FPS",
+  "requestedTicks": 20,
+  "failures": 0,
+  "sourceUnchanged": true,
+  "sourceSHA256": {
+    "Civilizations/CaravanData.cs": "561C061A5E9F41AE2E5F9CB05B9E7C662AB65F2FC681E0C93969643475ED9C51",
+    "Civilizations/CaravanTrade.cs": "113DC2AB4FC9B904C883A4CE206D37C8BE19B2A23E9BA89DEA909AEAE65DBD2D",
+    "Civilizations/CivilEconomy.cs": "3807875FECE23052019060CB321255E2B620A093C4D290B7BE408D8747472EF2",
+    "Civilizations/MaritimeInfrastructure.cs": "184E21AF5E2564E56A99830796A7E77909D4E8C9010F68297CEBD761CD538393",
+    "Civilizations/MaritimeSimulation.cs": "8281FD7D1D633B3563E0BFF45931DD086EFECE59D65EE0FCBFB92F099E3DDB6B",
+    "Civilizations/MaritimeSimulationHarbor.cs": "B2E5362F504C90C5948170121EFCD41EB7094FA85925E849581E51D2418815B6",
+    "Civilizations/MaritimeSimulationJobs.cs": "01E26C7CEC34E5456EB57A125BD827DA755CE40B6BCE07A5B19BEBD2BBD835F0",
+    "Civilizations/MaritimeSimulationVoyages.cs": "153CA68056CE05D33D6983B67D2A3C5EA845374CCBF9CAE386BDC983B9288FF3",
+    "Civilizations/MarketSimulation.Maritime.cs": "BCBEA4CFE290CD43CFE174BF45DEE3870544D6F947C970CCD36AE2E87B616978",
+    "Civilizations/MarketSimulation.Planning.cs": "60AD1E2F1B70F5BABE1617F2D831AEC3338C529FCE4910ADA592117A31435EB9",
+    "Civilizations/MarketSimulation.cs": "F5218EC5ED066B764E96F99BCC0BD8C90D7E31A4A0CF1CEAEDD2DD129A97CA5B",
+    "Civilizations/RulerPlanning.cs": "CFDC7DEF46C697DF5FC84A3931076BF01FA8F71A60ABA3E39A432D8BAC882616",
+    "Civilizations/SettlementDevelopment.cs": "0E609B0AD72A6C92462698844CDCCB67A6402D242AAEEDC20DA58E0B488A4D03",
+    "Civilizations/SettlementPolitics.cs": "DD9E01E41D7FD8F245A31DF1DF1D3D1905514FCD2B6A9963FF4996731E0BB745",
+    "Civilizations/SocialData.cs": "E1C8C567EEACD0A0F7584F3F9ED2ED4177FB9E5430F5C0D47F48C9E7902F23B0",
+    "Civilizations/SocialPolitics.cs": "9090BC778F77AEF35B37F522EFAFEBB75A000B1246D56C96F7BCF89A0FFAC48D",
+    "Civilizations/SocialSimulation.cs": "D2831E744B0E81D45CD6597FFCF654BF6E7EB5B62C027C2EB351D1F2AFCFE9C7",
+    "Civilizations/TechnologyCatalog.cs": "DE6454947B8310BC1A9B7C1A79F48A5A795EBACABF520B2D47EEBB0566B1354D",
+    "Civilizations/TransportConstruction.cs": "94829A3DB58713290FAE4537B478D56A7BD4B2C6D27D91A0C800FC7511A10722",
+    "Climate/WeatherSimulation.cs": "2D5106A5CC6842FA83F56FDDC1AC46730CAF0878CFDEB36483C2D8C60D23D3CA",
+    "Entities/AgriculturalWork.cs": "199F71C8F1F89EF29A4435FB70906CA7410C8EABA7AA09D1F7FD473A702D3EA0",
+    "Entities/AgricultureEquipment.cs": "027E6BC06CF9EF53CA8087B58823F87A1E0E1FD6CBCA4AE336D45F4C6526C966",
+    "Entities/BuildingInteraction.cs": "DB413DC4895435299902E91DA88982CDD62ABBDD67B892B23A92A9548489A6FC",
+    "Entities/CitizenBehavior.cs": "062105B920DDB4B2563479057926A0D31ED9D1033B59DB63DF37AD509B699664",
+    "Entities/Demography.cs": "9820D58A77894CF5C3BE4B0E1D1162506779BF722EED7A2FFE7D3B6D55DE1D3E",
+    "Entities/FishingSimulation.cs": "C9703BADFA92413776898518A2EFDC02D00E017D41A7282A6D1C1F8541304259",
+    "Entities/GridNavigation.cs": "6188DF2961B69C49428AB52C05D8CF12E4FC564DFFF1960EEFACD78DA4836B32",
+    "Entities/Husbandry.cs": "8B0BA66D3BF96E498077AAE1332F29948259BE3E98D08037BB7D25E6B62F8FCA",
+    "Entities/IndustrySimulation.cs": "3E84BD11AC65B2A5CBD5816414D727986778FF62D62B68CB3AFD4677A64D5149",
+    "Entities/ResourceEconomy.cs": "9F7800BF57BB672604C3553724F11D6E7C4DFBDADF304EE499FEF15A36EFE63A",
+    "Entities/SocialLearning.cs": "CBF7915B89C4CEA44F14A81F986EF4EA186D463DC994D9B8284DA16F1B109CEA",
+    "Entities/WildlifeData.cs": "186B006E4D0847496070A5B15A7FFAF3598E238DB3C494FA7840F39A3671FD14",
+    "Entities/WildlifeEcology.cs": "0B2B85FB829A8AF604DC8065A9216F543BE7EF166CBD1918009EBCCC9D21CD09",
+    "Entities/WorkshopSupply.cs": "7D01521A109FDB66DAA2D4918ECCD977E275EE7F558FAD431760FB9039E169AF",
+    "SimulationEngine.cs": "58B0606B44C8496BA21D2C1912616D8E1B7F72755219B9C5EA1A17855748A8B6",
+    "World/AgricultureData.cs": "8C4649DA2371C39161AA292103C69A0FECD2B067C6C355B7A1702C6DF66C31C0",
+    "World/BiomeData.cs": "7780D822597CF7FD6B88BE3652D7BB286F1EE1BCED6DC448DC21F13E1D020D44",
+    "World/BuildingAccess.cs": "ACD6ED7D3C86BE8904CE86E6A36DAA6D55A251CA70C4C0CF179160E6E0F07348",
+    "World/BuildingSalvageData.cs": "C4119A4FB659C9988854ADF2D68551D7169252597230E208FA7FECEC6787210F",
+    "World/FishingData.cs": "BA8DF9C10CDB11ABAB88716DDE44760CF902C970F2BA33ED5EFD8D8735FE894C",
+    "World/HydrologyData.cs": "174F3E6F4278A7AEE3D5361449BCA6067565169D6844C0160966309049C55389",
+    "World/IndustryCatalog.cs": "625979412F325D4ABFF0C0D75FDC08A343048D55F21824489E8891C7F13CFC36",
+    "World/IndustryData.cs": "014B1094FD1E8223182047BC422829692AFA5B4D15CF15339BC586AB036E6E33",
+    "World/InfrastructureData.cs": "C765663D3A02B4DDB817064DF0E99ABDCBFDD7EBEB74D8A48A175C869D05E228",
+    "World/MaritimeCatalog.cs": "DBD509C264FE57DC2F3450A956BCA1392D1601471BD5A7836EF80EDCB3DC2869",
+    "World/MaritimeData.cs": "9329BC9BF07DF222A5E6F157DDEAF768927B39A6A403ABD00EE18714708F3889",
+    "World/MarketCatalog.cs": "F3CB8E694BF081AB0F649EB18B585F47E3ECA99916343DC480A3014BB8DEF169",
+    "World/MarketData.cs": "A76B1599EE33F27DF3A5E923C22630CC43D9FA8FDECE5EF4A8846E7CC33D0864",
+    "World/ResourceCatalog.cs": "908701FC50202770CD4FAE8B78E983708465BA49D7A8D347A2036712BEED099B",
+    "World/ResourceData.cs": "199727331727782875FA3DC6C3D4C50C025A5A4956E6C6F6C5B4687A7C69A5D9",
+    "World/StorageCapacity.cs": "2FE0F2213194F0455A94010BEBCA622D196F639624EB35E05205013F4F0A2174",
+    "World/SubsistenceRules.cs": "5DC8A201B9D6452F3F472D6819E91117482DF31E83217C11D62E1E8B0FEA85B8",
+    "World/TransportData.cs": "DCB5B2F80AFB8860D827C73C38BB20ABAB4B711B857B2392A8BC9B7604750F24",
+    "World/WeatherData.cs": "10BD52076CB09CA67787C15328B096EFB3EBB1BD848CC1FA224EFB9CFF4997A7",
+    "World/WorldGenerator.cs": "6BE69D45925B6DE6202D30346425773D944FFF3BC74782D66396586B98E3E454",
+    "World/WorldState.cs": "2DE1E02830A96EEB0B5538A046063F62BA738D233A8C25375366AE90AA72A78B"
+  },
+  "assemblySHA256": "A62BDB8790526BE66116FAF39C5F9FB1D6195863DCD3E7BBD7EAD852136DF538",
+  "runtime": ".NET 8.0.20",
+  "processorCount": 32,
+  "results": [
+    {
+      "preset": "Island",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 100,
+      "initialPopulation": 100,
+      "finalPopulation": 100,
+      "buildings": 8,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 0.0387665,
+      "simulationSecondsPerWallSecond": 51.590935472637454,
+      "meanTickMs": 1.938325,
+      "p50TickMs": 1.8609,
+      "p95TickMs": 3.6282,
+      "p99TickMs": 3.6282,
+      "maxTickMs": 3.7388,
+      "allocatedBytes": 22648,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "316181324ED99E1271705921871A715017D93BD2C44C6174CED2AC60F4CB1FA6",
+      "finalSHA256": "C8C10C99B46863FF0120ED60942FA2A98AD8B2D3F2AAE8A4388D702482925A61",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 50.4566,
+        "buildingLookupMs": 18.5159,
+        "checksum": 23000000,
+        "navigationQueries": 200,
+        "pathsFound": 174,
+        "navigationMs": 625.5381,
+        "pathHash": 7328828374461599367
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    },
+    {
+      "preset": "Island",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 1000,
+      "initialPopulation": 1000,
+      "finalPopulation": 1000,
+      "buildings": 8,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 0.5216918,
+      "simulationSecondsPerWallSecond": 3.833681112104886,
+      "meanTickMs": 26.084590000000002,
+      "p50TickMs": 25.2193,
+      "p95TickMs": 39.1535,
+      "p99TickMs": 39.1535,
+      "maxTickMs": 45.2098,
+      "allocatedBytes": 217672,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "2C199E0EEA993F5B51EEF750431CAEE59A598B85CDA12385218DF60BC4260189",
+      "finalSHA256": "8550E097D08088C5C385107A5A5D491CF56B4915770EEC569296DB3137CDF2FF",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 59.8534,
+        "buildingLookupMs": 9.5606,
+        "checksum": 180500000,
+        "navigationQueries": 200,
+        "pathsFound": 174,
+        "navigationMs": 539.0737,
+        "pathHash": -4205232877345951769
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    },
+    {
+      "preset": "Archipelago",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 100,
+      "initialPopulation": 100,
+      "finalPopulation": 100,
+      "buildings": 8,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 0.0484605,
+      "simulationSecondsPerWallSecond": 41.27072564253361,
+      "meanTickMs": 2.423025,
+      "p50TickMs": 1.4536,
+      "p95TickMs": 6.6047,
+      "p99TickMs": 6.6047,
+      "maxTickMs": 8.3104,
+      "allocatedBytes": 18240,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "5206AC079A3BDEB5C50E49D098260A6CC0972CBCEF68D85A9A0463CDDEF0B1E2",
+      "finalSHA256": "E6E5677872614AF85B0BCA77F84398E3784045FCD4B170AD428D3E978391961B",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 14.311,
+        "buildingLookupMs": 10.1096,
+        "checksum": 23000000,
+        "navigationQueries": 200,
+        "pathsFound": 178,
+        "navigationMs": 520.2449,
+        "pathHash": -6633707927111287109
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    },
+    {
+      "preset": "Archipelago",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 1000,
+      "initialPopulation": 1000,
+      "finalPopulation": 1000,
+      "buildings": 8,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 17.6259985,
+      "simulationSecondsPerWallSecond": 0.11346874901867261,
+      "meanTickMs": 881.299925,
+      "p50TickMs": 183.4482,
+      "p95TickMs": 3032.823,
+      "p99TickMs": 3032.823,
+      "maxTickMs": 3401.2674,
+      "allocatedBytes": 174632,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "D6DB6D404D1804BF0A104572C5BD74F15110518E4675888D1623A557E432F186",
+      "finalSHA256": "A728801CFBEB07A1B8131A4D22FAFBEFA6F295C5C44729D83977D75AA7390CFB",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 58.7088,
+        "buildingLookupMs": 9.5746,
+        "checksum": 180500000,
+        "navigationQueries": 200,
+        "pathsFound": 178,
+        "navigationMs": 402.0167,
+        "pathHash": -3530804930138219814
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    },
+    {
+      "preset": "Continent",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 100,
+      "initialPopulation": 75,
+      "finalPopulation": 75,
+      "buildings": 6,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 0.0225344,
+      "simulationSecondsPerWallSecond": 88.75319511502414,
+      "meanTickMs": 1.12672,
+      "p50TickMs": 1.1181,
+      "p95TickMs": 2.0563,
+      "p99TickMs": 2.0563,
+      "maxTickMs": 2.3339,
+      "allocatedBytes": 13800,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "D911B67D20E4B50943FF3C1755310A06120EB36F3D09BD894FA94C51EF2EF616",
+      "finalSHA256": "858CFCE8FF082C24086476A2560FAF6813A162F2D0790E92F242F03347A6EB76",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 12.761,
+        "buildingLookupMs": 9.3086,
+        "checksum": 16799163,
+        "navigationQueries": 200,
+        "pathsFound": 97,
+        "navigationMs": 806.2866,
+        "pathHash": -664482859687212949
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    },
+    {
+      "preset": "Continent",
+      "seed": 1618033,
+      "width": 128,
+      "height": 128,
+      "requestedPopulation": 1000,
+      "initialPopulation": 750,
+      "finalPopulation": 750,
+      "buildings": 6,
+      "startTick": 0,
+      "endTick": 20,
+      "simulatedSeconds": 2,
+      "wallSeconds": 0.3328744,
+      "simulationSecondsPerWallSecond": 6.008272189150022,
+      "meanTickMs": 16.643720000000002,
+      "p50TickMs": 16.1966,
+      "p95TickMs": 29.4692,
+      "p99TickMs": 29.4692,
+      "maxTickMs": 31.8057,
+      "allocatedBytes": 133136,
+      "gen0Collections": 0,
+      "validations": 2,
+      "initialSHA256": "F107CFA9A4DE96A53877BED791387A520AD0E024774906EDA15AD70BFD141CB2",
+      "finalSHA256": "E5CCB0F5594C2420CBE4C236F2DCFD0E1BE70D51F82AD12D288AAE9DC66CC14E",
+      "micro": {
+        "queries": 200000,
+        "unitLookupMs": 46.8304,
+        "buildingLookupMs": 9.6017,
+        "checksum": 129235488,
+        "navigationQueries": 200,
+        "pathsFound": 97,
+        "navigationMs": 878.4011,
+        "pathHash": 3534533823719504527
+      },
+      "assistance": "Ordinary Spawn commands create four large starting towns; no technologies/materials/needs/laws granted. This is a load scenario, not natural population growth."
+    }
+  ],
+  "trace": {
+    "TransportData.GetTerrainSpeed": {
+      "calls": 176704885,
+      "inclusiveMilliseconds": 6255.7309
+    },
+    "WorldState.IsWalkable": {
+      "calls": 63379883,
+      "inclusiveMilliseconds": 6235.5498
+    },
+    "TransportData.CanStep": {
+      "calls": 60515615,
+      "inclusiveMilliseconds": 9463.0777
+    },
+    "ResourceData.GetBuilding": {
+      "calls": 1398843,
+      "inclusiveMilliseconds": 42.4871
+    },
+    "BuildingAccess.BuildingNavigationCell": {
+      "calls": 29120,
+      "inclusiveMilliseconds": 3.3917
+    },
+    "TransportData.GetStepCost": {
+      "calls": 56523040,
+      "inclusiveMilliseconds": 8474.6848
+    },
+    "GridNavigation.Find": {
+      "calls": 11532,
+      "inclusiveMilliseconds": 21912.7517
+    },
+    "WorldState.GetSettlement": {
+      "calls": 152305,
+      "inclusiveMilliseconds": 5.1417
+    },
+    "Find.Budget": {
+      "calls": 495,
+      "inclusiveMilliseconds": 0.0929
+    },
+    "WorldState.GetUnit": {
+      "calls": 1280730,
+      "inclusiveMilliseconds": 280.2601
+    },
+    "ResourceEconomy.UpdateResources": {
+      "calls": 150,
+      "inclusiveMilliseconds": 7.6889
+    },
+    "SubsistenceRules.UpdateCampfireSupply": {
+      "calls": 150,
+      "inclusiveMilliseconds": 0.5174
+    },
+    "MaritimeSimulationVoyages.UpdateMaritime": {
+      "calls": 150,
+      "inclusiveMilliseconds": 0.0667
+    },
+    "SimulationEngine.UpdateUnit": {
+      "calls": 63500,
+      "inclusiveMilliseconds": 18586.1646
+    },
+    "SimulationEngine.Tick": {
+      "calls": 150,
+      "inclusiveMilliseconds": 18668.0638
+    },
+    "SimulationEngine.UpdateEnvironment": {
+      "calls": 30,
+      "inclusiveMilliseconds": 8.352
+    },
+    "MarketSimulation.UpdateMarkets": {
+      "calls": 15,
+      "inclusiveMilliseconds": 0.0399
+    },
+    "SimulationEngine.UpdateSettlements": {
+      "calls": 15,
+      "inclusiveMilliseconds": 0.5682
+    },
+    "SettlementDevelopment.UpdateDevelopment": {
+      "calls": 15,
+      "inclusiveMilliseconds": 23.0195
+    },
+    "AgricultureEquipment.UpdateAgriculture": {
+      "calls": 15,
+      "inclusiveMilliseconds": 13.9831
+    },
+    "WildlifeEcology.UpdateWildlife": {
+      "calls": 15,
+      "inclusiveMilliseconds": 0.3293
+    },
+    "CaravanTrade.UpdateCaravans": {
+      "calls": 15,
+      "inclusiveMilliseconds": 0.0573
+    },
+    "SocialSimulation.UpdateSocial": {
+      "calls": 15,
+      "inclusiveMilliseconds": 3.9046
+    },
+    "Find.Exhausted": {
+      "calls": 2913,
+      "inclusiveMilliseconds": 1.0216
+    }
+  }
+}

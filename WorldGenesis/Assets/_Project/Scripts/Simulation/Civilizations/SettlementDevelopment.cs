@@ -204,7 +204,7 @@ namespace WorldGenesis.Simulation
         public bool TryBuildInfrastructure(int settlementId, BuildingType type, int x, int y)
         {
             SettlementData s = World.GetSettlement(settlementId);
-            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 26 || !World.IsWalkable(x, y)) return false;
+            if (s == null || HasTransportProject(s.Id) || s.Population <= 0 || (int)type < 7 || (int)type > 26 || !PlacementRules.CanPlaceBuilding(World,type,x,y)) return false;
             if (!CanBuildMaritimeSite(s, type, x, y)) return false;
             int cell = World.Index(x, y);
             if (World.Cells[cell].BuildingId != 0 || World.Cells[cell].Fire > 0 || (World.Cells[cell].SettlementId != 0 && World.Cells[cell].SettlementId != s.Id) || DistanceSquared(x, y, s.X, s.Y) > 18 * 18) return false;

@@ -15,6 +15,7 @@ namespace WorldGenesis.Simulation
 
         private bool CanBuildMaritimeSite(SettlementData home, BuildingType type, int x, int y)
         {
+            if(!PlacementRules.CanPlaceBuilding(World,type,x,y))return false;
             if (type < BuildingType.Port) return true;
             if (type == BuildingType.Port || type == BuildingType.Shipyard) return FindMaritimeConstructionBerth(x, y) >= 0;
             for (int i = 0; i < World.Buildings.Count; i++)
@@ -47,7 +48,7 @@ namespace WorldGenesis.Simulation
                         {
                             if (Math.Max(Math.Abs(dx), Math.Abs(dy)) != radius) continue;
                             int x = home.X + dx, y = home.Y + dy;
-                            if (!World.IsWalkable(x, y)) continue;
+                            if (!PlacementRules.CanPlaceBuilding(World,type,x,y)) continue;
                             if (TryBuildInfrastructure(home.Id, type, x, y)) { home.BuildTimer = 0; return true; }
                         }
                 return false;

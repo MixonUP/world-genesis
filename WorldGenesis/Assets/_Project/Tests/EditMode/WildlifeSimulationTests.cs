@@ -42,7 +42,7 @@ namespace WorldGenesis.Tests
         public static void BirthNeedsActualHealthyPairAndBirthLaw()
         {
             var e = Make(); e.Spawn(SpeciesType.Goat, 20, 20, 2); var female = e.World.Units[0]; var male = e.World.Units[1]; female.Sex = Sex.Female; male.Sex = Sex.Male;
-            foreach (UnitData u in e.World.Units) { u.X = u.Y = 20.5f; u.Age = 3; u.Hunger = .1f; u.Task = UnitTask.Idle; u.DecisionTimer = 10000; } female.BreedingSeconds = 89;
+            foreach (UnitData u in e.World.Units) { u.X = u.Y = 20.5f; u.Age = 3; u.Hunger = .1f; u.Task = UnitTask.Idle; u.DecisionTimer = 10000; } female.BreedingSeconds = WildlifeCatalog.BreedingInterval(female.Species,false)-1; female.NextBreedingTick=male.NextBreedingTick=0;
             e.World.Laws.Births = false; Steps(e, 10); Require(e.World.Units.Count == 2, "Birth law ignored"); e.World.Laws.Births = true; male.X = 40.5f; Steps(e, 10); Require(e.World.Units.Count == 2, "Distant mate enabled pregnancy"); male.X = 20.5f; Steps(e, 10);
             Require(e.World.Units.Count == 3 && e.World.Units[2].Age == 0 && e.World.Units[2].PackId == female.PackId, "Actual pair did not produce pack offspring"); Valid(e.World);
         }

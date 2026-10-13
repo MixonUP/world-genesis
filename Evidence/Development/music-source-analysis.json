@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-13T22:27:07.5827017Z",
+  "tracks": [
+    {
+      "id": "WG_MUS_01",
+      "durationSeconds": 224.712,
+      "sampleRate": 48000,
+      "channels": 2,
+      "codec": "MP3",
+      "sourceSHA256": "25B72B141BF6B7DB6BC35A588E18D4C1843A6E05D1E5380FDCFFCF5A850AFF12",
+      "integratedLUFS": -17.23,
+      "truePeakDBTP": -4.99,
+      "loudnessRangeLU": 7.3,
+      "processing": "Analysis only; ffmpeg loudnorm output to null; original bytes unchanged",
+      "listening": "not performed by agent"
+    },
+    {
+      "id": "WG_MUS_02",
+      "durationSeconds": 225.0,
+      "sampleRate": 48000,
+      "channels": 2,
+      "codec": "MP3",
+      "sourceSHA256": "345719A73F4CB26A31C7DD55619EB3A69198839A0E4315C6EC6363A1736318F5",
+      "integratedLUFS": -17.67,
+      "truePeakDBTP": -5.13,
+      "loudnessRangeLU": 7.1,
+      "processing": "Analysis only; ffmpeg loudnorm output to null; original bytes unchanged",
+      "listening": "not performed by agent"
+    },
+    {
+      "id": "WG_MUS_03",
+      "durationSeconds": 228.72,
+      "sampleRate": 48000,
+      "channels": 2,
+      "codec": "MP3",
+      "sourceSHA256": "F14BA79A5AC1BD11B5C344D3681861747F3BF1B8D69D44744A6D2349259876D7",
+      "integratedLUFS": -16.9,
+      "truePeakDBTP": -5.06,
+      "loudnessRangeLU": 6.0,
+      "processing": "Analysis only; ffmpeg loudnorm output to null; original bytes unchanged",
+      "listening": "not performed by agent"
+    }
+  ]
+}

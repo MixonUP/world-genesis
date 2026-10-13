@@ -29,6 +29,7 @@ namespace WorldGenesis.Runtime
         private readonly Material material;
         private readonly QuadBatch batch;
         private readonly Dictionary<int, Vector2> facing = new Dictionary<int, Vector2>(1024);
+        private readonly Dictionary<int, Vector2> headPositions = new Dictionary<int, Vector2>(1024);
         private readonly Dictionary<int, UnitData> unitLookup = new Dictionary<int, UnitData>(1024);
         private struct RenderEntry { public UnitData Unit; public Pose Pose; public Rect Uv; public Color Tint; public Vector2 Offset; public bool Mounted; public CitizenWaterPresentation.State Water; }
         private sealed class DepthOrder : IComparer<RenderEntry>
@@ -54,11 +55,12 @@ namespace WorldGenesis.Runtime
             if (unit.IsChild) return unit.Sex == Sex.Female ? CitizenAppearance.Girl : CitizenAppearance.Boy;
             return unit.Sex == Sex.Female ? CitizenAppearance.AdultFemale : CitizenAppearance.AdultMale;
         }
-        public void Reset() { facing.Clear(); unitLookup.Clear(); entries.Clear(); batch.Clear(); batch.Submit(); }
+        public void Reset() { facing.Clear(); headPositions.Clear(); unitLookup.Clear(); entries.Clear(); batch.Clear(); batch.Submit(); }
         public Vector2 Facing(int unitId) { return facing.TryGetValue(unitId, out Vector2 value) ? value : Vector2.down; }
+        public bool TryHeadPosition(int unitId, out Vector2 position) { return headPositions.TryGetValue(unitId, out position); }
         public void Begin(WorldState world)
         {
-            batch.Clear(); unitLookup.Clear(); entries.Clear();
+            batch.Clear(); unitLookup.Clear(); headPositions.Clear(); entries.Clear();
             if (facing.Count > world.Units.Count * 2 + 64) facing.Clear();
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
         }
@@ -94,6 +96,10 @@ namespace WorldGenesis.Runtime
             WardrobeKey key = CitizenWardrobe.Resolve(unit);
             Rect uv = atlas.Region(unit.Species, (int)pose.Appearance, key.IsValid ? (int)key.Costume : 0, (int)pose.Direction, pose.Frame);
             CitizenWaterPresentation.State water = CitizenWaterPresentation.Resolve(world, unit, mounted);
+            Vector2 anchor = atlas.HeadAnchor(unit.Species, (int)pose.Appearance, key.IsValid ? (int)key.Costume : 0, (int)pose.Direction, pose.Frame);
+            float pixel = OriginalCitizenAtlas.RaceScale(unit.Species) / OriginalCitizenAtlas.PixelsPerUnit;
+            headPositions[unit.Id] = new Vector2(unit.X, unit.Y) + presentationOffset + water.Offset + pose.StrikeOffset + pose.UpperOffset
+                + new Vector2((anchor.x - 16) * pixel, (anchor.y * pose.HeightScale - 2 - (mounted ? 10 : 0)) * pixel);
             entries.Add(new RenderEntry { Unit = unit, Pose = pose, Uv = uv, Tint = tint, Offset = presentationOffset + water.Offset, Mounted = mounted, Water = water });
         }
         private void DrawPose(UnitData unit, Pose pose, Rect uv, Color tint, Vector2 offset, bool mounted, CitizenWaterPresentation.State water)

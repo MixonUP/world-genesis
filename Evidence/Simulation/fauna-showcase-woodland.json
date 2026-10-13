@@ -1,0 +1,337 @@
+{
+  "utc": "2026-10-13T22:25:06.3570079Z",
+  "output": "Builds/FaunaShowcase/woodland.save.json",
+  "sha256": "3774DBCD1A5546E8C2BAC48036454C053E6E9A232266C1C328E41371B4931B06",
+  "sourceTick": 0,
+  "camera": {
+    "x": 65,
+    "y": 72,
+    "zoom": 27,
+    "closeups": [
+      {
+        "x": 53,
+        "y": 92,
+        "zoom": 7
+      },
+      {
+        "x": 77,
+        "y": 78,
+        "zoom": 7
+      }
+    ]
+  },
+  "subjects": [
+    {
+      "Id": 1,
+      "Name": "\u0412\u043E\u043B\u043A \u00B7 south",
+      "species": "Wolf",
+      "direction": "south",
+      "start": [
+        53.5,
+        90.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 2,
+      "Name": "\u0412\u043E\u043B\u043A \u00B7 west",
+      "species": "Wolf",
+      "direction": "west",
+      "start": [
+        51.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 3,
+      "Name": "\u0412\u043E\u043B\u043A \u00B7 east",
+      "species": "Wolf",
+      "direction": "east",
+      "start": [
+        55.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 4,
+      "Name": "\u0412\u043E\u043B\u043A \u00B7 north",
+      "species": "Wolf",
+      "direction": "north",
+      "start": [
+        53.5,
+        94.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 5,
+      "Name": "\u041C\u0435\u0434\u0432\u0435\u0434\u044C \u00B7 south",
+      "species": "Bear",
+      "direction": "south",
+      "start": [
+        77.5,
+        90.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 6,
+      "Name": "\u041C\u0435\u0434\u0432\u0435\u0434\u044C \u00B7 west",
+      "species": "Bear",
+      "direction": "west",
+      "start": [
+        75.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 7,
+      "Name": "\u041C\u0435\u0434\u0432\u0435\u0434\u044C \u00B7 east",
+      "species": "Bear",
+      "direction": "east",
+      "start": [
+        79.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 8,
+      "Name": "\u041C\u0435\u0434\u0432\u0435\u0434\u044C \u00B7 north",
+      "species": "Bear",
+      "direction": "north",
+      "start": [
+        77.5,
+        94.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 9,
+      "Name": "\u041B\u0438\u0441\u0430 \u00B7 south",
+      "species": "Fox",
+      "direction": "south",
+      "start": [
+        53.5,
+        76.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 10,
+      "Name": "\u041B\u0438\u0441\u0430 \u00B7 west",
+      "species": "Fox",
+      "direction": "west",
+      "start": [
+        51.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 11,
+      "Name": "\u041B\u0438\u0441\u0430 \u00B7 east",
+      "species": "Fox",
+      "direction": "east",
+      "start": [
+        55.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 12,
+      "Name": "\u041B\u0438\u0441\u0430 \u00B7 north",
+      "species": "Fox",
+      "direction": "north",
+      "start": [
+        53.5,
+        80.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 13,
+      "Name": "\u0421\u0443\u043C\u0440\u0430\u0447\u043D\u044B\u0439 \u0432\u043E\u043B\u043A \u00B7 south",
+      "species": "DireWolf",
+      "direction": "south",
+      "start": [
+        77.5,
+        76.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 14,
+      "Name": "\u0421\u0443\u043C\u0440\u0430\u0447\u043D\u044B\u0439 \u0432\u043E\u043B\u043A \u00B7 west",
+      "species": "DireWolf",
+      "direction": "west",
+      "start": [
+        75.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 15,
+      "Name": "\u0421\u0443\u043C\u0440\u0430\u0447\u043D\u044B\u0439 \u0432\u043E\u043B\u043A \u00B7 east",
+      "species": "DireWolf",
+      "direction": "east",
+      "start": [
+        79.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 16,
+      "Name": "\u0421\u0443\u043C\u0440\u0430\u0447\u043D\u044B\u0439 \u0432\u043E\u043B\u043A \u00B7 north",
+      "species": "DireWolf",
+      "direction": "north",
+      "start": [
+        77.5,
+        80.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 17,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 south",
+      "species": "Deer",
+      "direction": "south",
+      "start": [
+        53.5,
+        62.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 18,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 west",
+      "species": "Deer",
+      "direction": "west",
+      "start": [
+        51.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 19,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 east",
+      "species": "Deer",
+      "direction": "east",
+      "start": [
+        55.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 20,
+      "Name": "\u041E\u043B\u0435\u043D\u044C \u00B7 north",
+      "species": "Deer",
+      "direction": "north",
+      "start": [
+        53.5,
+        66.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 21,
+      "Name": "\u041A\u0430\u0431\u0430\u043D \u00B7 south",
+      "species": "Boar",
+      "direction": "south",
+      "start": [
+        77.5,
+        62.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 22,
+      "Name": "\u041A\u0430\u0431\u0430\u043D \u00B7 west",
+      "species": "Boar",
+      "direction": "west",
+      "start": [
+        75.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 23,
+      "Name": "\u041A\u0430\u0431\u0430\u043D \u00B7 east",
+      "species": "Boar",
+      "direction": "east",
+      "start": [
+        79.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 24,
+      "Name": "\u041A\u0430\u0431\u0430\u043D \u00B7 north",
+      "species": "Boar",
+      "direction": "north",
+      "start": [
+        77.5,
+        66.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 25,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 south",
+      "species": "SpiritStag",
+      "direction": "south",
+      "start": [
+        53.5,
+        48.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 26,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 west",
+      "species": "SpiritStag",
+      "direction": "west",
+      "start": [
+        51.5,
+        50.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 27,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 east",
+      "species": "SpiritStag",
+      "direction": "east",
+      "start": [
+        55.5,
+        50.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 28,
+      "Name": "\u041B\u0443\u043D\u043D\u044B\u0439 \u043E\u043B\u0435\u043D\u044C \u00B7 north",
+      "species": "SpiritStag",
+      "direction": "north",
+      "start": [
+        53.5,
+        52.5
+      ],
+      "routeLength": 1
+    }
+  ],
+  "continuedTicks": 120,
+  "validation": true,
+  "allOriginalSubjectsSurvive": true,
+  "assistance": "Authored dry meadow and controlled initial positions, needs, ages, directions, one-cell or long paths; births/war/automatic weather and new wildlife disabled. Fields/pasture, crop stage, ownership, four towns and rulers prepared explicitly. Ordinary simulation moves units and performs work; this is not evidence of natural progression, balance or taming. The generator does not render images."
+}

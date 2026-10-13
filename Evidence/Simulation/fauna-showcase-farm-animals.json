@@ -1,0 +1,293 @@
+{
+  "utc": "2026-10-13T22:25:06.6343151Z",
+  "output": "Builds/FaunaShowcase/farm-animals.save.json",
+  "sha256": "0B77133629C5A97B693F70B9B514DAFF5558732EE83929B1E9854EB6E3B4216C",
+  "sourceTick": 0,
+  "camera": {
+    "x": 65,
+    "y": 79,
+    "zoom": 21,
+    "closeups": [
+      {
+        "x": 53,
+        "y": 92,
+        "zoom": 7
+      },
+      {
+        "x": 77,
+        "y": 78,
+        "zoom": 7
+      }
+    ]
+  },
+  "subjects": [
+    {
+      "Id": 1,
+      "Name": "\u041E\u0432\u0446\u0430 \u00B7 south",
+      "species": "Sheep",
+      "direction": "south",
+      "start": [
+        53.5,
+        90.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 2,
+      "Name": "\u041E\u0432\u0446\u0430 \u00B7 west",
+      "species": "Sheep",
+      "direction": "west",
+      "start": [
+        51.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 3,
+      "Name": "\u041E\u0432\u0446\u0430 \u00B7 east",
+      "species": "Sheep",
+      "direction": "east",
+      "start": [
+        55.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 4,
+      "Name": "\u041E\u0432\u0446\u0430 \u00B7 north",
+      "species": "Sheep",
+      "direction": "north",
+      "start": [
+        53.5,
+        94.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 5,
+      "Name": "\u041A\u043E\u0437\u0430 \u00B7 south",
+      "species": "Goat",
+      "direction": "south",
+      "start": [
+        77.5,
+        90.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 6,
+      "Name": "\u041A\u043E\u0437\u0430 \u00B7 west",
+      "species": "Goat",
+      "direction": "west",
+      "start": [
+        75.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 7,
+      "Name": "\u041A\u043E\u0437\u0430 \u00B7 east",
+      "species": "Goat",
+      "direction": "east",
+      "start": [
+        79.5,
+        92.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 8,
+      "Name": "\u041A\u043E\u0437\u0430 \u00B7 north",
+      "species": "Goat",
+      "direction": "north",
+      "start": [
+        77.5,
+        94.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 9,
+      "Name": "\u041A\u043E\u0440\u043E\u0432\u0430 \u00B7 south",
+      "species": "Cow",
+      "direction": "south",
+      "start": [
+        53.5,
+        76.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 10,
+      "Name": "\u041A\u043E\u0440\u043E\u0432\u0430 \u00B7 west",
+      "species": "Cow",
+      "direction": "west",
+      "start": [
+        51.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 11,
+      "Name": "\u041A\u043E\u0440\u043E\u0432\u0430 \u00B7 east",
+      "species": "Cow",
+      "direction": "east",
+      "start": [
+        55.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 12,
+      "Name": "\u041A\u043E\u0440\u043E\u0432\u0430 \u00B7 north",
+      "species": "Cow",
+      "direction": "north",
+      "start": [
+        53.5,
+        80.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 13,
+      "Name": "\u041A\u0443\u0440\u0438\u0446\u0430 \u00B7 south",
+      "species": "Chicken",
+      "direction": "south",
+      "start": [
+        77.5,
+        76.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 14,
+      "Name": "\u041A\u0443\u0440\u0438\u0446\u0430 \u00B7 west",
+      "species": "Chicken",
+      "direction": "west",
+      "start": [
+        75.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 15,
+      "Name": "\u041A\u0443\u0440\u0438\u0446\u0430 \u00B7 east",
+      "species": "Chicken",
+      "direction": "east",
+      "start": [
+        79.5,
+        78.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 16,
+      "Name": "\u041A\u0443\u0440\u0438\u0446\u0430 \u00B7 north",
+      "species": "Chicken",
+      "direction": "north",
+      "start": [
+        77.5,
+        80.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 17,
+      "Name": "\u041E\u0441\u0451\u043B \u00B7 south",
+      "species": "Donkey",
+      "direction": "south",
+      "start": [
+        53.5,
+        62.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 18,
+      "Name": "\u041E\u0441\u0451\u043B \u00B7 west",
+      "species": "Donkey",
+      "direction": "west",
+      "start": [
+        51.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 19,
+      "Name": "\u041E\u0441\u0451\u043B \u00B7 east",
+      "species": "Donkey",
+      "direction": "east",
+      "start": [
+        55.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 20,
+      "Name": "\u041E\u0441\u0451\u043B \u00B7 north",
+      "species": "Donkey",
+      "direction": "north",
+      "start": [
+        53.5,
+        66.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 21,
+      "Name": "\u041B\u043E\u0448\u0430\u0434\u044C \u00B7 south",
+      "species": "Horse",
+      "direction": "south",
+      "start": [
+        77.5,
+        62.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 22,
+      "Name": "\u041B\u043E\u0448\u0430\u0434\u044C \u00B7 west",
+      "species": "Horse",
+      "direction": "west",
+      "start": [
+        75.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 23,
+      "Name": "\u041B\u043E\u0448\u0430\u0434\u044C \u00B7 east",
+      "species": "Horse",
+      "direction": "east",
+      "start": [
+        79.5,
+        64.5
+      ],
+      "routeLength": 1
+    },
+    {
+      "Id": 24,
+      "Name": "\u041B\u043E\u0448\u0430\u0434\u044C \u00B7 north",
+      "species": "Horse",
+      "direction": "north",
+      "start": [
+        77.5,
+        66.5
+      ],
+      "routeLength": 1
+    }
+  ],
+  "continuedTicks": 120,
+  "validation": true,
+  "allOriginalSubjectsSurvive": true,
+  "assistance": "Authored dry meadow and controlled initial positions, needs, ages, directions, one-cell or long paths; births/war/automatic weather and new wildlife disabled. Fields/pasture, crop stage, ownership, four towns and rulers prepared explicitly. Ordinary simulation moves units and performs work; this is not evidence of natural progression, balance or taming. The generator does not render images."
+}

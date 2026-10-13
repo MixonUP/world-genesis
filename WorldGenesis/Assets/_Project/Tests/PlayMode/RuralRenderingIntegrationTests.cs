@@ -116,7 +116,10 @@ namespace WorldGenesis.Tests
             FindButton("Жизнь 1/2  ›").onClick.Invoke(); yield return null;
             Button horse = FindButton("Лошади"); Assert.NotNull(horse);
             Image glyph = horse.GetComponentsInChildren<Image>().First(i => i.name == "Symbol");
-            Assert.NotNull(glyph.sprite); Assert.AreEqual(256, glyph.sprite.texture.width); Assert.AreEqual(FilterMode.Point, glyph.sprite.texture.filterMode);
+            Assert.NotNull(glyph.sprite); Assert.AreEqual(WildlifeArt.Width, glyph.sprite.texture.width); Assert.AreEqual(WildlifeArt.Height, glyph.sprite.texture.height); Assert.AreEqual(FilterMode.Point, glyph.sprite.texture.filterMode);
+            Rect horseRegion = WildlifeArt.Uv(WildlifeArt.SpriteFor(SpeciesType.Horse, Sex.Male, WildlifeArt.AnimalDirection.East, 0));
+            Assert.AreEqual(horseRegion.x * WildlifeArt.Width, glyph.sprite.rect.x, .01f); Assert.AreEqual(horseRegion.y * WildlifeArt.Height, glyph.sprite.rect.y, .01f);
+            Assert.AreEqual(horseRegion.width * WildlifeArt.Width, glyph.sprite.rect.width, .01f); Assert.AreEqual(horseRegion.height * WildlifeArt.Height, glyph.sprite.rect.height, .01f);
             horse.onClick.Invoke(); Assert.AreEqual(ToolKind.Creature, game.Tool.Kind); Assert.AreEqual((int)SpeciesType.Horse, game.Tool.Value);
             Canvas.ForceUpdateCanvases(); RectTransform rect = horse.GetComponent<RectTransform>();
             Vector2 point = RectTransformUtility.WorldToScreenPoint(null, rect.TransformPoint(rect.rect.center));

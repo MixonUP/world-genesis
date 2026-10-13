@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-14",
+  "tracks": [
+    {
+      "id": "WG_MUS_01",
+      "suppliedName": "Dawn over the Settlement.mp3",
+      "runtimePath": "WorldGenesis/Assets/_Project/Resources/Music/WG_MUS_01.mp3",
+      "sha256": "25B72B141BF6B7DB6BC35A588E18D4C1843A6E05D1E5380FDCFFCF5A850AFF12",
+      "bytes": 5012487,
+      "source": "User supplied file",
+      "status": "selected by user; copied byte-for-byte; integrated in 0.9; Unity and native playback verified; listening review pending"
+    },
+    {
+      "id": "WG_MUS_02",
+      "suppliedName": "Dawn over the Settlement (1).mp3",
+      "runtimePath": "WorldGenesis/Assets/_Project/Resources/Music/WG_MUS_02.mp3",
+      "sha256": "345719A73F4CB26A31C7DD55619EB3A69198839A0E4315C6EC6363A1736318F5",
+      "bytes": 5100531,
+      "source": "User supplied file",
+      "status": "selected by user; copied byte-for-byte; integrated in 0.9; Unity and native playback verified; listening review pending"
+    },
+    {
+      "id": "WG_MUS_03",
+      "suppliedName": "Dawn over the Settlement (2).mp3",
+      "runtimePath": "WorldGenesis/Assets/_Project/Resources/Music/WG_MUS_03.mp3",
+      "sha256": "F14BA79A5AC1BD11B5C344D3681861747F3BF1B8D69D44744A6D2349259876D7",
+      "bytes": 5151678,
+      "source": "User supplied file",
+      "status": "selected by user; copied byte-for-byte; integrated in 0.9; Unity and native playback verified; listening review pending"
+    }
+  ]
+}

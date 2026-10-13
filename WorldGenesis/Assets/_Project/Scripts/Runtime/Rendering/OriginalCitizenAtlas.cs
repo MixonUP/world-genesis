@@ -13,6 +13,7 @@ namespace WorldGenesis.Runtime
         public const float PixelsPerUnit = 24;
         private const int FrameCount = 4 * 4 * Costumes * 4 * Frames;
         public Texture2D Texture { get; private set; }
+        private readonly Vector2[] headAnchors = new Vector2[FrameCount];
         private static readonly string[] Names = { "Human", "Elf", "Dwarf", "Orc" };
 
         public OriginalCitizenAtlas()
@@ -48,6 +49,9 @@ namespace WorldGenesis.Runtime
                                 CitizenWardrobe.Paint(back, (SpeciesType)race, (WardrobeAppearance)appearance, (UnitProfession)costume, (WardrobeFacing)direction, frame, false, false, headTop);
                                 CitizenWardrobe.Paint(front, (SpeciesType)race, (WardrobeAppearance)appearance, (UnitProfession)costume, (WardrobeFacing)direction, frame, true, false, headTop);
                                 int index = Index((SpeciesType)race, appearance, costume, direction, frame);
+                                int left = Cell, right = -1;
+                                for (int x = 8; x <= 24; x++) if (body[Math.Max(0, headTop - 1) * Cell + x].a >= 128) { left = Math.Min(left, x); right = Math.Max(right, x); }
+                                headAnchors[index] = new Vector2(right >= left ? (left + right + 1) * .5f : 16, headTop + 1);
                                 int dx = index % Columns * Cell, dy = index / Columns * Cell;
                                 for (int y = 0; y < Cell; y++) for (int x = 0; x < Cell; x++)
                                 {
@@ -146,6 +150,8 @@ namespace WorldGenesis.Runtime
             int index = Index(race, appearance, costume, direction, frame);
             return new Rect((float)(index % Columns * Cell) / Texture.width, (float)(index / Columns * Cell) / Texture.height, (float)Cell / Texture.width, (float)Cell / Texture.height);
         }
+        public Vector2 HeadAnchor(SpeciesType race, int appearance, int costume, int direction, int frame)
+        { return headAnchors[Index(race, appearance, costume, direction, frame)]; }
         private static int ToolIndex(OriginalCitizenTools.Tool tool, int direction, int frame) { return FrameCount + (((int)tool - 1) * 4 + direction) * Frames + frame; }
         public Rect ToolRegion(OriginalCitizenTools.Tool tool, CitizenSprites.CitizenDirection direction, int frame)
         {

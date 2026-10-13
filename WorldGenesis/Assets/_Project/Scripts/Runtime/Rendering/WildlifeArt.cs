@@ -5,33 +5,50 @@ using WorldGenesis.Simulation;
 namespace WorldGenesis.Runtime
 {
     // Independent, project-authored animal/transport atlas; no source game art is copied.
-    // Families: deer, boar, fox, bear, dire wolf, spirit stag, goat, cow, chicken, donkey, horse.
+    // Thirteen species: four actual views and a phase-aligned four-step gait.
     public static class WildlifeArt
     {
-        public const int Size = 256, Frame = 32, FramesPerAnimal = 4;
-        public const int FemaleDeerFirst = 44, BasketSmall = 48, BasketMedium = 49, BasketLarge = 50;
+        public const int Width = 512, Height = 576, Frame = 32, Columns = Width / Frame, FramesPerAnimal = 16, AnimalsFirst = 64;
+        public const int FemaleDeerFirst = AnimalsFirst + 13 * FramesPerAnimal, BasketSmall = 48, BasketMedium = 49, BasketLarge = 50;
         public const int SaddleBags = 51, Saddle = 52, FoodBundle = 53, HuntingSpear = 54;
+        public enum AnimalDirection { South, West, East, North }
         private static readonly Color Shadow = new Color(.04f, .08f, .11f, .26f);
         private static readonly string[] SpeciesNames = { "Человек", "Эльф", "Гном", "Орк", "Овца", "Волк", "Олень", "Кабан", "Лиса", "Медведь", "Лютоволк", "Дух-олень", "Коза", "Корова", "Курица", "Осёл", "Лошадь" };
         public static string SpeciesName(SpeciesType species) { int i = (int)species; return WildlifeCatalog.IsAnimal(species) ? WildlifeCatalog.Name(species) : i >= 0 && i < SpeciesNames.Length ? SpeciesNames[i] : "Существо"; }
-        public static int AnimalSprite(UnitData unit, long tick)
+        public static AnimalDirection DirectionFor(Vector2 direction)
+        { return Mathf.Abs(direction.y) > Mathf.Abs(direction.x) ? (direction.y > 0 ? AnimalDirection.North : AnimalDirection.South) : (direction.x < 0 ? AnimalDirection.West : AnimalDirection.East); }
+        public static int SpriteFor(SpeciesType species, Sex sex, AnimalDirection direction, int phase)
         {
-            if ((int)unit.Species < 6) return -1;
-            int first = ((int)unit.Species - 6) * FramesPerAnimal;
-            if (unit.Species == SpeciesType.Deer && unit.Sex == Sex.Female) first = FemaleDeerFirst;
+            if (!WildlifeCatalog.IsAnimal(species)) return -1;
+            int first = species == SpeciesType.Deer && sex == Sex.Female ? FemaleDeerFirst : AnimalsFirst + ((int)species - 4) * FramesPerAnimal;
+            return first + (int)direction * 4 + Mathf.Clamp(phase, 0, 3);
+        }
+        public static int AnimalSprite(UnitData unit, long tick, Vector2 direction = default(Vector2))
+        {
             bool moving = unit.Path != null && unit.PathCursor < unit.Path.Count;
-            return first + (moving ? (int)((tick / 3 + unit.Id) % 4) : 0);
+            int tempo = unit.Task == UnitTask.Flee ? 2 : unit.Species == SpeciesType.Bear || unit.Species == SpeciesType.Cow ? 4 : 3;
+            return SpriteFor(unit.Species, unit.Sex, DirectionFor(direction), moving ? (int)((tick / tempo + (uint)unit.Id) % 4) : 0);
         }
         public static float AnimalSize(SpeciesType species)
         {
-            switch (species) { case SpeciesType.Bear: return 2.6f; case SpeciesType.DireWolf: return 2.15f; case SpeciesType.SpiritStag: return 2.45f; case SpeciesType.Horse: return 1.8f; case SpeciesType.Donkey: return 1.6f; case SpeciesType.Deer: return 2.05f; case SpeciesType.Cow: return 2.25f; case SpeciesType.Boar: return 1.6f; case SpeciesType.Chicken: return .78f; case SpeciesType.Fox: return 1.25f; case SpeciesType.Goat: return 1.5f; default: return 1.2f; }
+            switch (species) { case SpeciesType.Bear: return 2.6f; case SpeciesType.DireWolf: return 2.15f; case SpeciesType.SpiritStag: return 2.45f; case SpeciesType.Horse: return 1.8f; case SpeciesType.Donkey: return 1.6f; case SpeciesType.Deer: return 2.05f; case SpeciesType.Cow: return 2.25f; case SpeciesType.Boar: return 1.6f; case SpeciesType.Chicken: return .78f; case SpeciesType.Fox: return 1.25f; case SpeciesType.Goat: return 1.5f; case SpeciesType.Wolf: return 1.55f; case SpeciesType.Sheep: return 1.35f; default: return 1.2f; }
         }
-        public static Rect Uv(int sprite) { return new Rect((sprite % 8 * Frame + .25f) / Size, (sprite / 8 * Frame + .25f) / Size, 31.5f / Size, 31.5f / Size); }
-        public static Texture2D CreateAtlas()
+        public static Rect Uv(int sprite) { return new Rect((sprite % Columns * Frame + .25f) / Width, (sprite / Columns * Frame + .25f) / Height, 31.5f / Width, 31.5f / Height); }
+        public static Texture2D CreateAtlas(bool keepReadable = false)
         {
-            Color32[] pixels = new Color32[Size * Size]; Painter p = new Painter(pixels);
-            for (int family = 0; family < 11; family++) for (int phase = 0; phase < 4; phase++) DrawAnimal(p, family * 4 + phase, family, phase, true);
-            for (int phase = 0; phase < 4; phase++) DrawAnimal(p, FemaleDeerFirst + phase, 0, phase, false);
+            Color32[] pixels = new Color32[Width * Height]; Painter p = new Painter(pixels);
+            for (int species = 4; species <= 16; species++) for (int sex = 0; sex < (species == (int)SpeciesType.Deer ? 2 : 1); sex++) for (int phase = 0; phase < 4; phase++)
+            {
+                int family = species == 4 ? 11 : species == 5 ? 12 : species - 6;
+                int east = SpriteFor((SpeciesType)species, (Sex)sex, AnimalDirection.East, phase);
+                DrawAnimal(p, east, family, phase, (Sex)sex == Sex.Male);
+                p.Outline(east); p.Mirror(east, SpriteFor((SpeciesType)species, (Sex)sex, AnimalDirection.West, phase));
+                for (int back = 0; back < 2; back++)
+                {
+                    int frame = SpriteFor((SpeciesType)species, (Sex)sex, back == 0 ? AnimalDirection.South : AnimalDirection.North, phase);
+                    DrawEndView(p, frame, family, phase, (Sex)sex == Sex.Male, back != 0); p.Outline(frame);
+                }
+            }
             Color wood = PixelArt.Hex("9e724a"), light = PixelArt.Hex("d6b378"), leather = PixelArt.Hex("704d39");
             for (int grade = 0; grade < 3; grade++)
             {
@@ -52,14 +69,30 @@ namespace WorldGenesis.Runtime
             p.Line(FoodBundle, 8, 12, 25, 12, PixelArt.Hex("bcb68c"));
             p.Line(HuntingSpear, 7, 3, 22, 25, wood); p.Line(HuntingSpear, 8, 3, 23, 25, light);
             p.Poly(HuntingSpear, new[] { 20, 23, 24, 30, 26, 23, 23, 21 }, PixelArt.Hex("b9c1b4")); p.Line(HuntingSpear, 22, 21, 24, 24, leather);
-            Texture2D texture = new Texture2D(Size, Size, TextureFormat.RGBA32, false) { name = "World Genesis • authored wildlife and equipment", filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
-            texture.SetPixels32(pixels); texture.Apply(false, true); return texture;
+            Texture2D texture = new Texture2D(Width, Height, TextureFormat.RGBA32, false) { name = "World Genesis • four-view wildlife and equipment", filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
+            texture.SetPixels32(pixels); texture.Apply(false, !keepReadable); return texture;
         }
         private static void DrawAnimal(Painter p, int s, int family, int phase, bool antlers)
         {
-            int step = phase == 1 ? 2 : phase == 3 ? -2 : 0, rise = phase == 1 || phase == 3 ? 1 : 0;
+            int step = phase == 0 ? -1 : phase == 1 ? 2 : phase == 2 ? 1 : -2, rise = phase == 1 || phase == 3 ? 1 : 0;
             Color ink = PixelArt.Ink;
             p.Ellipse(s, 16, 4, family == 8 ? 7 : 13, 3, Shadow);
+            if (family == 11)
+            {
+                Color wool = PixelArt.Hex("dfd8b8"), woolShade = PixelArt.Hex("aaa990"), face = PixelArt.Hex("786858");
+                for (int leg = 0; leg < 4; leg++)
+                {
+                    bool far = leg % 2 == 0;
+                    int swing = far ? step : -step, x = (leg < 2 ? 9 : 21) + swing, foot = 3 + Math.Max(0, swing);
+                    Color legColor = far ? Color.Lerp(face, ink, .35f) : face;
+                    p.Rect(s, x, foot + 1, 2, 11 - foot, legColor); p.Rect(s, x, foot, 3, 2, ink);
+                }
+                p.Ellipse(s, 14, 13 + rise, 11, 7, woolShade);
+                for (int tuft = 0; tuft < 5; tuft++) p.Ellipse(s, 6 + tuft * 4, 16 + rise + tuft % 2, 4, 4, wool);
+                p.Ellipse(s, 15, 12 + rise, 8, 4, wool); p.Ellipse(s, 26, 15 + rise, 4, 6, face);
+                p.Rect(s, 23, 20 + rise, 6, 2, wool); p.Rect(s, 24, 18 + rise, 2, 4, face); p.Dot(s, 28, 16 + rise, PixelArt.Ink);
+                p.Line(s, 7, 13 + rise, 9, 11 + rise, woolShade); p.Line(s, 15, 14 + rise, 17, 12 + rise, woolShade); return;
+            }
             if (family == 8)
             {
                 Color feather = PixelArt.Hex("e0d6b4");
@@ -68,7 +101,7 @@ namespace WorldGenesis.Runtime
                 p.Ellipse(s, 22, 19 + rise, 4, 5, feather); p.Rect(s, 19, 24 + rise, 6, 3, PixelArt.Hex("ad5247")); p.Rect(s, 24, 17 + rise, 5, 2, PixelArt.Hex("d7ac59"));
                 p.Dot(s, 24, 20 + rise, ink); p.Ellipse(s, 14, 12 + rise, 5, 3, PixelArt.Hex("b3ac90")); return;
             }
-            Color body = PixelArt.Hex(family == 0 ? "a77e50" : family == 1 ? "705b49" : family == 2 ? "bd784c" : family == 3 ? "695344" : family == 4 ? "465765" : family == 5 ? "d2ddc8" : family == 6 ? "bdb7a0" : family == 7 ? "e0d9bd" : family == 9 ? "92958a" : "a67954");
+            Color body = BodyColor(family);
             Color highlight = Color.Lerp(body, PixelArt.Hex("ede0b8"), .24f), dark = Color.Lerp(body, ink, .4f);
             bool small = family == 2 || family == 6;
             bool heavy = family == 1 || family == 3 || family == 7;
@@ -110,15 +143,93 @@ namespace WorldGenesis.Runtime
                 }
                 if (family == 3) { p.Ellipse(s, 11, 17 + rise, 8, 5, body); p.Rect(s, 25, 13 + rise, 5, 3, PixelArt.Hex("a98b67")); }
                 if (family == 4) { p.Line(s, 3, 16 + rise, 8, 12 + rise, dark); p.Poly(s, new[] { 10, 17 + rise, 13, 21 + rise, 15, 18 + rise, 18, 21 + rise, 21, 16 + rise }, dark); p.Rect(s, 28, 11 + rise, 3, 1, PixelArt.Hex("d9dabe")); p.Dot(s, 26, 15 + rise, PixelArt.Hex("c5b37a")); }
+                if (family == 12) { p.Poly(s, new[] { 8, 15 + rise, 2, 18 + rise, 3, 13 + step / 2, 9, 10 + rise }, dark); p.Poly(s, new[] { 21, 16 + rise, 22, 22 + rise, 26, 17 + rise }, body); p.Rect(s, 25, 10 + rise, 5, 2, highlight); p.Dot(s, 27, 15 + rise, PixelArt.Hex("d7bb7a")); }
                 if (family == 6) { p.Line(s, 23, 18 + rise, 20, 24 + rise, dark); p.Line(s, 26, 18 + rise, 24, 24 + rise, dark); p.Rect(s, 26, 7 + rise, 2, 4, highlight); p.Rect(s, 4, 14 + rise, 3, 5, body); }
                 if (family == 7) { p.Ellipse(s, 11, 14 + rise, 5, 3, dark); p.Rect(s, 19, 8 + rise, 4, 7, dark); p.Line(s, 23, 18 + rise, 20, 21 + rise, PixelArt.Hex("d4b788")); p.Line(s, 27, 18 + rise, 30, 20 + rise, PixelArt.Hex("d4b788")); p.Line(s, 3, 15 + rise, 2, 7, dark); }
             }
+        }
+        private static Color BodyColor(int family)
+        { return PixelArt.Hex(family == 0 ? "a77e50" : family == 1 ? "705b49" : family == 2 ? "bd784c" : family == 3 ? "695344" : family == 4 ? "465765" : family == 5 ? "d2ddc8" : family == 6 ? "bdb7a0" : family == 7 ? "e0d9bd" : family == 8 ? "ded5b4" : family == 9 ? "92958a" : family == 11 ? "dfd8b8" : family == 12 ? "7e898b" : "a67954"); }
+        private static void DrawEndView(Painter p, int s, int family, int phase, bool antlers, bool back)
+        {
+            int step = phase == 0 ? -1 : phase == 1 ? 2 : phase == 2 ? 1 : -2, rise = phase == 1 || phase == 3 ? 1 : 0;
+            Color body = BodyColor(family), ink = PixelArt.Ink, light = Color.Lerp(body, PixelArt.Hex("eee2b8"), .28f), dark = Color.Lerp(body, ink, .4f);
+            Color horn = family == 5 ? PixelArt.Hex("82bdb2") : PixelArt.Hex("d6bd90");
+            bool heavy = family == 1 || family == 3 || family == 7 || family == 11;
+            bool tall = family == 0 || family == 5 || family == 9 || family == 10;
+            int width = heavy ? 9 : family == 8 ? 5 : 6, centerY = tall ? 13 : 14;
+            p.Ellipse(s, 16, 4, width + 1, 3, Shadow);
+            if (family == 8)
+            {
+                Color beak = PixelArt.Hex("d3a351"), comb = PixelArt.Hex("b6554d");
+                p.Line(s, 13, 8, 12, 4 + Math.Max(0, step), beak); p.Line(s, 19, 8, 20, 4 + Math.Max(0, -step), beak);
+                p.Ellipse(s, 16, 13 + rise, 6, 8, body); p.Ellipse(s, 12, 13 + rise, 3, 5, dark); p.Ellipse(s, 20, 13 + rise, 3, 5, light);
+                if (back) { p.Poly(s, new[] { 12, 13, 11, 25 + rise, 15, 22 + rise, 18, 26 + rise, 21, 14 }, PixelArt.Hex("7e948a")); p.Rect(s, 15, 25 + rise, 3, 3, comb); }
+                else { p.Ellipse(s, 16, 22 + rise, 4, 5, body); p.Rect(s, 15, 25 + rise, 3, 4, comb); p.Dot(s, 13, 22 + rise, ink); p.Dot(s, 19, 22 + rise, ink); p.Rect(s, 15, 19 + rise, 3, 2, beak); p.Rect(s, 16, 17 + rise, 2, 2, comb); }
+                return;
+            }
+            // Alternating near/far hooves remain attached to a compact body in both axial views.
+            for (int leg = 0; leg < 4; leg++)
+            {
+                int x = 16 + (leg % 2 == 0 ? -width + 2 : width - 3), foot = 3 + (leg < 2 ? 3 : 0) + Math.Max(0, leg % 2 == 0 ? step : -step);
+                p.Rect(s, x, foot, heavy ? 3 : 2, centerY - foot, leg < 2 ? dark : body); p.Rect(s, x, foot, 3, 2, dark);
+            }
+            p.Ellipse(s, 16, centerY + rise, width, heavy ? 8 : 7, body);
+            p.Ellipse(s, 14, centerY + 3 + rise, Math.Max(3, width - 2), 3, light);
+            if (family == 11) for (int tuft = 0; tuft < 5; tuft++) p.Ellipse(s, 10 + tuft * 3, 17 + rise + tuft % 2, 3, 4, light);
+            if (family == 7) { p.Ellipse(s, 11, 16 + rise, 3, 4, dark); p.Ellipse(s, 21, 12 + rise, 3, 3, dark); }
+            if (family == 1 || family == 4) for (int y = 15; y < 22; y += 2) { p.Rect(s, 15, y + rise, 3, 2, dark); p.Dot(s, 14, y + rise, dark); }
+            int headY = tall ? 24 : family == 3 ? 20 : 19, headWidth = family == 3 ? 6 : family == 1 || family == 7 ? 5 : 4;
+            if (tall) p.Rect(s, 13, 13 + rise, 6, 12, body);
+            p.Ellipse(s, 16, headY + rise, headWidth, tall ? 4 : 5, body);
+            int ear = family == 9 ? 6 : family == 2 || family == 4 || family == 12 ? 4 : 2;
+            p.Line(s, 16 - headWidth, headY + 3 + rise, 15 - headWidth, Math.Min(30, headY + ear + rise + 3), dark);
+            p.Line(s, 16 + headWidth, headY + 3 + rise, 17 + headWidth, Math.Min(30, headY + ear + rise + 3), dark);
+            if (family == 3) { p.Ellipse(s, 11, 24 + rise, 2, 2, dark); p.Ellipse(s, 21, 24 + rise, 2, 2, dark); }
+            if ((family == 0 && antlers) || family == 5)
+            {
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    p.Line(s, 16 + side * 3, 26 + rise, 16 + side * 8, 30, horn);
+                    p.Line(s, 16 + side * 6, 29, 16 + side * 6, 31, horn); p.Line(s, 16 + side * 7, 29, 16 + side * 11, 29, horn);
+                }
+            }
+            if (family == 6 || family == 7) for (int side = -1; side <= 1; side += 2) p.Line(s, 16 + side * 3, headY + 3 + rise, 16 + side * (family == 6 ? 5 : 8), headY + 7 + rise, horn);
+            if (back)
+            {
+                p.Ellipse(s, 16, headY + rise, headWidth - 1, 3, dark);
+                if (family == 9 || family == 10) { p.Rect(s, 15, 14 + rise, 2, 12, dark); p.Line(s, 16, 12 + rise, 17 + step / 2, 5, dark); p.Rect(s, 16 + step / 2, 4, 3, 4, dark); }
+                else if (family == 2 || family == 4 || family == 12) { p.Ellipse(s, 16 + step / 2, 9 + rise, family == 2 ? 4 : 3, 6, body); p.Ellipse(s, 16 + step / 2, 5 + rise, 2, 2, family == 2 ? light : dark); }
+                else { p.Rect(s, 15, 8 + rise, 3, family == 7 ? 7 : 4, dark); if (family == 0 || family == 5) p.Rect(s, 14, 10 + rise, 4, 3, light); }
+            }
+            else
+            {
+                p.Ellipse(s, 16, headY - 3 + rise, headWidth - 1, 3, family == 1 ? PixelArt.Hex("af8775") : family == 3 ? PixelArt.Hex("ab906c") : light);
+                p.Dot(s, 16 - headWidth + 1, headY + rise, ink); p.Dot(s, 16 + headWidth - 1, headY + rise, ink);
+                p.Rect(s, 15, headY - 4 + rise, 3, 2, dark);
+                if (family == 1) { p.Line(s, 12, headY - 4 + rise, 11, headY - 1 + rise, horn); p.Line(s, 20, headY - 4 + rise, 21, headY - 1 + rise, horn); }
+                if (family == 6) p.Poly(s, new[] { 14, 15 + rise, 18, 15 + rise, 16, 10 + rise }, light);
+                if (family == 4) { p.Dot(s, 12, headY + rise, PixelArt.Hex("d4b76f")); p.Dot(s, 20, headY + rise, PixelArt.Hex("d4b76f")); }
+            }
+            if (family == 5) { p.Dot(s, 12, 16 + rise, horn); p.Dot(s, 20, 14 + rise, horn); p.Line(s, 15, 18 + rise, 17, 18 + rise, horn); }
         }
         private sealed class Painter
         {
             private readonly Color32[] pixels;
             public Painter(Color32[] pixels) { this.pixels = pixels; }
-            public void Dot(int s, int x, int y, Color c) { if ((uint)x < 32 && (uint)y < 32) pixels[(s / 8 * 32 + y) * Size + s % 8 * 32 + x] = c; }
+            private int Index(int s, int x, int y) { return (s / Columns * Frame + y) * Width + s % Columns * Frame + x; }
+            public void Dot(int s, int x, int y, Color c) { if ((uint)x < 32 && (uint)y < 32) pixels[Index(s, x, y)] = c; }
+            public void Mirror(int source, int target) { for (int y = 0; y < Frame; y++) for (int x = 0; x < Frame; x++) pixels[Index(target, x, y)] = pixels[Index(source, Frame - 1 - x, y)]; }
+            public void Outline(int sprite)
+            {
+                Color32[] cell = new Color32[Frame * Frame]; for (int y = 0; y < Frame; y++) for (int x = 0; x < Frame; x++) cell[y * Frame + x] = pixels[Index(sprite, x, y)];
+                Color ink = PixelArt.Hex("3e423a");
+                for (int y = 0; y < Frame; y++) for (int x = 0; x < Frame; x++)
+                {
+                    if (cell[y * Frame + x].a >= 200) continue;
+                    if (x > 0 && cell[y * Frame + x - 1].a >= 200 || x < Frame - 1 && cell[y * Frame + x + 1].a >= 200 || y > 0 && cell[(y - 1) * Frame + x].a >= 200 || y < Frame - 1 && cell[(y + 1) * Frame + x].a >= 200) Dot(sprite, x, y, ink);
+                }
+            }
             public void Rect(int s, int x, int y, int w, int h, Color c) { for (int yy = y; yy < y + h; yy++) for (int xx = x; xx < x + w; xx++) Dot(s, xx, yy, c); }
             public void Ellipse(int s, int cx, int cy, int rx, int ry, Color c) { for (int y = -ry; y <= ry; y++) for (int x = -rx; x <= rx; x++) if ((float)x * x / (rx * rx) + (float)y * y / (ry * ry) <= 1) Dot(s, cx + x, cy + y, c); }
             public void Line(int s, int x0, int y0, int x1, int y1, Color c) { int dx = Math.Abs(x1 - x0), sx = x0 < x1 ? 1 : -1, dy = -Math.Abs(y1 - y0), sy = y0 < y1 ? 1 : -1, e = dx + dy; while (true) { Dot(s, x0, y0, c); if (x0 == x1 && y0 == y1) break; int ee = e * 2; if (ee >= dy) { e += dy; x0 += sx; } if (ee <= dx) { e += dx; y0 += sy; } } }
