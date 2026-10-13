@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-13T12:16:53.0103679Z",
+  "repository": "https://github.com/MixonUP/world-genesis",
+  "branch": "codex/world-genesis",
+  "codeCommit": "57ef4d7d5dec4ad32b3b692658f779772663d08d",
+  "remoteSha": "57ef4d7d5dec4ad32b3b692658f779772663d08d",
+  "status": "pushed-and-remote-sha-verified",
+  "gallery": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/FISHING_RIVERS_GALLERY.md",
+  "githubRelease061": "not-created",
+  "localPackage": "Builds/WorldGenesis-v0.6.1-alpha-win64.zip",
+  "browserVerification": "Gallery rendered; all four selected PNGs loaded at 1920x1080; clip link present",
+  "verifiedAt": "2026-10-13T12:18:05.4996637Z"
+}
