@@ -37,6 +37,7 @@ namespace WorldGenesis.Runtime
         private readonly CitizenSprites citizenSprites;
         private readonly WeatherView weatherView;
         private readonly MaritimeView maritimeView;
+        private readonly RemainsView remainsView;
         private readonly QuadBatch buildings, people, borders, cursor, waterLife;
         private readonly CrowdPresentation crowd = new CrowdPresentation();
         private readonly Dictionary<int, BuildingData> buildingLookup = new Dictionary<int, BuildingData>();
@@ -83,6 +84,7 @@ namespace WorldGenesis.Runtime
             industryCargo = new QuadBatch("Manufactured goods", root, industryMaterial, 60);
             industryEffects = new QuadBatch("Active workshop effects", root, depthEffectMaterial, 31);
             maritimeView = new MaritimeView(root, depthSpriteMaterial, depthEffectMaterial, spriteMaterial);
+            remainsView = new RemainsView(root);
             citizenSprites = new CitizenSprites(root);
             weatherView = new WeatherView(root, spriteMaterial);
             borders = new QuadBatch("Territories", root, spriteMaterial, 10);
@@ -145,6 +147,7 @@ namespace WorldGenesis.Runtime
             }
             buildings.Clear(); wildlife.Clear(); equipmentBack.Clear(); equipmentFront.Clear(); agriculture.Clear(); ruralStructures.Clear(); crowns.Clear(); agriculturalCargo.Clear(); wagons.Clear(); buildingLookup.Clear(); unitLookup.Clear();
             industryBuildings.Clear(); industryCargo.Clear(); industryEffects.Clear(); maritimeView.Begin();
+            remainsView.Update(world);
             for (int i = 0; i < world.Units.Count; i++) unitLookup[world.Units[i].Id] = world.Units[i];
             if (animalFacing.Count > world.Units.Count * 2 + 64) animalFacing.Clear();
             for (int i = 0; i < world.Buildings.Count; i++) buildingLookup[world.Buildings[i].Id] = world.Buildings[i];
@@ -161,7 +164,8 @@ namespace WorldGenesis.Runtime
             {
                 AgriculturalDrop drop = world.AgriculturalDrops[i]; if (drop.Amount <= .001f) continue;
                 ruralStructures.SetFootDepth(drop.Y);
-                AgroSprite(ruralStructures, drop.X, drop.Y - .14f, .85f, AgricultureArt.ProductSprite(drop.Product));
+                Vector2 dropPosition = remainsView.AgriculturalDropPosition(drop);
+                AgroSprite(ruralStructures, dropPosition.x, dropPosition.y - .14f, .85f, AgricultureArt.ProductSprite(drop.Product));
             }
             for (int i = 0; i < world.Buildings.Count; i++)
             {
@@ -773,7 +777,7 @@ namespace WorldGenesis.Runtime
         {
             UnityEngine.Object.Destroy(depthSpriteMaterial); UnityEngine.Object.Destroy(depthEffectMaterial); UnityEngine.Object.Destroy(wagonMaterial);
             industryBuildings.Dispose(); industryCargo.Dispose(); industryEffects.Dispose(); UnityEngine.Object.Destroy(industryMaterial); UnityEngine.Object.Destroy(industryAtlas);
-            weatherView.Dispose(); maritimeView.Dispose();
+            weatherView.Dispose(); maritimeView.Dispose(); remainsView.Dispose();
             if (chunks != null) foreach (Chunk chunk in chunks) { chunk.Ground.Dispose(); chunk.Nature.Dispose(); chunk.Bridges.Dispose(); UnityEngine.Object.Destroy(chunk.Texture); UnityEngine.Object.Destroy(chunk.Material); }
             waterFlow.Dispose(); wagons.Dispose(); UnityEngine.Object.Destroy(transportMaterial); UnityEngine.Object.Destroy(transportAtlas);
             buildings.Dispose(); people.Dispose(); waterLife.Dispose(); wildlife.Dispose(); equipmentBack.Dispose(); equipmentFront.Dispose(); agriculture.Dispose(); ruralStructures.Dispose(); crowns.Dispose(); agriculturalCargo.Dispose(); citizenSprites.Dispose(); borders.Dispose(); cursor.Dispose(); UnityEngine.Object.Destroy(wildlifeAtlas); UnityEngine.Object.Destroy(agricultureAtlas); UnityEngine.Object.Destroy(wildlifeMaterial); UnityEngine.Object.Destroy(agricultureMaterial); UnityEngine.Object.Destroy(agriculturalGroundMaterial); UnityEngine.Object.Destroy(atlas); UnityEngine.Object.Destroy(spriteMaterial); UnityEngine.Object.Destroy(Minimap); UnityEngine.Object.Destroy(root.gameObject);

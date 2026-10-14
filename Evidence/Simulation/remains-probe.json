@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-14T04:53:52.9504358Z",
+  "tests": 6,
+  "failures": 0,
+  "results": [
+    {
+      "name": "AllSeventeenSpeciesLeaveOneActualDeathRecord",
+      "passed": true
+    },
+    {
+      "name": "CountdownSurvivesSaveAndExpiresWithoutWallClock",
+      "passed": true
+    },
+    {
+      "name": "MassDeathIsBoundedAndDiscardsOldestRecords",
+      "passed": true
+    },
+    {
+      "name": "MigrationIsEmptyIdempotentAndCorruptSavesAreRejected",
+      "passed": true
+    },
+    {
+      "name": "IndoorDeathUsesReleaseDoorAndShipDeathUsesVesselPosition",
+      "passed": true
+    },
+    {
+      "name": "ChildScaleIsCivilianOnlyAndBridgeDoesNotSinkBones",
+      "passed": true
+    }
+  ]
+}

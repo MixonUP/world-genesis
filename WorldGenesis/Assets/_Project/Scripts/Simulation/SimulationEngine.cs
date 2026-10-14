@@ -32,6 +32,7 @@ namespace WorldGenesis.Simulation
             MigrateResources();
             MigrateDemography(); MigrateCivilEconomy(); MigrateCarrying(legacyCarrying);
             MigrateDevelopment(); Hydrology.Initialize(World); BiomeCatalog.Generate(World); MigrateTransport(); MigrateSocial(); MigrateAgriculture(); MigrateFishing(); MigrateIndustry(); MigrateWildlife(); MigrateCaravans(); MigrateWeather(); World.SubsistenceVersion = 1; MigrateBuildingAccess(); MigrateMaritime(); MigrateMarket();
+            MigrateExpansion(); MigrateConquest(); MigrateRemains();
         }
 
         public void Step(float dt)
@@ -71,6 +72,7 @@ namespace WorldGenesis.Simulation
 
         public void SetDiplomacy(int firstId, int secondId, bool war)
         {
+            firstId = World.SovereignOf(firstId); secondId = World.SovereignOf(secondId);
             SettlementData first = World.GetSettlement(firstId), second = World.GetSettlement(secondId);
             if (first == null || second == null || firstId == secondId) throw new ArgumentException("Diplomacy requires two existing settlements.");
             int low = Math.Min(firstId, secondId), high = Math.Max(firstId, secondId);
@@ -98,6 +100,7 @@ namespace WorldGenesis.Simulation
         private void Tick()
         {
             World.Tick++; World.SimulatedSeconds += TickSeconds;
+            UpdateRemains(TickSeconds);
             CleanupSocialDisputes();
             BuildSpatialIndex();
             reservations.Clear();
@@ -116,7 +119,7 @@ namespace WorldGenesis.Simulation
             try { for (int i = 0; i < World.Units.Count; i++) UpdateUnit(World.Units[i], TickSeconds); }
             finally { navigation.EndUnitBatch(); }
             RemoveDead(); UpdateTransport();
-            if (World.Tick % 10 == 0) { UpdateSettlements(1f); UpdateDevelopment(); UpdateAgriculture(); UpdateWildlife(); UpdateCaravans(); }
+            if (World.Tick % 10 == 0) { UpdateSettlements(1f); UpdateDevelopment(); UpdateAgriculture(); UpdateWildlife(); UpdateCaravans(); UpdateSettlementExpansion(); UpdateConquest(1f); }
             UpdatePolitics();
             if (World.Tick % 300 == 0) UpdateRulerPlanning();
             UpdateEconomicPolicies();
@@ -290,7 +293,7 @@ namespace WorldGenesis.Simulation
             if (unit.Health <= 0) return;
             if (UpdateMaritimeUnit(unit, dt)) return;
             int x = (int)unit.X, y = (int)unit.Y;
-            if (World.Laws.Aging) unit.Age += dt * (WildlifeCatalog.IsAnimal(unit.Species) ? WildlifeCatalog.AgeRate : .1f);
+            if (World.Laws.Aging) unit.Age += dt * AgingRules.RatePerSecond(unit.Species);
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.Profession == UnitProfession.None) unit.Profession = ProfessionFor(unit.Id);
             if (IsCivilized(unit.Species) && unit.Age >= 16 && unit.FishingRodLevel == 0) unit.FishingRodLevel = 1;
             unit.Hunger = Math.Min(1, unit.Hunger + dt * (IsCivilized(unit.Species) ? SubsistenceRules.HungerPerSecond : .004f));
@@ -319,6 +322,7 @@ namespace WorldGenesis.Simulation
             if (unit.Hunger > .9f) unit.Health = Math.Max(0, unit.Health - dt * 5);
             if (World.Laws.Aging && unit.Age > (unit.Species == SpeciesType.Elf ? 180 : IsCivilized(unit.Species) ? 85 : 25)) unit.Health = Math.Max(0, unit.Health - dt * 1.5f);
             if (unit.Health <= 0) return;
+            if (UpdateExpansionUnit(unit, dt)) return;
             SettlementData home = World.GetSettlement(unit.SettlementId);
             EnforceChildWorkLaw(unit, home);
             UnitData enemy = unit.InsideBuildingId != 0 ? null : FindEnemy(unit, WildlifeCatalog.IsPredator(unit.Species) ? 6 : 2) ?? FindDisputeEnemy(unit) ?? HuntTarget(unit);
@@ -346,6 +350,7 @@ namespace WorldGenesis.Simulation
                     ClearRoute(unit);
                     float damage = WildlifeCatalog.IsAnimal(unit.Species) ? WildlifeCatalog.Damage(unit.Species) : unit.Species == SpeciesType.Orc ? 12 : 7;
                     if (hunting && unit.HuntingToolLevel > 0) damage += 5;
+                    if (unit.WarWeapon != ItemType.None) damage += unit.WarWeapon == ItemType.Sword ? 10 : 7;
                     UnitData combatMount = World.GetUnit(unit.MountId);
                     if (unit.HuntingToolLevel > 0 && !unit.HasWagon && combatMount != null && combatMount.Health > 0 && combatMount.IsDomestic && combatMount.HandlerId == unit.Id && (combatMount.Species == SpeciesType.Horse || combatMount.Species == SpeciesType.SpiritStag) && DistanceSquared(unit.X, unit.Y, combatMount.X, combatMount.Y) <= 1.96f) damage *= 1.2f;
                     bool dispute = IsSocialDispute(unit.Id, enemy.Id);
@@ -380,7 +385,7 @@ namespace WorldGenesis.Simulation
                 int entered = World.Index((int)unit.X, (int)unit.Y);
                 if (entered != oldCell) RecordFootstep(unit, entered);
             }
-            else if (!PerformBuildingEntry(unit, dt) && !PerformBuildingVisit(unit, dt) && !PerformMaritimeActivity(unit, home, dt) && !PerformMarketActivity(unit, home, dt) && !PerformManufacturedUse(unit, home) && !PerformTransportActivity(unit, home, dt) && !PerformCaravanActivity(unit, home, dt) && !PerformAgriDelivery(unit, home, dt) && !PerformWaterActivity(unit, home, dt) && !PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home)))
+            else if (!PerformBuildingEntry(unit, dt) && !PerformBuildingVisit(unit, dt) && !PerformWarActivity(unit, home) && !PerformMaritimeActivity(unit, home, dt) && !PerformMarketActivity(unit, home, dt) && !PerformManufacturedUse(unit, home) && !PerformTransportActivity(unit, home, dt) && !PerformCaravanActivity(unit, home, dt) && !PerformAgriDelivery(unit, home, dt) && !PerformWaterActivity(unit, home, dt) && !PerformNeedsActivity(unit, home, dt) && !PerformChildActivity(unit, home, dt) && home != null && (unit.Age >= 16 || LightWorkAllowed(unit, home)))
             {
                 float workDt = dt * GetWorkMultiplier(unit);
                 if (!PerformProduction(unit, home, workDt) && !PerformFishing(unit, home, workDt)) Work(unit, home, workDt);
@@ -394,6 +399,7 @@ namespace WorldGenesis.Simulation
             if (unit.Thirst > .55f && ChooseWater(unit, home)) return;
             if (unit.Hunger > .50f && ChooseFood(unit, home)) return;
             if (unit.Fatigue > .72f && ChooseRest(unit, home)) return;
+            if (ChooseWarActivity(unit, home)) return;
             if (ChooseManufacturedGoods(unit, home)) return;
             if (ChooseTransportWork(unit, home)) return;
             if (home != null && unit.Age >= 16)
@@ -471,7 +477,7 @@ namespace WorldGenesis.Simulation
                 if (World.Laws.Warfare && s.Population >= 8)
                 {
                     SettlementData enemy = World.GetSettlement(s.EnemyId);
-                    if (enemy != null && enemy.Population == 0) CaptureAbandonedTerritory(s, enemy);
+                    // Empty towns use the same armed presence and occupation timer as inhabited towns.
                     if (enemy == null || enemy.Population == 0)
                     {
                         s.EnemyId = 0;
@@ -495,7 +501,7 @@ namespace WorldGenesis.Simulation
                         : s.Population >= 4 && CountBuildings(s.Id, BuildingType.Kiln) == 0 && World.GetSettlementStock(s.Id, ItemType.Clay) >= 2 ? BuildingType.Kiln
                         : s.Housing < s.Population + 4 ? BuildingType.House : CountBuildings(s.Id, BuildingType.Farm) * 5 < s.Population ? BuildingType.Farm : s.Buildings < 18 ? BuildingType.House : BuildingType.Tower;
                     int site = FindBuildingSite(s);
-                    if (site >= 0 && CountCivilBuildings(s.Id) < 24) { s.Wood -= 10; s.BuildTimer = 0; RecordConstructionCost(AddBuilding(s, site % World.Width, site / World.Width, type), ItemType.Plank, 10); ClaimTerritory(s, Math.Min(14, 5 + s.Buildings)); }
+                    if (site >= 0 && CountCivilBuildings(s.Id) < ExpansionCatalog.BuildingLimit(s)) { s.Wood -= 10; s.BuildTimer = 0; RecordConstructionCost(AddBuilding(s, site % World.Width, site / World.Width, type), ItemType.Plank, 10); ClaimTerritory(s, Math.Min(ExpansionCatalog.BuildingRadius(s), 5 + s.Buildings)); }
                 }
                 if (World.Laws.Births && s.BirthTimer >= 10 && s.Population < s.Housing && s.Food >= 8 && World.Units.Count < 10000)
                 {
@@ -519,7 +525,7 @@ namespace WorldGenesis.Simulation
             SettlementData s = new SettlementData { Id = World.NextId++, Species = species, X = x, Y = y, Food = 28, Wood = 0, Stone = 0, ColorIndex = World.Settlements.Count % 8, Name = TownRoots[RandomRange(0, TownRoots.Length)] + " " + (World.Settlements.Count + 1) };
             InitializeGovernment(s);
             World.Settlements.Add(s);
-            InitializeDevelopmentSettlement(s); InitializeSocialSettlement(s);
+            InitializeDevelopmentSettlement(s); InitializeSocialSettlement(s); InitializeExpansionSettlement(s);
             // The player's creation power supplies the founding hall and one farm explicitly.
             if (World.Cells[World.Index(x, y)].BuildingId == 0) AddBuilding(s, x, y, BuildingType.Hall);
             int site = FindBuildingSite(s);
@@ -565,7 +571,7 @@ namespace WorldGenesis.Simulation
         private int FindBuildingSite(SettlementData s)
         {
             int offset = RandomRange(0, 4);
-            for (int radius = 2; radius <= 13; radius++)
+            for (int radius = 2; radius <= ExpansionCatalog.BuildingRadius(s); radius++)
             for (int side = 0; side < 4; side++)
             for (int t = -radius; t <= radius; t += 2)
             {
@@ -639,7 +645,8 @@ namespace WorldGenesis.Simulation
             {
                 UnitData unit = World.Units[i];
                 if (unit.Health > 0) continue;
-                ReleaseMarket(unit); ReleaseMaritimeUnit(unit); ReleaseIndoorDeath(unit); ReleaseCaravanOnDeath(unit); LoseManufacturedEquipment(unit); LoseCargo(unit);
+                RecordRemains(unit); ReleaseExpansionOnDeath(unit);
+                ReleaseMarket(unit); ReleaseMaritimeUnit(unit); ReleaseIndoorDeath(unit); DropWarEquipment(unit); ReleaseCaravanOnDeath(unit); LoseManufacturedEquipment(unit); LoseCargo(unit);
                 DropAgriculturalCargo(unit); DropAnimalLoot(unit);
                 if (removedIds == null) removedIds = new HashSet<int>();
                 removedIds.Add(unit.Id);
@@ -767,6 +774,7 @@ namespace WorldGenesis.Simulation
 
         private bool SetTarget(UnitData unit, int x, int y)
         {
+            if (unit.ExpeditionId != 0) return false;
             if (unit.ShipId != 0 || !World.InBounds(x,y)) return false;
             int requested = World.Index(x,y);
             BuildingData targetBuilding = World.GetBuilding(World.Cells[requested].BuildingId);
@@ -813,6 +821,7 @@ namespace WorldGenesis.Simulation
         private float RandomValue() { return StableRandom.Value(ref World.RngState); }
         private bool AtWar(int firstId, int secondId)
         {
+            firstId = World.SovereignOf(firstId); secondId = World.SovereignOf(secondId);
             if (!World.Laws.Warfare || firstId == secondId || firstId == 0 || secondId == 0) return false;
             int low = Math.Min(firstId, secondId), high = Math.Max(firstId, secondId);
             for (int i = 0; i < World.Relations.Count; i++)

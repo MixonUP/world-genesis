@@ -1,0 +1,296 @@
+{
+  "utc": "2026-10-14T04:55:59.0139841Z",
+  "camera": {
+    "x": 35,
+    "y": 39,
+    "zoom": 12
+  },
+  "assistance": "Prepared terrain patches and spawn coordinates, explicit HP=0 death inputs. One actual fixed Step records all twelve deaths, retains the real animal drops and living observer. The second save follows 1400 ordinary ticks (140 simulation seconds); TTL is never edited. This generator renders no images.",
+  "subjects": [
+    7,
+    14,
+    21,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "frames": [
+    {
+      "output": "Builds/RemainsShowcase/fresh.save.json",
+      "sha256": "8920DEF88B5A99092EF07819538106F6BC95867643AC2167C9C4FF86935587F5",
+      "Tick": 1,
+      "remains": [
+        {
+          "SourceUnitId": 36,
+          "Species": 0,
+          "Child": false,
+          "WaterDeath": true,
+          "X": 47.5,
+          "Y": 36.5,
+          "RemainingSeconds": 30,
+          "Direction": 0,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 35,
+          "Species": 11,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 42.5,
+          "Y": 36.5,
+          "RemainingSeconds": 150,
+          "Direction": 3,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 34,
+          "Species": 13,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 37.5,
+          "Y": 36.5,
+          "RemainingSeconds": 150,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 33,
+          "Species": 16,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 32.5,
+          "Y": 36.5,
+          "RemainingSeconds": 150,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 32,
+          "Species": 6,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 27.5,
+          "Y": 36.5,
+          "RemainingSeconds": 150,
+          "Direction": 0,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 31,
+          "Species": 14,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 22.5,
+          "Y": 36.5,
+          "RemainingSeconds": 150,
+          "Direction": 3,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 30,
+          "Species": 9,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 47.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 29,
+          "Species": 5,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 42.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 28,
+          "Species": 3,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 37.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 0,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 21,
+          "Species": 2,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 32.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 14,
+          "Species": 1,
+          "Child": true,
+          "WaterDeath": false,
+          "X": 27.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 7,
+          "Species": 0,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 22.5,
+          "Y": 42.5,
+          "RemainingSeconds": 150,
+          "Direction": 3,
+          "DeathTick": 1
+        }
+      ],
+      "realAgriculturalDrops": 14
+    },
+    {
+      "output": "Builds/RemainsShowcase/fading.save.json",
+      "sha256": "43588681F0973B650AC82D3C2B7EF9F5CC1AE14384082195C607F4AB1A94F88E",
+      "Tick": 1401,
+      "remains": [
+        {
+          "SourceUnitId": 35,
+          "Species": 11,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 42.5,
+          "Y": 36.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 3,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 34,
+          "Species": 13,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 37.5,
+          "Y": 36.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 33,
+          "Species": 16,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 32.5,
+          "Y": 36.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 32,
+          "Species": 6,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 27.5,
+          "Y": 36.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 0,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 31,
+          "Species": 14,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 22.5,
+          "Y": 36.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 3,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 30,
+          "Species": 9,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 47.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 29,
+          "Species": 5,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 42.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 28,
+          "Species": 3,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 37.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 0,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 21,
+          "Species": 2,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 32.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 1,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 14,
+          "Species": 1,
+          "Child": true,
+          "WaterDeath": false,
+          "X": 27.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 2,
+          "DeathTick": 1
+        },
+        {
+          "SourceUnitId": 7,
+          "Species": 0,
+          "Child": false,
+          "WaterDeath": false,
+          "X": 22.5,
+          "Y": 42.5,
+          "RemainingSeconds": 10.000046,
+          "Direction": 3,
+          "DeathTick": 1
+        }
+      ],
+      "realAgriculturalDrops": 14
+    }
+  ],
+  "validationEveryTenTicks": true,
+  "continuedTicks": 1400
+}

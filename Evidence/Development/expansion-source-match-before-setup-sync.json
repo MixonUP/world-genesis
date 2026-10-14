@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-14T05:19:48.0023661Z",
+  "snapshot": "expansion-conquest-v0100-r3",
+  "files": 455,
+  "differences": [
+    "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Dwarf.png.meta",
+    "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Elf.png.meta",
+    "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Human.png.meta",
+    "Assets\\_Project\\Art\\Units\\Resources\\OriginalCitizens\\Orc.png.meta",
+    "ProjectSettings\\ProjectSettings.asset"
+  ],
+  "status": "FAIL"
+}

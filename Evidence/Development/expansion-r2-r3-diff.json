@@ -1,0 +1,12 @@
+{
+  "from": "expansion-conquest-v0100-r2",
+  "to": "expansion-conquest-v0100-r3",
+  "changed": [
+    "Scripts\\Runtime\\Rendering\\RemainsView.cs",
+    "Scripts\\Runtime\\Rendering\\WorldView.cs",
+    "Tests\\EditMode\\FaunaBalanceTests.cs",
+    "Tests\\PlayMode\\RemainsPresentationTests.cs"
+  ],
+  "simulationUnchanged": true,
+  "reason": "Native remains loot overlap fix, corresponding PlayMode regression, and trailing blank line removal in an EditMode test."
+}

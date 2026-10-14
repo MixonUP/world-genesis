@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "timestamp": "2026-10-14T00:32:14.0430953+03:00",
+  "timestamp": "2026-10-14T08:21:12.8084758+03:00",
   "scope": "Project organization and file scaffold only",
   "passed": true,
-  "checkCount": 1121,
+  "checkCount": 1281,
   "failures": [],
   "checks": [
     {
@@ -185,6 +185,16 @@
       "id": "meta-unique:Assets\\_Project\\Prefabs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Prefabs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Resources.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Resources.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scenes.meta",
@@ -477,6 +487,16 @@
       "detail": "Assets\\_Project\\Content\\Species.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Editor\\BackgroundMusicImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\BackgroundMusicImporter.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Editor\\BackgroundMusicImporter.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Editor\\BackgroundMusicImporter.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Editor\\CitizenArtImporter.cs.meta"
@@ -515,6 +535,46 @@
       "id": "meta-unique:Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Editor\\WorldGenesis.Editor.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Resources\\Music.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Resources\\Music.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Resources\\Music\\WG_MUS_01.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_01.mp3.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Resources\\Music\\WG_MUS_01.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_01.mp3.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Resources\\Music\\WG_MUS_02.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_02.mp3.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Resources\\Music\\WG_MUS_02.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_02.mp3.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Resources\\Music\\WG_MUS_03.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_03.mp3.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Resources\\Music\\WG_MUS_03.mp3.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Resources\\Music\\WG_MUS_03.mp3.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scenes\\Main.unity.meta",
@@ -647,6 +707,16 @@
       "detail": "Assets\\_Project\\Scripts\\Runtime\\RuntimeDiagnostics.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\SimulationPacer.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\SimulationPacer.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\SimulationPacer.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\SimulationPacer.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\UI.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Runtime\\UI.meta"
@@ -665,6 +735,16 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Runtime\\WorldGenesis.Runtime.asmdef.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Audio\\BackgroundMusic.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio\\BackgroundMusic.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Audio\\BackgroundMusic.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Audio\\BackgroundMusic.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Audio\\ProceduralAudio.cs.meta",
@@ -817,6 +897,26 @@
       "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\PixelArt.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsArt.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsArt.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsView.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsView.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RemainsView.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\ResourceArt.cs.meta"
@@ -845,6 +945,16 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RiverArt.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RulerPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RulerPresentation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\Rendering\\RulerPresentation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\Rendering\\RulerPresentation.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\Rendering\\SocietyArt.cs.meta",
@@ -935,6 +1045,16 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\UI\\BuildingAccessHud.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Runtime\\UI\\BuildingAccessHud.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\UI\\ExpansionHud.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI\\ExpansionHud.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Runtime\\UI\\ExpansionHud.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Runtime\\UI\\ExpansionHud.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Runtime\\UI\\GameHud.cs.meta",
@@ -1167,6 +1287,16 @@
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\RulerPlanning.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementConquest.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementConquest.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementConquest.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementConquest.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta"
@@ -1175,6 +1305,16 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementDevelopment.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementExpansion.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementExpansion.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementExpansion.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementExpansion.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Civilizations\\SettlementPolitics.cs.meta",
@@ -1337,6 +1477,16 @@
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\IndustrySimulation.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\RemainsSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\RemainsSimulation.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\Entities\\RemainsSimulation.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\RemainsSimulation.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\ResourceEconomy.cs.meta"
@@ -1387,6 +1537,16 @@
       "detail": "Assets\\_Project\\Scripts\\Simulation\\Entities\\WorkshopSupply.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\AgingRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\AgingRules.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\AgingRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\AgingRules.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\AgricultureData.cs.meta"
@@ -1425,6 +1585,26 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\BuildingSalvageData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\ConquestData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ConquestData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\ConquestData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ConquestData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\ExpansionData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ExpansionData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\ExpansionData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\ExpansionData.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\FishingData.cs.meta",
@@ -1515,6 +1695,26 @@
       "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\MarketData.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\MarketData.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\PlacementRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\PlacementRules.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\PlacementRules.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\PlacementRules.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\RemainsData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\RemainsData.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Scripts\\Simulation\\World\\RemainsData.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Scripts\\Simulation\\World\\RemainsData.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Scripts\\Simulation\\World\\ResourceCatalog.cs.meta",
@@ -1627,6 +1827,16 @@
       "detail": "Assets\\_Project\\Tests\\PlayMode.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\AgingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\AgingTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\AgingTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\AgingTests.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\EditMode\\AgricultureTests.cs.meta"
@@ -1657,6 +1867,16 @@
       "detail": "Assets\\_Project\\Tests\\EditMode\\BuildingInteractionTests.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\BuildingPlacementTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\BuildingPlacementTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\BuildingPlacementTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\BuildingPlacementTests.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta"
@@ -1665,6 +1885,26 @@
       "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\EditMode\\CaravanTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\ConquestTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\ConquestTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\ConquestTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\ConquestTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\FaunaBalanceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\FaunaBalanceTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\FaunaBalanceTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\FaunaBalanceTests.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\FishingTests.cs.meta",
@@ -1737,6 +1977,16 @@
       "detail": "Assets\\_Project\\Tests\\EditMode\\ProductionTests.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\RemainsSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RemainsSimulationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\RemainsSimulationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\RemainsSimulationTests.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\EditMode\\ResourcePersistenceTests.cs.meta"
@@ -1785,6 +2035,36 @@
       "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\EditMode\\SaveStoreTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SettlementExpansionTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SettlementExpansionTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SettlementExpansionTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SettlementExpansionTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SimulationPacerTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationPacerTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SimulationPacerTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationPacerTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SimulationPerformanceCorrectnessTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationPerformanceCorrectnessTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\EditMode\\SimulationPerformanceCorrectnessTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\EditMode\\SimulationPerformanceCorrectnessTests.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Tests\\EditMode\\SimulationTests.cs.meta",
@@ -1907,6 +2187,16 @@
       "detail": "Assets\\_Project\\Tests\\EditMode\\Fixtures\\README.md.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\BackgroundMusicTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\BackgroundMusicTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\BackgroundMusicTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\BackgroundMusicTests.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\BuildingAccessHudTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\PlayMode\\BuildingAccessHudTests.cs.meta"
@@ -1927,6 +2217,26 @@
       "detail": "Assets\\_Project\\Tests\\PlayMode\\CitizenWardrobeTests.cs.meta"
     },
     {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\ExpansionHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\ExpansionHudTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\ExpansionHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\ExpansionHudTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\FaunaPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\FaunaPresentationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\FaunaPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\FaunaPresentationTests.cs.meta"
+    },
+    {
       "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta"
@@ -1935,6 +2245,16 @@
       "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\PlayMode\\FishingPresentationTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\HighSpeedHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\HighSpeedHudTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\HighSpeedHudTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\HighSpeedHudTests.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\IndustryPresentationTests.cs.meta",
@@ -1965,6 +2285,16 @@
       "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\ProductionHudTests.cs.meta",
       "passed": true,
       "detail": "Assets\\_Project\\Tests\\PlayMode\\ProductionHudTests.cs.meta"
+    },
+    {
+      "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\RemainsPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RemainsPresentationTests.cs.meta"
+    },
+    {
+      "id": "meta-unique:Assets\\_Project\\Tests\\PlayMode\\RemainsPresentationTests.cs.meta",
+      "passed": true,
+      "detail": "Assets\\_Project\\Tests\\PlayMode\\RemainsPresentationTests.cs.meta"
     },
     {
       "id": "meta-guid:Assets\\_Project\\Tests\\PlayMode\\RiverVisualTests.cs.meta",
@@ -2077,26 +2407,6 @@
       "detail": "Found 5, expected 5"
     },
     {
-      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
-      "passed": true,
-      "detail": "UnityEngine.UI"
-    },
-    {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
-      "passed": true,
-      "detail": "WorldGenesis.Simulation"
-    },
-    {
-      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
-      "passed": true,
-      "detail": "WorldGenesis.Runtime"
-    },
-    {
       "id": "reference:WorldGenesis.PlayModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -2112,6 +2422,16 @@
       "detail": "UnityEngine.UI"
     },
     {
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.Editor->WorldGenesis.Runtime",
+      "passed": true,
+      "detail": "WorldGenesis.Runtime"
+    },
+    {
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Simulation",
       "passed": true,
       "detail": "WorldGenesis.Simulation"
@@ -2120,6 +2440,16 @@
       "id": "reference:WorldGenesis.EditModeTests->WorldGenesis.Runtime",
       "passed": true,
       "detail": "WorldGenesis.Runtime"
+    },
+    {
+      "id": "reference:WorldGenesis.Runtime->WorldGenesis.Simulation",
+      "passed": true,
+      "detail": "WorldGenesis.Simulation"
+    },
+    {
+      "id": "reference:WorldGenesis.Runtime->UnityEngine.UI",
+      "passed": true,
+      "detail": "UnityEngine.UI"
     },
     {
       "id": "assembly-acyclic",
@@ -2212,19 +2542,29 @@
       "detail": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.45f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\com.unity.ugui\\Runtime\\UGUI\\UnityEngine.UI.asmdef"
     },
     {
-      "id": "link:README.md:Docs/Development/MARITIME_GALLERY.md",
+      "id": "link:README.md:Docs/Development/EXPANSION_GALLERY.md",
       "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_GALLERY.md"
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:README.md:Evidence/Captures/20261014-081318-settlers-walking-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261014-081318-settlers-walking-final.mp4"
+    },
+    {
+      "id": "link:README.md:Evidence/Captures/20261014-014142-fauna-walking-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261014-014142-fauna-walking-final.mp4"
     },
     {
       "id": "link:README.md:Docs/Development/MARITIME_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_REPORT.md"
-    },
-    {
-      "id": "link:README.md:Evidence/Captures/20261014-002540-maritime-voyage-final.mp4",
-      "passed": true,
-      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Evidence\\Captures\\20261014-002540-maritime-voyage-final.mp4"
     },
     {
       "id": "link:README.md:Docs/Development/ORIGINAL_CITIZENS_GALLERY.md",
@@ -2255,6 +2595,11 @@
       "id": "link:README.md:Tools/README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Tools\\README.md"
+    },
+    {
+      "id": "link:README.md:Docs/Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
     },
     {
       "id": "link:README.md:Docs/Development/MARKET_PROGRESS_REPORT.md",
@@ -2292,6 +2637,21 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGENT_ROLES.md"
     },
     {
+      "id": "link:00_INDEX.md:Development/EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/EXPANSION_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Design/SETTLEMENT_EXPANSION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\SETTLEMENT_EXPANSION.md"
+    },
+    {
       "id": "link:00_INDEX.md:STATE.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
@@ -2310,6 +2670,21 @@
       "id": "link:00_INDEX.md:KICKOFF.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\KICKOFF.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:00_INDEX.md:Design/MUSIC_BRIEF_SUNO.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\MUSIC_BRIEF_SUNO.md"
+    },
+    {
+      "id": "link:00_INDEX.md:../SourceAssets/Music/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\SourceAssets\\Music\\PROVENANCE.md"
     },
     {
       "id": "link:00_INDEX.md:Development/MARITIME_REPORT.md",
@@ -2717,6 +3092,31 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARKET_PROGRESS_REPORT.md"
     },
     {
+      "id": "link:ACCEPTANCE.md:../Evidence/Development/published-0.8.0-alpha.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\published-0.8.0-alpha.json"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:STATE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\STATE.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:ACCEPTANCE.md:Development/EXPANSION_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
+    },
+    {
       "id": "link:ARCHITECTURE.md:Development/TRANSPORT_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
@@ -2922,6 +3322,11 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\PRODUCTION_REPORT.md"
     },
     {
+      "id": "link:FEATURE_MAP.md:Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
       "id": "link:REFERENCES.md:Research/README.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\README.md"
@@ -2935,6 +3340,66 @@
       "id": "link:REFERENCES.md:Research/TOOLS_AND_AGENTS.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Research\\TOOLS_AND_AGENTS.md"
+    },
+    {
+      "id": "link:STATE.md:Development/EXPANSION_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:Development/EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/SPEED_FAUNA_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/published-0.9.0-alpha.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\published-0.9.0-alpha.json"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/2026-10-14-speed-fauna-music-published-obsidian.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\2026-10-14-speed-fauna-music-published-obsidian.json"
+    },
+    {
+      "id": "link:STATE.md:Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Development/SPEED_FAUNA_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:Development/SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:STATE.md:Design/MUSIC_BRIEF_SUNO.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Design\\MUSIC_BRIEF_SUNO.md"
+    },
+    {
+      "id": "link:STATE.md:Development/MARITIME_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_GALLERY.md"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/published-0.8.0-alpha.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\published-0.8.0-alpha.json"
+    },
+    {
+      "id": "link:STATE.md:../Evidence/Development/2026-10-14-maritime-published-obsidian.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\..\\Evidence\\Development\\2026-10-14-maritime-published-obsidian.json"
     },
     {
       "id": "link:STATE.md:Development/MARITIME_REPORT.md",
@@ -3827,6 +4292,36 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Research\\AGENT_QUALITY_STANDARD.md"
     },
     {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../WorldGenesis/Assets/_Project/Tests/EditMode/AgingTests.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\AgingTests.cs"
+    },
+    {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../Evidence/Simulation/aging-probe-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\aging-probe-final.json"
+    },
+    {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../WorldGenesis/Assets/_Project/Tests/EditMode/ConquestTests.cs",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\WorldGenesis\\Assets\\_Project\\Tests\\EditMode\\ConquestTests.cs"
+    },
+    {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../Evidence/Simulation/conquest-probe-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\conquest-probe-final.json"
+    },
+    {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../Evidence/Simulation/conquest-native-showcase.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\conquest-native-showcase.json"
+    },
+    {
+      "id": "link:AGING_CONQUEST_REVIEW_0_10.md:../../Evidence/Simulation/expansion-probe-second.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\expansion-probe-second.json"
+    },
+    {
       "id": "link:AGRICULTURE_CARAVAN_REVIEW.md:../Design/CARAVAN_RUNTIME.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\CARAVAN_RUNTIME.md"
@@ -4020,6 +4515,91 @@
       "id": "link:CLIMATE_NATIVE_REVIEW.md:../../Evidence/Captures/20261012-170743-climate-hurricane-final.mp4",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261012-170743-climate-hurricane-final.mp4"
+    },
+    {
+      "id": "link:EXPANSION_GALLERY.md:EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:EXPANSION_GALLERY.md:../../Evidence/Captures/20261014-081318-settlers-walking-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-081318-settlers-walking-final.mp4"
+    },
+    {
+      "id": "link:EXPANSION_GALLERY.md:../../Evidence/Captures/20261014-081409-remains-fade-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-081409-remains-fade-final.mp4"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:EXPANSION_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:../../Evidence/Captures/20261014-081445-expansion-load1000-final-profile.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-081445-expansion-load1000-final-profile.json"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:../Design/SETTLEMENT_EXPANSION.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\SETTLEMENT_EXPANSION.md"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:REMAINS_0_10.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\REMAINS_0_10.md"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:AGING_CONQUEST_REVIEW_0_10.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGING_CONQUEST_REVIEW_0_10.md"
+    },
+    {
+      "id": "link:EXPANSION_REPORT.md:EXPANSION_WORK_PACKET.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_WORK_PACKET.md"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-baseline-0_8.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-baseline-0_8.json"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Tools/FaunaBalanceProbe/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\FaunaBalanceProbe\\README.md"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-placement-fourth.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-placement-fourth.json"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-placement-cap-repro.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-placement-cap-repro.json"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-after-0_9-first.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-after-0_9-first.json"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-placement-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-placement-final.json"
+    },
+    {
+      "id": "link:FAUNA_PLACEMENT_0_9.md:../../Evidence/Simulation/fauna-after-0_9-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-after-0_9-final.json"
+    },
+    {
+      "id": "link:FAUNA_VISUAL_REVIEW_0_9.md:SPEED_FAUNA_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_GALLERY.md"
     },
     {
       "id": "link:FISHING_RIVERS_GALLERY.md:FISHING_RIVERS_REPORT.md",
@@ -4382,6 +4962,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_INDEPENDENT_REVIEW.md"
     },
     {
+      "id": "link:MARITIME_REPORT.md:../../Evidence/Development/published-0.8.0-alpha.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\published-0.8.0-alpha.json"
+    },
+    {
+      "id": "link:MARITIME_REPORT.md:../../Evidence/Development/github-release-0.8.0.jpg",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\github-release-0.8.0.jpg"
+    },
+    {
       "id": "link:MARITIME_WORK_PACKET.md:../../Evidence/20261014-001943-064-editmode/tests.xml",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-001943-064-editmode\\tests.xml"
@@ -4430,6 +5020,16 @@
       "id": "link:MARITIME_WORK_PACKET.md:MARITIME_GALLERY.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_GALLERY.md"
+    },
+    {
+      "id": "link:MARITIME_WORK_PACKET.md:../../Evidence/Development/published-0.8.0-alpha.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\published-0.8.0-alpha.json"
+    },
+    {
+      "id": "link:MARITIME_WORK_PACKET.md:../../Evidence/Development/github-release-0.8.0.jpg",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\github-release-0.8.0.jpg"
     },
     {
       "id": "link:MARKET_PROGRESS_REPORT.md:../Design/MARKET.md",
@@ -4927,6 +5527,16 @@
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
     },
     {
+      "id": "link:README.md:SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:README.md:MARITIME_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\MARITIME_REPORT.md"
+    },
+    {
       "id": "link:README.md:TRANSPORT_REPORT.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\TRANSPORT_REPORT.md"
@@ -5075,6 +5685,26 @@
       "id": "link:README.md:../FEATURE_MAP.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\FEATURE_MAP.md"
+    },
+    {
+      "id": "link:README.md:EXPANSION_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_REPORT.md"
+    },
+    {
+      "id": "link:REMAINS_0_10.md:../../Evidence/Simulation/remains-probe.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\remains-probe.json"
+    },
+    {
+      "id": "link:REMAINS_0_10.md:../../Evidence/Simulation/remains-showcase.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\remains-showcase.json"
+    },
+    {
+      "id": "link:REMAINS_0_10.md:EXPANSION_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\EXPANSION_GALLERY.md"
     },
     {
       "id": "link:RESOURCE_REVIEW.md:../../Evidence/Simulation/resource-pipeline-probe.json",
@@ -5250,6 +5880,176 @@
       "id": "link:SOCIETY_REPORT.md:AGRICULTURE_CARAVAN_REVIEW.md",
       "passed": true,
       "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\AGRICULTURE_CARAVAN_REVIEW.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Tools/FaunaShowcase/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\FaunaShowcase\\README.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Evidence/Captures/20261014-014142-fauna-walking-final.mp4",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-014142-fauna-walking-final.mp4"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Evidence/Captures/20261014-014122-fauna-domestic-overview.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-014122-fauna-domestic-overview.png"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Evidence/Captures/20261014-014116-fauna-woodland-overview.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-014116-fauna-woodland-overview.png"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Evidence/Captures/20261014-015607-fauna-spirit-stag-arrival-fixed.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-015607-fauna-spirit-stag-arrival-fixed.png"
+    },
+    {
+      "id": "link:SPEED_FAUNA_GALLERY.md:../../Evidence/Captures/20261014-015613-fauna-spirit-stag-directions-final.png",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-015613-fauna-spirit-stag-directions-final.png"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Development/source-check-speed-fauna-music-r3.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\source-check-speed-fauna-music-r3.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../STATE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\STATE.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:SPEED_SIMULATION_0_9.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_SIMULATION_0_9.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:FAUNA_PLACEMENT_0_9.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\FAUNA_PLACEMENT_0_9.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../SourceAssets/Music/PROVENANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\SourceAssets\\Music\\PROVENANCE.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../Design/MUSIC_BRIEF_SUNO.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\Design\\MUSIC_BRIEF_SUNO.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/20261014-012936-987-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-012936-987-editmode\\tests.xml"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/20261014-015337-229-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-015337-229-playmode\\tests.xml"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/20261014-013140-964-playmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-013140-964-playmode\\tests.xml"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Development/build-speed-fauna-music-v090-r3.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\build-speed-fauna-music-v090-r3.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Development/source-check-speed-fauna-music-r3.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\source-check-speed-fauna-music-r3.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:SPEED_FAUNA_GALLERY.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_GALLERY.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Development/native-speed-music-0_9.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Development\\native-speed-music-0_9.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Simulation/native-speed-worlds.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\native-speed-worlds.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_REPORT.md:../../Evidence/Captures/20261014-015618-world09-normal-r3-profile.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Captures\\20261014-015618-world09-normal-r3-profile.json"
+    },
+    {
+      "id": "link:SPEED_FAUNA_WORK_PACKET.md:../ACCEPTANCE.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\ACCEPTANCE.md"
+    },
+    {
+      "id": "link:SPEED_FAUNA_WORK_PACKET.md:SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/speed-mono-comparison-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\speed-mono-comparison-final.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/speed-instrumented.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\speed-instrumented.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/speed-correctness-mono-fix.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\speed-correctness-mono-fix.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/20261014-012152-458-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-012152-458-editmode\\tests.xml"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/20261014-012936-987-editmode/tests.xml",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\20261014-012936-987-editmode\\tests.xml"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/fauna-placement-final.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\fauna-placement-final.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/speed-current-0_9-mono-fix.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\speed-current-0_9-mono-fix.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Tools/SpeedProbe/README.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Tools\\SpeedProbe\\README.md"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:../../Evidence/Simulation/native-speed-worlds.json",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\..\\..\\Evidence\\Simulation\\native-speed-worlds.json"
+    },
+    {
+      "id": "link:SPEED_SIMULATION_0_9.md:SPEED_FAUNA_REPORT.md",
+      "passed": true,
+      "detail": "C:\\Users\\ohrem_6c67u02\\OneDrive\\Документы\\ChatGPT\\Игра WorldBox\\Docs\\Development\\SPEED_FAUNA_REPORT.md"
     },
     {
       "id": "link:SUBSISTENCE_REPORT.md:../../Evidence/Simulation/subsistence-probe-final.json",

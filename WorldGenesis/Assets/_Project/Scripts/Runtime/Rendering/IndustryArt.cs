@@ -123,7 +123,17 @@ namespace WorldGenesis.Runtime
                 Detail(effects, new Rect(position.x - width * .5f, position.y + hem + 2 * pixel, width, pixel), DarkWood, water.Wet, waterline);
                 if (!side && facing.y < .5f) Detail(effects, new Rect(position.x - pixel, position.y + hem + 2 * pixel, 2 * pixel, pixel), WoodLight, water.Wet, waterline);
             }
-            if (!unit.IsChild && IndustryCatalog.IsTool(unit.WorkTool))
+            if (!unit.IsChild && unit.WarWeapon != ItemType.None)
+            {
+                float x = position.x + (facing.x < 0 ? -1 : 1) * (side ? 3.5f : 5.5f) * pixel;
+                bool spear = unit.WarWeapon == ItemType.Spear;
+                float reach = spear ? 16 : 11;
+                Detail(effects, new Rect(x, position.y + 2 * pixel, pixel, (reach - 3) * pixel), spear ? Wood : StoneLight, water.Wet, waterline);
+                Detail(effects, new Rect(x - pixel, position.y + (reach - 2) * pixel, 3 * pixel, 2 * pixel), StoneLight, water.Wet, waterline);
+                Detail(effects, new Rect(x, position.y + reach * pixel, pixel, pixel), Color.white, water.Wet, waterline);
+                if (!spear) Detail(effects, new Rect(x - pixel, position.y + 5 * pixel, 3 * pixel, pixel), WoodLight, water.Wet, waterline);
+            }
+            if (!unit.IsChild && unit.WarWeapon == ItemType.None && IndustryCatalog.IsTool(unit.WorkTool))
             {
                 float x = position.x + (facing.x < 0 ? -1 : 1) * (side ? 2.5f : 4.5f) * pixel;
                 Color metal = unit.WorkTool == ItemType.BronzeTools ? PixelArt.Hex("b9a465") : StoneLight;

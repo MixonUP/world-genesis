@@ -140,7 +140,7 @@ namespace WorldGenesis.Simulation
         {
             if(u.ShipId==0)return false;ShipData s=World.GetShip(u.ShipId);if(s==null)return false;
             u.X=s.X;u.Y=s.Y;ClearRoute(u);u.InsideBuildingId=0;u.Task=UnitTask.Sail;
-            if(World.Laws.Aging)u.Age+=dt*.1f;
+            if(World.Laws.Aging)u.Age+=dt*AgingRules.RatePerSecond(u.Species);
             float need=dt/SubsistenceRules.DaySeconds;
             float food=Math.Min(need,s.Food),water=Math.Min(need,s.Water);s.Food-=food;s.Water-=water;World.MaritimeFoodConsumed+=food;World.MaritimeWaterConsumed+=water;
             u.Hunger=Math.Max(0,Math.Min(1,u.Hunger+(need-food)*SubsistenceRules.NeedReliefPerPortion));

@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-14T04:40:37.5259785Z",
+  "kind": "Controlled diagnostic, not player\u0027s save",
+  "assistance": "Aging case deliberately resets Hunger/Thirst/Fatigue/SocialNeed each tick and uses initial idle timer100000, no health reset; isolates natural age damage. Birth case grants100Food and moves two adult parents to test Hall-radius gate. No gameplay files modified.",
+  "daySeconds": 600,
+  "civilYearsPerDay": 60,
+  "ageCases": [
+    {
+      "species": "Human",
+      "initialAge": 30,
+      "initialHealth": 100,
+      "firstDamageAtSeconds": 550.1,
+      "deathAtSeconds": 616.7,
+      "dead": true,
+      "finalAge": 91.670586,
+      "worldValid": true,
+      "error": null
+    },
+    {
+      "species": "Elf",
+      "initialAge": 30,
+      "initialHealth": 100,
+      "firstDamageAtSeconds": 1500.3000000000002,
+      "deathAtSeconds": 1566.9,
+      "dead": true,
+      "finalAge": 186.6661,
+      "worldValid": true,
+      "error": null
+    },
+    {
+      "species": "Dwarf",
+      "initialAge": 30,
+      "initialHealth": 130,
+      "firstDamageAtSeconds": 550.1,
+      "deathAtSeconds": 636.7,
+      "dead": true,
+      "finalAge": 93.67101,
+      "worldValid": true,
+      "error": null
+    },
+    {
+      "species": "Orc",
+      "initialAge": 30,
+      "initialHealth": 120,
+      "firstDamageAtSeconds": 550.1,
+      "deathAtSeconds": 630,
+      "dead": true,
+      "finalAge": 93.00087,
+      "worldValid": true,
+      "error": null
+    }
+  ],
+  "childbirth": {
+    "outsideRadiusCount": 2,
+    "afterBothAtHall": 3,
+    "foodAfter": 92,
+    "remainingBirthTimer": 0
+  }
+}

@@ -93,7 +93,7 @@ namespace WorldGenesis.Runtime
             inspectorScroll.horizontal = false; inspectorScroll.vertical = true; inspectorScroll.movementType = ScrollRect.MovementType.Clamped; inspectorScroll.inertia = false; inspectorScroll.scrollSensitivity = 24;
             inspectorHint = Label(right, "Колесо над панелью — подробности", 10, muted, new Vector2(17, -348), new Vector2(204, 16));
             CreateBuildingAccessControls(right);
-            CreateMaritimeControls();
+            CreateMaritimeControls(); CreateExpansionControls();
             RectTransform history = PanelFixed(root.transform, "Chronicle", new Vector2(-18, -478), new Vector2(236, 192), panel, true);
             Label(history, "ЛЕТОПИСЬ", 12, PixelArt.Gold, new Vector2(17, -16), new Vector2(202, 24)).fontStyle = FontStyle.Bold;
             chronicle = Label(history, "", 12, muted, new Vector2(17, -51), new Vector2(202, 127));
@@ -267,7 +267,7 @@ namespace WorldGenesis.Runtime
                         (ruler == null ? "Нет взрослого правителя" : RulerTitle(city.Government, ruler.Sex) + ": " + ruler.Name) +
                         (city.Government == GovernmentType.Republic ? "\nВыборы через " + Mathf.Max(0, (city.NextElectionTick - world.Tick) * SimulationEngine.TickSeconds).ToString("0") + " с" : "") +
                         "\n\nНаселение   " + city.Population + "\n" + PopulationDescription(world, city.Id) + "\nЖильё          " + city.Housing + "\nПостройки    " + city.Buildings +
-                        "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nОбщинные порции  " + city.Food.ToString("0.#"));
+                        "\n\n" + ExpansionDescription(world, city) + "\n\n" + SettlementSocietyDescription(world, city) + "\n\n" + ResearchDescription(city) + "\n\n" + PolicyDescription(world, city) + "\n\n" + ParliamentDescription(world, city) + "\n\n<b>ОБЩИЕ ЗАПАСЫ</b>\nОбщинные порции  " + city.Food.ToString("0.#"));
                     AppendSettlementStocks(world, city.Id);
                     builder.Append("\n\n").Append(TreasuryDescription(world, city.Id));
                     builder.Append("\n\n").Append(MarketDescription(world, city.Id));
@@ -281,7 +281,7 @@ namespace WorldGenesis.Runtime
             if (selected != null) inspectorBody.text += "\n\n" + WeatherSiteDescription(world, (int)selected.X, (int)selected.Y);
             else if (game.SelectedShipId == 0 && world.InBounds(game.InspectX, game.InspectY) && world.GetSettlement(world.Cells[world.Index(game.InspectX, game.InspectY)].SettlementId) == null) inspectorBody.text = WeatherSiteDescription(world, game.InspectX, game.InspectY) + "\n\n" + inspectorBody.text;
             RefreshBuildingAccessControls(world);
-            RefreshMaritimeControls(world);
+            RefreshMaritimeControls(world); RefreshExpansionControls(world);
             builder.Clear(); int count = 0, eventIndex = world.Events.Count - 1, socialIndex = world.SocialEvents == null ? -1 : world.SocialEvents.Count - 1;
             while ((eventIndex >= 0 || socialIndex >= 0) && count < 5)
             {
@@ -722,6 +722,7 @@ namespace WorldGenesis.Runtime
         public static string EquipmentDescription(WorldState world, UnitData unit)
         {
             string text = "<b>СНАРЯЖЕНИЕ</b>\n" + (unit.BasketLevel == 0 ? "Без корзины" : "Корзина · уровень " + unit.BasketLevel);
+            if (unit.WarWeapon != ItemType.None) text += "\nПоходное оружие: " + ResourceArt.ItemName(unit.WarWeapon);
             text += "\n" + ManufacturedEquipmentDescription(unit);
             int rod = FishingCatalog.RodLevel(unit);
             if (rod > 0) text += "\n" + FishingCatalog.RodName(rod) + " · грейд " + rod + "/5";
@@ -850,6 +851,8 @@ namespace WorldGenesis.Runtime
             switch (unit.Task)
             {
                 case UnitTask.Idle: return "Осматривается";
+                case UnitTask.Settle: return unit.ExpeditionResting ? "Переселенец: отдыхает в пути" : moving ? "Переселенец: идёт к новому поселению" : "Переселенец: собирает припасы / строит костёр";
+                case UnitTask.WarMarch: return unit.WarReturning ? "Ополченец: возвращается и сдаёт оружие" : unit.WarWeapon == ItemType.None ? "Ополченец: получает оружие" : moving ? "Вооружённый поход" : "Удерживает центр противника";
                 case UnitTask.Wander: return "Исследует окрестности";
                 case UnitTask.Gather:
                     ResourceType resource = unit.ResourceCell >= 0 && unit.ResourceCell < world.Cells.Length ? world.GetResourceAt(unit.ResourceCell % world.Width, unit.ResourceCell / world.Width).Type : ResourceType.None;

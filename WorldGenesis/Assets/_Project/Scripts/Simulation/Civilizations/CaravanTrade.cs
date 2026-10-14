@@ -23,7 +23,7 @@ namespace WorldGenesis.Simulation
         }
         private bool CaravanAvailable(UnitData u, int townId)
         {
-            return u != null && u.ShipId == 0 && IsCivilized(u.Species) && u.SettlementId == townId && u.Health > u.MaxHealth * .5f && u.Age >= 16 && u.CaravanId == 0 && CarriedLoad(u) <= .0001f && u.Hunger < .65f && u.Thirst < .75f && u.Fatigue < .75f && u.Task != UnitTask.Fight && u.Task != UnitTask.Flee && u.Task != UnitTask.CraftEquipment && u.Task != UnitTask.Process;
+            return u != null && u.ExpeditionId == 0 && u.WarTargetSettlementId == 0 && u.ShipId == 0 && IsCivilized(u.Species) && u.SettlementId == townId && u.Health > u.MaxHealth * .5f && u.Age >= 16 && u.CaravanId == 0 && CarriedLoad(u) <= .0001f && u.Hunger < .65f && u.Thirst < .75f && u.Fatigue < .75f && u.Task != UnitTask.Fight && u.Task != UnitTask.Flee && u.Task != UnitTask.CraftEquipment && u.Task != UnitTask.Process;
         }
         private bool HasActiveCaravan(int settlementId)
         {

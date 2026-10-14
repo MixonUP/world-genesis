@@ -4,7 +4,7 @@ namespace WorldGenesis.Simulation
 {
     public sealed partial class SimulationEngine
     {
-        private bool MaritimeAdult(UnitData u) {return u!=null&&u.Health>0&&u.Age>=16&&IsCivilized(u.Species)&&u.ShipId==0&&u.CaravanId==0;}
+        private bool MaritimeAdult(UnitData u) {return u!=null&&u.Health>0&&u.Age>=16&&IsCivilized(u.Species)&&u.ShipId==0&&u.CaravanId==0&&u.ExpeditionId==0&&u.WarTargetSettlementId==0;}
         private BuildingData NearestHomePort(int settlementId,int cell)
         {BuildingData best=null;int distance=int.MaxValue;foreach(BuildingData b in World.Buildings){if(b.SettlementId!=settlementId||!UsablePort(b))continue;int n=Math.Abs(b.X-cell%World.Width)+Math.Abs(b.Y-cell/World.Width);if(n<distance){best=b;distance=n;}}return best;}
         private float ShipMaterialAvailable(SettlementData s,ItemType item,BuildingData destination)

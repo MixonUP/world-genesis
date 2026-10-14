@@ -1,5 +1,7 @@
 # Индекс проекта
 
+- [Расширение и захват0.10](Development/EXPANSION_REPORT.md) — переселенцы, контроль города, останки и возраст ×0.5; [галерея](Development/EXPANSION_GALLERY.md); [контракт](Design/SETTLEMENT_EXPANSION.md).
+
 ## Вход
 - [STATE](STATE.md) — точка продолжения и проблемы.
 - [AGENTS](../AGENTS.md) — локальные правила.

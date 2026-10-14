@@ -197,7 +197,9 @@ namespace WorldGenesis.Tests
             Assert.AreEqual(0, restored.Relations.Count); Assert.AreEqual(0, restored.GetSettlement(home.Id).EnemyId); Assert.AreEqual(0, restored.GetSettlement(abandoned.Id).EnemyId);
             foreach (BuildingData building in restored.Buildings) if (building.X == abandoned.X && building.Y == abandoned.Y) Assert.AreEqual(abandoned.Id, building.SettlementId);
             resumed.SetDiplomacy(home.Id, abandoned.Id, true); resumed.Step(1);
-            Assert.AreEqual(home.Id, restored.Cells[restored.Index(abandoned.X, abandoned.Y)].SettlementId, "Explicit war still allows existing abandoned-territory capture");
+            Assert.AreEqual(abandoned.Id, restored.Cells[restored.Index(abandoned.X, abandoned.Y)].SettlementId, "A lone unarmed visitor cannot capture a town even after war is declared; 0.10 requires an equipped occupation party.");
+            Assert.AreEqual(0, restored.GetSettlement(abandoned.Id).SovereignSettlementId);
+            Assert.AreEqual(0, restored.GetSettlement(abandoned.Id).OccupationSeconds);
             Assert.IsTrue(restored.Validate(out string error), error);
         }
 
