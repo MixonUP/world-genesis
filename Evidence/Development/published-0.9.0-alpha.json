@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-14T04:17:10.1134526Z",
+  "version": "0.9.0-alpha",
+  "codeCommit": "b4052f1c081649b206abfcb41c3ea5e6d5b7d897",
+  "remoteBranch": "codex/world-genesis",
+  "tag": "v0.9.0-alpha",
+  "releaseUrl": "https://github.com/MixonUP/world-genesis/releases/tag/v0.9.0-alpha",
+  "archive": "WorldGenesis-v0.9.0-alpha-win64.zip",
+  "archiveBytes": 51476469,
+  "archiveSHA256": "ED7194EC873F284C7F24A5762A576EEB29D8CC46000B6EB2CD5A61825B96EF11",
+  "githubDigestMatched": true,
+  "gallery": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/SPEED_FAUNA_GALLERY.md",
+  "galleryLoadedImages": 9,
+  "proof": "Evidence/Development/github-release-0.9.0.jpg",
+  "verification": "Git branch/tag SHA matched; published release observed with ZIP and matching GitHub digest; all nine gallery images complete with native dimensions",
+  "limits": "No full 100x at1000 residents; no artistic listening review or full 11-minute native cycle; short Player profiles are not30-minute stability",
+  "uploadNote": "Browser file upload call returned after an extended wait; completion and published archive were verified at07:15MSK, not inferred from the attempted upload."
+}
