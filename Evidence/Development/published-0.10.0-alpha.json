@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-14T08:21:31.3166988Z",
+  "release": "https://github.com/MixonUP/world-genesis/releases/tag/v0.10.0-alpha",
+  "tag": "v0.10.0-alpha",
+  "draft": false,
+  "prerelease": true,
+  "commit": "59dcba6b659d4ff6447a92215f372b839e6fa5ce",
+  "remote": [
+    "59dcba6b659d4ff6447a92215f372b839e6fa5ce\trefs/heads/codex/world-genesis",
+    "59dcba6b659d4ff6447a92215f372b839e6fa5ce\trefs/tags/v0.10.0-alpha"
+  ],
+  "asset": "https://github.com/MixonUP/world-genesis/releases/download/v0.10.0-alpha/WorldGenesis-v0.10.0-alpha-win64.zip",
+  "bytes": 51490189,
+  "sha256": "sha256:60a052a4f84ba596f5568f61f3cb57a7d17be6e11dc24931e543789326c79c83",
+  "localMatch": true,
+  "status": "release-uploaded-hash-verified"
+}

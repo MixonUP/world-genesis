@@ -1,0 +1,42 @@
+{
+  "url": "https://github.com/MixonUP/world-genesis/blob/codex/world-genesis/Docs/Development/EXPANSION_GALLERY.md",
+  "images": [
+    {
+      "alt": "Отряд с грузами",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    },
+    {
+      "alt": "Новая колония",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    },
+    {
+      "alt": "Захват в процессе",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    },
+    {
+      "alt": "Город после захвата",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    },
+    {
+      "alt": "Останки людей и животных",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    },
+    {
+      "alt": "Обычный мир",
+      "height": 1080,
+      "loaded": true,
+      "width": 1920
+    }
+  ],
+  "videoLinksObserved": 2
+}
