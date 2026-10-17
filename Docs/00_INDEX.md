@@ -9,6 +9,7 @@
 - [KICKOFF](KICKOFF.md) — короткое задание следующему исполнителю.
 
 ## Разработка
+- [Пост и ролик Telegram, 17.10.2026](Development/TELEGRAM_PROMO_2026_10_17.md) — расширенная версия 1:45, ElevenLabs, Suno, реальные игровые кадры и проверенный экспорт DaVinci.
 - [Скорость, фауна и музыка0.9](Development/SPEED_FAUNA_REPORT.md) — ускорение, измерения, направления животных, корона, поля, сухое строительство и пользовательский плейлист.
 - [ТЗ для фоновой музыки в Suno](Design/MUSIC_BRIEF_SUNO.md) — семь запланированных тем и формат передачи; три пользовательских трека уже интегрированы, [поставка](../SourceAssets/Music/PROVENANCE.md).
 - [Море и рынок 0.8](Development/MARITIME_REPORT.md) — итоговая проверка; [галерея](Development/MARITIME_GALLERY.md).

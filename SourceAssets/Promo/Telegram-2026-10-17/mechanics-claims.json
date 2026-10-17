@@ -1,0 +1,73 @@
+{
+  "project": "World Genesis 0.10",
+  "audit_date_moscow": "2026-10-17",
+  "method": "Read-only source/document audit. No game tests, game execution or new capture performed. Existing capture descriptions checked against project galleries; files checked for existence. All paths below are workspace-relative.",
+  "claims": [
+    {
+      "topic": "fishing",
+      "allowed_ru": "На тихих берегах жители ловят рыбу и несут улов домой.",
+      "status": "implemented; natural fishing and delivery documented",
+      "sources": ["Docs/Development/FISHING_RIVERS_REPORT.md", "Docs/Development/FISHING_RIVERS_GALLERY.md", "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/FishingSimulation.cs"],
+      "captures": ["Evidence/Captures/20261013-150412-fishing-rods-final.png", "Evidence/Captures/20261013-150516-river-current-and-wading-final.mp4", "Evidence/Captures/20261013-150804-fishing-natural-town-final.png"],
+      "limit_ru": "Первые два кадра/ролика — подготовленные русло, запасы, снасти 1–5 и продлённый первый заброс. Два естественных прогона подтверждают базовый улов и доставку, но не полное развитие снастей."
+    },
+    {
+      "topic": "interaction",
+      "allowed_ru": "Они общаются, трудятся и вместе обустраивают поселения.",
+      "status": "implemented",
+      "sources": ["WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs", "Docs/Development/SOCIETY_REPORT.md", "Docs/Development/PRODUCTION_BUILDINGS_GALLERY.md"],
+      "captures": ["Evidence/Captures/20261014-081340-ordinary-town-010-final.png", "Evidence/Captures/20261013-223558-buildings-entrance-r7.mp4"],
+      "limit_ru": "Общение — действие Socialize с потребностями и распространением веры; свободный диалог, развитые отношения и внешняя LLM не заявлены. Ролик показывает подход и вход работника, не специально встречу двух разговаривающих жителей."
+    },
+    {
+      "topic": "trade",
+      "allowed_ru": "Караваны везут настоящие товары между поселениями, а торговые суда выходят в море.",
+      "status": "implemented; prepared showcase coverage",
+      "sources": ["Docs/Development/SOCIETY_REPORT.md", "Docs/Development/MARITIME_REPORT.md", "Docs/Development/MARITIME_GALLERY.md", "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/CaravanTrade.cs"],
+      "captures": ["Evidence/Captures/20261012-151758-rural-caravan.mp4", "Evidence/Captures/20261014-002258-maritime-harbor-final.png", "Evidence/Captures/20261014-002345-maritime-visitor-final.png", "Evidence/Captures/20261014-002540-maritime-voyage-final.mp4"],
+      "limit_ru": "Караван и флот показаны в подготовленных сценах с выданными технологиями/запасами; движение и товары реальные. Естественные миры 0.8 ещё не достигли монет, денежного оборота и портов. Не обещать универсальную торговлю всеми товарами."
+    },
+    {
+      "topic": "war",
+      "allowed_ru": "Когда объявлена война, вооружённые отряды идут в поход, сражаются и могут захватить чужое поселение.",
+      "status": "implemented after player-declared war; autonomous declaration absent",
+      "sources": ["Docs/Development/EXPANSION_REPORT.md", "Docs/Development/EXPANSION_GALLERY.md", "WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementConquest.cs", "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs"],
+      "captures": ["Evidence/Captures/20261014-081217-occupation-final.png", "Evidence/Captures/20261014-081235-conquest-final.png", "Evidence/Captures/20261014-002354-maritime-engagement-final.png"],
+      "limit_ru": "Война/мир задаются кнопкой игрока. Отряды могут формироваться после объявления войны при ресурсных условиях. Кадры захвата имеют выданные технологии/оружие и защитников вне центра; это не штурм крепости и не доказательство естественной военной экономики. Морской бой тоже подготовлен."
+    },
+    {
+      "topic": "fortifications",
+      "allowed_ru": "Поселения возводят деревянные стены и ворота.",
+      "status": "WoodWall/Gate implemented; autonomous construction branch exists",
+      "sources": ["WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementDevelopment.cs", "WorldGenesis/Assets/_Project/Tests/EditMode/InfrastructureTests.cs", "Docs/Development/SOCIETY_REPORT.md", "Docs/Design/INFRASTRUCTURE_AND_OWNERSHIP.md"],
+      "captures": [],
+      "limit_ru": "Код тратит материалы, проверяет технологию d10_wooden_defenses, создаёт препятствия/проходы и допускает автоматическое строительство периметра. Специальный подтверждённый крупный кадр укреплений не найден. Слова «строят крепости», «осаждают замки», «организованный гарнизон» шире проверенного объёма. Стена здания в ролике входа — не доказательство оборонительной стены."
+    },
+    {
+      "topic": "defense_and_hazards",
+      "allowed_ru": "Взрослые защищаются от врагов, а при пожаре жители ищут путь к спасению.",
+      "status": "local combat, fleeing and building evacuation implemented",
+      "sources": ["Docs/Development/CITIZENS_REPORT.md", "Docs/Design/BUILDING_INTERACTIONS.md", "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs", "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/BuildingInteraction.cs", "Docs/Development/TRANSPORT_REPORT.md"],
+      "captures": ["Evidence/Captures/20261012-171427-climate-fire-final.mp4", "Evidence/Captures/20261012-170743-climate-hurricane-final.mp4"],
+      "limit_ru": "Пожар/ураган имеют реальные последствия. Эти ролики подтверждают опасность, а не конкретную взаимную спасательную операцию. Дети и тяжелораненые бегут; из здания возможен аварийный выход на безопасную соседнюю клетку, но полностью запертые жители могут погибнуть. Автономное тушение пожаров жителями не найдено; дождь тушит огонь."
+    },
+    {
+      "topic": "mutual_rescue_and_healing",
+      "allowed_ru": "В пути переселенцы делятся запасами еды и воды. А вы можете вмешаться — исцелить жителей и погасить пламя дождём.",
+      "status": "provision sharing and player powers implemented; mutual rescue not established",
+      "sources": ["WorldGenesis/Assets/_Project/Scripts/Simulation/Civilizations/SettlementExpansion.cs", "WorldGenesis/Assets/_Project/Scripts/Simulation/Entities/CitizenBehavior.cs", "WorldGenesis/Assets/_Project/Scripts/Simulation/SimulationEngine.cs", "Docs/Development/PLAY_GUIDE.md"],
+      "captures": ["Evidence/Captures/20261014-081009-settlers-final.png", "Evidence/Captures/20261014-081318-settlers-walking-final.mp4"],
+      "limit_ru": "ConsumeExpeditionProvisions расходует реальные запасы близких членов отряда. Это помощь провизией, не переноска раненых или лечение другим жителем. Отдых/еда восстанавливают собственное здоровье. Heal — сила игрока. Лекарь, взаимное спасение из огня и спасательные отряды не подтверждены; фразу «спасают друг друга» исключить. Кадры показывают ношу и движение, не отдельный акт передачи пайка или исцеления."
+    }
+  ],
+  "verified_release_facts": {
+    "engine": "Unity 6000.0.45f1",
+    "language": "C#",
+    "documented_tests": "398 EditMode + 68 PlayMode = 466; existing final 0.10 reports, not rerun in this audit",
+    "sources": ["Docs/STATE.md", "Docs/Development/EXPANSION_REPORT.md", "Evidence/Development/published-0.10.0-alpha.json"],
+    "release_url": "https://github.com/MixonUP/world-genesis/releases/tag/v0.10.0-alpha",
+    "repository_url": "https://github.com/MixonUP/world-genesis",
+    "limitation": "Developing Unity game; complete WorldBox parity and long-run economy balance are not established. Repository public status is documented locally, not freshly checked online in this audit."
+  },
+  "recommended_voiceover_sentence_ru": "На тихих берегах жители ловят рыбу, общаются и обустраивают поселения. Караваны везут товары, торговые суда выходят в море. Города возводят деревянные стены и ворота, а когда объявлена война — вооружённые отряды отправляются в поход. Жители защищаются от врагов и спасаются от пожаров; переселенцы делятся провизией в пути. И над всем этим — ваша воля: создать, защитить или испытать этот маленький мир."
+}

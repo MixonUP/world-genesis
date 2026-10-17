@@ -1,0 +1,123 @@
+{
+  "project": "World Genesis",
+  "purpose": "Extended Telegram game presentation; final v02 export 105.237333 seconds",
+  "language": "Russian",
+  "user_direction": "Мягкий женский, сказочный и завораживающий",
+  "delivery": "Warm, intimate female storyteller. Gentle wonder, clear Russian consonants, unhurried natural phrasing. Soft resonance, restrained breathiness. Avoid exaggerated advertising delivery and singsong intonation.",
+  "preferred_provider": "ElevenLabs",
+  "provider": "ElevenLabs",
+  "model": "Eleven v4",
+  "speaker_identity": "Victoria - Warm & Cinematic, library voice; no named-person imitation",
+  "voice_id": "D5RRIJYa9pFwxiSpbGbR",
+  "pronunciation": {
+    "World Genesis": "Уорлд Дженезис",
+    "Windows": "Виндоус",
+    "GitHub": "Гитхаб"
+  },
+  "status": "v02 generated, segmented and verified; Resolve export completed and technically verified; user artistic acceptance pending",
+  "updated_at": "2026-10-17T20:56:32+03:00",
+  "generation": {
+    "date": "2026-10-17",
+    "request_count": 1,
+    "ui_variants": 2,
+    "selected_variant": "Generation 1",
+    "credits_used": 1518,
+    "source_file": "Builds/Promo/Telegram-2026-10-17/v02/narration-elevenlabs-original.mp3",
+    "source_seconds": 96.9926875,
+    "source_sha256": "1134011d435caeb34f4dcffcd2a47750e2813f5e5236587506c092286130f312",
+    "receipt": "Builds/Promo/Telegram-2026-10-17/v02/voice-receipt.json",
+    "settings_evidence": "Provider/model/voice and usage copied from the v02 local receipt. No synthesis was repeated during final documentation or Resolve export."
+  },
+  "preparation": {
+    "outputs": "Builds/Promo/Telegram-2026-10-17/v02/narration-01.wav through narration-11.wav",
+    "segment_count": 11,
+    "format": "48 kHz mono PCM16 WAV",
+    "segmentation": "Eleven chapters at observed paragraph boundaries; all source and segment SHA256 values checked against the v02 receipt",
+    "resolve_stem": "Builds/Promo/Telegram-2026-10-17/v02/voice-stem.wav",
+    "resolve_stem_format": "48 kHz stereo PCM24",
+    "resolve_stem_seconds": 105.233333,
+    "voice_atempo": 0.9999244020618556,
+    "previous_versions": "v01 ElevenLabs narration and earlier local-qwen fallback retained outside v02; not used by the v02 timeline"
+  },
+  "verification": {
+    "original_sha256_matches_receipt": true,
+    "segment_sha256_matches_receipt": "11/11",
+    "asr_word_match_ratio": 0.9197080291970803,
+    "asr_source": "Builds/Promo/Telegram-2026-10-17/v02/narration-asr.json",
+    "final_mix_asr": {
+      "source": "Builds/Promo/Telegram-2026-10-17/v02/final-mix-asr.json",
+      "audio_file": "Builds/Promo/Telegram-2026-10-17/v02/final-audio.wav",
+      "word_match_ratio": 0.9197080291970803,
+      "coverage": "All eleven paragraphs reported present; no spoken direction tag or first-person author claims"
+    },
+    "asr_limit": "ASR is text-match evidence, not an artistic score. The final-mix ASR examined the CPU final-audio.wav; Resolve output format and loudness were verified separately.",
+    "resolve_output": "Builds/Promo/Telegram-2026-10-17/v02/WorldGenesis-Telegram-Resolve.mp4",
+    "resolve_output_verified": true,
+    "full_human_listening": "not claimed by the ASR script or this documentation pass",
+    "user_artistic_acceptance": "pending"
+  },
+  "narration_source": "SourceAssets/Promo/Telegram-2026-10-17/narration-v02.txt",
+  "user_wording_correction": "Use текущая версия / версия 0.10; do not advertise as alpha or prerelease. Existing release tag has not been renamed.",
+  "music": "User-selected Dawn over the Settlement (3).mp3; exact workspace copy Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3; see music-direction.json",
+  "mix_direction": "Voice clearly in front; selected user music quiet underneath, gentle fades, no artificial room reverb by default",
+  "history": [
+    {
+      "date": "2026-10-17",
+      "status": "Earlier direction prepared while ElevenLabs sign-in was pending; the prior status did not claim generated or accepted voice."
+    },
+    {
+      "at": "2026-10-17T20:30:07+03:00",
+      "status": "Updated from actual ElevenLabs receipt after original and all eight segment hashes were checked. Final listening and user acceptance remain pending."
+    },
+    {
+      "at": "2026-10-17T20:56:32+03:00",
+      "revision": "v01 retained",
+      "point_of_view": "first-person author narration",
+      "snapshot": {
+        "purpose": "Telegram game presentation, about one minute",
+        "status": "generated and downloaded; original and eight segment hashes verified; final mix and artistic acceptance pending",
+        "generation": {
+          "date": "2026-10-17",
+          "request_count": 1,
+          "ui_variants": 2,
+          "selected_variant": "Generation 1",
+          "credits_used": 795,
+          "settings": {
+            "stability": 0.5,
+            "similarity": 0.75,
+            "output": "MP3 44.1 kHz 128 kbps"
+          },
+          "source_file": "Builds/Promo/Telegram-2026-10-17/narration-elevenlabs-original.mp3",
+          "source_seconds": 50.9910625,
+          "source_sha256": "7c6aa0341ad2df0bb4b3ad3887d2edd945e6bb21fac8266521376727870ff122",
+          "receipt": "Builds/Promo/Telegram-2026-10-17/voice-receipt.json",
+          "settings_evidence": "Copied from the on-disk voice receipt; this documentation pass did not repeat the remote generation."
+        },
+        "preparation": {
+          "script": "Tools/Promo/prepare_elevenlabs.py",
+          "outputs": "Builds/Promo/Telegram-2026-10-17/narration-01.wav through narration-08.wav",
+          "format": "48 kHz mono PCM16 WAV",
+          "segmentation": "Eight chapters; cuts halfway between observed words at paragraph boundaries; no words intentionally removed",
+          "previous_local_voice": "Qwen/Serena fallback retained in Builds/Promo/Telegram-2026-10-17/local-qwen; not selected for the final edit"
+        },
+        "verification": {
+          "original_sha256_matches_receipt": true,
+          "segment_sha256_matches_receipt": "8/8",
+          "asr_word_match_ratio": 0.9545454545454546,
+          "asr_source": "Builds/Promo/Telegram-2026-10-17/narration-asr.json",
+          "asr_limit": "Text-match evidence, not an artistic quality score. Receipt reports all eight paragraphs, unspoken direction tag, product-name differences and one uncertain grammatical ending.",
+          "final_mix_listening": "pending",
+          "user_artistic_acceptance": "pending"
+        },
+        "narration_source": "Tools/Promo/generate_narration.py: LINES"
+      }
+    },
+    {
+      "at": "2026-10-17T20:56:32+03:00",
+      "revision": "v02 current",
+      "status": "User expanded the film and required third-person narration throughout. Existing v02 Victoria source: 1518 credits, 96.9926875 seconds, eleven segments. Resolve export is complete; no further generation was requested in this finalization pass."
+    }
+  ],
+  "revision": 2,
+  "point_of_view": "third-person narrator throughout v02"
+}

@@ -1,0 +1,125 @@
+CURRENT STATUS — V02 / 2026-10-17 20:56:32 +03:00
+Final DaVinci Resolve export completed and technically verified. User artistic
+acceptance remains pending. The historical v01 records below are preserved.
+
+The user expanded the presentation and changed the entire voiceover from an
+author speaking in first person (v01) to a third-person storyteller (v02).
+Current script: SourceAssets/Promo/Telegram-2026-10-17/narration-v02.txt.
+ElevenLabs Eleven v4 / Victoria - Warm & Cinematic: existing v02 generation,
+1518 credits, 96.9926875 seconds, eleven paragraphs/segments. Source SHA256 and
+all 11 WAV hashes match v02/voice-receipt.json. No additional voice or music
+synthesis was requested during this final documentation/export pass.
+Final-mix ASR ratio 0.9197080291970803, all eleven paragraphs reported present;
+ASR input was v02/final-audio.wav, not the subsequently encoded Resolve MP4.
+This is text verification, not proof of artistic acceptance or human listening.
+
+Music remains the user-selected Dawn over the Settlement (3).mp3, copied as
+Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3. The 228.72-second source
+supplies a 105.233333-second stem with a 2-second entrance and 3-second ending.
+Both imported audio stems are PCM24, 48 kHz stereo. The separate alternative
+Suno piece remains unselected; its generation history below is retained.
+
+Resolve project: WorldGenesis_Telegram_20261017.
+Timeline: WorldGenesis_promo_v02_extended. 22 media online: 20 video segments
+and two separate audio stems. Clips and audio tracks remain editable; graphics
+are baked into CPU-rendered segments. Source plans and render recipes remain
+available. No Resolve plugins were applied.
+Resolve rejected VideoQuality setting keys, so H.264 Master preset defaults
+were used. Actual video bitrate: 2,171,965 bps; export verification passed.
+
+Delivered local file:
+Builds/Promo/Telegram-2026-10-17/v02/WorldGenesis-Telegram-Resolve.mp4
+1920x1080; 3157 frames at 30 fps; H.264 / AAC 48 kHz stereo;
+105.237333 seconds in the container, 32835770 bytes.
+SHA256: ee2d823f3d6156951bdf63e094cb7f6b21c3c1ff352cc7e1163caba4b9277a18
+Actual Resolve export loudness: -15.83 LUFS integrated, -0.75 dBTP true peak,
+4.70 LU loudness range. Measured true peak is below digital clipping.
+Evidence: Builds/Promo/Telegram-2026-10-17/v02/resolve-receipt.json,
+resolve-ffprobe.json, resolve-loudness.txt, voice-receipt.json and
+final-mix-asr.json in that same v02 folder.
+
+This final pass re-read local receipts, verified original/11 segment hashes,
+checked the actual output hash/size and PCM24 stem formats, and updated only
+these three provenance documents. No account balances or private download
+paths are retained in them. Telegram publication and user acceptance are not
+claimed here. Project Docs and Obsidian are handled by the integrating agent.
+
+HISTORICAL RECORD — V01 / EARLIER PREPARATION
+
+WORLD GENESIS — TELEGRAM PROMO
+2026-10-17 20:30:07 +03:00 · Europe/Moscow
+
+Objective: approximately one-minute presentation with real game footage, a soft,
+fairy-tale female narrator, the user's music and a public GitHub/Windows CTA.
+Current requested finishing application: DaVinci Resolve. Final export is pending.
+
+VOICE — GENERATED / PREPARED / TECHNICALLY CHECKED; FINAL LISTENING PENDING
+ElevenLabs, Eleven v4, Victoria - Warm & Cinematic
+(library voice ID D5RRIJYa9pFwxiSpbGbR). One request produced two UI variants;
+Generation 1 selected. Receipt records 795 credits, stability 0.5, similarity 0.75.
+Source: Builds/Promo/Telegram-2026-10-17/narration-elevenlabs-original.mp3,
+50.9910625 seconds. Original SHA256 and all eight narration-NN.wav hashes match
+voice-receipt.json. Tools/Promo/prepare_elevenlabs.py split the narration at
+ASR-observed paragraph boundaries into 48 kHz mono PCM16 WAV files.
+ASR word-match ratio: 0.9545454545454546; all eight paragraphs reported present.
+This is text verification, not a measure of voice beauty or user acceptance.
+Qwen/Serena fallback is retained under local-qwen and is not the selected voice.
+Full settings, source hash and current limits: voice-direction.json.
+
+MUSIC — USER TRACK SELECTED / COPY VERIFIED; EXCERPT AND MIX PENDING
+User source: Dawn over the Settlement (3).mp3.
+Selected copy: Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3.
+228.72 seconds, 5151678 bytes; source and copy have identical SHA256:
+F14BA79A5AC1BD11B5C344D3681861747F3BF1B8D69D44744A6D2349259876D7.
+MP3 tags: artist mixon_official; made with Suno; created 2026-10-13T22:22:04Z;
+song ID 85c98388-8b01-4e13-9f52-40e9e8fba1b0. Tags document origin, not a license audit.
+
+An additional Suno v6 instrumental batch, World Genesis — Первый огонь,
+was generated as an alternative: two variants, 10 credits used, reported
+by the integrating agent from the active UI session. First variant
+14ed45b4-776d-4359-9365-7e8a59ab8886 is downloaded in Downloads; actual duration
+59.28 seconds. Its MP3 tags and hash were inspected directly. Second variant:
+7227af72-28de-44d1-b913-b506c5201435; no local download verified here.
+The alternative does not replace the user's selected Dawn track.
+Detailed paths, hashes, metadata and evidence limits: music-direction.json.
+
+VIDEO — EDIT PLAN / PREVIEWS PREPARED; DAVINCI ASSEMBLY AND FINAL EXPORT PENDING
+Existing native Unity Player captures span versions 0.5 through 0.10.
+Ordinary-world footage is mixed with explicitly prepared mechanic showcases.
+No generated game imagery, repainting, motion interpolation or claimed new
+gameplay capture is part of these preparations. Planned source crops remove UI;
+GitHub crop excludes the logged-in navigation and account controls.
+On-screen disclosure: «Реальные кадры разработки • часть сцен подготовлена».
+Existing preparation: edit-plan.json; Tools/Promo/render_promo.py;
+Builds/Promo/Telegram-2026-10-17/edit-contact-sheet.jpg and edit-preview-*.jpg.
+This record does not claim a completed DaVinci timeline or final movie.
+
+FINAL INTEGRATION / QA STILL REQUIRED
+Use the ElevenLabs WAV set and selected music-user-dawn.mp3 in Resolve; assemble
+the picture, choose the music excerpt, mix and listen to the complete export.
+Check paragraph cuts, spoken product names, scene/story alignment, readable
+GitHub CTA, actual duration and decodability. User artistic acceptance is pending.
+At the original 20:30:07 documentation read, the FFmpeg plan still referenced
+WG_MUS_01.mp3. That historical state is superseded by the dated correction below.
+
+Public wording: «Версия 0.10 для Windows»; no alpha/prerelease label in the post
+or titles. Existing URL/tag spelling is retained:
+https://github.com/MixonUP/world-genesis
+https://github.com/MixonUP/world-genesis/releases/tag/v0.10.0-alpha
+Telegram publication is pending; no publishing is claimed by this record.
+
+This pass wrote only production-notes.txt, voice-direction.json and
+music-direction.json, after reading local evidence. No remote generation,
+renderer/plan/DocsSTATE change, commit or publication was performed in this pass.
+
+UPDATE / CORRECTION — 2026-10-17 20:32:28 +03:00
+Read the current edit-plan.json and edit-receipt.json: the integrating agent has
+replaced the music source with Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3.
+The receipt records its matching SHA256 and volume multiplier 0.25. A first CPU
+draft, WorldGenesis-Telegram-60s.mp4, now exists at 60.10 seconds; receipt reports
+passed format/duration checks and full decode. This supersedes the earlier
+pre-render status above, while preserving the order of actual preparation.
+Final visual/audio review and user acceptance remain pending. DaVinci assembly
+still awaits the bridge launch by the user; no completed Resolve edit is claimed.
+This correction changes documentation only; the edit plan and renderer were not
+modified by this documentation pass.

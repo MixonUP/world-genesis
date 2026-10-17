@@ -1,0 +1,18 @@
+{
+  "project": "World Genesis",
+  "date": "2026-10-17",
+  "status": "rendered_and_technically_verified__user_artistic_acceptance_pending",
+  "output": "Builds/Promo/Telegram-2026-10-17/v02/WorldGenesis-Telegram-Resolve.mp4",
+  "output_sha256": "ee2d823f3d6156951bdf63e094cb7f6b21c3c1ff352cc7e1163caba4b9277a18",
+  "bytes": 32835770,
+  "duration_seconds": 105.237333,
+  "video": {"width":1920,"height":1080,"fps":30,"frames":3157,"codec":"h264","color":"Rec.709"},
+  "audio": {"codec":"aac","sample_rate":48000,"channels":2,"integrated_lufs":-15.83,"true_peak_dbtp":-0.75,"loudness_range_lu":4.70},
+  "resolve": {"version":"21.0.3.7","project":"WorldGenesis_Telegram_20261017","timeline":"WorldGenesis_promo_v02_extended","video_clips":20,"audio_stems":2,"online_media":22,"offline_media":0,"export_verified":true,"third_party_effects_applied":false,"graphics":"CPU rendered per-scene media; recipes preserved"},
+  "project_export": {"file":"Builds/Promo/Telegram-2026-10-17/v02/WorldGenesis-Telegram.drp","bytes":107288,"sha256":"7a1114e7d60523e3416b3a69f1975fcb7b9ee3a0c79f0bb12355f5ec3a774da1"},
+  "checks": {"full_decode":"pass","frame_count":"pass","render_job_file_verification":"pass","visual_contact_sheet":"reviewed","rendered_statistics_frame":"reviewed","cpu_mix_asr":"all 11 paragraphs present; word match 0.9197","human_listening":"pending","user_artistic_acceptance":"pending"},
+  "provenance": {"gameplay":"Native Player captures from 0.4–0.10; includes prepared showcases","voice":"ElevenLabs / Victoria - Warm & Cinematic / Eleven v4 / third-person","music":"User-supplied Dawn over the Settlement (3).mp3 / Suno","no_generated_gameplay_images":true},
+  "claims": {"usage_source":"SourceAssets/Promo/Telegram-2026-10-17/project-usage-audit.json","mechanics_source":"SourceAssets/Promo/Telegram-2026-10-17/mechanics-claims.json","development_tokens_excluding_cached_input":22928409,"development_tokens_including_cached_input":721198873,"usage_sessions":46,"matched_sessions":55,"calendar_time_rounded":"57h46m","release_tests_previously_passed":466,"game_tests_rerun_for_promo":false},
+  "telegram_published": false,
+  "obsidian": "Project card and dated journal appended and read-back verified; prior text preserved"
+}

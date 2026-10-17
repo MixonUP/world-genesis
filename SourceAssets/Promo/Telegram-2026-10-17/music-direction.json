@@ -1,0 +1,105 @@
+{
+  "project": "World Genesis",
+  "purpose": "Extended Telegram presentation; final v02 export 105.237333 seconds",
+  "updated_at": "2026-10-17T20:56:32+03:00",
+  "status": "Same user-selected Dawn track integrated in the v02 CPU mix and verified Resolve export; user artistic acceptance pending",
+  "selected": {
+    "title": "Dawn over the Settlement",
+    "selection_basis": "User explicitly supplied Dawn over the Settlement (3).mp3 as the main music for this video.",
+    "original_file": "Dawn over the Settlement (3).mp3",
+    "workspace_copy": "Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3",
+    "duration_seconds": 228.72,
+    "bytes": 5151678,
+    "sha256": "F14BA79A5AC1BD11B5C344D3681861747F3BF1B8D69D44744A6D2349259876D7",
+    "copy_verification": "Original and workspace copy SHA256 identical on 2026-10-17",
+    "embedded_metadata": {
+      "artist": "mixon_official",
+      "provider": "Suno",
+      "created_utc": "2026-10-13T22:22:04Z",
+      "song_id": "85c98388-8b01-4e13-9f52-40e9e8fba1b0"
+    },
+    "provenance_limit": "Origin is recorded from user supply and embedded MP3 tags; no separate license audit was performed in this documentation pass.",
+    "chosen_excerpt": {
+      "source_start_seconds": 0,
+      "timeline_seconds": 105.233333,
+      "source_duration_seconds": 228.72,
+      "stem": "Builds/Promo/Telegram-2026-10-17/v02/music-stem.wav"
+    },
+    "final_gain_and_fades": {
+      "prepared_stem_volume_multiplier": 0.25,
+      "fade_in_seconds": 2,
+      "fade_out_seconds": 3,
+      "stem_format": "48 kHz stereo PCM24",
+      "resolve_additional_plugins": "none"
+    }
+  },
+  "alternative": {
+    "title": "World Genesis — Первый огонь",
+    "provider": "Suno",
+    "model": "v6",
+    "requested_format": "60-second instrumental",
+    "generation_status": "one batch generated, two variants; first downloaded; not selected as main music",
+    "batch_variants": [
+      "14ed45b4-776d-4359-9365-7e8a59ab8886",
+      "7227af72-28de-44d1-b913-b506c5201435"
+    ],
+    "credits": {
+      "used": 10
+    },
+    "generation_evidence": "One batch, model and 10 credits of usage were reported by the integrating agent from the Suno UI; the downloaded file was inspected. Account balances and private download paths are omitted.",
+    "downloaded_variant": {
+      "file": "World Genesis — Первый огонь.mp3",
+      "duration_seconds": 59.28,
+      "bytes": 1373748,
+      "sha256": "AB4ED809D1B4B11F04C0B78CB27273D356FC6588B23E9CE41941C8B66D009EC1",
+      "embedded_artist": "mixon_official",
+      "embedded_created_utc": "2026-10-17T17:27:49Z",
+      "embedded_song_id": "14ed45b4-776d-4359-9365-7e8a59ab8886"
+    },
+    "second_variant_file": "not downloaded in the evidence available to this pass",
+    "artistic_acceptance": "pending"
+  },
+  "mix_direction": {
+    "lead": "Soft, warm female ElevenLabs narrator, Victoria - Warm & Cinematic",
+    "music_role": "Quiet supportive bed below speech; gentle entrance and ending; preserve natural voice clarity",
+    "duration": "The 228.72-second user source supplies a 105.233333-second v02 music stem. The final Resolve MP4 container reports 105.237333 seconds.",
+    "processing": "Non-destructive source use. Separate prepared PCM24 voice/music stems imported into Resolve; no Resolve plugins applied. Technical loudness checked on the actual Resolve export; user artistic acceptance pending."
+  },
+  "integration_note": "Current v02: WorldGenesis_Telegram_20261017 / WorldGenesis_promo_v02_extended. Resolve render verified at 3157 frames, 30 fps, 1920x1080, H.264 and AAC 48 kHz stereo. No Resolve plugins were applied. Timeline clips and audio tracks are editable; graphics are baked into CPU-rendered segments, with source plans and render recipes retained.",
+  "integration_history": [
+    {
+      "at": "2026-10-17T20:30:07+03:00",
+      "status": "At the earlier documentation read, the FFmpeg plan still referenced WG_MUS_01.mp3; the user-selected track was prepared but substitution was not yet recorded."
+    },
+    {
+      "at": "2026-10-17T20:32:28+03:00",
+      "status": "Dated correction after reading the current plan and CPU draft receipt: the selected Dawn track is now integrated in the draft. This is not a claim of completed DaVinci finishing."
+    },
+    {
+      "at": "2026-10-17T20:56:32+03:00",
+      "status": "v02 completed in Resolve with the same user-selected Dawn source; 20 rendered video clips plus separate voice/music PCM24 stems, 22 media online. v01 statuses above remain historical."
+    }
+  ],
+  "acceptance": {
+    "source_and_copy": "verified",
+    "selected_for_edit": "user-selected",
+    "cpu_draft_integration": "verified",
+    "resolve_import_and_export": "verified from local receipt and output",
+    "final_mix_technical": "verified on actual Resolve output",
+    "user_artistic_acceptance": "pending"
+  },
+  "final_export": {
+    "file": "Builds/Promo/Telegram-2026-10-17/v02/WorldGenesis-Telegram-Resolve.mp4",
+    "duration_seconds": 105.237333,
+    "bytes": 32835770,
+    "sha256": "ee2d823f3d6156951bdf63e094cb7f6b21c3c1ff352cc7e1163caba4b9277a18",
+    "receipt": "Builds/Promo/Telegram-2026-10-17/v02/resolve-receipt.json",
+    "loudness_evidence": "Builds/Promo/Telegram-2026-10-17/v02/resolve-loudness.txt",
+    "integrated_lufs": -15.83,
+    "true_peak_dbtp": -0.75,
+    "loudness_range_lu": 4.7,
+    "clipping": "No digital clipping indicated by measured true peak below 0 dBTP",
+    "video_bitrate_bps": 2171965,
+    "render_settings_note": "Resolve rejected VideoQuality setting keys. The H.264 Master preset defaults were used; the actual H.264 bitrate is recorded, not an invented requested bitrate. Output verification passed."
+  }
+}

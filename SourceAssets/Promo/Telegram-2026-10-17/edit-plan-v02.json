@@ -1,0 +1,455 @@
+{
+  "version": 2,
+  "title": "World Genesis — маленький огонь, большая история",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "media_box": [
+    96,
+    246,
+    1240,
+    660
+  ],
+  "palette": {
+    "navy": "#0b1828",
+    "ivory": "#f2ead9",
+    "gold": "#d7b876",
+    "muted": "#a4b1bc"
+  },
+  "disclosure": "Реальные кадры разработки • часть сцен подготовлена",
+  "repository": "https://github.com/MixonUP/world-genesis",
+  "release": "https://github.com/MixonUP/world-genesis/releases/tag/v0.10.0-alpha",
+  "music": "Builds/Promo/Telegram-2026-10-17/music-user-dawn.mp3",
+  "audio": {
+    "target_seconds": 105,
+    "tempo_min": 0.98,
+    "tempo_max": 1.02,
+    "music_volume": 0.25,
+    "first_lead": 0.8,
+    "chapter_lead": 0.22,
+    "chapter_tail": 0.3,
+    "last_tail": 2.0
+  },
+  "notes": [
+    "Footage spans alpha versions 0.5 to 0.10; the film does not label all footage as version 0.10.",
+    "Gameplay crops remove UI only; pixels are not repainted. Static shots and short tail freezes are editorial choices, recorded below.",
+    "Original clips sample native Player frames near 10 Hz; 30 fps export duplicates samples and does not claim new motion detail.",
+    "Narration provider and voice identity are read from voice-receipt.json; this edit does not prescribe or impersonate a voice.",
+    "No optical flow, generated interpolation, GPU rendering, or source modification. Music is an existing project track.",
+    "Revision 2: third-person voice; extended narrative; development usage excludes promo work. User-supplied Dawn variant is the music source. Tech/stat cards are editorial graphics."
+  ],
+  "chapters": [
+    {
+      "title": "Сначала — маленький огонь",
+      "side": [
+        "Место,",
+        "где всё",
+        "начинается."
+      ],
+      "label": "ИСТОКИ",
+      "nominal_seconds": 8,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261014-081340-ordinary-town-010-final.png",
+          "crop": [
+            310,
+            100,
+            930,
+            710
+          ],
+          "weight": 0.43,
+          "kind": "still",
+          "version": "0.10",
+          "conditions": "Ordinary generation; automatic camera/capture only. Modal outside crop."
+        },
+        {
+          "file": "Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.57,
+          "kind": "video",
+          "in": 0,
+          "max_seconds": 6,
+          "version": "0.6",
+          "conditions": "Ordinary simulation; automatic camera and selected citizen."
+        }
+      ]
+    },
+    {
+      "title": "World Genesis",
+      "side": [
+        "Четыре",
+        "народа.",
+        "Один мир."
+      ],
+      "label": "ПИКСЕЛЬНАЯ ПЕСОЧНИЦА",
+      "nominal_seconds": 9,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261012-171352-climate-world-overview-final.png",
+          "crop": [
+            620,
+            95,
+            720,
+            720
+          ],
+          "weight": 0.5,
+          "kind": "still",
+          "version": "0.5",
+          "conditions": "Ordinary world after 1800 simulation seconds; automatic initial settlement/camera."
+        },
+        {
+          "file": "Evidence/Captures/20261014-014053-rulers-final.png",
+          "crop": [
+            310,
+            110,
+            1290,
+            690
+          ],
+          "weight": 0.5,
+          "kind": "still",
+          "version": "0.9",
+          "conditions": "Prepared field showcase with four actual rulers: human, elf, dwarf and orc. Native Windows Player capture; UI excluded by crop."
+        }
+      ]
+    },
+    {
+      "title": "Жизнь складывается из маленьких дел",
+      "side": [
+        "Ресурсы.",
+        "Дороги.",
+        "Мастерские."
+      ],
+      "label": "ЖИЗНЬ ПОСЕЛЕНИЯ",
+      "nominal_seconds": 7,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261012-210603-original-citizens-gameplay-final.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.27,
+          "kind": "video",
+          "in": 2.1,
+          "max_seconds": 3.8,
+          "version": "0.6",
+          "conditions": "Ordinary simulation; automatic camera and selected citizen."
+        },
+        {
+          "file": "Evidence/Captures/20261013-223558-buildings-entrance-r7.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.73,
+          "kind": "video",
+          "in": 0.8,
+          "max_seconds": 7.1,
+          "version": "0.7",
+          "conditions": "Prepared workshops, technology and materials; ordinary wall routing, door entry and work."
+        }
+      ]
+    },
+    {
+      "title": "Рыбалка, караваны и морская торговля",
+      "side": [
+        "Реки,",
+        "порты",
+        "и море."
+      ],
+      "label": "НОВЫЕ ПУТИ",
+      "nominal_seconds": 7,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261013-150516-river-current-and-wading-final.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.3,
+          "kind": "video",
+          "in": 0,
+          "max_seconds": 5.9,
+          "version": "0.6.1",
+          "conditions": "Prepared river, bridge, fishing rods and routes; ordinary timers and movement."
+        },
+        {
+          "file": "Evidence/Captures/20261012-151758-rural-caravan.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.35,
+          "kind": "video",
+          "in": 0,
+          "max_seconds": 6.0,
+          "version": "0.4",
+          "conditions": "Prepared caravan showcase; actual finite cargo and travel. Native Player capture."
+        },
+        {
+          "file": "Evidence/Captures/20261014-002540-maritime-voyage-final.mp4",
+          "crop": [
+            200,
+            80,
+            630,
+            465
+          ],
+          "weight": 0.35,
+          "kind": "video",
+          "in": 0,
+          "max_seconds": 4.0,
+          "version": "0.8",
+          "conditions": "Prepared port, ships, crew and finite supplies. Ordinary voyage. Right modal excluded; only first four seconds before ship reaches left UI."
+        }
+      ]
+    },
+    {
+      "title": "За землю и поселения",
+      "side": [
+        "Походы.",
+        "Территории.",
+        "Новый правитель."
+      ],
+      "label": "КОГДА ОБЪЯВЛЕНА ВОЙНА",
+      "nominal_seconds": 9,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261014-081217-occupation-final.png",
+          "crop": [
+            310,
+            110,
+            930,
+            690
+          ],
+          "weight": 0.5,
+          "kind": "still",
+          "version": "0.10",
+          "conditions": "Prepared conquest showcase with equipped attackers and defenders away from center; real capture timer/ownership. Does not show a siege."
+        },
+        {
+          "file": "Evidence/Captures/20261014-081235-conquest-final.png",
+          "crop": [
+            310,
+            110,
+            930,
+            690
+          ],
+          "weight": 0.5,
+          "kind": "still",
+          "version": "0.10",
+          "conditions": "Prepared conquest showcase with equipped attackers and defenders away from center; real capture timer/ownership. Does not show a siege."
+        }
+      ]
+    },
+    {
+      "title": "Новый город начинается с людей",
+      "side": [
+        "Шесть",
+        "путников.",
+        "Новый очаг."
+      ],
+      "label": "ПЕРЕСЕЛЕНИЕ",
+      "nominal_seconds": 10,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261014-081318-settlers-walking-final.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.72,
+          "kind": "video",
+          "in": 0,
+          "max_seconds": 7.9,
+          "version": "0.10",
+          "conditions": "Prepared dry world, 24 adults and real supplies; births, weather, aging and fauna replenishment off. Ordinary loading, travel and settlement."
+        },
+        {
+          "file": "Evidence/Captures/20261014-081020-colony-final.png",
+          "crop": [
+            310,
+            100,
+            930,
+            710
+          ],
+          "weight": 0.28,
+          "kind": "still",
+          "version": "0.10",
+          "conditions": "Continuation of prepared settlers world; same six adults, campfire paid with delivered boards, no free farm/population."
+        }
+      ]
+    },
+    {
+      "title": "Природа пишет свою историю",
+      "side": [
+        "Снег.",
+        "Вода.",
+        "Огонь."
+      ],
+      "label": "СТИХИИ",
+      "nominal_seconds": 7,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261012-170717-climate-snow-final.png",
+          "crop": [
+            310,
+            100,
+            1270,
+            710
+          ],
+          "weight": 0.27,
+          "kind": "still",
+          "version": "0.5",
+          "conditions": "Prepared world; snow command and adjusted temperature for snow coverage; materials/technology supplied."
+        },
+        {
+          "file": "Evidence/Captures/20261012-170701-climate-flood-1280-final.png",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.27,
+          "kind": "still",
+          "version": "0.5",
+          "conditions": "Flood command in prepared valley; real water depth, walkability and retreat."
+        },
+        {
+          "file": "Evidence/Captures/20261012-171427-climate-fire-final.mp4",
+          "crop": [
+            200,
+            80,
+            850,
+            465
+          ],
+          "weight": 0.46,
+          "kind": "video",
+          "in": 0.4,
+          "max_seconds": 5.5,
+          "version": "0.5",
+          "conditions": "Prepared drought/fire world; displayed fire is actual simulation state."
+        }
+      ]
+    },
+    {
+      "title": "Архитектура живого мира",
+      "side": [
+        "Unity.",
+        "C#.",
+        "Своя симуляция."
+      ],
+      "label": "ТЕХНОЛОГИИ",
+      "nominal_seconds": 11,
+      "shots": [
+        {
+          "file": "Builds/Promo/Telegram-2026-10-17/v02/technology.png",
+          "crop": [
+            0,
+            0,
+            1240,
+            660
+          ],
+          "weight": 1,
+          "kind": "still",
+          "version": "editorial",
+          "conditions": "Editorial information card. Facts from project documents and project-usage-audit.json; not a game screenshot."
+        }
+      ]
+    },
+    {
+      "title": "Масштаб, который можно проверить",
+      "side": [
+        "12–14",
+        "октября",
+        "2026."
+      ],
+      "label": "РАЗРАБОТКА В ЦИФРАХ",
+      "nominal_seconds": 11,
+      "shots": [
+        {
+          "file": "Builds/Promo/Telegram-2026-10-17/v02/development-stats.png",
+          "crop": [
+            0,
+            0,
+            1240,
+            660
+          ],
+          "weight": 1,
+          "kind": "still",
+          "version": "editorial",
+          "conditions": "Editorial information card. Facts from project documents and project-usage-audit.json; not a game screenshot."
+        }
+      ]
+    },
+    {
+      "title": "Мир, который продолжает расти",
+      "side": [
+        "Развитие.",
+        "Баланс.",
+        "Характер."
+      ],
+      "label": "В РАЗРАБОТКЕ",
+      "nominal_seconds": 5,
+      "shots": [
+        {
+          "file": "Evidence/Captures/20261012-171309-climate-natural-town-final.png",
+          "crop": [
+            310,
+            100,
+            1270,
+            710
+          ],
+          "weight": 1,
+          "kind": "still",
+          "version": "0.5",
+          "conditions": "Ordinary world after 1800 simulation seconds, no granted materials/technology; automatic camera."
+        }
+      ]
+    },
+    {
+      "title": "Разработка открыта",
+      "side": [
+        "Код.",
+        "Версия 0.10",
+        "для Windows."
+      ],
+      "label": "ССЫЛКА ПОД ВИДЕО",
+      "nominal_seconds": 7,
+      "shots": [
+        {
+          "file": "Builds/Promo/Telegram-2026-10-17/github-repository.png",
+          "crop": [
+            24,
+            240,
+            890,
+            460
+          ],
+          "weight": 1,
+          "kind": "still",
+          "version": "repository",
+          "conditions": "Public repository content only. Crop excludes top logged-in navigation, account avatar, search, settings tabs and action toolbar."
+        }
+      ]
+    }
+  ],
+  "narration": "SourceAssets/Promo/Telegram-2026-10-17/narration-v02.txt",
+  "output_filename": "WorldGenesis-Telegram-Extended.mp4"
+}

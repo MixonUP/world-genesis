@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "project": "World Genesis",
+  "audit_as_of_utc": "2026-10-17T17:42:25.728372+00:00",
+  "audit_status": "verified_local_record_aggregation_not_provider_invoice",
+  "privacy": "Only first-line session metadata was used to match exact project cwd; only token_count usage events were parsed in matching sessions. No conversation text, session IDs, account IDs or local session paths are retained.",
+  "method": {
+    "source": "Local Codex session and archived-session JSONL records",
+    "selection": "Normalized session_meta.cwd exactly equals this project root",
+    "accounting": "For each distinct session, sum non-repeated cumulative-counter increments; no reset found. Result equals one final cumulative value per session. Forked session first counters equal their own first request usage, so parent history was not counted as a copied usage total.",
+    "development_scope": "Matched sessions created before 2026-10-15 UTC; recorded usage spans 2026-10-12 through 2026-10-14 Europe/Moscow. Includes planning, research, code, tests, documentation, publishing, specialist and guardian agents.",
+    "promo_scope": "Matched sessions created on/after 2026-10-15 UTC, recorded usage on 2026-10-17; ongoing promo and this audit counted separately.",
+    "token_semantics": "cached_input_tokens are a subset of input_tokens, reasoning_output_tokens are a subset of output_tokens. total_tokens = input_tokens + output_tokens. Repeated context across real model requests is included, while repeated log snapshots are not."
+  },
+  "development": {
+    "matched_sessions": 55,
+    "sessions_with_usage": 46,
+    "sessions_without_usage": 9,
+    "providers": {
+      "openai": 55
+    },
+    "role_session_counts": {
+      "main": 1,
+      "guardian": 48,
+      "specialist_subagent": 6
+    },
+    "valid_cumulative_snapshots": 6075,
+    "null_usage_events": 0,
+    "duplicate_snapshots_not_added_again": 570,
+    "counter_resets": 0,
+    "forked_sessions": 6,
+    "inherited_prior_usage_events_excluded": 0,
+    "increment_vs_last_usage_mismatches": 0,
+    "all_first_snapshots_equal_first_request_usage": true,
+    "first_session_utc": "2026-10-11T22:35:32.021Z",
+    "first_usage_utc": "2026-10-11T22:36:03.118Z",
+    "last_usage_utc": "2026-10-14T08:23:53.825Z",
+    "tokens": {
+      "input_tokens": 718222207,
+      "cached_input_tokens": 698270464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2976666,
+      "reasoning_output_tokens": 688773,
+      "total_tokens": 721198873,
+      "uncached_input_tokens": 19951743,
+      "input_plus_output_excluding_cached_input": 22928409
+    },
+    "by_role": {
+      "guardian": {
+        "input_tokens": 37276962,
+        "cached_input_tokens": 33503488,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 56581,
+        "reasoning_output_tokens": 20511,
+        "total_tokens": 37333543
+      },
+      "main": {
+        "input_tokens": 304932492,
+        "cached_input_tokens": 299128192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 962132,
+        "reasoning_output_tokens": 222759,
+        "total_tokens": 305894624
+      },
+      "specialist_subagent": {
+        "input_tokens": 376012753,
+        "cached_input_tokens": 365638784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1957953,
+        "reasoning_output_tokens": 445503,
+        "total_tokens": 377970706
+      }
+    }
+  },
+  "promo_and_audit_ongoing_snapshot": {
+    "matched_sessions": 7,
+    "sessions_with_usage": 6,
+    "sessions_without_usage": 1,
+    "providers": {
+      "openai": 7
+    },
+    "role_session_counts": {
+      "guardian": 3,
+      "main": 1,
+      "specialist_subagent": 3
+    },
+    "valid_cumulative_snapshots": 278,
+    "null_usage_events": 3,
+    "duplicate_snapshots_not_added_again": 12,
+    "counter_resets": 0,
+    "forked_sessions": 1,
+    "inherited_prior_usage_events_excluded": 0,
+    "increment_vs_last_usage_mismatches": 0,
+    "all_first_snapshots_equal_first_request_usage": true,
+    "first_session_utc": "2026-10-16T21:26:54.625Z",
+    "first_usage_utc": "2026-10-17T16:59:51.074Z",
+    "last_usage_utc": "2026-10-17T17:42:24.352Z",
+    "tokens": {
+      "input_tokens": 26701185,
+      "cached_input_tokens": 25704192,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 88848,
+      "reasoning_output_tokens": 29003,
+      "total_tokens": 26790033,
+      "uncached_input_tokens": 996993,
+      "input_plus_output_excluding_cached_input": 1085841
+    },
+    "by_role": {
+      "guardian": {
+        "input_tokens": 2426780,
+        "cached_input_tokens": 2051200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3377,
+        "reasoning_output_tokens": 1434,
+        "total_tokens": 2430157
+      },
+      "main": {
+        "input_tokens": 20033602,
+        "cached_input_tokens": 19618048,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 51921,
+        "reasoning_output_tokens": 20565,
+        "total_tokens": 20085523
+      },
+      "specialist_subagent": {
+        "input_tokens": 4240803,
+        "cached_input_tokens": 4034944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33550,
+        "reasoning_output_tokens": 7004,
+        "total_tokens": 4274353
+      }
+    }
+  },
+  "whole_project_local_snapshot": {
+    "matched_sessions": 62,
+    "sessions_with_usage": 52,
+    "sessions_without_usage": 10,
+    "providers": {
+      "openai": 62
+    },
+    "role_session_counts": {
+      "main": 2,
+      "guardian": 51,
+      "specialist_subagent": 9
+    },
+    "valid_cumulative_snapshots": 6353,
+    "null_usage_events": 3,
+    "duplicate_snapshots_not_added_again": 582,
+    "counter_resets": 0,
+    "forked_sessions": 7,
+    "inherited_prior_usage_events_excluded": 0,
+    "increment_vs_last_usage_mismatches": 0,
+    "all_first_snapshots_equal_first_request_usage": true,
+    "first_session_utc": "2026-10-11T22:35:32.021Z",
+    "first_usage_utc": "2026-10-11T22:36:03.118Z",
+    "last_usage_utc": "2026-10-17T17:42:24.352Z",
+    "tokens": {
+      "input_tokens": 744923392,
+      "cached_input_tokens": 723974656,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3065514,
+      "reasoning_output_tokens": 717776,
+      "total_tokens": 747988906,
+      "uncached_input_tokens": 20948736,
+      "input_plus_output_excluding_cached_input": 24014250
+    },
+    "by_role": {
+      "guardian": {
+        "input_tokens": 39703742,
+        "cached_input_tokens": 35554688,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 59958,
+        "reasoning_output_tokens": 21945,
+        "total_tokens": 39763700
+      },
+      "main": {
+        "input_tokens": 324966094,
+        "cached_input_tokens": 318746240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1014053,
+        "reasoning_output_tokens": 243324,
+        "total_tokens": 325980147
+      },
+      "specialist_subagent": {
+        "input_tokens": 380253556,
+        "cached_input_tokens": 369673728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1991503,
+        "reasoning_output_tokens": 452507,
+        "total_tokens": 382245059
+      }
+    }
+  },
+  "time_evidence": {
+    "timezone": "Europe/Moscow",
+    "first_project_session_local": "2026-10-12T01:35:32.021000+03:00",
+    "first_git_commit": {
+      "sha": "46d61845f1d7b2b9530e3eaf3c58f093a597f8f4",
+      "timestamp": "2026-10-12T02:45:49+03:00"
+    },
+    "release_0_10_code_commit": {
+      "sha": "59dcba6b659d4ff6447a92215f372b839e6fa5ce",
+      "timestamp": "2026-10-14T08:22:24+03:00"
+    },
+    "release_publication_receipt_utc": "2026-10-14T08:21:31.3166988Z",
+    "release_publication_receipt": "Evidence/Development/published-0.10.0-alpha.json",
+    "elapsed_first_session_to_publication_seconds": 207959.295698,
+    "elapsed_first_git_commit_to_release_code_commit_seconds": 192995.0,
+    "meaning": "Elapsed calendar intervals including waits, breaks and parallel agents; not active development hours or human labor hours. Exact active human/agent development time is not established by these records."
+  },
+  "limitations": [
+    "Local record coverage only; missing/deleted/unlogged sessions and provider-side adjustments are unknown. Sessions with other cwd were not inspected for project content.",
+    "Only OpenAI/Codex token counters are represented. Image generation, ElevenLabs, Suno and other service billing or usage are not quantified.",
+    "Cached and uncached tokens have different charging semantics; this is not a currency cost estimate or invoice.",
+    "Ongoing promo/audit totals can increase after the audit timestamp; development period is a stable historical aggregate.",
+    "The release receipt timestamp is a verified-publication observation; it is not an independently reconstructed instant when all development work ended."
+  ],
+  "recommended_promo_wording_ru": {
+    "time": "Разработка 12–14 октября. Менее 58 часов от первой сессии до подтверждённого релиза 0.10.",
+    "tokens_short": "22,9 млн токенов без кеша",
+    "tokens_detail": "721,2 млн токенов Codex всего, включая 698,3 млн кешированных входных; 3,0 млн выходных.",
+    "disclosure": "По локальным журналам Codex за 12–14 октября. Время календарное, включает перерывы и ожидание; промо и сторонние сервисы отдельно."
+  }
+}
