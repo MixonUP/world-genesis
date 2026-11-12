@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "currency": "USD",
+  "estimated_total_hours": 20,
+  "hourly_value": 15,
+  "direct_cash_cost": 30,
+  "fee_rate": 0.1,
+  "tax_reserve_rate": 0.1,
+  "target_margin": 0.2,
+  "quoted_price": 550,
+  "accepted_change_scope": null
+}

@@ -1,0 +1,16 @@
+/Project/[Ll]ibrary/
+/Project/[Tt]emp/
+/Project/[Oo]bj/
+/Project/[Ll]ogs/
+/Project/[Uu]ser[Ss]ettings/
+/Project/.vs/
+/Project/.idea/
+/Project/*.csproj
+/Project/*.sln
+/Project/*.slnx
+/Project/MemoryCaptures/
+/Project/Recordings/
+/Builds/
+/Evidence/
+/UserData/
+*.log

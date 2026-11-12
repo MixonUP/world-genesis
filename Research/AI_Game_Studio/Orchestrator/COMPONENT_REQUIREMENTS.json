@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "scope": "requirements, not proof of implemented production adapters",
+  "components": [
+    {
+      "id": "C00",
+      "name": "Оркестратор",
+      "owner": "Продюсер / интегратор",
+      "dependencies": [],
+      "inputs": [
+        "AGENTS/STATE",
+        "цель и ограничения"
+      ],
+      "outputs": [
+        "рабочий пакет",
+        "решение по следующему этапу"
+      ],
+      "routes": [
+        "game-studio-orchestrator",
+        "game-long-run-production"
+      ],
+      "implementation_status": "управляющий навык и локальный checker; внешние исполнительные адаптеры не подключены",
+      "requirements": [
+        {
+          "id": "C00-R01",
+          "component_id": "C00",
+          "level": "MUST",
+          "statement": "Сохранять игру, движок, версию и пользовательские ограничения при каждом новом решении.",
+          "verification": "Сверить пакет с актуальными AGENTS/STATE; смена решения имеет запись.",
+          "gate": "G0",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C00-R02",
+          "component_id": "C00",
+          "level": "MUST",
+          "statement": "Назначать одного владельца общей сцены/сборки; независимым задачам давать непересекающиеся пути.",
+          "verification": "Проверить ownership и отсутствие параллельных писателей общих файлов.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C00-R03",
+          "component_id": "C00",
+          "level": "MUST",
+          "statement": "Выдавать PASS/FAIL/UNKNOWN по доказательствам, не обещать будущую прибыль.",
+          "verification": "Отрицательные и неполные сценарии не разрешают зависимое масштабирование.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C01",
+      "name": "Реестр знаний и доказательств",
+      "owner": "Исследователь / проверяющий",
+      "dependencies": [
+        "C00"
+      ],
+      "inputs": [
+        "sources",
+        "артефакты и ревизии"
+      ],
+      "outputs": [
+        "evidence registry",
+        "актуальная карта навыков"
+      ],
+      "routes": [
+        "локальные Markdown/JSON",
+        "Pages"
+      ],
+      "implementation_status": "библиотека создана; проверка подлинности evidence остаётся ответственностью исполнителя",
+      "requirements": [
+        {
+          "id": "C01-R01",
+          "component_id": "C01",
+          "level": "MUST",
+          "statement": "Каждое существенное утверждение имеет источник, дату, статус и ограничение.",
+          "verification": "Выборочно открыть первоисточник; обнаружить смешение self-report и факта.",
+          "gate": "G0",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C01-R02",
+          "component_id": "C01",
+          "level": "MUST",
+          "statement": "Связывать evidence с критериями, build/asset revision и методом проверки.",
+          "verification": "Старое или не относящееся к сборке свидетельство не закрывает новый критерий.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C01-R03",
+          "component_id": "C01",
+          "level": "MUST",
+          "statement": "Подготовленные и synthetic результаты не становятся реальной приёмкой.",
+          "verification": "Прогон примера с prepared/fixture evidence оставляет реальные gates открытыми.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "name": "Рынок и проверка спроса",
+      "owner": "Product researcher",
+      "dependencies": [
+        "C01"
+      ],
+      "inputs": [
+        "аудитория",
+        "предложение",
+        "аналоги"
+      ],
+      "outputs": [
+        "cohort comparables",
+        "протокол спроса",
+        "результат с ограничениями"
+      ],
+      "routes": [
+        "game-opportunity-validation"
+      ],
+      "implementation_status": "метод и шаблоны готовы; собственный рыночный тест not-run",
+      "requirements": [
+        {
+          "id": "C02-R01",
+          "component_id": "C02",
+          "level": "MUST",
+          "statement": "Включать сопоставимые слабые результаты, описывать критерий отбора и ошибки оценок.",
+          "verification": "Проверить выборку на survivorship bias и отличия жанра/цены/канала.",
+          "gate": "G1",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C02-R02",
+          "component_id": "C02",
+          "level": "MUST",
+          "statement": "Отделять просмотры, wishlist, бесплатное участие, покупку и поступление денег.",
+          "verification": "Ни один сигнал не переименован в другой; знаменатели и окна указаны.",
+          "gate": "G1",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C02-R03",
+          "component_id": "C02",
+          "level": "MUST",
+          "statement": "До эксперимента зафиксировать решение, критерий результата и предел расхода.",
+          "verification": "Не менять критерий после удобного результата без отдельного нового опыта.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "name": "Геймдизайн и объём",
+      "owner": "Game designer",
+      "dependencies": [
+        "C01"
+      ],
+      "inputs": [
+        "пользовательское обещание",
+        "референсы",
+        "наблюдения"
+      ],
+      "outputs": [
+        "brief",
+        "правила",
+        "acceptance и backlog"
+      ],
+      "routes": [
+        "production-brief-architect",
+        "game-playtest-design"
+      ],
+      "implementation_status": "контракты подготовлены; дизайн конкретной новой игры не принят",
+      "requirements": [
+        {
+          "id": "C03-R01",
+          "component_id": "C03",
+          "level": "MUST",
+          "statement": "Для механики определить действие, состояние, последствие и смысл выбора.",
+          "verification": "Обычный игрок проходит основной цикл; правила наблюдаемы и объяснимы.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C03-R02",
+          "component_id": "C03",
+          "level": "MUST",
+          "statement": "Сохранять полный замысел отдельно от ближайшего проверяемого этапа.",
+          "verification": "Срез не объявляется выполнением всей игры; изменения объёма записаны.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C03-R03",
+          "component_id": "C03",
+          "level": "MUST",
+          "statement": "Переводить замечания playtest в проверяемую гипотезу изменения.",
+          "verification": "У каждого существенного изменения есть связь с наблюдением и повторная проверка.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "name": "Экономика и лимиты",
+      "owner": "Коммерческий владелец",
+      "dependencies": [
+        "C01",
+        "C02"
+      ],
+      "inputs": [
+        "счета",
+        "договор",
+        "ставки",
+        "объём",
+        "бюджет"
+      ],
+      "outputs": [
+        "unit economics",
+        "cashflow",
+        "лимиты и обязательства"
+      ],
+      "routes": [
+        "game-opportunity-validation",
+        "runner"
+      ],
+      "implementation_status": "расчётная проверка реализуется; экономика реального продукта неизвестна",
+      "requirements": [
+        {
+          "id": "C04-R01",
+          "component_id": "C04",
+          "level": "MUST",
+          "statement": "Разделять cash cost, economic cost, финансирование, заработанную выручку и реальные поступления.",
+          "verification": "Сверка ledger без двойного учёта труда/QA; API-equivalent не cash.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C04-R02",
+          "component_id": "C04",
+          "level": "MUST",
+          "statement": "Считать вклад и break-even только при положительном вкладе и согласованных единицах.",
+          "verification": "Нулевая/отрицательная маржа не выдаёт конечную окупаемость; сценарии помечены.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C04-R03",
+          "component_id": "C04",
+          "level": "MUST",
+          "statement": "Unknown budget и неразрешённое платное действие не допускают нового обязательства.",
+          "verification": "Проверка unknown cap, превышения, уже зарезервированных сумм и действующей авторизации.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C04-R04",
+          "component_id": "C04",
+          "level": "MUST",
+          "statement": "Учитывать задержки выплат, возвраты и поддержку до обещания коммерческого масштаба.",
+          "verification": "Денежный план по датам с худшим допустимым сценарием и reserve.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "name": "Арт-дирекшн",
+      "owner": "Art director",
+      "dependencies": [
+        "C03",
+        "C11"
+      ],
+      "inputs": [
+        "brief",
+        "камера",
+        "правомерные референсы"
+      ],
+      "outputs": [
+        "style bible",
+        "art corner",
+        "критерии семейства"
+      ],
+      "routes": [
+        "game-art-acceptance",
+        "character-visual-research"
+      ],
+      "implementation_status": "существующие навыки доступны; новая художественная цель not-run",
+      "requirements": [
+        {
+          "id": "C05-R01",
+          "component_id": "C05",
+          "level": "MUST",
+          "statement": "Задать силуэт, палитру, свет, детализацию и размер объекта в настоящей камере.",
+          "verification": "Проверить контраст и роль на нескольких игровых фонах/масштабах.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C05-R02",
+          "component_id": "C05",
+          "level": "MUST",
+          "statement": "Принять репрезентативный фрагмент до массового производства.",
+          "verification": "Сравнение baseline/candidate в Player, а не только концепты.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C05-R03",
+          "component_id": "C05",
+          "level": "MUST",
+          "statement": "Хранить technical-pass, art-recommended и user-accepted раздельно.",
+          "verification": "Последний статус подтверждается реальным решением пользователя.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "name": "Фабрика контента",
+      "owner": "Asset/animation/audio producers",
+      "dependencies": [
+        "C05",
+        "C11"
+      ],
+      "inputs": [
+        "контракт семейства",
+        "мастера",
+        "рецепты"
+      ],
+      "outputs": [
+        "runtime assets",
+        "исходники",
+        "manifest",
+        "стоимость ревизии"
+      ],
+      "routes": [
+        "ComfyUI/Krea",
+        "Blender",
+        "game-ui-workflow",
+        "game-vfx-workflow",
+        "game-audio-workflow"
+      ],
+      "implementation_status": "10 подкомпонентов A01–A10 описаны отдельно; новый end-to-end проход not-run",
+      "requirements": [
+        {
+          "id": "C06-R01",
+          "component_id": "C06",
+          "level": "MUST",
+          "statement": "Хранить версии model/LoRA/workflow, права и все попытки до принятого ассета.",
+          "verification": "Для каждого shipped asset воспроизводится источник/экспорт и известны ограничения.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C06-R02",
+          "component_id": "C06",
+          "level": "MUST",
+          "statement": "Проверять полный контракт действия/состояний, импорт и повторную правку.",
+          "verification": "Покрытие состояний, контакты, pivot/PPU/scale, lifecycle и reimport.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C06-R03",
+          "component_id": "C06",
+          "level": "MUST",
+          "statement": "Считать стоимость принятого уникального ассета и стоимость изменения отдельно.",
+          "verification": "При accepted=0 нет цены пригодной единицы; revision не удваивает количество.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "name": "Игровая логика и симуляция",
+      "owner": "Gameplay engineer",
+      "dependencies": [
+        "C03"
+      ],
+      "inputs": [
+        "правила",
+        "команды",
+        "контент"
+      ],
+      "outputs": [
+        "исполнимые системы",
+        "инварианты",
+        "сохранения"
+      ],
+      "routes": [
+        "проектные Unity/C# методы"
+      ],
+      "implementation_status": "World Genesis существует; его старые тесты не новый PASS",
+      "requirements": [
+        {
+          "id": "C07-R01",
+          "component_id": "C07",
+          "level": "MUST",
+          "statement": "Держать одного владельца игрового состояния; UI/VFX/audio читают подтверждённый результат.",
+          "verification": "Проверка повторного ввода, отмены, событий и отсутствие второго расчёта экономики.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C07-R02",
+          "component_id": "C07",
+          "level": "MUST",
+          "statement": "Для World Genesis сохранять независимость Simulation от UnityEngine и проверяемый детерминизм.",
+          "verification": "Одинаковые seed/контент/команды/конфигурация дают сопоставимое состояние.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C07-R03",
+          "component_id": "C07",
+          "level": "MUST",
+          "statement": "Сохранение проверяется до замены мира, поддерживает версии и безопасный отказ.",
+          "verification": "Повреждённый/старый save, прерывание, restart; нет потери текущего мира.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "name": "Интеграция и сборка",
+      "owner": "Единственный engine integrator",
+      "dependencies": [
+        "C06",
+        "C07"
+      ],
+      "inputs": [
+        "код",
+        "assets",
+        "версии"
+      ],
+      "outputs": [
+        "воспроизводимый Player",
+        "build manifest",
+        "rollback"
+      ],
+      "routes": [
+        "Unity6000.0.45f1",
+        "проектные Tools"
+      ],
+      "implementation_status": "историческая сборка есть; новая сборка этим исследованием не запускается",
+      "requirements": [
+        {
+          "id": "C08-R01",
+          "component_id": "C08",
+          "level": "MUST",
+          "statement": "Закреплять engine/packages и сохранять GUID/meta при повторном импорте.",
+          "verification": "Повторная сборка/импорт не меняют чужие GUID и ссылки.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C08-R02",
+          "component_id": "C08",
+          "level": "MUST",
+          "statement": "Проверять отправляемую сборку, а не соседнюю редакторскую ревизию.",
+          "verification": "Build hash связывает native evidence и тесты с архивом поставки.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C08-R03",
+          "component_id": "C08",
+          "level": "MUST",
+          "statement": "Подготовить обратимое обновление и способ восстановления рабочей версии.",
+          "verification": "Репетиция обновления/отката без потери поддерживаемых сохранений.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "name": "QA и производительность",
+      "owner": "Проверяющий",
+      "dependencies": [
+        "C08"
+      ],
+      "inputs": [
+        "acceptance",
+        "Player",
+        "целевое устройство"
+      ],
+      "outputs": [
+        "дефекты",
+        "профили",
+        "технический verdict"
+      ],
+      "routes": [
+        "gameplay-visual-review",
+        "проектные тесты"
+      ],
+      "implementation_status": "существующие инструменты; новые критерии должны быть реально исполнены",
+      "requirements": [
+        {
+          "id": "C09-R01",
+          "component_id": "C09",
+          "level": "MUST",
+          "statement": "Проверять обычный путь и существенные границы отдельно от debug/bot сценариев.",
+          "verification": "Ввод, пауза, двойное действие, сохранение, перезапуск и известный риск.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C09-R02",
+          "component_id": "C09",
+          "level": "MUST",
+          "statement": "Профилировать одинаковые условия с frame-time распределением и фактической скоростью симуляции.",
+          "verification": "Устройство/разрешение/seed/population/revision; p50/p95/p99 и память.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C09-R03",
+          "component_id": "C09",
+          "level": "MUST",
+          "statement": "Не заменять покрытие тестов количеством тестов или кодом выхода процесса.",
+          "verification": "Отчёт показывает исполненные/неисполненные сценарии и их значимость.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "name": "Люди, UX и аналитика",
+      "owner": "User researcher",
+      "dependencies": [
+        "C03",
+        "C08"
+      ],
+      "inputs": [
+        "гипотеза",
+        "целевая аудитория",
+        "игровые события"
+      ],
+      "outputs": [
+        "наблюдения",
+        "метрики",
+        "решения"
+      ],
+      "routes": [
+        "game-playtest-design"
+      ],
+      "implementation_status": "планы есть; реальные новые сессии not-run",
+      "requirements": [
+        {
+          "id": "C10-R01",
+          "component_id": "C10",
+          "level": "MUST",
+          "statement": "Задать событие, единицу анализа, знаменатель, окно и режим помощи.",
+          "verification": "Отказы/потерянные сессии не скрыты; помощь автора помечена.",
+          "gate": "G1",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C10-R02",
+          "component_id": "C10",
+          "level": "MUST",
+          "statement": "Автобот проверяет стратегию, человек — понимание и опыт.",
+          "verification": "Нет утверждения human demand/fun на основании bot completion.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C10-R03",
+          "component_id": "C10",
+          "level": "MUST",
+          "statement": "Собирать только нужные данные и проверить качество событий.",
+          "verification": "Согласие/правила платформы по применимости; дубли/пропуски выявляются.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "name": "Происхождение и права",
+      "owner": "Ответственный за выпуск",
+      "dependencies": [
+        "C01"
+      ],
+      "inputs": [
+        "лицензии",
+        "референсы",
+        "аккаунты",
+        "состав продукта"
+      ],
+      "outputs": [
+        "rights manifest",
+        "разрешённые территории/каналы",
+        "замены"
+      ],
+      "routes": [
+        "asset provenance process"
+      ],
+      "implementation_status": "публичные тексты изучены; права конкретного нового ассета требуют проверки",
+      "requirements": [
+        {
+          "id": "C11-R01",
+          "component_id": "C11",
+          "level": "MUST",
+          "statement": "Различать права кода, модели, LoRA, входов, outputs, музыки и торговых марок.",
+          "verification": "Ни open-source, ни free/local не подменяют полный rights manifest.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C11-R02",
+          "component_id": "C11",
+          "level": "MUST",
+          "statement": "Проверять актуальный договор и тариф до производства/распространения.",
+          "verification": "Дата/версия/receipt и ограничения территорий соответствуют поставке.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C11-R03",
+          "component_id": "C11",
+          "level": "MUST",
+          "statement": "Иметь замену ресурса с неустановленными правами и оценку последствий.",
+          "verification": "Известны зависимые ассеты/маркетинг и стоимость замены.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "name": "Магазин и продвижение",
+      "owner": "Release/marketing owner",
+      "dependencies": [
+        "C02",
+        "C08",
+        "C11"
+      ],
+      "inputs": [
+        "реальная сборка",
+        "позиционирование",
+        "канал"
+      ],
+      "outputs": [
+        "store package",
+        "эксперимент продвижения",
+        "release checklist"
+      ],
+      "routes": [
+        "Pages/документы",
+        "платформа выбранного выпуска"
+      ],
+      "implementation_status": "требования подготовлены; публикация/реклама не выполняются автоматически",
+      "requirements": [
+        {
+          "id": "C12-R01",
+          "component_id": "C12",
+          "level": "MUST",
+          "statement": "Обещания магазина подтверждаются поставляемой игрой; concept/gameplay помечены.",
+          "verification": "Проверить материалы относительно build и full release scope.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C12-R02",
+          "component_id": "C12",
+          "level": "MUST",
+          "statement": "Заполнять актуальные требования платформы и AI disclosure по фактическому использованию.",
+          "verification": "Сохранить результат review/поля анкеты, не выводить одобрение из документации.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C12-R03",
+          "component_id": "C12",
+          "level": "MUST",
+          "statement": "До расходов на трафик определить атрибуцию, когортное окно и критерий остановки.",
+          "verification": "UTM/wishlist/покупки/поступления раздельны; причинность рекламы не выдумывается.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "name": "Выплаты и поддержка",
+      "owner": "Коммерческий/операционный владелец",
+      "dependencies": [
+        "C04",
+        "C12"
+      ],
+      "inputs": [
+        "заказы/продажи",
+        "платёжные отчёты",
+        "возвраты",
+        "ошибки"
+      ],
+      "outputs": [
+        "сверенный cashflow",
+        "support backlog",
+        "решение о продолжении"
+      ],
+      "routes": [
+        "документы и выбранная платформа"
+      ],
+      "implementation_status": "аккаунты/налоги/платежи пользователя не проверены",
+      "requirements": [
+        {
+          "id": "C13-R01",
+          "component_id": "C13",
+          "level": "MUST",
+          "statement": "Проверить допустимость продавца/страны/банка и точные условия выплат.",
+          "verification": "Аккаунт/договор/фактическая выплата; публичная доступность сайта недостаточна.",
+          "gate": "G5",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C13-R02",
+          "component_id": "C13",
+          "level": "MUST",
+          "statement": "Сверять выручку, возвраты, комиссии, выплаты и затраты по одной базе.",
+          "verification": "Положительный денежный поток от займа не объявляется прибылью.",
+          "gate": "G6",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C13-R03",
+          "component_id": "C13",
+          "level": "MUST",
+          "statement": "Резервировать поддержку и выполнять принятые обязательства даже при остановке роста.",
+          "verification": "Подтверждён owner, план hotfix и стоимость поддержки.",
+          "gate": "G6",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "name": "Живой AI внутри игры — опционально",
+      "owner": "Runtime AI engineer",
+      "dependencies": [
+        "C03",
+        "C04",
+        "C07",
+        "C11"
+      ],
+      "inputs": [
+        "доказанная ценность",
+        "allowed actions",
+        "budget"
+      ],
+      "outputs": [
+        "ограниченный inference",
+        "fallback",
+        "runtime ledger"
+      ],
+      "routes": [
+        "living-npc-brain",
+        "realtime-character-voice"
+      ],
+      "implementation_status": "не входит автоматически в игру; подключение not-run",
+      "requirements": [
+        {
+          "id": "C14-R01",
+          "component_id": "C14",
+          "level": "MUST",
+          "statement": "Добавлять runtime AI только для конкретной принятой игровой ценности.",
+          "verification": "Сравнить опыт с обычным scripted поведением; не обязательный пункт ради AI.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C14-R02",
+          "component_id": "C14",
+          "level": "MUST",
+          "statement": "Ограничить latency, стоимость сессии, сообщения и действия модели.",
+          "verification": "Timeout/offline/abuse/heavy-user сценарии; текст не меняет мир напрямую.",
+          "gate": "G4",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C14-R03",
+          "component_id": "C14",
+          "level": "MUST",
+          "statement": "Учесть всю жизнь пользователя и риск тарифа в экономике.",
+          "verification": "LTV contribution после inference/support; бесконечный сервис не обещан за разовый платёж без модели.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "name": "Адаптеры инструментов и внешние jobs",
+      "owner": "Tool maintainer",
+      "dependencies": [
+        "C01",
+        "C04"
+      ],
+      "inputs": [
+        "выбранный инструмент",
+        "версия",
+        "полномочия"
+      ],
+      "outputs": [
+        "probe receipt",
+        "job ledger",
+        "fallback"
+      ],
+      "routes": [
+        "существующие MCP/CLI/skills"
+      ],
+      "implementation_status": "tools перечислены в среде; новые endpoints/лицензии/цены не проверены автоматически",
+      "requirements": [
+        {
+          "id": "C15-R01",
+          "component_id": "C15",
+          "level": "MUST",
+          "statement": "Перед использованием проверить реальную доступность и контракт выбранной версии.",
+          "verification": "Минимальный probe; точный model/API/schema, версия движка и ограничения.",
+          "gate": "G2",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C15-R02",
+          "component_id": "C15",
+          "level": "MUST",
+          "statement": "Сохранять job ID/idempotency key и сверять неизвестный результат до повтора.",
+          "verification": "Timeout не создаёт второй платный submit без reconciliation.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        },
+        {
+          "id": "C15-R03",
+          "component_id": "C15",
+          "level": "MUST",
+          "statement": "Фактический исполнитель атомарно резервирует бюджет; checker не является sandbox.",
+          "verification": "Конкурентные submissions и превышение cap проверяются в адаптере до production.",
+          "gate": "G3",
+          "status": "specified-not-run",
+          "enforcement": "contract; see runner README for its narrower automated checks"
+        }
+      ]
+    }
+  ]
+}

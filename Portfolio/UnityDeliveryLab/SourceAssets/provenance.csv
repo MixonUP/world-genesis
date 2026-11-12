@@ -1,0 +1,9 @@
+asset,origin,method,external_download,notes
+tonic-icon,original-for-this-internal-demo,procedural-CSharp-geometric-texture,false,LabApp.Icon kind0
+shard-icon,original-for-this-internal-demo,procedural-CSharp-geometric-texture,false,LabApp.Icon kind1
+key-icon,original-for-this-internal-demo,procedural-CSharp-geometric-texture,false,LabApp.Icon kind2
+chip-icon,original-for-this-internal-demo,procedural-CSharp-geometric-texture,false,LabApp.Icon kind3
+rounded-panel,original-for-this-internal-demo,procedural-CSharp-nine-slice,false,LabApp.Rounded
+UI-palette-layout,original-for-this-internal-demo,authored-uGUI-CSharp,false,Two themes on the same hierarchy
+font,installed-Unity-builtin,LegacyRuntime.ttf,false,No separate font download; provided by Unity runtime
+engine-and-uGUI,existing-installed-Unity6000.0.45f1,built-in-packages,false,Manifest and lock copied as pinned local toolchain metadata

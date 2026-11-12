@@ -1,0 +1,1 @@
+{"name":"DeliveryLab.Tests","references":["DeliveryLab.Core","DeliveryLab.Runtime"],"optionalUnityReferences":["TestAssemblies"],"includePlatforms":["Editor"]}

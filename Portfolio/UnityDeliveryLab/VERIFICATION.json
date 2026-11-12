@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-12",
+  "revision": "polished-20-f1",
+  "purpose": "Self-initiated bounded portfolio demonstration",
+  "engine": "Unity6000.0.45f1",
+  "platform": "Windows x64",
+  "renderer": "Built-in/uGUI",
+  "editmode": {
+    "total": 40,
+    "passed": 40,
+    "failed": 0,
+    "result_file_sha256": "b91715c1f519eb532434dd334a3651e35ec49a6289422f29940af717072fcac5"
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "frozen_manifests": {
+      "source-manifest.json": {
+        "files_verified": 52,
+        "sha256": "3466347fcfa5d4c782e3c2bc266124e7e35d8f14372d3b6791748a46e90f49ee"
+      },
+      "build-manifest.json": {
+        "files_verified": 137,
+        "sha256": "3cabf84eb2c10b0b795c01fdf0ca6425bb6104321deb21cf6376511f71233852"
+      }
+    }
+  },
+  "native_checks": {
+    "assisted_callbacks": "PASS negative quantity, corruption preservation, backup recovery, themes and stack limit",
+    "assisted_separate_restart": "PASS130coins/84health/17shards",
+    "ordinary_input": "PASS observed add/select/use/exchange/remove/save/load/themes/disabled route at1280x720",
+    "ordinary_separate_restart": "Saved snapshot equality verified at1024x768:130coins/100health/6shards,revision9",
+    "human_playtest": false
+  },
+  "review": {
+    "technical": "No remaining reproduced P1/P2 in reviewed source; measured revision/JSON defects corrected",
+    "visual": "No P1/P2 in reviewed captures; dark HEALTH FULL label remains a non-blocking minor issue"
+  },
+  "limitations": [
+    "Full-inventory visual and light-theme1024 inspection not run",
+    "Shift+click and full keyboard navigation not verified",
+    "Later ordinary1024 process ended with orderly shutdown for unknown reason; exit code unknown",
+    "Long-duration stability, other machines/platforms, power-loss recovery and human artistic acceptance not established",
+    "Single writer per save directory; fixed ASCII v1 format, not a general JSON importer",
+    "Historical baseline source checkout not archived; baseline hashes/builds/captures retained"
+  ],
+  "screenshots": [
+    {
+      "delivery_name": "01-studio-saved-1280.png",
+      "caption": "Studio after ordinary load; 130 coins, 100 health, six shards",
+      "width": 1280,
+      "height": 720,
+      "sha256": "26bf0e607950a50e934f2ce6104186f40766c28c0331ac03805a61ff57164333",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/01-studio-saved-1280.png"
+    },
+    {
+      "delivery_name": "02-light-loaded-1280.png",
+      "caption": "Light theme after ordinary load; same state",
+      "width": 1280,
+      "height": 720,
+      "sha256": "ed634cb968e763856466c6d0cb2175353182242df1fe2a801d1dd884cf8bb72a",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/02-light-loaded-1280.png"
+    },
+    {
+      "delivery_name": "03-tonic-action-1280.png",
+      "caption": "Tonic selected before use",
+      "width": 1280,
+      "height": 720,
+      "sha256": "8298f3bbb96ba085df9b83836e652a15ee23b93221ffc1d76e84e4629130c26a",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/03-tonic-action-1280.png"
+    },
+    {
+      "delivery_name": "04-health-full-1280.png",
+      "caption": "Full health; disabled use",
+      "width": 1280,
+      "height": 720,
+      "sha256": "d9bf86b54b694abdf32be6f415f63eace82979d3ab9b8a632655af4131c1c55c",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/04-health-full-1280.png"
+    },
+    {
+      "delivery_name": "05-empty-slot-1280.png",
+      "caption": "Empty selection; disabled actions",
+      "width": 1280,
+      "height": 720,
+      "sha256": "4e34f43b877ef1ad97167beadfce0b6ec951dbadb94fcad0981d99c017cf8ac9",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/05-empty-slot-1280.png"
+    },
+    {
+      "delivery_name": "06-restart-1024.png",
+      "caption": "Separate ordinary process restored saved state",
+      "width": 1024,
+      "height": 768,
+      "sha256": "1b4a21bd88cb89831a79c59c3a66534e94054646164d2bc8ad1dad00383c1f2b",
+      "capture": "native Player F12 framebuffer",
+      "input": "agent-operated mouse/keyboard through normal UI; not human playtest",
+      "path": "Screenshots/06-restart-1024.png"
+    }
+  ]
+}
