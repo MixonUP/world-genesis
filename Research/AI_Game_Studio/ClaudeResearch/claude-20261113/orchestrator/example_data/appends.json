@@ -1,0 +1,6 @@
+[
+  {"dst": "01_Project/AI_Game_Studio/Inbox/Codex.md", "marker": "AGS_SYN_INBOX_CODEX", "create_title": "Inbox Codex", "text_file": "appends/inbox.md"},
+  {"dst": "01_Project/AI_Game_Studio/Inbox/Claude.md", "marker": "AGS_SYN_INBOX_CLAUDE", "create_title": "Inbox Claude", "text_file": "appends/inbox.md"},
+  {"dst": "01_Project/AI_Game_Studio/Inbox/Grok.md", "marker": "AGS_SYN_INBOX_GROK", "create_title": "Inbox Grok", "text_file": "appends/inbox.md"},
+  {"dst": "01_Project/AI_Game_Studio/Inbox/Mikhail.md", "marker": "AGS_SYN_INBOX_MIKHAIL", "create_title": "Inbox Mikhail", "text_file": "appends/inbox.md"}
+]

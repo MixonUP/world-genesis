@@ -710,13 +710,18 @@ class RealDataTests(unittest.TestCase):
         r = V.assess(V.load_json(REAL_CHAIN), self.catalog, date(2026, 11, 14))
         self.assertEqual(r["requirements"]["C01-R03"]["verdict"], "PASS")
         req = r["requirements"]
-        self.assertEqual(req["C07-R03"]["verdict"], "OPEN")
+        # C07-R03 closes only through the executed 2026-11-14 batch rerun; historical records stay non-qualifying.
+        self.assertEqual(req["C07-R03"]["verdict"], "PASS")
         self.assertTrue(req["C07-R03"]["historical_pass"])
+        quals = {e["id"]: e["qualifies"] for e in req["C07-R03"]["evidence"]}
+        self.assertEqual(quals, {"EVD-EDITMODE-RERUN-20261114": True, "EVD-HIST-EDITMODE-40": False,
+                                 "EVD-HIST-ORDINARY-RESTART": False})
         self.assertEqual(req["C05-R03"]["verdict"], "OPEN")
         self.assertEqual(req["C08-R02"]["verdict"], "OPEN")
         self.assertEqual(r["finding_counts"].get("error", 0), 0)
         promises = V.query_promises(*V.validate_registry(V.load_json(REAL_CHAIN)), r)
-        self.assertEqual(promises[0]["status"], "historical_support_only")
+        self.assertEqual(promises[0]["status"], "supported_by_current_checks")
+        self.assertEqual(promises[0]["current_executed_pass"], ["EVD-EDITMODE-RERUN-20261114"])
 
     def test_synthetic_fixtures_never_pass(self):
         for p in sorted((MODULE / "examples" / "synthetic").glob("*.json")):

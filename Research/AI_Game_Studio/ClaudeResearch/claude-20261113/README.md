@@ -74,4 +74,20 @@ PASS требования означает только одно: связанн
 | [validator.py](validator.py), [tests/](tests/), [Evidence/](Evidence/) | модуль, тесты, компактные отчёты |
 | [INTEGRATION_PROPOSAL.md](INTEGRATION_PROPOSAL.md) | предлагаемая read-only связь с runner |
 | [HANDOFF_TO_CODEX.md](HANDOFF_TO_CODEX.md), [PR_DESCRIPTION.md](PR_DESCRIPTION.md) | передача интегратору |
-| [OBSIDIAN_PENDING.md](OBSIDIAN_PENDING.md) | запись для общей памяти; синхронизация не выполнялась |
+| [OBSIDIAN_PENDING.md](OBSIDIAN_PENDING.md) | черновик записи для общей памяти от 13.11; сейчас заменён оркестратором (ниже) |
+| [orchestrator/](orchestrator/) | `studio.py` (вердикты, задачи, решения → заметки Obsidian) и `obsidian_sync.py` (безопасная раскладка в vault: пробный прогон, конфликты, маркеры, CRLF). `example_data/` — только синтетика |
+| [Evidence/UNITY_EDITMODE_20261114.md](Evidence/UNITY_EDITMODE_20261114.md), [Evidence/UNITY_BUILD_20261114.md](Evidence/UNITY_BUILD_20261114.md) | headless Unity: EditMode 40/40, сборка Windows Succeeded 0/0 |
+
+## Оркестратор студии (14.11.2026)
+
+Реальные данные студии **приватные**: бюджет, аккаунты, вердикты с личными ограничениями. Они лежат в Obsidian vault пользователя в скрытой папке `01_Project/AI_Game_Studio/.studio_data/` и в этот репозиторий не попадают. Здесь только код и синтетический пример.
+
+```bash
+python -B orchestrator/studio.py render --data orchestrator/example_data
+```
+
+```bash
+python -B orchestrator/obsidian_sync.py orchestrator/example_data/obsidian_pack/manifest.json --vault <путь к vault>
+```
+
+Без `--apply` выполняется только пробный прогон. Синхронизация запускается по команде пользователя.

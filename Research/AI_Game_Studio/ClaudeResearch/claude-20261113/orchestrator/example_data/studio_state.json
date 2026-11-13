@@ -1,0 +1,21 @@
+{
+  "schema": "ags.studio-state/1",
+  "as_of": "2026-11-14",
+  "goal": "SYNTHETIC example: test the orchestrator; no real budget, accounts or results.",
+  "verdict_statuses": {"GO": "do now", "CONDITIONAL": "after condition", "BLOCKED": "needs user action", "NO-GO": "not now", "UNKNOWN": "no data"},
+  "verdicts": [
+    {"id": "V01", "area": "architecture", "title": "Synthetic engine choice", "status": "GO", "verdict": "Synthetic verdict text.",
+     "basis": ["synthetic basis"], "confidence": "low", "resources": ["$0"], "needs": ["nothing"], "better": ["synthetic improvement"],
+     "evidence_strength": "low", "reviews": [{"by": "synthetic reviewer", "verdict": "agree", "points": ["synthetic point"], "response": "accepted"}]},
+    {"id": "V02", "area": "research", "title": "Synthetic research stage", "status": "CONDITIONAL", "verdict": "Synthetic.",
+     "basis": ["synthetic"], "confidence": "low", "resources": ["$0"], "needs": ["T01"], "better": ["synthetic"], "evidence_strength": "low"}
+  ],
+  "tasks": [
+    {"id": "T01", "title": "Synthetic first task", "owner": "claude", "status": "todo", "verdict": "V02", "depends_on": [], "cost": "$0"},
+    {"id": "T02", "title": "Synthetic user task", "owner": "user", "status": "blocked", "verdict": "V01", "depends_on": ["T01"], "cost": "$0"}
+  ],
+  "decisions": [{"id": "D01", "title": "Synthetic decision", "status": "proposed", "by": "test", "revisit": "never"}],
+  "games": [{"id": "G-SYN", "title": "Synthetic Game", "status": "idea", "summary": "synthetic"}],
+  "services": [{"id": "S-SYN", "title": "Synthetic Service", "status": "idea", "summary": "synthetic"}],
+  "external_metrics": {"applications_sent": 0, "replies": 0, "paid_orders": 0, "usd_received": 0, "games_with_store_page": 0}
+}

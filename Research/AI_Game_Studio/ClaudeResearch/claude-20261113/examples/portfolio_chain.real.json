@@ -1,326 +1,1038 @@
 {
-  "schema": "ags.research-registry/1",
-  "registry_id": "portfolio-chain-real-20261113",
-  "synthetic": false,
-  "as_of": "2026-11-14",
-  "description": "Real, bounded chain for Inventory & Save Lab: existing fact -> source/historical check -> bounded client promise -> gaps -> next work packets. Historical records are imported as historical_import and are NOT reruns. Library-consistency claims cite the private local library by relative path only; no private content is copied.",
-  "entities": [
+ "schema": "ags.research-registry/1",
+ "registry_id": "portfolio-chain-real-20261113",
+ "synthetic": false,
+ "as_of": "2026-11-14",
+ "description": "Real, bounded chain for Inventory & Save Lab: existing fact -> source/historical check -> bounded client promise -> gaps -> next work packets. Historical records are imported as historical_import and are NOT reruns. Library-consistency claims cite the private local library by relative path only; no private content is copied.",
+ "entities": [
+  {
+   "type": "Source",
+   "id": "SRC-LAB-VERIFICATION",
+   "title": "Inventory & Save Lab VERIFICATION.json",
+   "locator": "Portfolio/UnityDeliveryLab/VERIFICATION.json",
+   "source_kind": "repo_file",
+   "author": "repository owner/integrator (Codex session)",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": "git-blob:dc60d555af3e423a48a38155010addee731d9ed2",
+   "access_method": "git",
+   "study_depth": "full_text",
+   "relevance": 1.2,
+   "reliability": "self_report",
+   "rights": null,
+   "limitations": [
+    "Producer-side record of historical runs; not an independent audit",
+    "Repository has no LICENSE file at base 3fdbd6f"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LAB-CASE",
+   "title": "Inventory & Save Lab PORTFOLIO_CASE.md",
+   "locator": "Portfolio/UnityDeliveryLab/PORTFOLIO_CASE.md",
+   "source_kind": "repo_file",
+   "author": "repository owner/integrator",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": "git-blob:52f85f1e720a9ea579d8f96a1c7cc5bc3e5a1021",
+   "access_method": "git",
+   "study_depth": "full_text",
+   "relevance": 1.2,
+   "reliability": "self_report",
+   "rights": null,
+   "limitations": [
+    "Client-facing text; its own Scope and limitations section bounds every promise"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LAB-TESTS",
+   "title": "InventoryTests.cs (EditMode test source)",
+   "locator": "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Tests/InventoryTests.cs",
+   "source_kind": "repo_file",
+   "author": "repository owner/integrator",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": "git-blob:5b41fad077609d5682b120a64a90df8accb00919",
+   "access_method": "git",
+   "study_depth": "full_text",
+   "relevance": 1.0,
+   "reliability": "primary",
+   "rights": null,
+   "limitations": [
+    "Reading test source shows intent and coverage, not that tests pass today"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LIB-README",
+   "title": "Private library 00_README.md (relevance scale policy)",
+   "locator": "AI_Game_Studio/00_README.md",
+   "source_kind": "local_library",
+   "author": "library authors (Codex research, 2026-11-12)",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": null,
+   "access_method": "local_read",
+   "study_depth": "full_text",
+   "relevance": 1.0,
+   "reliability": "secondary",
+   "rights": "private library; not redistributed in public branch",
+   "limitations": [
+    "Private working copy; only file names, headings and counts are cited here"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LIB-SOURCES-JSON",
+   "title": "Private library Sources.json (150 records)",
+   "locator": "AI_Game_Studio/Sources.json",
+   "source_kind": "local_library",
+   "author": "library authors",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": null,
+   "access_method": "local_read",
+   "study_depth": "full_text",
+   "relevance": 1.0,
+   "reliability": "secondary",
+   "rights": "private library; not redistributed in public branch",
+   "limitations": [
+    "Counts computed locally on 2026-11-13; entries themselves not re-verified"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LIB-05",
+   "title": "Private library 05_Art_Benchmark_and_Recipes.md",
+   "locator": "AI_Game_Studio/05_Art_Benchmark_and_Recipes.md",
+   "source_kind": "local_library",
+   "author": "library authors",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": null,
+   "access_method": "local_read",
+   "study_depth": "partial_text",
+   "relevance": 1.2,
+   "reliability": "secondary",
+   "rights": "private library; not redistributed in public branch",
+   "limitations": [
+    "Only section 'Метрики с определениями' read for this record"
+   ]
+  },
+  {
+   "type": "Source",
+   "id": "SRC-LIB-08",
+   "title": "Private library 08_Metrics_and_Experiments.md",
+   "locator": "AI_Game_Studio/08_Metrics_and_Experiments.md",
+   "source_kind": "local_library",
+   "author": "library authors",
+   "published": "2026-11-12",
+   "accessed": "2026-11-13",
+   "version": null,
+   "access_method": "local_read",
+   "study_depth": "partial_text",
+   "relevance": 1.2,
+   "reliability": "secondary",
+   "rights": "private library; not redistributed in public branch",
+   "limitations": [
+    "Only section 'Метрики производства AI-графики и кода' read for this record"
+   ]
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-LAB-SOURCE-F1",
+   "title": "Inventory & Save Lab source revision polished-20-f1",
+   "kind": "unity_source_tree",
+   "locator": "Portfolio/UnityDeliveryLab/Project",
+   "revision": "polished-20-f1",
+   "sha256": null,
+   "origin": "authored in repository; source-manifest sha256 recorded in VERIFICATION.json",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "no repository LICENSE at base 3fdbd6f; provenance.csv says original procedural assets"
+   },
+   "lifecycle": "verified",
+   "status_reason": "verified = historical technical checks recorded; not human-accepted"
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-LAB-SOURCE-3FDBD6F",
+   "title": "Inventory & Save Lab source as published at base 3fdbd6f",
+   "kind": "unity_source_tree",
+   "locator": "Portfolio/UnityDeliveryLab/Project",
+   "revision": "git:3fdbd6f:Portfolio/UnityDeliveryLab/Project",
+   "sha256": null,
+   "origin": "repository tree at commit 3fdbd6f; equality with polished-20-f1 not proven (source manifest not in repo)",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "no repository LICENSE at base 3fdbd6f"
+   },
+   "lifecycle": "verified",
+   "status_reason": "headless EditMode 40/40 on 2026-11-14"
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-LAB-TESTS-SRC",
+   "title": "InventoryTests.cs at base 3fdbd6f",
+   "kind": "test_source",
+   "locator": "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Tests/InventoryTests.cs",
+   "revision": "git-blob:5b41fad077609d5682b120a64a90df8accb00919",
+   "sha256": "6e2184c550caaaa3678e45ff3a6f447a2159c13704d1c96b29493659731751ae",
+   "origin": "repository file",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "no repository LICENSE"
+   },
+   "lifecycle": "built"
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-SHOT-04",
+   "title": "04-health-full-1280.png (native Player F12 framebuffer)",
+   "kind": "screenshot",
+   "locator": "Portfolio/UnityDeliveryLab/Screenshots/04-health-full-1280.png",
+   "revision": "polished-20-f1",
+   "sha256": "d9bf86b54b694abdf32be6f415f63eace82979d3ab9b8a632655af4131c1c55c",
+   "origin": "agent-operated ordinary UI input; not human playtest (per VERIFICATION.json)",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "no repository LICENSE"
+   },
+   "lifecycle": "verified"
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-VALIDATOR",
+   "title": "Research registry validator",
+   "kind": "python_module",
+   "locator": "Research/AI_Game_Studio/ClaudeResearch/claude-20261113/validator.py",
+   "revision": "validator-0.1.0",
+   "sha256": null,
+   "origin": "written by Claude in this work packet",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "repository has no LICENSE; owner to decide"
+   },
+   "lifecycle": "verified"
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-HIST-EDITMODE-40",
+   "title": "Historical EditMode 40/40 PASS",
+   "criterion": "Save/load validation and inventory invariants pass EditMode tests",
+   "artifact_ref": "AFT-LAB-SOURCE-F1",
+   "artifact_revision": "polished-20-f1",
+   "evidence_class": "automated_test",
+   "method": "Unity EditMode test runner (historical; result file sha256 b91715c1... recorded)",
+   "evidence_status": "historical_import",
+   "result": "PASS",
+   "date": "2026-11-12",
+   "valid_until": null,
+   "producer": "codex-integrator",
+   "reviewer": null,
+   "observations": "40 total, 40 passed, 0 failed (VERIFICATION.json editmode)",
+   "publication": "public_ok",
+   "limitations": [
+    "Imported record, not rerun by Claude; Unity not launched in this task"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-HIST-BUILD",
+   "title": "Historical Windows build 0 errors / 0 warnings",
+   "criterion": "Windows x64 Player builds from recorded source",
+   "artifact_ref": "AFT-LAB-SOURCE-F1",
+   "artifact_revision": "polished-20-f1",
+   "evidence_class": "automated_test",
+   "method": "Unity build (historical); build-manifest sha256 3cabf84e... recorded",
+   "evidence_status": "historical_import",
+   "result": "PASS",
+   "date": "2026-11-12",
+   "valid_until": null,
+   "producer": "codex-integrator",
+   "reviewer": null,
+   "observations": "Succeeded; 0 errors; 0 warnings; 137 build files verified",
+   "publication": "public_ok",
+   "limitations": [
+    "Imported record; the Player binary is not in the repository"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-HIST-ORDINARY-RESTART",
+   "title": "Historical ordinary-input restart persistence",
+   "criterion": "Saved snapshot restored in a separate process",
+   "artifact_ref": "AFT-LAB-SOURCE-F1",
+   "artifact_revision": "polished-20-f1",
+   "evidence_class": "native_ui_check",
+   "method": "agent-operated mouse/keyboard on native Player (historical)",
+   "evidence_status": "historical_import",
+   "result": "PASS",
+   "date": "2026-11-12",
+   "valid_until": null,
+   "producer": "codex-integrator",
+   "reviewer": null,
+   "observations": "1024x768: 130 coins / 100 health / 6 shards, revision 9",
+   "publication": "public_ok",
+   "limitations": [
+    "Agent-operated, not a human playtest",
+    "A later process ended with orderly shutdown for unknown reason"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-EDITMODE-RERUN-20261114",
+   "title": "Headless Unity EditMode rerun 40/40 PASS",
+   "criterion": "Save/load validation and inventory invariants pass EditMode tests on the published source",
+   "artifact_ref": "AFT-LAB-SOURCE-3FDBD6F",
+   "artifact_revision": "git:3fdbd6f:Portfolio/UnityDeliveryLab/Project",
+   "evidence_class": "automated_test",
+   "method": "Unity 6000.0.45f1 -batchmode -nographics -runTests -testPlatform EditMode on a copy of the project at a short path (long-path workaround); NUnit XML sha256 4f543eeea8bd0c8953785353114c4081b6c427e192f63f43fbdcb387b958f2bc",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-14",
+   "valid_until": "2026-12-14",
+   "producer": "claude-research",
+   "reviewer": null,
+   "observations": "testcasecount=40 passed=40 failed=0 skipped=0; duration ~5 s; exit code 0; no windows opened",
+   "publication": "public_ok",
+   "limitations": [
+    "Copy of Assets/Packages/ProjectSettings at a short path; Library rebuilt from scratch",
+    "First attempt in the long clone path crashed (lmdb path > MAX_PATH), not a test failure",
+    "EditMode only; PlayMode, Player build and visual states not run"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-STATIC-TESTCOUNT-20261113",
+   "title": "Static count of declared NUnit cases",
+   "criterion": "Test source declares 40 cases consistent with historical total",
+   "artifact_ref": "AFT-LAB-TESTS-SRC",
+   "artifact_revision": "git-blob:5b41fad077609d5682b120a64a90df8accb00919",
+   "evidence_class": "source_inspection",
+   "method": "grep count of [Test] (20) and [TestCase( (20) attributes",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-13",
+   "valid_until": "2026-12-13",
+   "producer": "claude-research",
+   "reviewer": null,
+   "observations": "20 [Test] + 20 [TestCase] = 40 declared cases; matches historical total 40; tests NOT executed",
+   "publication": "public_ok",
+   "limitations": [
+    "Declared count is not a pass result",
+    "Expires earlier if the blob changes"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-SHOT-HASH-20261113",
+   "title": "Six screenshots match VERIFICATION.json sha256",
+   "criterion": "Delivered screenshots are byte-identical to recorded captures",
+   "artifact_ref": "AFT-SHOT-04",
+   "artifact_revision": "polished-20-f1",
+   "evidence_class": "integrity_check",
+   "method": "sha256 of Screenshots/*.png vs VERIFICATION.json",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-13",
+   "valid_until": "2026-12-13",
+   "producer": "claude-research",
+   "reviewer": null,
+   "observations": "6/6 digests equal",
+   "publication": "public_ok",
+   "limitations": [
+    "Proves files unchanged, not that the UI looks or behaves correctly",
+    "Does not bind screenshots to a shipped build hash"
+   ]
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-VALIDATOR-TESTS-20261114",
+   "title": "Validator unit tests incl. synthetic/prepared negative cases",
+   "criterion": "Prepared/synthetic/historical/metadata evidence never closes a requirement in this validator",
+   "artifact_ref": "AFT-VALIDATOR",
+   "artifact_revision": "validator-0.1.0",
+   "evidence_class": "automated_test",
+   "method": "python -B -m unittest discover -s tests -v",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-14",
+   "valid_until": "2026-12-13",
+   "producer": "claude-research",
+   "reviewer": null,
+   "observations": "See Evidence/TEST_RUN.md for counts",
+   "publication": "public_ok",
+   "limitations": [
+    "Self-check by the author; no independent review yet",
+    "Scope is this validator only, not runner.py"
+   ]
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-SAVE-VALIDATES",
+   "title": "Save boundary validates before replacing state",
+   "statement": "Inventory & Save Lab validates a v1 save before replacing the running model; a failed load leaves the current session intact.",
+   "claim_kind": "fact",
+   "source_refs": [
     {
-      "type": "Source", "id": "SRC-LAB-VERIFICATION", "title": "Inventory & Save Lab VERIFICATION.json",
-      "locator": "Portfolio/UnityDeliveryLab/VERIFICATION.json", "source_kind": "repo_file",
-      "author": "repository owner/integrator (Codex session)", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": "git-blob:dc60d555af3e423a48a38155010addee731d9ed2", "access_method": "git", "study_depth": "full_text",
-      "relevance": 1.2, "reliability": "self_report", "rights": null,
-      "limitations": ["Producer-side record of historical runs; not an independent audit", "Repository has no LICENSE file at base 3fdbd6f"]
+     "source": "SRC-LAB-CASE",
+     "locator": "## What it does"
     },
     {
-      "type": "Source", "id": "SRC-LAB-CASE", "title": "Inventory & Save Lab PORTFOLIO_CASE.md",
-      "locator": "Portfolio/UnityDeliveryLab/PORTFOLIO_CASE.md", "source_kind": "repo_file",
-      "author": "repository owner/integrator", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": "git-blob:52f85f1e720a9ea579d8f96a1c7cc5bc3e5a1021", "access_method": "git", "study_depth": "full_text",
-      "relevance": 1.2, "reliability": "self_report", "rights": null,
-      "limitations": ["Client-facing text; its own Scope and limitations section bounds every promise"]
-    },
-    {
-      "type": "Source", "id": "SRC-LAB-TESTS", "title": "InventoryTests.cs (EditMode test source)",
-      "locator": "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Tests/InventoryTests.cs", "source_kind": "repo_file",
-      "author": "repository owner/integrator", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": "git-blob:5b41fad077609d5682b120a64a90df8accb00919", "access_method": "git", "study_depth": "full_text",
-      "relevance": 1.0, "reliability": "primary", "rights": null,
-      "limitations": ["Reading test source shows intent and coverage, not that tests pass today"]
-    },
-    {
-      "type": "Source", "id": "SRC-LIB-README", "title": "Private library 00_README.md (relevance scale policy)",
-      "locator": "AI_Game_Studio/00_README.md", "source_kind": "local_library",
-      "author": "library authors (Codex research, 2026-11-12)", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": null, "access_method": "local_read", "study_depth": "full_text",
-      "relevance": 1.0, "reliability": "secondary", "rights": "private library; not redistributed in public branch",
-      "limitations": ["Private working copy; only file names, headings and counts are cited here"]
-    },
-    {
-      "type": "Source", "id": "SRC-LIB-SOURCES-JSON", "title": "Private library Sources.json (150 records)",
-      "locator": "AI_Game_Studio/Sources.json", "source_kind": "local_library",
-      "author": "library authors", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": null, "access_method": "local_read", "study_depth": "full_text",
-      "relevance": 1.0, "reliability": "secondary", "rights": "private library; not redistributed in public branch",
-      "limitations": ["Counts computed locally on 2026-11-13; entries themselves not re-verified"]
-    },
-    {
-      "type": "Source", "id": "SRC-LIB-05", "title": "Private library 05_Art_Benchmark_and_Recipes.md",
-      "locator": "AI_Game_Studio/05_Art_Benchmark_and_Recipes.md", "source_kind": "local_library",
-      "author": "library authors", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": null, "access_method": "local_read", "study_depth": "partial_text",
-      "relevance": 1.2, "reliability": "secondary", "rights": "private library; not redistributed in public branch",
-      "limitations": ["Only section 'Метрики с определениями' read for this record"]
-    },
-    {
-      "type": "Source", "id": "SRC-LIB-08", "title": "Private library 08_Metrics_and_Experiments.md",
-      "locator": "AI_Game_Studio/08_Metrics_and_Experiments.md", "source_kind": "local_library",
-      "author": "library authors", "published": "2026-11-12", "accessed": "2026-11-13",
-      "version": null, "access_method": "local_read", "study_depth": "partial_text",
-      "relevance": 1.2, "reliability": "secondary", "rights": "private library; not redistributed in public branch",
-      "limitations": ["Only section 'Метрики производства AI-графики и кода' read for this record"]
-    },
-    {
-      "type": "Artifact", "id": "AFT-LAB-SOURCE-F1", "title": "Inventory & Save Lab source revision polished-20-f1",
-      "kind": "unity_source_tree", "locator": "Portfolio/UnityDeliveryLab/Project", "revision": "polished-20-f1",
-      "sha256": null, "origin": "authored in repository; source-manifest sha256 recorded in VERIFICATION.json",
-      "license": {"status": "unknown", "terms": null, "scope": "no repository LICENSE at base 3fdbd6f; provenance.csv says original procedural assets"},
-      "lifecycle": "verified", "status_reason": "verified = historical technical checks recorded; not human-accepted"
-    },
-    {
-      "type": "Artifact", "id": "AFT-LAB-TESTS-SRC", "title": "InventoryTests.cs at base 3fdbd6f",
-      "kind": "test_source", "locator": "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Tests/InventoryTests.cs",
-      "revision": "git-blob:5b41fad077609d5682b120a64a90df8accb00919",
-      "sha256": "6e2184c550caaaa3678e45ff3a6f447a2159c13704d1c96b29493659731751ae",
-      "origin": "repository file", "license": {"status": "unknown", "terms": null, "scope": "no repository LICENSE"},
-      "lifecycle": "built"
-    },
-    {
-      "type": "Artifact", "id": "AFT-SHOT-04", "title": "04-health-full-1280.png (native Player F12 framebuffer)",
-      "kind": "screenshot", "locator": "Portfolio/UnityDeliveryLab/Screenshots/04-health-full-1280.png", "revision": "polished-20-f1",
-      "sha256": "d9bf86b54b694abdf32be6f415f63eace82979d3ab9b8a632655af4131c1c55c",
-      "origin": "agent-operated ordinary UI input; not human playtest (per VERIFICATION.json)",
-      "license": {"status": "unknown", "terms": null, "scope": "no repository LICENSE"},
-      "lifecycle": "verified"
-    },
-    {
-      "type": "Artifact", "id": "AFT-VALIDATOR", "title": "Research registry validator",
-      "kind": "python_module", "locator": "Research/AI_Game_Studio/ClaudeResearch/claude-20261113/validator.py",
-      "revision": "validator-0.1.0", "sha256": null, "origin": "written by Claude in this work packet",
-      "license": {"status": "unknown", "terms": null, "scope": "repository has no LICENSE; owner to decide"},
-      "lifecycle": "verified"
-    },
-    {
-      "type": "Evidence", "id": "EVD-HIST-EDITMODE-40", "title": "Historical EditMode 40/40 PASS",
-      "criterion": "Save/load validation and inventory invariants pass EditMode tests", "artifact_ref": "AFT-LAB-SOURCE-F1",
-      "artifact_revision": "polished-20-f1", "evidence_class": "automated_test", "method": "Unity EditMode test runner (historical; result file sha256 b91715c1... recorded)",
-      "evidence_status": "historical_import", "result": "PASS", "date": "2026-11-12", "valid_until": null,
-      "producer": "codex-integrator", "reviewer": null, "observations": "40 total, 40 passed, 0 failed (VERIFICATION.json editmode)",
-      "publication": "public_ok", "limitations": ["Imported record, not rerun by Claude; Unity not launched in this task"]
-    },
-    {
-      "type": "Evidence", "id": "EVD-HIST-BUILD", "title": "Historical Windows build 0 errors / 0 warnings",
-      "criterion": "Windows x64 Player builds from recorded source", "artifact_ref": "AFT-LAB-SOURCE-F1",
-      "artifact_revision": "polished-20-f1", "evidence_class": "automated_test", "method": "Unity build (historical); build-manifest sha256 3cabf84e... recorded",
-      "evidence_status": "historical_import", "result": "PASS", "date": "2026-11-12", "valid_until": null,
-      "producer": "codex-integrator", "reviewer": null, "observations": "Succeeded; 0 errors; 0 warnings; 137 build files verified",
-      "publication": "public_ok", "limitations": ["Imported record; the Player binary is not in the repository"]
-    },
-    {
-      "type": "Evidence", "id": "EVD-HIST-ORDINARY-RESTART", "title": "Historical ordinary-input restart persistence",
-      "criterion": "Saved snapshot restored in a separate process", "artifact_ref": "AFT-LAB-SOURCE-F1",
-      "artifact_revision": "polished-20-f1", "evidence_class": "native_ui_check", "method": "agent-operated mouse/keyboard on native Player (historical)",
-      "evidence_status": "historical_import", "result": "PASS", "date": "2026-11-12", "valid_until": null,
-      "producer": "codex-integrator", "reviewer": null, "observations": "1024x768: 130 coins / 100 health / 6 shards, revision 9",
-      "publication": "public_ok", "limitations": ["Agent-operated, not a human playtest", "A later process ended with orderly shutdown for unknown reason"]
-    },
-    {
-      "type": "Evidence", "id": "EVD-STATIC-TESTCOUNT-20261113", "title": "Static count of declared NUnit cases",
-      "criterion": "Test source declares 40 cases consistent with historical total", "artifact_ref": "AFT-LAB-TESTS-SRC",
-      "artifact_revision": "git-blob:5b41fad077609d5682b120a64a90df8accb00919", "evidence_class": "source_inspection",
-      "method": "grep count of [Test] (20) and [TestCase( (20) attributes", "evidence_status": "executed", "result": "PASS",
-      "date": "2026-11-13", "valid_until": "2026-12-13", "producer": "claude-research", "reviewer": null,
-      "observations": "20 [Test] + 20 [TestCase] = 40 declared cases; matches historical total 40; tests NOT executed",
-      "publication": "public_ok", "limitations": ["Declared count is not a pass result", "Expires earlier if the blob changes"]
-    },
-    {
-      "type": "Evidence", "id": "EVD-SHOT-HASH-20261113", "title": "Six screenshots match VERIFICATION.json sha256",
-      "criterion": "Delivered screenshots are byte-identical to recorded captures", "artifact_ref": "AFT-SHOT-04",
-      "artifact_revision": "polished-20-f1", "evidence_class": "integrity_check", "method": "sha256 of Screenshots/*.png vs VERIFICATION.json",
-      "evidence_status": "executed", "result": "PASS", "date": "2026-11-13", "valid_until": "2026-12-13",
-      "producer": "claude-research", "reviewer": null, "observations": "6/6 digests equal",
-      "publication": "public_ok", "limitations": ["Proves files unchanged, not that the UI looks or behaves correctly", "Does not bind screenshots to a shipped build hash"]
-    },
-    {
-      "type": "Evidence", "id": "EVD-VALIDATOR-TESTS-20261114", "title": "Validator unit tests incl. synthetic/prepared negative cases",
-      "criterion": "Prepared/synthetic/historical/metadata evidence never closes a requirement in this validator", "artifact_ref": "AFT-VALIDATOR",
-      "artifact_revision": "validator-0.1.0", "evidence_class": "automated_test", "method": "python -B -m unittest discover -s tests -v",
-      "evidence_status": "executed", "result": "PASS", "date": "2026-11-14", "valid_until": "2026-12-13",
-      "producer": "claude-research", "reviewer": null, "observations": "See Evidence/TEST_RUN.md for counts",
-      "publication": "public_ok", "limitations": ["Self-check by the author; no independent review yet", "Scope is this validator only, not runner.py"]
-    },
-    {
-      "type": "Claim", "id": "CLM-SAVE-VALIDATES", "title": "Save boundary validates before replacing state",
-      "statement": "Inventory & Save Lab validates a v1 save before replacing the running model; a failed load leaves the current session intact.",
-      "claim_kind": "fact", "source_refs": [{"source": "SRC-LAB-CASE", "locator": "## What it does"}, {"source": "SRC-LAB-TESTS", "locator": "CorruptFileCannotDestroyRunningState; UnknownSchemaCannotReplaceRunningState"}],
-      "scope": "Fixed ASCII v1 format, single writer per save directory, Windows x64, revision polished-20-f1",
-      "confidence": "medium", "confidence_basis": "Test source read and historical 40/40 record; not rerun today",
-      "verification": "source_read", "limitations": ["Not a general JSON importer", "Power-loss recovery not established"]
-    },
-    {
-      "type": "Claim", "id": "CLM-PROMISE-BOUNDED-UI-SAVE", "title": "Bounded client promise",
-      "statement": "We can deliver a bounded Windows Unity uGUI screen/module with explicit acceptance criteria, state/save validation and recorded verification.",
-      "claim_kind": "client_promise", "source_refs": [{"source": "SRC-LAB-CASE", "locator": "## Scope and limitations"}],
-      "scope": "Unity 6000.0.45f1, Built-in/uGUI, Windows x64, small module; transfer to an unfamiliar client project requires its own estimate",
-      "confidence": "low", "confidence_basis": "Single self-initiated sample; no client delivery; historical checks only",
-      "verification": "source_read",
-      "limitations": ["Not a complete game", "No mobile/networking/Figma/AI-character proof", "No delivery-time or revenue proof", "No human artistic acceptance"]
-    },
-    {
-      "type": "Claim", "id": "CLM-SCALE-POLICY", "title": "Relevance scale stored separately",
-      "statement": "The 1.2/1.0/0.7 usefulness scale is categorical and the evidence level is stored separately.",
-      "claim_kind": "principle", "source_refs": [{"source": "SRC-LIB-README", "locator": "## Как читать доказательства (last paragraph)"}],
-      "scope": "Private research library v2, 2026-11-12", "confidence": "high", "confidence_basis": "Stated explicitly in README",
-      "verification": "source_read", "limitations": []
-    },
-    {
-      "type": "Claim", "id": "CLM-SCALE-OBSERVED", "title": "Relevance values stored in priority field",
-      "statement": "Sources.json stores 1.2/1.0/0.7 values in the same 'priority' field as P0/P1/P2 for 57 of 150 records.",
-      "claim_kind": "fact", "source_refs": [{"source": "SRC-LIB-SOURCES-JSON", "locator": "field priority: P0 46, P1 43, P2 4, 1 27, 1.2 21, 0.7 9"}],
-      "scope": "Private library Sources.json as read 2026-11-13", "confidence": "high", "confidence_basis": "Counted with a local read-only script",
-      "verification": "cross_checked", "limitations": ["Does not say which scale the authors intended per record"]
-    },
-    {
-      "type": "Claim", "id": "CLM-YIELD-05", "title": "Yield/first-pass definitions in chapter 05",
-      "statement": "Chapter 05 defines first-pass acceptance over all first candidates and yield over all candidates.",
-      "claim_kind": "coefficient", "source_refs": [{"source": "SRC-LIB-05", "locator": "## Метрики с определениями"}],
-      "scope": "Art benchmark metrics", "confidence": "high", "confidence_basis": "Table read directly",
-      "verification": "source_read", "limitations": []
-    },
-    {
-      "type": "Claim", "id": "CLM-YIELD-08", "title": "Acceptance/first-pass definitions in chapter 08",
-      "statement": "Chapter 08 defines asset acceptance over unique candidates and first-pass over items presented at first review.",
-      "claim_kind": "coefficient", "source_refs": [{"source": "SRC-LIB-08", "locator": "## Метрики производства AI-графики и кода"}],
-      "scope": "Production metrics", "confidence": "high", "confidence_basis": "Code block read directly",
-      "verification": "source_read", "limitations": []
-    },
-    {
-      "type": "RequirementRef", "id": "C07-R03", "title": "Save verified before world replacement", "component": "C07", "gate": "G4",
-      "catalog": {"path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json", "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c", "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"},
-      "checked_property": "For the portfolio sample revision: corrupt/old save rejected, current state preserved, restart restores",
-      "accepted_evidence_classes": ["automated_test", "native_ui_check"], "target_revision": "polished-20-f1"
-    },
-    {
-      "type": "RequirementRef", "id": "C05-R03", "title": "technical-pass / art-recommended / user-accepted kept separate", "component": "C05", "gate": "G4",
-      "catalog": {"path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json", "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c", "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"},
-      "checked_property": "User-accepted status of the portfolio visuals is backed by a real user decision",
-      "accepted_evidence_classes": ["human_art_acceptance"], "target_revision": "polished-20-f1", "requires_independent_review": true
-    },
-    {
-      "type": "RequirementRef", "id": "C08-R02", "title": "Shipped build verified, not neighbouring revision", "component": "C08", "gate": "G5",
-      "catalog": {"path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json", "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c", "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"},
-      "checked_property": "Native evidence and tests are bound by build hash to the delivered archive",
-      "accepted_evidence_classes": ["native_ui_check"], "target_revision": "polished-20-f1"
-    },
-    {
-      "type": "RequirementRef", "id": "C01-R03", "title": "Prepared/synthetic never becomes real acceptance", "component": "C01", "gate": "G3",
-      "catalog": {"path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json", "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c", "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"},
-      "checked_property": "Within validator.py only: prepared/synthetic/historical/metadata evidence leaves requirements OPEN",
-      "accepted_evidence_classes": ["automated_test"], "target_revision": "validator-0.1.0"
-    },
-    {
-      "type": "Capability", "id": "CAP-RUNNER", "title": "Offline studio checker (runner.py)", "name": "runner.py + b2b_quote.py",
-      "cap_kind": "script", "location": "Research/AI_Game_Studio/Orchestrator/runner", "version": "git-blob:83ba0616aa979a6590cd54503a48374e37fca403",
-      "owner_agent": "codex", "inputs": ["manifest JSON"], "outputs": ["gate assessment JSON"], "declared": true,
-      "available": "verified_today", "benchmarked": "none", "invocation_verified": true, "dependencies": ["Python 3.10+"],
-      "limitations": ["Trusted-input checker; no budget lock; no evidence authentication"]
-    },
-    {
-      "type": "Capability", "id": "CAP-VALIDATOR", "title": "Research registry validator", "name": "validator.py",
-      "cap_kind": "script", "location": "Research/AI_Game_Studio/ClaudeResearch/claude-20261113", "version": "0.1.0",
-      "owner_agent": "claude", "inputs": ["registry JSON", "catalog JSON"], "outputs": ["report JSON", "traceability Markdown"],
-      "declared": true, "available": "verified_today", "benchmarked": "none", "invocation_verified": true,
-      "dependencies": ["Python 3.10+"], "limitations": ["Consistency check only"]
-    },
-    {
-      "type": "Capability", "id": "CAP-UNITY-6000", "title": "Unity 6000.0.45f1 editor", "name": "Unity 6000.0.45f1",
-      "cap_kind": "engine", "location": null, "version": "6000.0.45f1", "owner_agent": "codex-integrator",
-      "inputs": ["Project/"], "outputs": ["EditMode results", "Windows Player"], "declared": true,
-      "available": "historical", "benchmarked": "historical", "invocation_verified": false, "dependencies": ["local license"],
-      "limitations": ["Not launched in this task by user instruction (no GUI, no batch mode)"]
-    },
-    {
-      "type": "Capability", "id": "CAP-SKILL-GSO", "title": "game-studio-orchestrator skill", "name": "game-studio-orchestrator",
-      "cap_kind": "skill", "location": null, "version": null, "owner_agent": "codex",
-      "inputs": ["AGENTS/STATE", "goal"], "outputs": ["work packet", "next-step decision"], "declared": true,
-      "available": "not_checked", "benchmarked": "none", "invocation_verified": false, "dependencies": [],
-      "limitations": ["Installed in Codex skill directory; not in Claude's skill list; Claude read its SKILL.md text only"]
-    },
-    {
-      "type": "Capability", "id": "CAP-SKILL-ART-ACCEPT", "title": "game-art-acceptance (library-prepared skill)", "name": "game-art-acceptance",
-      "cap_kind": "skill", "location": null, "version": null, "owner_agent": "unassigned",
-      "inputs": ["art contract", "Player captures"], "outputs": ["acceptance record"], "declared": true,
-      "available": "not_checked", "benchmarked": "none", "invocation_verified": false, "dependencies": [],
-      "limitations": ["Prepared in private library, not globally installed per library text"]
-    },
-    {
-      "type": "Decision", "id": "DEC-SEPARATE-RELEVANCE", "title": "Relevance is its own field",
-      "question": "How should the registry store 1.2/1.0/0.7 when the library mixes it with P0/P1 priority?",
-      "options": ["Copy library 'priority' verbatim", "Separate 'relevance' (categorical) from priority and evidence depth"],
-      "assumptions": ["Library README states the intended semantics"], "decision": "Store relevance only as categorical 1.2/1.0/0.7/null; do not import P0/P1 as relevance; keep study_depth and reliability separate.",
-      "decision_status": "accepted", "unknowns": ["Intended scale for each of the 57 mixed records"], "owner": "claude-research (module data model)",
-      "revisit_when": ["Library authors publish a normalised field", "User redefines the scale"], "resolves": ["CLM-SCALE-POLICY", "CLM-SCALE-OBSERVED"]
-    },
-    {
-      "type": "Decision", "id": "DEC-PORTFOLIO-SCOPE", "title": "What the lab may be cited for",
-      "question": "Which client promises may cite Inventory & Save Lab?",
-      "options": ["Cite as proof of general Unity game delivery", "Cite only for bounded UI/state/save delivery with listed limitations"],
-      "assumptions": ["Historical records in VERIFICATION.json are accurate"], "decision": null, "decision_status": "proposed",
-      "unknowns": ["Human artistic acceptance", "Rerun on current revision", "Client-specific transfer"], "owner": "user (proposal by claude-research)",
-      "revisit_when": ["New verified revision", "First real client acceptance"]
-    },
-    {
-      "type": "WorkPacket", "id": "WP-LAB-CONTRAST", "title": "Bounded HEALTH FULL label contrast fix",
-      "goal": "Disabled HEALTH FULL label readable while visibly inactive", "owner": "codex-integrator (Unity owner)",
-      "owned_paths": ["Portfolio/UnityDeliveryLab/Project/Assets/Lab/Runtime/LabApp.cs"], "inputs": ["HANDOFF_CLAUDE.md useful-first-contribution", "04-health-full-1280.png"],
-      "outputs": ["source diff", "before/after native capture"], "acceptance": ["Contrast improved; disabled state still distinct", "40 EditMode tests rerun on new revision"],
-      "dependencies_note": "None", "stop_conditions": ["Any change to state/save behaviour"], "evidence_plan": ["native_ui_check bound to new build hash"],
-      "handoff": "Integrator runs Unity; Claude does not touch Unity", "wp_status": "proposed"
-    },
-    {
-      "type": "WorkPacket", "id": "WP-LAB-VISUAL-NOTRUN", "title": "Run the unrun visual states",
-      "goal": "Capture full-inventory and light-theme 1024x768 states on the new revision", "owner": "codex-integrator (Unity owner)",
-      "owned_paths": ["Portfolio/UnityDeliveryLab/Screenshots/", "Portfolio/UnityDeliveryLab/VERIFICATION.json"], "inputs": ["new build from WP-LAB-CONTRAST"],
-      "outputs": ["native captures with sha256", "updated VERIFICATION.json"], "acceptance": ["Captures bound to build hash", "Input method labelled"],
-      "dependencies_note": "After WP-LAB-CONTRAST so captures show the final label", "stop_conditions": ["GUI use not permitted by user"],
-      "evidence_plan": ["native_ui_check", "integrity_check"], "handoff": "Return paths and hashes to registry", "wp_status": "blocked"
-    },
-    {
-      "type": "WorkPacket", "id": "WP-LAB-HUMAN-ART", "title": "Human artistic acceptance of the lab visuals",
-      "goal": "User decides accept / revise on the final captures", "owner": "user",
-      "owned_paths": ["Portfolio/UnityDeliveryLab/ART_ACCEPTANCE_DECISION.md"], "inputs": ["captures from WP-LAB-VISUAL-NOTRUN"],
-      "outputs": ["human_art_acceptance evidence record"], "acceptance": ["Explicit user decision with date"],
-      "dependencies_note": "Needs final captures", "stop_conditions": ["User declines review"], "evidence_plan": ["human_art_acceptance"],
-      "handoff": "Integrator records the decision", "wp_status": "proposed"
-    },
-    {
-      "type": "Experiment", "id": "EXP-RERUN-EDITMODE", "title": "Rerun EditMode on current revision",
-      "question": "Do the 40 declared cases still pass on the current source blob?", "hypothesis": "40/40 pass unchanged",
-      "baseline": "Historical 40/40 on polished-20-f1", "protocol": "Run-Lab.ps1 -Action EditMode with a new revision name, by the integrator, when permitted",
-      "success_criterion": "40 total, 40 passed, 0 failed; result file hash recorded", "criterion_fixed_on": "2026-11-13",
-      "sample": {"n": 1, "unit": "test run"}, "resource_bounds": {"cash": 0, "currency": "USD", "hours": null},
-      "experiment_status": "proposed", "results": null, "limitations": ["Requires Unity; not runnable in this task"]
+     "source": "SRC-LAB-TESTS",
+     "locator": "CorruptFileCannotDestroyRunningState; UnknownSchemaCannotReplaceRunningState"
     }
-  ],
-  "edges": [
-    {"type": "supports", "from": "EVD-HIST-EDITMODE-40", "to": "CLM-SAVE-VALIDATES"},
-    {"type": "supports", "from": "EVD-HIST-ORDINARY-RESTART", "to": "CLM-SAVE-VALIDATES"},
-    {"type": "derived_from", "from": "CLM-PROMISE-BOUNDED-UI-SAVE", "to": "CLM-SAVE-VALIDATES"},
-    {"type": "supports", "from": "EVD-HIST-BUILD", "to": "CLM-PROMISE-BOUNDED-UI-SAVE"},
-    {"type": "verified_by", "from": "CLM-PROMISE-BOUNDED-UI-SAVE", "to": "EVD-STATIC-TESTCOUNT-20261113"},
-    {"type": "supports", "from": "CLM-SAVE-VALIDATES", "to": "DEC-PORTFOLIO-SCOPE"},
-    {"type": "supports", "from": "CLM-PROMISE-BOUNDED-UI-SAVE", "to": "DEC-PORTFOLIO-SCOPE"},
-    {"type": "verified_by", "from": "C07-R03", "to": "EVD-HIST-EDITMODE-40"},
-    {"type": "verified_by", "from": "C07-R03", "to": "EVD-HIST-ORDINARY-RESTART"},
-    {"type": "verified_by", "from": "C08-R02", "to": "EVD-SHOT-HASH-20261113"},
-    {"type": "verified_by", "from": "C01-R03", "to": "EVD-VALIDATOR-TESTS-20261114"},
-    {"type": "verified_by", "from": "AFT-SHOT-04", "to": "EVD-SHOT-HASH-20261113"},
-    {"type": "verified_by", "from": "AFT-LAB-TESTS-SRC", "to": "EVD-STATIC-TESTCOUNT-20261113"},
-    {"type": "produced_by", "from": "EVD-VALIDATOR-TESTS-20261114", "to": "CAP-VALIDATOR"},
-    {"type": "produced_by", "from": "EVD-HIST-EDITMODE-40", "to": "CAP-UNITY-6000"},
-    {"type": "produced_by", "from": "EVD-HIST-BUILD", "to": "CAP-UNITY-6000"},
-    {"type": "derived_from", "from": "AFT-SHOT-04", "to": "AFT-LAB-SOURCE-F1"},
-    {"type": "contradicts", "from": "CLM-SCALE-OBSERVED", "to": "CLM-SCALE-POLICY"},
-    {"type": "supports", "from": "CLM-SCALE-POLICY", "to": "DEC-SEPARATE-RELEVANCE"},
-    {"type": "supports", "from": "CLM-SCALE-OBSERVED", "to": "DEC-SEPARATE-RELEVANCE"},
-    {"type": "contradicts", "from": "CLM-YIELD-05", "to": "CLM-YIELD-08"},
-    {"type": "derived_from", "from": "WP-LAB-CONTRAST", "to": "DEC-PORTFOLIO-SCOPE"},
-    {"type": "depends_on", "from": "WP-LAB-VISUAL-NOTRUN", "to": "WP-LAB-CONTRAST"},
-    {"type": "depends_on", "from": "WP-LAB-VISUAL-NOTRUN", "to": "CAP-UNITY-6000"},
-    {"type": "depends_on", "from": "WP-LAB-HUMAN-ART", "to": "WP-LAB-VISUAL-NOTRUN"},
-    {"type": "implements", "from": "WP-LAB-HUMAN-ART", "to": "C05-R03"},
-    {"type": "implements", "from": "EXP-RERUN-EDITMODE", "to": "C07-R03"},
-    {"type": "depends_on", "from": "EXP-RERUN-EDITMODE", "to": "CAP-UNITY-6000"}
-  ]
+   ],
+   "scope": "Fixed ASCII v1 format, single writer per save directory, Windows x64, revision polished-20-f1",
+   "confidence": "medium",
+   "confidence_basis": "Test source read and historical 40/40 record; not rerun today",
+   "verification": "source_read",
+   "limitations": [
+    "Not a general JSON importer",
+    "Power-loss recovery not established"
+   ]
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-PROMISE-BOUNDED-UI-SAVE",
+   "title": "Bounded client promise",
+   "statement": "We can deliver a bounded Windows Unity uGUI screen/module with explicit acceptance criteria, state/save validation and recorded verification.",
+   "claim_kind": "client_promise",
+   "source_refs": [
+    {
+     "source": "SRC-LAB-CASE",
+     "locator": "## Scope and limitations"
+    }
+   ],
+   "scope": "Unity 6000.0.45f1, Built-in/uGUI, Windows x64, small module; transfer to an unfamiliar client project requires its own estimate",
+   "confidence": "low",
+   "confidence_basis": "Single self-initiated sample; no client delivery; historical checks only",
+   "verification": "source_read",
+   "limitations": [
+    "Not a complete game",
+    "No mobile/networking/Figma/AI-character proof",
+    "No delivery-time or revenue proof",
+    "No human artistic acceptance"
+   ]
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-SCALE-POLICY",
+   "title": "Relevance scale stored separately",
+   "statement": "The 1.2/1.0/0.7 usefulness scale is categorical and the evidence level is stored separately.",
+   "claim_kind": "principle",
+   "source_refs": [
+    {
+     "source": "SRC-LIB-README",
+     "locator": "## Как читать доказательства (last paragraph)"
+    }
+   ],
+   "scope": "Private research library v2, 2026-11-12",
+   "confidence": "high",
+   "confidence_basis": "Stated explicitly in README",
+   "verification": "source_read",
+   "limitations": []
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-SCALE-OBSERVED",
+   "title": "Relevance values stored in priority field",
+   "statement": "Sources.json stores 1.2/1.0/0.7 values in the same 'priority' field as P0/P1/P2 for 57 of 150 records.",
+   "claim_kind": "fact",
+   "source_refs": [
+    {
+     "source": "SRC-LIB-SOURCES-JSON",
+     "locator": "field priority: P0 46, P1 43, P2 4, 1 27, 1.2 21, 0.7 9"
+    }
+   ],
+   "scope": "Private library Sources.json as read 2026-11-13",
+   "confidence": "high",
+   "confidence_basis": "Counted with a local read-only script",
+   "verification": "cross_checked",
+   "limitations": [
+    "Does not say which scale the authors intended per record"
+   ]
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-YIELD-05",
+   "title": "Yield/first-pass definitions in chapter 05",
+   "statement": "Chapter 05 defines first-pass acceptance over all first candidates and yield over all candidates.",
+   "claim_kind": "coefficient",
+   "source_refs": [
+    {
+     "source": "SRC-LIB-05",
+     "locator": "## Метрики с определениями"
+    }
+   ],
+   "scope": "Art benchmark metrics",
+   "confidence": "high",
+   "confidence_basis": "Table read directly",
+   "verification": "source_read",
+   "limitations": []
+  },
+  {
+   "type": "Claim",
+   "id": "CLM-YIELD-08",
+   "title": "Acceptance/first-pass definitions in chapter 08",
+   "statement": "Chapter 08 defines asset acceptance over unique candidates and first-pass over items presented at first review.",
+   "claim_kind": "coefficient",
+   "source_refs": [
+    {
+     "source": "SRC-LIB-08",
+     "locator": "## Метрики производства AI-графики и кода"
+    }
+   ],
+   "scope": "Production metrics",
+   "confidence": "high",
+   "confidence_basis": "Code block read directly",
+   "verification": "source_read",
+   "limitations": []
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C07-R03",
+   "title": "Save verified before world replacement",
+   "component": "C07",
+   "gate": "G4",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "For the published portfolio source (base 3fdbd6f): corrupt/old save rejected, current state preserved",
+   "accepted_evidence_classes": [
+    "automated_test",
+    "native_ui_check"
+   ],
+   "target_revision": "git:3fdbd6f:Portfolio/UnityDeliveryLab/Project"
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C05-R03",
+   "title": "technical-pass / art-recommended / user-accepted kept separate",
+   "component": "C05",
+   "gate": "G4",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "User-accepted status of the portfolio visuals is backed by a real user decision",
+   "accepted_evidence_classes": [
+    "human_art_acceptance"
+   ],
+   "target_revision": "polished-20-f1",
+   "requires_independent_review": true
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C08-R02",
+   "title": "Shipped build verified, not neighbouring revision",
+   "component": "C08",
+   "gate": "G5",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Native evidence and tests are bound by build hash to the delivered archive",
+   "accepted_evidence_classes": [
+    "native_ui_check"
+   ],
+   "target_revision": "polished-20-f1"
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C01-R03",
+   "title": "Prepared/synthetic never becomes real acceptance",
+   "component": "C01",
+   "gate": "G3",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Within validator.py only: prepared/synthetic/historical/metadata evidence leaves requirements OPEN",
+   "accepted_evidence_classes": [
+    "automated_test"
+   ],
+   "target_revision": "validator-0.1.0"
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-RUNNER",
+   "title": "Offline studio checker (runner.py)",
+   "name": "runner.py + b2b_quote.py",
+   "cap_kind": "script",
+   "location": "Research/AI_Game_Studio/Orchestrator/runner",
+   "version": "git-blob:83ba0616aa979a6590cd54503a48374e37fca403",
+   "owner_agent": "codex",
+   "inputs": [
+    "manifest JSON"
+   ],
+   "outputs": [
+    "gate assessment JSON"
+   ],
+   "declared": true,
+   "available": "verified_today",
+   "benchmarked": "none",
+   "invocation_verified": true,
+   "dependencies": [
+    "Python 3.10+"
+   ],
+   "limitations": [
+    "Trusted-input checker; no budget lock; no evidence authentication"
+   ]
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-VALIDATOR",
+   "title": "Research registry validator",
+   "name": "validator.py",
+   "cap_kind": "script",
+   "location": "Research/AI_Game_Studio/ClaudeResearch/claude-20261113",
+   "version": "0.1.0",
+   "owner_agent": "claude",
+   "inputs": [
+    "registry JSON",
+    "catalog JSON"
+   ],
+   "outputs": [
+    "report JSON",
+    "traceability Markdown"
+   ],
+   "declared": true,
+   "available": "verified_today",
+   "benchmarked": "none",
+   "invocation_verified": true,
+   "dependencies": [
+    "Python 3.10+"
+   ],
+   "limitations": [
+    "Consistency check only"
+   ]
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-UNITY-6000",
+   "title": "Unity 6000.0.45f1 editor",
+   "name": "Unity 6000.0.45f1",
+   "cap_kind": "engine",
+   "location": null,
+   "version": "6000.0.45f1",
+   "owner_agent": "codex-integrator",
+   "inputs": [
+    "Project/"
+   ],
+   "outputs": [
+    "EditMode results",
+    "Windows Player"
+   ],
+   "declared": true,
+   "available": "verified_today",
+   "benchmarked": "historical",
+   "invocation_verified": true,
+   "dependencies": [
+    "local license"
+   ],
+   "limitations": [
+    "Batchmode verified 2026-11-14; needs project path short enough for Library (MAX_PATH)"
+   ]
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-SKILL-GSO",
+   "title": "game-studio-orchestrator skill",
+   "name": "game-studio-orchestrator",
+   "cap_kind": "skill",
+   "location": null,
+   "version": null,
+   "owner_agent": "codex",
+   "inputs": [
+    "AGENTS/STATE",
+    "goal"
+   ],
+   "outputs": [
+    "work packet",
+    "next-step decision"
+   ],
+   "declared": true,
+   "available": "not_checked",
+   "benchmarked": "none",
+   "invocation_verified": false,
+   "dependencies": [],
+   "limitations": [
+    "Installed in Codex skill directory; not in Claude's skill list; Claude read its SKILL.md text only"
+   ]
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-SKILL-ART-ACCEPT",
+   "title": "game-art-acceptance (library-prepared skill)",
+   "name": "game-art-acceptance",
+   "cap_kind": "skill",
+   "location": null,
+   "version": null,
+   "owner_agent": "unassigned",
+   "inputs": [
+    "art contract",
+    "Player captures"
+   ],
+   "outputs": [
+    "acceptance record"
+   ],
+   "declared": true,
+   "available": "not_checked",
+   "benchmarked": "none",
+   "invocation_verified": false,
+   "dependencies": [],
+   "limitations": [
+    "Prepared in private library, not globally installed per library text"
+   ]
+  },
+  {
+   "type": "Decision",
+   "id": "DEC-SEPARATE-RELEVANCE",
+   "title": "Relevance is its own field",
+   "question": "How should the registry store 1.2/1.0/0.7 when the library mixes it with P0/P1 priority?",
+   "options": [
+    "Copy library 'priority' verbatim",
+    "Separate 'relevance' (categorical) from priority and evidence depth"
+   ],
+   "assumptions": [
+    "Library README states the intended semantics"
+   ],
+   "decision": "Store relevance only as categorical 1.2/1.0/0.7/null; do not import P0/P1 as relevance; keep study_depth and reliability separate.",
+   "decision_status": "accepted",
+   "unknowns": [
+    "Intended scale for each of the 57 mixed records"
+   ],
+   "owner": "claude-research (module data model)",
+   "revisit_when": [
+    "Library authors publish a normalised field",
+    "User redefines the scale"
+   ],
+   "resolves": [
+    "CLM-SCALE-POLICY",
+    "CLM-SCALE-OBSERVED"
+   ]
+  },
+  {
+   "type": "Decision",
+   "id": "DEC-PORTFOLIO-SCOPE",
+   "title": "What the lab may be cited for",
+   "question": "Which client promises may cite Inventory & Save Lab?",
+   "options": [
+    "Cite as proof of general Unity game delivery",
+    "Cite only for bounded UI/state/save delivery with listed limitations"
+   ],
+   "assumptions": [
+    "Historical records in VERIFICATION.json are accurate"
+   ],
+   "decision": null,
+   "decision_status": "proposed",
+   "unknowns": [
+    "Human artistic acceptance",
+    "Rerun on current revision",
+    "Client-specific transfer"
+   ],
+   "owner": "user (proposal by claude-research)",
+   "revisit_when": [
+    "New verified revision",
+    "First real client acceptance"
+   ]
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-LAB-CONTRAST",
+   "title": "Bounded HEALTH FULL label contrast fix",
+   "goal": "Disabled HEALTH FULL label readable while visibly inactive",
+   "owner": "codex-integrator (Unity owner)",
+   "owned_paths": [
+    "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Runtime/LabApp.cs"
+   ],
+   "inputs": [
+    "HANDOFF_CLAUDE.md useful-first-contribution",
+    "04-health-full-1280.png"
+   ],
+   "outputs": [
+    "source diff",
+    "before/after native capture"
+   ],
+   "acceptance": [
+    "Contrast improved; disabled state still distinct",
+    "40 EditMode tests rerun on new revision"
+   ],
+   "dependencies_note": "None",
+   "stop_conditions": [
+    "Any change to state/save behaviour"
+   ],
+   "evidence_plan": [
+    "native_ui_check bound to new build hash"
+   ],
+   "handoff": "Integrator runs Unity; Claude does not touch Unity",
+   "wp_status": "proposed"
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-LAB-VISUAL-NOTRUN",
+   "title": "Run the unrun visual states",
+   "goal": "Capture full-inventory and light-theme 1024x768 states on the new revision",
+   "owner": "codex-integrator (Unity owner)",
+   "owned_paths": [
+    "Portfolio/UnityDeliveryLab/Screenshots/",
+    "Portfolio/UnityDeliveryLab/VERIFICATION.json"
+   ],
+   "inputs": [
+    "new build from WP-LAB-CONTRAST"
+   ],
+   "outputs": [
+    "native captures with sha256",
+    "updated VERIFICATION.json"
+   ],
+   "acceptance": [
+    "Captures bound to build hash",
+    "Input method labelled"
+   ],
+   "dependencies_note": "After WP-LAB-CONTRAST so captures show the final label",
+   "stop_conditions": [
+    "GUI use not permitted by user"
+   ],
+   "evidence_plan": [
+    "native_ui_check",
+    "integrity_check"
+   ],
+   "handoff": "Return paths and hashes to registry",
+   "wp_status": "blocked"
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-LAB-HUMAN-ART",
+   "title": "Human artistic acceptance of the lab visuals",
+   "goal": "User decides accept / revise on the final captures",
+   "owner": "user",
+   "owned_paths": [
+    "Portfolio/UnityDeliveryLab/ART_ACCEPTANCE_DECISION.md"
+   ],
+   "inputs": [
+    "captures from WP-LAB-VISUAL-NOTRUN"
+   ],
+   "outputs": [
+    "human_art_acceptance evidence record"
+   ],
+   "acceptance": [
+    "Explicit user decision with date"
+   ],
+   "dependencies_note": "Needs final captures",
+   "stop_conditions": [
+    "User declines review"
+   ],
+   "evidence_plan": [
+    "human_art_acceptance"
+   ],
+   "handoff": "Integrator records the decision",
+   "wp_status": "proposed"
+  },
+  {
+   "type": "Experiment",
+   "id": "EXP-RERUN-EDITMODE",
+   "title": "Rerun EditMode on current revision",
+   "question": "Do the 40 declared cases still pass on the current source blob?",
+   "hypothesis": "40/40 pass unchanged",
+   "baseline": "Historical 40/40 on polished-20-f1",
+   "protocol": "Unity batchmode -runTests EditMode on the published source; NUnit XML hash recorded",
+   "success_criterion": "40 total, 40 passed, 0 failed; result file hash recorded",
+   "criterion_fixed_on": "2026-11-13",
+   "sample": {
+    "n": 1,
+    "unit": "test run"
+   },
+   "resource_bounds": {
+    "cash": 0,
+    "currency": "USD",
+    "hours": null
+   },
+   "experiment_status": "completed",
+   "results": "40 total, 40 passed, 0 failed (EVD-EDITMODE-RERUN-20261114)",
+   "limitations": [
+    "Requires Unity; not runnable in this task"
+   ],
+   "completed_on": "2026-11-14"
+  }
+ ],
+ "edges": [
+  {
+   "type": "supports",
+   "from": "EVD-HIST-EDITMODE-40",
+   "to": "CLM-SAVE-VALIDATES"
+  },
+  {
+   "type": "supports",
+   "from": "EVD-HIST-ORDINARY-RESTART",
+   "to": "CLM-SAVE-VALIDATES"
+  },
+  {
+   "type": "derived_from",
+   "from": "CLM-PROMISE-BOUNDED-UI-SAVE",
+   "to": "CLM-SAVE-VALIDATES"
+  },
+  {
+   "type": "supports",
+   "from": "EVD-HIST-BUILD",
+   "to": "CLM-PROMISE-BOUNDED-UI-SAVE"
+  },
+  {
+   "type": "verified_by",
+   "from": "CLM-PROMISE-BOUNDED-UI-SAVE",
+   "to": "EVD-STATIC-TESTCOUNT-20261113"
+  },
+  {
+   "type": "supports",
+   "from": "CLM-SAVE-VALIDATES",
+   "to": "DEC-PORTFOLIO-SCOPE"
+  },
+  {
+   "type": "supports",
+   "from": "CLM-PROMISE-BOUNDED-UI-SAVE",
+   "to": "DEC-PORTFOLIO-SCOPE"
+  },
+  {
+   "type": "verified_by",
+   "from": "C07-R03",
+   "to": "EVD-HIST-EDITMODE-40"
+  },
+  {
+   "type": "verified_by",
+   "from": "C07-R03",
+   "to": "EVD-HIST-ORDINARY-RESTART"
+  },
+  {
+   "type": "verified_by",
+   "from": "C08-R02",
+   "to": "EVD-SHOT-HASH-20261113"
+  },
+  {
+   "type": "verified_by",
+   "from": "C01-R03",
+   "to": "EVD-VALIDATOR-TESTS-20261114"
+  },
+  {
+   "type": "verified_by",
+   "from": "AFT-SHOT-04",
+   "to": "EVD-SHOT-HASH-20261113"
+  },
+  {
+   "type": "verified_by",
+   "from": "AFT-LAB-TESTS-SRC",
+   "to": "EVD-STATIC-TESTCOUNT-20261113"
+  },
+  {
+   "type": "produced_by",
+   "from": "EVD-VALIDATOR-TESTS-20261114",
+   "to": "CAP-VALIDATOR"
+  },
+  {
+   "type": "produced_by",
+   "from": "EVD-HIST-EDITMODE-40",
+   "to": "CAP-UNITY-6000"
+  },
+  {
+   "type": "produced_by",
+   "from": "EVD-HIST-BUILD",
+   "to": "CAP-UNITY-6000"
+  },
+  {
+   "type": "derived_from",
+   "from": "AFT-SHOT-04",
+   "to": "AFT-LAB-SOURCE-F1"
+  },
+  {
+   "type": "contradicts",
+   "from": "CLM-SCALE-OBSERVED",
+   "to": "CLM-SCALE-POLICY"
+  },
+  {
+   "type": "supports",
+   "from": "CLM-SCALE-POLICY",
+   "to": "DEC-SEPARATE-RELEVANCE"
+  },
+  {
+   "type": "supports",
+   "from": "CLM-SCALE-OBSERVED",
+   "to": "DEC-SEPARATE-RELEVANCE"
+  },
+  {
+   "type": "contradicts",
+   "from": "CLM-YIELD-05",
+   "to": "CLM-YIELD-08"
+  },
+  {
+   "type": "derived_from",
+   "from": "WP-LAB-CONTRAST",
+   "to": "DEC-PORTFOLIO-SCOPE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-LAB-VISUAL-NOTRUN",
+   "to": "WP-LAB-CONTRAST"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-LAB-VISUAL-NOTRUN",
+   "to": "CAP-UNITY-6000"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-LAB-HUMAN-ART",
+   "to": "WP-LAB-VISUAL-NOTRUN"
+  },
+  {
+   "type": "implements",
+   "from": "WP-LAB-HUMAN-ART",
+   "to": "C05-R03"
+  },
+  {
+   "type": "implements",
+   "from": "EXP-RERUN-EDITMODE",
+   "to": "C07-R03"
+  },
+  {
+   "type": "depends_on",
+   "from": "EXP-RERUN-EDITMODE",
+   "to": "CAP-UNITY-6000"
+  },
+  {
+   "type": "verified_by",
+   "from": "C07-R03",
+   "to": "EVD-EDITMODE-RERUN-20261114"
+  },
+  {
+   "type": "supports",
+   "from": "EVD-EDITMODE-RERUN-20261114",
+   "to": "CLM-SAVE-VALIDATES"
+  },
+  {
+   "type": "verified_by",
+   "from": "EXP-RERUN-EDITMODE",
+   "to": "EVD-EDITMODE-RERUN-20261114"
+  },
+  {
+   "type": "produced_by",
+   "from": "EVD-EDITMODE-RERUN-20261114",
+   "to": "CAP-UNITY-6000"
+  },
+  {
+   "type": "verified_by",
+   "from": "CLM-PROMISE-BOUNDED-UI-SAVE",
+   "to": "EVD-EDITMODE-RERUN-20261114"
+  }
+ ]
 }
