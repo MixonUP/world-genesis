@@ -59,3 +59,11 @@ Read-only субагент получил код и контракт, а не м
 5. Желательно: повторный независимый review исправленного валидатора.
 
 ## Git-интеграция
+
+- **Commit с содержимым модуля:** `08b05b05d9ad24dc59cf6ed0dc5aa79f6f50bd0d`.
+  - Автор: «Claude (AI Game Studio research)» с адресом noreply, без личных данных.
+  - В commit входят 28 файлов, все внутри owned-области.
+  - Не вошёл `Orchestrator/COMPONENT_REQUIREMENTS.json`: он «modified» только из-за CRLF в checkout.
+- **Push:** выполнен 14.11.2026 по уже сохранённым учётным данным Git Credential Manager, без интерактивных окон (`GCM_INTERACTIVE=never`, `GIT_TERMINAL_PROMPT=0`). Remote SHA ветки совпал с локальным.
+- **Последующий commit** обновляет этот раздел STATE.md. Его SHA виден в `git log` ветки.
+- **PR:** не открыт. `gh` отсутствует, а извлекать токен из хранилища для API запрещено. Ссылка для создания PR в базовую ветку (merge не выполнять): https://github.com/MixonUP/world-genesis/compare/codex/ai-game-studio-collaboration-20261112...codex/claude-research-architecture-20261113 . Текст — [PR_DESCRIPTION.md](PR_DESCRIPTION.md).
