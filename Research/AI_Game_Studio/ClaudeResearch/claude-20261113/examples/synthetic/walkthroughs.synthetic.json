@@ -1,0 +1,785 @@
+{
+ "schema": "ags.research-registry/1",
+ "registry_id": "walkthroughs-synthetic",
+ "synthetic": true,
+ "as_of": "2026-11-13",
+ "description": "SYNTHETIC: three end-to-end sequences (own game, bounded Unity order, AI asset to runtime). Nothing here is a real result; every gate must stay OPEN.",
+ "entities": [
+  {
+   "type": "Source",
+   "id": "SRC-SYN",
+   "title": "synthetic brief",
+   "locator": "https://example.org/synthetic-brief",
+   "source_kind": "article",
+   "author": null,
+   "published": null,
+   "accessed": null,
+   "version": null,
+   "access_method": "not_accessed",
+   "study_depth": "not_accessed",
+   "relevance": null,
+   "reliability": "unknown",
+   "rights": null,
+   "limitations": [
+    "synthetic"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G1-DISCOVERY",
+   "title": "Own game: frame audience and constraints",
+   "goal": "Own game: frame audience and constraints",
+   "owner": "orchestrator",
+   "owned_paths": [
+    "synthetic/game/brief.md"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G1-DISCOVERY result"
+   ],
+   "acceptance": [
+    "Audience, platform, engine recorded"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Constraint conflict"
+   ],
+   "evidence_plan": [
+    "document_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G2-DEMAND",
+   "title": "Own game: pre-registered demand test",
+   "goal": "Own game: pre-registered demand test",
+   "owner": "product-researcher",
+   "owned_paths": [
+    "synthetic/game/demand/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G2-DEMAND result"
+   ],
+   "acceptance": [
+    "Criterion fixed before test"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Spend cap unknown"
+   ],
+   "evidence_plan": [
+    "commercial_record"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G3-PROTOTYPE",
+   "title": "Own game: playable core loop",
+   "goal": "Own game: playable core loop",
+   "owner": "gameplay-engineer",
+   "owned_paths": [
+    "synthetic/game/proto/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G3-PROTOTYPE result"
+   ],
+   "acceptance": [
+    "Core loop playable"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Demand FAIL"
+   ],
+   "evidence_plan": [
+    "automated_test",
+    "human_playtest"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G4-SLICE",
+   "title": "Own game: vertical slice with accepted art",
+   "goal": "Own game: vertical slice with accepted art",
+   "owner": "unity-integrator",
+   "owned_paths": [
+    "synthetic/game/slice/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G4-SLICE result"
+   ],
+   "acceptance": [
+    "Art user-accepted",
+    "Native QA"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Art rejected twice"
+   ],
+   "evidence_plan": [
+    "human_art_acceptance",
+    "native_ui_check"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G5-RELEASE",
+   "title": "Own game: release candidate",
+   "goal": "Own game: release candidate",
+   "owner": "release-owner",
+   "owned_paths": [
+    "synthetic/game/release/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G5-RELEASE result"
+   ],
+   "acceptance": [
+    "Rights manifest",
+    "Build hash"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Rights unknown"
+   ],
+   "evidence_plan": [
+    "legal_opinion",
+    "native_ui_check"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-U1-SCOPE",
+   "title": "Unity order: bounded scope and acceptance",
+   "goal": "Unity order: bounded scope and acceptance",
+   "owner": "orchestrator",
+   "owned_paths": [
+    "synthetic/order/scope.md"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-U1-SCOPE result"
+   ],
+   "acceptance": [
+    "Acceptance criteria agreed"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Scope unbounded"
+   ],
+   "evidence_plan": [
+    "document_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-U2-QUOTE",
+   "title": "Unity order: quote arithmetic (b2b_quote.py)",
+   "goal": "Unity order: quote arithmetic (b2b_quote.py)",
+   "owner": "commercial-owner",
+   "owned_paths": [
+    "synthetic/order/quote.json"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-U2-QUOTE result"
+   ],
+   "acceptance": [
+    "Quote >= floor",
+    "Revisions bounded"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Hours unknown"
+   ],
+   "evidence_plan": [
+    "commercial_record"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-U3-IMPLEMENT",
+   "title": "Unity order: implement module",
+   "goal": "Unity order: implement module",
+   "owner": "unity-integrator",
+   "owned_paths": [
+    "synthetic/order/src/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-U3-IMPLEMENT result"
+   ],
+   "acceptance": [
+    "Tests pass on delivered revision"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Client project version mismatch"
+   ],
+   "evidence_plan": [
+    "automated_test"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-U4-QA",
+   "title": "Unity order: native QA on target resolutions",
+   "goal": "Unity order: native QA on target resolutions",
+   "owner": "qa-owner",
+   "owned_paths": [
+    "synthetic/order/qa/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-U4-QA result"
+   ],
+   "acceptance": [
+    "Native checks bound to build hash"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Build hash missing"
+   ],
+   "evidence_plan": [
+    "native_ui_check"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-U5-CLIENT",
+   "title": "Unity order: client acceptance and payment stage",
+   "goal": "Unity order: client acceptance and payment stage",
+   "owner": "commercial-owner",
+   "owned_paths": [
+    "synthetic/order/acceptance.md"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-U5-CLIENT result"
+   ],
+   "acceptance": [
+    "Client acceptance record"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Revision limit exceeded"
+   ],
+   "evidence_plan": [
+    "commercial_record"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-A1-CONTRACT",
+   "title": "AI asset: art contract and references with rights",
+   "goal": "AI asset: art contract and references with rights",
+   "owner": "art-director",
+   "owned_paths": [
+    "synthetic/asset/contract.md"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-A1-CONTRACT result"
+   ],
+   "acceptance": [
+    "Camera scale, palette, silhouette"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Reference rights unknown"
+   ],
+   "evidence_plan": [
+    "document_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-A2-GENERATE",
+   "title": "AI asset: generate candidates (no paid run in fixture)",
+   "goal": "AI asset: generate candidates (no paid run in fixture)",
+   "owner": "content-producer",
+   "owned_paths": [
+    "synthetic/asset/candidates/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-A2-GENERATE result"
+   ],
+   "acceptance": [
+    "All attempts logged with seed/model/workflow"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Capability not verified"
+   ],
+   "evidence_plan": [
+    "machine_visual_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-A3-CLEANUP",
+   "title": "AI asset: cleanup, alpha, atlas",
+   "goal": "AI asset: cleanup, alpha, atlas",
+   "owner": "content-producer",
+   "owned_paths": [
+    "synthetic/asset/atlas/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-A3-CLEANUP result"
+   ],
+   "acceptance": [
+    "Alpha clean, pivots consistent"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Identity drift"
+   ],
+   "evidence_plan": [
+    "machine_visual_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-A4-IMPORT",
+   "title": "AI asset: engine import",
+   "goal": "AI asset: engine import",
+   "owner": "unity-integrator",
+   "owned_paths": [
+    "synthetic/asset/import/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-A4-IMPORT result"
+   ],
+   "acceptance": [
+    "PPU/pivot/scale correct; reimport stable"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "GUID churn"
+   ],
+   "evidence_plan": [
+    "automated_test"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-A5-REVIEW",
+   "title": "AI asset: camera-scale review and acceptance",
+   "goal": "AI asset: camera-scale review and acceptance",
+   "owner": "art-director",
+   "owned_paths": [
+    "synthetic/asset/review/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-A5-REVIEW result"
+   ],
+   "acceptance": [
+    "Readable in game camera",
+    "User accepted"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Rejected"
+   ],
+   "evidence_plan": [
+    "human_art_acceptance",
+    "performance_measurement"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C02-R03",
+   "title": "C02-R03",
+   "component": "C02",
+   "gate": "G3",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Synthetic: demand criterion fixed before test",
+   "accepted_evidence_classes": [
+    "commercial_record"
+   ],
+   "target_revision": "synthetic-r1"
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C05-R03",
+   "title": "C05-R03",
+   "component": "C05",
+   "gate": "G4",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Synthetic: user acceptance separate",
+   "accepted_evidence_classes": [
+    "human_art_acceptance"
+   ],
+   "target_revision": "synthetic-r1"
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C06-R01",
+   "title": "C06-R01",
+   "component": "C06",
+   "gate": "G3",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Synthetic: versions/attempts kept",
+   "accepted_evidence_classes": [
+    "document_review",
+    "automated_test"
+   ],
+   "target_revision": "synthetic-r1"
+  },
+  {
+   "type": "RequirementRef",
+   "id": "C08-R02",
+   "title": "C08-R02",
+   "component": "C08",
+   "gate": "G5",
+   "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+   },
+   "checked_property": "Synthetic: shipped build verified",
+   "accepted_evidence_classes": [
+    "native_ui_check"
+   ],
+   "target_revision": "synthetic-r1"
+  },
+  {
+   "type": "Capability",
+   "id": "CAP-SYN-GEN",
+   "title": "image generator (synthetic)",
+   "name": "synthetic-generator",
+   "cap_kind": "service",
+   "location": null,
+   "version": null,
+   "owner_agent": "unassigned",
+   "inputs": [
+    "prompt",
+    "refs"
+   ],
+   "outputs": [
+    "candidates"
+   ],
+   "declared": true,
+   "available": "not_checked",
+   "benchmarked": "none",
+   "invocation_verified": false,
+   "dependencies": [],
+   "limitations": [
+    "synthetic"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "Artifact",
+   "id": "AFT-SYN-SPRITE",
+   "title": "sprite atlas (synthetic)",
+   "kind": "sprite_atlas",
+   "locator": "synthetic/asset/atlas/atlas.png",
+   "revision": "synthetic-r1",
+   "sha256": null,
+   "origin": "synthetic",
+   "license": {
+    "status": "unknown",
+    "terms": null,
+    "scope": "model output terms not checked"
+   },
+   "lifecycle": "accepted",
+   "synthetic": true
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-SYN-ART",
+   "title": "EVD-SYN-ART",
+   "criterion": "synthetic criterion",
+   "artifact_ref": "AFT-SYN-SPRITE",
+   "artifact_revision": "synthetic-r1",
+   "evidence_class": "human_art_acceptance",
+   "method": "SYNTHETIC fixture",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-13",
+   "valid_until": "2026-12-13",
+   "producer": "synthetic-producer",
+   "reviewer": "synthetic-user",
+   "observations": "synthetic",
+   "publication": "public_ok",
+   "limitations": [
+    "synthetic fixture; proves nothing about a real project"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-SYN-BUILD",
+   "title": "EVD-SYN-BUILD",
+   "criterion": "synthetic criterion",
+   "artifact_ref": null,
+   "artifact_revision": "synthetic-r1",
+   "evidence_class": "native_ui_check",
+   "method": "SYNTHETIC fixture",
+   "evidence_status": "prepared",
+   "result": "UNKNOWN",
+   "date": "2026-11-13",
+   "valid_until": "2026-12-13",
+   "producer": "synthetic-producer",
+   "reviewer": null,
+   "observations": "synthetic",
+   "publication": "public_ok",
+   "limitations": [
+    "synthetic fixture; proves nothing about a real project"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "Evidence",
+   "id": "EVD-SYN-DEMAND",
+   "title": "EVD-SYN-DEMAND",
+   "criterion": "synthetic criterion",
+   "artifact_ref": null,
+   "artifact_revision": "synthetic-r1",
+   "evidence_class": "commercial_record",
+   "method": "SYNTHETIC fixture",
+   "evidence_status": "executed",
+   "result": "PASS",
+   "date": "2026-11-13",
+   "valid_until": "2026-12-13",
+   "producer": "synthetic-producer",
+   "reviewer": null,
+   "observations": "synthetic",
+   "publication": "public_ok",
+   "limitations": [
+    "synthetic fixture; proves nothing about a real project"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "Experiment",
+   "id": "EXP-SYN-DEMAND",
+   "title": "demand test (synthetic)",
+   "question": "Does the target audience act?",
+   "hypothesis": "synthetic",
+   "baseline": "none",
+   "protocol": "synthetic",
+   "success_criterion": "synthetic threshold",
+   "criterion_fixed_on": "2026-11-14",
+   "sample": {
+    "n": null,
+    "unit": "visitor"
+   },
+   "resource_bounds": {
+    "cash": null,
+    "currency": null,
+    "hours": null
+   },
+   "experiment_status": "completed",
+   "completed_on": "2026-11-13",
+   "results": "synthetic",
+   "limitations": [
+    "synthetic"
+   ],
+   "synthetic": true
+  }
+ ],
+ "edges": [
+  {
+   "type": "depends_on",
+   "from": "WP-G2-DEMAND",
+   "to": "WP-G1-DISCOVERY"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-G3-PROTOTYPE",
+   "to": "WP-G2-DEMAND"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-G4-SLICE",
+   "to": "WP-G3-PROTOTYPE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-G5-RELEASE",
+   "to": "WP-G4-SLICE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-U2-QUOTE",
+   "to": "WP-U1-SCOPE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-U3-IMPLEMENT",
+   "to": "WP-U2-QUOTE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-U4-QA",
+   "to": "WP-U3-IMPLEMENT"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-U5-CLIENT",
+   "to": "WP-U4-QA"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-A2-GENERATE",
+   "to": "WP-A1-CONTRACT"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-A3-CLEANUP",
+   "to": "WP-A2-GENERATE"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-A4-IMPORT",
+   "to": "WP-A3-CLEANUP"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-A5-REVIEW",
+   "to": "WP-A4-IMPORT"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-A2-GENERATE",
+   "to": "CAP-SYN-GEN"
+  },
+  {
+   "type": "produced_by",
+   "from": "AFT-SYN-SPRITE",
+   "to": "WP-A3-CLEANUP"
+  },
+  {
+   "type": "verified_by",
+   "from": "AFT-SYN-SPRITE",
+   "to": "EVD-SYN-ART"
+  },
+  {
+   "type": "verified_by",
+   "from": "C05-R03",
+   "to": "EVD-SYN-ART"
+  },
+  {
+   "type": "verified_by",
+   "from": "C08-R02",
+   "to": "EVD-SYN-BUILD"
+  },
+  {
+   "type": "verified_by",
+   "from": "C02-R03",
+   "to": "EVD-SYN-DEMAND"
+  },
+  {
+   "type": "implements",
+   "from": "EXP-SYN-DEMAND",
+   "to": "C02-R03"
+  },
+  {
+   "type": "implements",
+   "from": "WP-A5-REVIEW",
+   "to": "C05-R03"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-G4-SLICE",
+   "to": "WP-A5-REVIEW",
+   "note": "slice needs an accepted asset"
+  }
+ ]
+}

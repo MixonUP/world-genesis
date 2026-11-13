@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "scope": "SYNTHETIC test catalog; mirrors the shape of COMPONENT_REQUIREMENTS.json",
+  "components": [
+    {"id": "C00", "name": "synthetic orchestrator", "requirements": [
+      {"id": "C00-R01", "component_id": "C00", "level": "MUST", "statement": "synthetic", "verification": "synthetic", "gate": "G0", "status": "specified-not-run"}
+    ]},
+    {"id": "C01", "name": "synthetic evidence", "requirements": [
+      {"id": "C01-R01", "component_id": "C01", "level": "MUST", "statement": "synthetic", "verification": "synthetic", "gate": "G0", "status": "specified-not-run"},
+      {"id": "C01-R02", "component_id": "C01", "level": "MUST", "statement": "synthetic", "verification": "synthetic", "gate": "G2", "status": "specified-not-run"}
+    ]}
+  ]
+}

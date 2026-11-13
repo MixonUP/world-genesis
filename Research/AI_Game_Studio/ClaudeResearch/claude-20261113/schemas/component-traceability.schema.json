@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ags.component-traceability/1",
+  "title": "Mapping of every catalog requirement to research blocks and coverage",
+  "description": "DOCUMENTATION. validator.py 'trace' enforces: exact key sets, unique ids, every catalog requirement exactly once, no unknown ids, component/gate equal to catalog, coverage enum, module_checks only on module_check rows and only known check codes, catalog sha256_lf equal to supplied catalog.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "catalog", "rows"],
+  "properties": {
+    "schema": {"const": "ags.component-traceability/1"},
+    "generated_note": {"type": "string"},
+    "coverage_legend": {"type": "object"},
+    "catalog": {"type": "object", "additionalProperties": false,
+      "required": ["path", "revision", "sha256_lf", "components", "requirements"],
+      "properties": {"path": {"type": "string"}, "revision": {"type": "string"}, "sha256_lf": {"pattern": "^[0-9a-f]{64}$"},
+        "components": {"type": "integer"}, "requirements": {"type": "integer"}}},
+    "rows": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+      "required": ["requirement", "component", "gate", "r_blocks", "coverage", "module_checks", "input", "output", "check", "next_consumer", "note"],
+      "properties": {
+        "requirement": {"pattern": "^C\\d{2}-R\\d{2}$"}, "component": {"pattern": "^C\\d{2}$"},
+        "gate": {"enum": ["G0", "G1", "G2", "G3", "G4", "G5", "G6"]},
+        "r_blocks": {"type": "array", "minItems": 1, "items": {"pattern": "^R(0\\d|1[01])$"}},
+        "coverage": {"enum": ["module_check", "interface_only", "out_of_scope", "no_data"]},
+        "module_checks": {"type": "array", "items": {"type": "string"}},
+        "input": {"type": "string"}, "output": {"type": "string"}, "check": {"type": "string"},
+        "next_consumer": {"type": "string"}, "note": {"type": "string"}}}}
+  }
+}

@@ -1,0 +1,806 @@
+{
+  "schema": "ags.component-traceability/1",
+  "catalog": {
+    "path": "Research/AI_Game_Studio/Orchestrator/COMPONENT_REQUIREMENTS.json",
+    "revision": "3fdbd6f8fa60b56b4bfa26dbcce0daed66c4262c",
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397",
+    "components": 16,
+    "requirements": 49
+  },
+  "generated_note": "Canonical mapping. COMPONENT_TRACEABILITY.md is generated from this file by validator.py render-trace.",
+  "coverage_legend": {
+    "module_check": "validator.py executes a data-level check of this property on supplied records",
+    "interface_only": "contract/fields described; no executed check here",
+    "out_of_scope": "owned elsewhere (Codex/runner/Unity/commercial) or excluded by task",
+    "no_data": "cannot be assessed from available inputs"
+  },
+  "rows": [
+    {
+      "requirement": "C00-R01",
+      "gate": "G0",
+      "r_blocks": [
+        "R00",
+        "R09"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "AGENTS/STATE, Decision.assumptions",
+      "output": "Decision record with engine/version/constraints",
+      "check": "Decision.assumptions/revisit_when present; human compares with STATE",
+      "next_consumer": "Codex orchestrator",
+      "note": "Decision contract carries constraints; validator does not compare with STATE text.",
+      "component": "C00"
+    },
+    {
+      "requirement": "C00-R02",
+      "gate": "G2",
+      "r_blocks": [
+        "R09"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "OWNERSHIP_OVERLAP",
+        "CONTRACT_VALIDATION"
+      ],
+      "input": "WorkPacket.owned_paths/owner",
+      "output": "validator.py check report",
+      "check": "Overlapping paths of open packets with different owners flagged",
+      "next_consumer": "Codex orchestrator",
+      "note": "Lexical prefix overlap only; does not inspect git or real writers.",
+      "component": "C00"
+    },
+    {
+      "requirement": "C00-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R06",
+        "R09"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_PASS",
+        "REQ_FAIL",
+        "REQ_OPEN"
+      ],
+      "input": "RequirementRef + verified_by Evidence",
+      "output": "Per-requirement PASS/FAIL/OPEN with reasons",
+      "check": "Unit tests for missing/stale/other-revision/synthetic evidence",
+      "next_consumer": "runner.py integrator (INTEGRATION_PROPOSAL)",
+      "note": "OPEN is the registry form of UNKNOWN; no profit claims are modelled.",
+      "component": "C00"
+    },
+    {
+      "requirement": "C01-R01",
+      "gate": "G0",
+      "r_blocks": [
+        "R01",
+        "R11"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "CONTRACT_VALIDATION",
+        "REF_RESOLUTION",
+        "UNKNOWN_VALUE"
+      ],
+      "input": "Claim/Source records",
+      "output": "validator.py check report",
+      "check": "Claim needs source_refs+locator, verification, limitations; Source needs access date and depth",
+      "next_consumer": "Researcher / reviewer",
+      "note": "Checks presence and form, not truth of the cited page.",
+      "component": "C01"
+    },
+    {
+      "requirement": "C01-R02",
+      "gate": "G2",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_OPEN",
+        "REF_RESOLUTION"
+      ],
+      "input": "Evidence.criterion/artifact_revision/method",
+      "output": "Requirement verdict",
+      "check": "Evidence of another revision or expired leaves requirement OPEN",
+      "next_consumer": "QA owner",
+      "note": "Requires RequirementRef.target_revision; unknown target keeps OPEN.",
+      "component": "C01"
+    },
+    {
+      "requirement": "C01-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_OPEN",
+        "SYNTHETIC_ACCEPTED"
+      ],
+      "input": "Evidence.status/synthetic/class",
+      "output": "Requirement verdict",
+      "check": "prepared, synthetic, historical_import and metadata_review never close a requirement",
+      "next_consumer": "All gate consumers",
+      "note": "Scope: this validator; runner.py has its own equivalent rule.",
+      "component": "C01"
+    },
+    {
+      "requirement": "C02-R01",
+      "gate": "G1",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Cohort comparables",
+      "output": "Source/Claim records with selection note",
+      "check": "Reviewer checks survivorship bias",
+      "next_consumer": "Product researcher",
+      "note": "Contract in ARCHITECTURE R07; no market data in public branch.",
+      "component": "C02"
+    },
+    {
+      "requirement": "C02-R02",
+      "gate": "G1",
+      "r_blocks": [
+        "R07",
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Signal records",
+      "output": "Evidence with commercial_record class and denominators",
+      "check": "Reviewer; signal names kept distinct",
+      "next_consumer": "Product researcher",
+      "note": "Distinct signal vocabulary defined in CONTRACTS; not validated numerically.",
+      "component": "C02"
+    },
+    {
+      "requirement": "C02-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R05",
+        "R07"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "EXPERIMENT_CRITERION_LATE"
+      ],
+      "input": "Experiment.success_criterion/criterion_fixed_on/completed_on",
+      "output": "validator.py check report",
+      "check": "Completed experiment with late/missing criterion flagged",
+      "next_consumer": "Commercial owner",
+      "note": "Date-level check; cannot detect silent criterion edits without history.",
+      "component": "C02"
+    },
+    {
+      "requirement": "C03-R01",
+      "gate": "G2",
+      "r_blocks": [
+        "R02"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Feature contract",
+      "output": "Claim/Decision records",
+      "check": "Human playtest",
+      "next_consumer": "Game designer",
+      "note": "Contract only.",
+      "component": "C03"
+    },
+    {
+      "requirement": "C03-R02",
+      "gate": "G2",
+      "r_blocks": [
+        "R02",
+        "R09"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Vision vs slice",
+      "output": "Decision with scope + WorkPacket",
+      "check": "Reviewer",
+      "next_consumer": "Game designer",
+      "note": "Contract only.",
+      "component": "C03"
+    },
+    {
+      "requirement": "C03-R03",
+      "gate": "G4",
+      "r_blocks": [
+        "R02",
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Playtest observation Evidence",
+      "output": "Experiment derived_from Evidence",
+      "check": "Re-test linked via verified_by",
+      "next_consumer": "Game designer",
+      "note": "Graph supports the link; no playtest data exists.",
+      "component": "C03"
+    },
+    {
+      "requirement": "C04-R01",
+      "gate": "G3",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Ledger entries",
+      "output": "Experiment.resource_bounds cash/hours split",
+      "check": "runner.py economics",
+      "next_consumer": "Commercial owner",
+      "note": "runner.py already enforces API-equivalent vs cash; not duplicated.",
+      "component": "C04"
+    },
+    {
+      "requirement": "C04-R02",
+      "gate": "G3",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Unit economics",
+      "output": "runner.py output",
+      "check": "runner.py tests",
+      "next_consumer": "Commercial owner",
+      "note": "Owned by runner.py (Codex).",
+      "component": "C04"
+    },
+    {
+      "requirement": "C04-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R07",
+        "R09"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Budget/authorization",
+      "output": "runner.py output",
+      "check": "runner.py tests",
+      "next_consumer": "Commercial owner",
+      "note": "Owned by runner.py; validator records external_action_authorized only as unverifiable.",
+      "component": "C04"
+    },
+    {
+      "requirement": "C04-R04",
+      "gate": "G5",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "no_data",
+      "module_checks": [],
+      "input": "Dated cash plan",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Commercial owner",
+      "note": "No real payout/refund data in public scope.",
+      "component": "C04"
+    },
+    {
+      "requirement": "C05-R01",
+      "gate": "G2",
+      "r_blocks": [
+        "R04"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Art contract",
+      "output": "Artifact + Evidence (machine_visual_review, native_ui_check)",
+      "check": "Player captures on several backgrounds",
+      "next_consumer": "Art director",
+      "note": "2D/3D chains in ARCHITECTURE R04.",
+      "component": "C05"
+    },
+    {
+      "requirement": "C05-R02",
+      "gate": "G3",
+      "r_blocks": [
+        "R04",
+        "R05"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Baseline/candidate",
+      "output": "Experiment with baseline",
+      "check": "Player comparison",
+      "next_consumer": "Art director",
+      "note": "Contract only.",
+      "component": "C05"
+    },
+    {
+      "requirement": "C05-R03",
+      "gate": "G4",
+      "r_blocks": [
+        "R04",
+        "R06"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "ACCEPTANCE_UNSUPPORTED",
+        "REQ_OPEN"
+      ],
+      "input": "Artifact.lifecycle + human_art_acceptance Evidence",
+      "output": "validator.py check report",
+      "check": "accepted artifact without executed human acceptance flagged; class separation enforced",
+      "next_consumer": "Art director / user",
+      "note": "Real chain shows C05-R03 OPEN for the portfolio.",
+      "component": "C05"
+    },
+    {
+      "requirement": "C06-R01",
+      "gate": "G3",
+      "r_blocks": [
+        "R04",
+        "R08"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "model/LoRA/workflow versions, attempts",
+      "output": "Artifact derived_from + produced_by Capability",
+      "check": "Impact query after model change",
+      "next_consumer": "Content factory",
+      "note": "Attempt ledger fields specified; no generation run.",
+      "component": "C06"
+    },
+    {
+      "requirement": "C06-R02",
+      "gate": "G4",
+      "r_blocks": [
+        "R04"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Action/state contract",
+      "output": "Evidence native_ui_check",
+      "check": "Import/reimport check by integrator",
+      "next_consumer": "Unity integrator",
+      "note": "Contract only.",
+      "component": "C06"
+    },
+    {
+      "requirement": "C06-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R05"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Accepted count, costs",
+      "output": "Metric definitions in R05",
+      "check": "accepted=0 => undefined (spec)",
+      "next_consumer": "Commercial owner",
+      "note": "Not computed by validator; definition drift 05 vs 08 recorded as open contradiction.",
+      "component": "C06"
+    },
+    {
+      "requirement": "C07-R01",
+      "gate": "G2",
+      "r_blocks": [
+        "R03"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Game code",
+      "output": "—",
+      "check": "Unity tests",
+      "next_consumer": "Gameplay engineer",
+      "note": "Unity/World Genesis code is out of scope.",
+      "component": "C07"
+    },
+    {
+      "requirement": "C07-R02",
+      "gate": "G4",
+      "r_blocks": [
+        "R03"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "World Genesis simulation",
+      "output": "—",
+      "check": "Unity tests",
+      "next_consumer": "Gameplay engineer",
+      "note": "Out of scope by task.",
+      "component": "C07"
+    },
+    {
+      "requirement": "C07-R03",
+      "gate": "G4",
+      "r_blocks": [
+        "R10",
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Portfolio save tests (historical)",
+      "output": "Real chain: requirement OPEN with historical PASS",
+      "check": "Rerun EditMode (EXP-RERUN-EDITMODE)",
+      "next_consumer": "Unity integrator",
+      "note": "Historical evidence linked; not re-run.",
+      "component": "C07"
+    },
+    {
+      "requirement": "C08-R01",
+      "gate": "G4",
+      "r_blocks": [
+        "R03"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Engine/packages/meta",
+      "output": "—",
+      "check": "Integrator",
+      "next_consumer": "Unity integrator",
+      "note": "Out of scope (Unity/.meta).",
+      "component": "C08"
+    },
+    {
+      "requirement": "C08-R02",
+      "gate": "G5",
+      "r_blocks": [
+        "R06",
+        "R10"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_OPEN",
+        "ARTIFACT_HASH_MATCH",
+        "ARTIFACT_HASH_MISMATCH"
+      ],
+      "input": "Evidence.artifact_revision vs target_revision; file sha256",
+      "output": "validator.py check report",
+      "check": "Other-revision evidence stays OPEN; recorded hashes compared read-only",
+      "next_consumer": "Unity integrator",
+      "note": "Data-level only; real chain shows screenshot hash != build binding.",
+      "component": "C08"
+    },
+    {
+      "requirement": "C08-R03",
+      "gate": "G5",
+      "r_blocks": [
+        "R03"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Rollback rehearsal",
+      "output": "—",
+      "check": "Integrator",
+      "next_consumer": "Unity integrator",
+      "note": "Out of scope.",
+      "component": "C08"
+    },
+    {
+      "requirement": "C09-R01",
+      "gate": "G4",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Normal path/edge cases",
+      "output": "Evidence native_ui_check with assistance label",
+      "check": "QA",
+      "next_consumer": "QA owner",
+      "note": "Contract only.",
+      "component": "C09"
+    },
+    {
+      "requirement": "C09-R02",
+      "gate": "G4",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Profiling conditions",
+      "output": "Evidence performance_measurement with conditions",
+      "check": "QA",
+      "next_consumer": "QA owner",
+      "note": "Conditions fields specified in CONTRACTS.",
+      "component": "C09"
+    },
+    {
+      "requirement": "C09-R03",
+      "gate": "G5",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_OPEN",
+        "REQ_PASS"
+      ],
+      "input": "All RequirementRefs",
+      "output": "validator.py check report",
+      "check": "Report lists each requirement with linked evidence and reasons, not test counts",
+      "next_consumer": "QA owner",
+      "note": "Shows executed vs not-run per requirement in registry scope.",
+      "component": "C09"
+    },
+    {
+      "requirement": "C10-R01",
+      "gate": "G1",
+      "r_blocks": [
+        "R06"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Event definitions",
+      "output": "Experiment.sample unit/denominator",
+      "check": "Reviewer",
+      "next_consumer": "User researcher",
+      "note": "Contract only.",
+      "component": "C10"
+    },
+    {
+      "requirement": "C10-R02",
+      "gate": "G3",
+      "r_blocks": [
+        "R02",
+        "R06"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "REQ_OPEN"
+      ],
+      "input": "Evidence.evidence_class",
+      "output": "Requirement verdict",
+      "check": "Bot/machine classes cannot close a criterion that accepts only human_playtest",
+      "next_consumer": "User researcher",
+      "note": "Enforced via accepted_evidence_classes.",
+      "component": "C10"
+    },
+    {
+      "requirement": "C10-R03",
+      "gate": "G5",
+      "r_blocks": [
+        "R06",
+        "R08"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Data minimisation",
+      "output": "Evidence.publication",
+      "check": "Reviewer",
+      "next_consumer": "User researcher",
+      "note": "publication field recorded; no analytics data.",
+      "component": "C10"
+    },
+    {
+      "requirement": "C11-R01",
+      "gate": "G3",
+      "r_blocks": [
+        "R08"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Rights per component",
+      "output": "Artifact.license; RIGHTS_UNKNOWN finding",
+      "check": "Rights reviewer",
+      "next_consumer": "Release owner",
+      "note": "Validator flags unknown rights but does not separate code/model/LoRA/output rights yet.",
+      "component": "C11"
+    },
+    {
+      "requirement": "C11-R02",
+      "gate": "G5",
+      "r_blocks": [
+        "R08"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Contract/tariff snapshot",
+      "output": "Source(license) with access date",
+      "check": "Reviewer; legal_opinion class distinct",
+      "next_consumer": "Release owner",
+      "note": "Requirement check != legal opinion (separate classes).",
+      "component": "C11"
+    },
+    {
+      "requirement": "C11-R03",
+      "gate": "G5",
+      "r_blocks": [
+        "R08",
+        "R11"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Replacement plan",
+      "output": "impact query result",
+      "check": "query impact <artifact>",
+      "next_consumer": "Release owner",
+      "note": "Impact traversal executes; replacement cost not modelled.",
+      "component": "C11"
+    },
+    {
+      "requirement": "C12-R01",
+      "gate": "G5",
+      "r_blocks": [
+        "R10"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Store claims",
+      "output": "query promises",
+      "check": "Reviewer vs build",
+      "next_consumer": "Release/marketing owner",
+      "note": "Promise query exists; no store material in scope.",
+      "component": "C12"
+    },
+    {
+      "requirement": "C12-R02",
+      "gate": "G5",
+      "r_blocks": [
+        "R08"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Platform forms",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Release/marketing owner",
+      "note": "Out of scope; no submissions.",
+      "component": "C12"
+    },
+    {
+      "requirement": "C12-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Traffic spend",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Release/marketing owner",
+      "note": "Out of scope; no spend.",
+      "component": "C12"
+    },
+    {
+      "requirement": "C13-R01",
+      "gate": "G5",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Payout eligibility",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Commercial owner",
+      "note": "No account data; never contacted.",
+      "component": "C13"
+    },
+    {
+      "requirement": "C13-R02",
+      "gate": "G6",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Reconciliation",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Commercial owner",
+      "note": "Out of scope.",
+      "component": "C13"
+    },
+    {
+      "requirement": "C13-R03",
+      "gate": "G6",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Support reserve",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Commercial owner",
+      "note": "Out of scope.",
+      "component": "C13"
+    },
+    {
+      "requirement": "C14-R01",
+      "gate": "G2",
+      "r_blocks": [
+        "R02"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Runtime AI value",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Runtime AI engineer",
+      "note": "Optional component; out of scope.",
+      "component": "C14"
+    },
+    {
+      "requirement": "C14-R02",
+      "gate": "G4",
+      "r_blocks": [
+        "R03"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Runtime AI limits",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Runtime AI engineer",
+      "note": "Out of scope.",
+      "component": "C14"
+    },
+    {
+      "requirement": "C14-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R07"
+      ],
+      "coverage": "out_of_scope",
+      "module_checks": [],
+      "input": "Runtime AI economics",
+      "output": "—",
+      "check": "—",
+      "next_consumer": "Runtime AI engineer",
+      "note": "Out of scope.",
+      "component": "C14"
+    },
+    {
+      "requirement": "C15-R01",
+      "gate": "G2",
+      "r_blocks": [
+        "R00",
+        "R09"
+      ],
+      "coverage": "module_check",
+      "module_checks": [
+        "CAPABILITY_DECLARED_ONLY",
+        "CAPABILITY_INCONSISTENT",
+        "CAPABILITY_UNAVAILABLE"
+      ],
+      "input": "Capability records",
+      "output": "validator.py check report",
+      "check": "declared vs available vs invocation_verified kept separate; inconsistency is an error",
+      "next_consumer": "Tool maintainer",
+      "note": "Records only; no probe is executed by the validator.",
+      "component": "C15"
+    },
+    {
+      "requirement": "C15-R02",
+      "gate": "G3",
+      "r_blocks": [
+        "R09"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Job records",
+      "output": "Adapter contract submit/status/cancel/reconcile",
+      "check": "Future adapter tests",
+      "next_consumer": "Tool maintainer",
+      "note": "Spec only in ARCHITECTURE R09.",
+      "component": "C15"
+    },
+    {
+      "requirement": "C15-R03",
+      "gate": "G3",
+      "r_blocks": [
+        "R09"
+      ],
+      "coverage": "interface_only",
+      "module_checks": [],
+      "input": "Reservation ledger",
+      "output": "Adapter contract",
+      "check": "Future adapter tests",
+      "next_consumer": "Tool maintainer",
+      "note": "Explicitly not a validator or runner capability.",
+      "component": "C15"
+    }
+  ]
+}

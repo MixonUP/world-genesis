@@ -1,0 +1,99 @@
+{
+ "schema": "ags.research-registry/1",
+ "registry_id": "negative-cycle-synthetic",
+ "synthetic": true,
+ "as_of": "2026-11-13",
+ "description": "SYNTHETIC negative fixture: execution dependency cycle must be reported as an error.",
+ "entities": [
+  {
+   "type": "Source",
+   "id": "SRC-SYN",
+   "title": "synthetic brief",
+   "locator": "https://example.org/synthetic-brief",
+   "source_kind": "article",
+   "author": null,
+   "published": null,
+   "accessed": null,
+   "version": null,
+   "access_method": "not_accessed",
+   "study_depth": "not_accessed",
+   "relevance": null,
+   "reliability": "unknown",
+   "rights": null,
+   "limitations": [
+    "synthetic"
+   ],
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G1-DISCOVERY",
+   "title": "Own game: frame audience and constraints",
+   "goal": "Own game: frame audience and constraints",
+   "owner": "orchestrator",
+   "owned_paths": [
+    "synthetic/game/brief.md"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G1-DISCOVERY result"
+   ],
+   "acceptance": [
+    "Audience, platform, engine recorded"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Constraint conflict"
+   ],
+   "evidence_plan": [
+    "document_review"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  },
+  {
+   "type": "WorkPacket",
+   "id": "WP-G2-DEMAND",
+   "title": "Own game: pre-registered demand test",
+   "goal": "Own game: pre-registered demand test",
+   "owner": "product-researcher",
+   "owned_paths": [
+    "synthetic/game/demand/"
+   ],
+   "inputs": [
+    "previous step output"
+   ],
+   "outputs": [
+    "WP-G2-DEMAND result"
+   ],
+   "acceptance": [
+    "Criterion fixed before test"
+   ],
+   "dependencies_note": "see depends_on edges",
+   "stop_conditions": [
+    "Spend cap unknown"
+   ],
+   "evidence_plan": [
+    "commercial_record"
+   ],
+   "handoff": "registry update + next owner",
+   "wp_status": "proposed",
+   "synthetic": true
+  }
+ ],
+ "edges": [
+  {
+   "type": "depends_on",
+   "from": "WP-G1-DISCOVERY",
+   "to": "WP-G2-DEMAND"
+  },
+  {
+   "type": "depends_on",
+   "from": "WP-G2-DEMAND",
+   "to": "WP-G1-DISCOVERY"
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ags.research-registry/1",
+  "title": "AI Game Studio research registry v1",
+  "description": "DOCUMENTATION of the contract. validator.py does not use a JSON Schema engine; it re-implements these rules plus cross-entity rules a schema cannot express (see CONTRACTS.md, section 'Executed vs documented').",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "registry_id", "synthetic", "as_of", "entities", "edges"],
+  "properties": {
+    "schema": {"const": "ags.research-registry/1"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "synthetic": {"type": "boolean"},
+    "as_of": {"$ref": "#/$defs/day"},
+    "description": {"type": "string"},
+    "entities": {"type": "array", "items": {"$ref": "#/$defs/entity"}},
+    "edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}}
+  },
+  "$defs": {
+    "day": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "nday": {"oneOf": [{"$ref": "#/$defs/day"}, {"type": "null"}]},
+    "nstr": {"oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+    "strs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "locator": {"type": "string", "minLength": 1, "description": "https URL without credentials, or repository-relative POSIX path without '..', drive letters, backslashes or leading '/' or '~'."},
+    "common": {
+      "type": "object",
+      "required": ["type", "id", "title"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{1,79}$"},
+        "title": {"type": "string", "minLength": 1},
+        "record_status": {"enum": ["draft", "active", "stale", "superseded", "withdrawn"], "description": "Document/record lifecycle. Separate from study_depth and from PASS/FAIL/UNKNOWN."},
+        "status_reason": {"$ref": "#/$defs/nstr"},
+        "notes": {"$ref": "#/$defs/nstr"},
+        "synthetic": {"type": "boolean"}
+      }
+    },
+    "entity": {
+      "oneOf": [
+        {"$ref": "#/$defs/Source"}, {"$ref": "#/$defs/Claim"}, {"$ref": "#/$defs/RequirementRef"},
+        {"$ref": "#/$defs/Capability"}, {"$ref": "#/$defs/Experiment"}, {"$ref": "#/$defs/Artifact"},
+        {"$ref": "#/$defs/Evidence"}, {"$ref": "#/$defs/Decision"}, {"$ref": "#/$defs/WorkPacket"}
+      ]
+    },
+    "Source": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Source"}, "id": {"pattern": "^SRC-"},
+        "locator": {"$ref": "#/$defs/locator"},
+        "source_kind": {"enum": ["official_doc", "specification", "license", "code_repository", "video", "talk", "paper", "article", "community", "repo_file", "local_library", "model_card", "dataset"]},
+        "author": {"$ref": "#/$defs/nstr"}, "published": {"$ref": "#/$defs/nday"}, "accessed": {"$ref": "#/$defs/nday"},
+        "version": {"$ref": "#/$defs/nstr"},
+        "access_method": {"enum": ["web_fetch", "git", "local_read", "oembed_metadata", "library_record", "not_accessed"]},
+        "study_depth": {"enum": ["not_accessed", "metadata", "abstract_or_description", "partial_text", "transcript", "full_text", "reproduced"]},
+        "relevance": {"oneOf": [{"enum": [1.2, 1.0, 0.7]}, {"type": "null"}], "description": "User's categorical priority. NOT probability of success, NOT reliability."},
+        "reliability": {"enum": ["primary", "secondary", "self_report", "vendor_claim", "unknown"]},
+        "rights": {"$ref": "#/$defs/nstr"},
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "video_layers": {"type": "object", "required": ["metadata", "transcript", "viewed_fragments", "reproduced"],
+          "properties": {"metadata": {"type": "boolean"}, "transcript": {"type": "boolean"}, "reproduced": {"type": "boolean"},
+            "viewed_fragments": {"type": "array", "items": {"type": "object", "required": ["start", "end", "observed_by", "observed_on"],
+              "properties": {"start": {"pattern": "^\\d{2}:\\d{2}:\\d{2}$"}, "end": {"pattern": "^\\d{2}:\\d{2}:\\d{2}$"}, "observed_by": {"type": "string"}, "observed_on": {"$ref": "#/$defs/day"}}}}}},
+        "repository": {"type": "object", "required": ["commit_or_tag", "license_spdx", "dependencies_reviewed", "maintenance_note", "reproducible_example_run"]},
+        "community": {"type": "object", "required": ["specialization", "practice_access", "signal_vs_ads", "usage_rules", "contacted"], "properties": {"contacted": {"const": false}}}
+      },
+      "required": ["locator", "source_kind", "author", "published", "accessed", "version", "access_method", "study_depth", "relevance", "reliability", "rights", "limitations"]
+    },
+    "Claim": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Claim"}, "id": {"pattern": "^CLM-"},
+        "statement": {"type": "string"}, "claim_kind": {"enum": ["fact", "principle", "heuristic", "coefficient", "client_promise", "assumption", "limitation"]},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source", "locator"]}},
+        "scope": {"type": "string"},
+        "confidence": {"oneOf": [{"enum": ["high", "medium", "low"]}, {"type": "null"}]},
+        "confidence_basis": {"type": "string", "description": "Required when confidence is not null."},
+        "verification": {"enum": ["unverified", "source_read", "cross_checked", "reproduced", "refuted"]},
+        "limitations": {"$ref": "#/$defs/strs"},
+        "recheck": {"type": "object", "required": ["reason", "due"], "properties": {"reason": {"type": "string"}, "due": {"$ref": "#/$defs/nday"}}}
+      },
+      "required": ["statement", "claim_kind", "source_refs", "scope", "confidence", "verification", "limitations"]
+    },
+    "RequirementRef": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "description": "Points at an existing Cxx-Rxx in COMPONENT_REQUIREMENTS.json. Requirement text is intentionally NOT copied (no 'statement' key).",
+      "properties": {
+        "type": {"const": "RequirementRef"}, "id": {"pattern": "^C\\d{2}-R\\d{2}$"},
+        "component": {"pattern": "^C\\d{2}$"}, "gate": {"enum": ["G0", "G1", "G2", "G3", "G4", "G5", "G6"]},
+        "catalog": {"type": "object", "required": ["path", "revision", "sha256_lf"], "properties": {"sha256_lf": {"pattern": "^[0-9a-f]{64}$"}}},
+        "checked_property": {"type": "string"},
+        "accepted_evidence_classes": {"type": "array", "minItems": 1},
+        "target_revision": {"$ref": "#/$defs/nstr"},
+        "requires_independent_review": {"type": "boolean"}
+      },
+      "required": ["component", "gate", "catalog", "checked_property", "accepted_evidence_classes", "target_revision"]
+    },
+    "Capability": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Capability"}, "id": {"pattern": "^CAP-"},
+        "name": {"type": "string"}, "cap_kind": {"enum": ["skill", "cli", "mcp", "library", "service", "model", "engine", "script"]},
+        "location": {"$ref": "#/$defs/nstr"}, "version": {"$ref": "#/$defs/nstr"}, "owner_agent": {"type": "string"},
+        "inputs": {"$ref": "#/$defs/strs"}, "outputs": {"$ref": "#/$defs/strs"},
+        "declared": {"type": "boolean"}, "available": {"enum": ["verified_today", "historical", "not_checked", "unavailable"]},
+        "benchmarked": {"enum": ["none", "historical", "current"]}, "invocation_verified": {"type": "boolean"},
+        "external_action_authorized": {"type": "boolean", "description": "Recorded only; never verified by the validator."},
+        "dependencies": {"$ref": "#/$defs/strs"}, "limitations": {"$ref": "#/$defs/strs"}
+      },
+      "required": ["name", "cap_kind", "location", "version", "owner_agent", "inputs", "outputs", "declared", "available", "benchmarked", "invocation_verified", "dependencies", "limitations"]
+    },
+    "Experiment": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Experiment"}, "id": {"pattern": "^EXP-"},
+        "success_criterion": {"$ref": "#/$defs/nstr"}, "criterion_fixed_on": {"$ref": "#/$defs/nday"},
+        "sample": {"type": "object", "required": ["n", "unit"], "properties": {"n": {"oneOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]}}},
+        "resource_bounds": {"type": "object", "required": ["cash", "currency", "hours"]},
+        "experiment_status": {"enum": ["proposed", "approved", "running", "completed", "abandoned"]},
+        "completed_on": {"$ref": "#/$defs/nday"}, "results": {"$ref": "#/$defs/nstr"}
+      },
+      "required": ["question", "hypothesis", "baseline", "protocol", "success_criterion", "criterion_fixed_on", "sample", "resource_bounds", "experiment_status", "results", "limitations"]
+    },
+    "Artifact": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Artifact"}, "id": {"pattern": "^AFT-"},
+        "kind": {"type": "string"}, "locator": {"$ref": "#/$defs/locator"}, "revision": {"type": "string"},
+        "sha256": {"oneOf": [{"pattern": "^[0-9a-f]{64}$"}, {"type": "null"}]},
+        "origin": {"type": "string"},
+        "license": {"type": "object", "required": ["status", "terms", "scope"], "properties": {"status": {"enum": ["verified", "declared", "unknown", "restricted", "not_applicable"]}}},
+        "lifecycle": {"enum": ["prepared", "built", "verified", "accepted"]}
+      },
+      "required": ["kind", "locator", "revision", "sha256", "origin", "license", "lifecycle"]
+    },
+    "Evidence": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Evidence"}, "id": {"pattern": "^EVD-"},
+        "evidence_class": {"enum": ["automated_test", "native_ui_check", "performance_measurement", "machine_visual_review", "human_art_acceptance", "human_playtest", "commercial_record", "source_inspection", "document_review", "metadata_review", "integrity_check", "legal_opinion", "requirement_check"]},
+        "evidence_status": {"enum": ["prepared", "executed", "historical_import", "failed_to_run"]},
+        "result": {"enum": ["PASS", "FAIL", "UNKNOWN"]},
+        "date": {"$ref": "#/$defs/day"}, "valid_until": {"$ref": "#/$defs/nday"},
+        "artifact_ref": {"$ref": "#/$defs/nstr"}, "artifact_revision": {"$ref": "#/$defs/nstr"},
+        "producer": {"type": "string"}, "reviewer": {"$ref": "#/$defs/nstr"},
+        "observations": {"type": "string"}, "publication": {"enum": ["public_ok", "internal_only", "redacted"]}
+      },
+      "required": ["criterion", "artifact_ref", "artifact_revision", "evidence_class", "method", "evidence_status", "result", "date", "valid_until", "producer", "reviewer", "observations", "publication", "limitations"]
+    },
+    "Decision": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "Decision"}, "id": {"pattern": "^DEC-"},
+        "options": {"type": "array", "minItems": 2}, "decision": {"$ref": "#/$defs/nstr"},
+        "decision_status": {"enum": ["proposed", "accepted", "superseded", "rejected"]},
+        "resolves": {"$ref": "#/$defs/strs"}
+      },
+      "required": ["question", "options", "assumptions", "decision", "decision_status", "unknowns", "owner", "revisit_when"]
+    },
+    "WorkPacket": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {
+        "type": {"const": "WorkPacket"}, "id": {"pattern": "^WP-"},
+        "owned_paths": {"type": "array", "minItems": 1},
+        "wp_status": {"enum": ["proposed", "ready", "in_progress", "done", "blocked"]}
+      },
+      "required": ["goal", "owner", "owned_paths", "inputs", "outputs", "acceptance", "dependencies_note", "stop_conditions", "evidence_plan", "handoff", "wp_status"]
+    },
+    "edge": {
+      "type": "object", "additionalProperties": false, "required": ["type", "from", "to"],
+      "properties": {
+        "type": {"enum": ["supports", "contradicts", "derived_from", "implements", "verified_by", "depends_on", "produced_by", "supersedes", "invalidates"]},
+        "from": {"type": "string"}, "to": {"type": "string"}, "note": {"type": "string"}
+      },
+      "description": "Allowed (from,to) entity types per edge type are listed in CONTRACTS.md and enforced by validator.py EDGE_SPECS."
+    }
+  }
+}

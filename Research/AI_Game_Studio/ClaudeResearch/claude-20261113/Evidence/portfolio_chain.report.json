@@ -1,0 +1,631 @@
+{
+  "artifact_integrity": [
+    {
+      "id": "AFT-LAB-SOURCE-F1",
+      "status": "ARTIFACT_NOT_CHECKED"
+    },
+    {
+      "id": "AFT-LAB-TESTS-SRC",
+      "status": "ARTIFACT_HASH_MATCH"
+    },
+    {
+      "id": "AFT-SHOT-04",
+      "status": "ARTIFACT_HASH_MATCH"
+    },
+    {
+      "id": "AFT-VALIDATOR",
+      "status": "ARTIFACT_NOT_CHECKED"
+    }
+  ],
+  "as_of": "2026-11-14",
+  "authenticates_evidence": false,
+  "capabilities": [
+    {
+      "available": "verified_today",
+      "benchmarked": "none",
+      "declared": true,
+      "id": "CAP-RUNNER",
+      "invocation_verified": true,
+      "name": "runner.py + b2b_quote.py",
+      "owner_agent": "codex",
+      "state": "invocation_verified"
+    },
+    {
+      "available": "not_checked",
+      "benchmarked": "none",
+      "declared": true,
+      "id": "CAP-SKILL-ART-ACCEPT",
+      "invocation_verified": false,
+      "name": "game-art-acceptance",
+      "owner_agent": "unassigned",
+      "state": "declared_only"
+    },
+    {
+      "available": "not_checked",
+      "benchmarked": "none",
+      "declared": true,
+      "id": "CAP-SKILL-GSO",
+      "invocation_verified": false,
+      "name": "game-studio-orchestrator",
+      "owner_agent": "codex",
+      "state": "declared_only"
+    },
+    {
+      "available": "historical",
+      "benchmarked": "historical",
+      "declared": true,
+      "id": "CAP-UNITY-6000",
+      "invocation_verified": false,
+      "name": "Unity 6000.0.45f1",
+      "owner_agent": "codex-integrator",
+      "state": "declared_only"
+    },
+    {
+      "available": "verified_today",
+      "benchmarked": "none",
+      "declared": true,
+      "id": "CAP-VALIDATOR",
+      "invocation_verified": true,
+      "name": "validator.py",
+      "owner_agent": "claude",
+      "state": "invocation_verified"
+    }
+  ],
+  "catalog": {
+    "components": 16,
+    "requirements": 49,
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+  },
+  "contradictions": [
+    {
+      "from": "CLM-SCALE-OBSERVED",
+      "resolved_by": [
+        "DEC-SEPARATE-RELEVANCE"
+      ],
+      "to": "CLM-SCALE-POLICY"
+    },
+    {
+      "from": "CLM-YIELD-05",
+      "resolved_by": [],
+      "to": "CLM-YIELD-08"
+    }
+  ],
+  "edge_counts": {
+    "contradicts": 2,
+    "depends_on": 4,
+    "derived_from": 3,
+    "implements": 2,
+    "produced_by": 3,
+    "supports": 7,
+    "verified_by": 7
+  },
+  "entity_counts": {
+    "Artifact": 4,
+    "Capability": 5,
+    "Claim": 6,
+    "Decision": 2,
+    "Evidence": 6,
+    "Experiment": 1,
+    "RequirementRef": 4,
+    "Source": 7,
+    "WorkPacket": 3
+  },
+  "execution_order": [
+    "CAP-UNITY-6000",
+    "WP-LAB-CONTRAST",
+    "EXP-RERUN-EDITMODE",
+    "WP-LAB-VISUAL-NOTRUN",
+    "WP-LAB-HUMAN-ART"
+  ],
+  "finding_counts": {
+    "info": 34,
+    "open": 11
+  },
+  "findings": [
+    {
+      "code": "CAPABILITY_DECLARED_ONLY",
+      "detail": "game-art-acceptance (unassigned): available=not_checked",
+      "severity": "open",
+      "subject": "CAP-SKILL-ART-ACCEPT"
+    },
+    {
+      "code": "CAPABILITY_DECLARED_ONLY",
+      "detail": "game-studio-orchestrator (codex): available=not_checked",
+      "severity": "open",
+      "subject": "CAP-SKILL-GSO"
+    },
+    {
+      "code": "CAPABILITY_DECLARED_ONLY",
+      "detail": "Unity 6000.0.45f1 (codex-integrator): available=historical",
+      "severity": "open",
+      "subject": "CAP-UNITY-6000"
+    },
+    {
+      "code": "CONTRADICTION_OPEN",
+      "detail": "both claims retained; decision required",
+      "severity": "open",
+      "subject": "CLM-YIELD-05<>CLM-YIELD-08"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "no linked evidence",
+      "severity": "open",
+      "subject": "C05-R03"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "EVD-HIST-EDITMODE-40:historical_import_not_rerun/no_validity_limit_recorded; EVD-HIST-ORDINARY-RESTART:historical_import_not_rerun/no_validity_limit_recorded",
+      "severity": "open",
+      "subject": "C07-R03"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "EVD-SHOT-HASH-20261113:class_integrity_check_not_accepted",
+      "severity": "open",
+      "subject": "C08-R02"
+    },
+    {
+      "code": "RIGHTS_UNKNOWN",
+      "detail": "license status unknown",
+      "severity": "open",
+      "subject": "AFT-LAB-SOURCE-F1"
+    },
+    {
+      "code": "RIGHTS_UNKNOWN",
+      "detail": "license status unknown",
+      "severity": "open",
+      "subject": "AFT-LAB-TESTS-SRC"
+    },
+    {
+      "code": "RIGHTS_UNKNOWN",
+      "detail": "license status unknown",
+      "severity": "open",
+      "subject": "AFT-SHOT-04"
+    },
+    {
+      "code": "RIGHTS_UNKNOWN",
+      "detail": "license status unknown",
+      "severity": "open",
+      "subject": "AFT-VALIDATOR"
+    },
+    {
+      "code": "ARTIFACT_HASH_MATCH",
+      "detail": "Portfolio/UnityDeliveryLab/Project/Assets/Lab/Tests/InventoryTests.cs",
+      "severity": "info",
+      "subject": "AFT-LAB-TESTS-SRC"
+    },
+    {
+      "code": "ARTIFACT_HASH_MATCH",
+      "detail": "Portfolio/UnityDeliveryLab/Screenshots/04-health-full-1280.png",
+      "severity": "info",
+      "subject": "AFT-SHOT-04"
+    },
+    {
+      "code": "CONTRADICTION_RESOLVED",
+      "detail": "resolved by DEC-SEPARATE-RELEVANCE",
+      "severity": "info",
+      "subject": "CLM-SCALE-OBSERVED<>CLM-SCALE-POLICY"
+    },
+    {
+      "code": "REQ_PASS",
+      "detail": "EVD-VALIDATOR-TESTS-20261114:PASS",
+      "severity": "info",
+      "subject": "C01-R03"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "license.terms",
+      "severity": "info",
+      "subject": "AFT-LAB-SOURCE-F1"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "sha256",
+      "severity": "info",
+      "subject": "AFT-LAB-SOURCE-F1"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "license.terms",
+      "severity": "info",
+      "subject": "AFT-LAB-TESTS-SRC"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "license.terms",
+      "severity": "info",
+      "subject": "AFT-SHOT-04"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "license.terms",
+      "severity": "info",
+      "subject": "AFT-VALIDATOR"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "sha256",
+      "severity": "info",
+      "subject": "AFT-VALIDATOR"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "location",
+      "severity": "info",
+      "subject": "CAP-SKILL-ART-ACCEPT"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "CAP-SKILL-ART-ACCEPT"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "location",
+      "severity": "info",
+      "subject": "CAP-SKILL-GSO"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "CAP-SKILL-GSO"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "location",
+      "severity": "info",
+      "subject": "CAP-UNITY-6000"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "decision",
+      "severity": "info",
+      "subject": "DEC-PORTFOLIO-SCOPE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-HIST-BUILD"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "valid_until",
+      "severity": "info",
+      "subject": "EVD-HIST-BUILD"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-HIST-EDITMODE-40"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "valid_until",
+      "severity": "info",
+      "subject": "EVD-HIST-EDITMODE-40"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-HIST-ORDINARY-RESTART"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "valid_until",
+      "severity": "info",
+      "subject": "EVD-HIST-ORDINARY-RESTART"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-SHOT-HASH-20261113"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-STATIC-TESTCOUNT-20261113"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-VALIDATOR-TESTS-20261114"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "resource_bounds.hours",
+      "severity": "info",
+      "subject": "EXP-RERUN-EDITMODE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "results",
+      "severity": "info",
+      "subject": "EXP-RERUN-EDITMODE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "rights",
+      "severity": "info",
+      "subject": "SRC-LAB-CASE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "rights",
+      "severity": "info",
+      "subject": "SRC-LAB-TESTS"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "rights",
+      "severity": "info",
+      "subject": "SRC-LAB-VERIFICATION"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "SRC-LIB-05"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "SRC-LIB-08"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "SRC-LIB-README"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "SRC-LIB-SOURCES-JSON"
+    }
+  ],
+  "is_authorization": false,
+  "limitations": [
+    "Trusted-input consistency check; identities, receipts, URLs and rights are not authenticated.",
+    "A matching sha256 proves the file is unchanged, not that its content is true.",
+    "Requirement PASS only means linked records satisfy the rules for the stated revision."
+  ],
+  "mode": "registry",
+  "registry_id": "portfolio-chain-real-20261113",
+  "report_schema": "ags.research-registry-report/1",
+  "requirement_verdicts": {
+    "OPEN": 3,
+    "PASS": 1
+  },
+  "requirements": {
+    "C01-R03": {
+      "component": "C01",
+      "evidence": [
+        {
+          "id": "EVD-VALIDATOR-TESTS-20261114",
+          "qualifies": true,
+          "reasons": [],
+          "result": "PASS"
+        }
+      ],
+      "gate": "G3",
+      "historical_pass": false,
+      "target_revision": "validator-0.1.0",
+      "verdict": "PASS"
+    },
+    "C05-R03": {
+      "component": "C05",
+      "evidence": [],
+      "gate": "G4",
+      "historical_pass": false,
+      "target_revision": "polished-20-f1",
+      "verdict": "OPEN"
+    },
+    "C07-R03": {
+      "component": "C07",
+      "evidence": [
+        {
+          "id": "EVD-HIST-EDITMODE-40",
+          "qualifies": false,
+          "reasons": [
+            "historical_import_not_rerun",
+            "no_validity_limit_recorded"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "EVD-HIST-ORDINARY-RESTART",
+          "qualifies": false,
+          "reasons": [
+            "historical_import_not_rerun",
+            "no_validity_limit_recorded"
+          ],
+          "result": "PASS"
+        }
+      ],
+      "gate": "G4",
+      "historical_pass": true,
+      "target_revision": "polished-20-f1",
+      "verdict": "OPEN"
+    },
+    "C08-R02": {
+      "component": "C08",
+      "evidence": [
+        {
+          "id": "EVD-SHOT-HASH-20261113",
+          "qualifies": false,
+          "reasons": [
+            "class_integrity_check_not_accepted"
+          ],
+          "result": "PASS"
+        }
+      ],
+      "gate": "G5",
+      "historical_pass": false,
+      "target_revision": "polished-20-f1",
+      "verdict": "OPEN"
+    }
+  },
+  "unknown_values": [
+    {
+      "field": "license.terms",
+      "id": "AFT-LAB-SOURCE-F1",
+      "value": null
+    },
+    {
+      "field": "sha256",
+      "id": "AFT-LAB-SOURCE-F1",
+      "value": null
+    },
+    {
+      "field": "license.terms",
+      "id": "AFT-LAB-TESTS-SRC",
+      "value": null
+    },
+    {
+      "field": "license.terms",
+      "id": "AFT-SHOT-04",
+      "value": null
+    },
+    {
+      "field": "license.terms",
+      "id": "AFT-VALIDATOR",
+      "value": null
+    },
+    {
+      "field": "sha256",
+      "id": "AFT-VALIDATOR",
+      "value": null
+    },
+    {
+      "field": "location",
+      "id": "CAP-SKILL-ART-ACCEPT",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "CAP-SKILL-ART-ACCEPT",
+      "value": null
+    },
+    {
+      "field": "location",
+      "id": "CAP-SKILL-GSO",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "CAP-SKILL-GSO",
+      "value": null
+    },
+    {
+      "field": "location",
+      "id": "CAP-UNITY-6000",
+      "value": null
+    },
+    {
+      "field": "decision",
+      "id": "DEC-PORTFOLIO-SCOPE",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-HIST-BUILD",
+      "value": null
+    },
+    {
+      "field": "valid_until",
+      "id": "EVD-HIST-BUILD",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-HIST-EDITMODE-40",
+      "value": null
+    },
+    {
+      "field": "valid_until",
+      "id": "EVD-HIST-EDITMODE-40",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-HIST-ORDINARY-RESTART",
+      "value": null
+    },
+    {
+      "field": "valid_until",
+      "id": "EVD-HIST-ORDINARY-RESTART",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-SHOT-HASH-20261113",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-STATIC-TESTCOUNT-20261113",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-VALIDATOR-TESTS-20261114",
+      "value": null
+    },
+    {
+      "field": "resource_bounds.hours",
+      "id": "EXP-RERUN-EDITMODE",
+      "value": null
+    },
+    {
+      "field": "results",
+      "id": "EXP-RERUN-EDITMODE",
+      "value": null
+    },
+    {
+      "field": "rights",
+      "id": "SRC-LAB-CASE",
+      "value": null
+    },
+    {
+      "field": "rights",
+      "id": "SRC-LAB-TESTS",
+      "value": null
+    },
+    {
+      "field": "rights",
+      "id": "SRC-LAB-VERIFICATION",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "SRC-LIB-05",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "SRC-LIB-08",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "SRC-LIB-README",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "SRC-LIB-SOURCES-JSON",
+      "value": null
+    }
+  ],
+  "validator_version": "0.1.0"
+}

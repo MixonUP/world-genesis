@@ -1,0 +1,405 @@
+{
+  "artifact_integrity": [
+    {
+      "id": "AFT-SYN-SPRITE",
+      "status": "ARTIFACT_NOT_CHECKED"
+    }
+  ],
+  "as_of": "2026-11-13",
+  "authenticates_evidence": false,
+  "capabilities": [
+    {
+      "available": "not_checked",
+      "benchmarked": "none",
+      "declared": true,
+      "id": "CAP-SYN-GEN",
+      "invocation_verified": false,
+      "name": "synthetic-generator",
+      "owner_agent": "unassigned",
+      "state": "declared_only"
+    }
+  ],
+  "catalog": {
+    "components": 16,
+    "requirements": 49,
+    "sha256_lf": "bfb25e1c2fdad84611668384e1640fbfc5cf132924b53027e14b999ffe7a0397"
+  },
+  "contradictions": [],
+  "edge_counts": {
+    "depends_on": 14,
+    "implements": 2,
+    "produced_by": 1,
+    "verified_by": 4
+  },
+  "entity_counts": {
+    "Artifact": 1,
+    "Capability": 1,
+    "Evidence": 3,
+    "Experiment": 1,
+    "RequirementRef": 4,
+    "Source": 1,
+    "WorkPacket": 15
+  },
+  "execution_order": [
+    "CAP-SYN-GEN",
+    "WP-A1-CONTRACT",
+    "WP-G1-DISCOVERY",
+    "WP-U1-SCOPE",
+    "WP-A2-GENERATE",
+    "WP-G2-DEMAND",
+    "WP-U2-QUOTE",
+    "WP-A3-CLEANUP",
+    "WP-G3-PROTOTYPE",
+    "WP-U3-IMPLEMENT",
+    "WP-A4-IMPORT",
+    "WP-U4-QA",
+    "WP-A5-REVIEW",
+    "WP-U5-CLIENT",
+    "WP-G4-SLICE",
+    "WP-G5-RELEASE"
+  ],
+  "finding_counts": {
+    "error": 1,
+    "info": 18,
+    "open": 9
+  },
+  "findings": [
+    {
+      "code": "SYNTHETIC_ACCEPTED",
+      "detail": "synthetic artifact cannot be accepted",
+      "severity": "error",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "ACCEPTANCE_UNSUPPORTED",
+      "detail": "no executed, non-synthetic human acceptance evidence",
+      "severity": "open",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "CAPABILITY_DECLARED_ONLY",
+      "detail": "synthetic-generator (unassigned): available=not_checked",
+      "severity": "open",
+      "subject": "CAP-SYN-GEN"
+    },
+    {
+      "code": "EXPERIMENT_CRITERION_LATE",
+      "detail": "success criterion not fixed before completion",
+      "severity": "open",
+      "subject": "EXP-SYN-DEMAND"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "EVD-SYN-DEMAND:synthetic/no_artifact_ref",
+      "severity": "open",
+      "subject": "C02-R03"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "EVD-SYN-ART:synthetic",
+      "severity": "open",
+      "subject": "C05-R03"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "no linked evidence",
+      "severity": "open",
+      "subject": "C06-R01"
+    },
+    {
+      "code": "REQ_OPEN",
+      "detail": "EVD-SYN-BUILD:synthetic/evidence_status=prepared/no_artifact_ref",
+      "severity": "open",
+      "subject": "C08-R02"
+    },
+    {
+      "code": "RIGHTS_BLOCK_ACCEPTANCE",
+      "detail": "accepted while license is unknown",
+      "severity": "open",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "RIGHTS_UNKNOWN",
+      "detail": "license status unknown",
+      "severity": "open",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "license.terms",
+      "severity": "info",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "sha256",
+      "severity": "info",
+      "subject": "AFT-SYN-SPRITE"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "location",
+      "severity": "info",
+      "subject": "CAP-SYN-GEN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "CAP-SYN-GEN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "artifact_ref",
+      "severity": "info",
+      "subject": "EVD-SYN-BUILD"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-SYN-BUILD"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "artifact_ref",
+      "severity": "info",
+      "subject": "EVD-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "reviewer",
+      "severity": "info",
+      "subject": "EVD-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "resource_bounds.cash",
+      "severity": "info",
+      "subject": "EXP-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "resource_bounds.currency",
+      "severity": "info",
+      "subject": "EXP-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "resource_bounds.hours",
+      "severity": "info",
+      "subject": "EXP-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "sample.n",
+      "severity": "info",
+      "subject": "EXP-SYN-DEMAND"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "accessed",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "author",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "published",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "relevance",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "rights",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    },
+    {
+      "code": "UNKNOWN_VALUE",
+      "detail": "version",
+      "severity": "info",
+      "subject": "SRC-SYN"
+    }
+  ],
+  "is_authorization": false,
+  "limitations": [
+    "Trusted-input consistency check; identities, receipts, URLs and rights are not authenticated.",
+    "A matching sha256 proves the file is unchanged, not that its content is true.",
+    "Requirement PASS only means linked records satisfy the rules for the stated revision."
+  ],
+  "mode": "synthetic_fixture",
+  "registry_id": "walkthroughs-synthetic",
+  "report_schema": "ags.research-registry-report/1",
+  "requirement_verdicts": {
+    "OPEN": 4
+  },
+  "requirements": {
+    "C02-R03": {
+      "component": "C02",
+      "evidence": [
+        {
+          "id": "EVD-SYN-DEMAND",
+          "qualifies": false,
+          "reasons": [
+            "synthetic",
+            "no_artifact_ref"
+          ],
+          "result": "PASS"
+        }
+      ],
+      "gate": "G3",
+      "historical_pass": false,
+      "target_revision": "synthetic-r1",
+      "verdict": "OPEN"
+    },
+    "C05-R03": {
+      "component": "C05",
+      "evidence": [
+        {
+          "id": "EVD-SYN-ART",
+          "qualifies": false,
+          "reasons": [
+            "synthetic"
+          ],
+          "result": "PASS"
+        }
+      ],
+      "gate": "G4",
+      "historical_pass": false,
+      "target_revision": "synthetic-r1",
+      "verdict": "OPEN"
+    },
+    "C06-R01": {
+      "component": "C06",
+      "evidence": [],
+      "gate": "G3",
+      "historical_pass": false,
+      "target_revision": "synthetic-r1",
+      "verdict": "OPEN"
+    },
+    "C08-R02": {
+      "component": "C08",
+      "evidence": [
+        {
+          "id": "EVD-SYN-BUILD",
+          "qualifies": false,
+          "reasons": [
+            "synthetic",
+            "evidence_status=prepared",
+            "no_artifact_ref"
+          ],
+          "result": "UNKNOWN"
+        }
+      ],
+      "gate": "G5",
+      "historical_pass": false,
+      "target_revision": "synthetic-r1",
+      "verdict": "OPEN"
+    }
+  },
+  "unknown_values": [
+    {
+      "field": "license.terms",
+      "id": "AFT-SYN-SPRITE",
+      "value": null
+    },
+    {
+      "field": "sha256",
+      "id": "AFT-SYN-SPRITE",
+      "value": null
+    },
+    {
+      "field": "location",
+      "id": "CAP-SYN-GEN",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "CAP-SYN-GEN",
+      "value": null
+    },
+    {
+      "field": "artifact_ref",
+      "id": "EVD-SYN-BUILD",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-SYN-BUILD",
+      "value": null
+    },
+    {
+      "field": "artifact_ref",
+      "id": "EVD-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "reviewer",
+      "id": "EVD-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "resource_bounds.cash",
+      "id": "EXP-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "resource_bounds.currency",
+      "id": "EXP-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "resource_bounds.hours",
+      "id": "EXP-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "sample.n",
+      "id": "EXP-SYN-DEMAND",
+      "value": null
+    },
+    {
+      "field": "accessed",
+      "id": "SRC-SYN",
+      "value": null
+    },
+    {
+      "field": "author",
+      "id": "SRC-SYN",
+      "value": null
+    },
+    {
+      "field": "published",
+      "id": "SRC-SYN",
+      "value": null
+    },
+    {
+      "field": "relevance",
+      "id": "SRC-SYN",
+      "value": null
+    },
+    {
+      "field": "rights",
+      "id": "SRC-SYN",
+      "value": null
+    },
+    {
+      "field": "version",
+      "id": "SRC-SYN",
+      "value": null
+    }
+  ],
+  "validator_version": "0.1.0"
+}
