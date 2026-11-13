@@ -58,6 +58,8 @@ class StudioTests(unittest.TestCase):
         self.assertNotIn("T02", ready)  # T02 depends on T01
         verdict = next((self.vault / "01_Project" / "AI_Game_Studio" / "Verdicts").glob("V01_*.md")).read_text(encoding="utf-8")
         self.assertIn("synthetic reviewer", verdict)
+        hub = (self.vault / "01_Project" / "AI_Game_Studio" / "00_HUB.md").read_text(encoding="utf-8")
+        self.assertIn("Synthetic extra hub link", hub)
         code, rep = self.cli(ST, ["render", "--data", str(self.data)])
         code, rep = self.cli(S, [manifest, "--vault", str(self.vault), "--apply"])
         self.assertEqual(set(rep["counts"]), {"UNCHANGED"})

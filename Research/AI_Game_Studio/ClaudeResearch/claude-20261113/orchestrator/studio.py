@@ -232,6 +232,7 @@ def render_hub(data):
         f"- [[{STUDIO}/Research_Funnel|Исследование: как выбрать игру или сервис]]",
         f"- [[{STUDIO}/Agents_Protocol|Оркестратор и протокол агентов (Claude, Codex, Grok)]]",
         f"- [[{STUDIO}/Resources_and_Accounts|Ресурсы, бюджет и аккаунты — инструкции]]",
+        *[f"- [[{STUDIO}/{h['note']}|{h['title']}]]" for h in data.get("hub_links", [])],
         f"- [[{STUDIO}/Sources|Источники]]",
         f"- [[{STUDIO}/Games/00_Games|Игры]] · [[{STUDIO}/Services/00_Services|Услуги]]",
         f"- [[{STUDIO}/Inbox/00_Inbox|Почта студии]]",

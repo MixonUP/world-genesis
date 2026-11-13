@@ -95,6 +95,20 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn({"action": "UPDATE", "dst": "01_Project/Studio/Hub.md", "kind": "managed"}, rep["actions"])
 
+    def test_foreign_front_matter_key_is_preserved(self):
+        self.run_cli("--apply")
+        hub = self.vault / "01_Project" / "Studio" / "Hub.md"
+        hub.write_bytes(hub.read_bytes().replace(b"managed_by:", b"permalink: studio/hub\r\nmanaged_by:", 1))
+        code, rep = self.run_cli("--apply")
+        self.assertEqual((code, rep["counts"]), (0, {"UNCHANGED": 4}))
+        (self.pack / "notes" / "Hub.md").write_text(NOTE + "\nNew line.\n", encoding="utf-8")
+        code, rep = self.run_cli("--apply")
+        self.assertEqual(code, 0)
+        text = hub.read_bytes()
+        self.assertIn(b"permalink: studio/hub\r\n", text)
+        self.assertIn(b"New line.", text)
+        self.assertEqual(self.run_cli("--apply")[1]["counts"], {"UNCHANGED": 4})
+
     def test_human_edit_of_managed_note_is_conflict_and_untouched(self):
         self.run_cli("--apply")
         hub = self.vault / "01_Project" / "Studio" / "Hub.md"

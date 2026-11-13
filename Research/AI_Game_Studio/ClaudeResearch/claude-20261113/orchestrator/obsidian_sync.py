@@ -200,7 +200,17 @@ def plan(manifest, vault: Path):
             actions.append({"dst": m["dst"], "kind": "managed", "action": "CONFLICT",
                             "reason": "note was edited by a person after the last sync; merge manually"})
             continue
-        if current == desired:
+        # Keep single-line front-matter keys added by other vault tools (e.g. "permalink:").
+        d_front, d_body = split_front(desired)
+        known = {line.split(":", 1)[0] for line in d_front.split("\n") if re.match(r"^[A-Za-z_]+:", line)}
+        foreign = [line for line in front.split("\n")
+                   if re.match(r"^[A-Za-z_]+:\s*\S", line) and line.split(":", 1)[0] not in known]
+        if foreign:
+            desired = "---\n" + d_front + "\n" + "\n".join(foreign) + "\n---\n" + d_body
+        n_front, n_body = split_front(desired)
+        # Foreign keys may sit anywhere in the front matter: compare lines regardless of order.
+        # Other tools may also drop the final newline; that is not a content change either.
+        if n_body.rstrip("\n") == body.rstrip("\n") and sorted(n_front.split("\n")) == sorted(front.split("\n")):
             actions.append({"dst": m["dst"], "kind": "managed", "action": "UNCHANGED"})
         else:
             actions.append({"dst": m["dst"], "kind": "managed", "action": "UPDATE",
